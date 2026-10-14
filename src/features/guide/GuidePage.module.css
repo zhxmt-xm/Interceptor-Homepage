@@ -1,0 +1,128 @@
+.layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 156px;
+  align-items: start;
+  gap: var(--space-12);
+  width: min(var(--site-max), calc(100% - var(--gutter) * 2));
+  margin: var(--space-12) auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.reading {
+  min-width: 0;
+}
+
+.layout[data-overview="true"] .reading {
+  grid-column: 2 / -1;
+  max-width: 840px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font: 400 10px / 1.8 var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.reading h1 {
+  margin-top: var(--space-3);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.4;
+}
+
+.lead {
+  margin-top: var(--space-4);
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block: var(--space-6) var(--space-8);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--panel-2);
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.notice svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.notice strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.mobileNavigation {
+  display: none;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  color: var(--accent);
+}
+
+.pagination a {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pagination a:last-child {
+  margin-left: auto;
+  text-align: right;
+}
+
+.pagination small {
+  color: var(--text-2);
+  font-size: 11px;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 184px minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+
+  .reading h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    display: block;
+    margin-block: var(--space-6);
+  }
+
+  .mobileNavigation {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    color: var(--text-2);
+    font-size: 12px;
+  }
+
+  .reading h1 {
+    font-size: 26px;
+  }
+
+  .notice {
+    padding: var(--space-3);
+  }
+}

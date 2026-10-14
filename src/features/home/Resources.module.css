@@ -1,0 +1,87 @@
+.section {
+  width: min(var(--site-max), calc(100% - var(--gutter) * 2));
+  margin: var(--space-24) auto;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font: 400 10px var(--font-mono);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+
+.section h2 {
+  margin-top: var(--space-6);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-2);
+}
+
+.card > svg {
+  color: var(--text-2);
+}
+
+.card h3 {
+  margin-top: var(--space-6);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.card p {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.card > a {
+  margin-top: auto;
+  font-size: 12px;
+}
+
+.pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  margin-top: auto;
+  color: var(--text-3);
+  font-size: 11px;
+}
+
+.access {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  color: var(--text-3);
+  font-size: 10px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    margin-block: var(--space-16);
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-8);
+  }
+}

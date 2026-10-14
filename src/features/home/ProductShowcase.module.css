@@ -1,0 +1,114 @@
+.section {
+  width: min(var(--site-max), calc(100% - var(--gutter) * 2));
+  margin-inline: auto;
+}
+
+.frame {
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-lg);
+  background: var(--chrome);
+  box-shadow:
+    0 -16px 90px -58px var(--accent),
+    0 30px 90px var(--shadow-medium);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  min-height: 58px;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.workspace {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.workspace > svg {
+  color: var(--accent);
+}
+
+.overview {
+  color: var(--text-2);
+  font-size: 11px;
+}
+
+.imageLink {
+  display: block;
+  margin: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.imageLink img {
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.disclaimer {
+  color: var(--text-3);
+  font-size: 10px;
+}
+
+.protocols {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  padding-block: var(--space-12);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.protocols i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-3);
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    justify-content: center;
+    padding: var(--space-3);
+  }
+
+  .workspace {
+    display: none;
+  }
+
+  .caption {
+    padding: var(--space-3) var(--space-4);
+    font-size: 11px;
+  }
+
+  .protocols {
+    gap: var(--space-4);
+    font-size: 10px;
+    padding-block: var(--space-8);
+  }
+}

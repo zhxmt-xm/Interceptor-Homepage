@@ -1,16 +1,21 @@
 import type { ComponentProps } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './GuideLink.module.css';
 import { scrollToGuideFragment } from './utils';
 
 export default function GuideLink({ href, id, title, children }: ComponentProps<'a'>) {
+  const location = useLocation();
   if (!href) return <span id={id} className={styles.anchor} />;
   const external = /^(?:https?:)?\/\//i.test(href);
   if (!external && !/^mailto:/i.test(href)) {
     return (
       <Link
         id={id}
-        to={href}
+        to={
+          href.startsWith('#')
+            ? { pathname: location.pathname, search: location.search, hash: href }
+            : href
+        }
         title={title}
         className={styles.link}
         onClick={(event) => {

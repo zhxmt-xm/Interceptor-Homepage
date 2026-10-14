@@ -8,17 +8,18 @@
 | --- | --- |
 | `src/app/` | 页面入口、全站语言和标题/摘要等 metadata |
 | `src/features/home/` | 首页与各内容区块；预览选择、FAQ等局部状态由所属组件持有 |
+| `src/features/guide/` | Markdown阅读、章节导航、本章锚点和正文表格 |
 | `src/components/` | 跨区块共享的导航、页脚、按钮链接和图标 |
 | `src/content/` | 中英文文案、类型与已核对的外部链接 |
 | `src/theme/` | 跟随系统、主题偏好保存与根级主题应用 |
 | `src/styles/` | reset、根级 design token、字体与减少动效规则 |
 | `public/` | 产品图片、图标与静态托管资源 |
 | `tests/integration/` | 通过真实浏览器点击、键盘和滚动验证官网 |
-| `guidebook/` | 官网唯一教程正文、目录和功能点锚点；尚未接入在线阅读页面 |
+| `guidebook/` | 已接入本地阅读页面的唯一教程正文、目录和功能点锚点 |
 
-不保留独立官网设计 SPA、fixture、全局状态 setter、截图专用组件或兼容旧入口。官网的 `dist/` 可以交给任意静态托管平台。首页只需要 React 的局部状态，FAQ 使用原生 `details` 的单项展开能力，不引入全局状态库或路由库。
+不保留独立官网设计 SPA、fixture、全局状态 setter、截图专用组件或兼容旧入口。官网的 `dist/` 可以交给任意静态托管平台。页面局部状态使用React hooks，FAQ使用原生`details`的单项展开能力；站内路由统一使用React Router的`BrowserRouter / Routes / Link`，不自行维护另一套History API。
 
-Guidebook 是普通 Markdown 内容目录，不是待发布 npm 包，也不是 App 的 runtime dependency。先完成官网内容与阅读页面，再接入 App；拟议在线路由和嵌入边界见 [Guidebook 说明](guidebook.md)。当前内容尚未进入首页构建，不能因目录存在就声称 `/guide` 已上线。
+使用指南是普通Markdown内容目录，不是待发布npm包，也不是App的runtime dependency。当前官网构建已包含`/guide`目录和全部已登记章节；阅读模块按需加载，正文仅维护一份。先完成官网，再接入App；路由与后续嵌入边界见[使用指南说明](guidebook.md)。本地可读不代表已经公开部署。
 
 ## CSS 约定
 
@@ -34,10 +35,10 @@ Guidebook 是普通 Markdown 内容目录，不是待发布 npm 包，也不是 
 
 ## 页面契约
 
-- `/` 是首页。只有锚点导航，不引入客户端路由或把所有未知路径伪装成首页。
+- `/` 是首页，`/guide`和`/guide/<chapter>`是目录与章节。站内切换保留同一document，浏览器前进后退由React Router处理；首次打开或刷新使用构建时输出的已知HTML入口，未知路径保持真正404。
 - Header固定为左品牌、中间导航、右侧操作三个独立区域；中间导航按视口居中，不受品牌和右侧按钮宽度影响，始终可见。窄屏导航独立居中一行，不放进右侧菜单。Header滚动时保持在顶部，页内锚点按实际单/双行高度预留空间。
 - 视口最右上角提供45°的“Star on GitHub”入口，随Header固定；窄屏只展示星形角标，但保留完整可访问名称。点击在隔离opener的新标签页打开产品仓库，由访客自行Star；不调用GitHub API、不显示伪造的Star计数，也不绕过私有仓库权限。角标不能覆盖导航、下载、主题或手机菜单的点击区域。
-- 默认简体中文；语言按钮切换全部文案、`html.lang`、标题和分享摘要，刷新回到默认语言。
+- 首页默认简体中文；语言按钮同步站点文案、`html.lang`、标题和分享摘要。教程UI通过`lang=en`保留英文选择，点本章锚点仅改变hash而不删除查询参数；中文正文继续用`lang="zh-CN"`标识，不冒充英文教程。
 - 默认跟随浏览器的`prefers-color-scheme`。右上角提供System / Light / Dark选择，手动偏好在本机保存；选择System后恢复实时跟随，浏览器主题改变时同步更新。保存不可用时明确记录警告，本次主题选择仍可使用。
 - 首屏保留完整工作台总览，不再通过Tab隐藏独立功能；Capture、Rules、Breakpoints、Composer、Agent、MCP按纵向图文模块展示。Agent说明内置对话与工具辅助，MCP独立说明外部Host接入、loopback监听、每客户端凭据及Tool授权，不混作一种入口。桌面图文左右交替、手机文字在上图片在下；WebSocket/gRPC纳入Capture，导入导出等用紧凑补充区呈现。
 - 每个功能的截图与说明属于同一模块，截图跟随当前浅/深主题，原图使用真实链接。所有App图片仍为设计预览及示例数据，不冒充发布版本截图。
@@ -48,7 +49,7 @@ Guidebook 是普通 Markdown 内容目录，不是待发布 npm 包，也不是 
 - 首页本身不再称为“设计候选”；暂用的 App 图片继续明确标注为含示例数据的设计预览，不冒充发布版本截图。
 - 官网不写固定版本号，不维护“当前Alpha/稳定版”的发布状态副本。平台、架构、包类型、安装安全提醒与访问权限统一在FAQ说明；具体版本、发布时间及Pre-release标记以GitHub发布页为准。
 - 每种尺寸只显示一个下载入口，桌面和平板放在右侧操作区最左，手机放在独立的右侧菜单；不与中间导航混合。下载以新标签页打开 `https://github.com/zhxmt-xm/Interceptor/releases/latest`，原官网地址和滚动位置保持不变，使用`noopener noreferrer`隔离opener。有稳定版时进入最新稳定版详情，否则GitHub网页跳转到Releases列表；官网不固定版本号，也不依赖私有API解析版本，常规发版无需更新官网。
-- Release已发布与仓库公开是独立状态；当前下载仍需登录有仓库访问权限的GitHub账号。发布不证明实机安装已验收。未交付的guidebook/视频与暂用的设计素材继续明确标注。
+- Release已发布与仓库公开是独立状态；当前下载仍需登录有仓库访问权限的GitHub账号。发布不证明实机安装已验收。教程正文保持初稿说明，尚未交付的真实截图/视频与首页暂用的设计素材继续明确标注。
 - 不增加埋点、表单后端、账号、第三方 API 调用或模型请求。
 
 ## 验证

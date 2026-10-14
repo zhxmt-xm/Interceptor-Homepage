@@ -112,21 +112,56 @@ test('every chapter renders its real Markdown, links, final section and unique a
     expect(invalidLinks).toEqual([]);
     const ids = await page.locator('[id]').evaluateAll((nodes) => nodes.map((node) => node.id));
     expect(new Set(ids).size).toBe(ids.length);
-    const brokenAnchors = await article
-      .locator('a[href^="#"]')
+    const chapterAnchors = await page
+      .locator(
+        '[data-automation-id="guide.article"] a[href], [data-automation-id="guide.outline"] a[href]',
+      )
       .evaluateAll((links) =>
         links
-          .map((link) => decodeURIComponent((link.getAttribute('href') ?? '').slice(1)))
+          .map((link) => new URL(link.getAttribute('href') ?? '', window.location.href))
           .filter(
-            (fragment) =>
-              fragment &&
-              !document.getElementById(`guide-anchor-${fragment}`) &&
-              !document.getElementById(`guide-heading-${fragment}`),
-          ),
+            (url) =>
+              url.origin === window.location.origin &&
+              url.pathname === window.location.pathname &&
+              url.hash !== '',
+          )
+          .map((url) => decodeURIComponent(url.hash.slice(1)))
+          .map((fragment) => ({
+            fragment,
+            exists: Boolean(
+              document.getElementById(`guide-anchor-${fragment}`) ??
+                document.getElementById(`guide-heading-${fragment}`),
+            ),
+          })),
       );
+    expect(chapterAnchors.length).toBeGreaterThan(0);
+    const brokenAnchors = chapterAnchors.filter((anchor) => !anchor.exists);
     expect(brokenAnchors).toEqual([]);
   }
   expect(errors).toEqual([]);
+});
+
+test('section links preserve the selected language without reloading the document', async ({
+  page,
+}) => {
+  await page.goto('/guide/capture?lang=en');
+  await expect(page.getByTestId('guide.article')).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  const origin = await page.evaluate(() => performance.timeOrigin);
+  const section = page.getByTestId('guide.outline').locator('a').nth(1);
+  await section.click();
+  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en#.+$/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.getByTestId('guide.draft')).toContainText('Chinese draft');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(100);
+  expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en$/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await page.goForward();
+  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en#.+$/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(100);
 });
 
 test('direct and refreshed chapter fragments reach real content below the sticky header', async ({

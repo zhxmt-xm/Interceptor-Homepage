@@ -1,0 +1,64 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 44px;
+  height: 44px;
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 12px;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.triggerIcon,
+.chevron {
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+.inline {
+  width: 100%;
+}
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  min-width: 0;
+}
+
+.value {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-3);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popup {
+  width: 192px;
+  max-height: calc(100dvh - var(--header-height) - var(--space-4));
+  overflow-y: auto;
+}
+
+@media (max-width: 1100px) {
+  .trigger[data-labelled="true"] .triggerIcon {
+    display: none;
+  }
+}

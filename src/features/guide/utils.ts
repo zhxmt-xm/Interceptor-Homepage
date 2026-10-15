@@ -57,5 +57,5 @@ export function scrollToGuideFragment(): void {
   const target =
     document.getElementById(`guide-anchor-${fragment}`) ??
     document.getElementById(`guide-heading-${fragment}`);
-  target?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  target?.scrollIntoView({ block: 'start', behavior: 'auto' });
 }

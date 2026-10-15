@@ -43,18 +43,22 @@ export default function App({
 
   useLayoutEffect(() => {
     if (!location.hash) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    } else if (home) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [location.pathname, location.hash]);
+
+  useLayoutEffect(() => {
+    if (home && location.hash) {
       try {
         document
           .getElementById(decodeURIComponent(location.hash.slice(1)))
-          ?.scrollIntoView({ block: 'start', behavior: 'instant' });
+          ?.scrollIntoView({ block: 'start', behavior: 'auto' });
       } catch (error) {
         if (!(error instanceof URIError)) throw error;
         console.warn('Website URL contains an invalid fragment.');
       }
     }
-  }, [home, location.pathname, location.hash]);
+  }, [home, location]);
 
   useEffect(() => {
     const title = home
@@ -84,8 +88,8 @@ export default function App({
       <SiteHeader
         content={content.nav}
         locale={locale}
-        onToggleLocale={() => {
-          const next = locale === 'zh' ? 'en' : 'zh';
+        onLocaleChange={(next) => {
+          if (next === locale) return;
           setLocale(next);
           if (guidePage !== null) {
             const search = new URLSearchParams(location.search);

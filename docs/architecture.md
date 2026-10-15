@@ -36,14 +36,16 @@
 ## 页面契约
 
 - `/` 是首页，`/guide`和`/guide/<chapter>`是目录与章节。站内切换保留同一document，浏览器前进后退由React Router处理；首次打开或刷新使用构建时输出的已知HTML入口，未知路径保持真正404。
-- Header固定为左品牌、中间导航、右侧操作三个独立区域；中间导航按视口居中，不受品牌和右侧按钮宽度影响，始终可见。窄屏导航独立居中一行，不放进右侧菜单。Header滚动时保持在顶部，页内锚点按实际单/双行高度预留空间。
+- Header固定为左品牌、中间导航、右侧操作三个独立区域，所有宽度保持单行；中间导航按视口居中，始终可见，不换到第二行或收入菜单。空间不足时仅将右侧下载、主题、语言收进操作菜单；最窄尺寸品牌只显示Logo，保留可访问名称。Header滚动时保持在顶部，页内锚点按单行高度预留空间。
 - 视口最右上角提供45°的“Star on GitHub”入口，随Header固定；窄屏只展示星形角标，但保留完整可访问名称。点击在隔离opener的新标签页打开产品仓库，由访客自行Star；不调用GitHub API、不显示伪造的Star计数，也不绕过私有仓库权限。角标不能覆盖导航、下载、主题或手机菜单的点击区域。
 - 首页默认简体中文；语言按钮同步站点文案、`html.lang`、标题和分享摘要。教程UI通过`lang=en`保留英文选择，点本章锚点仅改变hash而不删除查询参数；中文正文继续用`lang="zh-CN"`标识，不冒充英文教程。
 - 默认跟随浏览器的`prefers-color-scheme`。右上角提供System / Light / Dark选择，手动偏好在本机保存；选择System后恢复实时跟随，浏览器主题改变时同步更新。保存不可用时明确记录警告，本次主题选择仍可使用。
 - 首屏保留完整工作台总览，不再通过Tab隐藏独立功能；Capture、Rules、Breakpoints、Composer、Agent、MCP按纵向图文模块展示。Agent说明内置对话与工具辅助，MCP独立说明外部Host接入、loopback监听、每客户端凭据及Tool授权，不混作一种入口。桌面图文左右交替、手机文字在上图片在下；WebSocket/gRPC纳入Capture，导入导出等用紧凑补充区呈现。
 - 每个功能的截图与说明属于同一模块，截图跟随当前浅/深主题，原图使用真实链接。所有App图片仍为设计预览及示例数据，不冒充发布版本截图。
 - 功能介绍后直接进入学习资源，不再保留独立下载区、两张同地址的平台卡片、首屏重复下载按钮或三步流程示意。入门步骤统一通过学习资源中的真实Quick Start链接提供。
-- 右侧顺序为下载、主题、语言；右侧操作区距窗口右缘固定104px，手机角标布局固定36px，为Star预留安全区。下载保留原来的主色、尺寸和阴影，Star斜条本身不变。超过820px保持单行，窄于此宽度时导航独立居中一行；手机右侧菜单只放下载操作，不包含产品能力或Guidebook。Escape关闭后回到触发按钮，主题菜单与右侧菜单互斥。
+- 桌面右侧顺序为下载、主题、语言；距窗口右缘固定104px，手机角标布局固定36px，为Star预留安全区。桌面下载使用36px的Ant Design主按钮，Star斜条不变；小屏菜单先展示外观/语言，底部独立下载区使用40px的large按钮并撑满内容宽度。宽度不超过840px时仅收纳右侧操作，避免英文按钮与导航相撞；不包含产品能力或Guidebook。Escape先关闭当前偏好选项，再关闭操作菜单并恢复焦点。
+- 外观与语言使用等宽、图标和名称左对齐的完整操作行，右侧显示当前值和展开指示，选项标记当前勾选；只展开一组，不套内层边框卡片。语言入口只展开选择菜单，简体中文/English明确点选后切换。菜单限制在视口内，高度不足时可滚动；Star角标不变，原生控件仅接入官网字体和配色。
+- 页面不使用固定最小宽度把Star或折叠按钮挤出实际视口。小于320px时导航采用紧凑间距，极窄时仅中间导航区域允许横向滚动，两个链接仍可通过滚动或键盘访问；不换到第二行、不与右侧控件重叠，也不隐藏滚动条。
 - FAQ 支持鼠标和键盘，同一时间至多展开一项。
 - 页面不暴露 `window.__setState` 等设计/自动化写入口。测试只通过公开 UI 操作。
 - 首页本身不再称为“设计候选”；暂用的 App 图片继续明确标注为含示例数据的设计预览，不冒充发布版本截图。
@@ -52,8 +54,56 @@
 - Release已发布与仓库公开是独立状态；当前下载仍需登录有仓库访问权限的GitHub账号。发布不证明实机安装已验收。教程正文保持初稿说明，尚未交付的真实截图/视频与首页暂用的设计素材继续明确标注。
 - 不增加埋点、表单后端、账号、第三方 API 调用或模型请求。
 
+### 锚点滚动与下载布局
+
+- 小屏先展示外观/语言，下载放底部独立操作区；分隔线到按钮留16px内边距，使用Ant Design默认large按钮（40px）并撑满。桌面改为同一Button组件的36px入口，不再保留46px CTA。
+- 打开小屏操作菜单时焦点落到第一个偏好入口，下载按DOM顺序位于末尾；不自动滚到页尾按钮而遮住设置项。
+- 首页、回顶及教程锚点的程序滚动统一使用`behavior: 'auto'`，由已有根级CSS `scroll-behavior: smooth`决定动画；系统`prefers-reduced-motion: reduce`时直接定位。重复点击首页同一锚点也重新定位，目标继续避让固定Header。
+- 滚轮、触控板和触屏保持浏览器原生输入，不拦截wheel、不模拟额外惯性，也不引入平滑滚动库。教程只同步锚点滚动策略，不修改正文或阅读器结构。
+- [前置Red](../artifacts/footer-scroll-red/)分别复现桌面仍为46px、首页和指南锚点没有任何中间滚动帧；[生产Green](../artifacts/footer-scroll-production-green/)覆盖桌面36px/菜单40px、下载置底与16px留白、首焦点、单行导航和下载新标签页。没有重跑教程正文或桌面App流程。
+- [实际滚动轨迹](../artifacts/smooth-navigation-final/)保存首页首次/重复定位、指南定位及减少动态效果的逐帧scrollY；[汇总](../artifacts/download-footer-final/scroll-trajectories.json)记录采样直到滚动稳定。正常模式具有连续中间帧，reduce模式直接定位；指南最终目标与固定Header预留位置的差值不超过1px，不只检查CSS属性。
+- [浅色底部下载](../artifacts/download-footer-final/light-closed.png)、[深色语言展开](../artifacts/download-footer-final/dark-language.png)与[桌面效果](../artifacts/download-footer-final/light-desktop-language.png)为当前产品截图。[方案像素对比](../artifacts/download-footer-final/proposal-parity.json)确认浅深菜单及桌面下载与已展示方案一致；原方案和旧尺寸证据未覆盖。Scoped Biome、typecheck/build及最新产物CSP/原生按钮检查通过，未公开部署。
+
 ## 验证
+
+### 组件化偏好菜单
+
+- 下载统一使用Ant Design Button：小屏为底部独立操作区的40px large按钮，桌面为36px入口。保留官网强调色，Star及导航位置不变；布局细节与最新证据见上面的锚点滚动与下载布局。
+- 外观与语言使用统一的紧凑菜单，当前值和已选勾号明确展示；同一时间只展开一组，不再嵌套带边框卡片或重复标题。
+- 语言仅支持简体中文和English。点击语言入口只打开选择菜单，选择具体语言才调用`onLocaleChange(locale)`；选择当前语言不修改页面地址。教程路径、其他查询参数和锚点沿用当前流程，不修改教程内容。
+- 桌面使用Popover内的竖向Menu，小屏使用Menu的inline子菜单；方向键只移动焦点，Enter/Space确认。Escape先收起当前选项，再关闭外层操作菜单，焦点返回对应触发器。
+- 桌面偏好按钮允许直接双向切换：主题打开时点击语言，只关闭主题并保持语言菜单可操作；语言到主题相同。迟到的外部点击/失焦关闭只能关闭发出通知的那一个菜单，不能清空随后打开的另一组。重复点击当前按钮收起，Escape返回当前按钮；切换入口不改变已选主题或语言。
+- 外层和桌面选项均由Ant Design Popover相对按钮定位，正常空间下在按钮下方8px、右侧对齐；空间不足时由组件避让并限制可滚动高度。不再按Header高度手写固定坐标，也不以外层`onBlur`决定关闭。点击弹层内部空白、分隔线或操作控件保持打开，点击外部才关闭；选定语言和进入下载按各自操作收起弹层。
+- Radix依赖与实现已移除。正式组件使用Ant Design Menu/Popover，保留其默认40px行高、4px项间距、内边距、圆角、阴影和交互反馈；只定制官网字体/配色、行内flex居中及容器边界。配置集中在`src/theme/components.ts`，不再在CSS Module中覆盖每个菜单项的皮肤。继续使用有类型的中英文案，不增加语言或i18n框架。
+- 公共`PreferenceMenu`由主题和语言共用。控制状态按菜单归属关闭，旧菜单的事件不能清空新菜单；仅显式选择或Escape返回原触发器，切换菜单不会把焦点抢回旧按钮。叶子选项确认和父级展开的键盘事件分开，避免Enter选中后又重新展开。不对第三方私有DOM写样式，不修改`node_modules`。
+- Ant Design动态样式只允许构建时提取出的准确hash；`scripts/antd-style-policy.ts`通过官方`@ant-design/cssinjs`生成`dist/_headers`白名单，不使用`unsafe-inline`或固定nonce，也不增加业务Worker。字段缺失、无提取结果或超出Cloudflare单行2000字符限制时构建失败，维护细节见[部署说明](deployment.md#http-与索引)。
+
+#### Ant Design实现与当前验证
+
+- [桌面直接互切Red](../artifacts/preference-switch-red/)复现主题打开后点击语言导致两者关闭。实际焦点记录显示旧菜单把焦点拉回旧按钮，随后关闭新菜单；只保护关闭回调归属仍不足以解决。修复同时约束菜单状态和显式焦点恢复，不将此归因于已证实的第三方库缺陷。
+- [当前生产Browser](../artifacts/antd-menu-production-green/)通过主题↔语言连续双向切换、当前按钮重复点击、Enter选择、方向键、分层Escape、内部/外部点击、明确中英选择、下载新标签页和原页面滚动保持。覆盖首页及共用Header、260–1600px和260×180窗口，不修改教程内容或以此代替桌面App E2E。
+- 菜单项直接使用Ant Design的`icon / label / extra`，已删除自写`PreferenceOption`；[间距检查](../tests/integration/header-preferences.test.ts)测量桌面/小屏的默认40px行高及4px项间距，不再以被原样式覆盖的CSS class假定间距生效。
+- Scoped Biome、typecheck、production build和使用该产物的Wrangler dry-run通过，未上传/部署。当前静态CSP下浅深主题及全部菜单状态无被阻止样式或浏览器错误；[当前几何/CSP记录](../artifacts/antd-menu-final/results.json)、[浅色菜单](../artifacts/antd-menu-final/light-language.png)、[深色菜单](../artifacts/antd-menu-final/dark-theme.png)、[桌面选择](../artifacts/antd-menu-final/light-desktop-language.png)和[280px小屏](../artifacts/antd-menu-final/dark-280-language.png)保留。
+- 用户后续选择Ant Design默认皮肤，内边距、缩进、圆角和阴影以原生组件为准，不再把前一版自写皮肤的像素差异当成还原目标。字体/配色仍接入本站token；已确认深色勾选图标可辨识，[260×180英文状态](../artifacts/antd-menu-final/dark-260-short-english.png)中的选择指示不被裁掉。旧方案截图未被覆盖。
+- 此前曾将菜单下载从46px降至32px、桌面保持46px；该尺寸方案已由当前的下载置底及36px/40px替代。[当时尺寸Red](../artifacts/compact-download-red/)与[当时Green](../artifacts/compact-download-green/)、[改前截图](../artifacts/compact-download/light-before.png)及[32px效果](../artifacts/antd-menu-final/light-closed.png)仅作为历史记录，不代表当前页面。该阶段的typecheck/build、严格CSP点击及静态部署dry-run结果仍保留。
+
+#### 先前无样式组件方案的历史证据
+
+以下结果保留，不代表当前Ant Design版本，也没有覆盖后来反馈的桌面按钮直接互切故障。
+
+- [显式选择与撑满按钮Red](../artifacts/preference-menu-red/)、[内部点击误关与22px间距Red](../artifacts/preference-popover-red/)保留。最终[生产环境定向Browser](../artifacts/preference-menu-production-green/)覆盖中英、260–1600px、260×180低高窗口、嵌套Escape、内部/外部点击、语言路由、主题持久化/跨页同步及下载新标签页；原页面URL和scrollY保持不变。
+- 生产构建使用当前`public/_headers`的完整CSP运行，未出现被阻止样式或浏览器错误；scoped Biome、typecheck、build通过，新增依赖安装审计无公告。[浅色语言菜单](../artifacts/preference-menu-final/light-language.png)、[深色外观菜单](../artifacts/preference-menu-final/dark-theme.png)、[深色280px](../artifacts/preference-menu-final/dark-280-language.png)和[桌面语言菜单](../artifacts/preference-menu-final/light-desktop-language.png)为真实页面截图；[布局记录](../artifacts/preference-menu-final/results.json)包含按钮到弹层的8px间距。这些验证不代表公开部署或桌面App验收。
+- [逐元素方案对比](../artifacts/preference-menu-final/layout-comparison.json)以弹层左上角为原点，下载、外观/语言行、当前值、图标、选项及勾号的`x/y/width/height`差值均为0。[像素对比](../artifacts/preference-menu-final/pixel-comparison.json)的浅深语言菜单均无差异；外观菜单分别有52/64个差异像素，仅在底部圆角外的页面背景，因为按用户后续要求上移弹层，未修改方案截图掩盖差异。最终间距调整后另跑[窄屏与内部点击检查](../artifacts/preference-menu-final-layout/)，保留真实结果。
 
 迁移前保存现有浏览器交互与布局基线，先让正式入口约束因旧设计接口而失败，再迁移源码。迁移后验证相同交互、响应式布局、图片与字体，以及真实静态构建。
 
 这是独立官网的浏览器验收，不启动或声称覆盖桌面 App 的 Electron workflow / fake Preload parity。
+
+### 小窗口Header修正（历史证据）
+
+以下为前一轮定位与原宽下载的验证，菜单宽度和偏好交互已被上面的组件化方案替代，不用历史截图代表当前页面。
+
+- 前置问题：菜单把下载从102px拉伸为206px，外观无名称、语言图标被断点隐藏；页面的320px最小宽度使280px窗口的导航偏离实际中心20px，并裁掉右侧角标。[菜单Red](../artifacts/header-menu-red/)与[小于320px的Red](../artifacts/header-below-320-red/)保留真实失败。
+- 最终检查：[定向Browser](../artifacts/header-menu-final-green/)覆盖首页和共用Header、260–1600px、中英文、布局边界、主题键盘及下载新标签页；[极窄导航](../artifacts/header-menu-keyboard-final/)通过真实横向滚轮及Tab验证两个入口可访问。Scoped Biome、typecheck及独立目录的production build通过，没有重跑教程正文或桌面App流程。
+- [浅色280px菜单](../artifacts/header-menu-visual/light-280-open.png)、[深色280px菜单](../artifacts/header-menu-visual/dark-280-open.png)及[低高窗口记录](../artifacts/header-menu-visual/final-results.json)验证260×180窗口内仍可滚动并切换主题、语言。相同焦点状态下，[闭合页面像素比较](../artifacts/header-menu-visual/closed-parity.json)确认320/390/691/1600px的浅深页面与改前一致。
+- Star组件及下载按钮CSS未修改。本次仅调整公共Header和响应式基础样式，教程正文、阅读器及素材由item 9独立维护；公开部署仍须完成Cloudflare授权。

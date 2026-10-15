@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { showHeaderControls, toggleHeaderLanguage } from './header-controls';
 
 const sourceDirectory = path.resolve('guidebook/zh-CN');
 const chapters = readdirSync(sourceDirectory)
@@ -18,7 +19,7 @@ test('header opens Guidebook directly on desktop and mobile in either UI languag
     for (const locale of ['zh', 'en']) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/');
-      if (locale === 'en') await page.getByTestId('homepage.language').click();
+      if (locale === 'en') await toggleHeaderLanguage(page);
       const guide = page.getByTestId('homepage.navigation.guide');
       await expect(guide).toBeVisible();
       await expect(guide).toHaveAttribute('href', locale === 'en' ? '/guide?lang=en' : '/guide');
@@ -213,6 +214,7 @@ test('guide language, themes, narrow tables and scrolling work through normal co
   for (const width of [320, 390, 768, 1600]) {
     await page.setViewportSize({ width, height: 900 });
     for (const theme of ['dark', 'light']) {
+      await showHeaderControls(page);
       await page.getByTestId('homepage.theme.toggle').click();
       await page.getByTestId(`homepage.theme.${theme}`).click();
       await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
@@ -221,7 +223,7 @@ test('guide language, themes, narrow tables and scrolling work through normal co
       );
     }
   }
-  await page.getByTestId('homepage.language').click();
+  await toggleHeaderLanguage(page);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'zh-CN');
   await expect(page.getByTestId('guide.draft')).toContainText('Chinese');

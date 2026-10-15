@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { getPreferenceTrigger, toggleHeaderLanguage } from './header-controls';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
@@ -22,7 +23,7 @@ test('production entry has no design control API or candidate metadata', async (
 });
 
 test('language and FAQ work through the actual UI', async ({ page }) => {
-  await page.getByTestId('homepage.language').click();
+  await toggleHeaderLanguage(page);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page).toHaveTitle('Interceptor — Clarity for every request');
 
@@ -36,7 +37,7 @@ test('language and FAQ work through the actual UI', async ({ page }) => {
   await secondFaq.press('Enter');
   await expect(secondFaq.locator('..')).not.toHaveAttribute('open');
 
-  await page.getByTestId('homepage.language').click();
+  await toggleHeaderLanguage(page);
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   await expect(page).toHaveTitle('Interceptor — 看清每个请求');
 });
@@ -52,7 +53,7 @@ test('mobile right-side menu stays separate from the always-visible navigation',
   await page.keyboard.press('Enter');
   await expect(menu).toHaveAttribute('aria-expanded', 'true');
   const actionsMenu = page.locator('#header-actions-menu');
-  await expect(actionsMenu.getByRole('link')).toBeFocused();
+  await expect(getPreferenceTrigger(page, 'theme')).toBeFocused();
   await expect(actionsMenu.locator('nav, a[href^="#"], a[href^="/guide"]')).toHaveCount(0);
   const menuTop = await actionsMenu.evaluate((element) => element.getBoundingClientRect().top);
   const navBottom = await navigation.evaluate((element) => element.getBoundingClientRect().bottom);
@@ -72,7 +73,7 @@ test('both languages fit desktop, tablet and narrow mobile viewports', async ({ 
   for (const width of [320, 390, 768, 1280, 1600]) {
     await page.setViewportSize({ width, height: 900 });
     for (const language of ['en', 'zh-CN']) {
-      await page.getByTestId('homepage.language').click();
+      await toggleHeaderLanguage(page);
       await expect(page.locator('html')).toHaveAttribute('lang', language);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
         width,
@@ -113,11 +114,11 @@ test('images, anchors and explicit private destinations are intact', async ({ pa
         .filter((href) => !document.getElementById(href.slice(1))),
     );
   expect(brokenAnchors).toEqual([]);
-  await expect(
-    page.locator(
-      'header a[href="https://github.com/zhxmt-xm/Interceptor/releases/latest"]:visible',
-    ),
-  ).toHaveCount(1);
+  await expect(page.getByTestId('homepage.download')).toHaveCount(1);
+  await expect(page.getByTestId('homepage.download')).toHaveAttribute(
+    'href',
+    'https://github.com/zhxmt-xm/Interceptor/releases/latest',
+  );
   await expect(page.locator('a[href="#"]')).toHaveCount(0);
   await expect(page.locator('video')).toHaveCount(0);
 });
@@ -147,9 +148,10 @@ test('a single header download links directly to the latest release at every vie
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
     for (const width of [1600, 900, 768, 641, 640, 390, 320]) {
       await page.setViewportSize({ width, height: 900 });
-      if (width <= 640) await page.getByTestId('homepage.menu').click();
-      const download = page.locator(`header a[href="${destination}"]:visible`);
+      if (width <= 840) await page.getByTestId('homepage.menu').click();
+      const download = page.getByTestId('homepage.download');
       await expect(download).toHaveCount(1);
+      await expect(download).toHaveAttribute('href', destination);
       await expect(download).toHaveText(locale === 'zh-CN' ? '下载' : 'Download');
       await expect(download).toHaveAttribute('target', '_blank');
       await expect(download).toHaveAttribute('rel', 'noopener noreferrer');
@@ -158,7 +160,7 @@ test('a single header download links directly to the latest release at every vie
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
         width,
       );
-      if (width <= 640) await page.keyboard.press('Escape');
+      if (width <= 840) await page.keyboard.press('Escape');
     }
     const faq = page.getByTestId('homepage.faq.3');
     await faq.click();
@@ -180,6 +182,6 @@ test('a single header download links directly to the latest release at every vie
     await expect(installation.locator('..')).toContainText('SmartScreen');
     await expect(installation.locator('..')).toContainText('MSI');
     await installation.click();
-    if (locale === 'zh-CN') await page.getByTestId('homepage.language').click();
+    if (locale === 'zh-CN') await toggleHeaderLanguage(page);
   }
 });

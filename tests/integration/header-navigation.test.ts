@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { getPreferenceTrigger, showHeaderControls, toggleHeaderLanguage } from './header-controls';
 
 test('header remains at the top while scrolling and keeps anchor targets visible', async ({
   page,
@@ -37,7 +38,8 @@ test('header remains at the top while scrolling and keeps anchor targets visible
       await expect(page.locator('#main-navigation')).toBeVisible();
     }
 
-    await page.getByTestId('homepage.theme.toggle').click();
+    await showHeaderControls(page);
+    await getPreferenceTrigger(page, 'theme').click();
     await expect(page.getByTestId('homepage.theme.system')).toBeFocused();
     await page.keyboard.press('Escape');
   }
@@ -50,9 +52,9 @@ test('download retains its primary style and leads the right-side action group',
   const destination = 'https://github.com/zhxmt-xm/Interceptor/releases/latest';
   for (const locale of ['zh-CN', 'en']) {
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
-    for (const width of [900, 853, 768, 721, 720, 641]) {
+    for (const width of [1600, 900, 853, 841]) {
       await page.setViewportSize({ width, height: 900 });
-      const download = page.locator(`header a[href="${destination}"]:visible`);
+      const download = page.getByTestId('homepage.download');
       await expect(download).toHaveCount(1);
       expect(await download.evaluate((element) => element.closest('nav') === null)).toBe(true);
       expect(
@@ -71,7 +73,7 @@ test('download retains its primary style and leads the right-side action group',
       await expect(page.locator('#main-navigation')).toBeVisible();
       await expect(page.locator(`#main-navigation a[href="${destination}"]`)).toHaveCount(0);
     }
-    if (locale === 'zh-CN') await page.getByTestId('homepage.language').click();
+    if (locale === 'zh-CN') await toggleHeaderLanguage(page);
   }
 });
 
@@ -106,12 +108,12 @@ for (const width of [1600, 768, 641, 390]) {
       await document.fonts.ready;
     });
     await page.locator('#main-navigation a[href="/#features"]').click();
-    if (width <= 640) await page.getByTestId('homepage.menu').click();
+    await showHeaderControls(page);
     const originalUrl = page.url();
     const originalScroll = await page.evaluate(() => scrollY);
     const newPagePromise = context.waitForEvent('page');
-    const download = page.locator(`header a[href="${destination}"]:visible`);
-    if (width <= 640) await download.press('Enter');
+    const download = page.getByTestId('homepage.download');
+    if (width <= 840) await download.press('Enter');
     else {
       const bounds = await download.boundingBox();
       if (!bounds) throw new Error('The pinned download control is not visible.');
@@ -125,7 +127,7 @@ for (const width of [1600, 768, 641, 390]) {
     expect(await page.evaluate(() => scrollY)).toBe(originalScroll);
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('#main-navigation')).toBeVisible();
-    if (width <= 640) await expect(page.locator('#header-actions-menu')).toBeHidden();
+    if (width <= 840) await expect(page.locator('#header-actions-menu')).toBeHidden();
     await releasePage.close();
   });
 }

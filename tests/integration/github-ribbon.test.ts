@@ -1,4 +1,10 @@
 import { expect, test } from '@playwright/test';
+import {
+  getPreferenceOptions,
+  getPreferenceTrigger,
+  showHeaderControls,
+  toggleHeaderLanguage,
+} from './header-controls';
 
 test('GitHub star ribbon stays clickable without covering header controls', async ({ page }) => {
   await page.goto('/');
@@ -54,14 +60,16 @@ test('GitHub star ribbon stays clickable without covering header controls', asyn
           }),
         ).toBe(true);
       }
-      await page.getByTestId('homepage.theme.toggle').click();
-      const themeOptions = await page.locator('#homepage-theme-options').boundingBox();
+      await showHeaderControls(page);
+      await getPreferenceTrigger(page, 'theme').click();
+      const themeOptions = await getPreferenceOptions(page, 'theme').boundingBox();
       if (!themeOptions) throw new Error('Theme options are missing.');
       expect(themeOptions.x).toBeGreaterThanOrEqual(0);
       expect(themeOptions.x + themeOptions.width).toBeLessThanOrEqual(width);
       await page.keyboard.press('Escape');
+      if (width <= 840) await page.keyboard.press('Escape');
     }
-    if (locale === 'zh-CN') await page.getByTestId('homepage.language').click();
+    if (locale === 'zh-CN') await toggleHeaderLanguage(page);
   }
 });
 

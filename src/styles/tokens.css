@@ -42,7 +42,6 @@
   --site-max: 1160px;
   --gutter: 40px;
   --header-row-height: 80px;
-  --header-nav-height: 44px;
   --header-height: var(--header-row-height);
   --header-edge-space: 104px;
 }
@@ -76,12 +75,6 @@
   --shadow-medium: #1a1b1e10;
   --shadow-high: #1a1b1e18;
   --grid-mask: #0004;
-}
-
-@media (max-width: 820px) {
-  :root {
-    --header-height: calc(var(--header-row-height) + var(--header-nav-height));
-  }
 }
 
 @media (max-width: 640px) {

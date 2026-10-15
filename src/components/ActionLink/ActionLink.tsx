@@ -1,4 +1,4 @@
-import type { HTMLAttributeAnchorTarget, ReactNode } from 'react';
+import type { HTMLAttributeAnchorTarget, MouseEventHandler, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ActionLink.module.css';
 
@@ -8,6 +8,7 @@ interface Props {
   variant?: 'primary' | 'secondary' | 'quiet';
   target?: HTMLAttributeAnchorTarget;
   automationId?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export default function ActionLink({
@@ -16,6 +17,7 @@ export default function ActionLink({
   variant = 'primary',
   target,
   automationId,
+  onClick,
 }: Props) {
   if (href.startsWith('#') || href === '/' || /^\/guide(?:\/|[?#]|$)/.test(href)) {
     return (
@@ -24,6 +26,7 @@ export default function ActionLink({
         to={href}
         target={target}
         data-automation-id={automationId}
+        onClick={onClick}
         rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       >
         {children}
@@ -36,6 +39,7 @@ export default function ActionLink({
       href={href}
       target={target}
       data-automation-id={automationId}
+      onClick={onClick}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
     >
       {children}

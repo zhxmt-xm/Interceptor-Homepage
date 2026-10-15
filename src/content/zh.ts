@@ -10,7 +10,11 @@ export const chinese: typeof english = {
     features: '产品能力',
     guide: '使用指南',
     download: '下载',
-    language: 'Switch to English',
+    language: {
+      label: '语言',
+      zh: '简体中文',
+      en: 'English',
+    },
     menu: '更多操作',
     close: '收起操作',
     star: {

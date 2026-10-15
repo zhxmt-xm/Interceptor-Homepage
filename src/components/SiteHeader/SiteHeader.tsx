@@ -1,19 +1,21 @@
 /** biome-ignore-all lint/a11y/useValidAnchor: These links navigate normally and also dismiss the mobile menu. */
+import { Button, ConfigProvider, Popover } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LINKS, type Locale, type WebsiteCopy } from '../../content';
 import { guideHref } from '../../content/guidebook';
+import { HEADER_THEME } from '../../theme/components';
 import type { ThemePreference } from '../../theme/utils';
-import ActionLink from '../ActionLink/ActionLink';
 import GitHubRibbon from '../GitHubRibbon/GitHubRibbon';
 import Icon from '../Icon/Icon';
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import PreferenceMenu from '../PreferenceMenu/PreferenceMenu';
 import styles from './SiteHeader.module.css';
+import { COMPACT_HEADER_QUERY, getLanguageChoices, getThemeChoices, THEME_ICONS } from './utils';
 
 interface Props {
   content: WebsiteCopy['nav'];
   locale: Locale;
-  onToggleLocale: () => void;
+  onLocaleChange: (locale: Locale) => void;
   themePreference: ThemePreference;
   onThemeChange: (preference: ThemePreference) => void;
   homePrefix?: string;
@@ -22,141 +24,195 @@ interface Props {
 export default function SiteHeader({
   content,
   locale,
-  onToggleLocale,
+  onLocaleChange,
   themePreference,
   onThemeChange,
   homePrefix = '',
 }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const [compact, setCompact] = useState(() => window.matchMedia(COMPACT_HEADER_QUERY).matches);
+  const [openPreference, setOpenPreference] = useState<'theme' | 'language' | null>(null);
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setOpenPreference(null);
+  }, []);
+  const popover = useRef<HTMLDivElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
-  const actionsMenu = useRef<HTMLDivElement>(null);
-  const downloadMenuLink = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    if (!menuOpen) return;
-    downloadMenuLink.current?.focus();
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return;
+    const query = window.matchMedia(COMPACT_HEADER_QUERY);
+    const updateLayout = (event: MediaQueryListEvent) => {
+      setCompact(event.matches);
       closeMenu();
-      menuButton.current?.focus();
     };
-    const closeOnOutsideClick = (event: PointerEvent) => {
-      if (event.target instanceof Node && !actionsMenu.current?.contains(event.target)) {
+    query.addEventListener('change', updateLayout);
+    return () => query.removeEventListener('change', updateLayout);
+  }, [closeMenu]);
+
+  const download = (
+    <Button
+      type="primary"
+      block={compact}
+      size={compact ? 'large' : 'middle'}
+      href={LINKS.release}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-automation-id="homepage.download"
+      onClick={() => {
         closeMenu();
-      }
-    };
-    document.addEventListener('keydown', closeOnEscape);
-    document.addEventListener('pointerdown', closeOnOutsideClick);
-    return () => {
-      document.removeEventListener('keydown', closeOnEscape);
-      document.removeEventListener('pointerdown', closeOnOutsideClick);
-    };
-  }, [menuOpen, closeMenu]);
+        if (compact) menuButton.current?.focus({ preventScroll: true });
+      }}
+    >
+      {content.download}
+      <Icon name="arrowUpRight" size={16} />
+    </Button>
+  );
+  const preferences = (
+    <div className={styles.preferences}>
+      <PreferenceMenu
+        name="theme"
+        label={content.theme.label}
+        icon={THEME_ICONS[themePreference]}
+        value={themePreference}
+        valueLabel={content.theme[themePreference]}
+        choices={getThemeChoices(content.theme)}
+        inline={compact}
+        open={openPreference === 'theme'}
+        onOpenChange={(open) =>
+          setOpenPreference((current) => (open ? 'theme' : current === 'theme' ? null : current))
+        }
+        onValueChange={onThemeChange}
+      />
+      <PreferenceMenu
+        name="language"
+        label={content.language.label}
+        icon="languages"
+        value={locale}
+        valueLabel={content.language[locale]}
+        choices={getLanguageChoices(content.language)}
+        compactLabel={locale === 'zh' ? '中文' : 'EN'}
+        inline={compact}
+        open={openPreference === 'language'}
+        onOpenChange={(open) =>
+          setOpenPreference((current) =>
+            open ? 'language' : current === 'language' ? null : current,
+          )
+        }
+        onValueChange={(next) => {
+          onLocaleChange(next);
+          closeMenu();
+          if (compact) menuButton.current?.focus({ preventScroll: true });
+        }}
+      />
+    </div>
+  );
+  const controls = compact ? (
+    <>
+      {preferences}
+      <div className={styles.downloadFooter}>{download}</div>
+    </>
+  ) : (
+    <>
+      {download}
+      {preferences}
+    </>
+  );
 
   return (
-    <header className={styles.header}>
-      <div className={styles.inner}>
-        <Link
-          className={styles.brand}
-          to={`${homePrefix}#top`}
-          aria-label="Interceptor"
-          onClick={closeMenu}
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}media/interceptor-icon.png`}
-            alt=""
-            width="34"
-            height="34"
-          />
-          <span>
-            Interceptor<span className={styles.brandDot}>.</span>
-          </span>
-        </Link>
-        <nav id="main-navigation" className={styles.nav} aria-label={content.label}>
-          <Link to={`${homePrefix}#features`} onClick={closeMenu}>
-            {content.features}
-          </Link>
+    <ConfigProvider theme={HEADER_THEME}>
+      <header className={styles.header}>
+        <div className={styles.inner}>
           <Link
-            to={guideHref('overview', locale)}
+            className={styles.brand}
+            to={`${homePrefix}#top`}
+            aria-label="Interceptor"
             onClick={closeMenu}
-            data-automation-id="homepage.navigation.guide"
           >
-            {content.guide}
+            <img
+              src={`${import.meta.env.BASE_URL}media/interceptor-icon.png`}
+              alt=""
+              width="34"
+              height="34"
+            />
+            <span>
+              Interceptor<span className={styles.brandDot}>.</span>
+            </span>
           </Link>
-        </nav>
-        <div className={styles.actions}>
-          <div className={styles.desktopDownload}>
-            <ActionLink href={LINKS.release} target="_blank">
-              {content.download}
-              <Icon name="arrowUpRight" size={16} />
-            </ActionLink>
-          </div>
-          <ThemeSwitcher
-            content={content.theme}
-            preference={themePreference}
-            onPreferenceChange={onThemeChange}
-            onOpen={closeMenu}
-          />
-          <button
-            type="button"
-            className={styles.language}
-            onClick={() => {
-              closeMenu();
-              onToggleLocale();
-            }}
-            aria-label={content.language}
-            data-automation-id="homepage.language"
-          >
-            <Icon name="languages" size={17} />
-            {locale === 'zh' ? 'EN' : '中文'}
-          </button>
-          <div
-            ref={actionsMenu}
-            className={styles.menuGroup}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) closeMenu();
-            }}
-          >
-            <button
-              ref={menuButton}
-              type="button"
-              className={styles.menu}
-              aria-label={menuOpen ? content.close : content.menu}
-              aria-controls="header-actions-menu"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((open) => !open)}
-              data-automation-id="homepage.menu"
+          <nav id="main-navigation" className={styles.nav} aria-label={content.label}>
+            <Link to={`${homePrefix}#features`} onClick={closeMenu}>
+              {content.features}
+            </Link>
+            <Link
+              to={guideHref('overview', locale)}
+              onClick={closeMenu}
+              data-automation-id="homepage.navigation.guide"
             >
-              <Icon name={menuOpen ? 'close' : 'menu'} />
-            </button>
-            {menuOpen && (
+              {content.guide}
+            </Link>
+          </nav>
+          <div className={styles.actions}>
+            {compact ? (
+              <Popover
+                open={menuOpen}
+                onOpenChange={(open) => (open ? setMenuOpen(true) : closeMenu())}
+                trigger="click"
+                placement="bottomRight"
+                align={{ offset: [0, 8] }}
+                arrow={false}
+                destroyOnHidden
+                styles={{ container: { padding: 0 } }}
+                afterOpenChange={(open) => {
+                  if (open) {
+                    popover.current
+                      ?.querySelector<HTMLElement>('[role="menuitem"][aria-haspopup]')
+                      ?.focus({ preventScroll: true });
+                  }
+                }}
+                content={
+                  <div
+                    ref={popover}
+                    id="header-actions-menu"
+                    className={styles.popover}
+                    role="group"
+                    aria-label={content.menu}
+                    onKeyDown={(event) => {
+                      if (event.key !== 'Escape') return;
+                      event.preventDefault();
+                      closeMenu();
+                      menuButton.current?.focus({ preventScroll: true });
+                    }}
+                  >
+                    {controls}
+                  </div>
+                }
+              >
+                <button
+                  ref={menuButton}
+                  type="button"
+                  className={styles.menu}
+                  aria-label={menuOpen ? content.close : content.menu}
+                  aria-controls="header-actions-menu"
+                  aria-haspopup="dialog"
+                  aria-expanded={menuOpen}
+                  data-automation-id="homepage.menu"
+                >
+                  <Icon name={menuOpen ? 'close' : 'menu'} />
+                </button>
+              </Popover>
+            ) : (
               <div
                 id="header-actions-menu"
-                className={styles.menuPanel}
+                className={styles.controls}
                 role="group"
                 aria-label={content.menu}
               >
-                <a
-                  ref={downloadMenuLink}
-                  href={LINKS.release}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    closeMenu();
-                    menuButton.current?.focus({ preventScroll: true });
-                  }}
-                >
-                  <Icon name="download" size={16} />
-                  {content.download}
-                  <Icon name="arrowUpRight" size={14} />
-                </a>
+                {controls}
               </div>
             )}
           </div>
         </div>
-      </div>
-      <GitHubRibbon content={content.star} />
-    </header>
+        <GitHubRibbon content={content.star} />
+      </header>
+    </ConfigProvider>
   );
 }

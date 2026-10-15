@@ -10,7 +10,11 @@ export const english = {
     features: 'Features',
     guide: 'User Guide',
     download: 'Download',
-    language: '切换为简体中文',
+    language: {
+      label: 'Language',
+      zh: '简体中文',
+      en: 'English',
+    },
     menu: 'More actions',
     close: 'Close actions',
     star: {

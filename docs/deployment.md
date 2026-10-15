@@ -39,7 +39,7 @@ npm run deploy
 发布后检查 Wrangler 返回的实际 URL：
 
 1. 用未登录 GitHub 的浏览器访问首页。
-2. 核对手机/桌面、语言、导航、图片、FAQ和键盘操作。
+2. 核对手机/桌面、语言、导航、图片、FAQ和键盘操作；直接打开并刷新`/guide`及任一`/guide/<chapter>`，确认章节正文、站内链接与锚点可用。
 3. 检查真实 Release 资产与匿名下载、GitHub和反馈入口；私有产品仓库当前仍会返回404，不能算已通过公开链接验收。
 4. 请求一个不存在的路径与资源，确认返回404，不把所有路径回退成首页200。
 5. 检查 HTML 不被长时间缓存，带 hash 的 JS/CSS可长期缓存；保留响应头与页面证据。
@@ -61,8 +61,12 @@ GitHub Actions 的 [check.yml](../.github/workflows/check.yml) 只负责 lint、
 ## HTTP 与索引
 
 - `public/_headers` 为资源设置 CSP、`nosniff`、禁止嵌入、referrer policy和权限限制；外部字体仅允许 Google Fonts 域名。
+- `npm run build`在复制响应头后，通过[scripts/antd-style-policy.ts](../scripts/antd-style-policy.ts)和Ant Design官方CSS提取器，为Header实际使用的Button、Menu、Popover及其Tooltip样式生成精确`sha256`白名单；只写构建产物`dist/_headers`，不修改源模板。不使用`unsafe-inline`、固定nonce或新增Worker，部署时必须使用完整构建产物，不能再用源模板覆盖生成的响应头。
+  - 字体与配色配置在[src/theme/components.ts](../src/theme/components.ts)。升级Ant Design或修改这些token后重新构建，并在带生成CSP的静态预览中打开桌面/小屏、主题/语言菜单，确认无被阻止样式。
+  - 构建检查Cloudflare[每行2000字符限制](https://developers.cloudflare.com/workers/static-assets/headers/)，超限或提取失败会报错，不静默削弱CSP。构建阶段的React样式提取不意味着网站在服务端渲染页面。
 - 只有 Vite 输出的 `/assets/*` 使用一年 immutable 缓存；HTML和未加 hash 的图片沿用 Cloudflare 的重新验证策略。
-- 不存在的资源返回404；官网只有 `/`，不用 SPA catch-all 掩盖错误链接。
+- 构建同时生成首页`/`、教程目录`/guide`和已登记的`/guide/<chapter>`静态HTML入口，支持章节直接访问与刷新；站内切换仍使用React Router。路由清单由`src/content/guidebook.ts`维护，Vite构建按同一清单输出入口，不另维护部署路由副本。
+- 不存在的章节及资源返回404；保持`assets.not_found_handling: "none"`，不用SPA catch-all把未知地址伪装成首页200。
 - `robots.txt` 允许索引。开发服务只监听 loopback；若需要对外提供未发布预览，先配置访问控制或搜索引擎限制。`noindex` 本身不是访问控制。
 - 域名未确定，因此没有编造 canonical URL、sitemap URL或分享图片绝对地址。域名与公开媒体确认后再补齐。
 - 这是浏览器渲染的 React 单页，metadata在初始HTML中可用；没有声称完成服务端渲染、静态预渲染或多语言SEO路由。

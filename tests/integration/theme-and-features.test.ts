@@ -1,7 +1,9 @@
 import { expect, type Page, test } from '@playwright/test';
+import { getPreferenceTrigger, showHeaderControls } from './header-controls';
 
 async function chooseTheme(page: Page, preference: 'system' | 'light' | 'dark') {
-  await page.getByTestId('homepage.theme.toggle').click();
+  await showHeaderControls(page);
+  await getPreferenceTrigger(page, 'theme').click();
   await page.getByTestId(`homepage.theme.${preference}`).click();
 }
 
@@ -74,11 +76,12 @@ test('theme choices are keyboard accessible and coexist with narrow-screen navig
 }) => {
   await page.setViewportSize({ width: 320, height: 800 });
   await page.goto('/');
-  const trigger = page.getByTestId('homepage.theme.toggle');
+  await showHeaderControls(page);
+  const trigger = getPreferenceTrigger(page, 'theme');
   await trigger.focus();
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('homepage.theme.system')).toBeFocused();
-  await page.keyboard.press('Tab');
+  await page.keyboard.press('ArrowDown');
   await expect(page.getByTestId('homepage.theme.light')).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
@@ -88,14 +91,15 @@ test('theme choices are keyboard accessible and coexist with narrow-screen navig
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');
   await expect(trigger).toBeFocused();
 
-  await page.getByTestId('homepage.menu').click();
   await expect(page.locator('#header-actions-menu')).toBeVisible();
   await expect(page.locator('#main-navigation')).toBeVisible();
   await trigger.click();
-  await expect(page.locator('#header-actions-menu')).toBeHidden();
+  await expect(page.locator('#header-actions-menu')).toBeVisible();
   await expect(page.locator('#main-navigation')).toBeVisible();
-  await page.locator('h1').click();
-  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await page.mouse.click(8, 400);
+  await expect(page.locator('#header-actions-menu')).toBeHidden();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#header-actions-menu')).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
 });
 

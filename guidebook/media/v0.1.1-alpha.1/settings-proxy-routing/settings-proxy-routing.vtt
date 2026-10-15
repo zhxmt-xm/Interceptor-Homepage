@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.405 --> 00:00:03.368
+查看系统代理接管状态 / Inspect system proxy ownership
+
+2
+00:00:03.368 --> 00:00:09.619
+Restore 恢复原路由 / Restore the original system routing
+
+3
+00:00:09.619 --> 00:00:12.416
+确认监听器没有因此停止 / Confirm the listener is still available
+
+4
+00:00:12.416 --> 00:00:19.118
+通过 Settings 重新 Enable / Enable again through Settings
+
+5
+00:00:19.118 --> 00:00:22.119
+返回 Capture 确认录制开启 / Return to Capture and ensure Recording is on
+
+6
+00:00:22.119 --> 00:00:24.970
+暂停 Recording / Pause Recording
+
+7
+00:00:24.970 --> 00:00:27.870
+暂停不等于 Restore / Pausing is not Restore
+
+8
+00:00:27.870 --> 00:00:34.121
+结束演示前恢复原路由 / Restore routing before finishing

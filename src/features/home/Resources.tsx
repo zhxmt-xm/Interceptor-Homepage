@@ -42,7 +42,14 @@ export default function Resources({
           <Icon name="monitor" size={22} />
           <h3>{content.video}</h3>
           <p>{content.videoBody}</p>
-          <span className={styles.pending}>{content.pending}</span>
+          <ActionLink
+            href={`${guideHref('overview', locale)}#videos`}
+            variant="quiet"
+            automationId="homepage.guideVideos"
+          >
+            {content.videoAction}
+            <Icon name="arrowRight" size={15} />
+          </ActionLink>
         </article>
       </div>
       <p className={styles.access}>

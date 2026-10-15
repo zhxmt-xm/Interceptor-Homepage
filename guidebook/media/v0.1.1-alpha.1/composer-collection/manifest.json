@@ -1,0 +1,218 @@
+{
+  "chapter": "composer-collection",
+  "title": {
+    "zh-CN": "逐步骤实操：目录层级、排序、取消和删除",
+    "en": "Recorded walkthrough: folder depth, ordering, cancellation and deletion"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned file-panel windows; no microphone",
+  "example": {
+    "folderOne": "Guide level 1",
+    "folderTwo": "Guide level 2",
+    "folderThree": "Guide level 3",
+    "renamedFolder": "Guide saved requests",
+    "requestOne": "Guide request 1",
+    "requestTwo": "Guide request 2",
+    "urlOne": "http://127.0.0.1:54811/guide/collection/1",
+    "urlTwo": "http://127.0.0.1:54811/guide/collection/2",
+    "fileName": "guide-collection-tree.json",
+    "requestsSent": "0"
+  },
+  "duration": 85.061982983,
+  "video": "composer-collection.mp4",
+  "captions": "composer-collection.vtt",
+  "steps": [
+    {
+      "id": "01-open",
+      "title": "打开 Composer / Open Composer",
+      "image": "composer-collection-01-open.png",
+      "seconds": 0.20020012499999756
+    },
+    {
+      "id": "02-folder-1",
+      "title": "创建 Guide level 1 / Create Guide level 1",
+      "image": "composer-collection-02-folder-1.png",
+      "seconds": 3.2153006939999997
+    },
+    {
+      "id": "02-folder-2",
+      "title": "创建 Guide level 2 / Create Guide level 2",
+      "image": "composer-collection-02-folder-2.png",
+      "seconds": 6.296110393999998
+    },
+    {
+      "id": "02-folder-3",
+      "title": "创建 Guide level 3 / Create Guide level 3",
+      "image": "composer-collection-02-folder-3.png",
+      "seconds": 9.811773227
+    },
+    {
+      "id": "03-depth-limit",
+      "title": "检查第三级的子目录禁用 / Inspect the third-level folder limit",
+      "image": "composer-collection-03-depth-limit.png",
+      "seconds": 13.393062863
+    },
+    {
+      "id": "04-request-1",
+      "title": "在目录中新建 Guide request 1 / Create Guide request 1 in the folder",
+      "image": "composer-collection-04-request-1.png",
+      "seconds": 16.383171595999997
+    },
+    {
+      "id": "04-request-2",
+      "title": "在目录中新建 Guide request 2 / Create Guide request 2 in the folder",
+      "image": "composer-collection-04-request-2.png",
+      "seconds": 20.122749923999997
+    },
+    {
+      "id": "05-switch-1",
+      "title": "切换并核对 request 1 / Switch and verify request 1",
+      "image": "composer-collection-05-switch-1.png",
+      "seconds": 24.294513488999996
+    },
+    {
+      "id": "05-switch-2",
+      "title": "切换并核对 request 2 / Switch and verify request 2",
+      "image": "composer-collection-05-switch-2.png",
+      "seconds": 27.220397205999994
+    },
+    {
+      "id": "06-rename-folder",
+      "title": "重命名 Guide saved requests / Rename the folder Guide saved requests",
+      "image": "composer-collection-06-rename-folder.png",
+      "seconds": 30.22316291
+    },
+    {
+      "id": "07-reorder",
+      "title": "调整同级请求顺序 / Reorder sibling requests",
+      "image": "composer-collection-07-reorder.png",
+      "seconds": 33.655600877
+    },
+    {
+      "id": "08-export",
+      "title": "保存目录示例文件 / Save the example collection file",
+      "image": "composer-collection-08-export.png",
+      "seconds": 53.445433592
+    },
+    {
+      "id": "09-open-import",
+      "title": "选择同一导出文件 / Select the same exported file",
+      "image": "composer-collection-09-open-import.png",
+      "seconds": 69.360714299
+    },
+    {
+      "id": "10-cancel-preview",
+      "title": "取消导入不追加 / Cancel import without appending",
+      "image": "composer-collection-10-cancel-preview.png",
+      "seconds": 74.34261371999999
+    },
+    {
+      "id": "11-delete-request",
+      "title": "删除本轮 request 2 / Delete this run’s request 2",
+      "image": "composer-collection-11-delete-request.png",
+      "seconds": 77.554893614
+    },
+    {
+      "id": "12-delete-folder",
+      "title": "删除本轮目录及剩余演示请求 / Delete the owned folder and remaining demo request",
+      "image": "composer-collection-12-delete-folder.png",
+      "seconds": 80.85552355899999
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-collection.mp4",
+      "bytes": 420321,
+      "sha256": "199475601081071cdead41a8933f9cc99f670f7f2337924efa7e7a5bdd4f657c"
+    },
+    {
+      "file": "composer-collection.vtt",
+      "bytes": 1484,
+      "sha256": "37c9504afb88f5924f7ef6db9df8356cb71a0a947030d1e0d81a3eaeae2ff01b"
+    },
+    {
+      "file": "composer-collection-01-open.png",
+      "bytes": 176130,
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+    },
+    {
+      "file": "composer-collection-02-folder-1.png",
+      "bytes": 197217,
+      "sha256": "b5aeadc3102c018dda02c8f5a126bcfbe8bd7162d397a994ea1ec9b9120def7e"
+    },
+    {
+      "file": "composer-collection-02-folder-2.png",
+      "bytes": 185884,
+      "sha256": "24c92cc712ea40f26c999bb90843b023f2a2b62c31df5f8a06563c18f0bfa64b"
+    },
+    {
+      "file": "composer-collection-02-folder-3.png",
+      "bytes": 190016,
+      "sha256": "570db0b1174b25877e7a176159e7694dfcc161796c5312859d1f58c855f5d10a"
+    },
+    {
+      "file": "composer-collection-03-depth-limit.png",
+      "bytes": 259746,
+      "sha256": "17217b0a3494e49b3fef6d6540d0e79d73a5f222cf5f52ddd54d259e4dac6028"
+    },
+    {
+      "file": "composer-collection-04-request-1.png",
+      "bytes": 238494,
+      "sha256": "77b3ce618e260baa45b29822b9ace9d5b976b41c0c1e295c33713533bc6009ec"
+    },
+    {
+      "file": "composer-collection-04-request-2.png",
+      "bytes": 250409,
+      "sha256": "520a198060264b7d1c3644539447abae1be921ee79d3a2fdd728b80a46308608"
+    },
+    {
+      "file": "composer-collection-05-switch-1.png",
+      "bytes": 250308,
+      "sha256": "55c75e15671c6f62ee6e7b4673925c3097bf6e3f90c1c97cd3ba0b39f29d79e7"
+    },
+    {
+      "file": "composer-collection-05-switch-2.png",
+      "bytes": 250409,
+      "sha256": "520a198060264b7d1c3644539447abae1be921ee79d3a2fdd728b80a46308608"
+    },
+    {
+      "file": "composer-collection-06-rename-folder.png",
+      "bytes": 252153,
+      "sha256": "8c88661e5c0a0ab9d83221e5a2559a55516473aca01c94e5f946732c6f7d2668"
+    },
+    {
+      "file": "composer-collection-07-reorder.png",
+      "bytes": 251382,
+      "sha256": "104f7c371067376fe983b529d57b0f49a37b94b46c1529572c987ef6d45e956b"
+    },
+    {
+      "file": "composer-collection-08-export.png",
+      "bytes": 58458,
+      "sha256": "dbdb451d2feae6824e671633bbee9623255c74e0b2fc200906f4e45fd6bbfe36"
+    },
+    {
+      "file": "composer-collection-09-open-import.png",
+      "bytes": 142554,
+      "sha256": "8f2e2973d0ba41cf36cf6b61043a3eab8b9011e75ab9421b884982904bfc48a1"
+    },
+    {
+      "file": "composer-collection-10-cancel-preview.png",
+      "bytes": 251382,
+      "sha256": "104f7c371067376fe983b529d57b0f49a37b94b46c1529572c987ef6d45e956b"
+    },
+    {
+      "file": "composer-collection-11-delete-request.png",
+      "bytes": 239931,
+      "sha256": "903c5a1b5cc53483c9e10c1a989d3b0a029432831b764336206fdc569d7b5e00"
+    },
+    {
+      "file": "composer-collection-12-delete-folder.png",
+      "bytes": 185146,
+      "sha256": "84f9d1d0188ceee5e26d475f6731cd776bce00a2e3bff2ad7382bea35ec1d145"
+    }
+  ]
+}

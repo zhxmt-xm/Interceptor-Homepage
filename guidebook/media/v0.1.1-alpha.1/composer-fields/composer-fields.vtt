@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:00.425 --> 00:00:03.405
+新建请求 / Create a request
+
+2
+00:00:03.405 --> 00:00:06.307
+添加 x-guide-toggle=enabled / Add the test Header
+
+3
+00:00:06.307 --> 00:00:09.256
+添加 guide=enabled / Add the test Query
+
+4
+00:00:09.256 --> 00:00:12.259
+重发并核对两个字段 / Send and verify both enabled fields
+
+5
+00:00:12.259 --> 00:00:15.063
+停用 Query 行 / Disable the Query row
+
+6
+00:00:15.063 --> 00:00:17.957
+停用 Header 行 / Disable the Header row
+
+7
+00:00:17.957 --> 00:00:20.857
+重发并确认字段未发送 / Send without the disabled fields
+
+8
+00:00:20.857 --> 00:00:23.706
+删除 Header 行 / Delete the Header row
+
+9
+00:00:23.706 --> 00:00:26.607
+删除 Query 行 / Delete the Query row
+
+10
+00:00:26.607 --> 00:00:29.960
+选择 POST 与 JSON / Select POST and JSON
+
+11
+00:00:29.960 --> 00:00:32.806
+Format JSON / Format JSON
+
+12
+00:00:32.806 --> 00:00:35.707
+发送并核对格式化后的 JSON / Send and verify formatted JSON
+
+13
+00:00:35.707 --> 00:00:38.607
+选择 Body None / Select Body None
+
+14
+00:00:38.607 --> 00:00:41.504
+发送空正文 / Send without a body
+
+15
+00:00:41.504 --> 00:00:44.457
+从 Recent sends 选择旧地址 / Select an earlier Recent send
+
+16
+00:00:44.457 --> 00:00:47.357
+核对没有恢复已删除字段或正文 / Check that fields and body were not restored

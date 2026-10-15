@@ -1,0 +1,363 @@
+{
+  "chapter": "breakpoints-response",
+  "title": {
+    "zh-CN": "逐步骤实操：响应 Header、Text 与 File 断点",
+    "en": "Recorded walkthrough: response Headers, Text and File"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned file-panel windows; no microphone",
+  "example": {
+    "rule": "Guide response breakpoint",
+    "path": "/guide/response",
+    "method": "POST",
+    "phase": "response",
+    "requestBody": "{\"request\":\"guide-response\"}",
+    "originBody": "{\"message\":\"origin-response\",\"orderId\":\"guide-response-001\"}",
+    "headerName": "x-guide-response",
+    "headerValue": "header-only-guide",
+    "textReplacement": "{\"message\":\"text-from-guide\",\"orderId\":\"guide-response-001\"}",
+    "fileName": "guide-response.json",
+    "fileBody": "{\n  \"message\": \"file-from-product\",\n  \"orderId\": \"guide-response-001\"\n}",
+    "origin": "http://127.0.0.1:59309/"
+  },
+  "duration": 115.708002736,
+  "video": "breakpoints-response.mp4",
+  "captions": "breakpoints-response.vtt",
+  "steps": [
+    {
+      "id": "01-source",
+      "title": "获取可保存的示例响应 / Fetch the source response",
+      "image": "breakpoints-response-01-source.png",
+      "seconds": 0.40564000699999814
+    },
+    {
+      "id": "02-select-source",
+      "title": "选中 source 请求 / Select the source request",
+      "image": "breakpoints-response-02-select-source.png",
+      "seconds": 3.264464891
+    },
+    {
+      "id": "03-response-body",
+      "title": "打开 Response 正文 / Open the Response body",
+      "image": "breakpoints-response-03-response-body.png",
+      "seconds": 6.2416624879999985
+    },
+    {
+      "id": "04-save-dialog",
+      "title": "Save body 保存 guide-response.json / Save body as guide-response.json",
+      "image": "breakpoints-response-04-save-dialog.png",
+      "seconds": 20.430111639999996
+    },
+    {
+      "id": "05-saved-body",
+      "title": "确认产品保存了完整正文 / Verify the product-saved body",
+      "image": "breakpoints-response-05-saved-body.png",
+      "seconds": 24.568329237999997
+    },
+    {
+      "id": "06-rules",
+      "title": "打开 Guide response breakpoint / Open the response Rule",
+      "image": "breakpoints-response-06-rules.png",
+      "seconds": 27.401321158
+    },
+    {
+      "id": "07-phase-menu",
+      "title": "展开断点阶段 / Open the breakpoint phase options",
+      "image": "breakpoints-response-07-phase-menu.png",
+      "seconds": 30.305651827000002
+    },
+    {
+      "id": "08-response-phase",
+      "title": "选择 response 阶段 / Select response phase",
+      "image": "breakpoints-response-08-response-phase.png",
+      "seconds": 33.200959000999994
+    },
+    {
+      "id": "09-apply",
+      "title": "Apply 响应断点 / Apply the response breakpoint",
+      "image": "breakpoints-response-09-apply.png",
+      "seconds": 36.051179385999994
+    },
+    {
+      "id": "10-capture",
+      "title": "返回 Capture / Return to Capture",
+      "image": "breakpoints-response-10-capture.png",
+      "seconds": 38.953387728
+    },
+    {
+      "id": "11-header-paused",
+      "title": "发出 header-only 并等待响应 / Pause the header-only response",
+      "image": "breakpoints-response-11-header-paused.png",
+      "seconds": 41.862097989
+    },
+    {
+      "id": "12-select-header",
+      "title": "选中响应断点 / Select the paused response",
+      "image": "breakpoints-response-12-select-header.png",
+      "seconds": 44.752347655
+    },
+    {
+      "id": "13-body-off",
+      "title": "保持 Body Off / Keep body replacement Off",
+      "image": "breakpoints-response-13-body-off.png",
+      "seconds": 47.809675202
+    },
+    {
+      "id": "14-header-value",
+      "title": "仅修改 x-guide-response / Edit only x-guide-response",
+      "image": "breakpoints-response-14-header-value.png",
+      "seconds": 50.907842210999995
+    },
+    {
+      "id": "15-header-forward",
+      "title": "Forward edited，正文保持原样 / Forward the Header edit without changing body",
+      "image": "breakpoints-response-15-header-forward.png",
+      "seconds": 54.161024609
+    },
+    {
+      "id": "16-text-paused",
+      "title": "发出 Text 示例响应 / Pause the Text example response",
+      "image": "breakpoints-response-16-text-paused.png",
+      "seconds": 57.20337180399999
+    },
+    {
+      "id": "17-select-text",
+      "title": "选中 Text 示例 / Select the Text example",
+      "image": "breakpoints-response-17-select-text.png",
+      "seconds": 60.066229070999995
+    },
+    {
+      "id": "18-text-mode",
+      "title": "选择 Text / Choose Text replacement",
+      "image": "breakpoints-response-18-text-mode.png",
+      "seconds": 63.109777151
+    },
+    {
+      "id": "19-text-value",
+      "title": "输入 text-from-guide / Enter text-from-guide",
+      "image": "breakpoints-response-19-text-value.png",
+      "seconds": 66.316264577
+    },
+    {
+      "id": "20-text-forward",
+      "title": "Forward edited，核对 Text 字节 / Forward and verify the Text bytes",
+      "image": "breakpoints-response-20-text-forward.png",
+      "seconds": 69.509960536
+    },
+    {
+      "id": "21-file-paused",
+      "title": "发出 File 示例响应 / Pause the File example response",
+      "image": "breakpoints-response-21-file-paused.png",
+      "seconds": 72.555289408
+    },
+    {
+      "id": "22-select-file",
+      "title": "选中 File 示例 / Select the File example",
+      "image": "breakpoints-response-22-select-file.png",
+      "seconds": 75.505939176
+    },
+    {
+      "id": "23-file-mode",
+      "title": "选择 File / Choose File replacement",
+      "image": "breakpoints-response-23-file-mode.png",
+      "seconds": 78.66051632
+    },
+    {
+      "id": "24-open-dialog",
+      "title": "选择产品保存的 guide-response.json / Select the product-saved guide-response.json",
+      "image": "breakpoints-response-24-open-dialog.png",
+      "seconds": 95.514952869
+    },
+    {
+      "id": "25-file-preview",
+      "title": "折叠响应头，完整查看文件预览 / Collapse Headers to read the File preview",
+      "image": "breakpoints-response-25-file-preview.png",
+      "seconds": 100.572071609
+    },
+    {
+      "id": "26-file-forward",
+      "title": "Forward edited，核对完整文件字节 / Forward and verify the complete file bytes",
+      "image": "breakpoints-response-26-file-forward.png",
+      "seconds": 103.959994216
+    },
+    {
+      "id": "27-cleanup-rule",
+      "title": "返回响应规则 / Return to the response Rule",
+      "image": "breakpoints-response-27-cleanup-rule.png",
+      "seconds": 107.10743265400001
+    },
+    {
+      "id": "28-disable",
+      "title": "停用响应断点 / Disable the response breakpoint",
+      "image": "breakpoints-response-28-disable.png",
+      "seconds": 110.00629965499999
+    },
+    {
+      "id": "29-apply-disabled",
+      "title": "Apply 停用状态 / Apply the disabled state",
+      "image": "breakpoints-response-29-apply-disabled.png",
+      "seconds": 112.855137187
+    }
+  ],
+  "assets": [
+    {
+      "file": "breakpoints-response.mp4",
+      "bytes": 834766,
+      "sha256": "7d570761d18ee2192d075562d18cb5b6a98f5565b3164efbc26ffef21b447891"
+    },
+    {
+      "file": "breakpoints-response.vtt",
+      "bytes": 2638,
+      "sha256": "6d6322f229ee071e1ebd371c4d585768b250f1de564af04adf53186ca8f603e6"
+    },
+    {
+      "file": "breakpoints-response-01-source.png",
+      "bytes": 229599,
+      "sha256": "bbdbfdc35261f9294036778527e0a2d9085c69ca72dd7300814e0f44ed87f547"
+    },
+    {
+      "file": "breakpoints-response-02-select-source.png",
+      "bytes": 367537,
+      "sha256": "47c64f03e7bcdee6f9aaf905cdd7300feb20cdc04fbefaeaf5cf76b1a953954b"
+    },
+    {
+      "file": "breakpoints-response-03-response-body.png",
+      "bytes": 293413,
+      "sha256": "67e0048fbce6df17355431caef4370d50715677aeb4409dffd3956ba02031cc9"
+    },
+    {
+      "file": "breakpoints-response-04-save-dialog.png",
+      "bytes": 55159,
+      "sha256": "8d8cd3ca92a8f1322c1458ed60b3bf5c9c45bda88497a6263fc64fcdfc6a7858"
+    },
+    {
+      "file": "breakpoints-response-05-saved-body.png",
+      "bytes": 292354,
+      "sha256": "c73be11fcee2d2c8c845d59f51375e570e8e6d67db8a93105357970d04de76d0"
+    },
+    {
+      "file": "breakpoints-response-06-rules.png",
+      "bytes": 259238,
+      "sha256": "b561a627597246fdd79d7cc28bee74644a5189a410af3528c15cbf55775f793a"
+    },
+    {
+      "file": "breakpoints-response-07-phase-menu.png",
+      "bytes": 283226,
+      "sha256": "6b6a696437e7b8ca749bfa16dc89ac28c4d3201c1179908cfb34372b54e04053"
+    },
+    {
+      "file": "breakpoints-response-08-response-phase.png",
+      "bytes": 262682,
+      "sha256": "ca294c224cc83dd5f416602b8c50e08fadda20aba51d26f346d28bc94a8d6134"
+    },
+    {
+      "file": "breakpoints-response-09-apply.png",
+      "bytes": 259447,
+      "sha256": "0b140d7b846d06861eedb7086bf309816138f93d9391186e604d819200717a97"
+    },
+    {
+      "file": "breakpoints-response-10-capture.png",
+      "bytes": 292349,
+      "sha256": "e9da3f1d8f9f01d2558f09e4012c6f00fb1475737b14cb8de33dcf2f0bd876e6"
+    },
+    {
+      "file": "breakpoints-response-11-header-paused.png",
+      "bytes": 294683,
+      "sha256": "e6a6527758e24ec63c40f63e3ba8c38acd3b0771e5f214478a3f5c4b634fb499"
+    },
+    {
+      "file": "breakpoints-response-12-select-header.png",
+      "bytes": 376863,
+      "sha256": "43a041f99f9a15621d1560dfc02ed37b90b627697390533f249967a6732168d8"
+    },
+    {
+      "file": "breakpoints-response-13-body-off.png",
+      "bytes": 386094,
+      "sha256": "16c0309fb55146bb1eb48f258b1eba3c58134e4a88d4e6c18d6d7c35b87bb62c"
+    },
+    {
+      "file": "breakpoints-response-14-header-value.png",
+      "bytes": 389288,
+      "sha256": "16e873e6781f02adf377dd7ce2ce79ed159ce9494922e76dd361bd53a597ae31"
+    },
+    {
+      "file": "breakpoints-response-15-header-forward.png",
+      "bytes": 312445,
+      "sha256": "fb0689f2861435f87e7f8dd785feefdb0977a51bbb68891e929dd16d7a182d8d"
+    },
+    {
+      "file": "breakpoints-response-16-text-paused.png",
+      "bytes": 311394,
+      "sha256": "7e4d742fb67b3a55121f2bc93955a7ae7c279e7399f233a7c0df83b8d4eed7b7"
+    },
+    {
+      "file": "breakpoints-response-17-select-text.png",
+      "bytes": 393056,
+      "sha256": "d17377da9911d702804076005c0bf55374b1c79a79c2a81983f95b40be0f815c"
+    },
+    {
+      "file": "breakpoints-response-18-text-mode.png",
+      "bytes": 414450,
+      "sha256": "bf08e67e5b6a0c77305333a7c2b4d8fa9a0a57e8d87d0cf58740356815a2283d"
+    },
+    {
+      "file": "breakpoints-response-19-text-value.png",
+      "bytes": 405682,
+      "sha256": "e3c3e90153b1d5f07c3bedc6cccdea2fc088ea0dfa853fa22a1efa095bef2885"
+    },
+    {
+      "file": "breakpoints-response-20-text-forward.png",
+      "bytes": 351212,
+      "sha256": "cf6a15c304ee4d538b846d457f7f26cab0b06e187bde9f44067dd7d42f974548"
+    },
+    {
+      "file": "breakpoints-response-21-file-paused.png",
+      "bytes": 354065,
+      "sha256": "aabb341e8209062bdcc943c0631185db4233647119ea307f666d468d45d571c5"
+    },
+    {
+      "file": "breakpoints-response-22-select-file.png",
+      "bytes": 409125,
+      "sha256": "83710f63958987dcd2964e9491a14700ed33623a6f0365776c61f85b053977f5"
+    },
+    {
+      "file": "breakpoints-response-23-file-mode.png",
+      "bytes": 416139,
+      "sha256": "99193f53eb9349ceba35e689ac14e4bec9b5fe5a026c2bdb270dca2cd5113607"
+    },
+    {
+      "file": "breakpoints-response-24-open-dialog.png",
+      "bytes": 139900,
+      "sha256": "78e20522b81eab56a84e3217639b679e9a5c64a906f48ab531b9687b4691bac9"
+    },
+    {
+      "file": "breakpoints-response-25-file-preview.png",
+      "bytes": 394785,
+      "sha256": "0c4af5afc2bafe3eb3adacea9c0242847f05c118f666581589ea022ff30b4f0f"
+    },
+    {
+      "file": "breakpoints-response-26-file-forward.png",
+      "bytes": 365634,
+      "sha256": "a8541316be45ac0f358eb2383f5e086bd2c8f79a70bfd8bbc83ceae1f06d1da0"
+    },
+    {
+      "file": "breakpoints-response-27-cleanup-rule.png",
+      "bytes": 259542,
+      "sha256": "4c9c32f6580a3c88b39066ed4fbd56685518c453c926490d4da8745f5da16276"
+    },
+    {
+      "file": "breakpoints-response-28-disable.png",
+      "bytes": 261963,
+      "sha256": "9f13da3a27cb6040569bee111cb92600fda46a6963c9d4df92cd0f6390a64815"
+    },
+    {
+      "file": "breakpoints-response-29-apply-disabled.png",
+      "bytes": 257930,
+      "sha256": "db17fcee477e737e13e3895dbecbbf1c1023d18e3374635b8a13c63921871d97"
+    }
+  ]
+}

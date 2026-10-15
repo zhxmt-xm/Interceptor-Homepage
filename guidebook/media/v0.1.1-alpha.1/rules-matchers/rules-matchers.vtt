@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:00.402 --> 00:00:03.304
+打开 Rules / Open Rules
+
+2
+00:00:03.304 --> 00:00:06.306
+新建 Guide matchers / Create Guide matchers
+
+3
+00:00:06.306 --> 00:00:09.101
+Host 为 127.0.0.1 / Set Host to 127.0.0.1
+
+4
+00:00:09.101 --> 00:00:12.303
+添加 Method / Add Method
+
+5
+00:00:12.303 --> 00:00:15.109
+Method 为 GET / Set Method to GET
+
+6
+00:00:15.109 --> 00:00:18.352
+添加 Path / Add Path
+
+7
+00:00:18.352 --> 00:00:21.203
+填写接口 Path / Enter the endpoint Path
+
+8
+00:00:21.203 --> 00:00:24.453
+添加 URL / Add URL
+
+9
+00:00:24.453 --> 00:00:27.304
+填写完整演示 URL / Enter the complete example URL
+
+10
+00:00:27.304 --> 00:00:30.503
+添加 Query / Add Query
+
+11
+00:00:30.503 --> 00:00:33.403
+Query 为 guide=matcher-demo / Set the Query pair
+
+12
+00:00:33.403 --> 00:00:36.602
+添加 Header / Add Header
+
+13
+00:00:36.602 --> 00:00:39.604
+Header 为 x-guide-match=yes / Set the request Header pair
+
+14
+00:00:39.604 --> 00:00:42.904
+添加 Status / Add Status
+
+15
+00:00:42.904 --> 00:00:45.762
+状态范围 200 到 200 / Set range 200 to 200
+
+16
+00:00:45.762 --> 00:00:49.055
+添加 MIME / Add MIME
+
+17
+00:00:49.055 --> 00:00:51.962
+Response MIME 为 application/json / Set the response MIME
+
+18
+00:00:51.962 --> 00:00:55.154
+响应阶段改写 Header / Select response Header editing
+
+19
+00:00:55.154 --> 00:00:58.003
+填写 x-interceptor-guide / Enter the effect Header name
+
+20
+00:00:58.003 --> 00:01:00.853
+填写 matcher-demo / Enter the effect value
+
+21
+00:01:00.853 --> 00:01:03.703
+启用完整规则 / Enable the complete Rule
+
+22
+00:01:03.703 --> 00:01:06.655
+Apply / Apply
+
+23
+00:01:06.655 --> 00:01:10.104
+发送满足全部条件的 GET / Send a GET satisfying every condition
+
+24
+00:01:10.104 --> 00:01:12.954
+POST 不满足 Method / A POST does not satisfy Method

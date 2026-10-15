@@ -1,0 +1,57 @@
+WEBVTT
+
+1
+00:00:00.334 --> 00:00:03.189
+打开 Rules / Open Rules
+
+2
+00:00:03.189 --> 00:00:06.087
+新建规则 / Create a Rule
+
+3
+00:00:06.087 --> 00:00:08.939
+命名 Guide test header / Name the Rule
+
+4
+00:00:08.939 --> 00:00:11.789
+限制 Host 为 127.0.0.1 / Restrict the host
+
+5
+00:00:11.789 --> 00:00:14.991
+添加 Path 条件 / Add a Path matcher
+
+6
+00:00:14.991 --> 00:00:17.798
+填写 /guide/rules/order / Enter the test path
+
+7
+00:00:17.798 --> 00:00:20.587
+填写 x-interceptor-guide / Enter the header name
+
+8
+00:00:20.587 --> 00:00:23.388
+填写 rules-demo / Enter the header value
+
+9
+00:00:23.388 --> 00:00:26.195
+启用规则 / Enable the Rule
+
+10
+00:00:26.195 --> 00:00:29.037
+应用规则 / Apply the Rule
+
+11
+00:00:29.037 --> 00:00:33.695
+发送匹配请求 / Send a matching request
+
+12
+00:00:33.695 --> 00:00:36.839
+在 Capture 核对实际结果 / Inspect the actual Capture result
+
+13
+00:00:36.839 --> 00:00:39.837
+核对非匹配请求不受影响 / Verify an unmatched request
+
+14
+00:00:39.837 --> 00:00:42.839
+停用规则并 Apply / Disable and Apply

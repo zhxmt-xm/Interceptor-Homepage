@@ -167,12 +167,11 @@ export const chinese: typeof english = {
     quickBody: '设置代理、检查 HTTPS、找到第一个请求，以及结束后的恢复方式，都在项目 README 中。',
     quickAction: '阅读快速开始',
     guide: '完整使用指南。',
-    guideBody:
-      '中文教程初稿现已可阅读。按功能查找操作步骤和使用限制，真实产品截图与视频将继续补充。',
+    guideBody: '中英教程初稿均可阅读。按功能查找操作步骤、真实步骤图和明确的使用限制。',
     guideAction: '阅读教程',
     video: '看看它是如何工作的。',
-    videoBody: '真实操作视频录制完成，并与发布版本核对后，会在这里提供各功能的演示入口。',
-    pending: '准备中',
+    videoBody: '跟着真实产品录制操作，对照相同示例值、步骤图和字幕；每段演示标明版本与适用范围。',
+    videoAction: '查看操作视频',
     access: '当前快速开始文档位于私有产品仓库。',
   },
   faq: {

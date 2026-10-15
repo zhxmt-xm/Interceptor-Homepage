@@ -1,0 +1,117 @@
+WEBVTT
+
+1
+00:00:00.404 --> 00:00:03.248
+建立文本示例连接 / Connect the text example client
+
+2
+00:00:03.248 --> 00:00:06.248
+选中 WebSocket 连接 / Select the WebSocket connection
+
+3
+00:00:06.248 --> 00:00:09.096
+打开 Messages / Open Messages
+
+4
+00:00:09.096 --> 00:00:11.998
+打开连接断点设置 / Open connection breakpoint settings
+
+5
+00:00:11.998 --> 00:00:14.897
+选择 Sent，仅暂停发送消息 / Choose Sent messages
+
+6
+00:00:14.897 --> 00:00:17.747
+启用 Sent 文本断点 / Enable Sent message breakpoints
+
+7
+00:00:17.747 --> 00:00:20.847
+发送 hello-original 并暂停 / Pause hello-original
+
+8
+00:00:20.847 --> 00:00:23.697
+Continue unmodified 原样发送 / Continue the sent text unmodified
+
+9
+00:00:23.697 --> 00:00:26.659
+发送 edit-this 并暂停 / Pause edit-this
+
+10
+00:00:26.659 --> 00:00:29.547
+选择发送帧的 Text / Choose Text for the sent frame
+
+11
+00:00:29.547 --> 00:00:32.398
+输入 edited-by-guide / Enter edited-by-guide
+
+12
+00:00:32.398 --> 00:00:35.299
+Forward edited，核对源站和echo / Forward the edited text and verify its echo
+
+13
+00:00:35.299 --> 00:00:38.246
+发送 do-not-forward 并暂停 / Pause do-not-forward
+
+14
+00:00:38.246 --> 00:00:41.109
+Drop 发送帧 / Drop the sent frame
+
+15
+00:00:41.109 --> 00:00:43.946
+停用 Sent 设置 / Disable the Sent configuration
+
+16
+00:00:43.946 --> 00:00:46.807
+重新打开连接设置 / Reopen connection settings
+
+17
+00:00:46.807 --> 00:00:49.698
+选择 Received / Choose Received messages
+
+18
+00:00:49.698 --> 00:00:52.548
+启用 Received 文本断点 / Enable Received message breakpoints
+
+19
+00:00:52.548 --> 00:00:55.495
+源站发送 server-original / Pause server-original from the origin
+
+20
+00:00:55.495 --> 00:00:58.347
+Continue unmodified 原样接收 / Continue the received text unmodified
+
+21
+00:00:58.347 --> 00:01:01.400
+源站发送 server-edit-this / Pause server-edit-this
+
+22
+00:01:01.400 --> 00:01:04.250
+选择接收帧的 Text / Choose Text for the received frame
+
+23
+00:01:04.250 --> 00:01:07.098
+输入 server-edited-by-guide / Enter server-edited-by-guide
+
+24
+00:01:07.098 --> 00:01:09.948
+Forward edited，客户端收到替换文本 / Forward the replacement to the client
+
+25
+00:01:09.948 --> 00:01:12.897
+源站发送 server-do-not-forward / Pause server-do-not-forward
+
+26
+00:01:12.897 --> 00:01:15.746
+Drop 接收帧 / Drop the received frame
+
+27
+00:01:15.746 --> 00:01:18.596
+关闭连接断点 / Disable connection breakpoints
+
+28
+00:01:18.596 --> 00:01:21.357
+核对关闭后正常echo / Verify normal echo after disabling
+
+29
+00:01:21.357 --> 00:01:24.247
+正常关闭示例连接 / Close the example connection normally

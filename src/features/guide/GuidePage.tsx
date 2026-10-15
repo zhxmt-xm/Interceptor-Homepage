@@ -1,18 +1,22 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../components/Icon/Icon';
 import type { Locale } from '../../content';
-import { GUIDE_CHAPTERS, GUIDE_UI, type GuidePageId, guideHref } from '../../content/guidebook';
+import {
+  GUIDE_CHAPTERS,
+  GUIDE_LANGUAGE,
+  GUIDE_UI,
+  type GuidePageId,
+  guideHref,
+} from '../../content/guidebook';
 import GuideArticle from './GuideArticle';
 import GuideOutline from './GuideOutline';
 import GuideOverview from './GuideOverview';
 import styles from './GuidePage.module.css';
 import GuideSidebar from './GuideSidebar';
-import { type GuideHeading, readGuideDocument } from './utils';
+import { readGuideDocument } from './utils';
 
 export default function GuidePage({ page, locale }: { page: GuidePageId; locale: Locale }) {
-  const [headings, setHeadings] = useState<GuideHeading[]>([]);
-  const document = readGuideDocument(page);
+  const document = readGuideDocument(page, locale);
   const chapter = GUIDE_CHAPTERS.find((item) => item.slug === page);
   const index = GUIDE_CHAPTERS.findIndex((item) => item.slug === page);
   const previous = index > 0 ? GUIDE_CHAPTERS[index - 1] : undefined;
@@ -35,16 +39,14 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
           {!overview && (
             <>
               <span>/</span>
-              <span lang="zh-CN">{chapter?.label}</span>
+              <span>{chapter?.label[locale]}</span>
             </>
           )}
         </div>
         <p className={styles.eyebrow}>{copy.eyebrow}</p>
-        <h1 lang={overview ? undefined : 'zh-CN'}>
-          {overview ? copy.overviewTitle : document.title}
-        </h1>
-        <p className={styles.lead} lang={overview ? undefined : 'zh-CN'}>
-          {overview ? copy.overviewSummary : chapter?.summary}
+        <h1 lang={GUIDE_LANGUAGE[locale]}>{overview ? copy.overviewTitle : document.title}</h1>
+        <p className={styles.lead} lang={GUIDE_LANGUAGE[locale]}>
+          {overview ? copy.overviewSummary : chapter?.summary[locale]}
         </p>
         <div className={styles.notice} data-automation-id="guide.draft">
           <Icon name="info" size={16} />
@@ -53,18 +55,13 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
           </p>
         </div>
         {overview && <GuideOverview locale={locale} />}
-        <GuideArticle
-          page={page}
-          markdown={document.body}
-          locale={locale}
-          onHeadings={setHeadings}
-        />
+        <GuideArticle key={`${locale}/${page}`} page={page} document={document} locale={locale} />
         {!overview && (
           <nav className={styles.pagination} aria-label={copy.directory}>
             {previous ? (
               <Link to={guideHref(previous.slug, locale)}>
                 <small>{copy.previous}</small>
-                <span lang="zh-CN">← {previous.label}</span>
+                <span>← {previous.label[locale]}</span>
               </Link>
             ) : (
               <Link to={guideHref('overview', locale)}>{copy.directory}</Link>
@@ -72,13 +69,13 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
             {next && (
               <Link to={guideHref(next.slug, locale)}>
                 <small>{copy.next}</small>
-                <span lang="zh-CN">{next.label} →</span>
+                <span>{next.label[locale]} →</span>
               </Link>
             )}
           </nav>
         )}
       </div>
-      {!overview && <GuideOutline headings={headings} locale={locale} />}
+      {!overview && <GuideOutline headings={document.headings} locale={locale} />}
     </main>
   );
 }

@@ -1,0 +1,285 @@
+{
+  "chapter": "mcp",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "clientName": "Guide local client",
+    "endpoint": "http://127.0.0.1:65443/mcp",
+    "endpointChanged": "false",
+    "caller": "official SDK local demonstration; not a VS Code or cloud-host compatibility claim"
+  },
+  "duration": 68.234329616,
+  "video": "mcp.mp4",
+  "captions": "mcp.vtt",
+  "steps": [
+    {
+      "id": "01-settings",
+      "title": "打开 Settings / Open Settings",
+      "image": "mcp-01-settings.png",
+      "seconds": 0.4211329249999999
+    },
+    {
+      "id": "02-mcp",
+      "title": "找到 MCP Server / Find MCP Server",
+      "image": "mcp-02-mcp.png",
+      "seconds": 3.2751960700000016
+    },
+    {
+      "id": "03-enable",
+      "title": "开启本机 MCP Server / Enable the local MCP Server",
+      "image": "mcp-03-enable.png",
+      "seconds": 6.417080012999999
+    },
+    {
+      "id": "04-add-client",
+      "title": "添加独立 Client / Add a separate Client",
+      "image": "mcp-04-add-client.png",
+      "seconds": 9.32692354
+    },
+    {
+      "id": "05-name",
+      "title": "输入 Guide local client / Name the Client",
+      "image": "mcp-05-name.png",
+      "seconds": 12.266196372000001
+    },
+    {
+      "id": "06-create",
+      "title": "创建 Client / Create the Client",
+      "image": "mcp-06-create.png",
+      "seconds": 15.117462396999999
+    },
+    {
+      "id": "07-copy",
+      "title": "复制配置，不展示凭据 / Copy configuration without displaying credentials",
+      "image": "mcp-07-copy.png",
+      "seconds": 18.067475686999998
+    },
+    {
+      "id": "08-query",
+      "title": "演示客户端连接并查询 / Connect the demo client and query",
+      "image": "mcp-08-query.png",
+      "seconds": 21.367823531000003
+    },
+    {
+      "id": "09-ask",
+      "title": "发起需要审批的操作 / Request an operation requiring approval",
+      "image": "mcp-09-ask.png",
+      "seconds": 24.367106581
+    },
+    {
+      "id": "10-deny",
+      "title": "拒绝一次操作 / Deny the operation",
+      "image": "mcp-10-deny.png",
+      "seconds": 27.277512812
+    },
+    {
+      "id": "11-ask-again",
+      "title": "再次请求并检查影响 / Request again and review effects",
+      "image": "mcp-11-ask-again.png",
+      "seconds": 30.16768987
+    },
+    {
+      "id": "12-allow",
+      "title": "允许暂停录制 / Allow pausing Recording",
+      "image": "mcp-12-allow.png",
+      "seconds": 33.016815882
+    },
+    {
+      "id": "13-auto",
+      "title": "查看 Client 的 Auto 模式 / Inspect Client Auto mode",
+      "image": "mcp-13-auto.png",
+      "seconds": 35.917453342
+    },
+    {
+      "id": "14-ask-mode",
+      "title": "恢复 Client 的 Ask / Restore Client Ask",
+      "image": "mcp-14-ask-mode.png",
+      "seconds": 38.867601999
+    },
+    {
+      "id": "14a-regenerate-dialog",
+      "title": "检查轮换凭据确认 / Review credential rotation",
+      "image": "mcp-14a-regenerate-dialog.png",
+      "seconds": 41.716341482000004
+    },
+    {
+      "id": "14b-regenerate",
+      "title": "轮换凭据并验证旧配置失效 / Rotate and verify old configuration is rejected",
+      "image": "mcp-14b-regenerate.png",
+      "seconds": 44.61781677
+    },
+    {
+      "id": "14c-update-client",
+      "title": "复制新配置并重新连接 / Copy new configuration and reconnect",
+      "image": "mcp-14c-update-client.png",
+      "seconds": 47.567837286
+    },
+    {
+      "id": "15-revoke-dialog",
+      "title": "查看撤销 Client 的确认 / Review Client revocation",
+      "image": "mcp-15-revoke-dialog.png",
+      "seconds": 50.666184801
+    },
+    {
+      "id": "16-revoke",
+      "title": "撤销演示 Client / Revoke the demo Client",
+      "image": "mcp-16-revoke.png",
+      "seconds": 53.567577084
+    },
+    {
+      "id": "17-disable",
+      "title": "关闭 MCP Server / Disable MCP Server",
+      "image": "mcp-17-disable.png",
+      "seconds": 56.467693436
+    },
+    {
+      "id": "18-port-conflict",
+      "title": "观察端口冲突提示 / Observe an endpoint conflict",
+      "image": "mcp-18-port-conflict.png",
+      "seconds": 59.418069540000005
+    },
+    {
+      "id": "19-release-port",
+      "title": "结束已知占用后重试 / Retry after ending the known port owner",
+      "image": "mcp-19-release-port.png",
+      "seconds": 62.36773177999999
+    },
+    {
+      "id": "20-final-disable",
+      "title": "结束演示并关闭 Server / Finish by disabling the Server",
+      "image": "mcp-20-final-disable.png",
+      "seconds": 65.318776083
+    }
+  ],
+  "assets": [
+    {
+      "file": "mcp.mp4",
+      "bytes": 616807,
+      "sha256": "fb76df772ca7d565f1d86198d387a60f63adabbd6bd07595cfcb9472212afa7f"
+    },
+    {
+      "file": "mcp.vtt",
+      "bytes": 2032,
+      "sha256": "e49bacec03fc69110a30bde524fda0d1fef9249fece5826e0065646182d4a8a6"
+    },
+    {
+      "file": "mcp-01-settings.png",
+      "bytes": 362710,
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+    },
+    {
+      "file": "mcp-02-mcp.png",
+      "bytes": 429844,
+      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b"
+    },
+    {
+      "file": "mcp-03-enable.png",
+      "bytes": 435336,
+      "sha256": "71cee0372c846292d645f064a11c794e71e38274f1495cfd48f9cd06115fcd22"
+    },
+    {
+      "file": "mcp-04-add-client.png",
+      "bytes": 385729,
+      "sha256": "6e81b2f2e9fe4e5031d312cd6e9b1ee4bd3f9de7dde9a7d088910a9a110ac0f9"
+    },
+    {
+      "file": "mcp-05-name.png",
+      "bytes": 386804,
+      "sha256": "f6a580b01232d885f5d1ef7caafb60d840f485e66315ba2b94dbf72efebe9883"
+    },
+    {
+      "file": "mcp-06-create.png",
+      "bytes": 436162,
+      "sha256": "fe08eb099a30383615f3876270fe85c7fe45204a04095f899de955db9eb90355"
+    },
+    {
+      "file": "mcp-07-copy.png",
+      "bytes": 452936,
+      "sha256": "af9dcfdd4c0fadb43c840431bd1b24b9c41a3b20fe447f1e050f1e9ddc9fa938"
+    },
+    {
+      "file": "mcp-08-query.png",
+      "bytes": 452936,
+      "sha256": "af9dcfdd4c0fadb43c840431bd1b24b9c41a3b20fe447f1e050f1e9ddc9fa938"
+    },
+    {
+      "file": "mcp-09-ask.png",
+      "bytes": 398208,
+      "sha256": "f9d9e8da80df940d9ed862143c561e0ada48beffef00b7755a6c09cb1d545f93"
+    },
+    {
+      "file": "mcp-10-deny.png",
+      "bytes": 436162,
+      "sha256": "fe08eb099a30383615f3876270fe85c7fe45204a04095f899de955db9eb90355"
+    },
+    {
+      "file": "mcp-11-ask-again.png",
+      "bytes": 398233,
+      "sha256": "100bc2ff7115c41d63e080a96d4c20f5c27194ea86a9088c0b6ba2fe2577a31e"
+    },
+    {
+      "file": "mcp-12-allow.png",
+      "bytes": 436270,
+      "sha256": "9871d9030365b3d13c77ba14424acc904196fb619537950772477c6ef0949e16"
+    },
+    {
+      "file": "mcp-13-auto.png",
+      "bytes": 436129,
+      "sha256": "995e69fd533e0c1b3498b1aac56ed67a37f9a0f4d008899b2ed10d7152f325a4"
+    },
+    {
+      "file": "mcp-14-ask-mode.png",
+      "bytes": 436162,
+      "sha256": "fe08eb099a30383615f3876270fe85c7fe45204a04095f899de955db9eb90355"
+    },
+    {
+      "file": "mcp-14a-regenerate-dialog.png",
+      "bytes": 384480,
+      "sha256": "d00b14c4b4a57089272833b5a8e3f87c88ea2f6df22b60526cc6c5d7c2bcb760"
+    },
+    {
+      "file": "mcp-14b-regenerate.png",
+      "bytes": 436162,
+      "sha256": "fe08eb099a30383615f3876270fe85c7fe45204a04095f899de955db9eb90355"
+    },
+    {
+      "file": "mcp-14c-update-client.png",
+      "bytes": 452936,
+      "sha256": "af9dcfdd4c0fadb43c840431bd1b24b9c41a3b20fe447f1e050f1e9ddc9fa938"
+    },
+    {
+      "file": "mcp-15-revoke-dialog.png",
+      "bytes": 383196,
+      "sha256": "eb841ad02a8af220d105a18e49c30ae102110e1008327f953d5ddcc0c96b5655"
+    },
+    {
+      "file": "mcp-16-revoke.png",
+      "bytes": 435328,
+      "sha256": "64028900dc9c53fc3dc5973c59d31de0192c2a7307a8bd06c905a80fed7136b1"
+    },
+    {
+      "file": "mcp-17-disable.png",
+      "bytes": 435169,
+      "sha256": "42d684502f3537556e26bdf2d048f26cb0a4395f445958b5f4f5a7060213cb79"
+    },
+    {
+      "file": "mcp-18-port-conflict.png",
+      "bytes": 442259,
+      "sha256": "a4471238e16c34f94baa11b120becb780d088adf4867399342917bc9d71cdc56"
+    },
+    {
+      "file": "mcp-19-release-port.png",
+      "bytes": 435336,
+      "sha256": "71cee0372c846292d645f064a11c794e71e38274f1495cfd48f9cd06115fcd22"
+    },
+    {
+      "file": "mcp-20-final-disable.png",
+      "bytes": 435169,
+      "sha256": "42d684502f3537556e26bdf2d048f26cb0a4395f445958b5f4f5a7060213cb79"
+    }
+  ]
+}

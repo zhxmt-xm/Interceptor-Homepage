@@ -1,0 +1,117 @@
+WEBVTT
+
+1
+00:00:00.391 --> 00:00:03.238
+查看两条 Method 规则 / Review the two Method Rules
+
+2
+00:00:03.238 --> 00:00:06.042
+查看 Guide POST queue / Inspect Guide POST queue
+
+3
+00:00:06.042 --> 00:00:08.886
+查看 Guide PUT queue / Inspect Guide PUT queue
+
+4
+00:00:08.886 --> 00:00:11.737
+返回 Capture / Return to Capture
+
+5
+00:00:11.737 --> 00:00:14.586
+发送 POST-A，成为 Head / Send POST-A as the Head
+
+6
+00:00:14.586 --> 00:00:17.440
+发送 POST-B，进入 Queued / Send POST-B into Queued
+
+7
+00:00:17.440 --> 00:00:20.348
+发送 PUT-A，HTTP 队列共三项 / Send PUT-A into the same HTTP queue
+
+8
+00:00:20.348 --> 00:00:23.490
+选中 POST-A 队首 / Select the POST-A Head
+
+9
+00:00:23.490 --> 00:00:26.340
+为队首选择 Text / Choose Text for the Head draft
+
+10
+00:00:26.340 --> 00:00:29.191
+输入未提交草稿 / Enter an unsubmitted draft
+
+11
+00:00:29.191 --> 00:00:32.196
+切到 POST-B，只读 Queued / Inspect POST-B as read-only Queued
+
+12
+00:00:32.196 --> 00:00:35.093
+切到 PUT-A，仍在等待 / Inspect PUT-A while it waits
+
+13
+00:00:35.093 --> 00:00:38.092
+回到 Head，草稿保持 / Return to the Head with its draft intact
+
+14
+00:00:38.092 --> 00:00:41.096
+展开批量操作菜单 / Open the batch actions menu
+
+15
+00:00:41.096 --> 00:00:44.248
+Continue rule 仅放行 POST，PUT 保留 / Continue the POST Rule and leave PUT pending
+
+16
+00:00:44.248 --> 00:00:47.145
+加入 PUT-B / Add PUT-B to the remaining queue
+
+17
+00:00:47.145 --> 00:00:50.096
+展开 PUT 队列菜单 / Open the PUT queue menu
+
+18
+00:00:50.096 --> 00:00:53.103
+Drop queue 丢弃剩余两项 / Drop both remaining HTTP items
+
+19
+00:00:53.103 --> 00:00:55.995
+建立新 POST 队首 / Start a new POST Head
+
+20
+00:00:55.995 --> 00:00:58.897
+把 PUT 加入同一 HTTP 队列 / Add PUT to the same HTTP queue
+
+21
+00:00:58.897 --> 00:01:01.807
+选中新队首 / Select the new Head
+
+22
+00:01:01.807 --> 00:01:04.747
+展开整个队列的菜单 / Open the whole-queue menu
+
+23
+00:01:04.747 --> 00:01:07.796
+Continue queue 原样放行 POST 和 PUT / Continue both Methods without edits
+
+24
+00:01:07.796 --> 00:01:10.696
+返回 Rules 清理 / Return to Rules for cleanup
+
+25
+00:01:10.696 --> 00:01:13.499
+选中 POST 规则 / Select the POST Rule
+
+26
+00:01:13.499 --> 00:01:16.347
+停用 POST 规则 / Disable the POST Rule
+
+27
+00:01:16.347 --> 00:01:19.195
+选中 PUT 规则 / Select the PUT Rule
+
+28
+00:01:19.195 --> 00:01:22.045
+停用 PUT 规则 / Disable the PUT Rule
+
+29
+00:01:22.045 --> 00:01:24.906
+Apply 两条停用状态 / Apply both disabled Rules

@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:00.338 --> 00:00:03.147
+输入 /guide/capture 筛选 / Filter owned traffic
+
+2
+00:00:03.147 --> 00:00:05.996
+开启 Recording / Start Recording
+
+3
+00:00:05.996 --> 00:00:08.851
+发送演示 GET / Send the example GET
+
+4
+00:00:08.851 --> 00:00:11.898
+选择 orders 请求 / Select the orders request
+
+5
+00:00:11.898 --> 00:00:14.746
+检查 Headers / Inspect Headers
+
+6
+00:00:14.746 --> 00:00:17.752
+读取 JSON 正文 / Read the JSON response
+
+7
+00:00:17.752 --> 00:00:20.652
+切换 Tree / Switch to Tree
+
+8
+00:00:20.652 --> 00:00:23.547
+切换 Raw / Switch to Raw
+
+9
+00:00:23.547 --> 00:00:26.455
+全屏查看正文 / Open the body fullscreen
+
+10
+00:00:26.455 --> 00:00:29.398
+Escape 返回详情 / Return with Escape
+
+11
+00:00:29.398 --> 00:00:32.300
+查看 Hex 字节 / Inspect Hex bytes
+
+12
+00:00:32.300 --> 00:00:35.198
+检查请求时序 / Inspect Timing
+
+13
+00:00:35.198 --> 00:00:38.098
+暂停录制 / Pause Recording
+
+14
+00:00:38.098 --> 00:00:40.948
+暂停时请求仍转发 / Forward while paused
+
+15
+00:00:40.948 --> 00:00:43.899
+恢复录制 / Resume Recording
+
+16
+00:00:43.899 --> 00:00:46.806
+恢复后捕获新请求 / Capture a new request after Resume
+
+17
+00:00:46.806 --> 00:00:49.699
+只查找 orders / Narrow search to orders
+
+18
+00:00:49.699 --> 00:00:52.549
+恢复演示范围 / Restore the example scope
+
+19
+00:00:52.549 --> 00:00:55.500
+清空不需保留的演示记录 / Clear disposable example records
+
+20
+00:00:55.500 --> 00:00:58.448
+检查现有受信任 CA / Inspect the existing trusted CA
+
+21
+00:00:58.448 --> 00:01:01.398
+只为演示 localhost 添加源站例外 / Add only the demo localhost exception
+
+22
+00:01:01.398 --> 00:01:04.449
+开启 HTTPS 解密 / Enable HTTPS decryption
+
+23
+00:01:04.449 --> 00:01:07.500
+限定协议演示请求 / Filter the protocol examples
+
+24
+00:01:07.500 --> 00:01:10.750
+捕获真实 HTTP/2 / Capture real HTTP/2
+
+25
+00:01:10.750 --> 00:01:13.599
+展开 HTTP/2 trailers / Expand HTTP/2 trailers
+
+26
+00:01:13.599 --> 00:01:16.649
+读取 HTTP/2 JSON / Read the HTTP/2 JSON body
+
+27
+00:01:16.649 --> 00:01:19.699
+捕获 WebSocket 文本 / Capture WebSocket text
+
+28
+00:01:19.699 --> 00:01:22.700
+查看发送方向的载荷 / Inspect a sent payload
+
+29
+00:01:22.700 --> 00:01:25.957
+捕获 gRPC JSON / Capture gRPC JSON
+
+30
+00:01:25.957 --> 00:01:28.903
+查看 gRPC response 消息 / Inspect the gRPC response message
+
+31
+00:01:28.903 --> 00:01:32.050
+HTML代码 / HTML source
+
+32
+00:01:32.050 --> 00:01:35.098
+Markdown预览 / Markdown preview
+
+33
+00:01:35.098 --> 00:01:38.152
+Form字段 / Form fields
+
+34
+00:01:38.152 --> 00:01:41.149
+PNG图片 / PNG image
+
+35
+00:01:41.149 --> 00:01:44.449
+二进制Hex / Binary Hex
+
+36
+00:01:44.449 --> 00:01:47.505
+音频元信息 / Audio metadata
+
+37
+00:01:47.505 --> 00:01:50.547
+视频元信息 / Video metadata
+
+38
+00:01:50.547 --> 00:01:53.660
+gzip解码 / gzip decoding
+
+39
+00:01:53.660 --> 00:01:56.798
+损坏编码的实际提示 / Actual corrupt-encoding notice
+
+40
+00:01:56.798 --> 00:02:00.049
+关闭本轮 HTTPS 解密 / Disable this run’s decryption
+
+41
+00:02:00.049 --> 00:02:03.201
+移除演示源站例外 / Remove the demo origin exception

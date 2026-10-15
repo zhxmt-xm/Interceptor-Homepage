@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:00.367 --> 00:00:03.255
+打开 Rules / Open Rules
+
+2
+00:00:03.255 --> 00:00:06.253
+创建 Guide operations / Create Guide operations
+
+3
+00:00:06.253 --> 00:00:09.563
+限制 Host 与 Path / Restrict Host and Path
+
+4
+00:00:09.563 --> 00:00:12.403
+填写 x-guide-list / Enter x-guide-list
+
+5
+00:00:12.403 --> 00:00:15.714
+选择 append / Choose append
+
+6
+00:00:15.714 --> 00:00:18.554
+启用规则 / Enable the Rule
+
+7
+00:00:18.554 --> 00:00:21.453
+Apply append / Apply append
+
+8
+00:00:21.453 --> 00:00:24.303
+核对保留 one 并追加 two / Verify one is retained and two appended
+
+9
+00:00:24.303 --> 00:00:27.554
+选择 remove / Choose remove
+
+10
+00:00:27.554 --> 00:00:30.454
+Apply remove / Apply remove
+
+11
+00:00:30.454 --> 00:00:33.254
+核对Header已移除 / Verify the Header was removed
+
+12
+00:00:33.254 --> 00:00:36.503
+改为 Query 动作 / Switch to a Query action
+
+13
+00:00:36.503 --> 00:00:39.453
+移除 guide 参数 / Remove the guide parameter
+
+14
+00:00:39.453 --> 00:00:42.353
+Apply Query remove / Apply Query removal
+
+15
+00:00:42.353 --> 00:00:45.154
+核对参数被移除 / Verify the parameter is removed
+
+16
+00:00:45.154 --> 00:00:49.004
+改为请求 Body 动作 / Switch to request Body replacement
+
+17
+00:00:49.004 --> 00:00:51.853
+填写 request-edited / Enter request-edited
+
+18
+00:00:51.853 --> 00:00:54.809
+Apply 请求正文 / Apply request-body replacement
+
+19
+00:00:54.809 --> 00:00:57.610
+核对源站收到完整替换 / Verify the complete replacement at the origin
+
+20
+00:00:57.610 --> 00:01:00.655
+重命名为 Guide operations done / Rename the Rule
+
+21
+00:01:00.655 --> 00:01:03.503
+按名称搜索 / Search by name
+
+22
+00:01:03.503 --> 00:01:06.403
+保留但停用演示规则 / Retain and disable the demo Rule
+
+23
+00:01:06.403 --> 00:01:09.304
+Apply 停用状态 / Apply the disabled state

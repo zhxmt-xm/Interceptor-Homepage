@@ -1,6 +1,6 @@
 # Tool 操作速查
 
-> 中文初稿，面向 `v0.1.1-alpha.1` 的已实现目录；待真实使用试读。参数以连接后实际返回的 Tool schema 为准，不手写不存在的参数或把内部 IPC 名称当作 Tool。
+> 草稿，面向 `v0.1.1-alpha.1` 的已实现目录；末节只配状态查询与暂停的代表流程，不表示每个 Tool 或 item9 已验收。参数以连接后返回的 schema 为准，不猜字段或把内部 IPC 名称当作 Tool。
 
 [教程目录](../README.md) · [权限与审批](tool-permissions.md)
 
@@ -128,9 +128,37 @@
 ## 使用这份速查表
 
 1. 找到对应业务章节，先理解操作后果。
-2. 在 Settings 打开目标入口所需的 Tool，关闭无关项。
+
+   本例只涉及[代理状态查询](capture.md)与暂停新录制，不演示 Clear。**待配图**：按完整 catalog 选择任意 Tool 的发现过程尚未录制，下面不代表表中所有 Tool 均已实拍。
+
+2. 在 Settings 的 Tool capabilities 搜索 `capture_get_proxy_status`，检查目标入口的权限，再关闭无关项。
+
+   ![权限章节中实际查找状态查询 Tool](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
+
+   **待配图**：其他 Tool 的逐项开关不由此图覆盖。
+
 3. 从当前 Tool schema 读取准确参数，不从名称猜字段。
-4. 先查状态再执行；对 change 先用 Ask。
-5. 在 App 或任务终态中检查结果。
+
+   **待配图**：现有 App 画面没有完整的 Host schema 阅读步骤；不把本表当成参数表。
+
+4. 先查状态。下图准确引用 MCP 的本地 SDK 查询，不是商业 Host 的设置或对话画面。
+
+   ![本地 MCP SDK 的实际只读查询](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
+
+5. 要暂停时保持 Ask，检查实际 `capture_stop_recording` 审批；其他 change Tool 的影响要重新审阅。
+
+   ![MCP 暂停新录制的实际审批](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
+
+6. 不接受本次操作时选择 Deny。
+
+   ![实际拒绝一次调用](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
+
+7. 需要继续练习时重新请求，再审阅新审批。
+
+   ![重新请求后的新审批](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
+
+8. 允许后核对 Tool 结果与产品 Recording 状态，不只读模型回答。
+
+   ![实际允许并暂停录制的结果](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
 
 本表不提供模型配置、MCP Client 凭据管理、任意文件读写或 App 更新 Tool；这些控制面仍使用正式产品界面。

@@ -1,0 +1,144 @@
+{
+  "chapter": "composer",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "url": "http://127.0.0.1:54275/guide/composer",
+    "queryName": "guide",
+    "queryValue": "composer-demo",
+    "headerName": "x-interceptor-guide",
+    "headerValue": "composer-demo",
+    "response": "{\"request\":\"Guide request\",\"message\":\"Hello Interceptor\",\"status\":\"ready\"}"
+  },
+  "duration": 29.306927943,
+  "video": "composer.mp4",
+  "captions": "composer.vtt",
+  "steps": [
+    {
+      "id": "01-open",
+      "title": "打开 Composer / Open Composer",
+      "image": "composer-01-open.png",
+      "seconds": 0.3671931999999942
+    },
+    {
+      "id": "02-new",
+      "title": "新建请求 / Create a request",
+      "image": "composer-02-new.png",
+      "seconds": 3.248424859999999
+    },
+    {
+      "id": "03-url",
+      "title": "填写测试地址 / Enter the test URL",
+      "image": "composer-03-url.png",
+      "seconds": 6.148355727999995
+    },
+    {
+      "id": "04-send",
+      "title": "发送请求并检查响应 / Send and inspect the response",
+      "image": "composer-04-send.png",
+      "seconds": 8.954305800000002
+    },
+    {
+      "id": "05-headers",
+      "title": "查看响应 Headers / Inspect response headers",
+      "image": "composer-05-headers.png",
+      "seconds": 11.998597064999995
+    },
+    {
+      "id": "06-query",
+      "title": "添加 Query 字段 / Add a Query field",
+      "image": "composer-06-query.png",
+      "seconds": 14.848117331999994
+    },
+    {
+      "id": "07-header",
+      "title": "添加请求 Header / Add a request header",
+      "image": "composer-07-header.png",
+      "seconds": 17.799248479000003
+    },
+    {
+      "id": "08-auth",
+      "title": "检查不使用认证 / Confirm no authentication",
+      "image": "composer-08-auth.png",
+      "seconds": 20.747527014000006
+    },
+    {
+      "id": "09-history",
+      "title": "查看 Recent sends / Inspect recent sends",
+      "image": "composer-09-history.png",
+      "seconds": 23.598747225
+    },
+    {
+      "id": "10-body",
+      "title": "返回响应正文 / Return to the response body",
+      "image": "composer-10-body.png",
+      "seconds": 26.459762161000008
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer.mp4",
+      "bytes": 172049,
+      "sha256": "172c48c60b8202cf5c0e31f764bf5d6671f22b0b8647cbbc7d89fd6b009d1b97"
+    },
+    {
+      "file": "composer.vtt",
+      "bytes": 775,
+      "sha256": "c8b27a1b2efeadd13d121d646a7dd82334c1996b8f5add35790f7ad920e691e7"
+    },
+    {
+      "file": "composer-01-open.png",
+      "bytes": 176130,
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+    },
+    {
+      "file": "composer-02-new.png",
+      "bytes": 230855,
+      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a"
+    },
+    {
+      "file": "composer-03-url.png",
+      "bytes": 237688,
+      "sha256": "70169476b288cd10887887b7b760c2c1ed99cfc8757e0b9eeebf1a79a7f65277"
+    },
+    {
+      "file": "composer-04-send.png",
+      "bytes": 260055,
+      "sha256": "82bf4cc5bb56d47623512dd784c5b36d4ed331e70b74a68ec736570e83674f70"
+    },
+    {
+      "file": "composer-05-headers.png",
+      "bytes": 305300,
+      "sha256": "ef8dd969974e0940bcd1c9e472a01106946590244dd352ced8b22b38d9d2a964"
+    },
+    {
+      "file": "composer-06-query.png",
+      "bytes": 313545,
+      "sha256": "e36687e00d148a6f034fc02be1c80ed2d64793498d060c356261b4a443714599"
+    },
+    {
+      "file": "composer-07-header.png",
+      "bytes": 317084,
+      "sha256": "e749737485dacfa82c72fa800e4ac33f5d18fa8e4bef73c1cd159ba5852dfb54"
+    },
+    {
+      "file": "composer-08-auth.png",
+      "bytes": 309696,
+      "sha256": "3e47279244201dd8923c8d7dcc3d7cb86565cf15248aacac2d724496f70bb3fc"
+    },
+    {
+      "file": "composer-09-history.png",
+      "bytes": 352582,
+      "sha256": "4b6e1c84c475d8f39b880c899126ed8744fbf862d5d423aeb079acb78d4877b3"
+    },
+    {
+      "file": "composer-10-body.png",
+      "bytes": 295243,
+      "sha256": "dae8677a1b9e1c50736de14fc50b8a3de7adf4e0a926e728580880f07444e6bf"
+    }
+  ]
+}

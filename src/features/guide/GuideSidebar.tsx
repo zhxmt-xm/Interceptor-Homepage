@@ -26,7 +26,7 @@ export default function GuideSidebar({ page, locale }: { page: GuidePageId; loca
             data-automation-id={`guide.chapter.${chapter.slug}`}
           >
             <span className={styles.number}>{String(index + 1).padStart(2, '0')}</span>
-            <span lang="zh-CN">{chapter.label}</span>
+            <span>{chapter.label[locale]}</span>
           </Link>
         ))}
       </nav>

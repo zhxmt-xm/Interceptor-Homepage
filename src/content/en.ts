@@ -172,12 +172,12 @@ export const english = {
     quickAction: 'Read the quick start',
     guide: 'The complete user guide.',
     guideBody:
-      'Read the Chinese draft by feature, with steps and limitations. Release walkthroughs, real screenshots and videos are still pending.',
-    guideAction: 'Read the Chinese guide',
+      'Read the Chinese or English draft by feature, with real step images and clearly stated limitations.',
+    guideAction: 'Read the user guide',
     video: 'See it in action.',
     videoBody:
-      'Real feature videos will live here once they are recorded and checked against the released app.',
-    pending: 'In preparation',
+      'Follow recorded product operations, matching step images and captions. Each walkthrough states its version and scope.',
+    videoAction: 'Watch walkthroughs',
     access: 'The current quick start is in the private product repository.',
   },
   faq: {

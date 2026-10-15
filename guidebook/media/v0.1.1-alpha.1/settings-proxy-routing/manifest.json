@@ -1,0 +1,124 @@
+{
+  "chapter": "settings-proxy-routing",
+  "title": {
+    "zh-CN": "逐步骤实操：系统代理恢复与 Recording 的边界",
+    "en": "Recorded walkthrough: system routing restore versus Recording"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "workflow-owned App window only; no desktop, display or region; no microphone",
+  "example": {
+    "listener": "127.0.0.1:8888",
+    "explicitClientUrl": "http://127.0.0.1:59429/guide/system-proxy/explicit-client",
+    "purpose": "System proxy routing and Recording are separate; Restore retains the listener",
+    "authorizationScope": "existing authorized helper; this is not first-time OS authorization footage"
+  },
+  "duration": 34.121386805,
+  "video": "settings-proxy-routing.mp4",
+  "captions": "settings-proxy-routing.vtt",
+  "steps": [
+    {
+      "id": "01-owned",
+      "title": "查看系统代理接管状态 / Inspect system proxy ownership",
+      "image": "settings-proxy-routing-01-owned.png",
+      "seconds": 0.404974107
+    },
+    {
+      "id": "02-restore",
+      "title": "Restore 恢复原路由 / Restore the original system routing",
+      "image": "settings-proxy-routing-02-restore.png",
+      "seconds": 3.3678391139999984
+    },
+    {
+      "id": "03-listener",
+      "title": "确认监听器没有因此停止 / Confirm the listener is still available",
+      "image": "settings-proxy-routing-03-listener.png",
+      "seconds": 9.618888778
+    },
+    {
+      "id": "04-enable",
+      "title": "通过 Settings 重新 Enable / Enable again through Settings",
+      "image": "settings-proxy-routing-04-enable.png",
+      "seconds": 12.415950129
+    },
+    {
+      "id": "05-recording",
+      "title": "返回 Capture 确认录制开启 / Return to Capture and ensure Recording is on",
+      "image": "settings-proxy-routing-05-recording.png",
+      "seconds": 19.118338297999998
+    },
+    {
+      "id": "06-pause",
+      "title": "暂停 Recording / Pause Recording",
+      "image": "settings-proxy-routing-06-pause.png",
+      "seconds": 22.119098311
+    },
+    {
+      "id": "07-still-owned",
+      "title": "暂停不等于 Restore / Pausing is not Restore",
+      "image": "settings-proxy-routing-07-still-owned.png",
+      "seconds": 24.969832698
+    },
+    {
+      "id": "08-final-restore",
+      "title": "结束演示前恢复原路由 / Restore routing before finishing",
+      "image": "settings-proxy-routing-08-final-restore.png",
+      "seconds": 27.869797071999997
+    }
+  ],
+  "assets": [
+    {
+      "file": "settings-proxy-routing.mp4",
+      "bytes": 198152,
+      "sha256": "639b5dd489f4dbb196307db3bd0e6b442d885d1b36e7bd5321d6ffb02c112e06"
+    },
+    {
+      "file": "settings-proxy-routing.vtt",
+      "bytes": 766,
+      "sha256": "81c6de16d31d158de5837daa31420887c570aa1e669c0dc1702174735ce43796"
+    },
+    {
+      "file": "settings-proxy-routing-01-owned.png",
+      "bytes": 344274,
+      "sha256": "9f138c45cbbdc652291d4fe513d9cf8bd63f1534e4121e2829e2911172ef7691"
+    },
+    {
+      "file": "settings-proxy-routing-02-restore.png",
+      "bytes": 353919,
+      "sha256": "0c9936b3105f886c788d85c2ce6ecbfa752d9bfa49a741a25102b5a7eb7f490a"
+    },
+    {
+      "file": "settings-proxy-routing-03-listener.png",
+      "bytes": 353919,
+      "sha256": "0c9936b3105f886c788d85c2ce6ecbfa752d9bfa49a741a25102b5a7eb7f490a"
+    },
+    {
+      "file": "settings-proxy-routing-04-enable.png",
+      "bytes": 352651,
+      "sha256": "ab53a5e5bacc77ad170f96567f40c01faf7b12f3e55a2d5b0c52d38fcafba644"
+    },
+    {
+      "file": "settings-proxy-routing-05-recording.png",
+      "bytes": 248248,
+      "sha256": "29f8f4e9b4293ee1734730c790e606435898c6cf1c5c41781af8e7ec7b14e759"
+    },
+    {
+      "file": "settings-proxy-routing-06-pause.png",
+      "bytes": 248623,
+      "sha256": "b9e6cedb08d9e93c5abf5568820b69915cabee4e4a798de933e0b647d1bfe674"
+    },
+    {
+      "file": "settings-proxy-routing-07-still-owned.png",
+      "bytes": 344274,
+      "sha256": "9f138c45cbbdc652291d4fe513d9cf8bd63f1534e4121e2829e2911172ef7691"
+    },
+    {
+      "file": "settings-proxy-routing-08-final-restore.png",
+      "bytes": 353919,
+      "sha256": "0c9936b3105f886c788d85c2ce6ecbfa752d9bfa49a741a25102b5a7eb7f490a"
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "chapter": "rules-matchers",
+  "title": {
+    "zh-CN": "逐步骤实操：八类条件与 AND 匹配",
+    "en": "Recorded walkthrough: all eight conditions and AND matching"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned native-panel windows; no microphone",
+  "example": {
+    "ruleName": "Guide matchers",
+    "host": "127.0.0.1",
+    "method": "GET",
+    "path": "/guide/matchers/order",
+    "url": "http://127.0.0.1:59147/guide/matchers/order?guide=matcher-demo",
+    "query": "guide=matcher-demo",
+    "requestHeader": "x-guide-match: yes",
+    "statusRange": "200–200",
+    "responseMime": "application/json",
+    "effectHeader": "x-interceptor-guide: matcher-demo"
+  },
+  "duration": 72.95399703499999,
+  "video": "rules-matchers.mp4",
+  "captions": "rules-matchers.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开 Rules / Open Rules",
+      "image": "rules-matchers-01-rules.png",
+      "seconds": 0.4021131349999996
+    },
+    {
+      "id": "02-create",
+      "title": "新建 Guide matchers / Create Guide matchers",
+      "image": "rules-matchers-02-create.png",
+      "seconds": 3.303794697000001
+    },
+    {
+      "id": "03-host",
+      "title": "Host 为 127.0.0.1 / Set Host to 127.0.0.1",
+      "image": "rules-matchers-03-host.png",
+      "seconds": 6.3061629969999995
+    },
+    {
+      "id": "04-method-add",
+      "title": "添加 Method / Add Method",
+      "image": "rules-matchers-04-method-add.png",
+      "seconds": 9.101308529000002
+    },
+    {
+      "id": "05-method",
+      "title": "Method 为 GET / Set Method to GET",
+      "image": "rules-matchers-05-method.png",
+      "seconds": 12.302635036
+    },
+    {
+      "id": "06-path-add",
+      "title": "添加 Path / Add Path",
+      "image": "rules-matchers-06-path-add.png",
+      "seconds": 15.109480255
+    },
+    {
+      "id": "07-path",
+      "title": "填写接口 Path / Enter the endpoint Path",
+      "image": "rules-matchers-07-path.png",
+      "seconds": 18.352467561
+    },
+    {
+      "id": "08-url-add",
+      "title": "添加 URL / Add URL",
+      "image": "rules-matchers-08-url-add.png",
+      "seconds": 21.202897670000002
+    },
+    {
+      "id": "09-url",
+      "title": "填写完整演示 URL / Enter the complete example URL",
+      "image": "rules-matchers-09-url.png",
+      "seconds": 24.452683275
+    },
+    {
+      "id": "10-query-add",
+      "title": "添加 Query / Add Query",
+      "image": "rules-matchers-10-query-add.png",
+      "seconds": 27.303559478
+    },
+    {
+      "id": "11-query",
+      "title": "Query 为 guide=matcher-demo / Set the Query pair",
+      "image": "rules-matchers-11-query.png",
+      "seconds": 30.502958075
+    },
+    {
+      "id": "12-header-add",
+      "title": "添加 Header / Add Header",
+      "image": "rules-matchers-12-header-add.png",
+      "seconds": 33.402941384
+    },
+    {
+      "id": "13-header",
+      "title": "Header 为 x-guide-match=yes / Set the request Header pair",
+      "image": "rules-matchers-13-header.png",
+      "seconds": 36.602242075999996
+    },
+    {
+      "id": "14-status-add",
+      "title": "添加 Status / Add Status",
+      "image": "rules-matchers-14-status-add.png",
+      "seconds": 39.604175466
+    },
+    {
+      "id": "15-status",
+      "title": "状态范围 200 到 200 / Set range 200 to 200",
+      "image": "rules-matchers-15-status.png",
+      "seconds": 42.904026341000005
+    },
+    {
+      "id": "16-mime-add",
+      "title": "添加 MIME / Add MIME",
+      "image": "rules-matchers-16-mime-add.png",
+      "seconds": 45.761670027
+    },
+    {
+      "id": "17-mime",
+      "title": "Response MIME 为 application/json / Set the response MIME",
+      "image": "rules-matchers-17-mime.png",
+      "seconds": 49.054916201999994
+    },
+    {
+      "id": "18-effect-phase",
+      "title": "响应阶段改写 Header / Select response Header editing",
+      "image": "rules-matchers-18-effect-phase.png",
+      "seconds": 51.962024867
+    },
+    {
+      "id": "19-effect-name",
+      "title": "填写 x-interceptor-guide / Enter the effect Header name",
+      "image": "rules-matchers-19-effect-name.png",
+      "seconds": 55.153706582999995
+    },
+    {
+      "id": "20-effect-value",
+      "title": "填写 matcher-demo / Enter the effect value",
+      "image": "rules-matchers-20-effect-value.png",
+      "seconds": 58.002698063000004
+    },
+    {
+      "id": "21-enable",
+      "title": "启用完整规则 / Enable the complete Rule",
+      "image": "rules-matchers-21-enable.png",
+      "seconds": 60.85269026
+    },
+    {
+      "id": "22-apply",
+      "title": "Apply / Apply",
+      "image": "rules-matchers-22-apply.png",
+      "seconds": 63.702890696999994
+    },
+    {
+      "id": "23-match",
+      "title": "发送满足全部条件的 GET / Send a GET satisfying every condition",
+      "image": "rules-matchers-23-match.png",
+      "seconds": 66.654814434
+    },
+    {
+      "id": "24-no-match",
+      "title": "POST 不满足 Method / A POST does not satisfy Method",
+      "image": "rules-matchers-24-no-match.png",
+      "seconds": 70.10357595299999
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-matchers.mp4",
+      "bytes": 453360,
+      "sha256": "a9da9a4eaaf6dd6b270e8b34ae7e26a5a167f0078b2244a70e6aeae95fe3d8f2"
+    },
+    {
+      "file": "rules-matchers.vtt",
+      "bytes": 1802,
+      "sha256": "ec16fccb678a2a6437cbaf96877172cb9132e004ef1ba7fe31aefd84217b6c2c"
+    },
+    {
+      "file": "rules-matchers-01-rules.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "rules-matchers-02-create.png",
+      "bytes": 254724,
+      "sha256": "853cd0222a8f07943a937f400920483ef28e024d3fe489e3fa52855ed4a3c8a3"
+    },
+    {
+      "file": "rules-matchers-03-host.png",
+      "bytes": 244509,
+      "sha256": "7704dec03364a309b231d309cf4a382d909fe8b754ba3ec28f61f6aae7e4203f"
+    },
+    {
+      "file": "rules-matchers-04-method-add.png",
+      "bytes": 235738,
+      "sha256": "bd1b9a7167c7dd3a8accc1687129b658bd4f14d2452f930f6c71ae730b70105c"
+    },
+    {
+      "file": "rules-matchers-05-method.png",
+      "bytes": 235738,
+      "sha256": "bd1b9a7167c7dd3a8accc1687129b658bd4f14d2452f930f6c71ae730b70105c"
+    },
+    {
+      "file": "rules-matchers-06-path-add.png",
+      "bytes": 253094,
+      "sha256": "3faafa2f5821cd05c1f896595d409d8fdb754133ba54a5049db37cd992c2b4bc"
+    },
+    {
+      "file": "rules-matchers-07-path.png",
+      "bytes": 253436,
+      "sha256": "7143923929b1442c731ee4f10fb5e50abe90838c2e5dc04516338b33a4f00264"
+    },
+    {
+      "file": "rules-matchers-08-url-add.png",
+      "bytes": 273438,
+      "sha256": "5a9d0dbfd6fb66867997bc03944446cd1af6a8020f53f82aefd2d77f920c23d0"
+    },
+    {
+      "file": "rules-matchers-09-url.png",
+      "bytes": 277763,
+      "sha256": "03b3bf20ac58a5340688f68fd46e00e2be62027b5ea014d2f4b91e518d4bd82a"
+    },
+    {
+      "file": "rules-matchers-10-query-add.png",
+      "bytes": 299714,
+      "sha256": "d96140c55a9ecd3f3970f5631ce6780c615ddabe174a487ad084d34340b90e46"
+    },
+    {
+      "file": "rules-matchers-11-query.png",
+      "bytes": 292668,
+      "sha256": "b689dcfb14bbcec134dd10496981440fde432b400994d1ccafd8794bea31476f"
+    },
+    {
+      "file": "rules-matchers-12-header-add.png",
+      "bytes": 316019,
+      "sha256": "d063b3d8a17dc9749a1e8f0edefa72112c0d96247a8ed21b2bd2bcdbb88d75a2"
+    },
+    {
+      "file": "rules-matchers-13-header.png",
+      "bytes": 308582,
+      "sha256": "155c8bbf5ac124d05bf070c34883c56d657e8930ce639c9936abdac73ef6d6e2"
+    },
+    {
+      "file": "rules-matchers-14-status-add.png",
+      "bytes": 318212,
+      "sha256": "a8f1d4e828b50f385c31fee7f30c3fca38fcc3a9ac5880deaee5536808dd3d44"
+    },
+    {
+      "file": "rules-matchers-15-status.png",
+      "bytes": 317573,
+      "sha256": "7ed10efc606c83aa7a3db3ce0ca266426c49636160a05407c8a1f72db0792635"
+    },
+    {
+      "file": "rules-matchers-16-mime-add.png",
+      "bytes": 334957,
+      "sha256": "3234d0f7680b68122df7f0f6e67ffeaddfa56bab9e410cd508cf80444523696e"
+    },
+    {
+      "file": "rules-matchers-17-mime.png",
+      "bytes": 327990,
+      "sha256": "c885d18c506f5f6151f8c000118bd9ad95569a5e1b795f48e95e8e442b53e0aa"
+    },
+    {
+      "file": "rules-matchers-18-effect-phase.png",
+      "bytes": 328086,
+      "sha256": "ee8dd505fb73f6c38aec53e5cc401a1a7b407203646debd8b52d6f24037871e2"
+    },
+    {
+      "file": "rules-matchers-19-effect-name.png",
+      "bytes": 336875,
+      "sha256": "5bb73fcff6fe966dd8906c2ddf6feca3e8a69d65e346d2551083d8c1bf7df900"
+    },
+    {
+      "file": "rules-matchers-20-effect-value.png",
+      "bytes": 337479,
+      "sha256": "1d4ee5c5c4c6758436d8549305d03e54f1577ef053dc75d52eb0f643ef48f27e"
+    },
+    {
+      "file": "rules-matchers-21-enable.png",
+      "bytes": 339453,
+      "sha256": "cd5b28b95392666bd80fad1b5addb5ee5c5f623a3dad53cde1fd7a1ef3c9274d"
+    },
+    {
+      "file": "rules-matchers-22-apply.png",
+      "bytes": 335446,
+      "sha256": "62a2343f01f0126c4e7fa83cd035833454f95017f149f6c34a67d4dde5dcfd09"
+    },
+    {
+      "file": "rules-matchers-23-match.png",
+      "bytes": 384217,
+      "sha256": "f030992c1334971fc28b05dd51d03fd613ee6c90dea2d8ba96a4fb8112dc8e8e"
+    },
+    {
+      "file": "rules-matchers-24-no-match.png",
+      "bytes": 247397,
+      "sha256": "140b6999307711d7e11fe00c956b4c83c793be590551de8968a24ecd55f65e93"
+    }
+  ]
+}

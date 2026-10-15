@@ -7,7 +7,7 @@ export default function GuideLink({ href, id, title, children }: ComponentProps<
   const location = useLocation();
   if (!href) return <span id={id} className={styles.anchor} />;
   const external = /^(?:https?:)?\/\//i.test(href);
-  if (!external && !/^mailto:/i.test(href)) {
+  if (href.startsWith('#') || /^\/guide(?:\/|[?#]|$)/.test(href)) {
     return (
       <Link
         id={id}
@@ -38,14 +38,16 @@ export default function GuideLink({ href, id, title, children }: ComponentProps<
       </Link>
     );
   }
+  const openSeparately =
+    external || href.startsWith('/assets/') || href.startsWith('/guidebook/media/');
   return (
     <a
       id={id}
       href={href}
       title={title}
       className={styles.link}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noopener noreferrer' : undefined}
+      target={openSeparately ? '_blank' : undefined}
+      rel={openSeparately ? 'noopener noreferrer' : undefined}
     >
       {children}
     </a>

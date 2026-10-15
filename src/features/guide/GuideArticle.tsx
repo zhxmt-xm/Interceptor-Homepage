@@ -1,35 +1,38 @@
-import { useLayoutEffect, useRef } from 'react';
-import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
+import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
+import { memo, useLayoutEffect, useMemo } from 'react';
+import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
 import { useLocation } from 'react-router-dom';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 import type { Locale } from '../../content';
-import type { GuidePageId } from '../../content/guidebook';
+import { GUIDE_LANGUAGE, type GuidePageId } from '../../content/guidebook';
 import styles from './GuideArticle.module.css';
+import GuideImage from './GuideImage';
 import GuideLink from './GuideLink';
 import GuideTable from './GuideTable';
-import { type GuideHeading, resolveGuideHref, scrollToGuideFragment } from './utils';
+import GuideVideo from './GuideVideo';
+import type { GuideDocument } from './interfaces';
+import { resolveGuideTree, scrollToGuideFragment } from './utils';
 
 interface Props {
   page: GuidePageId;
-  markdown: string;
+  document: GuideDocument;
   locale: Locale;
-  onHeadings: (headings: GuideHeading[]) => void;
 }
 
-export default function GuideArticle({ page, markdown, locale, onHeadings }: Props) {
-  const article = useRef<HTMLElement>(null);
+function GuideArticle({ page, document: guideDocument, locale }: Props) {
   const location = useLocation();
+  const content = useMemo(
+    () =>
+      toJsxRuntime(resolveGuideTree(guideDocument.tree, page, locale), {
+        Fragment,
+        jsx,
+        jsxs,
+        components: { a: GuideLink, img: GuideImage, table: GuideTable, video: GuideVideo },
+      }),
+    [guideDocument, page, locale],
+  );
 
   useLayoutEffect(() => {
-    onHeadings(
-      Array.from(article.current?.querySelectorAll('h2') ?? []).map((heading) => ({
-        id: heading.id.replace(/^guide-heading-/, ''),
-        title: heading.textContent ?? '',
-      })),
-    );
+    if (!location.hash) return;
     window.addEventListener('hashchange', scrollToGuideFragment);
     scrollToGuideFragment();
     let active = true;
@@ -40,30 +43,17 @@ export default function GuideArticle({ page, markdown, locale, onHeadings }: Pro
       active = false;
       window.removeEventListener('hashchange', scrollToGuideFragment);
     };
-  }, [markdown, onHeadings, location.hash]);
+  }, [guideDocument, location.hash]);
 
   return (
     <article
-      ref={article}
       className={styles.article}
-      lang="zh-CN"
+      lang={GUIDE_LANGUAGE[locale]}
       data-automation-id="guide.article"
     >
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[
-          rehypeRaw,
-          [rehypeSanitize, { ...defaultSchema, clobberPrefix: 'guide-anchor-' }],
-          [rehypeSlug, { prefix: 'guide-heading-' }],
-        ]}
-        components={{ a: GuideLink, table: GuideTable }}
-        urlTransform={(url, key) => {
-          const safeUrl = defaultUrlTransform(url);
-          return safeUrl && key === 'href' ? resolveGuideHref(safeUrl, page, locale) : safeUrl;
-        }}
-      >
-        {markdown}
-      </ReactMarkdown>
+      {content}
     </article>
   );
 }
+
+export default memo(GuideArticle);

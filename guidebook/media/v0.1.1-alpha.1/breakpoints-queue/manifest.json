@@ -1,0 +1,363 @@
+{
+  "chapter": "breakpoints-queue",
+  "title": {
+    "zh-CN": "逐步骤实操：队首、草稿与批量范围",
+    "en": "Recorded walkthrough: queue heads, drafts and batch scope"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned file-panel windows; no microphone",
+  "example": {
+    "postRule": "Guide POST queue",
+    "putRule": "Guide PUT queue",
+    "path": "/guide/queue",
+    "queueKey": "http",
+    "postA": "{\"order\":\"POST-A\",\"source\":\"original\"}",
+    "postB": "{\"order\":\"POST-B\",\"source\":\"original\"}",
+    "putA": "{\"order\":\"PUT-A\",\"source\":\"original\"}",
+    "putB": "{\"order\":\"PUT-B\",\"source\":\"original\"}",
+    "postC": "{\"order\":\"POST-C\",\"source\":\"original\"}",
+    "putC": "{\"order\":\"PUT-C\",\"source\":\"original\"}",
+    "draft": "{\"order\":\"POST-A\",\"source\":\"draft-not-submitted\"}",
+    "origin": "http://127.0.0.1:56242/"
+  },
+  "duration": 84.90622731,
+  "video": "breakpoints-queue.mp4",
+  "captions": "breakpoints-queue.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "查看两条 Method 规则 / Review the two Method Rules",
+      "image": "breakpoints-queue-01-rules.png",
+      "seconds": 0.3908014350000012
+    },
+    {
+      "id": "02-post-rule",
+      "title": "查看 Guide POST queue / Inspect Guide POST queue",
+      "image": "breakpoints-queue-02-post-rule.png",
+      "seconds": 3.237509957000002
+    },
+    {
+      "id": "03-put-rule",
+      "title": "查看 Guide PUT queue / Inspect Guide PUT queue",
+      "image": "breakpoints-queue-03-put-rule.png",
+      "seconds": 6.041878897000002
+    },
+    {
+      "id": "04-capture",
+      "title": "返回 Capture / Return to Capture",
+      "image": "breakpoints-queue-04-capture.png",
+      "seconds": 8.886345993000003
+    },
+    {
+      "id": "05-post-head",
+      "title": "发送 POST-A，成为 Head / Send POST-A as the Head",
+      "image": "breakpoints-queue-05-post-head.png",
+      "seconds": 11.736829148
+    },
+    {
+      "id": "06-post-queued",
+      "title": "发送 POST-B，进入 Queued / Send POST-B into Queued",
+      "image": "breakpoints-queue-06-post-queued.png",
+      "seconds": 14.58633905
+    },
+    {
+      "id": "07-put-queued",
+      "title": "发送 PUT-A，HTTP 队列共三项 / Send PUT-A into the same HTTP queue",
+      "image": "breakpoints-queue-07-put-queued.png",
+      "seconds": 17.440371023000004
+    },
+    {
+      "id": "08-select-head",
+      "title": "选中 POST-A 队首 / Select the POST-A Head",
+      "image": "breakpoints-queue-08-select-head.png",
+      "seconds": 20.348232194
+    },
+    {
+      "id": "09-text-draft",
+      "title": "为队首选择 Text / Choose Text for the Head draft",
+      "image": "breakpoints-queue-09-text-draft.png",
+      "seconds": 23.489731072999998
+    },
+    {
+      "id": "10-enter-draft",
+      "title": "输入未提交草稿 / Enter an unsubmitted draft",
+      "image": "breakpoints-queue-10-enter-draft.png",
+      "seconds": 26.340054722000005
+    },
+    {
+      "id": "11-post-queued-detail",
+      "title": "切到 POST-B，只读 Queued / Inspect POST-B as read-only Queued",
+      "image": "breakpoints-queue-11-post-queued-detail.png",
+      "seconds": 29.191233151000002
+    },
+    {
+      "id": "12-put-queued-detail",
+      "title": "切到 PUT-A，仍在等待 / Inspect PUT-A while it waits",
+      "image": "breakpoints-queue-12-put-queued-detail.png",
+      "seconds": 32.195953392
+    },
+    {
+      "id": "13-restore-draft",
+      "title": "回到 Head，草稿保持 / Return to the Head with its draft intact",
+      "image": "breakpoints-queue-13-restore-draft.png",
+      "seconds": 35.09280815100001
+    },
+    {
+      "id": "14-rule-menu",
+      "title": "展开批量操作菜单 / Open the batch actions menu",
+      "image": "breakpoints-queue-14-rule-menu.png",
+      "seconds": 38.091920853000005
+    },
+    {
+      "id": "15-continue-rule",
+      "title": "Continue rule 仅放行 POST，PUT 保留 / Continue the POST Rule and leave PUT pending",
+      "image": "breakpoints-queue-15-continue-rule.png",
+      "seconds": 41.095560979
+    },
+    {
+      "id": "16-put-b",
+      "title": "加入 PUT-B / Add PUT-B to the remaining queue",
+      "image": "breakpoints-queue-16-put-b.png",
+      "seconds": 44.24818434200001
+    },
+    {
+      "id": "18-drop-menu",
+      "title": "展开 PUT 队列菜单 / Open the PUT queue menu",
+      "image": "breakpoints-queue-18-drop-menu.png",
+      "seconds": 47.14498140399999
+    },
+    {
+      "id": "19-drop-queue",
+      "title": "Drop queue 丢弃剩余两项 / Drop both remaining HTTP items",
+      "image": "breakpoints-queue-19-drop-queue.png",
+      "seconds": 50.095677001000006
+    },
+    {
+      "id": "20-new-post",
+      "title": "建立新 POST 队首 / Start a new POST Head",
+      "image": "breakpoints-queue-20-new-post.png",
+      "seconds": 53.10346539099999
+    },
+    {
+      "id": "21-new-put",
+      "title": "把 PUT 加入同一 HTTP 队列 / Add PUT to the same HTTP queue",
+      "image": "breakpoints-queue-21-new-put.png",
+      "seconds": 55.99465775
+    },
+    {
+      "id": "22-select-new-head",
+      "title": "选中新队首 / Select the new Head",
+      "image": "breakpoints-queue-22-select-new-head.png",
+      "seconds": 58.89660864399999
+    },
+    {
+      "id": "23-continue-menu",
+      "title": "展开整个队列的菜单 / Open the whole-queue menu",
+      "image": "breakpoints-queue-23-continue-menu.png",
+      "seconds": 61.806528345
+    },
+    {
+      "id": "24-continue-queue",
+      "title": "Continue queue 原样放行 POST 和 PUT / Continue both Methods without edits",
+      "image": "breakpoints-queue-24-continue-queue.png",
+      "seconds": 64.747238602
+    },
+    {
+      "id": "25-cleanup-rules",
+      "title": "返回 Rules 清理 / Return to Rules for cleanup",
+      "image": "breakpoints-queue-25-cleanup-rules.png",
+      "seconds": 67.79601446
+    },
+    {
+      "id": "26-select-post-rule",
+      "title": "选中 POST 规则 / Select the POST Rule",
+      "image": "breakpoints-queue-26-select-post-rule.png",
+      "seconds": 70.69553341299999
+    },
+    {
+      "id": "27-disable-post",
+      "title": "停用 POST 规则 / Disable the POST Rule",
+      "image": "breakpoints-queue-27-disable-post.png",
+      "seconds": 73.498855317
+    },
+    {
+      "id": "28-select-put-rule",
+      "title": "选中 PUT 规则 / Select the PUT Rule",
+      "image": "breakpoints-queue-28-select-put-rule.png",
+      "seconds": 76.346608319
+    },
+    {
+      "id": "29-disable-put",
+      "title": "停用 PUT 规则 / Disable the PUT Rule",
+      "image": "breakpoints-queue-29-disable-put.png",
+      "seconds": 79.195494329
+    },
+    {
+      "id": "30-apply-disabled",
+      "title": "Apply 两条停用状态 / Apply both disabled Rules",
+      "image": "breakpoints-queue-30-apply-disabled.png",
+      "seconds": 82.045045211
+    }
+  ],
+  "assets": [
+    {
+      "file": "breakpoints-queue.mp4",
+      "bytes": 549225,
+      "sha256": "c786535bec048654a41142d886815e13c9b49bb2cd5fefbd28543a7c58ee450d"
+    },
+    {
+      "file": "breakpoints-queue.vtt",
+      "bytes": 2566,
+      "sha256": "2941e2915533b6bfc0b043410c2f136c814644dc7dd6409e079ed35975f92c8c"
+    },
+    {
+      "file": "breakpoints-queue-01-rules.png",
+      "bytes": 246482,
+      "sha256": "3c24bb4f219d6002b57bb0b9f9a5d848cc2443f64f5b9c5406b21effd76409cb"
+    },
+    {
+      "file": "breakpoints-queue-02-post-rule.png",
+      "bytes": 249254,
+      "sha256": "ff0f9a340cda96a0a7affba59c9cf7fa447f3770501c55d5c427840242320c87"
+    },
+    {
+      "file": "breakpoints-queue-03-put-rule.png",
+      "bytes": 246618,
+      "sha256": "03b852e6926f963dec2e16ca9d3721ca96be929ed06054b2672e53a35f10b538"
+    },
+    {
+      "file": "breakpoints-queue-04-capture.png",
+      "bytes": 220396,
+      "sha256": "6f7cd7cc0f09b2a19bc181745e4f7b6af02641ce56153df36c9fdbc287f67cd1"
+    },
+    {
+      "file": "breakpoints-queue-05-post-head.png",
+      "bytes": 213618,
+      "sha256": "692cc1a2f63efb6a47e3568ca0f5c336056ea1795f470d36d2ec06afe85ba52e"
+    },
+    {
+      "file": "breakpoints-queue-06-post-queued.png",
+      "bytes": 228684,
+      "sha256": "42601a171e0aadce0a88e5e2e3929b2a4e9bd6bbe3fa3aa621e94f5d4809400a"
+    },
+    {
+      "file": "breakpoints-queue-07-put-queued.png",
+      "bytes": 239891,
+      "sha256": "4f2227aed4d36e3988f2cef7142fad6da0deed3ba4085a9f394105a4eb6f4f01"
+    },
+    {
+      "file": "breakpoints-queue-08-select-head.png",
+      "bytes": 366099,
+      "sha256": "b1da95054c0f37ceef4ca2fd1916f7aaa18f1465a8ba3472c7b94aa0490fe12b"
+    },
+    {
+      "file": "breakpoints-queue-09-text-draft.png",
+      "bytes": 378477,
+      "sha256": "40ff13709d2250e5a3c610f6ffa354a6bd4f91b199e39bb33d29092c00d128ef"
+    },
+    {
+      "file": "breakpoints-queue-10-enter-draft.png",
+      "bytes": 388747,
+      "sha256": "c7aae51a795420d4dae0ce3507121ef22101d596e3dbd72114eb259003a2dd4f"
+    },
+    {
+      "file": "breakpoints-queue-11-post-queued-detail.png",
+      "bytes": 348037,
+      "sha256": "02966709cfdb295c70677fd0109f9905c68e2aed654e62c74e476957aa6cbcb2"
+    },
+    {
+      "file": "breakpoints-queue-12-put-queued-detail.png",
+      "bytes": 344732,
+      "sha256": "018dc7439b0396292576d2772a2d92dd65e6fcbd7bdd45bbc2a3f7a94197c5f6"
+    },
+    {
+      "file": "breakpoints-queue-13-restore-draft.png",
+      "bytes": 388409,
+      "sha256": "f45b66aa62f36dbc45dec27468882b6ef84c6785c83324964ee97d02ee2c70d0"
+    },
+    {
+      "file": "breakpoints-queue-14-rule-menu.png",
+      "bytes": 427162,
+      "sha256": "ec5e1f8286f63fcd80a563c4993409774fddf81f6b10e9209dae10579704b1c1"
+    },
+    {
+      "file": "breakpoints-queue-15-continue-rule.png",
+      "bytes": 367949,
+      "sha256": "d91dc0c10b04f51c454a6a21c21e6f10769d2878e71bcccff4c580e7b6fa8255"
+    },
+    {
+      "file": "breakpoints-queue-16-put-b.png",
+      "bytes": 377842,
+      "sha256": "7f0d63412a3ac5ec19a294ac6c2883ec42727ba5ecedce7d0e907dd3ab03589a"
+    },
+    {
+      "file": "breakpoints-queue-18-drop-menu.png",
+      "bytes": 417037,
+      "sha256": "2ecd35ab954b843b08ebbd3d9a8eb1d7c961fd9cd67900149bb0f47786f11ee6"
+    },
+    {
+      "file": "breakpoints-queue-19-drop-queue.png",
+      "bytes": 370903,
+      "sha256": "63681af485e43f7e3aea16da5c45b4a3d0b3a94afb9ca75ee1c93d9c427a0833"
+    },
+    {
+      "file": "breakpoints-queue-20-new-post.png",
+      "bytes": 371423,
+      "sha256": "251d25510e8703f437abea8018a23b3e4bd3ae94e3cfaefa5db16ff22ff4620f"
+    },
+    {
+      "file": "breakpoints-queue-21-new-put.png",
+      "bytes": 381459,
+      "sha256": "736cfafaa93a71e3f1bfff9cf04673dfeced79437bace6a1cf8350afcc3a2765"
+    },
+    {
+      "file": "breakpoints-queue-22-select-new-head.png",
+      "bytes": 407396,
+      "sha256": "7f0cb7ee0f936934dd00ddc4a74964e0787a5ef3f8bfbb2a1cb44906a9d75cf9"
+    },
+    {
+      "file": "breakpoints-queue-23-continue-menu.png",
+      "bytes": 447064,
+      "sha256": "626aa86b6b280ed7c3225dc17b9b2487871fcbc1ab841db5245ab15be7f16c09"
+    },
+    {
+      "file": "breakpoints-queue-24-continue-queue.png",
+      "bytes": 441436,
+      "sha256": "95461f5ab04c0951ec8be67e74c019fd9851d67741fcf64c3d405bb4ffd2dc9b"
+    },
+    {
+      "file": "breakpoints-queue-25-cleanup-rules.png",
+      "bytes": 246625,
+      "sha256": "0c21892c9e9878deb4fbbc26780686ed0abed6aee12e2fa44a4582261d69b31b"
+    },
+    {
+      "file": "breakpoints-queue-26-select-post-rule.png",
+      "bytes": 249459,
+      "sha256": "1dbbd3c2b327561db73b0259a1ed36ecead05ae2b8e76b2afb8cde545dc09c97"
+    },
+    {
+      "file": "breakpoints-queue-27-disable-post.png",
+      "bytes": 251498,
+      "sha256": "bb442cfd1210da94461a0de33bec197da48a7e243860d320504abd2eb7e3fc10"
+    },
+    {
+      "file": "breakpoints-queue-28-select-put-rule.png",
+      "bytes": 248321,
+      "sha256": "b6944b47bf433c0cfd80d01775dfc0ee36089ccd95d668084d90aa30d1a2a5de"
+    },
+    {
+      "file": "breakpoints-queue-29-disable-put.png",
+      "bytes": 247798,
+      "sha256": "85c8d70f7370d3edc479c2d4e17ec108c8235a1b1f09a64abdfdf7bb62c23448"
+    },
+    {
+      "file": "breakpoints-queue-30-apply-disabled.png",
+      "bytes": 244354,
+      "sha256": "ef9ff0ed60fcf0d6e31d185d77250eb723b269809030744de0f33cb3c9e50467"
+    }
+  ]
+}

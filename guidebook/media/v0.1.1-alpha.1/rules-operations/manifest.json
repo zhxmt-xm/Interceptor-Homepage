@@ -1,0 +1,296 @@
+{
+  "chapter": "rules-operations",
+  "title": {
+    "zh-CN": "逐步骤实操：remove、append、请求正文与搜索",
+    "en": "Recorded walkthrough: remove, append, request bodies and search"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "host": "127.0.0.1",
+    "path": "/guide/rule-operations",
+    "header": "x-guide-list",
+    "originalHeader": "one",
+    "appendedHeader": "two",
+    "removedQuery": "guide=remove-me",
+    "originalBody": "{\"message\":\"original\"}",
+    "replacementBody": "{\"message\":\"request-edited\"}",
+    "initialName": "Guide operations",
+    "renamed": "Guide operations done",
+    "deletionLimit": "The released empty Rules tree has no Apply entry; this recording does not claim a saved last-rule deletion."
+  },
+  "duration": 69.30407851300001,
+  "video": "rules-operations.mp4",
+  "captions": "rules-operations.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开 Rules / Open Rules",
+      "image": "rules-operations-01-rules.png",
+      "seconds": 0.36665163399999984
+    },
+    {
+      "id": "02-new",
+      "title": "创建 Guide operations / Create Guide operations",
+      "image": "rules-operations-02-new.png",
+      "seconds": 3.2545933860000003
+    },
+    {
+      "id": "03-scope",
+      "title": "限制 Host 与 Path / Restrict Host and Path",
+      "image": "rules-operations-03-scope.png",
+      "seconds": 6.253437288000001
+    },
+    {
+      "id": "04-header-name",
+      "title": "填写 x-guide-list / Enter x-guide-list",
+      "image": "rules-operations-04-header-name.png",
+      "seconds": 9.562567832000001
+    },
+    {
+      "id": "05-append",
+      "title": "选择 append / Choose append",
+      "image": "rules-operations-05-append.png",
+      "seconds": 12.402728470999998
+    },
+    {
+      "id": "06-enable",
+      "title": "启用规则 / Enable the Rule",
+      "image": "rules-operations-06-enable.png",
+      "seconds": 15.714384059
+    },
+    {
+      "id": "07-apply",
+      "title": "Apply append / Apply append",
+      "image": "rules-operations-07-apply.png",
+      "seconds": 18.553689028999997
+    },
+    {
+      "id": "08-appended",
+      "title": "核对保留 one 并追加 two / Verify one is retained and two appended",
+      "image": "rules-operations-08-appended.png",
+      "seconds": 21.452662595
+    },
+    {
+      "id": "09-remove",
+      "title": "选择 remove / Choose remove",
+      "image": "rules-operations-09-remove.png",
+      "seconds": 24.303464879000003
+    },
+    {
+      "id": "10-apply-remove",
+      "title": "Apply remove / Apply remove",
+      "image": "rules-operations-10-apply-remove.png",
+      "seconds": 27.553653114999996
+    },
+    {
+      "id": "11-removed",
+      "title": "核对Header已移除 / Verify the Header was removed",
+      "image": "rules-operations-11-removed.png",
+      "seconds": 30.454077762999997
+    },
+    {
+      "id": "12-query-action",
+      "title": "改为 Query 动作 / Switch to a Query action",
+      "image": "rules-operations-12-query-action.png",
+      "seconds": 33.253539034
+    },
+    {
+      "id": "13-query-remove",
+      "title": "移除 guide 参数 / Remove the guide parameter",
+      "image": "rules-operations-13-query-remove.png",
+      "seconds": 36.503157955
+    },
+    {
+      "id": "14-apply-query",
+      "title": "Apply Query remove / Apply Query removal",
+      "image": "rules-operations-14-apply-query.png",
+      "seconds": 39.453292100000006
+    },
+    {
+      "id": "15-query-result",
+      "title": "核对参数被移除 / Verify the parameter is removed",
+      "image": "rules-operations-15-query-result.png",
+      "seconds": 42.353211732
+    },
+    {
+      "id": "16-body-action",
+      "title": "改为请求 Body 动作 / Switch to request Body replacement",
+      "image": "rules-operations-16-body-action.png",
+      "seconds": 45.153811415999996
+    },
+    {
+      "id": "17-body-value",
+      "title": "填写 request-edited / Enter request-edited",
+      "image": "rules-operations-17-body-value.png",
+      "seconds": 49.004241838999995
+    },
+    {
+      "id": "18-apply-body",
+      "title": "Apply 请求正文 / Apply request-body replacement",
+      "image": "rules-operations-18-apply-body.png",
+      "seconds": 51.852827901
+    },
+    {
+      "id": "19-body-result",
+      "title": "核对源站收到完整替换 / Verify the complete replacement at the origin",
+      "image": "rules-operations-19-body-result.png",
+      "seconds": 54.808898271
+    },
+    {
+      "id": "20-rename",
+      "title": "重命名为 Guide operations done / Rename the Rule",
+      "image": "rules-operations-20-rename.png",
+      "seconds": 57.610344764
+    },
+    {
+      "id": "21-search",
+      "title": "按名称搜索 / Search by name",
+      "image": "rules-operations-21-search.png",
+      "seconds": 60.654966631
+    },
+    {
+      "id": "22-disable",
+      "title": "保留但停用演示规则 / Retain and disable the demo Rule",
+      "image": "rules-operations-22-disable.png",
+      "seconds": 63.503154018000004
+    },
+    {
+      "id": "23-apply-disabled",
+      "title": "Apply 停用状态 / Apply the disabled state",
+      "image": "rules-operations-23-apply-disabled.png",
+      "seconds": 66.40289016599999
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-operations.mp4",
+      "bytes": 339231,
+      "sha256": "29e4ea1def92830c8709c694827dccabc3d40fa6a108e2f542de21c559e95c51"
+    },
+    {
+      "file": "rules-operations.vtt",
+      "bytes": 1843,
+      "sha256": "d0627fe0e75a44c9b7989a3d52f41d8cfe11bb24514b271f08b671ba7d4961df"
+    },
+    {
+      "file": "rules-operations-01-rules.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "rules-operations-02-new.png",
+      "bytes": 255909,
+      "sha256": "1c97b8444a7aeddb2df66b753a9fa4390559b314241d26f8b6d2f25ce95d7114"
+    },
+    {
+      "file": "rules-operations-03-scope.png",
+      "bytes": 247555,
+      "sha256": "03dd7775ab7a6e935ad6533f569d64e96a3b6117762b3e8aef67c2eba0cdb44b"
+    },
+    {
+      "file": "rules-operations-04-header-name.png",
+      "bytes": 255682,
+      "sha256": "04d7a27993bcb3c53cbc648792651140be8cfd288bb6dca87564d2052291c9af"
+    },
+    {
+      "file": "rules-operations-05-append.png",
+      "bytes": 254799,
+      "sha256": "36da9790a24eb60706b75a3439bf7a9f51c91a01d2e2fa4efe417e21bf0d5edb"
+    },
+    {
+      "file": "rules-operations-06-enable.png",
+      "bytes": 256438,
+      "sha256": "2eacd991c99808530a990229518fa259a35e0eae5b4d4bfc54ca3c4f4f26428c"
+    },
+    {
+      "file": "rules-operations-07-apply.png",
+      "bytes": 252400,
+      "sha256": "990f762e63982fa00f3de1f074a6aa46ebb7ac5a576c7b19625d0733ece06fb3"
+    },
+    {
+      "file": "rules-operations-08-appended.png",
+      "bytes": 252201,
+      "sha256": "98a7ad421473851f6898f1fa6cd83f4f0c61e4592b155b9bb423b91d1974e055"
+    },
+    {
+      "file": "rules-operations-09-remove.png",
+      "bytes": 256456,
+      "sha256": "a7662c3a008dee6cf3c9823c589f62110d7fb74bf7c85473774dd7c743d8c5d5"
+    },
+    {
+      "file": "rules-operations-10-apply-remove.png",
+      "bytes": 251780,
+      "sha256": "2dc59a4356096f92afbd62c8b45a59a219f6e1d71e7440896e8fcb5884e475df"
+    },
+    {
+      "file": "rules-operations-11-removed.png",
+      "bytes": 252007,
+      "sha256": "39e4c499e79913e1e06fa741e3838d0595eed1728a6d2d33008e7c04cc70193a"
+    },
+    {
+      "file": "rules-operations-12-query-action.png",
+      "bytes": 248019,
+      "sha256": "e7ceb6e02e41fb427506ec2856c59c4752abd699b8f8f178d07f863f1e4681a1"
+    },
+    {
+      "file": "rules-operations-13-query-remove.png",
+      "bytes": 253734,
+      "sha256": "28625f663de90f7c7f307c094b69e486627f3dc476d0e36076a367d53c887495"
+    },
+    {
+      "file": "rules-operations-14-apply-query.png",
+      "bytes": 250150,
+      "sha256": "50222c72d017557c8570bac2f0fa3755b23cc912f1bc31b9989d61a6c23ea165"
+    },
+    {
+      "file": "rules-operations-15-query-result.png",
+      "bytes": 250181,
+      "sha256": "832ff224836f630e2128550f1be8128761b6fad30a73cd07cc262fa8cff32973"
+    },
+    {
+      "file": "rules-operations-16-body-action.png",
+      "bytes": 254704,
+      "sha256": "ae927bcfc2580ec45074332b425a2a2cccd4d5fb2f1b72bc382a56f9d349533a"
+    },
+    {
+      "file": "rules-operations-17-body-value.png",
+      "bytes": 260979,
+      "sha256": "d616cf4dc742f0a1be79e985cbb9c843baf8f55406f2e572696f8f28e61dcdad"
+    },
+    {
+      "file": "rules-operations-18-apply-body.png",
+      "bytes": 257060,
+      "sha256": "d4244ad17f77bb99fa0cd8921964774f658b2acf49d253fdd844e6307f6c05fe"
+    },
+    {
+      "file": "rules-operations-19-body-result.png",
+      "bytes": 256926,
+      "sha256": "0ec5a5f52da413b9d9be97d6493f032fb757f214c9e9b9967c5deaa40b66daca"
+    },
+    {
+      "file": "rules-operations-20-rename.png",
+      "bytes": 258951,
+      "sha256": "19ee708cae175b77d34931ba0a3c48c51955bbe9cf808c2ccb1971ae922b7420"
+    },
+    {
+      "file": "rules-operations-21-search.png",
+      "bytes": 260065,
+      "sha256": "896d8405ecb4163d361a6a476334b84d2fe3072ae522e223836be46aff7f0368"
+    },
+    {
+      "file": "rules-operations-22-disable.png",
+      "bytes": 261244,
+      "sha256": "b89325d708658e32e5c785f93384d93ab238c5ba1be08da12c37ab99e1ef5611"
+    },
+    {
+      "file": "rules-operations-23-apply-disabled.png",
+      "bytes": 257499,
+      "sha256": "932c0a9aa136e449ba4ad0a6c543ab158ab882dd7bbf76980c2c7823a46e6bef"
+    }
+  ]
+}

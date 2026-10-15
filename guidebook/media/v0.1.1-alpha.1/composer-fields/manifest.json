@@ -1,0 +1,215 @@
+{
+  "chapter": "composer-fields",
+  "title": {
+    "zh-CN": "逐步骤实操：字段停用/删除、重发与历史恢复",
+    "en": "Recorded walkthrough: field toggles, resending and history restoration"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "origin": "http://127.0.0.1:62733/guide/composer-fields",
+    "headerName": "x-guide-toggle",
+    "headerValue": "enabled",
+    "queryName": "guide",
+    "queryValue": "enabled",
+    "json": "{\"message\":\"format-demo\",\"count\":2}",
+    "historyRestores": "method and URL only"
+  },
+  "duration": 47.356851767,
+  "video": "composer-fields.mp4",
+  "captions": "composer-fields.vtt",
+  "steps": [
+    {
+      "id": "01-new",
+      "title": "新建请求 / Create a request",
+      "image": "composer-fields-01-new.png",
+      "seconds": 0.4249011530000007
+    },
+    {
+      "id": "02-header",
+      "title": "添加 x-guide-toggle=enabled / Add the test Header",
+      "image": "composer-fields-02-header.png",
+      "seconds": 3.404770443000001
+    },
+    {
+      "id": "03-query",
+      "title": "添加 guide=enabled / Add the test Query",
+      "image": "composer-fields-03-query.png",
+      "seconds": 6.306676737000002
+    },
+    {
+      "id": "04-send-enabled",
+      "title": "重发并核对两个字段 / Send and verify both enabled fields",
+      "image": "composer-fields-04-send-enabled.png",
+      "seconds": 9.256296297
+    },
+    {
+      "id": "05-query-off",
+      "title": "停用 Query 行 / Disable the Query row",
+      "image": "composer-fields-05-query-off.png",
+      "seconds": 12.259300163
+    },
+    {
+      "id": "06-header-off",
+      "title": "停用 Header 行 / Disable the Header row",
+      "image": "composer-fields-06-header-off.png",
+      "seconds": 15.062610269
+    },
+    {
+      "id": "07-send-disabled",
+      "title": "重发并确认字段未发送 / Send without the disabled fields",
+      "image": "composer-fields-07-send-disabled.png",
+      "seconds": 17.956723336
+    },
+    {
+      "id": "08-header-delete",
+      "title": "删除 Header 行 / Delete the Header row",
+      "image": "composer-fields-08-header-delete.png",
+      "seconds": 20.856962116
+    },
+    {
+      "id": "09-query-delete",
+      "title": "删除 Query 行 / Delete the Query row",
+      "image": "composer-fields-09-query-delete.png",
+      "seconds": 23.705801531000002
+    },
+    {
+      "id": "10-json",
+      "title": "选择 POST 与 JSON / Select POST and JSON",
+      "image": "composer-fields-10-json.png",
+      "seconds": 26.606922732
+    },
+    {
+      "id": "11-format",
+      "title": "Format JSON / Format JSON",
+      "image": "composer-fields-11-format.png",
+      "seconds": 29.959731325999996
+    },
+    {
+      "id": "12-send-json",
+      "title": "发送并核对格式化后的 JSON / Send and verify formatted JSON",
+      "image": "composer-fields-12-send-json.png",
+      "seconds": 32.806077552999994
+    },
+    {
+      "id": "13-none",
+      "title": "选择 Body None / Select Body None",
+      "image": "composer-fields-13-none.png",
+      "seconds": 35.706560782000004
+    },
+    {
+      "id": "14-send-none",
+      "title": "发送空正文 / Send without a body",
+      "image": "composer-fields-14-send-none.png",
+      "seconds": 38.606813206000005
+    },
+    {
+      "id": "15-history",
+      "title": "从 Recent sends 选择旧地址 / Select an earlier Recent send",
+      "image": "composer-fields-15-history.png",
+      "seconds": 41.504152358000006
+    },
+    {
+      "id": "16-check-restored",
+      "title": "核对没有恢复已删除字段或正文 / Check that fields and body were not restored",
+      "image": "composer-fields-16-check-restored.png",
+      "seconds": 44.457167143
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-fields.mp4",
+      "bytes": 232362,
+      "sha256": "957106bebab37637cc3abe9179b886f6ffbfb563ad6f2b9144e275633d05ca33"
+    },
+    {
+      "file": "composer-fields.vtt",
+      "bytes": 1334,
+      "sha256": "51e3aaf92af7590f9af2ac12a42dd18893abd1d520fe04eaca9c88f5bac2a00a"
+    },
+    {
+      "file": "composer-fields-01-new.png",
+      "bytes": 240183,
+      "sha256": "2fac21c8c5844ef6d80e2dc963d8bd24befd133a3d230a07ea575dd7c042eb11"
+    },
+    {
+      "file": "composer-fields-02-header.png",
+      "bytes": 232691,
+      "sha256": "04a3af48956f223bdb0ccf14c3662cbc64107dad5b31ebd84fb3c0b8884398cd"
+    },
+    {
+      "file": "composer-fields-03-query.png",
+      "bytes": 230096,
+      "sha256": "b4ec519a81ecaf00de19ebd33734d3c50769fb16d7c2abc2c7849351172b6dcc"
+    },
+    {
+      "file": "composer-fields-04-send-enabled.png",
+      "bytes": 276812,
+      "sha256": "2fa730587446475eeebd5caa61d0fc4982ec8987cc7495de5cf4334d08d4e5e7"
+    },
+    {
+      "file": "composer-fields-05-query-off.png",
+      "bytes": 276794,
+      "sha256": "56dcbb22ff600bf512970c206dfd9fe0f19289acf64d86d5972a9f3b50b61c34"
+    },
+    {
+      "file": "composer-fields-06-header-off.png",
+      "bytes": 279701,
+      "sha256": "3fb904fa40fe79fdfd06bfd14ed987c860b857e4982748cb580b64371ddb7ecb"
+    },
+    {
+      "file": "composer-fields-07-send-disabled.png",
+      "bytes": 279147,
+      "sha256": "9eaff419c57990fa76b9bf4131f47b5df445f5f88af58f0527b2ddcb9bb48c19"
+    },
+    {
+      "file": "composer-fields-08-header-delete.png",
+      "bytes": 271325,
+      "sha256": "c93697a27cea0ea45a1d82d9d5b3b8b5e5f30562b498668dd23b56126bb7ef7a"
+    },
+    {
+      "file": "composer-fields-09-query-delete.png",
+      "bytes": 271183,
+      "sha256": "5a4a87e6dbbcbc4e5b67a073a918af0ea2fb4edabb7f6fde71daee1952e934b0"
+    },
+    {
+      "file": "composer-fields-10-json.png",
+      "bytes": 293483,
+      "sha256": "dc4c9cd5ffd867092bc54ffca596380a0be88794383b7385b6d6a5e56b70873c"
+    },
+    {
+      "file": "composer-fields-11-format.png",
+      "bytes": 312202,
+      "sha256": "95ca2162bd6756b60dc4b3e105e596721ebc819cf13426bd0e5090dc6777b639"
+    },
+    {
+      "file": "composer-fields-12-send-json.png",
+      "bytes": 302638,
+      "sha256": "7d04cfa2bec6402daf372a45d3856507e085fcf27746052ef05fd66eee0607cc"
+    },
+    {
+      "file": "composer-fields-13-none.png",
+      "bytes": 290434,
+      "sha256": "fa0c6e1e864b34121064a143eea3b08407d825996d430d6f6ad2f6da1726c337"
+    },
+    {
+      "file": "composer-fields-14-send-none.png",
+      "bytes": 279313,
+      "sha256": "5329058498187b1c48539451d93665a8dc6c8ea115b6b44000d46de9d92182ed"
+    },
+    {
+      "file": "composer-fields-15-history.png",
+      "bytes": 280025,
+      "sha256": "128ae31febf1b6d6b2f9ebf45276d54190f2714818fcb2daaa2cd8eaf8391433"
+    },
+    {
+      "file": "composer-fields-16-check-restored.png",
+      "bytes": 280025,
+      "sha256": "128ae31febf1b6d6b2f9ebf45276d54190f2714818fcb2daaa2cd8eaf8391433"
+    }
+  ]
+}

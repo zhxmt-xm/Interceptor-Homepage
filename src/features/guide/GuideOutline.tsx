@@ -2,13 +2,13 @@ import type { Locale } from '../../content';
 import { GUIDE_UI } from '../../content/guidebook';
 import GuideLink from './GuideLink';
 import styles from './GuideOutline.module.css';
-import type { GuideHeading } from './utils';
+import type { GuideHeading } from './interfaces';
 
 export default function GuideOutline({
   headings,
   locale,
 }: {
-  headings: GuideHeading[];
+  headings: readonly GuideHeading[];
   locale: Locale;
 }) {
   return (

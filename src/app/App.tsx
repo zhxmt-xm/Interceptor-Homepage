@@ -13,6 +13,7 @@ import SiteHeader from '../components/SiteHeader/SiteHeader';
 import type { Locale } from '../content';
 import { COPY } from '../content';
 import { GUIDE_CHAPTERS, GUIDE_ROUTES, GUIDE_UI } from '../content/guidebook';
+import GuideErrorBoundary from '../features/guide/GuideErrorBoundary';
 import HomePage from '../features/home/HomePage';
 import { useTheme } from '../theme/useTheme';
 import type { ThemePreference } from '../theme/utils';
@@ -65,7 +66,7 @@ export default function App({
       ? content.title
       : guidePage === null
         ? `${GUIDE_UI[locale].notFound} — Interceptor`
-        : `${guidePage === 'overview' ? '' : `${GUIDE_CHAPTERS.find((chapter) => chapter.slug === guidePage)?.label} · `}${GUIDE_UI[locale].title} — Interceptor`;
+        : `${guidePage === 'overview' ? '' : `${GUIDE_CHAPTERS.find((chapter) => chapter.slug === guidePage)?.label[locale]} · `}${GUIDE_UI[locale].title} — Interceptor`;
     const description =
       guidePage === null
         ? content.description
@@ -105,34 +106,39 @@ export default function App({
         onThemeChange={chooseTheme}
         homePrefix={home ? '' : '/'}
       />
-      <Suspense
-        fallback={
-          <main id="main-content" className={styles.loading} role="status">
-            {GUIDE_UI[locale].loading}
-          </main>
-        }
-      >
-        <Routes>
-          <Route path="/" element={<HomePage content={content} theme={theme} locale={locale} />} />
-          {GUIDE_ROUTES.map((route) => (
+      <GuideErrorBoundary resetKey={`${location.pathname}${location.search}`} locale={locale}>
+        <Suspense
+          fallback={
+            <main id="main-content" className={styles.loading} role="status">
+              {GUIDE_UI[locale].loading}
+            </main>
+          }
+        >
+          <Routes>
             <Route
-              key={route.path}
-              path={route.path}
-              caseSensitive={route.caseSensitive}
-              element={<GuidePage page={route.page} locale={locale} />}
+              path="/"
+              element={<HomePage content={content} theme={theme} locale={locale} />}
             />
-          ))}
-          <Route
-            path="*"
-            element={
-              <main id="main-content" className={styles.loading} role="alert">
-                <h1>{GUIDE_UI[locale].notFound}</h1>
-                <Link to="/">{GUIDE_UI[locale].back}</Link>
-              </main>
-            }
-          />
-        </Routes>
-      </Suspense>
+            {GUIDE_ROUTES.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                caseSensitive={route.caseSensitive}
+                element={<GuidePage page={route.page} locale={locale} />}
+              />
+            ))}
+            <Route
+              path="*"
+              element={
+                <main id="main-content" className={styles.loading} role="alert">
+                  <h1>{GUIDE_UI[locale].notFound}</h1>
+                  <Link to="/">{GUIDE_UI[locale].back}</Link>
+                </main>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </GuideErrorBoundary>
       <SiteFooter content={content.footer} homePrefix={home ? '' : '/'} />
     </div>
   );

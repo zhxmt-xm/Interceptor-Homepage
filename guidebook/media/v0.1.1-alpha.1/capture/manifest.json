@@ -1,0 +1,490 @@
+{
+  "chapter": "capture",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned native-panel windows; no microphone",
+  "example": {
+    "filter": "/guide/capture",
+    "url": "http://127.0.0.1:58377/guide/capture/orders",
+    "response": "{\"orderId\":\"guide-001\",\"message\":\"Hello Interceptor\",\"status\":\"ready\"}",
+    "protocolFilter": "/playground",
+    "h2Path": "/playground/h2-json",
+    "websocketPath": "/playground/ws/text",
+    "websocketPayload": "hello from client",
+    "grpcPath": "/playground.Capture/UnaryJson",
+    "grpcRequest": "{\"message\":\"hello\"}",
+    "grpcResponse": "{\"message\":\"world\"}",
+    "originException": "localhost (removed after the demonstration)"
+  },
+  "duration": 123.200688232,
+  "video": "capture.mp4",
+  "captions": "capture.vtt",
+  "steps": [
+    {
+      "id": "01-filter",
+      "title": "输入 /guide/capture 筛选 / Filter owned traffic",
+      "image": "capture-01-filter.png",
+      "seconds": 0.33773511300000064
+    },
+    {
+      "id": "02-record",
+      "title": "开启 Recording / Start Recording",
+      "image": "capture-02-record.png",
+      "seconds": 3.1471288740000016
+    },
+    {
+      "id": "03-request",
+      "title": "发送演示 GET / Send the example GET",
+      "image": "capture-03-request.png",
+      "seconds": 5.995625025000002
+    },
+    {
+      "id": "04-select",
+      "title": "选择 orders 请求 / Select the orders request",
+      "image": "capture-04-select.png",
+      "seconds": 8.851110387000002
+    },
+    {
+      "id": "05-headers",
+      "title": "检查 Headers / Inspect Headers",
+      "image": "capture-05-headers.png",
+      "seconds": 11.898009666
+    },
+    {
+      "id": "06-response",
+      "title": "读取 JSON 正文 / Read the JSON response",
+      "image": "capture-06-response.png",
+      "seconds": 14.746162369
+    },
+    {
+      "id": "07-tree",
+      "title": "切换 Tree / Switch to Tree",
+      "image": "capture-07-tree.png",
+      "seconds": 17.751862604000003
+    },
+    {
+      "id": "08-raw",
+      "title": "切换 Raw / Switch to Raw",
+      "image": "capture-08-raw.png",
+      "seconds": 20.652303792999998
+    },
+    {
+      "id": "08a-fullscreen",
+      "title": "全屏查看正文 / Open the body fullscreen",
+      "image": "capture-08a-fullscreen.png",
+      "seconds": 23.547424521
+    },
+    {
+      "id": "08b-close-fullscreen",
+      "title": "Escape 返回详情 / Return with Escape",
+      "image": "capture-08b-close-fullscreen.png",
+      "seconds": 26.455007813000005
+    },
+    {
+      "id": "09-hex",
+      "title": "查看 Hex 字节 / Inspect Hex bytes",
+      "image": "capture-09-hex.png",
+      "seconds": 29.398168087000005
+    },
+    {
+      "id": "10-timing",
+      "title": "检查请求时序 / Inspect Timing",
+      "image": "capture-10-timing.png",
+      "seconds": 32.2998159
+    },
+    {
+      "id": "11-pause",
+      "title": "暂停录制 / Pause Recording",
+      "image": "capture-11-pause.png",
+      "seconds": 35.197621877
+    },
+    {
+      "id": "12-paused-request",
+      "title": "暂停时请求仍转发 / Forward while paused",
+      "image": "capture-12-paused-request.png",
+      "seconds": 38.098350378000006
+    },
+    {
+      "id": "13-resume",
+      "title": "恢复录制 / Resume Recording",
+      "image": "capture-13-resume.png",
+      "seconds": 40.947721181
+    },
+    {
+      "id": "14-new-request",
+      "title": "恢复后捕获新请求 / Capture a new request after Resume",
+      "image": "capture-14-new-request.png",
+      "seconds": 43.898819469
+    },
+    {
+      "id": "15-keyword",
+      "title": "只查找 orders / Narrow search to orders",
+      "image": "capture-15-keyword.png",
+      "seconds": 46.805672822
+    },
+    {
+      "id": "16-restore-filter",
+      "title": "恢复演示范围 / Restore the example scope",
+      "image": "capture-16-restore-filter.png",
+      "seconds": 49.699383052
+    },
+    {
+      "id": "17-clear",
+      "title": "清空不需保留的演示记录 / Clear disposable example records",
+      "image": "capture-17-clear.png",
+      "seconds": 52.548505520000006
+    },
+    {
+      "id": "18-certificates",
+      "title": "检查现有受信任 CA / Inspect the existing trusted CA",
+      "image": "capture-18-certificates.png",
+      "seconds": 55.499814576000006
+    },
+    {
+      "id": "19-local-origin",
+      "title": "只为演示 localhost 添加源站例外 / Add only the demo localhost exception",
+      "image": "capture-19-local-origin.png",
+      "seconds": 58.44784010000001
+    },
+    {
+      "id": "20-decryption",
+      "title": "开启 HTTPS 解密 / Enable HTTPS decryption",
+      "image": "capture-20-decryption.png",
+      "seconds": 61.398232555
+    },
+    {
+      "id": "21-protocol-scope",
+      "title": "限定协议演示请求 / Filter the protocol examples",
+      "image": "capture-21-protocol-scope.png",
+      "seconds": 64.44894009900001
+    },
+    {
+      "id": "22-http2",
+      "title": "捕获真实 HTTP/2 / Capture real HTTP/2",
+      "image": "capture-22-http2.png",
+      "seconds": 67.49958716399999
+    },
+    {
+      "id": "23-trailers",
+      "title": "展开 HTTP/2 trailers / Expand HTTP/2 trailers",
+      "image": "capture-23-trailers.png",
+      "seconds": 70.74988006699999
+    },
+    {
+      "id": "24-h2-body",
+      "title": "读取 HTTP/2 JSON / Read the HTTP/2 JSON body",
+      "image": "capture-24-h2-body.png",
+      "seconds": 73.598871659
+    },
+    {
+      "id": "25-websocket",
+      "title": "捕获 WebSocket 文本 / Capture WebSocket text",
+      "image": "capture-25-websocket.png",
+      "seconds": 76.64864540399999
+    },
+    {
+      "id": "26-message",
+      "title": "查看发送方向的载荷 / Inspect a sent payload",
+      "image": "capture-26-message.png",
+      "seconds": 79.699013259
+    },
+    {
+      "id": "27-grpc",
+      "title": "捕获 gRPC JSON / Capture gRPC JSON",
+      "image": "capture-27-grpc.png",
+      "seconds": 82.699641938
+    },
+    {
+      "id": "28-grpc-response",
+      "title": "查看 gRPC response 消息 / Inspect the gRPC response message",
+      "image": "capture-28-grpc-response.png",
+      "seconds": 85.95716203399999
+    },
+    {
+      "id": "29-body-html",
+      "title": "HTML代码 / HTML source",
+      "image": "capture-29-body-html.png",
+      "seconds": 88.903326002
+    },
+    {
+      "id": "29-body-markdown",
+      "title": "Markdown预览 / Markdown preview",
+      "image": "capture-29-body-markdown.png",
+      "seconds": 92.049504149
+    },
+    {
+      "id": "29-body-form",
+      "title": "Form字段 / Form fields",
+      "image": "capture-29-body-form.png",
+      "seconds": 95.09825619499999
+    },
+    {
+      "id": "29-body-png",
+      "title": "PNG图片 / PNG image",
+      "image": "capture-29-body-png.png",
+      "seconds": 98.152474144
+    },
+    {
+      "id": "29-body-binary",
+      "title": "二进制Hex / Binary Hex",
+      "image": "capture-29-body-binary.png",
+      "seconds": 101.148604622
+    },
+    {
+      "id": "29-body-audio",
+      "title": "音频元信息 / Audio metadata",
+      "image": "capture-29-body-audio.png",
+      "seconds": 104.449066612
+    },
+    {
+      "id": "29-body-video",
+      "title": "视频元信息 / Video metadata",
+      "image": "capture-29-body-video.png",
+      "seconds": 107.50533419899999
+    },
+    {
+      "id": "29-encoding-gzip",
+      "title": "gzip解码 / gzip decoding",
+      "image": "capture-29-encoding-gzip.png",
+      "seconds": 110.54735128
+    },
+    {
+      "id": "29-encoding-corrupt-gzip",
+      "title": "损坏编码的实际提示 / Actual corrupt-encoding notice",
+      "image": "capture-29-encoding-corrupt-gzip.png",
+      "seconds": 113.659558765
+    },
+    {
+      "id": "30-decryption-off",
+      "title": "关闭本轮 HTTPS 解密 / Disable this run’s decryption",
+      "image": "capture-30-decryption-off.png",
+      "seconds": 116.79844071899998
+    },
+    {
+      "id": "31-remove-exception",
+      "title": "移除演示源站例外 / Remove the demo origin exception",
+      "image": "capture-31-remove-exception.png",
+      "seconds": 120.04883627
+    }
+  ],
+  "assets": [
+    {
+      "file": "capture.mp4",
+      "bytes": 870490,
+      "sha256": "f19c3be893b5751a8c219acd9b29dcfe9b9b9b77ca84c2c3ce08778bd64b8436"
+    },
+    {
+      "file": "capture.vtt",
+      "bytes": 3183,
+      "sha256": "4df27c1878770ed245a097a6d7461f6faccc8e9b01d23d1df638767f278b117a"
+    },
+    {
+      "file": "capture-01-filter.png",
+      "bytes": 221464,
+      "sha256": "f20f03c6c39aa54018194f68e5797c76369ee0caca5fbddebcc586081b16a32c"
+    },
+    {
+      "file": "capture-02-record.png",
+      "bytes": 221464,
+      "sha256": "f20f03c6c39aa54018194f68e5797c76369ee0caca5fbddebcc586081b16a32c"
+    },
+    {
+      "file": "capture-03-request.png",
+      "bytes": 232103,
+      "sha256": "12cd220db1c122c997e199c70a0d80e4cfa047c9066e3f6f0352b1b34fffcdf6"
+    },
+    {
+      "file": "capture-04-select.png",
+      "bytes": 355574,
+      "sha256": "ec58af162e7073f262b2fff742243cce551fc2251a9ffcbdf032c4017a85f602"
+    },
+    {
+      "file": "capture-05-headers.png",
+      "bytes": 355756,
+      "sha256": "c7d2e9fef4c751bd5fc0b1ebaace340d31b40e643fb2d21093a1d7daa7b8b4a7"
+    },
+    {
+      "file": "capture-06-response.png",
+      "bytes": 296060,
+      "sha256": "befbcd2dc435d73a25ac61577dfe7402ca74f10bbec91da3970f3d0a38520c39"
+    },
+    {
+      "file": "capture-07-tree.png",
+      "bytes": 296903,
+      "sha256": "789a21d28e596085a362a71fa4ffa036dd84b238bfc602e0dac7ea9c13c2be6f"
+    },
+    {
+      "file": "capture-08-raw.png",
+      "bytes": 294331,
+      "sha256": "3332e529138a3b6849a33a1f4890de9d5d4a8fbd903d61e7d9be7d833e710250"
+    },
+    {
+      "file": "capture-08a-fullscreen.png",
+      "bytes": 241429,
+      "sha256": "dce17922a631d5aad9e0e8065baaccf5a6cfbfb3806d58e02a3cb5323aaafdb1"
+    },
+    {
+      "file": "capture-08b-close-fullscreen.png",
+      "bytes": 304719,
+      "sha256": "49835e2aad3bfe37ad769d447e975090166eab208cdccec8ebc816d2b3c73d78"
+    },
+    {
+      "file": "capture-09-hex.png",
+      "bytes": 349367,
+      "sha256": "f82fc637e52474d384f05ee346c7e8ca6303fa3030c69b3c4f7833e4089a954b"
+    },
+    {
+      "file": "capture-10-timing.png",
+      "bytes": 293399,
+      "sha256": "ad65a47b7e6fd43e22d829832386acfd673db413f479e9181343fb372d58aed0"
+    },
+    {
+      "file": "capture-11-pause.png",
+      "bytes": 308297,
+      "sha256": "2199b7dcbc8b733ed06ca3537e24f4a7913d92c17c829089fa531c4178ff58dc"
+    },
+    {
+      "file": "capture-12-paused-request.png",
+      "bytes": 308297,
+      "sha256": "2199b7dcbc8b733ed06ca3537e24f4a7913d92c17c829089fa531c4178ff58dc"
+    },
+    {
+      "file": "capture-13-resume.png",
+      "bytes": 307937,
+      "sha256": "928bfc21506f45c0ae93bd757cbf85c81dd468aaf8bbcd3a88f77cbbe7722f7b"
+    },
+    {
+      "file": "capture-14-new-request.png",
+      "bytes": 320929,
+      "sha256": "3cd723ae2d1e1343fa1060b0489fb09d9449721ac2b761192ceaaf389306d7d5"
+    },
+    {
+      "file": "capture-15-keyword.png",
+      "bytes": 308733,
+      "sha256": "664540e6aa2abae929a6ef94b712dd719824c2a8b9436171a04aea4e72a149c8"
+    },
+    {
+      "file": "capture-16-restore-filter.png",
+      "bytes": 320924,
+      "sha256": "db64d32eecc4601ee96ca8a1c83d80c3c015267321ba42fcc562c10c9cab4fcc"
+    },
+    {
+      "file": "capture-17-clear.png",
+      "bytes": 232335,
+      "sha256": "d90ba1eabce14e1eecbc77bd46f94cab22e138f0d9c8ad59c648cfed51ab4c94"
+    },
+    {
+      "file": "capture-18-certificates.png",
+      "bytes": 362374,
+      "sha256": "90d2d308e9938910395288773674d187dcd9314a72b0582c2b705d3bd7a8f356"
+    },
+    {
+      "file": "capture-19-local-origin.png",
+      "bytes": 376630,
+      "sha256": "4b11985fcd6b09f3a652e6719eec1ada641e1f42956cddea4ea8ffbf54011f05"
+    },
+    {
+      "file": "capture-20-decryption.png",
+      "bytes": 380426,
+      "sha256": "16b377d5553b1d41c92c08fd9970ddfdff234e1155baf834de1dd0bd6dec1375"
+    },
+    {
+      "file": "capture-21-protocol-scope.png",
+      "bytes": 219895,
+      "sha256": "b02e4964af31f4216938b8459072b36875918d81a6a61e543a4880949cdd0adf"
+    },
+    {
+      "file": "capture-22-http2.png",
+      "bytes": 375236,
+      "sha256": "8913cfd43757f5e10a818fb3921bef29b5e014fbddd9ebd45b44e5a89bfd1663"
+    },
+    {
+      "file": "capture-23-trailers.png",
+      "bytes": 375236,
+      "sha256": "8913cfd43757f5e10a818fb3921bef29b5e014fbddd9ebd45b44e5a89bfd1663"
+    },
+    {
+      "file": "capture-24-h2-body.png",
+      "bytes": 288019,
+      "sha256": "95964b6729adeac47499b50e9aa861b03a937c60adfc022412a5e65bb733b481"
+    },
+    {
+      "file": "capture-25-websocket.png",
+      "bytes": 306231,
+      "sha256": "681730973437ab9e62e294079a946084bb07c47d2a290822024a1d0b189ccc70"
+    },
+    {
+      "file": "capture-26-message.png",
+      "bytes": 321281,
+      "sha256": "a439c74dd1b1aa5b132d649386c366d4103514136a5717c7c830835dddd7baf1"
+    },
+    {
+      "file": "capture-27-grpc.png",
+      "bytes": 329236,
+      "sha256": "891225a2a3a2ff7b8f84e1d12703bbbcfa0564c86b42fc5996f9db47f2116679"
+    },
+    {
+      "file": "capture-28-grpc-response.png",
+      "bytes": 355053,
+      "sha256": "ed2abfca6ca3a23a8f2c1a5e468d5b1f2ee4131b41b81958fba305a01dc1e97d"
+    },
+    {
+      "file": "capture-29-body-html.png",
+      "bytes": 341561,
+      "sha256": "83158fc4b5d92b928a0057a2f4740df46465cc2b76910532e11cd92543228e86"
+    },
+    {
+      "file": "capture-29-body-markdown.png",
+      "bytes": 352174,
+      "sha256": "dc2fc7bcd9f39942148fdcdea6aab312526a6d1560bb2ceb616a8d1ea6e4354b"
+    },
+    {
+      "file": "capture-29-body-form.png",
+      "bytes": 368624,
+      "sha256": "1b1ccf893c6645b57d9205c1350d11a01575b83f2d98921de1d2e02e3f9c9dbb"
+    },
+    {
+      "file": "capture-29-body-png.png",
+      "bytes": 367314,
+      "sha256": "d657c0a2d064909f235183e942757b4ff18121d780e541feae8a5a5b89bf3d42"
+    },
+    {
+      "file": "capture-29-body-binary.png",
+      "bytes": 394210,
+      "sha256": "908cb2eef84baada7d99f8876ba63b718c79c003c235f5a5b8a68f2c71bd9b85"
+    },
+    {
+      "file": "capture-29-body-audio.png",
+      "bytes": 414779,
+      "sha256": "5ff4a564a6c4dabf7c35a1d214bce3448f980d07cc6f4975a5c6dfe804e4c251"
+    },
+    {
+      "file": "capture-29-body-video.png",
+      "bytes": 431683,
+      "sha256": "86928ef12d7c9b2cc3322138fcbbf8b28dd70ae256e80fa7fe982dd8f6106adb"
+    },
+    {
+      "file": "capture-29-encoding-gzip.png",
+      "bytes": 439875,
+      "sha256": "ec0af86b2cf2418162b9f7a7c244350e2ce7abe5aa458099126898d9459d9ea2"
+    },
+    {
+      "file": "capture-29-encoding-corrupt-gzip.png",
+      "bytes": 465244,
+      "sha256": "b0662003d7968213e9c737f4dcd44a7daa661c4f39d52071b113c92fa5d199c8"
+    },
+    {
+      "file": "capture-30-decryption-off.png",
+      "bytes": 376395,
+      "sha256": "855fd65dce8b89d2b557079a5a62ceacb49e84b8a0a1c8d52649674789c5a7af"
+    },
+    {
+      "file": "capture-31-remove-exception.png",
+      "bytes": 362010,
+      "sha256": "c405403405de88ff7a035a0f803c3407da950717dac4f2dce08b6fe9061bed49"
+    }
+  ]
+}

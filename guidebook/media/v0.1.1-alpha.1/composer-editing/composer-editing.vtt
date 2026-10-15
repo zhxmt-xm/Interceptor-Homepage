@@ -1,0 +1,125 @@
+WEBVTT
+
+1
+00:00:00.330 --> 00:00:03.186
+打开 Composer / Open Composer
+
+2
+00:00:03.186 --> 00:00:06.086
+新建请求 / Create the request
+
+3
+00:00:06.086 --> 00:00:08.939
+填写演示 URL / Enter the demo URL
+
+4
+00:00:08.939 --> 00:00:11.889
+选择 POST / Choose POST
+
+5
+00:00:11.889 --> 00:00:14.837
+填写 JSON Content-Type / Set the JSON Content-Type
+
+6
+00:00:14.837 --> 00:00:17.688
+打开 Body / Open Body
+
+7
+00:00:17.688 --> 00:00:20.788
+选择 JSON / Choose JSON
+
+8
+00:00:20.788 --> 00:00:23.742
+输入 Hello JSON / Enter the JSON body
+
+9
+00:00:23.742 --> 00:00:26.587
+发送并核对完整 JSON / Send and verify the complete JSON
+
+10
+00:00:26.587 --> 00:00:29.535
+选择 Text / Choose Text
+
+11
+00:00:29.535 --> 00:00:32.387
+设置 text/plain / Set text/plain
+
+12
+00:00:32.387 --> 00:00:35.186
+使用独立文本测试地址 / Use the separate text endpoint
+
+13
+00:00:35.186 --> 00:00:38.037
+发送并核对文本 / Send and verify text
+
+14
+00:00:38.037 --> 00:00:40.936
+选择 Form / Choose Form
+
+15
+00:00:40.936 --> 00:00:43.838
+添加 name=Interceptor / Add name=Interceptor
+
+16
+00:00:43.838 --> 00:00:46.788
+添加 ready=true / Add ready=true
+
+17
+00:00:46.788 --> 00:00:49.636
+设置表单 Content-Type / Set the form Content-Type
+
+18
+00:00:49.636 --> 00:00:52.437
+使用独立表单测试地址 / Use the separate form endpoint
+
+19
+00:00:52.437 --> 00:00:55.286
+发送并核对表单字节 / Send and verify form bytes
+
+20
+00:00:55.286 --> 00:00:58.092
+打开 Auth / Open Auth
+
+21
+00:00:58.092 --> 00:01:00.944
+查看 Bearer 输入位置，不填真实Key / Inspect Bearer input without a real key
+
+22
+00:01:00.944 --> 00:01:03.837
+查看 Basic 输入位置 / Inspect Basic inputs
+
+23
+00:01:03.837 --> 00:01:06.737
+恢复 None / Restore None
+
+24
+00:01:06.737 --> 00:01:10.036
+重命名 Guide form request / Rename the request
+
+25
+00:01:10.036 --> 00:01:12.937
+新建 Guide collection / Create the collection folder
+
+26
+00:01:12.937 --> 00:01:35.507
+把请求移入目录 / Move the request into the folder
+
+27
+00:01:35.507 --> 00:01:40.377
+导出 guide-collection.json / Export the collection
+
+28
+00:01:40.377 --> 00:01:54.933
+核对实际导出内容 / Verify the exported collection
+
+29
+00:01:54.933 --> 00:01:59.982
+选择同一个集合文件 / Select the same exported file
+
+30
+00:01:59.982 --> 00:02:02.788
+检查导入预览 / Review import preview
+
+31
+00:02:02.788 --> 00:02:05.742
+确认追加而不覆盖 / Confirm append without overwrite

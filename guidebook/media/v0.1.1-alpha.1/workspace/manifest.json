@@ -1,0 +1,185 @@
+{
+  "chapter": "workspace",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "initialTheme": "light",
+    "appLanguage": "zh-CN",
+    "languageChanged": "false"
+  },
+  "duration": 42.539083307,
+  "video": "workspace.mp4",
+  "captions": "workspace.vtt",
+  "steps": [
+    {
+      "id": "01-sidebar",
+      "title": "展开侧栏名称 / Expand sidebar labels",
+      "image": "workspace-01-sidebar.png",
+      "seconds": 0.39605261900000005
+    },
+    {
+      "id": "02-capture",
+      "title": "进入 Capture / Open Capture",
+      "image": "workspace-02-capture.png",
+      "seconds": 3.2288899949999994
+    },
+    {
+      "id": "03-rules",
+      "title": "进入 Rules / Open Rules",
+      "image": "workspace-03-rules.png",
+      "seconds": 6.077933752999999
+    },
+    {
+      "id": "04-composer",
+      "title": "进入 Composer / Open Composer",
+      "image": "workspace-04-composer.png",
+      "seconds": 8.928793139999998
+    },
+    {
+      "id": "05-diagnostics",
+      "title": "进入 Diagnostics / Open Diagnostics",
+      "image": "workspace-05-diagnostics.png",
+      "seconds": 11.777722542
+    },
+    {
+      "id": "06-settings",
+      "title": "进入 Settings / Open Settings",
+      "image": "workspace-06-settings.png",
+      "seconds": 14.678058049999999
+    },
+    {
+      "id": "07-theme-warm",
+      "title": "选择 warm 主题 / Select the warm theme",
+      "image": "workspace-07-theme-warm.png",
+      "seconds": 17.578408024
+    },
+    {
+      "id": "07-theme-light",
+      "title": "选择 light 主题 / Select the light theme",
+      "image": "workspace-07-theme-light.png",
+      "seconds": 20.827884603999998
+    },
+    {
+      "id": "07-theme-ember",
+      "title": "选择 ember 主题 / Select the ember theme",
+      "image": "workspace-07-theme-ember.png",
+      "seconds": 24.078231160999994
+    },
+    {
+      "id": "07-theme-dark",
+      "title": "选择 dark 主题 / Select the dark theme",
+      "image": "workspace-07-theme-dark.png",
+      "seconds": 27.378168223
+    },
+    {
+      "id": "08-restore-theme",
+      "title": "恢复原主题 / Restore the original theme",
+      "image": "workspace-08-restore-theme.png",
+      "seconds": 30.578469987
+    },
+    {
+      "id": "09-language-menu",
+      "title": "查看语言菜单，不切换 / Inspect languages without changing the current language",
+      "image": "workspace-09-language-menu.png",
+      "seconds": 33.828748623
+    },
+    {
+      "id": "10-agent-panel",
+      "title": "打开可选 Agent 面板 / Open the optional Agent panel",
+      "image": "workspace-10-agent-panel.png",
+      "seconds": 36.79193916
+    },
+    {
+      "id": "11-close-panel",
+      "title": "关闭面板但不退出 App / Close the panel, not the App",
+      "image": "workspace-11-close-panel.png",
+      "seconds": 39.677751823
+    }
+  ],
+  "assets": [
+    {
+      "file": "workspace.mp4",
+      "bytes": 392706,
+      "sha256": "bb56ea45dcd9d7b6a113c5fb1ac5cccb270a8cc6700f8f5a8f65341dd860a26d"
+    },
+    {
+      "file": "workspace.vtt",
+      "bytes": 1103,
+      "sha256": "48fd1568380ecb618b2a1808d60d77a96958e5f91016eb0de4013d6b7023c6ae"
+    },
+    {
+      "file": "workspace-01-sidebar.png",
+      "bytes": 261854,
+      "sha256": "1a6e866d7be2f2df1c595aa2e14bdc843727c9850c8fb527f173aa25ccbe02d9"
+    },
+    {
+      "file": "workspace-02-capture.png",
+      "bytes": 261839,
+      "sha256": "fe25633faf39943400c6c273a2d516e0ab6bda6547e562ecf5999efacec309ca"
+    },
+    {
+      "file": "workspace-03-rules.png",
+      "bytes": 214293,
+      "sha256": "c46ef35dcca82c5196249464c5717b6abad6abd326ec4b4b2926420f88122624"
+    },
+    {
+      "file": "workspace-04-composer.png",
+      "bytes": 214308,
+      "sha256": "f504495f4e71f936471fce97cc7a0b03d5dc333dafd39ac657764ac005fc3fb2"
+    },
+    {
+      "file": "workspace-05-diagnostics.png",
+      "bytes": 422185,
+      "sha256": "430ee7dcba65ced32f184a12acb8d8240feb58242e68e0d4eaac8e1f48db0294"
+    },
+    {
+      "file": "workspace-06-settings.png",
+      "bytes": 397434,
+      "sha256": "76bd49328740252decf00a27b72a7073927666de85af4d4a324afb7bdaec0ef8"
+    },
+    {
+      "file": "workspace-07-theme-warm.png",
+      "bytes": 396610,
+      "sha256": "3e8739bf0b67aa685e73aa8c402479cd804d0d549efe09edec85b08d85938159"
+    },
+    {
+      "file": "workspace-07-theme-light.png",
+      "bytes": 397232,
+      "sha256": "01d4fb584ac626b724648cf507fac05807f4bf77ff177e7ffd942ce189b8e51c"
+    },
+    {
+      "file": "workspace-07-theme-ember.png",
+      "bytes": 398552,
+      "sha256": "2b044d7733cf04cc457c95c2793f42f37c7c155d750b686351e744c9af6dbdf2"
+    },
+    {
+      "file": "workspace-07-theme-dark.png",
+      "bytes": 398284,
+      "sha256": "4d24396cb3f913953879e7f5a85dd093b2da9961367adecb56aff4a91696e97a"
+    },
+    {
+      "file": "workspace-08-restore-theme.png",
+      "bytes": 397232,
+      "sha256": "01d4fb584ac626b724648cf507fac05807f4bf77ff177e7ffd942ce189b8e51c"
+    },
+    {
+      "file": "workspace-09-language-menu.png",
+      "bytes": 467177,
+      "sha256": "d51c70e07484a2520b77b0ab52cb492829b748b27aa4ac6838f6148f47fbcbf8"
+    },
+    {
+      "file": "workspace-10-agent-panel.png",
+      "bytes": 449743,
+      "sha256": "20325a455b4cf99bc0eebd36194c9315be856373c43114551f0c30cfc35cefde"
+    },
+    {
+      "file": "workspace-11-close-panel.png",
+      "bytes": 397232,
+      "sha256": "01d4fb584ac626b724648cf507fac05807f4bf77ff177e7ffd942ce189b8e51c"
+    }
+  ]
+}

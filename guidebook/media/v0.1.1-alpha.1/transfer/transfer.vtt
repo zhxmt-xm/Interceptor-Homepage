@@ -1,0 +1,77 @@
+WEBVTT
+
+1
+00:00:00.203 --> 00:00:03.084
+打开 Export / Open Export
+
+2
+00:00:03.084 --> 00:00:06.033
+选择 HAR / Choose HAR
+
+3
+00:00:06.033 --> 00:00:08.933
+选择当前请求 / Select the current request
+
+4
+00:00:08.933 --> 00:00:30.729
+核对隐私选项 / Review privacy options
+
+5
+00:00:30.729 --> 00:00:35.598
+保存为 guide-recording.har / Save as guide-recording.har
+
+6
+00:00:35.598 --> 00:00:38.882
+确认 HAR 保存完成 / Verify HAR completion
+
+7
+00:00:38.882 --> 00:00:41.690
+打开 Import / Open Import
+
+8
+00:00:41.690 --> 00:00:57.739
+选择 HAR 导入 / Choose HAR import
+
+9
+00:00:57.739 --> 00:01:03.035
+打开同一个 HAR / Open the same exported HAR
+
+10
+00:01:03.035 --> 00:01:06.780
+核对记录追加 / Verify appended records
+
+11
+00:01:06.780 --> 00:01:28.748
+选择 Native Archive / Choose Native Archive
+
+12
+00:01:28.748 --> 00:01:33.692
+保存 guide-recording.iarchive / Save the native archive
+
+13
+00:01:33.692 --> 00:01:36.933
+核对归档保存 / Verify archive completion
+
+14
+00:01:36.933 --> 00:01:39.783
+清空已导出的演示记录 / Clear the exported example records
+
+15
+00:01:39.783 --> 00:01:56.550
+选择打开 Native Archive / Open Native Archive
+
+16
+00:01:56.550 --> 00:02:01.537
+选择刚保存的归档 / Select the product-created archive
+
+17
+00:02:01.537 --> 00:02:15.124
+核对恢复的请求和正文 / Verify restored requests and body
+
+18
+00:02:15.124 --> 00:02:19.247
+保存单独正文 / Save the individual body
+
+19
+00:02:19.247 --> 00:02:22.034
+核对完整正文 / Verify the complete body

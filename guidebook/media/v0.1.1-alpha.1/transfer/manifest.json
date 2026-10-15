@@ -1,0 +1,242 @@
+{
+  "chapter": "transfer",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned native-panel windows; no microphone",
+  "example": {
+    "url": "http://127.0.0.1:55059/guide/transfer/order",
+    "har": "guide-recording.har",
+    "archive": "guide-recording.iarchive",
+    "bodyFile": "guide-response.json",
+    "body": "{\"orderId\":\"guide-001\",\"message\":\"Hello Interceptor\"}"
+  },
+  "duration": 142.03422936200002,
+  "video": "transfer.mp4",
+  "captions": "transfer.vtt",
+  "steps": [
+    {
+      "id": "01-export-menu",
+      "title": "打开 Export / Open Export",
+      "image": "transfer-01-export-menu.png",
+      "seconds": 0.2029958500000066
+    },
+    {
+      "id": "02-har-options",
+      "title": "选择 HAR / Choose HAR",
+      "image": "transfer-02-har-options.png",
+      "seconds": 3.083714103000006
+    },
+    {
+      "id": "03-scope",
+      "title": "选择当前请求 / Select the current request",
+      "image": "transfer-03-scope.png",
+      "seconds": 6.033051237000007
+    },
+    {
+      "id": "04-privacy",
+      "title": "核对隐私选项 / Review privacy options",
+      "image": "transfer-04-privacy.png",
+      "seconds": 8.932685129000005
+    },
+    {
+      "id": "05-har-save-dialog",
+      "title": "保存为 guide-recording.har / Save as guide-recording.har",
+      "image": "transfer-05-har-save-dialog.png",
+      "seconds": 30.729400102
+    },
+    {
+      "id": "06-har-complete",
+      "title": "确认 HAR 保存完成 / Verify HAR completion",
+      "image": "transfer-06-har-complete.png",
+      "seconds": 35.598317402
+    },
+    {
+      "id": "07-import-menu",
+      "title": "打开 Import / Open Import",
+      "image": "transfer-07-import-menu.png",
+      "seconds": 38.88239342799999
+    },
+    {
+      "id": "08-import-har",
+      "title": "选择 HAR 导入 / Choose HAR import",
+      "image": "transfer-08-import-har.png",
+      "seconds": 41.690394876999996
+    },
+    {
+      "id": "09-har-open-dialog",
+      "title": "打开同一个 HAR / Open the same exported HAR",
+      "image": "transfer-09-har-open-dialog.png",
+      "seconds": 57.738611471
+    },
+    {
+      "id": "10-har-appended",
+      "title": "核对记录追加 / Verify appended records",
+      "image": "transfer-10-har-appended.png",
+      "seconds": 63.03455328400001
+    },
+    {
+      "id": "11-archive-options",
+      "title": "选择 Native Archive / Choose Native Archive",
+      "image": "transfer-11-archive-options.png",
+      "seconds": 66.780420064
+    },
+    {
+      "id": "12-archive-save-dialog",
+      "title": "保存 guide-recording.iarchive / Save the native archive",
+      "image": "transfer-12-archive-save-dialog.png",
+      "seconds": 88.74772089400001
+    },
+    {
+      "id": "13-archive-complete",
+      "title": "核对归档保存 / Verify archive completion",
+      "image": "transfer-13-archive-complete.png",
+      "seconds": 93.69192690800001
+    },
+    {
+      "id": "14-clear",
+      "title": "清空已导出的演示记录 / Clear the exported example records",
+      "image": "transfer-14-clear.png",
+      "seconds": 96.933025636
+    },
+    {
+      "id": "15-archive-import",
+      "title": "选择打开 Native Archive / Open Native Archive",
+      "image": "transfer-15-archive-import.png",
+      "seconds": 99.782904613
+    },
+    {
+      "id": "16-archive-open-dialog",
+      "title": "选择刚保存的归档 / Select the product-created archive",
+      "image": "transfer-16-archive-open-dialog.png",
+      "seconds": 116.55043359099999
+    },
+    {
+      "id": "17-restored",
+      "title": "核对恢复的请求和正文 / Verify restored requests and body",
+      "image": "transfer-17-restored.png",
+      "seconds": 121.53748746700002
+    },
+    {
+      "id": "18-body-save-dialog",
+      "title": "保存单独正文 / Save the individual body",
+      "image": "transfer-18-body-save-dialog.png",
+      "seconds": 135.12396566599998
+    },
+    {
+      "id": "19-body-complete",
+      "title": "核对完整正文 / Verify the complete body",
+      "image": "transfer-19-body-complete.png",
+      "seconds": 139.246724074
+    }
+  ],
+  "assets": [
+    {
+      "file": "transfer.mp4",
+      "bytes": 1051775,
+      "sha256": "19a381c98a57e87f900b9466eaa1d57f05de79bf4a702d494d1ef095aee05ce6"
+    },
+    {
+      "file": "transfer.vtt",
+      "bytes": 1546,
+      "sha256": "3cb7873dae95870f4b696ac3cbe173fe3da30fda7a2d4c9444a8098eff6eb22e"
+    },
+    {
+      "file": "transfer-01-export-menu.png",
+      "bytes": 389147,
+      "sha256": "468552a535e4dd8ac6ef0ad3939028b176ec54047edc2be3084c796ec2ebfa8c"
+    },
+    {
+      "file": "transfer-02-har-options.png",
+      "bytes": 374877,
+      "sha256": "fedb55cf2b00cbe5d0762f94f6674e06615e0279844fe59b640fb4357a62295c"
+    },
+    {
+      "file": "transfer-03-scope.png",
+      "bytes": 375005,
+      "sha256": "578abc4ff02c1359e1b364d6249561863de63f280708630ae0019a86ea9c9e56"
+    },
+    {
+      "file": "transfer-04-privacy.png",
+      "bytes": 375005,
+      "sha256": "578abc4ff02c1359e1b364d6249561863de63f280708630ae0019a86ea9c9e56"
+    },
+    {
+      "file": "transfer-05-har-save-dialog.png",
+      "bytes": 56399,
+      "sha256": "3b425acf39cba227eeabb35a9fa7f7a75be47d2c2830ef6d307e343893e5e128"
+    },
+    {
+      "file": "transfer-06-har-complete.png",
+      "bytes": 352031,
+      "sha256": "ec08f947548f48c9f32868f55c2256c5065d3e89235dfd6ceb7f466b4b0b9184"
+    },
+    {
+      "file": "transfer-07-import-menu.png",
+      "bytes": 394910,
+      "sha256": "bddeec838c10d322eaba969b58a66cc1513c94f2a7d5803cc1e9358e4b1f9104"
+    },
+    {
+      "file": "transfer-08-import-har.png",
+      "bytes": 315207,
+      "sha256": "37d300bf13c1135818dadeb7a6ac9efaa2ae1705654d27acbffb242941c725f3"
+    },
+    {
+      "file": "transfer-09-har-open-dialog.png",
+      "bytes": 136620,
+      "sha256": "8d1c8fdf4c84ae58253fa4f87c59ee484787234f6acfb0a125920c35ac21e6d5"
+    },
+    {
+      "file": "transfer-10-har-appended.png",
+      "bytes": 368525,
+      "sha256": "5df4b93460282837f7f34dd1c158a542e8014fe973193626ec4ca8caeb9d1bb8"
+    },
+    {
+      "file": "transfer-11-archive-options.png",
+      "bytes": 347283,
+      "sha256": "fa477dd64b7ca736ac54ab026056458afaaad879a80cc8aec7e479e731c5a219"
+    },
+    {
+      "file": "transfer-12-archive-save-dialog.png",
+      "bytes": 58872,
+      "sha256": "e5ebc1be15a7316eb0ea4d018d6b599e7a0fae7d7372c67ccc61bf9c3f28577a"
+    },
+    {
+      "file": "transfer-13-archive-complete.png",
+      "bytes": 368525,
+      "sha256": "5df4b93460282837f7f34dd1c158a542e8014fe973193626ec4ca8caeb9d1bb8"
+    },
+    {
+      "file": "transfer-14-clear.png",
+      "bytes": 231376,
+      "sha256": "91b5c08b8e8b55b25d6b1c0e35d8ca24c55609b46c5ef6726b8834aacd540a54"
+    },
+    {
+      "file": "transfer-15-archive-import.png",
+      "bytes": 225679,
+      "sha256": "b93c5b1cb2e901ddc8c77e21e99e71d8c901ca1f3d4ffb3e6ba1b946e21174a5"
+    },
+    {
+      "file": "transfer-16-archive-open-dialog.png",
+      "bytes": 147424,
+      "sha256": "11dfcf3c35877c5b880baadebd356407ece99b35638468bc434b1887cb00466a"
+    },
+    {
+      "file": "transfer-17-restored.png",
+      "bytes": 305429,
+      "sha256": "91f02d677dd1be7df4437780f0fadb1de443679b03ebc72956871e1c2effd636"
+    },
+    {
+      "file": "transfer-18-body-save-dialog.png",
+      "bytes": 56919,
+      "sha256": "02eddc3c361870483bbcff6240332b4430c8e214f5c8901c2ce9e06f57990c0e"
+    },
+    {
+      "file": "transfer-19-body-complete.png",
+      "bytes": 305429,
+      "sha256": "91f02d677dd1be7df4437780f0fadb1de443679b03ebc72956871e1c2effd636"
+    }
+  ]
+}

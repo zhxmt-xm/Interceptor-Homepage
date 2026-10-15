@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:00.381 --> 00:00:03.734
+选择本轮临时记录 / Select this run’s temporary record
+
+2
+00:00:03.734 --> 00:00:06.618
+打开隐私默认值 / Open privacy defaults
+
+3
+00:00:06.618 --> 00:00:09.431
+临时更改 Cookie 默认值 / Temporarily change the Cookie default
+
+4
+00:00:09.431 --> 00:00:12.782
+打开新的 HAR 导出检查继承 / Open a new HAR export and check defaults
+
+5
+00:00:12.782 --> 00:00:15.579
+选择当前筛选范围 / Select the current filter scope
+
+6
+00:00:15.579 --> 00:00:18.364
+查看全部记录范围 / Inspect the all-records scope
+
+7
+00:00:18.364 --> 00:00:21.177
+只覆盖本次 Cookie 遮罩 / Override Cookie masking for this export
+
+8
+00:00:21.177 --> 00:00:23.983
+取消本次导出 / Cancel this export
+
+9
+00:00:23.983 --> 00:00:26.874
+确认单次覆盖没有改默认值 / Verify the override did not change defaults
+
+10
+00:00:26.874 --> 00:00:29.684
+恢复 Cookie 遮罩默认值 / Restore the Cookie masking default
+
+11
+00:00:29.684 --> 00:00:32.552
+查看实际存储用量 / Inspect actual storage usage
+
+12
+00:00:32.552 --> 00:00:35.358
+Refresh 只刷新统计 / Refresh updates statistics only
+
+13
+00:00:35.358 --> 00:00:38.152
+检查 Clear 影响 / Review Clear effects
+
+14
+00:00:38.152 --> 00:00:40.955
+取消 Clear 不删除记录 / Cancel Clear without deleting records
+
+15
+00:00:40.955 --> 00:00:43.823
+确认清理本轮记录和正文 / Confirm clearing this run’s records and bodies
+
+16
+00:00:43.823 --> 00:00:46.684
+Capture 同步变空且仍暂停 / Capture is empty and remains paused
+
+17
+00:00:46.684 --> 00:00:49.547
+Clear 后显式恢复录制 / Explicitly resume after Clear
+
+18
+00:00:49.547 --> 00:00:52.326
+Clear 后捕获新请求 / Capture a new request after Clear

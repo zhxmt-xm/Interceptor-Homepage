@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
 import { antdStylePolicy } from './scripts/antd-style-policy.ts';
+import { guideContent } from './scripts/guide-content.ts';
 import { GUIDE_ROUTES } from './src/content/guidebook.ts';
 
 function guidePages(): Plugin {
@@ -41,7 +42,10 @@ function guidePages(): Plugin {
 
 export default defineConfig({
   appType: 'mpa',
-  plugins: [react(), guidePages(), antdStylePolicy()],
+  plugins: [react(), guideContent(), guidePages(), antdStylePolicy()],
+  server: {
+    warmup: { clientFiles: ['./src/features/guide/GuidePage.tsx'] },
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

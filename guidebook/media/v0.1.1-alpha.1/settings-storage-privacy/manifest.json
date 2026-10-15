@@ -1,0 +1,235 @@
+{
+  "chapter": "settings-storage-privacy",
+  "title": {
+    "zh-CN": "逐步骤实操：隐私默认值、存储取消与清理",
+    "en": "Recorded walkthrough: privacy defaults, cancelling and clearing storage"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated workflow-owned App window; no display, desktop or region recording; no microphone",
+  "example": {
+    "firstUrl": "http://127.0.0.1:52747/guide/storage/before-clear",
+    "secondUrl": "http://127.0.0.1:52747/guide/storage/after-clear",
+    "body": "{\"orderId\":\"guide-storage-001\",\"message\":\"public example\"}",
+    "privacyOverride": "maskCookies true for one cancelled export; saved default remained false then restored true",
+    "clearedData": "only this workflow’s temporary records and bodies"
+  },
+  "duration": 52.325510378000004,
+  "video": "settings-storage-privacy.mp4",
+  "captions": "settings-storage-privacy.vtt",
+  "steps": [
+    {
+      "id": "01-record",
+      "title": "选择本轮临时记录 / Select this run’s temporary record",
+      "image": "settings-storage-privacy-01-record.png",
+      "seconds": 0.3812870149999999
+    },
+    {
+      "id": "02-privacy",
+      "title": "打开隐私默认值 / Open privacy defaults",
+      "image": "settings-storage-privacy-02-privacy.png",
+      "seconds": 3.7339445349999987
+    },
+    {
+      "id": "03-cookie-default",
+      "title": "临时更改 Cookie 默认值 / Temporarily change the Cookie default",
+      "image": "settings-storage-privacy-03-cookie-default.png",
+      "seconds": 6.617741511
+    },
+    {
+      "id": "04-new-export",
+      "title": "打开新的 HAR 导出检查继承 / Open a new HAR export and check defaults",
+      "image": "settings-storage-privacy-04-new-export.png",
+      "seconds": 9.431017571
+    },
+    {
+      "id": "05-filter-scope",
+      "title": "选择当前筛选范围 / Select the current filter scope",
+      "image": "settings-storage-privacy-05-filter-scope.png",
+      "seconds": 12.782339401000002
+    },
+    {
+      "id": "06-all-scope",
+      "title": "查看全部记录范围 / Inspect the all-records scope",
+      "image": "settings-storage-privacy-06-all-scope.png",
+      "seconds": 15.579420241
+    },
+    {
+      "id": "07-one-export-override",
+      "title": "只覆盖本次 Cookie 遮罩 / Override Cookie masking for this export",
+      "image": "settings-storage-privacy-07-one-export-override.png",
+      "seconds": 18.363781158000002
+    },
+    {
+      "id": "08-cancel-export",
+      "title": "取消本次导出 / Cancel this export",
+      "image": "settings-storage-privacy-08-cancel-export.png",
+      "seconds": 21.177317914
+    },
+    {
+      "id": "09-default-unchanged",
+      "title": "确认单次覆盖没有改默认值 / Verify the override did not change defaults",
+      "image": "settings-storage-privacy-09-default-unchanged.png",
+      "seconds": 23.982644782
+    },
+    {
+      "id": "10-restore-privacy",
+      "title": "恢复 Cookie 遮罩默认值 / Restore the Cookie masking default",
+      "image": "settings-storage-privacy-10-restore-privacy.png",
+      "seconds": 26.873581008000002
+    },
+    {
+      "id": "11-storage",
+      "title": "查看实际存储用量 / Inspect actual storage usage",
+      "image": "settings-storage-privacy-11-storage.png",
+      "seconds": 29.684352199
+    },
+    {
+      "id": "12-refresh",
+      "title": "Refresh 只刷新统计 / Refresh updates statistics only",
+      "image": "settings-storage-privacy-12-refresh.png",
+      "seconds": 32.552173637
+    },
+    {
+      "id": "13-clear-dialog",
+      "title": "检查 Clear 影响 / Review Clear effects",
+      "image": "settings-storage-privacy-13-clear-dialog.png",
+      "seconds": 35.357574602
+    },
+    {
+      "id": "14-cancel-clear",
+      "title": "取消 Clear 不删除记录 / Cancel Clear without deleting records",
+      "image": "settings-storage-privacy-14-cancel-clear.png",
+      "seconds": 38.151587823
+    },
+    {
+      "id": "15-confirm-clear",
+      "title": "确认清理本轮记录和正文 / Confirm clearing this run’s records and bodies",
+      "image": "settings-storage-privacy-15-confirm-clear.png",
+      "seconds": 40.95465501
+    },
+    {
+      "id": "16-empty-capture",
+      "title": "Capture 同步变空且仍暂停 / Capture is empty and remains paused",
+      "image": "settings-storage-privacy-16-empty-capture.png",
+      "seconds": 43.823338423
+    },
+    {
+      "id": "17-resume-after-clear",
+      "title": "Clear 后显式恢复录制 / Explicitly resume after Clear",
+      "image": "settings-storage-privacy-17-resume-after-clear.png",
+      "seconds": 46.684314059
+    },
+    {
+      "id": "18-new-record",
+      "title": "Clear 后捕获新请求 / Capture a new request after Clear",
+      "image": "settings-storage-privacy-18-new-record.png",
+      "seconds": 49.546991682
+    }
+  ],
+  "assets": [
+    {
+      "file": "settings-storage-privacy.mp4",
+      "bytes": 369696,
+      "sha256": "031a5fb4effe8a50b6d7af1d0b60b97ed52e9e499e30ba171bf23e6cb27fea3f"
+    },
+    {
+      "file": "settings-storage-privacy.vtt",
+      "bytes": 1750,
+      "sha256": "08adae3fcaef309077d50ee4e3a529a9f3059a660f8db8a416aa0038f3f2a4b8"
+    },
+    {
+      "file": "settings-storage-privacy-01-record.png",
+      "bytes": 293517,
+      "sha256": "bb636ed805b57ee4d220284d43fcac32cd9b0e1f877d78604dbff28c1602448c"
+    },
+    {
+      "file": "settings-storage-privacy-02-privacy.png",
+      "bytes": 342921,
+      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b"
+    },
+    {
+      "file": "settings-storage-privacy-03-cookie-default.png",
+      "bytes": 342449,
+      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577"
+    },
+    {
+      "file": "settings-storage-privacy-04-new-export.png",
+      "bytes": 365302,
+      "sha256": "d86f90102496b54bf6e9f4c150d1b8866e852d14bf066624a0ed151e3faa6639"
+    },
+    {
+      "file": "settings-storage-privacy-05-filter-scope.png",
+      "bytes": 365328,
+      "sha256": "af414e1ecb78a852b87a8b4f4c298a7873830b7d0dcdd85d9b9b1b3cadf196ff"
+    },
+    {
+      "file": "settings-storage-privacy-06-all-scope.png",
+      "bytes": 365502,
+      "sha256": "93a52b50a5660dc0f82cbbe2b0632a0f74d73b7d6b68bdf9ed130fe299cf341b"
+    },
+    {
+      "file": "settings-storage-privacy-07-one-export-override.png",
+      "bytes": 338083,
+      "sha256": "db845fbf6ef6593e2dced305ee6922da53c3445fbf9986f443131ee66556f9cf"
+    },
+    {
+      "file": "settings-storage-privacy-08-cancel-export.png",
+      "bytes": 293436,
+      "sha256": "88ab2931b64d74a49f45f0944ee7d987e6322378443b62801d4b08368cfa9058"
+    },
+    {
+      "file": "settings-storage-privacy-09-default-unchanged.png",
+      "bytes": 342449,
+      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577"
+    },
+    {
+      "file": "settings-storage-privacy-10-restore-privacy.png",
+      "bytes": 342921,
+      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b"
+    },
+    {
+      "file": "settings-storage-privacy-11-storage.png",
+      "bytes": 289984,
+      "sha256": "0b7a392bf09b3ad21fc27ccfa0be9d79f43c2536ebdceb87cf6c3866938c909c"
+    },
+    {
+      "file": "settings-storage-privacy-12-refresh.png",
+      "bytes": 300966,
+      "sha256": "883f87a1a94a04f4af6c6d9e7df6b93a5b04cac16cc7c73d4487d86df5893c39"
+    },
+    {
+      "file": "settings-storage-privacy-13-clear-dialog.png",
+      "bytes": 290629,
+      "sha256": "1421b138fcfa50ff172dfa736c74be0de0d38d1ad234357c21410723d4368b33"
+    },
+    {
+      "file": "settings-storage-privacy-14-cancel-clear.png",
+      "bytes": 289896,
+      "sha256": "1415c338a33331c19bd418d40c86c076f212b6c476859600bca0d3d1e5a59cb2"
+    },
+    {
+      "file": "settings-storage-privacy-15-confirm-clear.png",
+      "bytes": 289745,
+      "sha256": "b70ce813e35610d04e426761b372497754f30921457ed1495fcc0362ba2bb33f"
+    },
+    {
+      "file": "settings-storage-privacy-16-empty-capture.png",
+      "bytes": 221146,
+      "sha256": "706efff571e04b08503536cce25a08c4ae14f2ac06f5cb943608ea23e24117b3"
+    },
+    {
+      "file": "settings-storage-privacy-17-resume-after-clear.png",
+      "bytes": 235924,
+      "sha256": "0fc8be57aa51e2ce8819a2b17e4584fd7fde365df4ea073405442512644eea1e"
+    },
+    {
+      "file": "settings-storage-privacy-18-new-record.png",
+      "bytes": 243926,
+      "sha256": "a238bb03d50c0eab650bce3a141b5c5361d5b9e94532c42bd0304498f01752bb"
+    }
+  ]
+}

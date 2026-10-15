@@ -4,7 +4,9 @@
 
 基线为 App 的 [功能设计索引](../../Interceptor/architecture/README.md)、[workflow 规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)、[Inventory](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md)与 [workflow 源码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/)。
 
-当前 Inventory 包含 144 条契约，下面逐项列入用户场景，并链接到 [中文教程](../guidebook/README.md)的对应功能点。全部章节已形成内容初稿并接入本地阅读模块；这里的映射只核对内容覆盖，不把某项 `passed` 自动转换为教程通过，也不把规格与 Inventory 的状态冲突改写为 Green。真实产品截图、视频、逐步操作核对、完整官网快照提交及公开访问仍未完成。
+当前Inventory包含144条契约，下面逐项列入用户场景，并链接到[中文教程](../guidebook/README.md)的对应功能点；[英文教程](../guidebook/README.en.md)使用相同功能目录和演示值。正文已接入本地阅读模块，已录范围在[真实素材目录](../guidebook/media/v0.1.1-alpha.1/)保留原生截图、视频、字幕及公开出处清单。下面的映射只核对内容覆盖，不把某项`passed`自动转换为教程通过，也不把规格与Inventory的状态冲突改写为Green。未录分支、平台专项、完整媒体验收和公开访问仍未完成。
+
+操作验收以步骤为单位：每个编号步骤须关联真实步骤图与对应视频位置，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一录制中的界面一致；动态值单独说明。当前正文没有步骤图的部分仍为草稿，下面的workflow映射不代表已达到该要求。
 
 ## 来源与验收边界
 
@@ -15,6 +17,8 @@
 - 已追踪 [HTTP 场景](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/http-scenarios.workflow.ts)、[录制边界](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/recording-pause-resume.workflow.ts)、[Collection 交互](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/collection-tree-interactions.workflow.ts)、[正文格式化](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/body-formatting.workflow.ts)、[Rules 目录与状态](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/rules/hierarchy-menus-status.workflow.ts)、[断点编辑](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/breakpoints/execute-edited.workflow.ts)、[Settings 导航](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/settings/navigation.workflow.ts)与 [Diagnostics 导出](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/diagnostics/tools-queries-export.workflow.ts)，以及各功能契约。它们提供写作依据，不代表本书已经按Release完整试读。
 - 额外核对 [Capture快捷规则创建](../../Interceptor/apps/desktop/src/renderer/features/rules/data/useRulesData.ts)：快捷Breakpoint创建、启用并立即Apply，不是普通未启用草稿；[Agent模型选择](../../Interceptor/apps/desktop/src/renderer/features/agent/AgentModelMenu/AgentModelMenu.tsx)只改变当前Chat，不改变全局默认；[正式对话响应](../../Interceptor/apps/desktop/src/renderer/features/agent/AgentPanelTranscript/AgentTurnResponse.tsx)提供Stop后的Retry，不按架构候选推断通用Continue按钮。
 - 带 `tools` 的契约同时映射所属 feature 的操作说明和 Agent/MCP 的权限章节，不另写一套互相矛盾的业务步骤。
+- [Collection目录实录](../guidebook/zh-CN/composer.md#walkthrough-composer-collection)已在对应发布App核对三级目录、目录内请求切换、排序、原生文件预览取消及删除，见[真实流程与退出恢复](../../Interceptor/apps/desktop/test-results/guidebook-media-20261015/collection-resumed/)。不再把这一组标作锁屏blocked；认证、所有字段跨重启等未录分支仍独立保留。
+- [阅读页媒体核对](../artifacts/item9-20261015/collection-and-captions-green/)同时确认正文、原图尺寸、SPA导航，以及每个已发布视频在中英文页面中的字幕轨与实际cue加载。构建时正确分隔显式锚点与video HTML块，不把播放器外的track节点或存在的VTT文件当作字幕可用。
 
 ## 完整功能目录的补充来源
 

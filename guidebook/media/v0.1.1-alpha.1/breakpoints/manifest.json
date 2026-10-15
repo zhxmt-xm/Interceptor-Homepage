@@ -1,0 +1,265 @@
+{
+  "chapter": "breakpoints",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "ruleName": "Guide request breakpoint",
+    "host": "127.0.0.1",
+    "path": "/guide/breakpoints",
+    "url": "http://127.0.0.1:51191/guide/breakpoints/edited",
+    "original": "{\"message\":\"original\"}",
+    "replacement": "{\"message\":\"edited-by-guide\"}"
+  },
+  "duration": 62.263705445,
+  "video": "breakpoints.mp4",
+  "captions": "breakpoints.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开 Rules / Open Rules",
+      "image": "breakpoints-01-rules.png",
+      "seconds": 0.3780161480000006
+    },
+    {
+      "id": "02-create",
+      "title": "新建断点规则 / Create the breakpoint Rule",
+      "image": "breakpoints-02-create.png",
+      "seconds": 3.2046152060000006
+    },
+    {
+      "id": "03-name",
+      "title": "填写 Guide request breakpoint / Name the Rule",
+      "image": "breakpoints-03-name.png",
+      "seconds": 6.155196025000001
+    },
+    {
+      "id": "04-host",
+      "title": "设置本机测试 Host / Set the local test Host",
+      "image": "breakpoints-04-host.png",
+      "seconds": 9.007822156000001
+    },
+    {
+      "id": "05-path-condition",
+      "title": "添加 Path 条件 / Add a Path condition",
+      "image": "breakpoints-05-path-condition.png",
+      "seconds": 11.859516981
+    },
+    {
+      "id": "06-path",
+      "title": "限制 /guide/breakpoints / Restrict the breakpoint path",
+      "image": "breakpoints-06-path.png",
+      "seconds": 15.060493002
+    },
+    {
+      "id": "07-remove-header",
+      "title": "移除默认 Header 动作 / Remove the default Header action",
+      "image": "breakpoints-07-remove-header.png",
+      "seconds": 17.869211988
+    },
+    {
+      "id": "08-add-breakpoint",
+      "title": "添加 Breakpoint 动作 / Add a Breakpoint action",
+      "image": "breakpoints-08-add-breakpoint.png",
+      "seconds": 20.66467141
+    },
+    {
+      "id": "09-enable",
+      "title": "启用断点规则 / Enable the Rule",
+      "image": "breakpoints-09-enable.png",
+      "seconds": 23.963062661
+    },
+    {
+      "id": "10-apply",
+      "title": "Apply 生效 / Apply the Rule",
+      "image": "breakpoints-10-apply.png",
+      "seconds": 26.813427904
+    },
+    {
+      "id": "11-capture",
+      "title": "回到 Capture / Return to Capture",
+      "image": "breakpoints-11-capture.png",
+      "seconds": 29.662565879
+    },
+    {
+      "id": "12-pending",
+      "title": "发出并选中挂起请求 / Send and select the paused request",
+      "image": "breakpoints-12-pending.png",
+      "seconds": 32.512955921999996
+    },
+    {
+      "id": "13-text",
+      "title": "选择 Text 替换 / Choose Text replacement",
+      "image": "breakpoints-13-text.png",
+      "seconds": 35.713179519
+    },
+    {
+      "id": "14-replacement",
+      "title": "输入 edited-by-guide / Enter the replacement body",
+      "image": "breakpoints-14-replacement.png",
+      "seconds": 38.660759097
+    },
+    {
+      "id": "15-forward",
+      "title": "Forward edited 并核对源站 / Forward edited and verify the origin",
+      "image": "breakpoints-15-forward.png",
+      "seconds": 41.513971104
+    },
+    {
+      "id": "16-next",
+      "title": "发出下一条请求 / Send the next request",
+      "image": "breakpoints-16-next.png",
+      "seconds": 44.461117532
+    },
+    {
+      "id": "17-unmodified",
+      "title": "原样放行 / Continue unmodified",
+      "image": "breakpoints-17-unmodified.png",
+      "seconds": 47.460915414000006
+    },
+    {
+      "id": "18-drop-target",
+      "title": "选中要丢弃的测试请求 / Select a disposable request",
+      "image": "breakpoints-18-drop-target.png",
+      "seconds": 50.419702795000006
+    },
+    {
+      "id": "19-drop",
+      "title": "Drop 并核对客户端错误 / Drop and inspect the client error",
+      "image": "breakpoints-19-drop.png",
+      "seconds": 53.462374742
+    },
+    {
+      "id": "20-disable",
+      "title": "停用测试规则 / Disable the test Rule",
+      "image": "breakpoints-20-disable.png",
+      "seconds": 56.41324725
+    },
+    {
+      "id": "21-apply-disabled",
+      "title": "保存停用 / Apply the disabled state",
+      "image": "breakpoints-21-apply-disabled.png",
+      "seconds": 59.411966753
+    }
+  ],
+  "assets": [
+    {
+      "file": "breakpoints.mp4",
+      "bytes": 453761,
+      "sha256": "ffe746654b0c3d72cfa2413d88e8a84d701570f20d3ca29b3a12233251cb9127"
+    },
+    {
+      "file": "breakpoints.vtt",
+      "bytes": 1721,
+      "sha256": "e821c2f1b97f98ff6214242fe9e4d98ec795c06e73bc7c611978ffd694b7dbba"
+    },
+    {
+      "file": "breakpoints-01-rules.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "breakpoints-02-create.png",
+      "bytes": 249983,
+      "sha256": "e3701ded4099552aa5c6ced2f6b61cc05025b8cad11fc935d7f3588ceb34c26c"
+    },
+    {
+      "file": "breakpoints-03-name.png",
+      "bytes": 258744,
+      "sha256": "acf51c92fe6ddb0a1c96d0f8702033fb81336e5470146b86307da62e3c5f94c0"
+    },
+    {
+      "file": "breakpoints-04-host.png",
+      "bytes": 247983,
+      "sha256": "08aa53c3f479cb66c1ab64a25f7b85f2c6389a1d5a8e2ca4c7bcf0fae6246983"
+    },
+    {
+      "file": "breakpoints-05-path-condition.png",
+      "bytes": 250008,
+      "sha256": "1d50a220093b42ddfcd8535d360da57ef02d241e682722b97b30ede3a3b4b0de"
+    },
+    {
+      "file": "breakpoints-06-path.png",
+      "bytes": 249559,
+      "sha256": "aed0b97ce4b89c6e6c732505cfbb6bc2e5c785d3132efa36a2c6b67515badccd"
+    },
+    {
+      "file": "breakpoints-07-remove-header.png",
+      "bytes": 230631,
+      "sha256": "df06089ffe8077564eaf6f5cc567d66f3197007e946b80b352680c0083ec3579"
+    },
+    {
+      "file": "breakpoints-08-add-breakpoint.png",
+      "bytes": 251791,
+      "sha256": "890a9f346ea6de01d342bbc35459f523d456f1bbf04842d87426392751763a80"
+    },
+    {
+      "file": "breakpoints-09-enable.png",
+      "bytes": 253403,
+      "sha256": "7567dede8772de561d80cfba7dc7ed676f612b553cbc48cdb22565d63963adcd"
+    },
+    {
+      "file": "breakpoints-10-apply.png",
+      "bytes": 249314,
+      "sha256": "5c82db0fc1bb2d1117efd232902882647cb1457ae398cb88bba173e54a37bc95"
+    },
+    {
+      "file": "breakpoints-11-capture.png",
+      "bytes": 222311,
+      "sha256": "edb420cffc21d721334f2dfe017465ef441f8f436531a97bb7c61d25bcb62185"
+    },
+    {
+      "file": "breakpoints-12-pending.png",
+      "bytes": 343991,
+      "sha256": "2d99bcb8ea6534de460347b342071f1f71a0885e8d049d0423feba5dfa3d8a34"
+    },
+    {
+      "file": "breakpoints-13-text.png",
+      "bytes": 356670,
+      "sha256": "afa537d39343b7780a35b77cabf8125a2bb723237d45c32caeec403b763a11fc"
+    },
+    {
+      "file": "breakpoints-14-replacement.png",
+      "bytes": 363088,
+      "sha256": "8f1fc1200179536aa641d109eb73f27d92674a2b3b89a3156beba87c0dbbf895"
+    },
+    {
+      "file": "breakpoints-15-forward.png",
+      "bytes": 378523,
+      "sha256": "c382ef02c25040472b7393b3d28ba8c88fd8d28f5cd0031941e944ede0716b9c"
+    },
+    {
+      "file": "breakpoints-16-next.png",
+      "bytes": 360257,
+      "sha256": "520e44c4238a76c65018c76dad52d440657c77d76edfe47a7c548fc5baa8c959"
+    },
+    {
+      "file": "breakpoints-17-unmodified.png",
+      "bytes": 394633,
+      "sha256": "2c613f86ab7f294291c42479679e2cc119de44850e483ca7a960abee6e8d26a9"
+    },
+    {
+      "file": "breakpoints-18-drop-target.png",
+      "bytes": 378089,
+      "sha256": "23ce0e73f38ea4161f8af3f0ef17f25b70dba615907dcda097133cfe6aafbdce"
+    },
+    {
+      "file": "breakpoints-19-drop.png",
+      "bytes": 371171,
+      "sha256": "3c940684d819589469bb99d017c1dcb3a37a02c1a7e6130ea0f1c89b10b18ba3"
+    },
+    {
+      "file": "breakpoints-20-disable.png",
+      "bytes": 251749,
+      "sha256": "9042e6e58fadca145eaeabd746901e9cfb8eb01bd12562f38f1d84a5fb68d7ba"
+    },
+    {
+      "file": "breakpoints-21-apply-disabled.png",
+      "bytes": 248322,
+      "sha256": "d9e1d0bf7712c956d458bfab70891272bef2e96642c48a11c879cbbb3983b041"
+    }
+  ]
+}

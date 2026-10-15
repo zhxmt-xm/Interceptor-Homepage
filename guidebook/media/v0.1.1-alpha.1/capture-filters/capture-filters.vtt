@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.199 --> 00:00:03.015
+查看四条演示请求 / Inspect four example requests
+
+2
+00:00:03.015 --> 00:00:05.903
+展开 Method / Expand Method
+
+3
+00:00:05.903 --> 00:00:08.805
+只选 GET / Select GET
+
+4
+00:00:08.805 --> 00:00:11.703
+同组再选 POST / Also select POST in the same group
+
+5
+00:00:11.703 --> 00:00:14.559
+展开 Status / Expand Status
+
+6
+00:00:14.559 --> 00:00:17.454
+再选 200，跨组 AND / Select 200 for an AND across groups
+
+7
+00:00:17.454 --> 00:00:20.253
+叠加 post-ok 搜索 / Add a post-ok search
+
+8
+00:00:20.253 --> 00:00:23.104
+恢复演示搜索范围 / Restore the example search scope
+
+9
+00:00:23.104 --> 00:00:25.954
+取消 Status 条件 / Remove Status selection
+
+10
+00:00:25.954 --> 00:00:28.809
+取消 POST / Remove POST selection
+
+11
+00:00:28.809 --> 00:00:31.657
+取消 GET，保留原记录 / Remove GET without deleting records
+
+12
+00:00:31.657 --> 00:00:34.504
+只折叠组标题 / Collapse only the group

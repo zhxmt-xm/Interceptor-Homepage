@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:00.421 --> 00:00:03.275
+打开 Settings / Open Settings
+
+2
+00:00:03.275 --> 00:00:06.417
+找到 MCP Server / Find MCP Server
+
+3
+00:00:06.417 --> 00:00:09.327
+开启本机 MCP Server / Enable the local MCP Server
+
+4
+00:00:09.327 --> 00:00:12.266
+添加独立 Client / Add a separate Client
+
+5
+00:00:12.266 --> 00:00:15.117
+输入 Guide local client / Name the Client
+
+6
+00:00:15.117 --> 00:00:18.067
+创建 Client / Create the Client
+
+7
+00:00:18.067 --> 00:00:21.368
+复制配置，不展示凭据 / Copy configuration without displaying credentials
+
+8
+00:00:21.368 --> 00:00:24.367
+演示客户端连接并查询 / Connect the demo client and query
+
+9
+00:00:24.367 --> 00:00:27.278
+发起需要审批的操作 / Request an operation requiring approval
+
+10
+00:00:27.278 --> 00:00:30.168
+拒绝一次操作 / Deny the operation
+
+11
+00:00:30.168 --> 00:00:33.017
+再次请求并检查影响 / Request again and review effects
+
+12
+00:00:33.017 --> 00:00:35.917
+允许暂停录制 / Allow pausing Recording
+
+13
+00:00:35.917 --> 00:00:38.868
+查看 Client 的 Auto 模式 / Inspect Client Auto mode
+
+14
+00:00:38.868 --> 00:00:41.716
+恢复 Client 的 Ask / Restore Client Ask
+
+15
+00:00:41.716 --> 00:00:44.618
+检查轮换凭据确认 / Review credential rotation
+
+16
+00:00:44.618 --> 00:00:47.568
+轮换凭据并验证旧配置失效 / Rotate and verify old configuration is rejected
+
+17
+00:00:47.568 --> 00:00:50.666
+复制新配置并重新连接 / Copy new configuration and reconnect
+
+18
+00:00:50.666 --> 00:00:53.568
+查看撤销 Client 的确认 / Review Client revocation
+
+19
+00:00:53.568 --> 00:00:56.468
+撤销演示 Client / Revoke the demo Client
+
+20
+00:00:56.468 --> 00:00:59.418
+关闭 MCP Server / Disable MCP Server
+
+21
+00:00:59.418 --> 00:01:02.368
+观察端口冲突提示 / Observe an endpoint conflict
+
+22
+00:01:02.368 --> 00:01:05.319
+结束已知占用后重试 / Retry after ending the known port owner
+
+23
+00:01:05.319 --> 00:01:08.234
+结束演示并关闭 Server / Finish by disabling the Server

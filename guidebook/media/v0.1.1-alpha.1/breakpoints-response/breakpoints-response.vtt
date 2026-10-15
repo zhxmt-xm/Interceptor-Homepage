@@ -1,0 +1,117 @@
+WEBVTT
+
+1
+00:00:00.406 --> 00:00:03.264
+获取可保存的示例响应 / Fetch the source response
+
+2
+00:00:03.264 --> 00:00:06.242
+选中 source 请求 / Select the source request
+
+3
+00:00:06.242 --> 00:00:20.430
+打开 Response 正文 / Open the Response body
+
+4
+00:00:20.430 --> 00:00:24.568
+Save body 保存 guide-response.json / Save body as guide-response.json
+
+5
+00:00:24.568 --> 00:00:27.401
+确认产品保存了完整正文 / Verify the product-saved body
+
+6
+00:00:27.401 --> 00:00:30.306
+打开 Guide response breakpoint / Open the response Rule
+
+7
+00:00:30.306 --> 00:00:33.201
+展开断点阶段 / Open the breakpoint phase options
+
+8
+00:00:33.201 --> 00:00:36.051
+选择 response 阶段 / Select response phase
+
+9
+00:00:36.051 --> 00:00:38.953
+Apply 响应断点 / Apply the response breakpoint
+
+10
+00:00:38.953 --> 00:00:41.862
+返回 Capture / Return to Capture
+
+11
+00:00:41.862 --> 00:00:44.752
+发出 header-only 并等待响应 / Pause the header-only response
+
+12
+00:00:44.752 --> 00:00:47.810
+选中响应断点 / Select the paused response
+
+13
+00:00:47.810 --> 00:00:50.908
+保持 Body Off / Keep body replacement Off
+
+14
+00:00:50.908 --> 00:00:54.161
+仅修改 x-guide-response / Edit only x-guide-response
+
+15
+00:00:54.161 --> 00:00:57.203
+Forward edited，正文保持原样 / Forward the Header edit without changing body
+
+16
+00:00:57.203 --> 00:01:00.066
+发出 Text 示例响应 / Pause the Text example response
+
+17
+00:01:00.066 --> 00:01:03.110
+选中 Text 示例 / Select the Text example
+
+18
+00:01:03.110 --> 00:01:06.316
+选择 Text / Choose Text replacement
+
+19
+00:01:06.316 --> 00:01:09.510
+输入 text-from-guide / Enter text-from-guide
+
+20
+00:01:09.510 --> 00:01:12.555
+Forward edited，核对 Text 字节 / Forward and verify the Text bytes
+
+21
+00:01:12.555 --> 00:01:15.506
+发出 File 示例响应 / Pause the File example response
+
+22
+00:01:15.506 --> 00:01:18.661
+选中 File 示例 / Select the File example
+
+23
+00:01:18.661 --> 00:01:35.515
+选择 File / Choose File replacement
+
+24
+00:01:35.515 --> 00:01:40.572
+选择产品保存的 guide-response.json / Select the product-saved guide-response.json
+
+25
+00:01:40.572 --> 00:01:43.960
+折叠响应头，完整查看文件预览 / Collapse Headers to read the File preview
+
+26
+00:01:43.960 --> 00:01:47.107
+Forward edited，核对完整文件字节 / Forward and verify the complete file bytes
+
+27
+00:01:47.107 --> 00:01:50.006
+返回响应规则 / Return to the response Rule
+
+28
+00:01:50.006 --> 00:01:52.855
+停用响应断点 / Disable the response breakpoint
+
+29
+00:01:52.855 --> 00:01:55.708
+Apply 停用状态 / Apply the disabled state

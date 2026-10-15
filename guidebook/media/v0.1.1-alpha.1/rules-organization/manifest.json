@@ -1,0 +1,338 @@
+{
+  "chapter": "rules-organization",
+  "title": {
+    "zh-CN": "逐步骤实操：优先级、目录与规则文件往返",
+    "en": "Recorded walkthrough: precedence, folders and Rule files"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned file-panel windows; no microphone",
+  "example": {
+    "firstRule": "Guide first",
+    "secondRule": "Guide second",
+    "host": "127.0.0.1",
+    "path": "/guide/rule-order",
+    "header": "x-guide-order",
+    "firstValue": "first",
+    "secondValue": "second",
+    "folder": "Guide rules",
+    "exportFile": "guide-rules.json"
+  },
+  "duration": 130.368537767,
+  "video": "rules-organization.mp4",
+  "captions": "rules-organization.vtt",
+  "steps": [
+    {
+      "id": "01-open",
+      "title": "打开 Rules / Open Rules",
+      "image": "rules-organization-01-open.png",
+      "seconds": 0.4093157330000013
+    },
+    {
+      "id": "first-01-new",
+      "title": "新建 Guide first / Create Guide first",
+      "image": "rules-organization-first-01-new.png",
+      "seconds": 3.23071544
+    },
+    {
+      "id": "first-02-host",
+      "title": "填写 Host / Enter Host",
+      "image": "rules-organization-first-02-host.png",
+      "seconds": 6.217367777
+    },
+    {
+      "id": "first-03-path",
+      "title": "限制演示 Path / Restrict the example Path",
+      "image": "rules-organization-first-03-path.png",
+      "seconds": 9.017117813
+    },
+    {
+      "id": "first-04-header",
+      "title": "填写 x-guide-order / Enter x-guide-order",
+      "image": "rules-organization-first-04-header.png",
+      "seconds": 12.217105404000002
+    },
+    {
+      "id": "first-05-enable",
+      "title": "启用当前规则 / Enable this Rule",
+      "image": "rules-organization-first-05-enable.png",
+      "seconds": 15.067241443999999
+    },
+    {
+      "id": "second-01-new",
+      "title": "新建 Guide second / Create Guide second",
+      "image": "rules-organization-second-01-new.png",
+      "seconds": 17.866922909
+    },
+    {
+      "id": "second-02-host",
+      "title": "填写 Host / Enter Host",
+      "image": "rules-organization-second-02-host.png",
+      "seconds": 20.767019248000004
+    },
+    {
+      "id": "second-03-path",
+      "title": "限制演示 Path / Restrict the example Path",
+      "image": "rules-organization-second-03-path.png",
+      "seconds": 23.567008982
+    },
+    {
+      "id": "second-04-header",
+      "title": "填写 x-guide-order / Enter x-guide-order",
+      "image": "rules-organization-second-04-header.png",
+      "seconds": 26.777019696000004
+    },
+    {
+      "id": "second-05-enable",
+      "title": "启用当前规则 / Enable this Rule",
+      "image": "rules-organization-second-05-enable.png",
+      "seconds": 29.617162358
+    },
+    {
+      "id": "02-apply",
+      "title": "应用两条规则 / Apply both Rules",
+      "image": "rules-organization-02-apply.png",
+      "seconds": 32.467714434
+    },
+    {
+      "id": "03-before",
+      "title": "验证 second 后写覆盖 / Verify second wins initially",
+      "image": "rules-organization-03-before.png",
+      "seconds": 35.317017626
+    },
+    {
+      "id": "04-reorder",
+      "title": "把 second 拖到 first 前面 / Drag second before first",
+      "image": "rules-organization-04-reorder.png",
+      "seconds": 38.118058965
+    },
+    {
+      "id": "05-apply-order",
+      "title": "Apply 新顺序 / Apply the new order",
+      "image": "rules-organization-05-apply-order.png",
+      "seconds": 41.068438453000006
+    },
+    {
+      "id": "06-after",
+      "title": "验证 first 变为最后写入 / Verify first now wins",
+      "image": "rules-organization-06-after.png",
+      "seconds": 43.918055405
+    },
+    {
+      "id": "07-folder",
+      "title": "新建 Guide rules 目录 / Create the Guide rules folder",
+      "image": "rules-organization-07-folder.png",
+      "seconds": 46.668518814
+    },
+    {
+      "id": "08-move-second",
+      "title": "将 second 移入目录 / Move second into the folder",
+      "image": "rules-organization-08-move-second.png",
+      "seconds": 49.567026113
+    },
+    {
+      "id": "09-move-first",
+      "title": "将 first 移入目录 / Move first into the folder",
+      "image": "rules-organization-09-move-first.png",
+      "seconds": 52.518287552000004
+    },
+    {
+      "id": "10-apply-folder",
+      "title": "保存目录结构 / Apply the folder structure",
+      "image": "rules-organization-10-apply-folder.png",
+      "seconds": 55.424897848
+    },
+    {
+      "id": "11-export",
+      "title": "保存 guide-rules.json / Save guide-rules.json",
+      "image": "rules-organization-11-export.png",
+      "seconds": 78.58589921100001
+    },
+    {
+      "id": "12-exported",
+      "title": "核对产品导出的规则树 / Verify the product-exported tree",
+      "image": "rules-organization-12-exported.png",
+      "seconds": 83.31661445699999
+    },
+    {
+      "id": "13-import-file",
+      "title": "选择刚导出的规则 / Select the exported Rules file",
+      "image": "rules-organization-13-import-file.png",
+      "seconds": 98.70600390300001
+    },
+    {
+      "id": "14-preview",
+      "title": "检查已启用规则的导入警告 / Inspect the enabled-rule import warning",
+      "image": "rules-organization-14-preview.png",
+      "seconds": 103.85257489600001
+    },
+    {
+      "id": "15-cancel",
+      "title": "取消预览保持原树 / Cancel and retain the original tree",
+      "image": "rules-organization-15-cancel.png",
+      "seconds": 106.667783211
+    },
+    {
+      "id": "16-import-again",
+      "title": "重新选择同一文件 / Select the same file again",
+      "image": "rules-organization-16-import-again.png",
+      "seconds": 122.130903276
+    },
+    {
+      "id": "17-confirm",
+      "title": "确认追加，不覆盖 / Confirm append without overwrite",
+      "image": "rules-organization-17-confirm.png",
+      "seconds": 127.165299631
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-organization.mp4",
+      "bytes": 730442,
+      "sha256": "4772b19d9ae8d18477599ab12461961ecb3c2128806f76e65fc4e0a9286c30f4"
+    },
+    {
+      "file": "rules-organization.vtt",
+      "bytes": 2216,
+      "sha256": "fa7fc92070b57f3844b345fc0def6ef3fbeb9caa09e56ea0ef591a59358b57e5"
+    },
+    {
+      "file": "rules-organization-01-open.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "rules-organization-first-01-new.png",
+      "bytes": 252146,
+      "sha256": "6b01d1177c6f49c840fb8c2f5a98b57bc401968b7b125474b34327bc97fd24f4"
+    },
+    {
+      "file": "rules-organization-first-02-host.png",
+      "bytes": 241743,
+      "sha256": "4ebf0b2490e6ebc75563d4dde364775baad02b379b236cd85ccecc50b4a07cea"
+    },
+    {
+      "file": "rules-organization-first-03-path.png",
+      "bytes": 240800,
+      "sha256": "465ea0b4e111256e5959b77f3cc720bca44a523c029c38b3e8d52dfa622539a7"
+    },
+    {
+      "file": "rules-organization-first-04-header.png",
+      "bytes": 247739,
+      "sha256": "9e206c1aac11f7914a217d19abce8b82e09812a81682adb1b6774731d8cb03f6"
+    },
+    {
+      "file": "rules-organization-first-05-enable.png",
+      "bytes": 248182,
+      "sha256": "46113cc3e6367e0c8f1ab7d26864615b67d4938f343aaa146187e6f7faaec86f"
+    },
+    {
+      "file": "rules-organization-second-01-new.png",
+      "bytes": 268030,
+      "sha256": "10c4d2ea0eceacad2fbe8c55fb937a6d2fa67e161cc6716a60051e6050e9683e"
+    },
+    {
+      "file": "rules-organization-second-02-host.png",
+      "bytes": 257159,
+      "sha256": "ca78c3f24cc1974830f63af29600250a2fb94783ff1ca8c7bd34e4dd3939704b"
+    },
+    {
+      "file": "rules-organization-second-03-path.png",
+      "bytes": 255906,
+      "sha256": "d5629fe710c63213ff5943dd8c7a79a2cd992f242d902aaad3c8496d2fedf8a6"
+    },
+    {
+      "file": "rules-organization-second-04-header.png",
+      "bytes": 263463,
+      "sha256": "f3e2d8434c079e5ac7aab048071520659e8db848def190a32610f23ed4fa27d9"
+    },
+    {
+      "file": "rules-organization-second-05-enable.png",
+      "bytes": 265056,
+      "sha256": "e1add507ea62618df6d44bd3b1f500e58e80e917f66a6df458907f576115ebec"
+    },
+    {
+      "file": "rules-organization-02-apply.png",
+      "bytes": 261065,
+      "sha256": "d75f50397994c0bfa0fae6eef2245627a4a17b256e0cedc3ef5eda91c9317c4d"
+    },
+    {
+      "file": "rules-organization-03-before.png",
+      "bytes": 260675,
+      "sha256": "5a126fc7c42a0b0a89b2c4aeadbe747bf758140995102c8af6388a79d2504415"
+    },
+    {
+      "file": "rules-organization-04-reorder.png",
+      "bytes": 264296,
+      "sha256": "a847f5f6ff1097d3aa566b87b1345bd3006ef679f733117f762af1fe941ce741"
+    },
+    {
+      "file": "rules-organization-05-apply-order.png",
+      "bytes": 261014,
+      "sha256": "b854aaa629ac5471c21bbd2a6513758cfed016187d9ac85fe8fdecf8e5a573bc"
+    },
+    {
+      "file": "rules-organization-06-after.png",
+      "bytes": 261358,
+      "sha256": "34c50c7c97d0ebf00c870843b48610d01dee3f223dd46c0e5b488907dcd961de"
+    },
+    {
+      "file": "rules-organization-07-folder.png",
+      "bytes": 285710,
+      "sha256": "8dcc71c54f8b74fd637d422e3544b4590c101baaae4400469dd40ee855fe3559"
+    },
+    {
+      "file": "rules-organization-08-move-second.png",
+      "bytes": 268266,
+      "sha256": "d5a7a708eb89968485162c983358121f5b8f3d8a82a170ac90653a2ce1354116"
+    },
+    {
+      "file": "rules-organization-09-move-first.png",
+      "bytes": 268250,
+      "sha256": "8719af2997d844a1bebd664be2c503d0e258dcc2ce48859c01fd81b2f5563837"
+    },
+    {
+      "file": "rules-organization-10-apply-folder.png",
+      "bytes": 264774,
+      "sha256": "eab550ef7d5ff13591b418910999dfeb63543ee5b23c39014c7b3e9db492d39c"
+    },
+    {
+      "file": "rules-organization-11-export.png",
+      "bytes": 55670,
+      "sha256": "7410892fef9b0cff7097c4c4b0e31c09f241d4f0c72e768dfb8922f2b33e22dc"
+    },
+    {
+      "file": "rules-organization-12-exported.png",
+      "bytes": 264774,
+      "sha256": "eab550ef7d5ff13591b418910999dfeb63543ee5b23c39014c7b3e9db492d39c"
+    },
+    {
+      "file": "rules-organization-13-import-file.png",
+      "bytes": 139557,
+      "sha256": "9b9cdb3ed3e3b0f62a39828f6a7d9efc7193cd61165c174c7aeb84566a483671"
+    },
+    {
+      "file": "rules-organization-14-preview.png",
+      "bytes": 302905,
+      "sha256": "0454f288f2912f431bd19ed288044e4d1db69ec986d464c74880e183d3ac042c"
+    },
+    {
+      "file": "rules-organization-15-cancel.png",
+      "bytes": 264774,
+      "sha256": "eab550ef7d5ff13591b418910999dfeb63543ee5b23c39014c7b3e9db492d39c"
+    },
+    {
+      "file": "rules-organization-16-import-again.png",
+      "bytes": 139557,
+      "sha256": "9b9cdb3ed3e3b0f62a39828f6a7d9efc7193cd61165c174c7aeb84566a483671"
+    },
+    {
+      "file": "rules-organization-17-confirm.png",
+      "bytes": 267088,
+      "sha256": "714395e3b699a179bb53914bb9c4d49a9d6d8d4e3acea26215e6dddf766f7dac"
+    }
+  ]
+}

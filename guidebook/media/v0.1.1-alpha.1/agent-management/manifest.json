@@ -1,0 +1,394 @@
+{
+  "chapter": "agent-management",
+  "title": {
+    "zh-CN": "逐步骤实操：模型、Chat 管理与权限实效",
+    "en": "Recorded walkthrough: models, Chats and capability enforcement"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "firstProfile": "Guide model one",
+    "secondProfile": "Guide model two",
+    "firstModel": "guide-one",
+    "editedModel": "guide-two-edited",
+    "firstEndpoint": "http://127.0.0.1:51439/guide-one/v1",
+    "secondEndpoint": "http://127.0.0.1:51439/guide-two/v1",
+    "firstChat": "Guide chat one",
+    "secondChat": "Guide chat two",
+    "tool": "capture_stop_recording",
+    "credentials": "none"
+  },
+  "duration": 97.082001089,
+  "video": "agent-management.mp4",
+  "captions": "agent-management.vtt",
+  "steps": [
+    {
+      "id": "01-settings",
+      "title": "打开 Agent 设置 / Open Agent settings",
+      "image": "agent-management-01-settings.png",
+      "seconds": 0.3235926679999993
+    },
+    {
+      "id": "guide-one-01-dialog",
+      "title": "添加 Guide model one / Add Guide model one",
+      "image": "agent-management-guide-one-01-dialog.png",
+      "seconds": 3.692585012000001
+    },
+    {
+      "id": "guide-one-02-name",
+      "title": "填写 Guide model one / Enter Guide model one",
+      "image": "agent-management-guide-one-02-name.png",
+      "seconds": 7.130610062999998
+    },
+    {
+      "id": "guide-one-03-endpoint",
+      "title": "填写本地演示 endpoint / Enter the local demo endpoint",
+      "image": "agent-management-guide-one-03-endpoint.png",
+      "seconds": 9.986098897999998
+    },
+    {
+      "id": "guide-one-04-model",
+      "title": "填写 guide-one / Enter guide-one",
+      "image": "agent-management-guide-one-04-model.png",
+      "seconds": 12.83863515
+    },
+    {
+      "id": "guide-one-05-test",
+      "title": "测试连接 / Test the connection",
+      "image": "agent-management-guide-one-05-test.png",
+      "seconds": 15.781434681
+    },
+    {
+      "id": "guide-one-06-save",
+      "title": "保存已验证配置 / Save verified configuration",
+      "image": "agent-management-guide-one-06-save.png",
+      "seconds": 18.730222946
+    },
+    {
+      "id": "guide-two-01-dialog",
+      "title": "添加 Guide model two / Add Guide model two",
+      "image": "agent-management-guide-two-01-dialog.png",
+      "seconds": 21.746306585
+    },
+    {
+      "id": "guide-two-02-name",
+      "title": "填写 Guide model two / Enter Guide model two",
+      "image": "agent-management-guide-two-02-name.png",
+      "seconds": 25.032288916000006
+    },
+    {
+      "id": "guide-two-03-endpoint",
+      "title": "填写本地演示 endpoint / Enter the local demo endpoint",
+      "image": "agent-management-guide-two-03-endpoint.png",
+      "seconds": 27.889820525
+    },
+    {
+      "id": "guide-two-04-model",
+      "title": "填写 guide-two / Enter guide-two",
+      "image": "agent-management-guide-two-04-model.png",
+      "seconds": 30.793249979
+    },
+    {
+      "id": "guide-two-05-test",
+      "title": "测试连接 / Test the connection",
+      "image": "agent-management-guide-two-05-test.png",
+      "seconds": 33.78063027900001
+    },
+    {
+      "id": "guide-two-06-save",
+      "title": "保存已验证配置 / Save verified configuration",
+      "image": "agent-management-guide-two-06-save.png",
+      "seconds": 36.781235879
+    },
+    {
+      "id": "02-edit",
+      "title": "编辑第二个 Model ID / Edit the second Model ID",
+      "image": "agent-management-02-edit.png",
+      "seconds": 39.812000933
+    },
+    {
+      "id": "03-retest",
+      "title": "更改后重新测试 / Retest changed configuration",
+      "image": "agent-management-03-retest.png",
+      "seconds": 42.788995682
+    },
+    {
+      "id": "04-save-edit",
+      "title": "保存编辑 / Save the edit",
+      "image": "agent-management-04-save-edit.png",
+      "seconds": 45.782067013
+    },
+    {
+      "id": "05-first-chat",
+      "title": "建立使用第一个默认模型的 Chat / Create a Chat with the first default",
+      "image": "agent-management-05-first-chat.png",
+      "seconds": 48.831583571
+    },
+    {
+      "id": "06-chat-name",
+      "title": "重命名 Guide chat one / Rename Guide chat one",
+      "image": "agent-management-06-chat-name.png",
+      "seconds": 51.93118705
+    },
+    {
+      "id": "07-default",
+      "title": "将第二个模型设为全局默认 / Make the second model the default",
+      "image": "agent-management-07-default.png",
+      "seconds": 55.08884156599999
+    },
+    {
+      "id": "08-current-model",
+      "title": "只改变当前 Chat 模型 / Change only the current Chat model",
+      "image": "agent-management-08-current-model.png",
+      "seconds": 58.131238462
+    },
+    {
+      "id": "09-new-chat",
+      "title": "新建第二个 Chat / Create a second Chat",
+      "image": "agent-management-09-new-chat.png",
+      "seconds": 61.43714927
+    },
+    {
+      "id": "10-second-name",
+      "title": "重命名 Guide chat two / Rename Guide chat two",
+      "image": "agent-management-10-second-name.png",
+      "seconds": 64.330622049
+    },
+    {
+      "id": "11-switch-chat",
+      "title": "切回 Guide chat one / Return to Guide chat one",
+      "image": "agent-management-11-switch-chat.png",
+      "seconds": 67.586713264
+    },
+    {
+      "id": "12-delete-dialog",
+      "title": "检查删除 Chat 确认 / Review Chat deletion",
+      "image": "agent-management-12-delete-dialog.png",
+      "seconds": 70.535067699
+    },
+    {
+      "id": "13-cancel-delete",
+      "title": "取消删除 / Cancel deletion",
+      "image": "agent-management-13-cancel-delete.png",
+      "seconds": 73.53076041799999
+    },
+    {
+      "id": "14-disable-tool",
+      "title": "关闭 Agent 暂停录制权限 / Disable the Agent stop-recording Tool",
+      "image": "agent-management-14-disable-tool.png",
+      "seconds": 76.431254657
+    },
+    {
+      "id": "15-enforcement",
+      "title": "验证被禁用 Tool 不能执行 / Verify a disabled Tool cannot execute",
+      "image": "agent-management-15-enforcement.png",
+      "seconds": 79.385517216
+    },
+    {
+      "id": "16-restore-tool",
+      "title": "恢复原权限 / Restore the original capability",
+      "image": "agent-management-16-restore-tool.png",
+      "seconds": 82.430902959
+    },
+    {
+      "id": "17-remove-model-dialog",
+      "title": "检查删除无用 Provider / Review removing an unused Provider",
+      "image": "agent-management-17-remove-model-dialog.png",
+      "seconds": 85.33106032199998
+    },
+    {
+      "id": "18-remove-model",
+      "title": "删除第一个演示 Provider / Remove the first demo Provider",
+      "image": "agent-management-18-remove-model.png",
+      "seconds": 88.231147869
+    },
+    {
+      "id": "19-delete-chat-dialog",
+      "title": "再次检查删除 Chat / Review deleting the demo Chat",
+      "image": "agent-management-19-delete-chat-dialog.png",
+      "seconds": 91.179419807
+    },
+    {
+      "id": "20-delete-chat",
+      "title": "确认删除 Guide chat one / Delete Guide chat one",
+      "image": "agent-management-20-delete-chat.png",
+      "seconds": 94.130700432
+    }
+  ],
+  "assets": [
+    {
+      "file": "agent-management.mp4",
+      "bytes": 857417,
+      "sha256": "64bd2afc0220fe954e9d9c81daa9a3b6b419aea9ae9a9ac82b1bad5b7a50ae17"
+    },
+    {
+      "file": "agent-management.vtt",
+      "bytes": 2732,
+      "sha256": "ae68c1be5fdc296caed8ed8bcbc924c1b4c0df363d489d02f80e331a2737dbe3"
+    },
+    {
+      "file": "agent-management-01-settings.png",
+      "bytes": 429844,
+      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b"
+    },
+    {
+      "file": "agent-management-guide-one-01-dialog.png",
+      "bytes": 426255,
+      "sha256": "8566719b0fa86be3a9719e9ff69f75b0c3bb0cda7276e48e7671828b591ce45e"
+    },
+    {
+      "file": "agent-management-guide-one-02-name.png",
+      "bytes": 425517,
+      "sha256": "7c7ed1574f013aad5ce5c1f2010511633aa8bc48cd62e96d721d45fbd9f48640"
+    },
+    {
+      "file": "agent-management-guide-one-03-endpoint.png",
+      "bytes": 428235,
+      "sha256": "53f2076847e38b916ec6159244f55fc9a23e938d4ad8d94209b607554a8863b2"
+    },
+    {
+      "file": "agent-management-guide-one-04-model.png",
+      "bytes": 430940,
+      "sha256": "117bc0c3df41a1913368fd5082807019e5881d6ed6ed00d27a593d15011574bf"
+    },
+    {
+      "file": "agent-management-guide-one-05-test.png",
+      "bytes": 434389,
+      "sha256": "342d76ea82f4f8ac6ce6369e2f9b64d021e5e5936b2ebb7d6f079647aab29d6b"
+    },
+    {
+      "file": "agent-management-guide-one-06-save.png",
+      "bytes": 437181,
+      "sha256": "a83e31db67f3ee5593c049edaa7eab7b186e212e01b520397b822634f398e66f"
+    },
+    {
+      "file": "agent-management-guide-two-01-dialog.png",
+      "bytes": 424886,
+      "sha256": "64e33f8921ee350f80eac193ebce185b631bfbbeac744fb8721fb909cad13f10"
+    },
+    {
+      "file": "agent-management-guide-two-02-name.png",
+      "bytes": 424670,
+      "sha256": "dd5b91c4899e917c43a74b9acf594a4c8dce8c995be8ad13a573507c8c753aa2"
+    },
+    {
+      "file": "agent-management-guide-two-03-endpoint.png",
+      "bytes": 428178,
+      "sha256": "cc6a8bc600c99aadaa2b8ca22e50ecd3f3a01fb0452e93002f2f40aed5a7f49d"
+    },
+    {
+      "file": "agent-management-guide-two-04-model.png",
+      "bytes": 431325,
+      "sha256": "d9ae17f22ac8da73ec21fc7606456e9c9c30877f8d8b5299a3149de0150084a3"
+    },
+    {
+      "file": "agent-management-guide-two-05-test.png",
+      "bytes": 438782,
+      "sha256": "fe62ac72642ff184ba10ca4599480f6018127f80dcdffb1b26da3b87b8b2c886"
+    },
+    {
+      "file": "agent-management-guide-two-06-save.png",
+      "bytes": 441107,
+      "sha256": "c17de91a087285d45d63a75671f5f860746b78780386971c77f630cd6f5eccc0"
+    },
+    {
+      "file": "agent-management-02-edit.png",
+      "bytes": 426724,
+      "sha256": "824a74f0167a26b5d674d8a1dec243d71356376744c8dee02549a57ba5e973f9"
+    },
+    {
+      "file": "agent-management-03-retest.png",
+      "bytes": 437956,
+      "sha256": "5315c2883149d4bb55a937807a6e34de09ab9bad59a43b97bc13aa6f6b8a0c45"
+    },
+    {
+      "file": "agent-management-04-save-edit.png",
+      "bytes": 441954,
+      "sha256": "a69634165e7909ee1f7aa2878e56f1a2603623e5a69ce48fc86b209d466bf179"
+    },
+    {
+      "file": "agent-management-05-first-chat.png",
+      "bytes": 483122,
+      "sha256": "0dc750dfd1c3d72f4b9646b2efdc0712026de5ff38792e4c1475d15a65a0a244"
+    },
+    {
+      "file": "agent-management-06-chat-name.png",
+      "bytes": 470794,
+      "sha256": "792822e7fabcac6e6eb101f7ad3ba3f4ec76ca21bbc896c3a1a2e4e28a53e64d"
+    },
+    {
+      "file": "agent-management-07-default.png",
+      "bytes": 470630,
+      "sha256": "a2f54e6868ca2b66c22c6fae73631005fd69057b871e90114ce04902f8addbc3"
+    },
+    {
+      "file": "agent-management-08-current-model.png",
+      "bytes": 470817,
+      "sha256": "12d86b7b54f7a1ec0618ed0fd814af794d03d7c1a28071a9b435be2ce82e5e6a"
+    },
+    {
+      "file": "agent-management-09-new-chat.png",
+      "bytes": 483208,
+      "sha256": "960942d6254d7b2922deedba14c837231111f69162bcddf9ce5aefe15e490a07"
+    },
+    {
+      "file": "agent-management-10-second-name.png",
+      "bytes": 471032,
+      "sha256": "a2fc272ee8a4d6942a48631f152ec3c5ae800d90069eb523d203217b0b82a1db"
+    },
+    {
+      "file": "agent-management-11-switch-chat.png",
+      "bytes": 470817,
+      "sha256": "12d86b7b54f7a1ec0618ed0fd814af794d03d7c1a28071a9b435be2ce82e5e6a"
+    },
+    {
+      "file": "agent-management-12-delete-dialog.png",
+      "bytes": 539948,
+      "sha256": "b4a63c27a6eac7e6bb2314e8e5c02c3750ced590be7e8f3dc5c1b1b704e59c6e"
+    },
+    {
+      "file": "agent-management-13-cancel-delete.png",
+      "bytes": 470817,
+      "sha256": "12d86b7b54f7a1ec0618ed0fd814af794d03d7c1a28071a9b435be2ce82e5e6a"
+    },
+    {
+      "file": "agent-management-14-disable-tool.png",
+      "bytes": 442765,
+      "sha256": "2d86e7897576f4ac9ae90cab8594c2a2348336dad370e367dd22b30bcf8d85e1"
+    },
+    {
+      "file": "agent-management-15-enforcement.png",
+      "bytes": 501136,
+      "sha256": "06e0824e717f0dc09bc772ad9321d7646a3d4599a80389390fe9523f5f9bb265"
+    },
+    {
+      "file": "agent-management-16-restore-tool.png",
+      "bytes": 488634,
+      "sha256": "fe76f7f1b43bec36bb166c9434e1ef264fbdfca685ddc2af5f0023986cd886c3"
+    },
+    {
+      "file": "agent-management-17-remove-model-dialog.png",
+      "bytes": 422511,
+      "sha256": "91a8aa3a297efb502eb1870c04ec03070d56f86da16ed65cd194635fc57f52cf"
+    },
+    {
+      "file": "agent-management-18-remove-model.png",
+      "bytes": 461813,
+      "sha256": "fea5b691736909d7fbcfb0d2e7dd164d9e6e671e35ca2a869d2573df4f56180c"
+    },
+    {
+      "file": "agent-management-19-delete-chat-dialog.png",
+      "bytes": 581859,
+      "sha256": "dad9755687ad63cdda83024be17e205fd1534d0c76ad1578e0ca78832cd23718"
+    },
+    {
+      "file": "agent-management-20-delete-chat.png",
+      "bytes": 451920,
+      "sha256": "8255f5a459ce13dcd75dbc4cac3075fc841ee31e1fdcac6de4176fae02b2ac9f"
+    }
+  ]
+}

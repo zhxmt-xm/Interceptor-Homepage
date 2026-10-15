@@ -1,0 +1,123 @@
+{
+  "chapter": "diagnostics",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App and owned file-panel windows; no microphone",
+  "example": {
+    "requestUrl": "http://127.0.0.1:54599/guide/diagnostics",
+    "method": "GET",
+    "command": "composer.send",
+    "process": "core",
+    "level": "info",
+    "outcome": "success",
+    "fileName": "guide-diagnostics.jsonl"
+  },
+  "duration": 35.066815764,
+  "video": "diagnostics.mp4",
+  "captions": "diagnostics.vtt",
+  "steps": [
+    {
+      "id": "01-open",
+      "title": "打开 Diagnostics / Open Diagnostics",
+      "image": "diagnostics-01-open.png",
+      "seconds": 0.42315311199999994
+    },
+    {
+      "id": "02-record",
+      "title": "选择实际记录 / Select an actual record",
+      "image": "diagnostics-02-record.png",
+      "seconds": 3.3224035939999976
+    },
+    {
+      "id": "03-process",
+      "title": "按 Process 筛选 / Filter by Process",
+      "image": "diagnostics-03-process.png",
+      "seconds": 6.132710525
+    },
+    {
+      "id": "04-level",
+      "title": "按 Level 筛选 / Filter by Level",
+      "image": "diagnostics-04-level.png",
+      "seconds": 8.993394338
+    },
+    {
+      "id": "05-info",
+      "title": "切换到 info / Select the info level",
+      "image": "diagnostics-05-info.png",
+      "seconds": 11.823501852
+    },
+    {
+      "id": "06-outcome",
+      "title": "只查看成功操作 / Inspect successful operations",
+      "image": "diagnostics-06-outcome.png",
+      "seconds": 14.706948298999999
+    },
+    {
+      "id": "07-export",
+      "title": "保存 guide-diagnostics.jsonl / Save guide-diagnostics.jsonl",
+      "image": "diagnostics-07-export.png",
+      "seconds": 28.128025424
+    },
+    {
+      "id": "08-exported",
+      "title": "核对真实 JSONL 导出 / Verify the actual JSONL export",
+      "image": "diagnostics-08-exported.png",
+      "seconds": 32.242232863999995
+    }
+  ],
+  "assets": [
+    {
+      "file": "diagnostics.mp4",
+      "bytes": 352383,
+      "sha256": "7bc6f8d76ecc71deb2563c01165cf7654309ff7c2b6c6dffa70ccca803f7ac65"
+    },
+    {
+      "file": "diagnostics.vtt",
+      "bytes": 642,
+      "sha256": "d887174dab28dcc295c04e10d17517ee3c096d7c41d51ba5e5e7ebd923706aa4"
+    },
+    {
+      "file": "diagnostics-01-open.png",
+      "bytes": 395125,
+      "sha256": "9b6be6c6702e0b5a4380784b91439d6262f8fec9e58225eb1ae488d792320711"
+    },
+    {
+      "file": "diagnostics-02-record.png",
+      "bytes": 440080,
+      "sha256": "ff7aa95d8c8bca55ddeebc667877f4c90f1fa50d8f2200da350c9b93c69678d1"
+    },
+    {
+      "file": "diagnostics-03-process.png",
+      "bytes": 440082,
+      "sha256": "3f22c4903336f0d30b3f6f8b9f6af5c1e416559c322bda8af8b95206385893cf"
+    },
+    {
+      "file": "diagnostics-04-level.png",
+      "bytes": 194497,
+      "sha256": "7d9b3774714d446bc7237c35030195838a82000be096f555f677ec15fdcf09f9"
+    },
+    {
+      "file": "diagnostics-05-info.png",
+      "bytes": 437670,
+      "sha256": "84201139a72ab40e875eaef8e8a4479bfedce2115bd963300c2e3c0b3ee67e08"
+    },
+    {
+      "file": "diagnostics-06-outcome.png",
+      "bytes": 451800,
+      "sha256": "52b4ba1b32e9456c5549cb848189e11156b9facf25ec23f8ef28bfe8df99f919"
+    },
+    {
+      "file": "diagnostics-07-export.png",
+      "bytes": 58787,
+      "sha256": "7698ca4d2ee28a549bbb190bbce7a3bef963ce6b56de87c65e5c63a4f08008a5"
+    },
+    {
+      "file": "diagnostics-08-exported.png",
+      "bytes": 452020,
+      "sha256": "086aeddce93667e5aedcce382def047c659aef4bf5b480ea3c6f7f4832759695"
+    }
+  ]
+}

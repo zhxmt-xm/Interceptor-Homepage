@@ -1,0 +1,11 @@
+.image {
+  display: block;
+  margin-block: var(--space-4);
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}

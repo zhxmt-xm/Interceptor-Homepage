@@ -1,6 +1,6 @@
 # Interceptor 使用指南
 
-> 中文内容初稿，面向 `v0.1.1-alpha.1` 整理。正文已接入本地官网阅读页面，尚待对应下载产物的逐章试读、真实产品截图和操作视频；不要把初稿当作已验收教程。公开上线与 App 接入仍未完成。
+> 中文内容初稿，面向 `v0.1.1-alpha.1` 整理。已有对应英文正文与部分真实逐步图文/视频，但完整功能点的逐步配图与实机验收仍未结束；不要把初稿或单个演示当作整章已验收。公开上线与App接入仍未完成。
 
 Interceptor 是桌面 HTTP(S) 调试代理。本书从你要完成的事情出发，不要求阅读源码、测试脚本或使用 Agent。
 
@@ -47,6 +47,32 @@ AI 是可选能力。抓包、Composer、Rules 和 Breakpoints 不需要模型 A
 | 让 AI 只能查看，不能修改 | [配置只读权限](zh-CN/tool-permissions.md#read-only) |
 | App 关闭后网络异常 | [退出与代理恢复](zh-CN/troubleshooting.md#proxy-recovery) |
 
+<a id="videos"></a>
+## 实拍视频与步骤图
+
+以下入口打开同章中的真实产品视频、字幕、操作值和逐步截图。录制使用`v0.1.1-alpha.1`的macOS x64发布产物；未在录像中执行的分支、其他平台及首次系统授权不因此自动通过验收。
+
+| 想学习的操作 | 实拍入口 |
+| --- | --- |
+| 工作区与主题 | [工作区演示](zh-CN/workspace.md#walkthrough-video) |
+| 录制、正文、HTTP/2、WebSocket 与 gRPC | [Capture演示](zh-CN/capture.md#walkthrough-video) |
+| 发送请求和添加字段 | [Composer演示](zh-CN/composer.md#walkthrough-video) |
+| JSON/Text/Form与集合文件往返 | [Composer进阶实操](zh-CN/composer.md#walkthrough-composer-editing-video) |
+| 三级目录、排序、导入取消与删除 | [Collection管理](zh-CN/composer.md#walkthrough-composer-collection-video) |
+| 字段开关、删除后重发和历史恢复 | [Composer字段操作](zh-CN/composer.md#walkthrough-composer-fields-video) |
+| 首条 Header 规则与命中 | [Rules入门](zh-CN/rules.md#walkthrough-video) |
+| 改写、模拟、延迟、阻断、Map Local/Remote | [规则动作](zh-CN/rules.md#walkthrough-rules-actions-video) |
+| 八类 matcher 与 AND 条件 | [匹配条件](zh-CN/rules.md#walkthrough-rules-matchers-video) |
+| 优先级、目录、规则文件追加 | [规则组织](zh-CN/rules.md#walkthrough-rules-organization-video) |
+| Text编辑、原样放行与Drop | [Breakpoints演示](zh-CN/breakpoints.md#walkthrough-video) |
+| HAR、Archive与正文原生保存/打开 | [文件往返](zh-CN/transfer.md#walkthrough-video) |
+| 现有CA、上游草稿、隐私与存储 | [Settings演示](zh-CN/settings.md#walkthrough-video) |
+| 记录、过滤与详情 | [Diagnostics演示](zh-CN/diagnostics.md#walkthrough-video) |
+| 模型配置、对话、审批、停止与重试 | [Agent演示](zh-CN/agent.md#walkthrough-video) |
+| 客户端、查询、审批和撤权 | [MCP演示](zh-CN/mcp.md#walkthrough-video) |
+| 重启后的端口冲突与新地址 | [MCP恢复](zh-CN/mcp.md#walkthrough-mcp-endpoint-video) |
+| 独立控制Agent与MCP | [权限演示](zh-CN/tool-permissions.md#walkthrough-video) |
+
 ## 阅读约定
 
 - Capture、Composer、Recording、Headers 等名称对应 App 功能；按钮文字会随当前语言变化，不要求为了看教程切换语言。
@@ -57,8 +83,8 @@ AI 是可选能力。抓包、Composer、Rules 和 Breakpoints 不需要模型 A
 
 ## 版本、素材与访问
 
-- 当前为中文初稿，未提供英文教程，不把首页的语言切换当作教程已经双语。
-- 正式截图和视频必须来自注明版本、平台的真实 App；目前没有用设计预览替代，也没有空图片或虚构视频时间戳。
+- [English](README.en.md)提供对应英文初稿，网站切换语言会切换正文，不仅改变导航。两种语言保持同一组演示名称和值。
+- 已加入的步骤图和视频来自核对过发布摘要的真实App，注明版本、平台和原App语言；每步对应独立截图与实际视频时间，没有使用设计预览、空图片或虚构时间戳。未配图分支仍待制作。
 - 教程只在 Homepage 维护。先完成官网阅读体验，再接入 App；后续 App 计划用无边框 iframe 打开相应在线章节，并提供浏览器打开按钮。
 - 在线教程依赖官网可达性，不承诺断网可读。暂不分发教程 npm 包，不复制目录进 App，不给 App 构建增加私有 registry 认证。
 - 当前 Capture 是临时记录。重要数据先导出；分享前检查凭据、Cookie、URL、正文和系统身份信息。

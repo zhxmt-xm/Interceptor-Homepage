@@ -227,7 +227,7 @@
 
    ![Apply 手工断点规则](../media/v0.1.1-alpha.1/breakpoints/breakpoints-10-apply.png)
 
-9. 回到 Capture，确认 Break on match 的当前状态。本次没有单独切换该全局控件，切换分支仍待配图。
+9. 回到Capture确认Break on match；全局与单条规则的真实开关见[管理器实录](#walkthrough-breakpoints-manager)，不把普通规则停用当作清理全部等待项。
 
    ![回到 Capture 准备接收请求](../media/v0.1.1-alpha.1/breakpoints/breakpoints-11-capture.png)
 
@@ -443,7 +443,7 @@
 - 快照已有正文时，例如 WebSocket 消息，清空 Text 可以表示发送空正文；空格也是真实内容，不等于空输入。
 - 旁边后来加载出的 Capture 原文预览，不会改变断点快照原本是否拥有正文的事实。
 - Header 与编码的配合见[消息编辑约定](rules.md#message-editing)。
-- **待配图**：响应状态码编辑、请求阶段的 Header-only/File、空 Text 与原文快照边界、大文件和非文本 File 的分支仍未由本段小 JSON 示例覆盖。
+- [请求变体实录](#walkthrough-breakpoints-request-variants)另外展示Header-only、HTTP空Text保持原正文、产品保存的JSON和六字节binary File，以及响应状态改为202。HTTP头阶段没有完整正文快照，不等于Capture稍后没有原文；binary File只有元信息，不伪称有文本预览。大文件的预览与完整保存另见[Capture正文限制](capture.md#walkthrough-capture-body-limits)。
 
 <a id="queues"></a>
 ## 处理多个等待项
@@ -516,7 +516,7 @@
 - 切换选择保留各等待项自己的草稿，不把多个请求共用同一份编辑内容。
 - 客户端超时或断开可能移除等待项；此时旧 ID 不能继续提交，不能自动套用到下一条请求。
 - 没有“队列太长就自动放行”机制；大量挂起可能占满客户端连接。
-- 若已选择其他请求，按自己的顺序继续，不把未自动跳转当作丢失等待项。**待配图**：客户端超时/断开、旧 ID 拒绝，以及请求、响应与 WebSocket 握手混合排队仍需各自场景。
+- 若已选择其他请求，按自己的顺序继续，不把未自动跳转当作丢失等待项。[混合队列实录](#walkthrough-breakpoints-mixed-queues)检查request/response的HTTP队列和连接消息的独立WS队列；实际客户端取消另见管理器。该Release的受测Upgrade直接建立连接，没有HTTP pending，不能按架构预期伪造Queued状态；已消失的ID不通过内部API强行重用。
 
 <a id="batch"></a>
 ## 批量处理和规则管理
@@ -589,7 +589,7 @@
 
 **关键说明**：管理器中的断点规则开关或撤销会立即 Apply；普通 Rules 编辑仍按自己的 Apply 流程。批量 Continue 不应用任意一条编辑器草稿；停用匹配与解决已经挂起的项要分别检查。不要把“规则已经关了”当作所有客户端已经被释放。
 
-**待配图**：本段清理采用 Rules 的停用与 Apply，未单独录制管理器内开关/撤销；新增请求与批量操作同时到达的边界也不由这组三批固定请求代替。
+[管理器实录](#walkthrough-breakpoints-manager)独立展示管理器内开关、撤销、重新命中和对应规则检查。队列并发到达属于操作边界，不把固定批次影片说成所有内部竞争时序的穷举。
 
 <a id="websocket"></a>
 ## 暂停和编辑 WebSocket 帧
@@ -718,7 +718,7 @@
 
 30. 若需要同时 Both，或拦截 ping、pong、close，再选择相应方向与帧类型并单独核对。
 
-    **待配图**：本次分别演示 Sent/Received 的 message，不覆盖同时 Both、控制帧、关闭码编辑、空 Text 或跨连接切换后的旧等待项；正常关闭客户端不能代替 close 帧断点。
+    [控制帧实录](#walkthrough-breakpoints-websocket-controls)独立选择Both，实际拦截ping、pong和close，并编辑关闭码；它还验证已知WebSocket payload的空Text确实转发零字节。关闭码1001是源站侧实际接收值，客户端一侧的关闭确认仍可能为1000，不混淆两段连接。
 
 **预期结果**：帧在当前连接的 Messages 中等待，不与普通 HTTP 编辑器混成同一个界面。
 
@@ -754,7 +754,7 @@
 
    ![Workspace 实拍中实际 Close 之前的状态](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
-   **待配图**：带未解决断点退出的异常释放、Close 点击瞬间及系统代理/进程收尾的独立画面仍缺；不以规则停用或关闭前截图证明这些分支。
+   [持等待正常退出](#walkthrough-breakpoints-mixed-queues-16-before-close)已实际保留HTTP与WS等待后执行Close，客户端取消、内容未转发和宿主恢复分别核对。图片是关闭前状态，不是进程退出图；没有强杀Core或录入桌面来制造故障素材。
 
 **预期结果**：用户决定、客户端断开或 Core 生命周期结束会解除相应挂起；不存在固定秒数之后自动继续的规则。
 
@@ -1475,3 +1475,871 @@ Tool 的编辑范围小于完整 UI：它不接受任意本地文件路径，也
 
 下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
 <!-- recorded-walkthrough:breakpoints-websocket:end -->
+
+<!-- recorded-walkthrough:breakpoints-manager:start -->
+<a id="walkthrough-breakpoints-manager"></a>
+## 逐步骤实操：快捷撤销、全局开关、规则开关与客户端取消
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>url</code> | <code>http://127.0.0.1:63537/guide/breakpoint-manager/request</code> |
+| <code>shortcutScope</code> | <code>endpoint</code> |
+| <code>generatedRuleName</code> | <code>断点 · 127.0.0.1/guide/breakpoint-manager/request</code> |
+| <code>abortHeader</code> | <code>x-guide-attempt: abort</code> |
+| <code>resumedHeader</code> | <code>x-guide-attempt: after-abort</code> |
+| <code>finalState</code> | <code>Break on match enabled; this endpoint Rule disabled and applied; no pending item remains</code> |
+
+<a id="walkthrough-breakpoints-manager-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-manager-01-source"></a>
+### 01 · 查看快捷操作的历史请求
+
+[视频 00:00](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=0.384) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![01 · 查看快捷操作的历史请求](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png)
+
+<a id="walkthrough-breakpoints-manager-02-menu"></a>
+### 02 · 打开Breakpoint作用范围菜单
+
+[视频 00:03](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=3.573) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![02 · 打开Breakpoint作用范围菜单](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-02-menu.png)
+
+<a id="walkthrough-breakpoints-manager-03-create"></a>
+### 03 · 选择Endpoint并立即Apply
+
+[视频 00:07](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=7.098) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![03 · 选择Endpoint并立即Apply](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-03-create.png)
+
+<a id="walkthrough-breakpoints-manager-04-undo"></a>
+### 04 · 使用创建提示中的Undo
+
+[视频 00:07](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=7.873) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![04 · 使用创建提示中的Undo](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-04-undo.png)
+
+<a id="walkthrough-breakpoints-manager-05-after-undo"></a>
+### 05 · 发送新请求确认已撤销
+
+[视频 00:11](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=11.197) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![05 · 发送新请求确认已撤销](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-05-after-undo.png)
+
+<a id="walkthrough-breakpoints-manager-06-recreate-menu"></a>
+### 06 · 再次打开同一Endpoint菜单
+
+[视频 00:14](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=14.204) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![06 · 再次打开同一Endpoint菜单](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-06-recreate-menu.png)
+
+<a id="walkthrough-breakpoints-manager-07-recreate"></a>
+### 07 · 重新创建本轮断点
+
+[视频 00:17](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=17.647) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![07 · 重新创建本轮断点](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-07-recreate.png)
+
+<a id="walkthrough-breakpoints-manager-08-manager"></a>
+### 08 · 打开断点管理器
+
+[视频 00:20](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=20.701) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![08 · 打开断点管理器](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-08-manager.png)
+
+<a id="walkthrough-breakpoints-manager-09-global-off"></a>
+### 09 · 关闭全局Break on match
+
+[视频 00:23](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=23.751) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![09 · 关闭全局Break on match](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-09-global-off.png)
+
+<a id="walkthrough-breakpoints-manager-10-close-manager"></a>
+### 10 · 关闭管理器
+
+[视频 00:26](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=26.753) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![10 · 关闭管理器](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-10-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-11-not-paused"></a>
+### 11 · 确认全局关闭时不暂停新请求
+
+[视频 00:30](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=30.102) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![11 · 确认全局关闭时不暂停新请求](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-11-not-paused.png)
+
+<a id="walkthrough-breakpoints-manager-12-manager-again"></a>
+### 12 · 再次打开管理器
+
+[视频 00:33](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=33.097) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![12 · 再次打开管理器](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-12-manager-again.png)
+
+<a id="walkthrough-breakpoints-manager-13-global-on"></a>
+### 13 · 重新开启Break on match
+
+[视频 00:36](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=36.097) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![13 · 重新开启Break on match](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-13-global-on.png)
+
+<a id="walkthrough-breakpoints-manager-14-close-manager"></a>
+### 14 · 回到请求列表
+
+[视频 00:39](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=39.154) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![14 · 回到请求列表](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-14-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-15-abort-pending"></a>
+### 15 · 发送会由客户端取消的请求
+
+[视频 00:42](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=42.451) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![15 · 发送会由客户端取消的请求](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-15-abort-pending.png)
+
+<a id="walkthrough-breakpoints-manager-16-select-pending"></a>
+### 16 · 查看这个Head等待项
+
+[视频 00:45](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=45.396) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![16 · 查看这个Head等待项](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-16-select-pending.png)
+
+<a id="walkthrough-breakpoints-manager-17-client-abort"></a>
+### 17 · 客户端结束后等待项自动解除
+
+[视频 00:48](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=48.397) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![17 · 客户端结束后等待项自动解除](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-17-client-abort.png)
+
+<a id="walkthrough-breakpoints-manager-18-new-wait"></a>
+### 18 · 重新发送得到新的等待项
+
+[视频 00:51](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=51.394) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![18 · 重新发送得到新的等待项](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-18-new-wait.png)
+
+<a id="walkthrough-breakpoints-manager-19-continue-request"></a>
+### 19 · 原样放行请求阶段
+
+[视频 00:54](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=54.496) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![19 · 原样放行请求阶段](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-19-continue-request.png)
+
+<a id="walkthrough-breakpoints-manager-20-continue-response"></a>
+### 20 · 原样放行响应阶段
+
+[视频 00:57](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=57.783) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![20 · 原样放行响应阶段](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-20-continue-response.png)
+
+<a id="walkthrough-breakpoints-manager-21-rule-manager"></a>
+### 21 · 打开管理器停用单条规则
+
+[视频 01:00](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=60.987) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![21 · 打开管理器停用单条规则](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-21-rule-manager.png)
+
+<a id="walkthrough-breakpoints-manager-22-rule-off"></a>
+### 22 · 只停用本轮Endpoint规则
+
+[视频 01:03](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=63.953) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![22 · 只停用本轮Endpoint规则](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-22-rule-off.png)
+
+<a id="walkthrough-breakpoints-manager-23-close-manager"></a>
+### 23 · 返回列表检查停用结果
+
+[视频 01:06](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=66.945) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![23 · 返回列表检查停用结果](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-23-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-24-rule-disabled"></a>
+### 24 · 新请求不再被该规则挂起
+
+[视频 01:10](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=70.212) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![24 · 新请求不再被该规则挂起](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-24-rule-disabled.png)
+
+<a id="walkthrough-breakpoints-manager-25-open-rule"></a>
+### 25 · 从管理器进入对应Rules
+
+[视频 01:13](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=73.147) · [返回本节视频](#walkthrough-breakpoints-manager-video)
+
+![25 · 从管理器进入对应Rules](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-25-open-rule.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:breakpoints-manager:end -->
+
+<!-- recorded-walkthrough:breakpoints-websocket-controls:start -->
+<a id="walkthrough-breakpoints-websocket-controls"></a>
+## 逐步骤实操：Both、空Text、Ping/Pong与关闭码修改
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>path</code> | <code>/guide/websocket-controls</code> |
+| <code>originalMessage</code> | <code>guide-before-empty</code> |
+| <code>replacement</code> | <code>empty Text produces an empty WebSocket message</code> |
+| <code>directions</code> | <code>Both for message and ping/pong; Sent only for close</code> |
+| <code>ping</code> | <code>guide-ping</code> |
+| <code>afterDisabled</code> | <code>guide-unpaused is delivered without any pending item</code> |
+| <code>originalClose</code> | <code>1000, guide-close</code> |
+| <code>forwardedClose</code> | <code>1001, guide-close</code> |
+| <code>clientAcknowledgement</code> | <code>The client-side close acknowledgement is 1000; do not equate both connection directions</code> |
+
+<a id="walkthrough-breakpoints-websocket-controls-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-websocket-controls-01-connect"></a>
+### 01 · 建立控制帧演示连接
+
+[视频 00:00](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=0.475) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![01 · 建立控制帧演示连接](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-02-select"></a>
+### 02 · 选中本轮连接
+
+[视频 00:03](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=3.388) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![02 · 选中本轮连接](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-02-select.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-03-messages"></a>
+### 03 · 打开Messages
+
+[视频 00:06](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=6.430) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![03 · 打开Messages](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-03-messages.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-04-setup"></a>
+### 04 · 打开连接断点设置
+
+[视频 00:09](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=9.375) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![04 · 打开连接断点设置](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-04-setup.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-05-both"></a>
+### 05 · 选择Both方向
+
+[视频 00:12](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=12.326) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![05 · 选择Both方向](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-05-both.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-06-ping"></a>
+### 06 · 增加ping帧
+
+[视频 00:15](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=15.225) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![06 · 增加ping帧](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-06-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-07-pong"></a>
+### 07 · 增加pong帧
+
+[视频 00:18](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=18.178) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![07 · 增加pong帧](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-07-pong.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-08-enable"></a>
+### 08 · 启用Both消息与ping/pong
+
+[视频 00:21](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=21.224) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![08 · 启用Both消息与ping/pong](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-08-enable.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-09-text"></a>
+### 09 · 发送非空消息并暂停
+
+[视频 00:24](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=24.175) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![09 · 发送非空消息并暂停](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-09-text.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-10-empty-mode"></a>
+### 10 · 选择Text替换
+
+[视频 00:27](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=27.325) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![10 · 选择Text替换](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-10-empty-mode.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-11-empty-value"></a>
+### 11 · 明确填写空Text
+
+[视频 00:30](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=30.334) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![11 · 明确填写空Text](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-11-empty-value.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-12-empty-forward"></a>
+### 12 · 发送空消息而不是保留原文
+
+[视频 00:33](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=33.264) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![12 · 发送空消息而不是保留原文](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-12-empty-forward.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-13-empty-echo"></a>
+### 13 · 放行Both中的返回方向
+
+[视频 00:36](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=36.281) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![13 · 放行Both中的返回方向](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-13-empty-echo.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-14-send-ping"></a>
+### 14 · 发送guide-ping并暂停
+
+[视频 00:39](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=39.279) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![14 · 发送guide-ping并暂停](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-14-send-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-15-continue-ping"></a>
+### 15 · 原样放行ping
+
+[视频 00:42](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=42.381) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![15 · 原样放行ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-15-continue-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-16-continue-pong"></a>
+### 16 · 原样放行返回pong
+
+[视频 00:45](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=45.479) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![16 · 原样放行返回pong](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-16-continue-pong.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-17-disable-both"></a>
+### 17 · 停用本轮Both设置
+
+[视频 00:48](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=48.480) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![17 · 停用本轮Both设置](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-17-disable-both.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-18-close-setup"></a>
+### 18 · 重新打开连接设置
+
+[视频 00:51](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=51.430) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![18 · 重新打开连接设置](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-18-close-setup.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-19-close-sent"></a>
+### 19 · 关闭演示只选择Sent
+
+[视频 00:54](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=54.389) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![19 · 关闭演示只选择Sent](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-19-close-sent.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-message-off"></a>
+### 20 · 不再暂停message
+
+[视频 00:57](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=57.343) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![20 · 不再暂停message](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-message-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-ping-off"></a>
+### 21 · 不再暂停ping
+
+[视频 01:00](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=60.330) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![21 · 不再暂停ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-ping-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-pong-off"></a>
+### 22 · 不再暂停pong
+
+[视频 01:03](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=63.283) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![22 · 不再暂停pong](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-pong-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-21-close-on"></a>
+### 23 · 选择close控制帧
+
+[视频 01:06](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=66.230) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![23 · 选择close控制帧](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-21-close-on.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-22-enable-close"></a>
+### 24 · 启用Sent close断点
+
+[视频 01:09](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=69.233) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![24 · 启用Sent close断点](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-22-enable-close.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-23-close-request"></a>
+### 25 · 客户端请求以1000关闭
+
+[视频 01:12](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=72.183) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![25 · 客户端请求以1000关闭](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-23-close-request.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-24-close-code"></a>
+### 26 · 只将关闭码改为1001
+
+[视频 01:15](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=75.279) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![26 · 只将关闭码改为1001](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-24-close-code.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-25-close-forward"></a>
+### 27 · 核对源站修改和客户端实际关闭确认
+
+[视频 01:18](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=78.282) · [返回本节视频](#walkthrough-breakpoints-websocket-controls-video)
+
+![27 · 核对源站修改和客户端实际关闭确认](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-25-close-forward.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:breakpoints-websocket-controls:end -->
+
+<!-- recorded-walkthrough:breakpoints-request-variants:start -->
+<a id="walkthrough-breakpoints-request-variants"></a>
+## 请求Header、空Text、File与响应状态
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>ruleName</code> | <code>Guide request variants</code> |
+| <code>path</code> | <code>/guide/request-variants</code> |
+| <code>originalRequest</code> | <code>{&quot;message&quot;:&quot;guide-original-request&quot;}</code> |
+| <code>requestHeader</code> | <code>x-guide-request: header-only</code> |
+| <code>jsonFile</code> | <code>guide-request.json</code> |
+| <code>jsonFileBody</code> | <code>{&quot;message&quot;:&quot;guide-file-request&quot;,&quot;count&quot;:2}</code> |
+| <code>binaryFile</code> | <code>guide-request.bin</code> |
+| <code>binaryHex</code> | <code>00010203feff</code> |
+| <code>responseStatus</code> | <code>202</code> |
+| <code>retainedResponseBody</code> | <code>{&quot;message&quot;:&quot;guide-origin-response&quot;}</code> |
+| <code>binaryPreview</code> | <code>The release shows file metadata without a text preview; forwarding still sends all six bytes</code> |
+| <code>httpSnapshot</code> | <code>HTTP suspension is at the head stage; Capture may independently provide a readable original preview</code> |
+| <code>source</code> | <code>Both replacement files are generated by this workflow’s real Save body</code> |
+
+<a id="walkthrough-breakpoints-request-variants-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-request-variants-json-01-source"></a>
+### 01 · 获取公开json源文件正文
+
+[视频 00:00](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=0.490) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![01 · 获取公开json源文件正文](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-02-select"></a>
+### 02 · 选择源响应
+
+[视频 00:03](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=3.511) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![02 · 选择源响应](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-02-select.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-03-save"></a>
+### 03 · 由产品保存guide-request.json
+
+[视频 00:16](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=16.651) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![03 · 由产品保存guide-request.json](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-03-save.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-04-saved"></a>
+### 04 · 核对实际保存的原始字节
+
+[视频 00:20](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=20.915) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![04 · 核对实际保存的原始字节](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-04-saved.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-01-source"></a>
+### 05 · 获取公开binary源文件正文
+
+[视频 00:23](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=23.886) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![05 · 获取公开binary源文件正文](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-01-source.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-02-select"></a>
+### 06 · 选择源响应
+
+[视频 00:26](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=26.863) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![06 · 选择源响应](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-02-select.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-03-save"></a>
+### 07 · 由产品保存guide-request.bin
+
+[视频 00:38](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=38.951) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![07 · 由产品保存guide-request.bin](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-03-save.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-04-saved"></a>
+### 08 · 核对实际保存的原始字节
+
+[视频 00:43](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=43.230) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![08 · 核对实际保存的原始字节](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-04-saved.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>
+### 09 · 发送并选中Header-only等待项
+
+[视频 00:46](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=46.200) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![09 · 发送并选中Header-only等待项](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-02-off"></a>
+### 10 · 明确保持Body Off
+
+[视频 00:49](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=49.408) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![10 · 明确保持Body Off](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-02-off.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-03-add"></a>
+### 11 · 添加请求Header行
+
+[视频 00:52](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=52.448) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![11 · 添加请求Header行](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-03-add.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-04-name"></a>
+### 12 · 填写x-guide-request
+
+[视频 00:55](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=55.477) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![12 · 填写x-guide-request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-04-name.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-05-value"></a>
+### 13 · 填写header-only
+
+[视频 00:58](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=58.477) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![13 · 填写header-only](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-05-value.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>
+### 14 · Forward edited后原正文不变
+
+[视频 01:01](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=61.481) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![14 · Forward edited后原正文不变](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-06-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-01-pending"></a>
+### 15 · 发送空Text示例
+
+[视频 01:04](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=64.558) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![15 · 发送空Text示例](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-02-text"></a>
+### 16 · 选择Text但不填写替换
+
+[视频 01:07](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=67.719) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![16 · 选择Text但不填写替换](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-02-text.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-03-forward"></a>
+### 17 · 核对HTTP头阶段空Text保持原正文
+
+[视频 01:10](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=70.774) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![17 · 核对HTTP头阶段空Text保持原正文](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-03-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-01-pending"></a>
+### 18 · 发送本次File等待请求
+
+[视频 01:13](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=73.838) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![18 · 发送本次File等待请求](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-02-mode"></a>
+### 19 · 选择File替换
+
+[视频 01:17](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=77.055) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![19 · 选择File替换](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-02-mode.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-03-open"></a>
+### 20 · 选择刚保存的guide-request.json
+
+[视频 01:27](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=87.088) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![20 · 选择刚保存的guide-request.json](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-03-open.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-04-preview"></a>
+### 21 · 检查实际选择的文件
+
+[视频 01:31](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=91.388) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![21 · 检查实际选择的文件](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-04-preview.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-05-forward"></a>
+### 22 · 核对源站收到完整文件字节
+
+[视频 01:34](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=94.481) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![22 · 核对源站收到完整文件字节](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-05-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-01-pending"></a>
+### 23 · 发送本次File等待请求
+
+[视频 01:37](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=97.549) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![23 · 发送本次File等待请求](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-02-mode"></a>
+### 24 · 选择File替换
+
+[视频 01:40](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=100.723) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![24 · 选择File替换](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-02-mode.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-03-open"></a>
+### 25 · 选择刚保存的guide-request.bin
+
+[视频 01:50](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=110.493) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![25 · 选择刚保存的guide-request.bin](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-03-open.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-04-preview"></a>
+### 26 · 检查实际选择的文件
+
+[视频 01:54](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=114.814) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![26 · 检查实际选择的文件](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04-preview.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-04a-type"></a>
+### 27 · 明确将Content-Type改为二进制
+
+[视频 01:57](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=117.846) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![27 · 明确将Content-Type改为二进制](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04a-type.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-05-forward"></a>
+### 28 · 核对源站收到完整文件字节
+
+[视频 02:00](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=120.843) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![28 · 核对源站收到完整文件字节](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-05-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-01-rule"></a>
+### 29 · 返回同一规则
+
+[视频 02:03](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=123.932) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![29 · 返回同一规则](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-01-rule.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-02-phase"></a>
+### 30 · 切换到响应阶段
+
+[视频 02:07](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=127.060) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![30 · 切换到响应阶段](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-02-phase.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-03-apply"></a>
+### 31 · Apply响应阶段
+
+[视频 02:10](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=130.459) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![31 · Apply响应阶段](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-03-apply.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-04-capture"></a>
+### 32 · 返回Capture
+
+[视频 02:13](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=133.522) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![32 · 返回Capture](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-04-capture.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-05-pending"></a>
+### 33 · 发送并等待源站响应头
+
+[视频 02:16](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=136.619) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![33 · 发送并等待源站响应头](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-05-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-06-code"></a>
+### 34 · 将响应状态改为202
+
+[视频 02:20](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=140.315) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![34 · 将响应状态改为202](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-06-code.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-07-forward"></a>
+### 35 · 核对状态改变而响应正文保持
+
+[视频 02:23](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=143.962) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![35 · 核对状态改变而响应正文保持](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-07-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-01-rule"></a>
+### 36 · 返回规则收尾
+
+[视频 02:27](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=147.102) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![36 · 返回规则收尾](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-01-rule.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-02-disable"></a>
+### 37 · 停用本轮规则
+
+[视频 02:30](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=150.190) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![37 · 停用本轮规则](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-02-disable.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-03-apply"></a>
+### 38 · Apply停用状态
+
+[视频 02:33](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=153.211) · [返回本节视频](#walkthrough-breakpoints-request-variants-video)
+
+![38 · Apply停用状态](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-03-apply.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:breakpoints-request-variants:end -->
+
+<!-- recorded-walkthrough:breakpoints-mixed-queues:start -->
+<a id="walkthrough-breakpoints-mixed-queues"></a>
+## 逐步骤实操：混合队列、Upgrade实际行为与持等待退出
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>requestPath</code> | <code>/guide/mixed/request-head</code> |
+| <code>responsePath</code> | <code>/guide/mixed/response-queued</code> |
+| <code>upgradePath</code> | <code>/guide/mixed/upgrade-queued</code> |
+| <code>livePath</code> | <code>/guide/mixed/live</code> |
+| <code>exitPath</code> | <code>/guide/mixed/request-exit</code> |
+| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;guide-original-http&quot;}</code> |
+| <code>unsentDraft</code> | <code>{&quot;message&quot;:&quot;guide-unsubmitted-draft&quot;}</code> |
+| <code>firstFrame</code> | <code>guide-ws-head</code> |
+| <code>secondFrame</code> | <code>guide-ws-queued</code> |
+| <code>exitFrame</code> | <code>guide-ws-exit-must-not-forward</code> |
+| <code>httpScope</code> | <code>Request and response waits share queueKey=http</code> |
+| <code>upgradeBoundary</code> | <code>The released App established this real Upgrade without a pending item despite the configured narrow GET Rule; no queued Upgrade is claimed</code> |
+| <code>wsScope</code> | <code>Established connection frames have a separate ws:* queue</code> |
+| <code>closeImage</code> | <code>Before the actual Close; post-close cancellation and host restoration are separate evidence, not a desktop recording</code> |
+
+<a id="walkthrough-breakpoints-mixed-queues-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-mixed-queues-01-http-head"></a>
+### 01 · 发送HTTP请求成为队首
+
+[视频 00:00](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=0.322) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![01 · 发送HTTP请求成为队首](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-02-response-queued"></a>
+### 02 · 让响应进入同一HTTP队列
+
+[视频 00:03](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=3.470) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![02 · 让响应进入同一HTTP队列](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-02-response-queued.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-03-upgrade-result"></a>
+### 03 · 检查Upgrade实际建立连接而未排队
+
+[视频 00:06](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=6.604) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![03 · 检查Upgrade实际建立连接而未排队](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-03-upgrade-result.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-04-live-connection"></a>
+### 04 · 选择已经建立的WS连接
+
+[视频 00:10](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=10.196) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![04 · 选择已经建立的WS连接](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-04-live-connection.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-05-ws-head"></a>
+### 05 · 发送第一条WS帧成为独立队首
+
+[视频 00:13](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=13.295) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![05 · 发送第一条WS帧成为独立队首](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-05-ws-head.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-06-ws-queued"></a>
+### 06 · 源站帧进入同一WS队列
+
+[视频 00:16](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=16.693) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![06 · 源站帧进入同一WS队列](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-06-ws-queued.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-07-http-draft"></a>
+### 07 · 为HTTP队首填写但不提交草稿
+
+[视频 00:19](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=19.923) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![07 · 为HTTP队首填写但不提交草稿](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-07-http-draft.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-08-inspect-response"></a>
+### 08 · 选择排队响应，只读查看
+
+[视频 00:23](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=23.929) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![08 · 选择排队响应，只读查看](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-08-inspect-response.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-09-inspect-upgrade"></a>
+### 09 · 选择已建立的连接，不伪造Queued
+
+[视频 00:27](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=27.156) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![09 · 选择已建立的连接，不伪造Queued](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-09-inspect-upgrade.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-10-http-menu"></a>
+### 10 · 回到HTTP队首并打开批量菜单
+
+[视频 00:30](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=30.953) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![10 · 回到HTTP队首并打开批量菜单](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-10-http-menu.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-11-continue-http"></a>
+### 11 · 仅Continue HTTP队列，草稿不应用
+
+[视频 00:34](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=34.339) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![11 · 仅Continue HTTP队列，草稿不应用](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-11-continue-http.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-12-ws-still-pending"></a>
+### 12 · 回到WS确认等待项仍在
+
+[视频 00:38](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=38.154) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![12 · 回到WS确认等待项仍在](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-12-ws-still-pending.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-13-drop-ws"></a>
+### 13 · 仅Drop当前WS队列
+
+[视频 00:41](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=41.534) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![13 · 仅Drop当前WS队列](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-13-drop-ws.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-14-exit-http"></a>
+### 14 · 为退出场景挂起新HTTP请求
+
+[视频 00:45](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=45.053) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![14 · 为退出场景挂起新HTTP请求](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-14-exit-http.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-15-exit-ws"></a>
+### 15 · 同时保留一条WS等待项
+
+[视频 00:48](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=48.126) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![15 · 同时保留一条WS等待项](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-15-exit-ws.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-16-before-close"></a>
+### 16 · 记录真实Close之前的两条等待
+
+[视频 00:51](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=51.398) · [返回本节视频](#walkthrough-breakpoints-mixed-queues-video)
+
+![16 · 记录真实Close之前的两条等待](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-16-before-close.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:breakpoints-mixed-queues:end -->

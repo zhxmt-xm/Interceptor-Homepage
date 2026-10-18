@@ -56,6 +56,71 @@
   "v0.1.1-alpha.1/agent-management/agent-management-guide-two-04-model.png": [3200, 1800],
   "v0.1.1-alpha.1/agent-management/agent-management-guide-two-05-test.png": [3200, 1800],
   "v0.1.1-alpha.1/agent-management/agent-management-guide-two-06-save.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-02-chat.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-03-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-04-prompt.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-05-keyboard-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-07-dismiss-context.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-09-fresh-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-10-running-chat.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-11-running-prompt.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-14-retained-chat.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-15-before-close.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-04-model-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-05-last-model-dialog.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-session-restart/agent-session-restart-06-remove-last.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-02-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-03-side-effect-prompt.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-04-allow-pause.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-06-retry.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-10-export-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-11-native-cancel-panel.png": [860, 390],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-12-cancel-native.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-13-export-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png": [860, 390],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-15-started-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-16-completion-query.png": [3200, 1800],
+  "v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-17-final-state.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints/breakpoints-01-rules.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints/breakpoints-02-create.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints/breakpoints-03-name.png": [3200, 1800],
@@ -77,6 +142,65 @@
   "v0.1.1-alpha.1/breakpoints/breakpoints-19-drop.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints/breakpoints-20-disable.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints/breakpoints-21-apply-disabled.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-02-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-03-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-04-undo.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-05-after-undo.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-06-recreate-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-07-recreate.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-08-manager.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-09-global-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-10-close-manager.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-11-not-paused.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-12-manager-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-13-global-on.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-14-close-manager.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-15-abort-pending.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-16-select-pending.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-17-client-abort.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-18-new-wait.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-19-continue-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-20-continue-response.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-21-rule-manager.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-22-rule-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-23-close-manager.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-24-rule-disabled.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-25-open-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-02-response-queued.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-03-upgrade-result.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-04-live-connection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-05-ws-head.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-06-ws-queued.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-07-http-draft.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-08-inspect-response.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-09-inspect-upgrade.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-10-http-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-11-continue-http.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-12-ws-still-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-13-drop-ws.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-14-exit-http.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-15-exit-ws.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-16-before-close.png": [
+    3200, 1800
+  ],
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-01-rules.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-02-post-rule.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-03-put-rule.png": [3200, 1800],
@@ -106,6 +230,120 @@
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-28-select-put-rule.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-29-disable-put.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-30-apply-disabled.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-01-source.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-02-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-03-save.png": [
+    860, 390
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-04-saved.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-01-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-02-mode.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-03-open.png": [
+    1600, 896
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04-preview.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04a-type.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-05-forward.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-01-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-02-text.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-03-forward.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-01-rule.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-02-disable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-03-apply.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-01-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-02-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-03-add.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-04-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-05-value.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-06-forward.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-02-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-03-save.png": [
+    860, 390
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-04-saved.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-01-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-02-mode.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-03-open.png": [
+    1600, 896
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-04-preview.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-05-forward.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-01-rule.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-02-phase.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-03-apply.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-04-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-05-pending.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-06-code.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-07-forward.png": [
+    3200, 1800
+  ],
   "v0.1.1-alpha.1/breakpoints-response/breakpoints-response-01-source.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-response/breakpoints-response-02-select-source.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-response/breakpoints-response-03-response-body.png": [3200, 1800],
@@ -184,6 +422,87 @@
   ],
   "v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-28-after-disabled.png": [3200, 1800],
   "v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-29-close-client.png": [3200, 1800],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-02-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-03-messages.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-04-setup.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-05-both.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-06-ping.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-07-pong.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-08-enable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-09-text.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-10-empty-mode.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-11-empty-value.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-12-empty-forward.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-13-empty-echo.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-14-send-ping.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-15-continue-ping.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-16-continue-pong.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-17-disable-both.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-18-close-setup.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-19-close-sent.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-message-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-ping-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-pong-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-21-close-on.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-22-enable-close.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-23-close-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-24-close-code.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-25-close-forward.png": [
+    3200, 1800
+  ],
   "v0.1.1-alpha.1/capture/capture-01-filter.png": [3200, 1800],
   "v0.1.1-alpha.1/capture/capture-02-record.png": [3200, 1800],
   "v0.1.1-alpha.1/capture/capture-03-request.png": [3200, 1800],
@@ -225,6 +544,37 @@
   "v0.1.1-alpha.1/capture/capture-29-encoding-gzip.png": [3200, 1800],
   "v0.1.1-alpha.1/capture/capture-30-decryption-off.png": [3200, 1800],
   "v0.1.1-alpha.1/capture/capture-31-remove-exception.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-02-record.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-03-manual-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-04-manual-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-05-unformatted.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-06-copy-before.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-08-copy-formatted.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-09-large-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-10-large-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-11-preview.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-12-copy-preview.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-13-save-dialog.png": [860, 390],
+  "v0.1.1-alpha.1/capture-body-limits/capture-body-limits-14-saved-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-02-unknown.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-03-host-group.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-04-host-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-05-protocol-group.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-06-protocol-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-07-type-group.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-08-json.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-09-rule-group.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-11-remove-type.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-12-clear-facets.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-13-hide-filters.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-14-show-filters.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-15-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-16-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-facets/capture-facets-17-apply-disabled.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-filters/capture-filters-01-records.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-filters/capture-filters-02-methods.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-filters/capture-filters-03-get.png": [3200, 1800],
@@ -237,6 +587,97 @@
   "v0.1.1-alpha.1/capture-filters/capture-filters-10-remove-post.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-filters/capture-filters-11-remove-get.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-02-record.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-03-messages.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-04-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-05-tab.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-06-direction.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-07-short.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-08-short-raw.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-09-copy-short.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-10-collapse-short.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-12-resize.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-13-wheel.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-14-keyboard-end.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-15-scroll-out.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-16-copy-long.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-17-payload-copy.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-19-return.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-20-paged-input.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-21-paged-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-22-paged-tab.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-23-load-pages.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24-last-message.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24a-last-raw.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-26-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-27-certificates.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-28-mitm-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-29-origin-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-02-record.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-03-first-part.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-04-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-05-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-09-trailers.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-10-protocol-group.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-24-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-25-certificates.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-26-mitm-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-27-origin-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-01-interrupt.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-02-original.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-05-recovered.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-01-interrupt.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-02-original.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-03-length.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-04-partial.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-05-recovered.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-http2/capture-http2-origin-06-recovery-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-02-record.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-03-post.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-04-pause.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-05-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-06-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-07-collapse.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-08-expand.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-14-outer-up.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-16-copy-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-17-preview.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-20-copy-source.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-21-source-scroll.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-22-source-end.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-23-fullscreen.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-24-return.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-25-preview-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-26-hex.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-27-restore-width.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-28-close-details.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-01-source.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-02-context.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-03-block-draft.png": [3200, 1800],
@@ -251,6 +692,73 @@
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-12-paused.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-13-continue-request.png": [3200, 1800],
   "v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-14-continue-response.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-02-record.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-03-messages.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-04-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-05-tab.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-06-direction.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-07-short.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-08-short-raw.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-09-copy-short.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-10-collapse-short.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-12-resize.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-13-wheel.png": [3200, 1800],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-14-keyboard-end.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-15-scroll-out.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-16-copy-long.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-17-payload-copy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-19-return.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-20-paged-input.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-21-paged-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-22-paged-tab.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-24-last-message.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png": [
+    3200, 1800
+  ],
   "v0.1.1-alpha.1/composer/composer-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/composer/composer-02-new.png": [3200, 1800],
   "v0.1.1-alpha.1/composer/composer-03-url.png": [3200, 1800],
@@ -261,6 +769,34 @@
   "v0.1.1-alpha.1/composer/composer-08-auth.png": [3200, 1800],
   "v0.1.1-alpha.1/composer/composer-09-history.png": [3200, 1800],
   "v0.1.1-alpha.1/composer/composer-10-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-01-composer.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-02-new.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-03-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-04-none.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-05-auth-tab.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-06-basic.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-07-username.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-08-password.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-09-basic-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-10-bearer.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-11-token.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-12-bearer-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-13-none-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-14-none-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-15-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-16-explicit-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-17-explicit-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-18-add-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-19-none-keeps-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-20-delete-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-21-header-removed.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-22-clear-basic-type.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-23-clear-username.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-24-clear-password.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-25-clear-bearer-type.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-26-clear-token.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-27-finish-none.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-auth/composer-auth-28-no-capture.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-collection/composer-collection-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-collection/composer-collection-02-folder-1.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-collection/composer-collection-02-folder-2.png": [3200, 1800],
@@ -324,6 +860,41 @@
   "v0.1.1-alpha.1/composer-fields/composer-fields-14-send-none.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-fields/composer-fields-15-history.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-fields/composer-fields-16-check-restored.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-01-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-02-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-03-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-04-export-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-05-export-deny.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-06-export-cancel-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-07-save-cancel-panel.png": [860, 390],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-08-save-cancelled.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-09-export-save-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-10-save-file.png": [860, 390],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-11-export-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-12-import-deny-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-13-import-denied.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-14-open-cancel-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-15-open-cancel-panel.png": [1600, 896],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-16-open-cancelled.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-confirm.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-mode.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-open.png": [1600, 896],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-preview.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-decision.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-open.png": [1600, 896],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-preview.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-decision.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-open.png": [1600, 896],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-preview.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-file-tools/composer-file-tools-stop-server.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-02-new.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-03-url.png": [3200, 1800],
@@ -363,6 +934,61 @@
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-37-css-copy-before.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-38-format.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-inspection/composer-inspection-39-css-copy-after.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-1.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-2.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-3.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-02-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-03-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-04-query.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-05-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-06-auth.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-07-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-08-clear-auth.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-09-none.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-01-new-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-02-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-03-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-04-method.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-05-protocol.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-disabled.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-persist.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-07-disable-header.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-08-query.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-09-json.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-10-auth.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-11-saved.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-replay/composer-replay-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-replay/composer-replay-02-new.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-replay/composer-replay-03-url.png": [3200, 1800],
@@ -391,6 +1017,94 @@
   "v0.1.1-alpha.1/composer-replay/composer-replay-26-current-query.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-replay/composer-replay-27-resend.png": [3200, 1800],
   "v0.1.1-alpha.1/composer-replay/composer-replay-28-confirm-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-01-new.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-02-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-03-url.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-04-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-06-copy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-01-new.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-02-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-03-url.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-04-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-06-copy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-01-new.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-02-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-03-url.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-04-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-06-copy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-restore-html.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-01-new.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-02-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-03-url.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-04-send.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-05-format.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-06-copy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-01-ask-client.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-02-composer.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-03-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-04-rename-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-05-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-06-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-07-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-08-ui-send.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-09-saved.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-10-query.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-11-send-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-12-send-deny.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-13-send-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-14-send-allow.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-15-ui-response-kept.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-16-replace-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-17-replace-deny.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-18-replace-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-19-replace-allow.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-20-query-latest.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-21-mcp-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/composer-tools/composer-tools-22-disable.png": [3200, 1800],
   "v0.1.1-alpha.1/diagnostics/diagnostics-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/diagnostics/diagnostics-02-record.png": [3200, 1800],
   "v0.1.1-alpha.1/diagnostics/diagnostics-03-process.png": [3200, 1800],
@@ -399,6 +1113,49 @@
   "v0.1.1-alpha.1/diagnostics/diagnostics-06-outcome.png": [3200, 1800],
   "v0.1.1-alpha.1/diagnostics/diagnostics-07-export.png": [860, 390],
   "v0.1.1-alpha.1/diagnostics/diagnostics-08-exported.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-01-input.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-02-send-success.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-03-failed-input.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04-send-failed.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04a-upstream.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04b-pac-mode.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04c-pac-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04d-pac-failure.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04e-discard.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05-diagnostics.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05a-save-evidence.png": [860, 390],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05b-evidence.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06-core.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06a-main.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-07-error.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-08-success-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-09-failed-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-10-select-failed.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-11-timeline.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-12-widen.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-all.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-debug.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-info.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-warn.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-all.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-cancelled.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-timed_out.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-all.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-renderer.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-16-filters-cleared.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-17-earlier.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-18-list-wheel.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-19-export.png": [860, 390],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-20-exported.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-21-composer-return.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-22-good-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-23-recovered.png": [3200, 1800],
   "v0.1.1-alpha.1/mcp/mcp-01-settings.png": [3200, 1800],
   "v0.1.1-alpha.1/mcp/mcp-02-mcp.png": [3200, 1800],
   "v0.1.1-alpha.1/mcp/mcp-03-enable.png": [3200, 1800],
@@ -427,6 +1184,39 @@
   "v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-03-change.png": [3200, 1800],
   "v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-04-note-new-address.png": [3200, 1800],
   "v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-05-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-02-conflict.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-03-change.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-05-reconnect.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-07-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-03-pending-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-04-caller-abort.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-05-diagnostics-permissions.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-06-recent.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-07-trace.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-08-export-ask.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-09-deny.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-10-export-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png": [860, 390],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-12-native-cancel.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-13-export-save.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-14-save.png": [860, 390],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-15-job-completed.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-16-clear-search.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-17-auto.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-18-long-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-19-revoke-dialog.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-20-revoke.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-21-old-identity.png": [3200, 1800],
+  "v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-22-stop.png": [3200, 1800],
   "v0.1.1-alpha.1/rules/rules-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/rules/rules-02-create.png": [3200, 1800],
   "v0.1.1-alpha.1/rules/rules-03-name.png": [3200, 1800],
@@ -532,6 +1322,31 @@
   "v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-09-enable.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-10-apply.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-11-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-02-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-03-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-04-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-05-add-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-06-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-07-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-08-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-09-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-10-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-11-local-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-12-local-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-13-second-writer.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-14-allow.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-15-draft-retained.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-16-core-remote.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-17-reload.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-18-merged-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-19-merged-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-20-apply-merged.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-21-merged-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-22-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-23-apply-disabled.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-24-mcp-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-conflict/rules-conflict-25-stop-server.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-01-rules.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-02-create.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-03-host.png": [3200, 1800],
@@ -556,6 +1371,117 @@
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-22-apply.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-23-match.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-matchers/rules-matchers-24-no-match.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-02-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-03-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-04-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-05-path-condition.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-06-path-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-07-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-08-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-09-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-10-contains.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-11-case-sensitive.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-12-apply-case.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-13-exact.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-14-apply-exact.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-15-regex.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-16-invalid-regex.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-16a-apply-invalid.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-17-valid-regex.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-18-apply-regex.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-19-ignore-case.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-20-apply-ignore-case.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-21-response-action.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-22-mime-condition.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-23-mime-wildcard.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-24-apply-mime.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-25-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-26-apply-disabled.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-headers.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-rules.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-rules.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-operations/rules-operations-01-rules.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-operations/rules-operations-02-new.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-operations/rules-operations-03-scope.png": [3200, 1800],
@@ -606,6 +1532,338 @@
   "v0.1.1-alpha.1/rules-organization/rules-organization-second-03-path.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-organization/rules-organization-second-04-header.png": [3200, 1800],
   "v0.1.1-alpha.1/rules-organization/rules-organization-second-05-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-02-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-03-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-04-path-condition.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-05-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-add.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply-close.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-back.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-close-result.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-close.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-edit-close.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-edit-next.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-reset-result.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-reset.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-restored.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-add.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-apply-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-back.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-edit-next.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-restored.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-add-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-add.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-back.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body-phase.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body-result.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-disable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-edit-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-edit-next.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-enable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-header-only.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-phase.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-remove.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-restored.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add-extra.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add-type.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-apply-off.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-apply.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-back.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-disable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-edit-next.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-enable.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-extra-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-extra-value.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-remove.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-restored.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-result.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-status.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-type-name.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-type-value.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-02-root-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-03-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-04-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-05-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-06-add-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-07-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-08-response-phase.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-09-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-10-append.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-11-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-12-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-13-apply-append.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-14-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-15-append-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-16-append-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-17-append-headers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-18-edit-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-19-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-20-apply-remove.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-21-capture-remove.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-22-remove-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-23-remove-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-24-edit-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-25-remove-header.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-26-add-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-27-request-phase.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-28-body-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-29-apply-body.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-30-capture-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-31-post.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-32-body-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-33-final.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-35-raw.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-36-copy-original.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-37-fullscreen.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-38-close-fullscreen.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-40-copy-final.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-41-save-dialog.png": [860, 390],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-42-saved.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-43-body-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-44-response-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-45-response-value.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-46-apply-response.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-47-capture-response.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-48-response-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-49-response-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-51-rule-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-52-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-53-apply-disabled.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-54-capture-restored.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-55-restored-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-02-create.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-03-source-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-04-add-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-05-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-06-remove-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-07-map-remote.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-08-http.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-09-target-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-10-target-port.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-11-target-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-12-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-13-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-14-remote-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-15-edit.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-16-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-17-apply-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-18-original-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-19-file-source.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-20-save-file.png": [860, 390],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-21-check-file.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-22-edit-local.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-23-local-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-24-remove-remote.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-25-local.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-26-missing-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-27-enable-local.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-28-apply-local.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-29-missing-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-30-correct-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-31-correct-file.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-32-apply-correct.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-33-local-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-34-final-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-35-final-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-36-final-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-37-certificates.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-38-mitm-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-routing/rules-routing-39-remove-exception.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-01-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-02-root-folder.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-03-root-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-04-child-folder.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-05-child-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-06-third-folder.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-07-third-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-08-depth-limit.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-09-nested-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-10-invalid.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-11-rule-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-12-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-13-path-condition.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-14-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-15-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-16-header-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-17-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-18-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-19-rename-folder.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-20-folder-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-21-apply-rename.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-22-folder-search.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-23-search-clear.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-24-collapse.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-25-expand.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-26-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-27-rule-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-28-show-requests.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-28a-rule-facet.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-29-select-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-30-header-effect.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-31-return-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-32-root-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-33-root-rule.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-34-root-name.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-35-root-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-36-root-path-condition.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-37-root-path.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-38-root-header.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-39-root-value.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-40-root-enable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-41-root-apply.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-42-precedence.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-43-delete-nested-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-44-delete-nested.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-45-apply-deletion.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-46-delete-folder-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-47-delete-folders.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-48-apply-folders.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-49-after-delete.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-50-disable.png": [3200, 1800],
+  "v0.1.1-alpha.1/rules-tree/rules-tree-51-apply-disabled.png": [3200, 1800],
   "v0.1.1-alpha.1/settings/settings-01-open.png": [3200, 1800],
   "v0.1.1-alpha.1/settings/settings-02-certificates.png": [3200, 1800],
   "v0.1.1-alpha.1/settings/settings-03-proxy.png": [3200, 1800],
@@ -621,6 +1879,64 @@
   "v0.1.1-alpha.1/settings/settings-13-clear-confirm.png": [3200, 1800],
   "v0.1.1-alpha.1/settings/settings-14-cancel.png": [3200, 1800],
   "v0.1.1-alpha.1/settings/settings-15-updates.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-01-privacy.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-02-auth-default.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-03-cookie-default.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-04-inherited-export.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-05-one-time-override.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-06-save-override.png": [860, 390],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-07-check-override.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-08-defaults-unchanged.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-09-warning-default.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-10-unmasked-draft.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-11-save-public.png": [860, 390],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-12-check-public.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-13-restore-privacy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-14-restore-auth.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-15-restore-cookies.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-16-restore-warning.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-17-redacted-draft.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-18-strip-bodies.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-19-save-redacted.png": [860, 390],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-20-check-redacted.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-21-clear.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-22-import.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-23-open-redacted.png": [
+    1600, 896
+  ],
+  "v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-24-imported.png": [3200, 1800],
   "v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-01-owned.png": [3200, 1800],
   "v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png": [3200, 1800],
   "v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-03-listener.png": [3200, 1800],
@@ -673,6 +1989,116 @@
   "v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-18-new-record.png": [
     3200, 1800
   ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-01-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-02-record.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-06-https-setup.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-07-cancel-setup.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-08-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-09-certificates.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-10-origin-host.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-11-origin-add.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-12-mitm-on.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-13-capture-decrypted.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-14-decrypted-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-15-decrypted-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-16-decrypted-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-17-settings-passthrough.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-18-passthrough.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-19-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-20-add.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-21-capture-passthrough.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-22-passthrough-request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-23-passthrough-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-25-locate.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-26-remove.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-27-capture-restored.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-28-reconnect.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-29-restored-select.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-30-restored-body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-31-cleanup-settings.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-32-cleanup-certificates.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-33-mitm-off.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-34-origin-remove.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/settings-update-check/settings-update-check-01-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-update-check/settings-update-check-02-updates.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-update-check/settings-update-check-03-check.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-01-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-02-upstream.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-03-direct-draft.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-04-discard.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-05-manual.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-06-host.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-07-port.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-08-apply-manual.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-09-manual-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-10-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-11-shortcut.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-12-pac-draft.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-13-pac-url.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-14-cancel-draft.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-15-reopen.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-16-pac-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-17-pac-url-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-18-open-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-19-apply-pac.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-20-pac-proxy.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-21-pac-direct.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-22-direct.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-23-apply-direct.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-24-direct-request.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-25-system.png": [3200, 1800],
+  "v0.1.1-alpha.1/settings-upstream/settings-upstream-26-apply-system.png": [3200, 1800],
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-01-settings.png": [3200, 1800],
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-02-agent.png": [3200, 1800],
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-03-search.png": [3200, 1800],
@@ -681,6 +2107,350 @@
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-06-restore-agent.png": [3200, 1800],
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-07-restore-mcp.png": [3200, 1800],
   "v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png": [3200, 1800],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-01-search.png": [3200, 1800],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-02-disable-agent-clear.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-03-disable-mcp-clear.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-04-mcp-rejection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-05-agent.png": [3200, 1800],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-06-agent-rejection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-07-retained-record.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-08-close-agent.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-09-clear-search.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-10-readonly-list.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-11-before-close.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue_queue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue_rule.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_disable_http.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_disable_websocket.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_drop.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_drop_queue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_enable_http.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_enable_websocket.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_forward_edited.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_cancel_transfer_job.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_archive.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_har.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_import_archive.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_import_har.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_start_recording.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_stop_recording.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_export_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_import_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_probe_connection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_replace_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_send_request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-diagnostics_export.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_export.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_import.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_replace_tree.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_delete_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_all_app_containers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_app_container.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_https_decryption.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_all_app_containers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_app_container.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_https_decryption.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_system_proxy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_generate_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_install_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_open_certificate_manager.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_replace_tls_insecure_hosts.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_replace_tls_passthrough.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_restore_system_proxy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_reveal_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_export_privacy_defaults.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_language.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_theme.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_uninstall_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_view_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue_queue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue_rule.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_disable_http.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_disable_websocket.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_drop.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_drop_queue.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_enable_http.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_enable_websocket.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_forward_edited.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_cancel_transfer_job.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_archive.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_body.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_har.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_import_archive.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_import_har.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_start_recording.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_stop_recording.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_export_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_import_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_probe_connection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_replace_collection.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_send_request.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-diagnostics_export.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_export.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_import.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_replace_tree.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_delete_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_all_app_containers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_app_container.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_https_decryption.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_all_app_containers.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_app_container.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_https_decryption.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_system_proxy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_generate_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_install_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_open_certificate_manager.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_replace_tls_insecure_hosts.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_replace_tls_passthrough.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_restore_system_proxy.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_reveal_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_export_privacy_defaults.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_language.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_theme.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_uninstall_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_view_certificate.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-breakpoints.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-capture.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-composer.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-diagnostics.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-rules.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-settings.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-01-saved-permissions.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-02-query-only.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-03-query-enabled.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-04-clear-search.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-05-stop-server.png": [
+    3200, 1800
+  ],
   "v0.1.1-alpha.1/transfer/transfer-01-export-menu.png": [3200, 1800],
   "v0.1.1-alpha.1/transfer/transfer-02-har-options.png": [3200, 1800],
   "v0.1.1-alpha.1/transfer/transfer-03-scope.png": [3200, 1800],
@@ -700,6 +2470,36 @@
   "v0.1.1-alpha.1/transfer/transfer-17-restored.png": [3200, 1800],
   "v0.1.1-alpha.1/transfer/transfer-18-body-save-dialog.png": [860, 390],
   "v0.1.1-alpha.1/transfer/transfer-19-body-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-02-export-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-03-archive.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-04-save-dialog.png": [860, 390],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-02-select.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-01-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-02-har.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-04-save.png": [860, 390],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-05-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-01-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-02-har.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-04-save.png": [860, 390],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-05-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-01-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-02-har.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-03-open.png": [1600, 896],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-04-complete.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-05-all.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-01-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-02-har.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-03-scope.png": [3200, 1800],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-04-save.png": [860, 390],
+  "v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-05-complete.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace/workspace-01-sidebar.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace/workspace-02-capture.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace/workspace-03-rules.png": [3200, 1800],
@@ -720,9 +2520,47 @@
   "v0.1.1-alpha.1/workspace-close/workspace-close-04-privacy.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-close/workspace-close-05-capture.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-02-privacy.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-03-composer.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-05-diagnostics.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-06-retained-again.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-07-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-08-agent-empty.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-10-agent-open.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-diagnostics.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-13-header-open.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-16-dismiss-theme.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png": [2560, 1600],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-19-capture.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-20-upstream-shortcut.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-22-leave-deeplink.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-23-retained-deeplink.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-24-recording.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-navigation/workspace-navigation-25-request.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-restart/workspace-restart-02-privacy.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-restart/workspace-restart-03-restore-privacy.png": [3200, 1800],
   "v0.1.1-alpha.1/workspace-restart/workspace-restart-04-temporary-capture.png": [3200, 1800],
-  "v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png": [3200, 1800]
+  "v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-02-maximize.png": [
+    3584, 2052
+  ],
+  "v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-03-restore.png": [3200, 1800],
+  "v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-04-minimize-control.png": [
+    3200, 1800
+  ],
+  "v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-05-returned-window.png": [
+    3200, 1800
+  ]
 }

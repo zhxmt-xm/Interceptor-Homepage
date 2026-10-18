@@ -175,8 +175,8 @@
   "assets": [
     {
       "file": "agent.mp4",
-      "bytes": 588955,
-      "sha256": "e8d30bbd2dce0d145b6d25853454ef3d325a1ff8a14f4b993fcd896481631271"
+      "bytes": 599290,
+      "sha256": "7005bd0893afca0a2fb602407d0d5b5dcabdce75a37bd32056b57f4a370ab0ab"
     },
     {
       "file": "agent.vtt",

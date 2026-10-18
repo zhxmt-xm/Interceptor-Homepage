@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.435 --> 00:00:03.484
+查看本次真实SDK Client / Inspect this actual SDK Client
+
+2
+00:00:03.484 --> 00:00:06.503
+定位本次暂停Tool的MCP权限 / Locate MCP permission for this pause Tool
+
+3
+00:00:06.503 --> 00:00:09.516
+发起一个尚待审批的操作 / Start an operation awaiting approval
+
+4
+00:00:09.516 --> 00:00:12.548
+调用方真实取消该请求 / Have the caller actually cancel the request
+
+5
+00:00:12.548 --> 00:00:15.588
+定位Diagnostics查询与导出权限 / Locate Diagnostics query and export permissions
+
+6
+00:00:15.588 --> 00:00:18.586
+SDK实际查询Recent且不出现审批 / Query Recent through the SDK without approval
+
+7
+00:00:18.586 --> 00:00:21.583
+用返回的traceId查询Trace / Query Trace using the returned traceId
+
+8
+00:00:21.583 --> 00:00:24.621
+请求导出并检查实际参数 / Request export and review actual arguments
+
+9
+00:00:24.621 --> 00:00:27.656
+Deny不打开文件窗口 / Deny without opening a file window
+
+10
+00:00:27.656 --> 00:00:40.864
+再次请求导出 / Request export again
+
+11
+00:00:40.864 --> 00:00:44.187
+Allow后仍有真正的Save窗口 / Allow still opens a real Save window
+
+12
+00:00:44.187 --> 00:00:48.765
+真实取消原生Save / Actually cancel native Save
+
+13
+00:00:48.765 --> 00:01:00.872
+重新请求需要保存的导出 / Request the export to save
+
+14
+00:01:00.872 --> 00:01:05.126
+保存guide-mcp-diagnostics.jsonl / Save guide-mcp-diagnostics.jsonl
+
+15
+00:01:05.126 --> 00:01:08.087
+查询真实任务并核对文件 / Query the actual task and verify the file
+
+16
+00:01:08.087 --> 00:01:11.313
+清空搜索返回Client控制 / Clear search and return to Client controls
+
+17
+00:01:11.313 --> 00:01:14.350
+本次长调用选择Auto / Select Auto for this long-call example
+
+18
+00:01:14.350 --> 00:01:17.425
+发起真实未完成的Composer请求 / Start an actual unfinished Composer request
+
+19
+00:01:17.425 --> 00:01:20.504
+在途调用期间打开撤销确认 / Open revocation confirmation during the call
+
+20
+00:01:20.504 --> 00:01:23.599
+撤销Client并核对真实请求取消 / Revoke the Client and verify actual request cancellation
+
+21
+00:01:23.599 --> 00:01:26.575
+旧Client身份不能再查询 / Verify the old Client identity cannot query again
+
+22
+00:01:26.575 --> 00:01:29.604
+关闭本轮MCP Server / Disable this run’s MCP Server

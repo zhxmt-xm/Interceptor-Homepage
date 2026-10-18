@@ -71,8 +71,8 @@
   "assets": [
     {
       "file": "diagnostics.mp4",
-      "bytes": 352383,
-      "sha256": "7bc6f8d76ecc71deb2563c01165cf7654309ff7c2b6c6dffa70ccca803f7ac65"
+      "bytes": 352038,
+      "sha256": "704df97b25fb631b339dd9d0e643ceac4d4ddf8401aeb5645abd3818249db9b4"
     },
     {
       "file": "diagnostics.vtt",

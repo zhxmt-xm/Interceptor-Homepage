@@ -168,11 +168,13 @@ The complete reference follows. Only operations with matching real step images a
 
 7. Leave Settings and return to inspect the retained last section.
 
-   **Image pending:** entering Settings is recorded, but leaving/returning to verify the section is not.
+   ![Privacy retained after leaving and returning](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png)
 
 8. Follow a feature-specific prompt and check its selected section, such as TLS passthrough.
 
-   **Image pending:** directly opening a section is not following a settings deep link; existing images do not cover that path.
+   ![Opening Upstream from Capture's shortcut popover](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png)
+
+   See the separate [TLS passthrough round trip](settings.md#walkthrough-settings-tls-passthrough) for its deep link; opening a section directly is not the same operation.
 
 **Expected result:** the header and main content follow navigation; navigation does not resend traffic.
 
@@ -185,19 +187,27 @@ The complete reference follows. Only operations with matching real step images a
 
 1. Drag Capture's separators between filters, list and details to allocate space.
 
-   **Image pending:** divider-drag before/after states are missing. A static Capture overview is not a substitute.
+   ![Actually dragging the Capture detail divider](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
 
 2. In Composer, adjust the Collection width and the request/response heights separately.
 
-   **Image pending:** Composer recordings edit request fields, not these dividers.
+   ![Actually widening the Collection pane](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-33-collection-drag.png)
+
+   ![Independently enlarging the Composer response pane](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-34-response-drag.png)
 
 3. Use minimize, maximize or restore; resize the window from its edges when needed.
 
-   **Image pending:** window resizing/minimizing/restoring was not recorded. Different chapter screenshots are not one resize sequence.
+   ![Resizing the same actual App window smaller](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png)
+
+   ![Restoring that window's original size](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
+
+   These consecutive steps demonstrate resizing. The separate [window-controls recording](#walkthrough-workspace-window-controls) actually clicks Maximize and Restore and checks native window/work-area dimensions, then clicks Minimize. Its button image precedes the actual click; native state is checked separately. The test restores only the same window for continued inspection, not as recorded Dock interaction.
 
 4. Use the wheel, trackpad or keyboard to read overflow. Continue scrolling the outer content after the body viewer reaches its boundary.
 
-   **Image pending:** actual nested scrolling was not recorded. Static fullscreen does not demonstrate scroll handoff.
+   ![Actual wheel input inside the body](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png)
+
+   ![Continuing into the outer pane at the body boundary](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
 
 5. Use fullscreen for a long body, then return to the workspace.
 
@@ -218,7 +228,7 @@ The complete reference follows. Only operations with matching real step images a
 
 1. Open Theme at the bottom of the sidebar.
 
-   **Image pending:** the open menu before choosing a theme has no separate intermediate image. The following states are actual selections.
+   ![Opening Theme without changing the current selection](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png)
 
 2. First select `warm`.
 
@@ -271,7 +281,7 @@ The complete reference follows. Only operations with matching real step images a
 
 2. If no model is configured, follow the configuration entry to Settings > Agent.
 
-   **Image pending:** sidebar navigation to Agent settings is recorded, but the panel's unconfigured-state link is not.
+   ![Following Configure from the unconfigured Agent panel](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png)
 
 3. Otherwise, select or create a Chat. Switch workspaces normally when you need another tool.
 
@@ -281,13 +291,17 @@ The complete reference follows. Only operations with matching real step images a
 
    ![Actually selecting Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-11-switch-chat.png)
 
-   **Image pending:** navigating workspaces with the panel open is still unrecorded. Chat selection is not workspace navigation.
+   ![Switching to Rules with Agent still open](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png)
+
+   ![Continuing to Composer while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png)
 
 4. Close the panel using the Agent toggle or its own Close action.
 
    ![Actually closing the panel while the App remains running](../media/v0.1.1-alpha.1/workspace/workspace-11-close-panel.png)
 
-   **Image pending:** this covers the recorded closing action, not separate demonstrations of both entry points.
+   ![Closing Agent through the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png)
+
+   ![Reopening and using the panel's own Close](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png)
 
 **Expected result:** the main workspace narrows beside the panel rather than being covered. Workspace/settings navigation does not close Agent implicitly.
 
@@ -333,7 +347,7 @@ Read `workspace-close` → `workspace-restart` in their real order: two App gene
 
    ![Saved state before the actual Close](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
-   **Image pending:** the Close click, busy-operation refusal and separate proxy/process-cleanup views are absent. A real Close does not mean all those branches are illustrated.
+   Actual Close and exit recovery are checked outside the recording through real operations and state evidence. A pre-close picture is not a process-exit image. Other exit branches, such as busy refusal, still need their own scenarios; the desktop or a process manager is not recorded to fill the gap.
 
 7. Start the same profile again, find `Guide retained request` in the new App generation's Collection and inspect the saved URL.
 
@@ -355,7 +369,7 @@ Read `workspace-close` → `workspace-restart` in their real order: two App gene
 
     ![Original language actually retained after restarting](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
 
-**Scope:** this checks the Collection request name/URL, Privacy and temporary Capture, not Agent history or every preference across restart. Deeper Collection folders, ordering, preview cancellation and deletion remain blocked by the macOS lock screen; that supplementary flow did not launch the App. These images cannot substitute for it.
+**Scope:** this segment checks Collection name/URL, Privacy and temporary Capture. A complete representative request now has paired [saving](composer.md#walkthrough-composer-persistence-save) and [actual restart](composer.md#walkthrough-composer-persistence-restart) recordings covering three folder levels, method/protocol, Header values and enabled states, Query, JSON and public Auth fields, without refilling or automatic Send. See [Agent restart](agent.md#walkthrough-agent-session-restart) for history. No single clip exhausts every preference or Body/Auth combination.
 
 **Before quitting:** finish exports, Apply or pending saves. Visible editor content alone does not prove it has been persisted.
 
@@ -380,7 +394,7 @@ Do not assume collections or chats synchronize between OS accounts or separate A
 
 3. Check for native authorization or file windows awaiting a decision.
 
-   **Image pending:** there is no separate pre-quit overview of all native windows. A Save panel image does not prove every window was handled.
+   Finish or cancel each window you opened. [Agent](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel) and [MCP](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel) show actual Save cancellation and subsequent saving, not a claim that every current window was inspected for you.
 
 4. Close the App normally. If a busy operation prevents quitting, wait for it and close again.
 
@@ -388,7 +402,7 @@ Do not assume collections or chats synchronize between OS accounts or separate A
 
    ![Image before the actual Close occurs](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
-   **Image pending:** the Close click, busy refusal, native-window waits at exit and proxy/process-cleanup images are still missing. Do not call the real Close unexecuted or treat a pre-close image as complete shutdown acceptance.
+   **Recording boundary:** [shutdown with mixed waits](breakpoints.md#walkthrough-breakpoints-mixed-queues) actually closes normally while HTTP and WS items are pending, then verifies client cancellation and no origin forwarding. Native file cancellation is in [Collection Tools](composer.md#walkthrough-composer-file-tools). A pre-close picture is still not an exited-process image; shutdown and host recovery have separate evidence. The guide does not manufacture Core crashes or record the desktop/process manager.
 
 **Expected result:** proxy recovery and process shutdown finish. Minimizing or force-killing is not normal shutdown.
 
@@ -521,3 +535,284 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:workspace-restart:end -->
+
+<!-- recorded-walkthrough:workspace-navigation:start -->
+<a id="walkthrough-workspace-navigation"></a>
+## Recorded walkthrough: retained Settings, Agent deep links, panel navigation and window resizing
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>savedSection</code> | <code>Privacy</code> |
+| <code>configureTarget</code> | <code>Settings / Agent</code> |
+| <code>shortcutTarget</code> | <code>Settings / Upstream</code> |
+| <code>originalSize</code> | <code>1600x900</code> |
+| <code>smallerSize</code> | <code>1280x800</code> |
+| <code>initialTheme</code> | <code>light</code> |
+| <code>appLanguage</code> | <code>zh-CN</code> |
+| <code>languageChanged</code> | <code>false</code> |
+| <code>requestPath</code> | <code>/guide/navigation/ready</code> |
+
+<a id="walkthrough-workspace-navigation-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4" poster="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.vtt" default>
+</video>
+
+<a id="walkthrough-workspace-navigation-01-settings"></a>
+### 01 · Open Settings
+
+[Video 00:00](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=0.486) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![01 · Open Settings](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png)
+
+<a id="walkthrough-workspace-navigation-02-privacy"></a>
+### 02 · Open the Privacy section
+
+[Video 00:03](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=3.411) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![02 · Open the Privacy section](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-02-privacy.png)
+
+<a id="walkthrough-workspace-navigation-03-composer"></a>
+### 03 · Leave Settings for Composer
+
+[Video 00:06](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=6.343) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![03 · Leave Settings for Composer](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-03-composer.png)
+
+<a id="walkthrough-workspace-navigation-04-return-settings"></a>
+### 04 · Return to Settings with Privacy retained
+
+[Video 00:09](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=9.249) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![04 · Return to Settings with Privacy retained](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png)
+
+<a id="walkthrough-workspace-navigation-05-diagnostics"></a>
+### 05 · Switch to Diagnostics
+
+[Video 00:12](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=12.169) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![05 · Switch to Diagnostics](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-05-diagnostics.png)
+
+<a id="walkthrough-workspace-navigation-06-retained-again"></a>
+### 06 · Return again to the retained Privacy section
+
+[Video 00:15](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=15.151) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![06 · Return again to the retained Privacy section](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-06-retained-again.png)
+
+<a id="walkthrough-workspace-navigation-07-capture"></a>
+### 07 · Return to Capture
+
+[Video 00:18](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=18.100) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![07 · Return to Capture](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-07-capture.png)
+
+<a id="walkthrough-workspace-navigation-08-agent-empty"></a>
+### 08 · Open the unconfigured Agent panel
+
+[Video 00:21](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=21.016) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![08 · Open the unconfigured Agent panel](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-08-agent-empty.png)
+
+<a id="walkthrough-workspace-navigation-09-configure-link"></a>
+### 09 · Follow Configure from the empty state
+
+[Video 00:23](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=23.935) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![09 · Follow Configure from the empty state](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png)
+
+<a id="walkthrough-workspace-navigation-10-agent-open"></a>
+### 10 · Return to Capture with Agent open
+
+[Video 00:27](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=27.087) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![10 · Return to Capture with Agent open](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-10-agent-open.png)
+
+<a id="walkthrough-workspace-navigation-11-rules"></a>
+### 11 · Open rules while retaining Agent
+
+[Video 00:30](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=30.076) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![11 · Open rules while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png)
+
+<a id="walkthrough-workspace-navigation-11-composer"></a>
+### 12 · Open composer while retaining Agent
+
+[Video 00:33](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=33.006) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![12 · Open composer while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png)
+
+<a id="walkthrough-workspace-navigation-11-diagnostics"></a>
+### 13 · Open diagnostics while retaining Agent
+
+[Video 00:35](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=35.927) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![13 · Open diagnostics while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-diagnostics.png)
+
+<a id="walkthrough-workspace-navigation-12-header-close"></a>
+### 14 · Close Agent with the Header control
+
+[Video 00:38](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=38.938) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![14 · Close Agent with the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png)
+
+<a id="walkthrough-workspace-navigation-13-header-open"></a>
+### 15 · Reopen with the Header control
+
+[Video 00:41](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=41.903) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![15 · Reopen with the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-13-header-open.png)
+
+<a id="walkthrough-workspace-navigation-14-panel-close"></a>
+### 16 · Use the panel’s own close button
+
+[Video 00:44](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=44.901) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![16 · Use the panel’s own close button](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png)
+
+<a id="walkthrough-workspace-navigation-15-theme-menu"></a>
+### 17 · Open Theme without changing the selection
+
+[Video 00:47](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=47.866) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![17 · Open Theme without changing the selection](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png)
+
+<a id="walkthrough-workspace-navigation-16-dismiss-theme"></a>
+### 18 · Dismiss with Escape and retain the theme
+
+[Video 00:50](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=50.941) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![18 · Dismiss with Escape and retain the theme](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-16-dismiss-theme.png)
+
+<a id="walkthrough-workspace-navigation-17-resize"></a>
+### 19 · Resize the actual App window smaller
+
+[Video 00:54](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=54.219) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![19 · Resize the actual App window smaller](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png)
+
+<a id="walkthrough-workspace-navigation-18-restore-size"></a>
+### 20 · Restore the original window size
+
+[Video 00:57](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=57.422) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![20 · Restore the original window size](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
+
+<a id="walkthrough-workspace-navigation-19-capture"></a>
+### 21 · Return to Capture for its shortcut
+
+[Video 01:00](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=60.605) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![21 · Return to Capture for its shortcut](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-19-capture.png)
+
+<a id="walkthrough-workspace-navigation-20-upstream-shortcut"></a>
+### 22 · Open the statusbar Upstream shortcut
+
+[Video 01:03](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=63.545) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![22 · Open the statusbar Upstream shortcut](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-20-upstream-shortcut.png)
+
+<a id="walkthrough-workspace-navigation-21-upstream-link"></a>
+### 23 · Open Upstream settings from the popover
+
+[Video 01:06](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=66.505) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![23 · Open Upstream settings from the popover](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png)
+
+<a id="walkthrough-workspace-navigation-22-leave-deeplink"></a>
+### 24 · Leave the deep-link destination
+
+[Video 01:09](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=69.454) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![24 · Leave the deep-link destination](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-22-leave-deeplink.png)
+
+<a id="walkthrough-workspace-navigation-23-retained-deeplink"></a>
+### 25 · Return to Settings with Upstream retained
+
+[Video 01:12](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=72.368) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![25 · Return to Settings with Upstream retained](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-23-retained-deeplink.png)
+
+<a id="walkthrough-workspace-navigation-24-recording"></a>
+### 26 · Return to Capture and confirm Recording
+
+[Video 01:15](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=75.333) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![26 · Return to Capture and confirm Recording](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-24-recording.png)
+
+<a id="walkthrough-workspace-navigation-25-request"></a>
+### 27 · Verify a request after navigation
+
+[Video 01:18](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=78.273) · [Back to the video](#walkthrough-workspace-navigation-video)
+
+![27 · Verify a request after navigation](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-25-request.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:workspace-navigation:end -->
+
+<!-- recorded-walkthrough:workspace-window-controls:start -->
+<a id="walkthrough-workspace-window-controls"></a>
+## Recorded walkthrough: native window maximize, restore and minimize
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>workspace</code> | <code>Settings &gt; Privacy</code> |
+| <code>initialSize</code> | <code>1600x900</code> |
+| <code>maximize</code> | <code>Actual product Maximize and Restore clicks</code> |
+| <code>minimize</code> | <code>Actual product Minimize click; the button image precedes the click</code> |
+| <code>restoreBoundary</code> | <code>Test-side accessibility restores the same owned window for continued verification; no Dock interaction is claimed</code> |
+| <code>recordingScope</code> | <code>Only the App window; no display, desktop or other application capture</code> |
+
+<a id="walkthrough-workspace-window-controls-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4" poster="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.vtt" default>
+</video>
+
+<a id="walkthrough-workspace-window-controls-01-normal"></a>
+### 01 · Inspect the current normal window
+
+[Video 00:00](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=0.436) · [Back to the video](#walkthrough-workspace-window-controls-video)
+
+![01 · Inspect the current normal window](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png)
+
+<a id="walkthrough-workspace-window-controls-02-maximize"></a>
+### 02 · Click Maximize
+
+[Video 00:03](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=3.689) · [Back to the video](#walkthrough-workspace-window-controls-video)
+
+![02 · Click Maximize](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-02-maximize.png)
+
+<a id="walkthrough-workspace-window-controls-03-restore"></a>
+### 03 · Click again to restore the window
+
+[Video 00:07](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=7.592) · [Back to the video](#walkthrough-workspace-window-controls-video)
+
+![03 · Click again to restore the window](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-03-restore.png)
+
+<a id="walkthrough-workspace-window-controls-04-minimize-control"></a>
+### 04 · Inspect Minimize before actually clicking it
+
+[Video 00:11](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=11.531) · [Back to the video](#walkthrough-workspace-window-controls-video)
+
+![04 · Inspect Minimize before actually clicking it](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-04-minimize-control.png)
+
+<a id="walkthrough-workspace-window-controls-05-returned-window"></a>
+### 05 · Inspect the returned window without recording the Dock
+
+[Video 00:16](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=16.893) · [Back to the video](#walkthrough-workspace-window-controls-video)
+
+![05 · Inspect the returned window without recording the Dock](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-05-returned-window.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:workspace-window-controls:end -->

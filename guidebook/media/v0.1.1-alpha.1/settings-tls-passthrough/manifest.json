@@ -1,0 +1,413 @@
+{
+  "chapter": "settings-tls-passthrough",
+  "title": {
+    "zh-CN": "逐步骤实操：TLS 透传与恢复解密",
+    "en": "Recorded walkthrough: TLS passthrough and restored decryption"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "host": "localhost",
+    "filter": "localhost",
+    "url": "https://localhost:63604/playground/tls/h1",
+    "originPort": "63604",
+    "originException": "localhost (owned self-signed test origin; removed after recording)",
+    "passthrough": "localhost (exact host; removed before reconnecting)",
+    "certificateScope": "existing trusted CA; no generation, install, uninstall or deletion"
+  },
+  "duration": 100.52921392100001,
+  "video": "settings-tls-passthrough.mp4",
+  "captions": "settings-tls-passthrough.vtt",
+  "steps": [
+    {
+      "id": "01-filter",
+      "title": "按 localhost 筛选 / Filter by localhost",
+      "image": "settings-tls-passthrough-01-filter.png",
+      "seconds": 0.3346844099999998
+    },
+    {
+      "id": "02-record",
+      "title": "开启 Recording / Start Recording",
+      "image": "settings-tls-passthrough-02-record.png",
+      "seconds": 3.184504809
+    },
+    {
+      "id": "03-opaque-request",
+      "title": "建立未解密 TLS 连接 / Establish an opaque TLS connection",
+      "image": "settings-tls-passthrough-03-opaque-request.png",
+      "seconds": 5.978980989000002
+    },
+    {
+      "id": "04-tunnel-select",
+      "title": "选择 CONNECT 隧道 / Select the CONNECT tunnel",
+      "image": "settings-tls-passthrough-04-tunnel-select.png",
+      "seconds": 8.883074814999999
+    },
+    {
+      "id": "05-tunnel",
+      "title": "查看 Tunnel 而非 HTTP 正文 / Inspect Tunnel rather than an HTTP body",
+      "image": "settings-tls-passthrough-05-tunnel.png",
+      "seconds": 11.833137796
+    },
+    {
+      "id": "06-https-setup",
+      "title": "从 Tunnel 打开 HTTPS Setup / Open HTTPS Setup from Tunnel",
+      "image": "settings-tls-passthrough-06-https-setup.png",
+      "seconds": 14.732354290000002
+    },
+    {
+      "id": "07-cancel-setup",
+      "title": "取消且保持未解密 / Cancel without enabling decryption",
+      "image": "settings-tls-passthrough-07-cancel-setup.png",
+      "seconds": 17.888953596
+    },
+    {
+      "id": "08-settings",
+      "title": "打开 Settings / Open Settings",
+      "image": "settings-tls-passthrough-08-settings.png",
+      "seconds": 20.881914888
+    },
+    {
+      "id": "09-certificates",
+      "title": "检查已有受信任 CA / Inspect the existing trusted CA",
+      "image": "settings-tls-passthrough-09-certificates.png",
+      "seconds": 23.783129849999998
+    },
+    {
+      "id": "10-origin-host",
+      "title": "填写自有源站 localhost / Enter the owned origin localhost",
+      "image": "settings-tls-passthrough-10-origin-host.png",
+      "seconds": 26.682747658
+    },
+    {
+      "id": "11-origin-add",
+      "title": "仅添加本轮源站例外 / Add only this run’s origin exception",
+      "image": "settings-tls-passthrough-11-origin-add.png",
+      "seconds": 29.532505398
+    },
+    {
+      "id": "12-mitm-on",
+      "title": "开启 HTTPS 解密 / Enable HTTPS decryption",
+      "image": "settings-tls-passthrough-12-mitm-on.png",
+      "seconds": 32.484865971
+    },
+    {
+      "id": "13-capture-decrypted",
+      "title": "返回 Capture / Return to Capture",
+      "image": "settings-tls-passthrough-13-capture-decrypted.png",
+      "seconds": 35.583624322
+    },
+    {
+      "id": "14-decrypted-request",
+      "title": "用新连接请求 HTTPS / Request HTTPS over a new connection",
+      "image": "settings-tls-passthrough-14-decrypted-request.png",
+      "seconds": 38.481770340999994
+    },
+    {
+      "id": "15-decrypted-select",
+      "title": "选择解密后的 GET / Select the decrypted GET",
+      "image": "settings-tls-passthrough-15-decrypted-select.png",
+      "seconds": 41.383986871
+    },
+    {
+      "id": "16-decrypted-body",
+      "title": "读取真实 HTTPS 正文 / Read the actual HTTPS body",
+      "image": "settings-tls-passthrough-16-decrypted-body.png",
+      "seconds": 44.283305975999994
+    },
+    {
+      "id": "17-settings-passthrough",
+      "title": "返回 Settings / Return to Settings",
+      "image": "settings-tls-passthrough-17-settings-passthrough.png",
+      "seconds": 47.43350637299999
+    },
+    {
+      "id": "18-passthrough",
+      "title": "打开 TLS passthrough / Open TLS passthrough",
+      "image": "settings-tls-passthrough-18-passthrough.png",
+      "seconds": 50.33367151
+    },
+    {
+      "id": "19-host",
+      "title": "填写精确主机 localhost / Enter the exact host localhost",
+      "image": "settings-tls-passthrough-19-host.png",
+      "seconds": 53.233478928
+    },
+    {
+      "id": "20-add",
+      "title": "添加并保存透传条目 / Add and save the passthrough entry",
+      "image": "settings-tls-passthrough-20-add.png",
+      "seconds": 56.084461262
+    },
+    {
+      "id": "21-capture-passthrough",
+      "title": "返回 Capture 检查新连接 / Return to Capture to inspect a new connection",
+      "image": "settings-tls-passthrough-21-capture-passthrough.png",
+      "seconds": 59.03420540599999
+    },
+    {
+      "id": "22-passthrough-request",
+      "title": "重新建立同一源站 HTTPS 连接 / Reconnect to the same HTTPS origin",
+      "image": "settings-tls-passthrough-22-passthrough-request.png",
+      "seconds": 62.03397686300001
+    },
+    {
+      "id": "23-passthrough-select",
+      "title": "选择新增 CONNECT / Select the new CONNECT tunnel",
+      "image": "settings-tls-passthrough-23-passthrough-select.png",
+      "seconds": 64.932709239
+    },
+    {
+      "id": "24-passthrough-tunnel",
+      "title": "核对命中 TLS passthrough / Verify the TLS passthrough match",
+      "image": "settings-tls-passthrough-24-passthrough-tunnel.png",
+      "seconds": 67.830454197
+    },
+    {
+      "id": "25-locate",
+      "title": "从 Tunnel 定位实际名单条目 / Locate the actual entry from Tunnel",
+      "image": "settings-tls-passthrough-25-locate.png",
+      "seconds": 70.732465468
+    },
+    {
+      "id": "26-remove",
+      "title": "删除本轮 localhost 透传项 / Remove this run’s localhost passthrough entry",
+      "image": "settings-tls-passthrough-26-remove.png",
+      "seconds": 73.633927274
+    },
+    {
+      "id": "27-capture-restored",
+      "title": "返回 Capture 检查恢复 / Return to Capture to inspect restoration",
+      "image": "settings-tls-passthrough-27-capture-restored.png",
+      "seconds": 76.485912392
+    },
+    {
+      "id": "28-reconnect",
+      "title": "再次用新连接请求 HTTPS / Request HTTPS over another new connection",
+      "image": "settings-tls-passthrough-28-reconnect.png",
+      "seconds": 79.434178778
+    },
+    {
+      "id": "29-restored-select",
+      "title": "选择恢复解密的 GET / Select the newly decrypted GET",
+      "image": "settings-tls-passthrough-29-restored-select.png",
+      "seconds": 82.33244728700001
+    },
+    {
+      "id": "30-restored-body",
+      "title": "核对 HTTP 正文恢复 / Verify the HTTP body is visible again",
+      "image": "settings-tls-passthrough-30-restored-body.png",
+      "seconds": 85.28483503800001
+    },
+    {
+      "id": "31-cleanup-settings",
+      "title": "返回 Settings 清理本轮配置 / Return to Settings to restore this run’s configuration",
+      "image": "settings-tls-passthrough-31-cleanup-settings.png",
+      "seconds": 88.231394533
+    },
+    {
+      "id": "32-cleanup-certificates",
+      "title": "打开 Certificates / Open Certificates",
+      "image": "settings-tls-passthrough-32-cleanup-certificates.png",
+      "seconds": 91.13328142499999
+    },
+    {
+      "id": "33-mitm-off",
+      "title": "关闭本轮解密 / Disable this run’s decryption",
+      "image": "settings-tls-passthrough-33-mitm-off.png",
+      "seconds": 94.033828136
+    },
+    {
+      "id": "34-origin-remove",
+      "title": "移除自有源站例外 / Remove the owned origin exception",
+      "image": "settings-tls-passthrough-34-origin-remove.png",
+      "seconds": 97.078950731
+    }
+  ],
+  "assets": [
+    {
+      "file": "settings-tls-passthrough-01-filter.png",
+      "bytes": 219151,
+      "sha256": "cc2929a02c51e493e3d29449d6fbee48f851c41eed773db6f4081c9c78f5d593"
+    },
+    {
+      "file": "settings-tls-passthrough-02-record.png",
+      "bytes": 219151,
+      "sha256": "cc2929a02c51e493e3d29449d6fbee48f851c41eed773db6f4081c9c78f5d593"
+    },
+    {
+      "file": "settings-tls-passthrough-03-opaque-request.png",
+      "bytes": 230075,
+      "sha256": "6c7b3a04d12242cfc65087106acb54913468039cb1270c2b38db6151a3274316"
+    },
+    {
+      "file": "settings-tls-passthrough-04-tunnel-select.png",
+      "bytes": 324214,
+      "sha256": "8eacc8cadf0bc190ffc670489e3765a1ebbc027f4a2b5ff97484f20339831d7d"
+    },
+    {
+      "file": "settings-tls-passthrough-05-tunnel.png",
+      "bytes": 326659,
+      "sha256": "9f5956fdd386a09acaea52cc31cf1eaa28e68aaa1718231f22383c326300123a"
+    },
+    {
+      "file": "settings-tls-passthrough-06-https-setup.png",
+      "bytes": 422151,
+      "sha256": "1f97f7a97a646f7029303030c85a542d300e2d2f8dc4e45384e1aa1a63b27790"
+    },
+    {
+      "file": "settings-tls-passthrough-07-cancel-setup.png",
+      "bytes": 327157,
+      "sha256": "dfb30fbadc5e7d7621bd1a5b894fe186f70deffc51b677b67cbfe080139c1c9e"
+    },
+    {
+      "file": "settings-tls-passthrough-08-settings.png",
+      "bytes": 362710,
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+    },
+    {
+      "file": "settings-tls-passthrough-09-certificates.png",
+      "bytes": 362374,
+      "sha256": "90d2d308e9938910395288773674d187dcd9314a72b0582c2b705d3bd7a8f356"
+    },
+    {
+      "file": "settings-tls-passthrough-10-origin-host.png",
+      "bytes": 362473,
+      "sha256": "b7441e1f6d3f34e0643651a65d2851f0f05b0565477165493fc54180f894ce64"
+    },
+    {
+      "file": "settings-tls-passthrough-11-origin-add.png",
+      "bytes": 376630,
+      "sha256": "4b11985fcd6b09f3a652e6719eec1ada641e1f42956cddea4ea8ffbf54011f05"
+    },
+    {
+      "file": "settings-tls-passthrough-12-mitm-on.png",
+      "bytes": 380426,
+      "sha256": "16b377d5553b1d41c92c08fd9970ddfdff234e1155baf834de1dd0bd6dec1375"
+    },
+    {
+      "file": "settings-tls-passthrough-13-capture-decrypted.png",
+      "bytes": 329634,
+      "sha256": "5412a3a59eaa4d418027b26f89d13ef35a5b3677f1456ab2bc07cf2ed695ca57"
+    },
+    {
+      "file": "settings-tls-passthrough-14-decrypted-request.png",
+      "bytes": 345112,
+      "sha256": "9768bee6420a96bff46a467e70b1661a97f6c3cfd9dff3bc2ec526f472a199a3"
+    },
+    {
+      "file": "settings-tls-passthrough-15-decrypted-select.png",
+      "bytes": 383450,
+      "sha256": "f9eb31c187fef0710eafc8dd421d5edfa1922ec873ad160a82e22c955f402f5b"
+    },
+    {
+      "file": "settings-tls-passthrough-16-decrypted-body.png",
+      "bytes": 299645,
+      "sha256": "f8a29e509d4de7b7acd1671b95744f86bc567e5bf4d8f964b56059940dfa4c2f"
+    },
+    {
+      "file": "settings-tls-passthrough-17-settings-passthrough.png",
+      "bytes": 380454,
+      "sha256": "60f33457cf53f13f6cfa5dcfe3833300ad423fc40f4e2e70f8f5649a93bdbc12"
+    },
+    {
+      "file": "settings-tls-passthrough-18-passthrough.png",
+      "bytes": 288212,
+      "sha256": "577115aac3c620f18f0d890fe797a3e7d219567d43e3dcf7d193b3491763f6db"
+    },
+    {
+      "file": "settings-tls-passthrough-19-host.png",
+      "bytes": 287211,
+      "sha256": "2e3bb0ca8532214965921413cb422a660036d2c836d2b9f1f875550602c1c475"
+    },
+    {
+      "file": "settings-tls-passthrough-20-add.png",
+      "bytes": 288818,
+      "sha256": "9becfe18787f2376f6f3407e7786cd81131282e6038d131646089b112189b33c"
+    },
+    {
+      "file": "settings-tls-passthrough-21-capture-passthrough.png",
+      "bytes": 299578,
+      "sha256": "0f372158ab5f71dd54401ac8da61b01b1fa0cc058ab87bf278efcad1943da617"
+    },
+    {
+      "file": "settings-tls-passthrough-22-passthrough-request.png",
+      "bytes": 316795,
+      "sha256": "ffcae7d9c5dd6fcabc003b644fe262e1ab4c9c6ff28e5942e8711bf4806d93c4"
+    },
+    {
+      "file": "settings-tls-passthrough-23-passthrough-select.png",
+      "bytes": 362912,
+      "sha256": "1f9596e0e368cc63978b18ed5239736d70aecc2db864b0aa390c9cade9396801"
+    },
+    {
+      "file": "settings-tls-passthrough-24-passthrough-tunnel.png",
+      "bytes": 363047,
+      "sha256": "641630cdd87158e2684b77f1ea003fb1da271c1d86e542758448edb47e39b183"
+    },
+    {
+      "file": "settings-tls-passthrough-25-locate.png",
+      "bytes": 288897,
+      "sha256": "fe76f005f3c0e61d275b6d2f8732e9c7c42c5ec28d4ce828bd2fca3f8a2ec8e8"
+    },
+    {
+      "file": "settings-tls-passthrough-26-remove.png",
+      "bytes": 288212,
+      "sha256": "577115aac3c620f18f0d890fe797a3e7d219567d43e3dcf7d193b3491763f6db"
+    },
+    {
+      "file": "settings-tls-passthrough-27-capture-restored.png",
+      "bytes": 362971,
+      "sha256": "c69f51fe15374514e32ce0c94662c71925936d6f210c696a03353e794ff49def"
+    },
+    {
+      "file": "settings-tls-passthrough-28-reconnect.png",
+      "bytes": 377156,
+      "sha256": "aec54f06ed87358e07e3aafc7a8e4c97957cef0b6b65d41d64397f42c29ece96"
+    },
+    {
+      "file": "settings-tls-passthrough-29-restored-select.png",
+      "bytes": 412305,
+      "sha256": "5be290f461e58a30059f5e92c6c6102fe0a295182d8305240df3024978c96f02"
+    },
+    {
+      "file": "settings-tls-passthrough-30-restored-body.png",
+      "bytes": 330979,
+      "sha256": "69c29660f8aefde1669aa1af6ac423897855a095214a6aa6257b1f2e36771cfd"
+    },
+    {
+      "file": "settings-tls-passthrough-31-cleanup-settings.png",
+      "bytes": 288527,
+      "sha256": "77bf38deee683a94a68921d4205dcfcacc7d4a26cb3060bfc213ffd4b3ecad73"
+    },
+    {
+      "file": "settings-tls-passthrough-32-cleanup-certificates.png",
+      "bytes": 380105,
+      "sha256": "a0b22c012407f4a6226c36a94fe19bb87c788cc6022ea36f4b6a2193b57cbb62"
+    },
+    {
+      "file": "settings-tls-passthrough-33-mitm-off.png",
+      "bytes": 376395,
+      "sha256": "855fd65dce8b89d2b557079a5a62ceacb49e84b8a0a1c8d52649674789c5a7af"
+    },
+    {
+      "file": "settings-tls-passthrough-34-origin-remove.png",
+      "bytes": 362010,
+      "sha256": "c405403405de88ff7a035a0f803c3407da950717dac4f2dce08b6fe9061bed49"
+    },
+    {
+      "file": "settings-tls-passthrough.mp4",
+      "bytes": 730839,
+      "sha256": "3795e36f92bcdbabf575814b480824d4972d0ae71e017c1b95a5430cbfe5a067"
+    },
+    {
+      "file": "settings-tls-passthrough.vtt",
+      "bytes": 3173,
+      "sha256": "2e3f98546b9ec09aceeae53236b727cfc59268a909c7afaf753116610bc62898"
+    }
+  ]
+}

@@ -343,7 +343,11 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 12. 删除最后一个模型后需要重新配置才能继续模型调用。
 
-    **待配图**：本次保留了 `Guide model two`，没有删除最后一个模型或验证未配置状态。
+    下面使用独立例子的`Guide session demo`，不是上方的`Guide model two`。[删除最后模型的实录节选](#walkthrough-agent-model-removal)保留旧源片Settings中的安全尾段；另有后来补录的[完整重启片段](#walkthrough-agent-session-restart)，两者出处分别记录，不混用时间戳。
+
+    ![检查删除唯一剩余模型的确认](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
+
+    ![实际删除后面板回到未配置状态](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png)
 
 **预期结果**：全局默认与当前 Chat 的模型选择各自明确，列表不会因为设置默认而无故重排。
 
@@ -372,11 +376,11 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 5. 若任务产生 Tool 调用，观察调用和结果；审批前先阅读影响。
 
-   **待配图（本只读问题）**：这条解释回复没有执行业务 Tool；真实 Pause 审批使用下方另一条 Prompt，不混称为本次回复的操作。
+   本只读问题只要求解释，没有执行业务Tool。下方Pause审批使用另一条明确的Prompt，不混称为这次回复的操作。
 
 6. 在实际 Capture、Rules 或其他功能中核对结果。
 
-   **待配图（本只读问题）**：本次只是解释，没有待核对的配置修改；下方 Pause 例另有实际产品状态。
+   解释回复没有待核对的配置修改；实际操作与状态核对见下方Pause示例及[Tool生命周期](#walkthrough-agent-tool-lifecycle)。
 
 **预期结果**：对话围绕明确范围进行；模型文字与真实执行结果可以区分。
 
@@ -429,11 +433,19 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 10. 删除正在执行的会话时，应等待其取消收尾。
 
-    **待配图**：本次没有在运行中的 Turn 上删除 Chat，普通删除不覆盖该分支。
+    ![运行中打开Chat删除确认](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png)
+
+    ![删除后等待实际取消并检查剩余Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png)
 
 11. 正常重启后重新打开面板，核对保留的会话和状态。
 
-    **待配图**：Workspace 新重启片段只检查 Collection、Privacy 和 Capture，未检查 Agent 会话历史，不能代替本步。
+    [会话操作](#walkthrough-agent-session-lifecycle)与[重启片段](#walkthrough-agent-session-restart)现使用同一轮两代真实App的素材。重启后先进入Settings再取景，只显示本次公开Chat，不显示背景Capture流量。
+
+    ![真实重启后的保留Chat列表](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png)
+
+    ![选择Guide retained chat并读取实际回载历史](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png)
+
+    `Guide running delete`不再出现；`Guide retained chat`和`Guide fresh context`仍在。没有模型请求重放由同轮本地服务计数核对，不只根据静态画面推断。
 
 **预期结果**：会话历史保留在本地；切换工作区不自动关闭面板，关闭面板也不等于删除会话。
 
@@ -448,13 +460,13 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
    ![本次演示实际的 Context 用量详情](../media/v0.1.1-alpha.1/agent/agent-16-context.png)
 
-2. 可通过悬停或键盘聚焦读取说明；键盘聚焦的单独交互状态仍待配图。
+2. 可通过悬停或键盘聚焦读取说明。上图为悬停；下图是在消息输入框按`Shift+Tab`后打开Context，属于独立的真实键盘操作。
 
-   **待配图**：不把一个已打开的详情图重复称为两种不同输入方式都已录制。
+   ![键盘聚焦Context读取用量](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png)
 
 3. 判断是否需要开启新 Chat，减少无关任务的上下文混杂。
 
-   **待配图**：未录制因用量判断而创建第二个 Chat 的完整流程。
+   ![查看用量后新建独立Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png)
 
 **预期结果**：区分“最近一次模型请求携带的上下文”与“整个会话累计消耗”。
 
@@ -503,7 +515,9 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 9. 其他 Tool 如需文件窗口或系统授权，Allow 后继续完成并核对终态。
 
-   **待配图**：本次 Pause 不需要原生文件/授权窗口，没有录制其他 Tool 的这些步骤。
+   [Diagnostics导出实录](#walkthrough-agent-tool-lifecycle-10-export-request)展示审批后仍有原生Save窗口；取消不启动导出，再次保存后还需查询任务完成。这不替代Windows系统授权。
+
+   ![真实原生Save文件选择](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
 
 **预期结果**：允许的业务能力通过正式产品路径执行，页面状态与操作结果同步。
 
@@ -528,11 +542,13 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 4. 对可能已经发送的请求、导出或配置写入，先回到对应功能确认结果，不盲目重复。
 
-   **待配图**：本次流式演示没有这些业务副作用，未录制带副作用的 Stop/Retry 对照。
+   [带实际Tool的实录](#walkthrough-agent-tool-lifecycle)先允许Pause，再Stop模型回复；Recording仍是暂停。演示模型的这次Retry只继续解释，不代表其他模型不会再次请求Tool。
+
+   ![Stop不撤销已经完成的Pause](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
 
 5. 需要重新说明目标时发送新消息，明确允许的范围。
 
-   **待配图**：Retry 后重新定义目标的消息往返未录制。
+   ![Retry后重新限定为只读状态查询](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png)
 
 **预期结果**：停止不删除整个 Chat，已完成记录保留；失败显式展示，不被空回答伪装成成功。
 
@@ -808,3 +824,413 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
 下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
 <!-- recorded-walkthrough:agent-management:end -->
+
+<!-- recorded-walkthrough:agent-session-lifecycle:start -->
+<a id="walkthrough-agent-session-lifecycle"></a>
+## 快捷键、Context、新Chat与运行中删除
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+> 这里的本地模型是无Key、固定公开回复的演示服务。视频证明配置和对话控件的真实行为，不证明商业模型的能力或计费；不要将真实Key填入这个演示地址。
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>profileName</code> | <code>Guide session demo</code> |
+| <code>modelId</code> | <code>guide-session-model</code> |
+| <code>endpoint</code> | <code>http://127.0.0.1:52300/guide-session/v1</code> |
+| <code>prompt</code> | <code>Explain why a fresh Chat has separate context.</code> |
+| <code>answer</code> | <code>Demo response: this local example reports usage; a new Chat starts a separate history.</code> |
+| <code>reportedInputTokens</code> | <code>120000 (deliberately reported by the local demo, not commercial billing)</code> |
+| <code>retainedChat</code> | <code>Guide retained chat</code> |
+| <code>freshChat</code> | <code>Guide fresh context</code> |
+| <code>deletedRunningChat</code> | <code>Guide running delete</code> |
+| <code>closeImage</code> | <code>Before the actual Close; the driver verifies the real shutdown between recordings</code> |
+
+<a id="walkthrough-agent-session-lifecycle-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.vtt" default>
+</video>
+
+<a id="walkthrough-agent-session-lifecycle-01-panel"></a>
+### 01 · 打开Agent面板
+
+[视频 00:00](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=0.218) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![01 · 打开Agent面板](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png)
+
+<a id="walkthrough-agent-session-lifecycle-02-chat"></a>
+### 02 · 新建需要保留的Chat
+
+[视频 00:03](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=3.922) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![02 · 新建需要保留的Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-02-chat.png)
+
+<a id="walkthrough-agent-session-lifecycle-03-name"></a>
+### 03 · 命名Guide retained chat
+
+[视频 00:07](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=7.127) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![03 · 命名Guide retained chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-03-name.png)
+
+<a id="walkthrough-agent-session-lifecycle-04-prompt"></a>
+### 04 · 输入本轮公开问题
+
+[视频 00:10](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=10.674) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![04 · 输入本轮公开问题](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-04-prompt.png)
+
+<a id="walkthrough-agent-session-lifecycle-05-keyboard-send"></a>
+### 05 · 用Command+Enter发送
+
+[视频 00:13](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=13.749) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![05 · 用Command+Enter发送](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-05-keyboard-send.png)
+
+<a id="walkthrough-agent-session-lifecycle-06-keyboard-context"></a>
+### 06 · 通过真实Tab导航读取Context
+
+[视频 00:17](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=17.443) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![06 · 通过真实Tab导航读取Context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png)
+
+<a id="walkthrough-agent-session-lifecycle-07-dismiss-context"></a>
+### 07 · 离开Context焦点
+
+[视频 00:20](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=20.744) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![07 · 离开Context焦点](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-07-dismiss-context.png)
+
+<a id="walkthrough-agent-session-lifecycle-08-fresh-chat"></a>
+### 08 · 参考用量后新建独立Chat
+
+[视频 00:23](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=23.874) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![08 · 参考用量后新建独立Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png)
+
+<a id="walkthrough-agent-session-lifecycle-09-fresh-name"></a>
+### 09 · 命名Guide fresh context
+
+[视频 00:27](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=27.014) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![09 · 命名Guide fresh context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-09-fresh-name.png)
+
+<a id="walkthrough-agent-session-lifecycle-10-running-chat"></a>
+### 10 · 再建运行中删除示例
+
+[视频 00:30](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=30.489) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![10 · 再建运行中删除示例](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-10-running-chat.png)
+
+<a id="walkthrough-agent-session-lifecycle-11-running-prompt"></a>
+### 11 · 发起保持流式响应的本地演示
+
+[视频 00:34](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=34.079) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![11 · 发起保持流式响应的本地演示](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-11-running-prompt.png)
+
+<a id="walkthrough-agent-session-lifecycle-12-running-delete-dialog"></a>
+### 12 · 运行中打开删除确认
+
+[视频 00:37](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=37.802) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![12 · 运行中打开删除确认](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png)
+
+<a id="walkthrough-agent-session-lifecycle-13-delete-running"></a>
+### 13 · 确认删除并取消这条流
+
+[视频 00:41](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=41.118) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![13 · 确认删除并取消这条流](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png)
+
+<a id="walkthrough-agent-session-lifecycle-14-retained-chat"></a>
+### 14 · 回到保留的Chat
+
+[视频 00:44](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=44.464) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![14 · 回到保留的Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-14-retained-chat.png)
+
+<a id="walkthrough-agent-session-lifecycle-15-before-close"></a>
+### 15 · 确认持久内容后正常关闭
+
+[视频 00:47](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=47.607) · [返回本节视频](#walkthrough-agent-session-lifecycle-video)
+
+![15 · 确认持久内容后正常关闭](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-15-before-close.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:agent-session-lifecycle:end -->
+
+<!-- recorded-walkthrough:agent-tool-lifecycle:start -->
+<a id="walkthrough-agent-tool-lifecycle"></a>
+## Tool完成、Stop、Retry与原生文件审批
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+> 这里的本地模型是无Key、固定公开回复的演示服务。视频证明配置和对话控件的真实行为，不证明商业模型的能力或计费；不要将真实Key填入这个演示地址。
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>model</code> | <code>Guide Tool demo; deterministic local keyless endpoint</code> |
+| <code>endpoint</code> | <code>http://127.0.0.1:55719/guide-tool-lifecycle/v1</code> |
+| <code>pausePrompt</code> | <code>Pause recording after asking me, then continue a streaming explanation.</code> |
+| <code>clarification</code> | <code>Keep recording paused. Only read and explain its current status.</code> |
+| <code>queryTools</code> | <code>diagnostics_get_recent, diagnostics_get_trace</code> |
+| <code>exportTool</code> | <code>diagnostics_export</code> |
+| <code>taskQuery</code> | <code>capture_get_transfer_job</code> |
+| <code>canceledFile</code> | <code>guide-cancelled.jsonl</code> |
+| <code>savedFile</code> | <code>guide-agent-diagnostics.jsonl</code> |
+| <code>stopBoundary</code> | <code>A completed Recording pause remains applied after stopping the later model reply</code> |
+| <code>retryBoundary</code> | <code>This retry requests explanation only; other models may propose new actions and require fresh review</code> |
+
+<a id="walkthrough-agent-tool-lifecycle-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.vtt" default>
+</video>
+
+<a id="walkthrough-agent-tool-lifecycle-01-agent"></a>
+### 01 · 打开Agent并建立Chat
+
+[视频 00:00](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=0.387) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![01 · 打开Agent并建立Chat](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png)
+
+<a id="walkthrough-agent-tool-lifecycle-02-ask"></a>
+### 02 · 明确选择Ask
+
+[视频 00:03](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=3.482) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![02 · 明确选择Ask](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-02-ask.png)
+
+<a id="walkthrough-agent-tool-lifecycle-03-side-effect-prompt"></a>
+### 03 · 请求暂停后继续解释
+
+[视频 00:06](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=6.519) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![03 · 请求暂停后继续解释](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-03-side-effect-prompt.png)
+
+<a id="walkthrough-agent-tool-lifecycle-04-allow-pause"></a>
+### 04 · 允许已明确的暂停操作
+
+[视频 00:09](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=9.633) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![04 · 允许已明确的暂停操作](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-04-allow-pause.png)
+
+<a id="walkthrough-agent-tool-lifecycle-05-stop-after-tool"></a>
+### 05 · Stop模型回复不撤销已完成的Tool
+
+[视频 00:12](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=12.731) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![05 · Stop模型回复不撤销已完成的Tool](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
+
+<a id="walkthrough-agent-tool-lifecycle-06-retry"></a>
+### 06 · Retry本次只继续解释
+
+[视频 00:15](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=15.785) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![06 · Retry本次只继续解释](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-06-retry.png)
+
+<a id="walkthrough-agent-tool-lifecycle-07-clarify"></a>
+### 07 · 重新明确只读目标
+
+[视频 00:18](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=18.860) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![07 · 重新明确只读目标](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png)
+
+<a id="walkthrough-agent-tool-lifecycle-08-diagnostics-recent"></a>
+### 08 · 执行真实Diagnostics Recent查询
+
+[视频 00:22](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=22.066) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![08 · 执行真实Diagnostics Recent查询](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png)
+
+<a id="walkthrough-agent-tool-lifecycle-09-read-trace"></a>
+### 09 · 用刚返回的traceId查询关联记录
+
+[视频 00:25](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=25.286) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![09 · 用刚返回的traceId查询关联记录](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png)
+
+<a id="walkthrough-agent-tool-lifecycle-10-export-request"></a>
+### 10 · 请求需要审批的Diagnostics导出
+
+[视频 00:28](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=28.444) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![10 · 请求需要审批的Diagnostics导出](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-10-export-request.png)
+
+<a id="walkthrough-agent-tool-lifecycle-11-native-cancel-panel"></a>
+### 11 · 审批后仍需真实Save窗口
+
+[视频 00:41](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=41.719) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![11 · 审批后仍需真实Save窗口](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-11-native-cancel-panel.png)
+
+<a id="walkthrough-agent-tool-lifecycle-12-cancel-native"></a>
+### 12 · 取消原生保存而不是伪造返回值
+
+[视频 00:45](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=45.041) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![12 · 取消原生保存而不是伪造返回值](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-12-cancel-native.png)
+
+<a id="walkthrough-agent-tool-lifecycle-13-export-again"></a>
+### 13 · 重新发起并检查参数
+
+[视频 00:49](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=49.672) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![13 · 重新发起并检查参数](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-13-export-again.png)
+
+<a id="walkthrough-agent-tool-lifecycle-14-native-save"></a>
+### 14 · 保存guide-agent-diagnostics.jsonl
+
+[视频 01:02](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=62.057) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![14 · 保存guide-agent-diagnostics.jsonl](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
+
+<a id="walkthrough-agent-tool-lifecycle-15-started-result"></a>
+### 15 · 区分任务已开始与完成
+
+[视频 01:06](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=66.407) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![15 · 区分任务已开始与完成](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-15-started-result.png)
+
+<a id="walkthrough-agent-tool-lifecycle-16-completion-query"></a>
+### 16 · 查询实际文件任务直到完成
+
+[视频 01:09](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=69.384) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![16 · 查询实际文件任务直到完成](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-16-completion-query.png)
+
+<a id="walkthrough-agent-tool-lifecycle-17-final-state"></a>
+### 17 · 保留暂停状态并核对实际结果
+
+[视频 01:12](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=72.558) · [返回本节视频](#walkthrough-agent-tool-lifecycle-video)
+
+![17 · 保留暂停状态并核对实际结果](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-17-final-state.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:agent-tool-lifecycle:end -->
+
+<!-- recorded-walkthrough:agent-model-removal:start -->
+<a id="walkthrough-agent-model-removal"></a>
+## 逐步骤实操：删除最后一个模型（真实片段节选）
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+> 本段是 <code>agent-session-restart</code> 原片 12.050–19.302 秒的连续实录节选，不是新的录制。没有拼接或重建动作，原始PNG不变，时间戳只换算为节选内位置；本段不代表原片未公开部分也已完成验收。
+> 这里的本地模型是无Key、固定公开回复的演示服务。视频证明配置和对话控件的真实行为，不证明商业模型的能力或计费；不要将真实Key填入这个演示地址。
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>profileName</code> | <code>Guide session demo</code> |
+| <code>initialState</code> | <code>One existing model in Settings &gt; Agent; configuration and restart are outside this excerpt</code> |
+| <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
+| <code>recordingScope</code> | <code>Original 12.050s to 19.302s only; earlier Capture/history frames are not published</code> |
+
+<a id="walkthrough-agent-model-removal-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4" poster="../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.vtt" default>
+</video>
+
+<a id="walkthrough-agent-model-removal-04-model-settings"></a>
+### 01 · 检查仍保存的模型配置
+
+[视频 00:00](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=0.000) · [返回本节视频](#walkthrough-agent-model-removal-video)
+
+![01 · 检查仍保存的模型配置](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png)
+
+<a id="walkthrough-agent-model-removal-05-last-model-dialog"></a>
+### 02 · 打开最后一个模型的删除确认
+
+[视频 00:01](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=1.007) · [返回本节视频](#walkthrough-agent-model-removal-video)
+
+![02 · 打开最后一个模型的删除确认](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
+
+<a id="walkthrough-agent-model-removal-06-remove-last"></a>
+### 03 · 删除最后模型并检查未配置状态
+
+[视频 00:04](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=4.100) · [返回本节视频](#walkthrough-agent-model-removal-video)
+
+![03 · 删除最后模型并检查未配置状态](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:agent-model-removal:end -->
+
+<!-- recorded-walkthrough:agent-session-restart:start -->
+<a id="walkthrough-agent-session-restart"></a>
+## 逐步骤实操：真实重启、历史回载与最后模型删除
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+> 这里的本地模型是无Key、固定公开回复的演示服务。视频证明配置和对话控件的真实行为，不证明商业模型的能力或计费；不要将真实Key填入这个演示地址。
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>profileName</code> | <code>Guide session demo</code> |
+| <code>retainedChat</code> | <code>Guide retained chat</code> |
+| <code>freshChat</code> | <code>Guide fresh context</code> |
+| <code>deletedRunningChat</code> | <code>Guide running delete</code> |
+| <code>retainedPrompt</code> | <code>Explain why a fresh Chat has separate context.</code> |
+| <code>retainedAnswer</code> | <code>Demo response: this local example reports usage; a new Chat starts a separate history.</code> |
+| <code>modelCallsOnRestart</code> | <code>0</code> |
+| <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
+| <code>evidenceGeneration</code> | <code>agent-reopened</code> |
+
+<a id="walkthrough-agent-session-restart-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4" poster="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.vtt" default>
+</video>
+
+<a id="walkthrough-agent-session-restart-01-open"></a>
+### 01 · 重开Agent面板
+
+[视频 00:00](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=0.359) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![01 · 重开Agent面板](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png)
+
+<a id="walkthrough-agent-session-restart-02-chats"></a>
+### 02 · 检查真实回载的Chat列表
+
+[视频 00:04](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=4.130) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![02 · 检查真实回载的Chat列表](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png)
+
+<a id="walkthrough-agent-session-restart-03-history"></a>
+### 03 · 读取保留的真实历史
+
+[视频 00:07](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=7.353) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![03 · 读取保留的真实历史](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png)
+
+<a id="walkthrough-agent-session-restart-04-model-settings"></a>
+### 04 · 检查仍保存的模型配置
+
+[视频 00:11](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=11.042) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![04 · 检查仍保存的模型配置](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-04-model-settings.png)
+
+<a id="walkthrough-agent-session-restart-05-last-model-dialog"></a>
+### 05 · 打开最后一个模型的删除确认
+
+[视频 00:14](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=14.232) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![05 · 打开最后一个模型的删除确认](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-05-last-model-dialog.png)
+
+<a id="walkthrough-agent-session-restart-06-remove-last"></a>
+### 06 · 删除最后模型并检查未配置状态
+
+[视频 00:17](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=17.444) · [返回本节视频](#walkthrough-agent-session-restart-video)
+
+![06 · 删除最后模型并检查未配置状态](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-06-remove-last.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:agent-session-restart:end -->

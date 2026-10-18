@@ -130,17 +130,17 @@ Ordinary queries do not expose arbitrary native paths, private keys or complete 
 
 1. Read the owning chapter and understand its effects.
 
-   This example only covers [proxy-status queries](capture.md) and pausing new recording, not Clear. **Image pending:** choosing arbitrary tools through the complete catalog was not recorded. This does not illustrate every Tool in the tables.
+   The basic example below queries proxy status and pauses Recording. The [complete permissions recording](tool-permissions.md#walkthrough-tool-permissions-readonly) inspects the whole catalog and verifies actual rejection of disabled actions. This is an entry-point reference, not a claim that every argument combination has a separate video.
 
 2. Search `capture_get_proxy_status` in Settings Tool capabilities, inspect the chosen entry point and disable unrelated abilities.
 
    ![Actual status-query Tool search from the permissions chapter](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
 
-   **Image pending:** individual switches for other tools are not covered by this image.
+   See the [complete read-only setup](tool-permissions.md#walkthrough-tool-permissions-readonly) for individual switches in every group. A row hidden by search is not automatically disabled.
 
 3. Use the current schema for exact parameters.
 
-   **Image pending:** App images do not show reading a host's complete schema. These tables are not argument schemas.
+   [Agent Recent→Trace→export](agent.md#walkthrough-agent-tool-lifecycle) and [MCP query/export approvals](mcp.md#walkthrough-mcp-tool-lifecycle) show actual arguments and results. The real external-host schema page still needs its own environment; this name table is not a complete argument schema.
 
 4. Query first. This accurately reuses MCP's local SDK query, not a commercial host settings/conversation page.
 

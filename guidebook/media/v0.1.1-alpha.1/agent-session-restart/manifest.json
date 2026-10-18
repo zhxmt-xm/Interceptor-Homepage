@@ -1,0 +1,107 @@
+{
+  "chapter": "agent-session-restart",
+  "title": {
+    "zh-CN": "逐步骤实操：真实重启、历史回载与最后模型删除",
+    "en": "Recorded walkthrough: actual restart, restored history and final-model removal"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "profileName": "Guide session demo",
+    "retainedChat": "Guide retained chat",
+    "freshChat": "Guide fresh context",
+    "deletedRunningChat": "Guide running delete",
+    "retainedPrompt": "Explain why a fresh Chat has separate context.",
+    "retainedAnswer": "Demo response: this local example reports usage; a new Chat starts a separate history.",
+    "modelCallsOnRestart": "0",
+    "finalModelState": "No provider remains; the panel is unconfigured",
+    "evidenceGeneration": "agent-reopened"
+  },
+  "duration": 20.666229286999993,
+  "video": "agent-session-restart.mp4",
+  "captions": "agent-session-restart.vtt",
+  "steps": [
+    {
+      "id": "01-open",
+      "title": "重开Agent面板 / Reopen the Agent panel",
+      "image": "agent-session-restart-01-open.png",
+      "seconds": 0.3590989419999969
+    },
+    {
+      "id": "02-chats",
+      "title": "检查真实回载的Chat列表 / Inspect the actually restored Chat list",
+      "image": "agent-session-restart-02-chats.png",
+      "seconds": 4.129739413000003
+    },
+    {
+      "id": "03-history",
+      "title": "读取保留的真实历史 / Read the retained history",
+      "image": "agent-session-restart-03-history.png",
+      "seconds": 7.352683055000002
+    },
+    {
+      "id": "04-model-settings",
+      "title": "检查仍保存的模型配置 / Inspect the retained model configuration",
+      "image": "agent-session-restart-04-model-settings.png",
+      "seconds": 11.041684093999997
+    },
+    {
+      "id": "05-last-model-dialog",
+      "title": "打开最后一个模型的删除确认 / Open deletion confirmation for the last model",
+      "image": "agent-session-restart-05-last-model-dialog.png",
+      "seconds": 14.232428986999992
+    },
+    {
+      "id": "06-remove-last",
+      "title": "删除最后模型并检查未配置状态 / Remove the last model and inspect the unconfigured state",
+      "image": "agent-session-restart-06-remove-last.png",
+      "seconds": 17.443728982999993
+    }
+  ],
+  "assets": [
+    {
+      "file": "agent-session-restart-01-open.png",
+      "bytes": 512880,
+      "sha256": "1335fa0fcf2415adaac770fd8911adad2d71ba27413ce7235172a41fc2103818"
+    },
+    {
+      "file": "agent-session-restart-02-chats.png",
+      "bytes": 527166,
+      "sha256": "675a382bae1106e157973ab19f7d8ac796370d3a0e629599a85991a72ec15121"
+    },
+    {
+      "file": "agent-session-restart-03-history.png",
+      "bytes": 494725,
+      "sha256": "d18b65e94333101818fa8337d55be3a1a9203a5f10ab86b25112296f23aacf41"
+    },
+    {
+      "file": "agent-session-restart-04-model-settings.png",
+      "bytes": 494725,
+      "sha256": "d18b65e94333101818fa8337d55be3a1a9203a5f10ab86b25112296f23aacf41"
+    },
+    {
+      "file": "agent-session-restart-05-last-model-dialog.png",
+      "bytes": 432363,
+      "sha256": "89ed1724e4b719db72d9f3a2b3b2e5770783177a96654af86238804fe63fd6e7"
+    },
+    {
+      "file": "agent-session-restart-06-remove-last.png",
+      "bytes": 462552,
+      "sha256": "5bfba1cfcb569b979d147203d876de2731922ecd716eb6fab42e20d3c06c9bfc"
+    },
+    {
+      "file": "agent-session-restart.mp4",
+      "bytes": 223448,
+      "sha256": "36e17ca93da09f6460d02dd78044adb3bb66194dace7dde24ddd9c6f14216532"
+    },
+    {
+      "file": "agent-session-restart.vtt",
+      "bytes": 642,
+      "sha256": "3662d3e85eb56239498170246d8a623ae43ff9c65f205aea9c30f7837885bcee"
+    }
+  ]
+}

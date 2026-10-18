@@ -1,0 +1,282 @@
+{
+  "chapter": "mcp-tool-lifecycle",
+  "title": {
+    "zh-CN": "取消审批、导出与运行中撤销Client",
+    "en": "Cancelled approval, export and in-flight Client revocation"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "caller": "Official SDK on localhost; App-side UI, not an external Host settings page",
+    "clientName": "Guide MCP lifecycle",
+    "endpoint": "http://127.0.0.1:57686/mcp",
+    "queries": "diagnostics_get_recent and diagnostics_get_trace using the actual returned traceId",
+    "file": "guide-mcp-diagnostics.jsonl",
+    "cancelledFile": "guide-mcp-cancelled.jsonl",
+    "inFlightUrl": "http://127.0.0.1:57678/guide/mcp-tools/in-flight",
+    "revocation": "The owned Composer socket is cancelled and the old Client can no longer query"
+  },
+  "duration": 89.60369950700002,
+  "video": "mcp-tool-lifecycle.mp4",
+  "captions": "mcp-tool-lifecycle.vtt",
+  "steps": [
+    {
+      "id": "01-client",
+      "title": "查看本次真实SDK Client / Inspect this actual SDK Client",
+      "image": "mcp-tool-lifecycle-01-client.png",
+      "seconds": 0.43467591399999944
+    },
+    {
+      "id": "02-pause-permission",
+      "title": "定位本次暂停Tool的MCP权限 / Locate MCP permission for this pause Tool",
+      "image": "mcp-tool-lifecycle-02-pause-permission.png",
+      "seconds": 3.4843717580000013
+    },
+    {
+      "id": "03-pending-ask",
+      "title": "发起一个尚待审批的操作 / Start an operation awaiting approval",
+      "image": "mcp-tool-lifecycle-03-pending-ask.png",
+      "seconds": 6.503294895999999
+    },
+    {
+      "id": "04-caller-abort",
+      "title": "调用方真实取消该请求 / Have the caller actually cancel the request",
+      "image": "mcp-tool-lifecycle-04-caller-abort.png",
+      "seconds": 9.515868570000002
+    },
+    {
+      "id": "05-diagnostics-permissions",
+      "title": "定位Diagnostics查询与导出权限 / Locate Diagnostics query and export permissions",
+      "image": "mcp-tool-lifecycle-05-diagnostics-permissions.png",
+      "seconds": 12.547814459000001
+    },
+    {
+      "id": "06-recent",
+      "title": "SDK实际查询Recent且不出现审批 / Query Recent through the SDK without approval",
+      "image": "mcp-tool-lifecycle-06-recent.png",
+      "seconds": 15.587949050000002
+    },
+    {
+      "id": "07-trace",
+      "title": "用返回的traceId查询Trace / Query Trace using the returned traceId",
+      "image": "mcp-tool-lifecycle-07-trace.png",
+      "seconds": 18.58639527
+    },
+    {
+      "id": "08-export-ask",
+      "title": "请求导出并检查实际参数 / Request export and review actual arguments",
+      "image": "mcp-tool-lifecycle-08-export-ask.png",
+      "seconds": 21.582505499
+    },
+    {
+      "id": "09-deny",
+      "title": "Deny不打开文件窗口 / Deny without opening a file window",
+      "image": "mcp-tool-lifecycle-09-deny.png",
+      "seconds": 24.620720195
+    },
+    {
+      "id": "10-export-again",
+      "title": "再次请求导出 / Request export again",
+      "image": "mcp-tool-lifecycle-10-export-again.png",
+      "seconds": 27.655702609
+    },
+    {
+      "id": "11-native-panel",
+      "title": "Allow后仍有真正的Save窗口 / Allow still opens a real Save window",
+      "image": "mcp-tool-lifecycle-11-native-panel.png",
+      "seconds": 40.864217521
+    },
+    {
+      "id": "12-native-cancel",
+      "title": "真实取消原生Save / Actually cancel native Save",
+      "image": "mcp-tool-lifecycle-12-native-cancel.png",
+      "seconds": 44.18685136
+    },
+    {
+      "id": "13-export-save",
+      "title": "重新请求需要保存的导出 / Request the export to save",
+      "image": "mcp-tool-lifecycle-13-export-save.png",
+      "seconds": 48.765184393
+    },
+    {
+      "id": "14-save",
+      "title": "保存guide-mcp-diagnostics.jsonl / Save guide-mcp-diagnostics.jsonl",
+      "image": "mcp-tool-lifecycle-14-save.png",
+      "seconds": 60.871763637
+    },
+    {
+      "id": "15-job-completed",
+      "title": "查询真实任务并核对文件 / Query the actual task and verify the file",
+      "image": "mcp-tool-lifecycle-15-job-completed.png",
+      "seconds": 65.12557819599999
+    },
+    {
+      "id": "16-clear-search",
+      "title": "清空搜索返回Client控制 / Clear search and return to Client controls",
+      "image": "mcp-tool-lifecycle-16-clear-search.png",
+      "seconds": 68.087162534
+    },
+    {
+      "id": "17-auto",
+      "title": "本次长调用选择Auto / Select Auto for this long-call example",
+      "image": "mcp-tool-lifecycle-17-auto.png",
+      "seconds": 71.31285535299999
+    },
+    {
+      "id": "18-long-request",
+      "title": "发起真实未完成的Composer请求 / Start an actual unfinished Composer request",
+      "image": "mcp-tool-lifecycle-18-long-request.png",
+      "seconds": 74.349897884
+    },
+    {
+      "id": "19-revoke-dialog",
+      "title": "在途调用期间打开撤销确认 / Open revocation confirmation during the call",
+      "image": "mcp-tool-lifecycle-19-revoke-dialog.png",
+      "seconds": 77.425126506
+    },
+    {
+      "id": "20-revoke",
+      "title": "撤销Client并核对真实请求取消 / Revoke the Client and verify actual request cancellation",
+      "image": "mcp-tool-lifecycle-20-revoke.png",
+      "seconds": 80.50423645600002
+    },
+    {
+      "id": "21-old-identity",
+      "title": "旧Client身份不能再查询 / Verify the old Client identity cannot query again",
+      "image": "mcp-tool-lifecycle-21-old-identity.png",
+      "seconds": 83.599172879
+    },
+    {
+      "id": "22-stop",
+      "title": "关闭本轮MCP Server / Disable this run’s MCP Server",
+      "image": "mcp-tool-lifecycle-22-stop.png",
+      "seconds": 86.575315161
+    }
+  ],
+  "assets": [
+    {
+      "file": "mcp-tool-lifecycle-01-client.png",
+      "bytes": 450869,
+      "sha256": "695eba2eea1634f9b019bda08439dc68a55d63330623b7fc8bdf4b66d2053b5c"
+    },
+    {
+      "file": "mcp-tool-lifecycle-02-pause-permission.png",
+      "bytes": 392789,
+      "sha256": "d55bb2134ae475f4c168e1e6cded066a053330368368634617df1c758542acca"
+    },
+    {
+      "file": "mcp-tool-lifecycle-03-pending-ask.png",
+      "bytes": 349137,
+      "sha256": "3be66f5552b195f3d98325f99a0fded4ed695ff098ac1e15146ffbb6613b5afc"
+    },
+    {
+      "file": "mcp-tool-lifecycle-04-caller-abort.png",
+      "bytes": 392092,
+      "sha256": "6ee8975fcd580c7deededbb2da35e2566df2662e44b19353ccfa4bad3fe7f775"
+    },
+    {
+      "file": "mcp-tool-lifecycle-05-diagnostics-permissions.png",
+      "bytes": 469660,
+      "sha256": "d74f06f03d43fa2f938034b747997815c2fd2a4d1799bd0ae1aa11f599dda2db"
+    },
+    {
+      "file": "mcp-tool-lifecycle-06-recent.png",
+      "bytes": 469660,
+      "sha256": "d74f06f03d43fa2f938034b747997815c2fd2a4d1799bd0ae1aa11f599dda2db"
+    },
+    {
+      "file": "mcp-tool-lifecycle-07-trace.png",
+      "bytes": 469660,
+      "sha256": "d74f06f03d43fa2f938034b747997815c2fd2a4d1799bd0ae1aa11f599dda2db"
+    },
+    {
+      "file": "mcp-tool-lifecycle-08-export-ask.png",
+      "bytes": 435679,
+      "sha256": "f2fa1dcde69b066a93d787e4e070e15b45a07789a3ed5b982cd3b2b22c487cff"
+    },
+    {
+      "file": "mcp-tool-lifecycle-09-deny.png",
+      "bytes": 453049,
+      "sha256": "fa7e937351c62165b4b2f3ec14195a487115cc4542d1d927eda5c39a0bdb7116"
+    },
+    {
+      "file": "mcp-tool-lifecycle-10-export-again.png",
+      "bytes": 423889,
+      "sha256": "4971dd7482518f7ed0ad6946e04c76880f54bdf323b70b1057a8dd58148410aa"
+    },
+    {
+      "file": "mcp-tool-lifecycle-11-native-panel.png",
+      "bytes": 54604,
+      "sha256": "0af1a84a4d880d8e913380dd59af5880b9bd20fcca517815afd4ba881489d229"
+    },
+    {
+      "file": "mcp-tool-lifecycle-12-native-cancel.png",
+      "bytes": 453049,
+      "sha256": "fa7e937351c62165b4b2f3ec14195a487115cc4542d1d927eda5c39a0bdb7116"
+    },
+    {
+      "file": "mcp-tool-lifecycle-13-export-save.png",
+      "bytes": 435679,
+      "sha256": "f2fa1dcde69b066a93d787e4e070e15b45a07789a3ed5b982cd3b2b22c487cff"
+    },
+    {
+      "file": "mcp-tool-lifecycle-14-save.png",
+      "bytes": 55638,
+      "sha256": "9f150d3b026c0dadcb3d2e04bd75f0efe70e0b397e4747b22372c21d617457ad"
+    },
+    {
+      "file": "mcp-tool-lifecycle-15-job-completed.png",
+      "bytes": 453049,
+      "sha256": "fa7e937351c62165b4b2f3ec14195a487115cc4542d1d927eda5c39a0bdb7116"
+    },
+    {
+      "file": "mcp-tool-lifecycle-16-clear-search.png",
+      "bytes": 434817,
+      "sha256": "61c38948220feeeae40c749764243f9eafec719ce4aa3698d780bac8c68bf9f5"
+    },
+    {
+      "file": "mcp-tool-lifecycle-17-auto.png",
+      "bytes": 434183,
+      "sha256": "90983ac68b5886a2daa38b5e8c98b7894cbf5a66dd29e296c5ddfc1737973436"
+    },
+    {
+      "file": "mcp-tool-lifecycle-18-long-request.png",
+      "bytes": 434183,
+      "sha256": "90983ac68b5886a2daa38b5e8c98b7894cbf5a66dd29e296c5ddfc1737973436"
+    },
+    {
+      "file": "mcp-tool-lifecycle-19-revoke-dialog.png",
+      "bytes": 383094,
+      "sha256": "c633863f4c647c1c7f421342ec3b70a3c16516acae820826453075baead962dc"
+    },
+    {
+      "file": "mcp-tool-lifecycle-20-revoke.png",
+      "bytes": 432426,
+      "sha256": "29b773cdbed465c99c8e3ac45213106d71812682a1998cff6ac541bb8fe39fbc"
+    },
+    {
+      "file": "mcp-tool-lifecycle-21-old-identity.png",
+      "bytes": 432426,
+      "sha256": "29b773cdbed465c99c8e3ac45213106d71812682a1998cff6ac541bb8fe39fbc"
+    },
+    {
+      "file": "mcp-tool-lifecycle-22-stop.png",
+      "bytes": 432266,
+      "sha256": "90276c63e6bfbf06e8afbab426c2ceb82b7e1a64cd14c2e501e06f2538974a31"
+    },
+    {
+      "file": "mcp-tool-lifecycle.mp4",
+      "bytes": 775206,
+      "sha256": "9663d8d902a3ca9f7aa7c6ccf77b24679241fc5f965bcabd2bd2f447f92d3e7c"
+    },
+    {
+      "file": "mcp-tool-lifecycle.vtt",
+      "bytes": 2357,
+      "sha256": "a95d038351676cec9f59999379039a11b18bb661c82841d2ca703a311565e705"
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "chapter": "rules-routing",
+  "title": {
+    "zh-CN": "跨协议改道与缺失Map Local文件恢复",
+    "en": "Cross-scheme routing and missing Map Local recovery"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "ruleName": "Guide mapping",
+    "pathPrefix": "/guide/map-routing",
+    "source": "https://localhost:64268/guide/map-routing/remote-source",
+    "destination": "HTTP 127.0.0.1:64265/guide/map-routing/remote-target",
+    "file": "guide-map-local.json",
+    "fileBody": "{\"message\":\"guide-local-file\"}",
+    "missingFile": "guide-missing.json (never created)",
+    "missingStatus": "404",
+    "safety": "Owned origins and product-created file only; daily CA retained",
+    "afterRemoteDisabled": "The original HTTPS endpoint returns 404 for the unconfigured example path; the mapped HTTP target is not used"
+  },
+  "duration": 133.107667362,
+  "video": "rules-routing.mp4",
+  "captions": "rules-routing.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开Rules / Open Rules",
+      "image": "rules-routing-01-rules.png",
+      "seconds": 0.4731424989999996
+    },
+    {
+      "id": "02-create",
+      "title": "创建Guide mapping / Create Guide mapping",
+      "image": "rules-routing-02-create.png",
+      "seconds": 3.4805042229999983
+    },
+    {
+      "id": "03-source-host",
+      "title": "限定原请求Host为localhost / Restrict the original Host to localhost",
+      "image": "rules-routing-03-source-host.png",
+      "seconds": 6.587353762999998
+    },
+    {
+      "id": "04-add-path",
+      "title": "添加Path条件 / Add a Path condition",
+      "image": "rules-routing-04-add-path.png",
+      "seconds": 9.585235624
+    },
+    {
+      "id": "05-path",
+      "title": "限定演示前缀 / Restrict the example prefix",
+      "image": "rules-routing-05-path.png",
+      "seconds": 13.012906321
+    },
+    {
+      "id": "06-remove-header",
+      "title": "移除默认Header动作 / Remove the default Header action",
+      "image": "rules-routing-06-remove-header.png",
+      "seconds": 16.026567198
+    },
+    {
+      "id": "07-map-remote",
+      "title": "添加Map Remote / Add Map Remote",
+      "image": "rules-routing-07-map-remote.png",
+      "seconds": 19.058911107
+    },
+    {
+      "id": "08-http",
+      "title": "将目标scheme明确设为http / Explicitly set the target scheme to http",
+      "image": "rules-routing-08-http.png",
+      "seconds": 22.530001897999995
+    },
+    {
+      "id": "09-target-host",
+      "title": "把目标Host改为127.0.0.1 / Change target Host to 127.0.0.1",
+      "image": "rules-routing-09-target-host.png",
+      "seconds": 25.608103805
+    },
+    {
+      "id": "10-target-port",
+      "title": "填写另一个真实HTTP服务端口 / Enter the other actual HTTP service port",
+      "image": "rules-routing-10-target-port.png",
+      "seconds": 28.612116163
+    },
+    {
+      "id": "11-target-path",
+      "title": "填写remote-target路径 / Enter the remote-target path",
+      "image": "rules-routing-11-target-path.png",
+      "seconds": 31.667562686999997
+    },
+    {
+      "id": "12-enable",
+      "title": "启用映射规则 / Enable the mapping Rule",
+      "image": "rules-routing-12-enable.png",
+      "seconds": 34.648755698
+    },
+    {
+      "id": "13-apply",
+      "title": "Apply映射 / Apply mapping",
+      "image": "rules-routing-13-apply.png",
+      "seconds": 37.67472820999999
+    },
+    {
+      "id": "14-remote-result",
+      "title": "核对HTTPS输入到HTTP目标的真实往返 / Verify HTTPS input reaches the actual HTTP destination",
+      "image": "rules-routing-14-remote-result.png",
+      "seconds": 40.71628254499999
+    },
+    {
+      "id": "15-edit",
+      "title": "返回映射规则 / Return to the mapping Rule",
+      "image": "rules-routing-15-edit.png",
+      "seconds": 44.262833140999994
+    },
+    {
+      "id": "16-disable",
+      "title": "停用Map Remote / Disable Map Remote",
+      "image": "rules-routing-16-disable.png",
+      "seconds": 47.349182194
+    },
+    {
+      "id": "17-apply-off",
+      "title": "Apply停用 / Apply disabling",
+      "image": "rules-routing-17-apply-off.png",
+      "seconds": 50.368948728999996
+    },
+    {
+      "id": "18-original-result",
+      "title": "停用后恢复原HTTPS端点的404 / Restore the original HTTPS endpoint’s 404 after disabling",
+      "image": "rules-routing-18-original-result.png",
+      "seconds": 53.38711522199999
+    },
+    {
+      "id": "19-file-source",
+      "title": "获取可以由产品保存的公开正文 / Fetch the public body the product can save",
+      "image": "rules-routing-19-file-source.png",
+      "seconds": 56.646612880999996
+    },
+    {
+      "id": "20-save-file",
+      "title": "产品保存guide-map-local.json / Save guide-map-local.json through the product",
+      "image": "rules-routing-20-save-file.png",
+      "seconds": 69.991988245
+    },
+    {
+      "id": "21-check-file",
+      "title": "核对实际产品文件 / Verify the actual product-created file",
+      "image": "rules-routing-21-check-file.png",
+      "seconds": 74.432296107
+    },
+    {
+      "id": "22-edit-local",
+      "title": "返回规则准备Map Local / Return to prepare Map Local",
+      "image": "rules-routing-22-edit-local.png",
+      "seconds": 77.38844294799999
+    },
+    {
+      "id": "23-local-host",
+      "title": "将本段原请求Host设为127.0.0.1 / Set this example’s original Host to 127.0.0.1",
+      "image": "rules-routing-23-local-host.png",
+      "seconds": 80.47102444
+    },
+    {
+      "id": "24-remove-remote",
+      "title": "移除Map Remote动作 / Remove the Map Remote action",
+      "image": "rules-routing-24-remove-remote.png",
+      "seconds": 83.48635670399999
+    },
+    {
+      "id": "25-local",
+      "title": "添加Map Local / Add Map Local",
+      "image": "rules-routing-25-local.png",
+      "seconds": 86.514585051
+    },
+    {
+      "id": "26-missing-name",
+      "title": "填写本轮不存在的文件名 / Enter the owned missing-file name",
+      "image": "rules-routing-26-missing-name.png",
+      "seconds": 89.863822706
+    },
+    {
+      "id": "27-enable-local",
+      "title": "启用Map Local / Enable Map Local",
+      "image": "rules-routing-27-enable-local.png",
+      "seconds": 92.862585324
+    },
+    {
+      "id": "28-apply-local",
+      "title": "Apply本地映射 / Apply local mapping",
+      "image": "rules-routing-28-apply-local.png",
+      "seconds": 95.87294790199999
+    },
+    {
+      "id": "29-missing-result",
+      "title": "核对缺失文件的真实404 / Verify the actual missing-file 404",
+      "image": "rules-routing-29-missing-result.png",
+      "seconds": 98.933249843
+    },
+    {
+      "id": "30-correct-rule",
+      "title": "返回规则修正路径 / Return to correct the path",
+      "image": "rules-routing-30-correct-rule.png",
+      "seconds": 102.22544992
+    },
+    {
+      "id": "31-correct-file",
+      "title": "选择同流程产品保存的实际路径 / Enter the actual path saved by this workflow",
+      "image": "rules-routing-31-correct-file.png",
+      "seconds": 105.347919213
+    },
+    {
+      "id": "32-apply-correct",
+      "title": "Apply正确路径 / Apply the correct path",
+      "image": "rules-routing-32-apply-correct.png",
+      "seconds": 108.34802730099999
+    },
+    {
+      "id": "33-local-result",
+      "title": "核对实际文件替换与源站未调用 / Verify file replacement without calling the origin",
+      "image": "rules-routing-33-local-result.png",
+      "seconds": 111.383120717
+    },
+    {
+      "id": "34-final-rule",
+      "title": "返回规则收尾 / Return to the Rule for cleanup",
+      "image": "rules-routing-34-final-rule.png",
+      "seconds": 114.616372799
+    },
+    {
+      "id": "35-final-disable",
+      "title": "停用映射规则 / Disable the mapping Rule",
+      "image": "rules-routing-35-final-disable.png",
+      "seconds": 117.739574761
+    },
+    {
+      "id": "36-final-apply",
+      "title": "Apply最终停用 / Apply final disabling",
+      "image": "rules-routing-36-final-apply.png",
+      "seconds": 120.76839495399999
+    },
+    {
+      "id": "37-certificates",
+      "title": "进入Certificates恢复本轮TLS设置 / Open Certificates to restore this run’s TLS settings",
+      "image": "rules-routing-37-certificates.png",
+      "seconds": 123.80961699799998
+    },
+    {
+      "id": "38-mitm-off",
+      "title": "关闭本轮解密 / Disable this run’s decryption",
+      "image": "rules-routing-38-mitm-off.png",
+      "seconds": 126.864799459
+    },
+    {
+      "id": "39-remove-exception",
+      "title": "移除localhost源站例外 / Remove the localhost origin exception",
+      "image": "rules-routing-39-remove-exception.png",
+      "seconds": 129.88304863599998
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-routing-01-rules.png",
+      "bytes": 174057,
+      "sha256": "101840fe331789393484f6cc6e26040392c6537e34b8a98b3f110e16f10062e4"
+    },
+    {
+      "file": "rules-routing-02-create.png",
+      "bytes": 252250,
+      "sha256": "4a1c552914c67d46f5dd3958626e8595225f363cb35a1226171d4038cb1fc9c9"
+    },
+    {
+      "file": "rules-routing-03-source-host.png",
+      "bytes": 242927,
+      "sha256": "e84be469b25efccd1ae42e96e876f02fb55afb943f7ba222892515fd509c4e11"
+    },
+    {
+      "file": "rules-routing-04-add-path.png",
+      "bytes": 245345,
+      "sha256": "0c186b48c30469727ce079b844e98188887eb468ae567c83e5624eab9b412b46"
+    },
+    {
+      "file": "rules-routing-05-path.png",
+      "bytes": 243528,
+      "sha256": "5154151fa664f57cc3a386dd5db52242782bfc1f8486c922d867a2d1a32548b3"
+    },
+    {
+      "file": "rules-routing-06-remove-header.png",
+      "bytes": 224905,
+      "sha256": "7e11312a64726779c70b8ea06234aead05380ad2539b87760955bc1bc6d7e1ac"
+    },
+    {
+      "file": "rules-routing-07-map-remote.png",
+      "bytes": 257272,
+      "sha256": "71d4e88eee49dfd05d527c947c986ea15fb66978f5712c5c85a6d43d5dd58a3c"
+    },
+    {
+      "file": "rules-routing-08-http.png",
+      "bytes": 262623,
+      "sha256": "54169e9e720743bc598a94a3910090a9f79fbbe4fb01c369ad81e87d365e49d5"
+    },
+    {
+      "file": "rules-routing-09-target-host.png",
+      "bytes": 258723,
+      "sha256": "4f6a0d47d28743719bbe048ccefd92cdbb0bdf8a8c099e6c19b926bd8aeff75e"
+    },
+    {
+      "file": "rules-routing-10-target-port.png",
+      "bytes": 260753,
+      "sha256": "8a4fb827d8a740f0394e2650e48fa27fb0fe3d9f3ac3d1abea3c25c0bf6e44e5"
+    },
+    {
+      "file": "rules-routing-11-target-path.png",
+      "bytes": 264658,
+      "sha256": "434501f6d6370639d00e0596574b85b28b9378a17ddac1f71a85de9dcfa02d29"
+    },
+    {
+      "file": "rules-routing-12-enable.png",
+      "bytes": 265724,
+      "sha256": "dcbb6ad84581444c9e035f631dbfffde84fbcaa68a0aa5e37753f82f73690fa1"
+    },
+    {
+      "file": "rules-routing-13-apply.png",
+      "bytes": 261714,
+      "sha256": "9d4ca215348d2335bf223718fcde857432dd4650cf50a87d8e0e0db7c3446399"
+    },
+    {
+      "file": "rules-routing-14-remote-result.png",
+      "bytes": 284703,
+      "sha256": "e63ebd932665442cc7ce0a7b38e1468a4b89ad8a17c8c26cb388e3c210c2f45c"
+    },
+    {
+      "file": "rules-routing-15-edit.png",
+      "bytes": 261559,
+      "sha256": "ce3cd0a5bec5b5da9f513e18dde04c784a5225f19e36ab6a1786b93c1f7a951f"
+    },
+    {
+      "file": "rules-routing-16-disable.png",
+      "bytes": 264209,
+      "sha256": "fb8b2f8456e7f1fbd8d0048f8ac34fd3758bf1e197d53f03d48fe470311ab439"
+    },
+    {
+      "file": "rules-routing-17-apply-off.png",
+      "bytes": 260657,
+      "sha256": "c1f1b434dc237ff7886402ae4a9d972e278af30f58f623033a0810d09a3d4791"
+    },
+    {
+      "file": "rules-routing-18-original-result.png",
+      "bytes": 277692,
+      "sha256": "52ad7ef00405d3d20bd0efd6d8aae5a7f638542ca1dea2eafba11df0e495074a"
+    },
+    {
+      "file": "rules-routing-19-file-source.png",
+      "bytes": 314461,
+      "sha256": "b128f17fc575f1e1faac042b43d1aef09d6ca4352ea833b9679409d20cfaf3ae"
+    },
+    {
+      "file": "rules-routing-20-save-file.png",
+      "bytes": 54371,
+      "sha256": "4892eaffe08d505c4fa736e63a3b1170c9985db28a8d44c01ed93b52536d057e"
+    },
+    {
+      "file": "rules-routing-21-check-file.png",
+      "bytes": 313408,
+      "sha256": "4051ef604542a4a4ecb548d6dc45566cd082c177b57f337619526f344398481a"
+    },
+    {
+      "file": "rules-routing-22-edit-local.png",
+      "bytes": 260299,
+      "sha256": "72d0a0c34a1a531d7a07c30e6007bae585e964e0223cdd2c622da8d2ab81ce2d"
+    },
+    {
+      "file": "rules-routing-23-local-host.png",
+      "bytes": 263115,
+      "sha256": "bc552fbdad7d65a2bce2f2238b3bb0fd5ac145832fc5abcfdfb5229f674d69b6"
+    },
+    {
+      "file": "rules-routing-24-remove-remote.png",
+      "bytes": 224060,
+      "sha256": "43997d3b235ad8d51dac3dd885d139f3e364fed3a693d79ef132ab125b855ea0"
+    },
+    {
+      "file": "rules-routing-25-local.png",
+      "bytes": 247780,
+      "sha256": "de9cb7441cf1a00a9917f5c872b9fcb93bc207b74de9d356cb9944c8c69d066e"
+    },
+    {
+      "file": "rules-routing-26-missing-name.png",
+      "bytes": 272277,
+      "sha256": "3a03ec0bc526c76fd323c12b63f3f12e4efa89a557631db3197a7463212b081c"
+    },
+    {
+      "file": "rules-routing-27-enable-local.png",
+      "bytes": 272854,
+      "sha256": "e8d3f274f66a1e97055bdc2c879a0bc1ab26aa1fa11a25b9a819c0a0acf0ff52"
+    },
+    {
+      "file": "rules-routing-28-apply-local.png",
+      "bytes": 269451,
+      "sha256": "dc91bdf6ce3038f13661c5274a4ec0e39719ff21dbe83b319d5547772ab0b0f5"
+    },
+    {
+      "file": "rules-routing-29-missing-result.png",
+      "bytes": 324553,
+      "sha256": "9d6ff0e1b401274de99ca7098cf5f9369835f864408a8f51985918b45c11dd97"
+    },
+    {
+      "file": "rules-routing-30-correct-rule.png",
+      "bytes": 269591,
+      "sha256": "f4ba95bceca62094e2e219645142012717b9faad5431eeb9dcd7ed88a8fc9ddc"
+    },
+    {
+      "file": "rules-routing-31-correct-file.png",
+      "bytes": 273411,
+      "sha256": "0c4d0a36f2040b9838f154910e3b09f46657d1d3f8183c3f22365cdce5b710d1"
+    },
+    {
+      "file": "rules-routing-32-apply-correct.png",
+      "bytes": 269771,
+      "sha256": "55b8533e46c5352e9977a59d151f237c3c0cebe156f1e041f5f286edb65e1e97"
+    },
+    {
+      "file": "rules-routing-33-local-result.png",
+      "bytes": 346763,
+      "sha256": "3ca0742a531f360f93c1f02027d07abc402957bc126c0cd9994306752fbe76e8"
+    },
+    {
+      "file": "rules-routing-34-final-rule.png",
+      "bytes": 269751,
+      "sha256": "0a0c742ab40e8490d11c2ff2a0d7f228fb1cdc9054c9aadb3e35cf4b29faae82"
+    },
+    {
+      "file": "rules-routing-35-final-disable.png",
+      "bytes": 272927,
+      "sha256": "a3ab3f10dbb94ab703562c97a20fcc9066acb96373c2997972f2ff16472e2d98"
+    },
+    {
+      "file": "rules-routing-36-final-apply.png",
+      "bytes": 269506,
+      "sha256": "bd93835d259a561cea545bc4c9853bc3c01bdbbe354ced74a84de1592fe3ac44"
+    },
+    {
+      "file": "rules-routing-37-certificates.png",
+      "bytes": 377367,
+      "sha256": "d1762afa9566978b2bb642e7e11511d585d57495b5468f26b3d4a503f7d53eb1"
+    },
+    {
+      "file": "rules-routing-38-mitm-off.png",
+      "bytes": 373657,
+      "sha256": "70c363329409017e28b0185b63f12ede086267556cff9b4916caec26fee550c6"
+    },
+    {
+      "file": "rules-routing-39-remove-exception.png",
+      "bytes": 359272,
+      "sha256": "85e54ddfe086550a9d261bd986c997307a6786e628b12e2fdca0d2c78ae7e6f9"
+    },
+    {
+      "file": "rules-routing.mp4",
+      "bytes": 824248,
+      "sha256": "8d4157b755af5e277aefb9f12a227c8c822ed8935c9343df29c69fc266a3fa36"
+    },
+    {
+      "file": "rules-routing.vtt",
+      "bytes": 3636,
+      "sha256": "a79faae832fc69eb07c52a9dc1384705e7b4803dd71a1f746c014716bdf81747"
+    }
+  ]
+}

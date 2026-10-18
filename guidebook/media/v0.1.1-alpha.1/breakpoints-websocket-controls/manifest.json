@@ -1,0 +1,338 @@
+{
+  "chapter": "breakpoints-websocket-controls",
+  "title": {
+    "zh-CN": "逐步骤实操：Both、空Text、Ping/Pong与关闭码修改",
+    "en": "Recorded walkthrough: Both, empty Text, Ping/Pong and close-code editing"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "path": "/guide/websocket-controls",
+    "originalMessage": "guide-before-empty",
+    "replacement": "empty Text produces an empty WebSocket message",
+    "directions": "Both for message and ping/pong; Sent only for close",
+    "ping": "guide-ping",
+    "afterDisabled": "guide-unpaused is delivered without any pending item",
+    "originalClose": "1000, guide-close",
+    "forwardedClose": "1001, guide-close",
+    "clientAcknowledgement": "The client-side close acknowledgement is 1000; do not equate both connection directions"
+  },
+  "duration": 81.23648613600001,
+  "video": "breakpoints-websocket-controls.mp4",
+  "captions": "breakpoints-websocket-controls.vtt",
+  "steps": [
+    {
+      "id": "01-connect",
+      "title": "建立控制帧演示连接 / Open the control-frame example connection",
+      "image": "breakpoints-websocket-controls-01-connect.png",
+      "seconds": 0.47510071299999984
+    },
+    {
+      "id": "02-select",
+      "title": "选中本轮连接 / Select this connection",
+      "image": "breakpoints-websocket-controls-02-select.png",
+      "seconds": 3.387926845
+    },
+    {
+      "id": "03-messages",
+      "title": "打开Messages / Open Messages",
+      "image": "breakpoints-websocket-controls-03-messages.png",
+      "seconds": 6.430102793
+    },
+    {
+      "id": "04-setup",
+      "title": "打开连接断点设置 / Open connection breakpoint settings",
+      "image": "breakpoints-websocket-controls-04-setup.png",
+      "seconds": 9.374985295
+    },
+    {
+      "id": "05-both",
+      "title": "选择Both方向 / Select Both directions",
+      "image": "breakpoints-websocket-controls-05-both.png",
+      "seconds": 12.326272329999998
+    },
+    {
+      "id": "06-ping",
+      "title": "增加ping帧 / Include ping frames",
+      "image": "breakpoints-websocket-controls-06-ping.png",
+      "seconds": 15.224583043
+    },
+    {
+      "id": "07-pong",
+      "title": "增加pong帧 / Include pong frames",
+      "image": "breakpoints-websocket-controls-07-pong.png",
+      "seconds": 18.178016103
+    },
+    {
+      "id": "08-enable",
+      "title": "启用Both消息与ping/pong / Enable Both message and ping/pong breakpoints",
+      "image": "breakpoints-websocket-controls-08-enable.png",
+      "seconds": 21.223989856
+    },
+    {
+      "id": "09-text",
+      "title": "发送非空消息并暂停 / Send and pause a non-empty message",
+      "image": "breakpoints-websocket-controls-09-text.png",
+      "seconds": 24.174521258000002
+    },
+    {
+      "id": "10-empty-mode",
+      "title": "选择Text替换 / Choose Text replacement",
+      "image": "breakpoints-websocket-controls-10-empty-mode.png",
+      "seconds": 27.324851562000003
+    },
+    {
+      "id": "11-empty-value",
+      "title": "明确填写空Text / Explicitly leave Text empty",
+      "image": "breakpoints-websocket-controls-11-empty-value.png",
+      "seconds": 30.334377914000004
+    },
+    {
+      "id": "12-empty-forward",
+      "title": "发送空消息而不是保留原文 / Forward an empty message instead of keeping the original",
+      "image": "breakpoints-websocket-controls-12-empty-forward.png",
+      "seconds": 33.264331584
+    },
+    {
+      "id": "13-empty-echo",
+      "title": "放行Both中的返回方向 / Continue the return direction in Both mode",
+      "image": "breakpoints-websocket-controls-13-empty-echo.png",
+      "seconds": 36.280560295
+    },
+    {
+      "id": "14-send-ping",
+      "title": "发送guide-ping并暂停 / Send and pause guide-ping",
+      "image": "breakpoints-websocket-controls-14-send-ping.png",
+      "seconds": 39.278760008999996
+    },
+    {
+      "id": "15-continue-ping",
+      "title": "原样放行ping / Continue ping unchanged",
+      "image": "breakpoints-websocket-controls-15-continue-ping.png",
+      "seconds": 42.380908372
+    },
+    {
+      "id": "16-continue-pong",
+      "title": "原样放行返回pong / Continue the returning pong unchanged",
+      "image": "breakpoints-websocket-controls-16-continue-pong.png",
+      "seconds": 45.478853485
+    },
+    {
+      "id": "17-disable-both",
+      "title": "停用本轮Both设置 / Disable the current Both settings",
+      "image": "breakpoints-websocket-controls-17-disable-both.png",
+      "seconds": 48.479699401
+    },
+    {
+      "id": "18-close-setup",
+      "title": "重新打开连接设置 / Open connection settings again",
+      "image": "breakpoints-websocket-controls-18-close-setup.png",
+      "seconds": 51.430177294
+    },
+    {
+      "id": "19-close-sent",
+      "title": "关闭演示只选择Sent / Select Sent for the close example",
+      "image": "breakpoints-websocket-controls-19-close-sent.png",
+      "seconds": 54.388843412
+    },
+    {
+      "id": "20-message-off",
+      "title": "不再暂停message / Stop pausing message",
+      "image": "breakpoints-websocket-controls-20-message-off.png",
+      "seconds": 57.343007979999996
+    },
+    {
+      "id": "20-ping-off",
+      "title": "不再暂停ping / Stop pausing ping",
+      "image": "breakpoints-websocket-controls-20-ping-off.png",
+      "seconds": 60.32999666800001
+    },
+    {
+      "id": "20-pong-off",
+      "title": "不再暂停pong / Stop pausing pong",
+      "image": "breakpoints-websocket-controls-20-pong-off.png",
+      "seconds": 63.282877653999996
+    },
+    {
+      "id": "21-close-on",
+      "title": "选择close控制帧 / Select close control frames",
+      "image": "breakpoints-websocket-controls-21-close-on.png",
+      "seconds": 66.230282738
+    },
+    {
+      "id": "22-enable-close",
+      "title": "启用Sent close断点 / Enable the Sent close breakpoint",
+      "image": "breakpoints-websocket-controls-22-enable-close.png",
+      "seconds": 69.233076496
+    },
+    {
+      "id": "23-close-request",
+      "title": "客户端请求以1000关闭 / Ask the client to close with code 1000",
+      "image": "breakpoints-websocket-controls-23-close-request.png",
+      "seconds": 72.183232605
+    },
+    {
+      "id": "24-close-code",
+      "title": "只将关闭码改为1001 / Change only the close code to 1001",
+      "image": "breakpoints-websocket-controls-24-close-code.png",
+      "seconds": 75.27941261699999
+    },
+    {
+      "id": "25-close-forward",
+      "title": "核对源站修改和客户端实际关闭确认 / Verify the origin edit and the actual client close acknowledgement",
+      "image": "breakpoints-websocket-controls-25-close-forward.png",
+      "seconds": 78.28220882100001
+    }
+  ],
+  "assets": [
+    {
+      "file": "breakpoints-websocket-controls-01-connect.png",
+      "bytes": 231441,
+      "sha256": "84b602a2198c0a3733743cf357a74510188e0b540522f1de00357b0b8208b02d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-02-select.png",
+      "bytes": 346212,
+      "sha256": "a0ed0fb0289cc47f979d739a0df4a542dc7f2f41fcdee9380adb82ea24922ab6"
+    },
+    {
+      "file": "breakpoints-websocket-controls-03-messages.png",
+      "bytes": 283591,
+      "sha256": "086775155bdf9f1324967d108939965ce22db1bf561c77967ddad945921ff8a1"
+    },
+    {
+      "file": "breakpoints-websocket-controls-04-setup.png",
+      "bytes": 346849,
+      "sha256": "f6ae9f9f106d6e2212c4ec6b3802f8f1fd8bfdc4731f6b396ea73f648c02bc24"
+    },
+    {
+      "file": "breakpoints-websocket-controls-05-both.png",
+      "bytes": 346417,
+      "sha256": "159602caab4cdf3953df43e787a18c99c8e8b774210c1a0f0bda83daf29dbcba"
+    },
+    {
+      "file": "breakpoints-websocket-controls-06-ping.png",
+      "bytes": 347210,
+      "sha256": "89b97df2cbd4f9e3bb6d327b1737a46b5581be5ca565f09d7699610620270657"
+    },
+    {
+      "file": "breakpoints-websocket-controls-07-pong.png",
+      "bytes": 347324,
+      "sha256": "45afd193deea566b1cfd2745c1a27750a8a60428eefb000c6ae39a98d9faa66d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-08-enable.png",
+      "bytes": 280293,
+      "sha256": "6ceca18722a84c6157da85010f0a88c60ac7ed503397776a6a5a78ec709f7330"
+    },
+    {
+      "file": "breakpoints-websocket-controls-09-text.png",
+      "bytes": 342238,
+      "sha256": "ca666d9c7d3712d2c6c5588cce3a7ebf6ef1297d21739f64eccb62ef3a88a911"
+    },
+    {
+      "file": "breakpoints-websocket-controls-10-empty-mode.png",
+      "bytes": 324151,
+      "sha256": "434644d54863762a797217b797fd4dd4be201e8201abfb925f4c6e3b0c847b90"
+    },
+    {
+      "file": "breakpoints-websocket-controls-11-empty-value.png",
+      "bytes": 320809,
+      "sha256": "656a5d030e4b58567ef48282c5328f5d251ac2fb95843652ff122443b37acd3f"
+    },
+    {
+      "file": "breakpoints-websocket-controls-12-empty-forward.png",
+      "bytes": 325719,
+      "sha256": "365b81b73242f844dbba125c5946ca7fff8522e5b9391220edcd1be8fb7b60f0"
+    },
+    {
+      "file": "breakpoints-websocket-controls-13-empty-echo.png",
+      "bytes": 291153,
+      "sha256": "4a984b4b11501aa031563a6cd723ba127570be271ada31a3ff18754fb6a3c17d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-14-send-ping.png",
+      "bytes": 344126,
+      "sha256": "304f96a42954845f3cfef98b58929dbbe8588bd7328fc6f5d12c7f7292f14616"
+    },
+    {
+      "file": "breakpoints-websocket-controls-15-continue-ping.png",
+      "bytes": 344344,
+      "sha256": "2dfe0f545db3c7275995ce95a8281aa07d709981412b7af2fefe0d95e461600d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-16-continue-pong.png",
+      "bytes": 291153,
+      "sha256": "4a984b4b11501aa031563a6cd723ba127570be271ada31a3ff18754fb6a3c17d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-17-disable-both.png",
+      "bytes": 311105,
+      "sha256": "b7b9a503e3ecc8e5b9c42f0a03202e67e6f88539a8bd37cdf7ca90e9d398d136"
+    },
+    {
+      "file": "breakpoints-websocket-controls-18-close-setup.png",
+      "bytes": 352295,
+      "sha256": "468fc783e84c1b2e9f0ca2975c33ff9804aee769cf8d67210c898c780d8173f7"
+    },
+    {
+      "file": "breakpoints-websocket-controls-19-close-sent.png",
+      "bytes": 351901,
+      "sha256": "14c08253c917dfd3f557c124bbd23b6796bfa5852d2c3a0b90a02cf10043bd0d"
+    },
+    {
+      "file": "breakpoints-websocket-controls-20-message-off.png",
+      "bytes": 352267,
+      "sha256": "5b76150585ebf36373eae0141a020f4195c89eb751eca335c3aa44774c758726"
+    },
+    {
+      "file": "breakpoints-websocket-controls-20-ping-off.png",
+      "bytes": 352267,
+      "sha256": "5b76150585ebf36373eae0141a020f4195c89eb751eca335c3aa44774c758726"
+    },
+    {
+      "file": "breakpoints-websocket-controls-20-pong-off.png",
+      "bytes": 352267,
+      "sha256": "5b76150585ebf36373eae0141a020f4195c89eb751eca335c3aa44774c758726"
+    },
+    {
+      "file": "breakpoints-websocket-controls-21-close-on.png",
+      "bytes": 352346,
+      "sha256": "2ca31e0706c3bef22f11752664287cf165aca11e42481915597d19f9c7475096"
+    },
+    {
+      "file": "breakpoints-websocket-controls-22-enable-close.png",
+      "bytes": 307629,
+      "sha256": "cc836cf277399cf9f92649094bb4c8946f075844e2f736a45cbe1094449fd0b0"
+    },
+    {
+      "file": "breakpoints-websocket-controls-23-close-request.png",
+      "bytes": 366496,
+      "sha256": "fccc8141c5f737f1682752a03379ca0466666b5d517cf64e07b2907c8161d66b"
+    },
+    {
+      "file": "breakpoints-websocket-controls-24-close-code.png",
+      "bytes": 366191,
+      "sha256": "4969d35464e6b212be1b655b78e8c6c54ace8e8029a39c3f7759ba0f5f3cd61a"
+    },
+    {
+      "file": "breakpoints-websocket-controls-25-close-forward.png",
+      "bytes": 308085,
+      "sha256": "2113fc7467a5b8b73299d4b041dbb50eeac92ba0ab3067daa784a1e348c3c79e"
+    },
+    {
+      "file": "breakpoints-websocket-controls.mp4",
+      "bytes": 440716,
+      "sha256": "0c1e73435ec33274f00ce02973aa989cc333677728999505679d258ff3aeebe6"
+    },
+    {
+      "file": "breakpoints-websocket-controls.vtt",
+      "bytes": 2461,
+      "sha256": "76cd1cff9b41d41b5d8f1152ad85aa1beb0512f34f929c5d0270aa2bc94ea6d3"
+    }
+  ]
+}

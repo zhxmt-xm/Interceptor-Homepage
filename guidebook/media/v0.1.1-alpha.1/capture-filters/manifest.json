@@ -19,9 +19,10 @@
     "afterOr": "3",
     "afterAnd": "2",
     "afterSearch": "1",
-    "finalRecords": "4"
+    "finalRecords": "4",
+    "finalSearch": "(empty; cleared through the search control, not Capture Clear)"
   },
-  "duration": 34.503572122000016,
+  "duration": 37.652622273999995,
   "video": "capture-filters.mp4",
   "captions": "capture-filters.vtt",
   "steps": [
@@ -29,145 +30,156 @@
       "id": "01-records",
       "title": "查看四条演示请求 / Inspect four example requests",
       "image": "capture-filters-01-records.png",
-      "seconds": 0.19907180300001345
+      "seconds": 0.3253669430000009
     },
     {
       "id": "02-methods",
       "title": "展开 Method / Expand Method",
       "image": "capture-filters-02-methods.png",
-      "seconds": 3.0152744660000024
+      "seconds": 3.1493397000000005
     },
     {
       "id": "03-get",
       "title": "只选 GET / Select GET",
       "image": "capture-filters-03-get.png",
-      "seconds": 5.90339016000001
+      "seconds": 6.002321020999999
     },
     {
       "id": "04-get-post",
       "title": "同组再选 POST / Also select POST in the same group",
       "image": "capture-filters-04-get-post.png",
-      "seconds": 8.805457273000007
+      "seconds": 8.856914960000001
     },
     {
       "id": "05-status",
       "title": "展开 Status / Expand Status",
       "image": "capture-filters-05-status.png",
-      "seconds": 11.703498003
+      "seconds": 11.750206236000002
     },
     {
       "id": "06-and-status",
       "title": "再选 200，跨组 AND / Select 200 for an AND across groups",
       "image": "capture-filters-06-and-status.png",
-      "seconds": 14.558667297000007
+      "seconds": 14.600705669
     },
     {
       "id": "07-search",
       "title": "叠加 post-ok 搜索 / Add a post-ok search",
       "image": "capture-filters-07-search.png",
-      "seconds": 17.453654114000006
+      "seconds": 17.501377809
     },
     {
       "id": "08-search-back",
       "title": "恢复演示搜索范围 / Restore the example search scope",
       "image": "capture-filters-08-search-back.png",
-      "seconds": 20.252916471000002
+      "seconds": 20.399231592
     },
     {
       "id": "09-remove-status",
       "title": "取消 Status 条件 / Remove Status selection",
       "image": "capture-filters-09-remove-status.png",
-      "seconds": 23.103760452000003
+      "seconds": 23.251046127
     },
     {
       "id": "10-remove-post",
       "title": "取消 POST / Remove POST selection",
       "image": "capture-filters-10-remove-post.png",
-      "seconds": 25.95419537
+      "seconds": 26.099993154
     },
     {
       "id": "11-remove-get",
       "title": "取消 GET，保留原记录 / Remove GET without deleting records",
       "image": "capture-filters-11-remove-get.png",
-      "seconds": 28.809433824000006
+      "seconds": 28.959606283999996
     },
     {
       "id": "12-collapse",
       "title": "只折叠组标题 / Collapse only the group",
       "image": "capture-filters-12-collapse.png",
-      "seconds": 31.656746788000003
+      "seconds": 31.850494711000003
+    },
+    {
+      "id": "13-clear-search",
+      "title": "清空搜索但不删除请求 / Clear search without deleting requests",
+      "image": "capture-filters-13-clear-search.png",
+      "seconds": 34.751234484
     }
   ],
   "assets": [
     {
-      "file": "capture-filters.mp4",
-      "bytes": 156588,
-      "sha256": "f6ec3b895f89a008864c943fcc66c2e55f4bd39d17d66ffa6f72f5d58a84606c"
-    },
-    {
-      "file": "capture-filters.vtt",
-      "bytes": 964,
-      "sha256": "be01cefdb3f6081d76832486a46d50365779123e31ee8fafd369835c37c584d7"
-    },
-    {
       "file": "capture-filters-01-records.png",
-      "bytes": 290173,
-      "sha256": "5c03a2a119c2029da79c293e8667afef354de776696e8712d62d4a4b4b56cdc7"
+      "bytes": 274411,
+      "sha256": "3a160dcff4bca1bf42dc52aab18e6a308705050cc46234388cb0deacf53b8e07"
     },
     {
       "file": "capture-filters-02-methods.png",
-      "bytes": 287690,
-      "sha256": "43deca75b44d6d5ee98004a209e59c6d711a36a1f6b87a0187d7846cbd428daa"
+      "bytes": 283445,
+      "sha256": "f1fee9efb4afd4ea827939be4e087b2c37ea13ea0f16f1590852e083dbd4f928"
     },
     {
       "file": "capture-filters-03-get.png",
-      "bytes": 256755,
-      "sha256": "b7dd3d1461d4d72bd408601a5b18f986b98b3f32ca4d3d328d3b651cd30275fa"
+      "bytes": 251954,
+      "sha256": "bce0b3ba885cf41c149b3164772ec35b1bd5871a94875f1a7a0da7898ebf4646"
     },
     {
       "file": "capture-filters-04-get-post.png",
-      "bytes": 271905,
-      "sha256": "07c3f717a13f42d7736321191c243f66ed44ed79949fed8502b991a322ddd574"
+      "bytes": 268159,
+      "sha256": "877a88b532eaa8541178dea36fcfa3d1628a9e6d1d2feb925ec4aadd83eed0b6"
     },
     {
       "file": "capture-filters-05-status.png",
-      "bytes": 283120,
-      "sha256": "7385bbcae66a7f4c0058bdffa1c73881387827fa91cbbe4810ce676da5d05c30"
+      "bytes": 278724,
+      "sha256": "00d1ca60b0820835e9858b1ddb9ca1efce846559cdf6cc3c1c6583d29df81c20"
     },
     {
       "file": "capture-filters-06-and-status.png",
-      "bytes": 267615,
-      "sha256": "b24498f92cbd5594972eef78866d0793d7a5297dab8b8bfab7a40e2d4a55c513"
+      "bytes": 263536,
+      "sha256": "6327e78d31b20b83cd895e8ee2e4c9d8ad023dce4c83ebd255147e320c5f6133"
     },
     {
       "file": "capture-filters-07-search.png",
-      "bytes": 255319,
-      "sha256": "9938ebf06c16c6d00ac4e2d7a829729f2991b672ce8eb0e7c69545935f5cf68d"
+      "bytes": 250794,
+      "sha256": "896f4e639ab19293ad656fb076c34f0d095b4788169c5f9e72e7b69f781ab3b3"
     },
     {
       "file": "capture-filters-08-search-back.png",
-      "bytes": 267596,
-      "sha256": "8bdd1bd2575573873ae1ded422a05b9a69a749a0a4cd272f92af39dd727e14be"
+      "bytes": 263521,
+      "sha256": "40da5ea0a6b6ee2e89b6186e7ef1d28d42ba4bc5a27f7ed42accb4fef7cda75c"
     },
     {
       "file": "capture-filters-09-remove-status.png",
-      "bytes": 283144,
-      "sha256": "46b1b44f55c0f6be18b0607d416b1957366decb220e045584af6291c22b42d31"
+      "bytes": 278765,
+      "sha256": "09886682cc2c8f8d61f8f553faf010e71e74ca4326360d93a09fa6ea78f32ece"
     },
     {
       "file": "capture-filters-10-remove-post.png",
-      "bytes": 266518,
-      "sha256": "8d4d76eb4e400a9ca1db2176f50a11ce748e58c36ddd05d9cab2bfe886841290"
+      "bytes": 262573,
+      "sha256": "3b22772c088b440f05a336858a5f04db64e26ea9961bd33a997f21ac1a39d2d6"
     },
     {
       "file": "capture-filters-11-remove-get.png",
-      "bytes": 296121,
-      "sha256": "79a4a4c279f807c9cf445d329d78ae2263c9de4d80058c19bdd4415cda00dd95"
+      "bytes": 292080,
+      "sha256": "34ba3329167ffa2e8f696a07157cbdfe20b28f61c9f3294d9defe9c2f68a4cdb"
     },
     {
       "file": "capture-filters-12-collapse.png",
-      "bytes": 285987,
-      "sha256": "30f6b908738c2c9fd674f9522edc0de717c77f30c56f22b3e1ad8f7fe691e058"
+      "bytes": 284711,
+      "sha256": "d20f4cb30281a79a0c42b0a38b012c9f7c8486c940a32f439902ec0faef81e71"
+    },
+    {
+      "file": "capture-filters-13-clear-search.png",
+      "bytes": 283280,
+      "sha256": "4178442562eac902c4539af50959aacf98a77268316432ce79a7dfd4c6d80fce"
+    },
+    {
+      "file": "capture-filters.mp4",
+      "bytes": 181431,
+      "sha256": "ff10bb139e6574d0b6d036a65668ea8d0cc6f1b64f63fe762de96d0d40074bf4"
+    },
+    {
+      "file": "capture-filters.vtt",
+      "bytes": 1070,
+      "sha256": "14a575c3fc80951ded59d0804158c9622fb3220c0c1cb7e9814624b81e3cdc85"
     }
   ]
 }

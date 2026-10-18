@@ -146,7 +146,9 @@ test('the homepage video entry reaches real chapter recordings without another d
     .getByTestId('guide.article')
     .locator('a[href="/guide/transfer#walkthrough-video"]')
     .click();
-  const video = page.getByTestId('guide.article').locator('video');
+  const video = page
+    .locator('#guide-anchor-walkthrough-video')
+    .locator('xpath=following::video[1]');
   await expect(video).toBeVisible();
   expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
   await expect
@@ -179,12 +181,44 @@ test('all published chapter videos load their captions in both article languages
               return (
                 element.readyState >= 1 &&
                 element.duration > 0 &&
+                element.seekable.length > 0 &&
+                element.seekable.end(element.seekable.length - 1) >= element.duration - 0.052 &&
                 track?.readyState === 2 &&
                 (element.textTracks[0]?.cues?.length ?? 0) > 0
               );
             }),
           )
           .toBe(true);
+        const lastCaption = await video.evaluate((element: HTMLVideoElement) => {
+          const cues = element.textTracks[0]?.cues;
+          const cue = cues?.[cues.length - 1];
+          if (!cue) throw new Error('The chapter video has no final caption.');
+          return { start: cue.startTime, end: cue.endTime, duration: element.duration };
+        });
+        expect(lastCaption.start).toBeLessThan(lastCaption.duration);
+        expect(Math.abs(lastCaption.end - lastCaption.duration)).toBeLessThanOrEqual(
+          1 / 20 + 0.002,
+        );
+        await video.evaluate((element: HTMLVideoElement) => {
+          const cues = element.textTracks[0]?.cues;
+          const cue = cues?.[cues.length - 1];
+          if (!cue) throw new Error('The chapter video has no final caption.');
+          element.currentTime = cue.startTime + (element.duration - cue.startTime) / 2;
+        });
+        await expect
+          .poll(() =>
+            video.evaluate(
+              (element: HTMLVideoElement, start) =>
+                !element.seeking &&
+                element.currentTime > start &&
+                element.currentTime < element.duration,
+              lastCaption.start,
+            ),
+          )
+          .toBe(true);
+        expect(
+          await video.evaluate((element: HTMLVideoElement) => element.currentTime),
+        ).toBeGreaterThan(lastCaption.start);
         checkedVideos += 1;
       }
       await expect(article.locator('track')).toHaveCount(expectedVideos);

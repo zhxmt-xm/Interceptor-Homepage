@@ -1,0 +1,77 @@
+{
+  "chapter": "agent-model-removal",
+  "title": {
+    "zh-CN": "逐步骤实操：删除最后一个模型（真实片段节选）",
+    "en": "Recorded walkthrough: removing the final model (native recording excerpt)"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "contiguous excerpt of an isolated native App-window recording; no microphone",
+  "excerpt": {
+    "sourceRecording": "agent-session-restart",
+    "sourceVideo": "agent-session-restart.mp4",
+    "sourceVideoSha256": "709213405998a6454bbc261f61bad3a107c20116f45f57e95a127e0ee3d613d0",
+    "startSeconds": 12.05,
+    "endSeconds": 19.301856734,
+    "sourceStepIds": ["04-model-settings", "05-last-model-dialog", "06-remove-last"]
+  },
+  "example": {
+    "profileName": "Guide session demo",
+    "initialState": "One existing model in Settings > Agent; configuration and restart are outside this excerpt",
+    "finalModelState": "No provider remains; the panel is unconfigured",
+    "recordingScope": "Original 12.050s to 19.302s only; earlier Capture/history frames are not published"
+  },
+  "duration": 7.251856734,
+  "video": "agent-model-removal.mp4",
+  "captions": "agent-model-removal.vtt",
+  "steps": [
+    {
+      "id": "04-model-settings",
+      "title": "检查仍保存的模型配置 / Inspect the retained model configuration",
+      "image": "agent-session-restart-04-model-settings.png",
+      "seconds": 0
+    },
+    {
+      "id": "05-last-model-dialog",
+      "title": "打开最后一个模型的删除确认 / Open deletion confirmation for the last model",
+      "image": "agent-session-restart-05-last-model-dialog.png",
+      "seconds": 1.007278861000012
+    },
+    {
+      "id": "06-remove-last",
+      "title": "删除最后模型并检查未配置状态 / Remove the last model and inspect the unconfigured state",
+      "image": "agent-session-restart-06-remove-last.png",
+      "seconds": 4.099816911000001
+    }
+  ],
+  "assets": [
+    {
+      "file": "agent-session-restart-04-model-settings.png",
+      "bytes": 494333,
+      "sha256": "d7fb29d0de4e8110c88f83b56b15ae225ace6c37778dcd552497ca1a09ce4b33"
+    },
+    {
+      "file": "agent-session-restart-05-last-model-dialog.png",
+      "bytes": 432343,
+      "sha256": "643f5b91e479a3d26603b0e8ced34c5cc6597b458039e17628042b345fe883dd"
+    },
+    {
+      "file": "agent-session-restart-06-remove-last.png",
+      "bytes": 462544,
+      "sha256": "34ac0e4e511d2a826c86d27aebf3369bdd82e3b8c61d97acbb7a15d306366e22"
+    },
+    {
+      "file": "agent-model-removal.mp4",
+      "bytes": 134919,
+      "sha256": "33f393b7b109071af7fd23006b95ae81c1ca2799bf205831570425a43f6dcd04"
+    },
+    {
+      "file": "agent-model-removal.vtt",
+      "bytes": 370,
+      "sha256": "48aaa66dd1ddf88cd23675ec54b1f25ff15210c074a5958c61589064adb3b4ae"
+    }
+  ]
+}

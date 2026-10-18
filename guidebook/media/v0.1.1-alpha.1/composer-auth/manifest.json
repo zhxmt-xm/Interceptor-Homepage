@@ -1,0 +1,347 @@
+{
+  "chapter": "composer-auth",
+  "title": {
+    "zh-CN": "逐步骤实操：自有公开认证示例与Authorization清理",
+    "en": "Recorded walkthrough: public loopback authentication and Authorization cleanup"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "url": "http://127.0.0.1:62653/guide/composer-auth",
+    "username": "guide-user",
+    "password": "public-demo-password",
+    "bearerToken": "public-demo-token",
+    "scope": "Public demonstration strings accepted only by this temporary loopback origin; not real credentials",
+    "responses": "None 401; Basic 200; Bearer 200; None without explicit Header 401",
+    "explicitHeader": "Auth None leaves a user-added Authorization Header until its row is deleted"
+  },
+  "duration": 85.06950181,
+  "video": "composer-auth.mp4",
+  "captions": "composer-auth.vtt",
+  "steps": [
+    {
+      "id": "01-composer",
+      "title": "打开Composer / Open Composer",
+      "image": "composer-auth-01-composer.png",
+      "seconds": 0.46861579100000017
+    },
+    {
+      "id": "02-new",
+      "title": "新建认证演示请求 / Create an authentication example request",
+      "image": "composer-auth-02-new.png",
+      "seconds": 3.4261876819999997
+    },
+    {
+      "id": "03-url",
+      "title": "填写自有localhost服务地址 / Enter the owned loopback service address",
+      "image": "composer-auth-03-url.png",
+      "seconds": 6.429000786999997
+    },
+    {
+      "id": "04-none",
+      "title": "无认证发送得到401 / Send without authentication and receive 401",
+      "image": "composer-auth-04-none.png",
+      "seconds": 9.431560767999999
+    },
+    {
+      "id": "05-auth-tab",
+      "title": "打开Auth / Open Auth",
+      "image": "composer-auth-05-auth-tab.png",
+      "seconds": 12.826372903
+    },
+    {
+      "id": "06-basic",
+      "title": "选择Basic / Choose Basic",
+      "image": "composer-auth-06-basic.png",
+      "seconds": 15.775088649999997
+    },
+    {
+      "id": "07-username",
+      "title": "填写公开演示用户名 / Enter the public example username",
+      "image": "composer-auth-07-username.png",
+      "seconds": 18.887667475999997
+    },
+    {
+      "id": "08-password",
+      "title": "填写仅本机有效的演示密码 / Enter the loopback-only example password",
+      "image": "composer-auth-08-password.png",
+      "seconds": 21.834511291
+    },
+    {
+      "id": "09-basic-result",
+      "title": "发送Basic并核对200 / Send Basic and verify 200",
+      "image": "composer-auth-09-basic-result.png",
+      "seconds": 24.775301070999998
+    },
+    {
+      "id": "10-bearer",
+      "title": "切换到Bearer / Switch to Bearer",
+      "image": "composer-auth-10-bearer.png",
+      "seconds": 27.929907934
+    },
+    {
+      "id": "11-token",
+      "title": "填写公开演示token / Enter the public example token",
+      "image": "composer-auth-11-token.png",
+      "seconds": 30.975176911
+    },
+    {
+      "id": "12-bearer-result",
+      "title": "发送Bearer并核对200 / Send Bearer and verify 200",
+      "image": "composer-auth-12-bearer-result.png",
+      "seconds": 33.928896397
+    },
+    {
+      "id": "13-none-again",
+      "title": "切回None / Switch back to None",
+      "image": "composer-auth-13-none-again.png",
+      "seconds": 37.017985629
+    },
+    {
+      "id": "14-none-result",
+      "title": "核对自动Authorization已移除 / Verify automatic Authorization was removed",
+      "image": "composer-auth-14-none-result.png",
+      "seconds": 40.018393729
+    },
+    {
+      "id": "15-headers",
+      "title": "打开Headers添加显式字段 / Open Headers for an explicit field",
+      "image": "composer-auth-15-headers.png",
+      "seconds": 43.22609422299999
+    },
+    {
+      "id": "16-explicit-name",
+      "title": "填写Authorization名称 / Enter the Authorization name",
+      "image": "composer-auth-16-explicit-name.png",
+      "seconds": 46.137088019000004
+    },
+    {
+      "id": "17-explicit-value",
+      "title": "填写同一公开Bearer值 / Enter the same public Bearer value",
+      "image": "composer-auth-17-explicit-value.png",
+      "seconds": 49.025908973
+    },
+    {
+      "id": "18-add-header",
+      "title": "添加这条显式Header / Add the explicit Header",
+      "image": "composer-auth-18-add-header.png",
+      "seconds": 51.976930693999996
+    },
+    {
+      "id": "19-none-keeps-header",
+      "title": "None不删除显式Authorization / None does not remove explicit Authorization",
+      "image": "composer-auth-19-none-keeps-header.png",
+      "seconds": 54.926718416
+    },
+    {
+      "id": "20-delete-header",
+      "title": "删除自己的显式Authorization行 / Delete the explicit Authorization row",
+      "image": "composer-auth-20-delete-header.png",
+      "seconds": 58.031655534
+    },
+    {
+      "id": "21-header-removed",
+      "title": "核对请求不再带认证字段 / Verify the request no longer carries authentication",
+      "image": "composer-auth-21-header-removed.png",
+      "seconds": 61.033402604
+    },
+    {
+      "id": "22-clear-basic-type",
+      "title": "返回Basic清理演示输入 / Return to Basic to clear example inputs",
+      "image": "composer-auth-22-clear-basic-type.png",
+      "seconds": 64.11854445600001
+    },
+    {
+      "id": "23-clear-username",
+      "title": "清空演示用户名 / Clear the example username",
+      "image": "composer-auth-23-clear-username.png",
+      "seconds": 67.226962224
+    },
+    {
+      "id": "24-clear-password",
+      "title": "清空演示密码 / Clear the example password",
+      "image": "composer-auth-24-clear-password.png",
+      "seconds": 70.176335218
+    },
+    {
+      "id": "25-clear-bearer-type",
+      "title": "返回Bearer / Return to Bearer",
+      "image": "composer-auth-25-clear-bearer-type.png",
+      "seconds": 73.126923973
+    },
+    {
+      "id": "26-clear-token",
+      "title": "清空演示token / Clear the example token",
+      "image": "composer-auth-26-clear-token.png",
+      "seconds": 76.132503388
+    },
+    {
+      "id": "27-finish-none",
+      "title": "最终保持None / Finish with None",
+      "image": "composer-auth-27-finish-none.png",
+      "seconds": 79.076891777
+    },
+    {
+      "id": "28-no-capture",
+      "title": "确认Composer没有写入Capture / Verify Composer did not create Capture records",
+      "image": "composer-auth-28-no-capture.png",
+      "seconds": 82.074458207
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-auth-01-composer.png",
+      "bytes": 176130,
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+    },
+    {
+      "file": "composer-auth-02-new.png",
+      "bytes": 230855,
+      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a"
+    },
+    {
+      "file": "composer-auth-03-url.png",
+      "bytes": 238682,
+      "sha256": "c3ab37fb1f335043ff9f902512b67d0e57c286115415b953dbfaf7f351cd3934"
+    },
+    {
+      "file": "composer-auth-04-none.png",
+      "bytes": 254752,
+      "sha256": "6394d9318ca5006df3ebc86a59190915c1b6514229f193d4fa2ee65227f68fc2"
+    },
+    {
+      "file": "composer-auth-05-auth-tab.png",
+      "bytes": 259119,
+      "sha256": "29f59a9b28c7a56ec9d8694fac8edd32b567dc4ffa2a6a8edc030737e6c27324"
+    },
+    {
+      "file": "composer-auth-06-basic.png",
+      "bytes": 260524,
+      "sha256": "2725ad27a48c025d3f4b91ca4b46a678638fcddba2db7719a2adae3ff99ed5ac"
+    },
+    {
+      "file": "composer-auth-07-username.png",
+      "bytes": 263151,
+      "sha256": "049a8b5a029c55cf927ff90d55039c71bf9e3ab61f3480b0bf356f1c04b2ac69"
+    },
+    {
+      "file": "composer-auth-08-password.png",
+      "bytes": 269580,
+      "sha256": "e9c6777d4a3acd9fa29e328fca80abb74c5648e205aba910864ad804681dcdde"
+    },
+    {
+      "file": "composer-auth-09-basic-result.png",
+      "bytes": 268663,
+      "sha256": "cf7333ec15b602c873daa899ed548461526cd69ea4a5a0a82502e0421af68353"
+    },
+    {
+      "file": "composer-auth-10-bearer.png",
+      "bytes": 258616,
+      "sha256": "dea6abbc15a6c385763f579cdcddfcd6809953676b3c3555c2f0b41383714f03"
+    },
+    {
+      "file": "composer-auth-11-token.png",
+      "bytes": 262728,
+      "sha256": "42b69ff5c2c48f4aced9499b519e70a8a9e5217946eed883e2cea02b660e1a4a"
+    },
+    {
+      "file": "composer-auth-12-bearer-result.png",
+      "bytes": 262942,
+      "sha256": "7384987dbcd61823be4f28b4506c59e0f096024b09a6b52c1960d6cc81f84318"
+    },
+    {
+      "file": "composer-auth-13-none-again.png",
+      "bytes": 258989,
+      "sha256": "746de13e44feff2bd97ff1e07dc6ba0f257316fcf488cbc4e9eaf8faa259768b"
+    },
+    {
+      "file": "composer-auth-14-none-result.png",
+      "bytes": 258692,
+      "sha256": "8196a24a0342fba04601a6fd66f1014bf774b66769e7d6390df45f905b101e3b"
+    },
+    {
+      "file": "composer-auth-15-headers.png",
+      "bytes": 254258,
+      "sha256": "15c877667aee3182610309e00ca323fdbc519f97ee78b88a65803b501304bf4f"
+    },
+    {
+      "file": "composer-auth-16-explicit-name.png",
+      "bytes": 256244,
+      "sha256": "4c7135330ce2965991b0faa97ae2fec96f30e12d8ee793ac18081292d5b69be4"
+    },
+    {
+      "file": "composer-auth-17-explicit-value.png",
+      "bytes": 260889,
+      "sha256": "84ec52c16f3a078ae66f57d6a187ef5fc8efe517d4757e1ea9da2e89412b6d60"
+    },
+    {
+      "file": "composer-auth-18-add-header.png",
+      "bytes": 265324,
+      "sha256": "46592ae7add29554810efb89182bf2920c79d382857744e5704a40cb2e109f80"
+    },
+    {
+      "file": "composer-auth-19-none-keeps-header.png",
+      "bytes": 264117,
+      "sha256": "bb22910d2e43cf47e48c55b8699af2f4c0344036324eaf11cf40e6d9fb57e949"
+    },
+    {
+      "file": "composer-auth-20-delete-header.png",
+      "bytes": 253644,
+      "sha256": "4a06fdcefc5034e6401da5d6d0f6d375c2983a2634719c35ce109ee8bbcfe0d6"
+    },
+    {
+      "file": "composer-auth-21-header-removed.png",
+      "bytes": 255011,
+      "sha256": "32be5e381bd28cd11f302d9da7d614851e9c2b92a9c52165c12a5fda692b840a"
+    },
+    {
+      "file": "composer-auth-22-clear-basic-type.png",
+      "bytes": 270345,
+      "sha256": "1f6aae29ad22290243c9626306eeeafc9d228e21d5ea1ca53936c7c74ac13852"
+    },
+    {
+      "file": "composer-auth-23-clear-username.png",
+      "bytes": 266683,
+      "sha256": "d5a80eb92ffd7854dec5242d21ce3881a6766d62d68e4d90dd88e88734170191"
+    },
+    {
+      "file": "composer-auth-24-clear-password.png",
+      "bytes": 260268,
+      "sha256": "820d33dba631025e6b7eded15b4aea92f39a6a78973de4ebcbfc190bd9e21992"
+    },
+    {
+      "file": "composer-auth-25-clear-bearer-type.png",
+      "bytes": 264465,
+      "sha256": "3ca9bfe4246c41aa3628a09e226a83bdddc4fb74111033d074f1738e6dfb7787"
+    },
+    {
+      "file": "composer-auth-26-clear-token.png",
+      "bytes": 259040,
+      "sha256": "3888a2d4e8db75ac1c4395a90fb6f96ebda8929a53ef442551ee899bae79c935"
+    },
+    {
+      "file": "composer-auth-27-finish-none.png",
+      "bytes": 259760,
+      "sha256": "fea623467b3a7499de84f8c40ef24d57db71f1faa0e94d4c401c9ad5a8632522"
+    },
+    {
+      "file": "composer-auth-28-no-capture.png",
+      "bytes": 225254,
+      "sha256": "e2fe63fafcfc94c47f5397f7240e2fcdcc1670c8856d3d572c6e7266e79d8479"
+    },
+    {
+      "file": "composer-auth.mp4",
+      "bytes": 372325,
+      "sha256": "18d381047a83e88ff17f895480ec0e7bfe260bf69818714e6b54a1fbc7bea95b"
+    },
+    {
+      "file": "composer-auth.vtt",
+      "bytes": 2555,
+      "sha256": "edb1d13d7b624ee2545805b6759683c68c613c54121b9cc96bfb0a937bdd4dde"
+    }
+  ]
+}

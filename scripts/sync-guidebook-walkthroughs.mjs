@@ -27,7 +27,7 @@ for (const selection of chapters) {
   const [chapter, mediaChapter = chapter, extra] = selection.split(':');
   if (extra !== undefined) throw new Error(`Invalid chapter selection: ${selection}`);
   if (!/^[a-z]+(?:-[a-z]+)*$/.test(chapter)) throw new Error(`Invalid chapter name: ${chapter}`);
-  if (!/^[a-z]+(?:-[a-z]+)*$/.test(mediaChapter))
+  if (!/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(mediaChapter))
     throw new Error(`Invalid recording name: ${mediaChapter}`);
   const appendix = mediaChapter !== chapter;
   const opening = `<!-- recorded-walkthrough${appendix ? `:${mediaChapter}` : ''}:start -->`;
@@ -39,6 +39,18 @@ for (const selection of chapters) {
   assert.equal(manifest.chapter, mediaChapter);
   assert.equal(`v${manifest.appVersion}`, version);
   assert.ok(manifest.steps.length > 0);
+  if (manifest.excerpt !== undefined) {
+    assert.match(manifest.excerpt.sourceRecording, /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/);
+    assert.ok(Number.isFinite(manifest.excerpt.startSeconds) && manifest.excerpt.startSeconds >= 0);
+    assert.ok(
+      Number.isFinite(manifest.excerpt.endSeconds) &&
+        manifest.excerpt.endSeconds > manifest.excerpt.startSeconds,
+    );
+    assert.ok(
+      Math.abs(manifest.duration - (manifest.excerpt.endSeconds - manifest.excerpt.startSeconds)) <
+        1e-9,
+    );
+  }
   for (const asset of manifest.assets) {
     if (path.basename(asset.file) !== asset.file)
       throw new Error('Media filenames must not escape their directory.');
@@ -83,6 +95,15 @@ for (const selection of chapters) {
       ? '本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。'
       : 'Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.';
     const notes = [];
+    if (manifest.excerpt !== undefined) {
+      const start = manifest.excerpt.startSeconds.toFixed(3);
+      const end = manifest.excerpt.endSeconds.toFixed(3);
+      notes.push(
+        chinese
+          ? `> 本段是 <code>${escape(manifest.excerpt.sourceRecording)}</code> 原片 ${start}–${end} 秒的连续实录节选，不是新的录制。没有拼接或重建动作，原始PNG不变，时间戳只换算为节选内位置；本段不代表原片未公开部分也已完成验收。`
+          : `> This is a contiguous native-recording excerpt from <code>${escape(manifest.excerpt.sourceRecording)}</code>, ${start}–${end} seconds, not a new recording. Actions are not spliced or recreated; original PNGs are unchanged and timestamps are relative to this excerpt. It does not establish acceptance of unpublished parts of the original recording.`,
+      );
+    }
     if (chapter === 'agent')
       notes.push(
         chinese
@@ -95,13 +116,13 @@ for (const selection of chapters) {
           ? '> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文或视频，Copy后的配置只在本机测试内存中使用。'
           : '> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.',
       );
-    if (chapter === 'settings')
+    if (mediaChapter === 'settings')
       notes.push(
         chinese
           ? '> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；视频不证明这些示例地址可用，也没有重新生成或卸载日常CA。'
           : '> This recording shows the existing CA, settings and discardable drafts. Manual/PAC examples are not applied or claimed reachable. The daily-use CA is not regenerated or uninstalled.',
       );
-    if (chapter === 'tool-permissions')
+    if (mediaChapter === 'tool-permissions')
       notes.push(
         chinese
           ? '> 这里只演示单项权限的独立开关，不等于已经把整个入口配置为只读；没有实际执行Clear。'

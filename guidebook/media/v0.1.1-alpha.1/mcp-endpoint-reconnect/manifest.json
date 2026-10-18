@@ -1,0 +1,115 @@
+{
+  "chapter": "mcp-endpoint-reconnect",
+  "title": {
+    "zh-CN": "更换冲突地址并重新发现Tool",
+    "en": "Replace a conflicting endpoint and rediscover Tools"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "oldEndpoint": "http://127.0.0.1:59234/mcp",
+    "newEndpoint": "http://127.0.0.1:59291/mcp",
+    "clientName": "Guide endpoint client",
+    "caller": "Actual official local SDK; no commercial Host configuration screen is claimed",
+    "identity": "Endpoint changes; the same Client credential remains valid and is never shown",
+    "evidenceGeneration": "endpoint-reopened"
+  },
+  "duration": 22.424823846999992,
+  "video": "mcp-endpoint-reconnect.mp4",
+  "captions": "mcp-endpoint-reconnect.vtt",
+  "steps": [
+    {
+      "id": "01-settings",
+      "title": "重启后打开MCP设置 / Open MCP settings after restart",
+      "image": "mcp-endpoint-reconnect-01-settings.png",
+      "seconds": 0.4343675389999989
+    },
+    {
+      "id": "02-conflict",
+      "title": "核对真实endpoint冲突 / Inspect the actual endpoint conflict",
+      "image": "mcp-endpoint-reconnect-02-conflict.png",
+      "seconds": 3.767724911999976
+    },
+    {
+      "id": "03-change",
+      "title": "显式Change endpoint / Explicitly change the endpoint",
+      "image": "mcp-endpoint-reconnect-03-change.png",
+      "seconds": 6.79799251099999
+    },
+    {
+      "id": "04-copy-current",
+      "title": "复制当前配置，不展示凭据 / Copy current configuration without showing credentials",
+      "image": "mcp-endpoint-reconnect-04-copy-current.png",
+      "seconds": 9.870164879999997
+    },
+    {
+      "id": "05-reconnect",
+      "title": "让本地SDK使用新地址重新连接 / Reconnect the local SDK using the new address",
+      "image": "mcp-endpoint-reconnect-05-reconnect.png",
+      "seconds": 13.257958420999989
+    },
+    {
+      "id": "06-query-new-endpoint",
+      "title": "在新endpoint执行真实查询 / Execute an actual query at the new endpoint",
+      "image": "mcp-endpoint-reconnect-06-query-new-endpoint.png",
+      "seconds": 16.378450354
+    },
+    {
+      "id": "07-disable",
+      "title": "关闭新地址上的演示Server / Disable the demo Server at its new address",
+      "image": "mcp-endpoint-reconnect-07-disable.png",
+      "seconds": 19.39633797999998
+    }
+  ],
+  "assets": [
+    {
+      "file": "mcp-endpoint-reconnect-01-settings.png",
+      "bytes": 443000,
+      "sha256": "1689c414c786fecd47d46ddc2ecb17eb90795ff3934cb33d25558c28f764cdfa"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-02-conflict.png",
+      "bytes": 443000,
+      "sha256": "1689c414c786fecd47d46ddc2ecb17eb90795ff3934cb33d25558c28f764cdfa"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-03-change.png",
+      "bytes": 434346,
+      "sha256": "7c335bd75d7a0b6102400eeeb74443fa12405ea97c42e937e5590e258e51c285"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-04-copy-current.png",
+      "bytes": 451050,
+      "sha256": "f36c9e55f00a54f77ab8ccdef07a208f083ad1aaed22dad85a430a4087a370e7"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-05-reconnect.png",
+      "bytes": 451050,
+      "sha256": "f36c9e55f00a54f77ab8ccdef07a208f083ad1aaed22dad85a430a4087a370e7"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-06-query-new-endpoint.png",
+      "bytes": 451050,
+      "sha256": "f36c9e55f00a54f77ab8ccdef07a208f083ad1aaed22dad85a430a4087a370e7"
+    },
+    {
+      "file": "mcp-endpoint-reconnect-07-disable.png",
+      "bytes": 434591,
+      "sha256": "ed4b57d8de7dcef22878e1d426df45e4b4afe63126a4727cf1d79d50798b99ed"
+    },
+    {
+      "file": "mcp-endpoint-reconnect.mp4",
+      "bytes": 167900,
+      "sha256": "ac9c39054e9e624c3886b0807b0a2999d0e9d7e55a179acbb6e7621769a06f70"
+    },
+    {
+      "file": "mcp-endpoint-reconnect.vtt",
+      "bytes": 758,
+      "sha256": "8027d9b6b81e6b46362a3e880524201c9410aebfffb00054b9f3e20eac5c839c"
+    }
+  ]
+}

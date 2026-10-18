@@ -273,8 +273,8 @@
   "assets": [
     {
       "file": "capture.mp4",
-      "bytes": 870490,
-      "sha256": "f19c3be893b5751a8c219acd9b29dcfe9b9b9b77ca84c2c3ce08778bd64b8436"
+      "bytes": 867966,
+      "sha256": "3123c134a10ad9691452c8013f6e595efc849c87679bca7ed9b8b7b055dc372a"
     },
     {
       "file": "capture.vtt",

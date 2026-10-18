@@ -225,7 +225,7 @@ The complete reference follows. Only operations with matching real step images a
 
    ![Applying the manual breakpoint rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-10-apply.png)
 
-9. Return to Capture and inspect Break on match. Toggling that global control was not separately recorded and remains image pending.
+9. Return to Capture and inspect Break on match. The [manager recording](#walkthrough-breakpoints-manager) operates global and individual Rule switches. Disabling a Rule is not resolving every waiting item.
 
    ![Returning to Capture before sending](../media/v0.1.1-alpha.1/breakpoints/breakpoints-11-capture.png)
 
@@ -437,7 +437,7 @@ This complete sequence uses `breakpoints-response`: save the file first, then co
 - If a snapshot has a body, such as a WebSocket message, clearing Text can mean an empty replacement. Whitespace is real content.
 - A later Capture preview does not change whether the breakpoint snapshot originally contained a body.
 - See [header/body semantics](rules.md#message-editing).
-- **Image pending:** response status-code edits, request-phase Header-only/File, empty Text versus snapshot boundaries, and large/non-text files are not covered by this small-JSON example.
+- The [request variants recording](#walkthrough-breakpoints-request-variants) separately shows Header-only, HTTP empty Text preserving the original body, product-saved JSON and a six-byte binary File, and response status changed to 202. A header-stage breakpoint lacking a complete body snapshot does not prevent a later Capture preview. Binary File shows metadata, not a fabricated text preview. See [Capture body limits](capture.md#walkthrough-capture-body-limits) for large previews and full saving.
 
 <a id="queues"></a>
 ## Handle multiple waiting items
@@ -508,7 +508,7 @@ This is `breakpoints-queue`, using origin `http://127.0.0.1:56242/`; the port be
 - Each waiting item keeps its own draft while selected elsewhere.
 - Client timeouts/disconnects can remove items. Never reuse a stale ID against a different request.
 - There is no hidden queue-size limit that automatically continues traffic.
-- If you selected another request, continue deliberately rather than treating lack of automatic navigation as a lost wait. **Image pending:** client timeouts/disconnects, stale-ID rejection and mixed request/response/WebSocket-upgrade queues still need their own cases.
+- If you selected another request, continue deliberately. The [mixed-queue recording](#walkthrough-breakpoints-mixed-queues) checks a shared HTTP request/response queue and an independent connection-message queue; actual client cancellation is also in the manager recording. The tested Release establishes Upgrade without an HTTP pending item, so no Queued state is fabricated from architectural expectations. Removed IDs are not forcibly reused through an internal API.
 
 <a id="batch"></a>
 ## Use batch commands and the manager
@@ -579,7 +579,7 @@ Continue from the preceding `http` queue containing POST-A, POST-B and PUT-A, wi
 
 **Notes:** manager rule toggles/removal apply immediately; ordinary Rules editing follows its own Apply flow. Batch Continue ignores editor drafts. Disabling matching does not prove all existing clients have been released.
 
-**Image pending:** cleanup here uses Rules disable/Apply, not separate manager toggles/removal. These three fixed batches also do not demonstrate arrivals concurrent with a batch operation.
+The [manager recording](#walkthrough-breakpoints-manager) independently demonstrates manager switches, removal, subsequent matching and the corresponding rule. Concurrent arrivals are an operational boundary; a fixed-batch video is not exhaustive coverage of every internal race.
 
 <a id="websocket"></a>
 ## Pause and edit WebSocket frames
@@ -706,7 +706,7 @@ This separate example uses `ws://127.0.0.1:58082/guide/websocket/text`; `58082` 
 
 30. For simultaneous Both or ping/pong/close interception, select those directions/types and verify them separately.
 
-    **Image pending:** this clip uses Sent/Received message interception separately, not simultaneous Both, control frames, close-code editing, empty Text or old waits after switching connections. Normal client close is not close-frame interception.
+    The [control-frame recording](#walkthrough-breakpoints-websocket-controls) independently selects Both, actually intercepts ping, pong and close, and edits the close code. It also verifies empty Text forwards zero bytes when the WebSocket payload is known. Code 1001 is what the origin side actually receives; the client-side close acknowledgement can remain 1000, so do not conflate the two connections.
 
 **Expected result:** frames wait within that connection's Messages view rather than a reused HTTP editor.
 
@@ -742,7 +742,7 @@ This separate example uses `ws://127.0.0.1:58082/guide/websocket/text`; `58082` 
 
    ![Workspace state before the actual Close](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
-   **Image pending:** abnormal release when quitting with unresolved waits, the Close click itself and separate proxy/process-cleanup images are still missing. Disabled rules or a pre-close image do not prove those branches.
+   [Normal Close with pending traffic](#walkthrough-breakpoints-mixed-queues-16-before-close) actually retains HTTP and WS waits before closing, separately verifying client cancellation, no forwarding and host recovery. Its image is the pre-close state, not an exited-process image. No Core force-kill or desktop recording is used to manufacture footage.
 
 **Expected result:** a user decision, client disconnection or Core lifecycle event resolves waits. No fixed timeout automatically continues them.
 
@@ -1463,3 +1463,871 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:breakpoints-websocket:end -->
+
+<!-- recorded-walkthrough:breakpoints-manager:start -->
+<a id="walkthrough-breakpoints-manager"></a>
+## Recorded walkthrough: shortcut undo, global and Rule switches, and client abort
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>url</code> | <code>http://127.0.0.1:63537/guide/breakpoint-manager/request</code> |
+| <code>shortcutScope</code> | <code>endpoint</code> |
+| <code>generatedRuleName</code> | <code>断点 · 127.0.0.1/guide/breakpoint-manager/request</code> |
+| <code>abortHeader</code> | <code>x-guide-attempt: abort</code> |
+| <code>resumedHeader</code> | <code>x-guide-attempt: after-abort</code> |
+| <code>finalState</code> | <code>Break on match enabled; this endpoint Rule disabled and applied; no pending item remains</code> |
+
+<a id="walkthrough-breakpoints-manager-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-manager-01-source"></a>
+### 01 · Inspect the captured shortcut source
+
+[Video 00:00](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=0.384) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![01 · Inspect the captured shortcut source](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png)
+
+<a id="walkthrough-breakpoints-manager-02-menu"></a>
+### 02 · Open the Breakpoint scope menu
+
+[Video 00:03](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=3.573) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![02 · Open the Breakpoint scope menu](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-02-menu.png)
+
+<a id="walkthrough-breakpoints-manager-03-create"></a>
+### 03 · Choose Endpoint and apply immediately
+
+[Video 00:07](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=7.098) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![03 · Choose Endpoint and apply immediately](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-03-create.png)
+
+<a id="walkthrough-breakpoints-manager-04-undo"></a>
+### 04 · Use Undo in the creation notice
+
+[Video 00:07](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=7.873) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![04 · Use Undo in the creation notice](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-04-undo.png)
+
+<a id="walkthrough-breakpoints-manager-05-after-undo"></a>
+### 05 · Send a new request to verify undo
+
+[Video 00:11](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=11.197) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![05 · Send a new request to verify undo](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-05-after-undo.png)
+
+<a id="walkthrough-breakpoints-manager-06-recreate-menu"></a>
+### 06 · Reopen the same Endpoint menu
+
+[Video 00:14](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=14.204) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![06 · Reopen the same Endpoint menu](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-06-recreate-menu.png)
+
+<a id="walkthrough-breakpoints-manager-07-recreate"></a>
+### 07 · Recreate this example Breakpoint
+
+[Video 00:17](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=17.647) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![07 · Recreate this example Breakpoint](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-07-recreate.png)
+
+<a id="walkthrough-breakpoints-manager-08-manager"></a>
+### 08 · Open the Breakpoint manager
+
+[Video 00:20](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=20.701) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![08 · Open the Breakpoint manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-08-manager.png)
+
+<a id="walkthrough-breakpoints-manager-09-global-off"></a>
+### 09 · Turn off global Break on match
+
+[Video 00:23](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=23.751) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![09 · Turn off global Break on match](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-09-global-off.png)
+
+<a id="walkthrough-breakpoints-manager-10-close-manager"></a>
+### 10 · Close the manager
+
+[Video 00:26](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=26.753) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![10 · Close the manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-10-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-11-not-paused"></a>
+### 11 · Verify new requests do not pause while globally disabled
+
+[Video 00:30](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=30.102) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![11 · Verify new requests do not pause while globally disabled](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-11-not-paused.png)
+
+<a id="walkthrough-breakpoints-manager-12-manager-again"></a>
+### 12 · Open the manager again
+
+[Video 00:33](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=33.097) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![12 · Open the manager again](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-12-manager-again.png)
+
+<a id="walkthrough-breakpoints-manager-13-global-on"></a>
+### 13 · Enable Break on match again
+
+[Video 00:36](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=36.097) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![13 · Enable Break on match again](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-13-global-on.png)
+
+<a id="walkthrough-breakpoints-manager-14-close-manager"></a>
+### 14 · Return to the request list
+
+[Video 00:39](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=39.154) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![14 · Return to the request list](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-14-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-15-abort-pending"></a>
+### 15 · Send a request that the client will cancel
+
+[Video 00:42](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=42.451) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![15 · Send a request that the client will cancel](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-15-abort-pending.png)
+
+<a id="walkthrough-breakpoints-manager-16-select-pending"></a>
+### 16 · Inspect this Head item
+
+[Video 00:45](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=45.396) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![16 · Inspect this Head item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-16-select-pending.png)
+
+<a id="walkthrough-breakpoints-manager-17-client-abort"></a>
+### 17 · Let the client abort and release the pending item
+
+[Video 00:48](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=48.397) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![17 · Let the client abort and release the pending item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-17-client-abort.png)
+
+<a id="walkthrough-breakpoints-manager-18-new-wait"></a>
+### 18 · Send again to obtain a new pending item
+
+[Video 00:51](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=51.394) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![18 · Send again to obtain a new pending item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-18-new-wait.png)
+
+<a id="walkthrough-breakpoints-manager-19-continue-request"></a>
+### 19 · Continue the request phase unchanged
+
+[Video 00:54](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=54.496) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![19 · Continue the request phase unchanged](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-19-continue-request.png)
+
+<a id="walkthrough-breakpoints-manager-20-continue-response"></a>
+### 20 · Continue the response phase unchanged
+
+[Video 00:57](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=57.783) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![20 · Continue the response phase unchanged](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-20-continue-response.png)
+
+<a id="walkthrough-breakpoints-manager-21-rule-manager"></a>
+### 21 · Open the manager to disable one Rule
+
+[Video 01:00](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=60.987) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![21 · Open the manager to disable one Rule](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-21-rule-manager.png)
+
+<a id="walkthrough-breakpoints-manager-22-rule-off"></a>
+### 22 · Disable only this Endpoint Rule
+
+[Video 01:03](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=63.953) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![22 · Disable only this Endpoint Rule](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-22-rule-off.png)
+
+<a id="walkthrough-breakpoints-manager-23-close-manager"></a>
+### 23 · Return to the list to inspect disabling
+
+[Video 01:06](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=66.945) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![23 · Return to the list to inspect disabling](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-23-close-manager.png)
+
+<a id="walkthrough-breakpoints-manager-24-rule-disabled"></a>
+### 24 · Verify the disabled Rule no longer pauses new requests
+
+[Video 01:10](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=70.212) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![24 · Verify the disabled Rule no longer pauses new requests](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-24-rule-disabled.png)
+
+<a id="walkthrough-breakpoints-manager-25-open-rule"></a>
+### 25 · Open the corresponding Rule from the manager
+
+[Video 01:13](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager.mp4#t=73.147) · [Back to the video](#walkthrough-breakpoints-manager-video)
+
+![25 · Open the corresponding Rule from the manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-25-open-rule.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:breakpoints-manager:end -->
+
+<!-- recorded-walkthrough:breakpoints-websocket-controls:start -->
+<a id="walkthrough-breakpoints-websocket-controls"></a>
+## Recorded walkthrough: Both, empty Text, Ping/Pong and close-code editing
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>path</code> | <code>/guide/websocket-controls</code> |
+| <code>originalMessage</code> | <code>guide-before-empty</code> |
+| <code>replacement</code> | <code>empty Text produces an empty WebSocket message</code> |
+| <code>directions</code> | <code>Both for message and ping/pong; Sent only for close</code> |
+| <code>ping</code> | <code>guide-ping</code> |
+| <code>afterDisabled</code> | <code>guide-unpaused is delivered without any pending item</code> |
+| <code>originalClose</code> | <code>1000, guide-close</code> |
+| <code>forwardedClose</code> | <code>1001, guide-close</code> |
+| <code>clientAcknowledgement</code> | <code>The client-side close acknowledgement is 1000; do not equate both connection directions</code> |
+
+<a id="walkthrough-breakpoints-websocket-controls-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-websocket-controls-01-connect"></a>
+### 01 · Open the control-frame example connection
+
+[Video 00:00](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=0.475) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![01 · Open the control-frame example connection](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-02-select"></a>
+### 02 · Select this connection
+
+[Video 00:03](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=3.388) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![02 · Select this connection](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-02-select.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-03-messages"></a>
+### 03 · Open Messages
+
+[Video 00:06](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=6.430) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![03 · Open Messages](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-03-messages.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-04-setup"></a>
+### 04 · Open connection breakpoint settings
+
+[Video 00:09](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=9.375) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![04 · Open connection breakpoint settings](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-04-setup.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-05-both"></a>
+### 05 · Select Both directions
+
+[Video 00:12](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=12.326) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![05 · Select Both directions](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-05-both.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-06-ping"></a>
+### 06 · Include ping frames
+
+[Video 00:15](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=15.225) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![06 · Include ping frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-06-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-07-pong"></a>
+### 07 · Include pong frames
+
+[Video 00:18](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=18.178) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![07 · Include pong frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-07-pong.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-08-enable"></a>
+### 08 · Enable Both message and ping/pong breakpoints
+
+[Video 00:21](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=21.224) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![08 · Enable Both message and ping/pong breakpoints](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-08-enable.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-09-text"></a>
+### 09 · Send and pause a non-empty message
+
+[Video 00:24](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=24.175) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![09 · Send and pause a non-empty message](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-09-text.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-10-empty-mode"></a>
+### 10 · Choose Text replacement
+
+[Video 00:27](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=27.325) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![10 · Choose Text replacement](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-10-empty-mode.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-11-empty-value"></a>
+### 11 · Explicitly leave Text empty
+
+[Video 00:30](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=30.334) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![11 · Explicitly leave Text empty](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-11-empty-value.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-12-empty-forward"></a>
+### 12 · Forward an empty message instead of keeping the original
+
+[Video 00:33](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=33.264) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![12 · Forward an empty message instead of keeping the original](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-12-empty-forward.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-13-empty-echo"></a>
+### 13 · Continue the return direction in Both mode
+
+[Video 00:36](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=36.281) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![13 · Continue the return direction in Both mode](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-13-empty-echo.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-14-send-ping"></a>
+### 14 · Send and pause guide-ping
+
+[Video 00:39](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=39.279) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![14 · Send and pause guide-ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-14-send-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-15-continue-ping"></a>
+### 15 · Continue ping unchanged
+
+[Video 00:42](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=42.381) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![15 · Continue ping unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-15-continue-ping.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-16-continue-pong"></a>
+### 16 · Continue the returning pong unchanged
+
+[Video 00:45](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=45.479) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![16 · Continue the returning pong unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-16-continue-pong.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-17-disable-both"></a>
+### 17 · Disable the current Both settings
+
+[Video 00:48](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=48.480) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![17 · Disable the current Both settings](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-17-disable-both.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-18-close-setup"></a>
+### 18 · Open connection settings again
+
+[Video 00:51](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=51.430) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![18 · Open connection settings again](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-18-close-setup.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-19-close-sent"></a>
+### 19 · Select Sent for the close example
+
+[Video 00:54](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=54.389) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![19 · Select Sent for the close example](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-19-close-sent.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-message-off"></a>
+### 20 · Stop pausing message
+
+[Video 00:57](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=57.343) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![20 · Stop pausing message](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-message-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-ping-off"></a>
+### 21 · Stop pausing ping
+
+[Video 01:00](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=60.330) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![21 · Stop pausing ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-ping-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-20-pong-off"></a>
+### 22 · Stop pausing pong
+
+[Video 01:03](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=63.283) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![22 · Stop pausing pong](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-pong-off.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-21-close-on"></a>
+### 23 · Select close control frames
+
+[Video 01:06](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=66.230) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![23 · Select close control frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-21-close-on.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-22-enable-close"></a>
+### 24 · Enable the Sent close breakpoint
+
+[Video 01:09](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=69.233) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![24 · Enable the Sent close breakpoint](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-22-enable-close.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-23-close-request"></a>
+### 25 · Ask the client to close with code 1000
+
+[Video 01:12](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=72.183) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![25 · Ask the client to close with code 1000](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-23-close-request.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-24-close-code"></a>
+### 26 · Change only the close code to 1001
+
+[Video 01:15](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=75.279) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![26 · Change only the close code to 1001](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-24-close-code.png)
+
+<a id="walkthrough-breakpoints-websocket-controls-25-close-forward"></a>
+### 27 · Verify the origin edit and the actual client close acknowledgement
+
+[Video 01:18](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls.mp4#t=78.282) · [Back to the video](#walkthrough-breakpoints-websocket-controls-video)
+
+![27 · Verify the origin edit and the actual client close acknowledgement](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-25-close-forward.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:breakpoints-websocket-controls:end -->
+
+<!-- recorded-walkthrough:breakpoints-request-variants:start -->
+<a id="walkthrough-breakpoints-request-variants"></a>
+## Request Headers, empty Text, Files and response status
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>ruleName</code> | <code>Guide request variants</code> |
+| <code>path</code> | <code>/guide/request-variants</code> |
+| <code>originalRequest</code> | <code>{&quot;message&quot;:&quot;guide-original-request&quot;}</code> |
+| <code>requestHeader</code> | <code>x-guide-request: header-only</code> |
+| <code>jsonFile</code> | <code>guide-request.json</code> |
+| <code>jsonFileBody</code> | <code>{&quot;message&quot;:&quot;guide-file-request&quot;,&quot;count&quot;:2}</code> |
+| <code>binaryFile</code> | <code>guide-request.bin</code> |
+| <code>binaryHex</code> | <code>00010203feff</code> |
+| <code>responseStatus</code> | <code>202</code> |
+| <code>retainedResponseBody</code> | <code>{&quot;message&quot;:&quot;guide-origin-response&quot;}</code> |
+| <code>binaryPreview</code> | <code>The release shows file metadata without a text preview; forwarding still sends all six bytes</code> |
+| <code>httpSnapshot</code> | <code>HTTP suspension is at the head stage; Capture may independently provide a readable original preview</code> |
+| <code>source</code> | <code>Both replacement files are generated by this workflow’s real Save body</code> |
+
+<a id="walkthrough-breakpoints-request-variants-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-request-variants-json-01-source"></a>
+### 01 · Fetch the public json source body
+
+[Video 00:00](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=0.490) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![01 · Fetch the public json source body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-02-select"></a>
+### 02 · Select the source response
+
+[Video 00:03](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=3.511) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![02 · Select the source response](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-02-select.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-03-save"></a>
+### 03 · Save guide-request.json through the product
+
+[Video 00:16](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=16.651) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![03 · Save guide-request.json through the product](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-03-save.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-04-saved"></a>
+### 04 · Verify the actually saved bytes
+
+[Video 00:20](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=20.915) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![04 · Verify the actually saved bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-04-saved.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-01-source"></a>
+### 05 · Fetch the public binary source body
+
+[Video 00:23](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=23.886) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![05 · Fetch the public binary source body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-01-source.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-02-select"></a>
+### 06 · Select the source response
+
+[Video 00:26](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=26.863) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![06 · Select the source response](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-02-select.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-03-save"></a>
+### 07 · Save guide-request.bin through the product
+
+[Video 00:38](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=38.951) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![07 · Save guide-request.bin through the product](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-03-save.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-04-saved"></a>
+### 08 · Verify the actually saved bytes
+
+[Video 00:43](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=43.230) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![08 · Verify the actually saved bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-04-saved.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>
+### 09 · Send and select the Header-only pending request
+
+[Video 00:46](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=46.200) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![09 · Send and select the Header-only pending request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-02-off"></a>
+### 10 · Keep Body explicitly Off
+
+[Video 00:49](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=49.408) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![10 · Keep Body explicitly Off](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-02-off.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-03-add"></a>
+### 11 · Add a request Header row
+
+[Video 00:52](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=52.448) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![11 · Add a request Header row](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-03-add.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-04-name"></a>
+### 12 · Enter x-guide-request
+
+[Video 00:55](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=55.477) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![12 · Enter x-guide-request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-04-name.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-05-value"></a>
+### 13 · Enter header-only
+
+[Video 00:58](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=58.477) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![13 · Enter header-only](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-05-value.png)
+
+<a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>
+### 14 · Forward edited while retaining the original body
+
+[Video 01:01](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=61.481) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![14 · Forward edited while retaining the original body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-06-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-01-pending"></a>
+### 15 · Send the empty-Text example
+
+[Video 01:04](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=64.558) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![15 · Send the empty-Text example](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-02-text"></a>
+### 16 · Choose Text without entering a replacement
+
+[Video 01:07](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=67.719) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![16 · Choose Text without entering a replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-02-text.png)
+
+<a id="walkthrough-breakpoints-request-variants-empty-03-forward"></a>
+### 17 · Verify empty Text at the HTTP head stage retains the original body
+
+[Video 01:10](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=70.774) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![17 · Verify empty Text at the HTTP head stage retains the original body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-03-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-01-pending"></a>
+### 18 · Send the File replacement request
+
+[Video 01:13](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=73.838) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![18 · Send the File replacement request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-02-mode"></a>
+### 19 · Choose File replacement
+
+[Video 01:17](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=77.055) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![19 · Choose File replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-02-mode.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-03-open"></a>
+### 20 · Select the product-saved guide-request.json
+
+[Video 01:27](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=87.088) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![20 · Select the product-saved guide-request.json](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-03-open.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-04-preview"></a>
+### 21 · Inspect the actually selected file
+
+[Video 01:31](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=91.388) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![21 · Inspect the actually selected file](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-04-preview.png)
+
+<a id="walkthrough-breakpoints-request-variants-json-file-05-forward"></a>
+### 22 · Verify the origin received the complete file bytes
+
+[Video 01:34](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=94.481) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![22 · Verify the origin received the complete file bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-05-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-01-pending"></a>
+### 23 · Send the File replacement request
+
+[Video 01:37](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=97.549) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![23 · Send the File replacement request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-01-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-02-mode"></a>
+### 24 · Choose File replacement
+
+[Video 01:40](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=100.723) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![24 · Choose File replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-02-mode.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-03-open"></a>
+### 25 · Select the product-saved guide-request.bin
+
+[Video 01:50](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=110.493) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![25 · Select the product-saved guide-request.bin](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-03-open.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-04-preview"></a>
+### 26 · Inspect the actually selected file
+
+[Video 01:54](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=114.814) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![26 · Inspect the actually selected file](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04-preview.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-04a-type"></a>
+### 27 · Explicitly change Content-Type to binary
+
+[Video 01:57](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=117.846) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![27 · Explicitly change Content-Type to binary](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04a-type.png)
+
+<a id="walkthrough-breakpoints-request-variants-binary-file-05-forward"></a>
+### 28 · Verify the origin received the complete file bytes
+
+[Video 02:00](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=120.843) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![28 · Verify the origin received the complete file bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-05-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-01-rule"></a>
+### 29 · Return to the same Rule
+
+[Video 02:03](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=123.932) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![29 · Return to the same Rule](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-01-rule.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-02-phase"></a>
+### 30 · Switch to the response phase
+
+[Video 02:07](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=127.060) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![30 · Switch to the response phase](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-02-phase.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-03-apply"></a>
+### 31 · Apply the response phase
+
+[Video 02:10](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=130.459) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![31 · Apply the response phase](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-03-apply.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-04-capture"></a>
+### 32 · Return to Capture
+
+[Video 02:13](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=133.522) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![32 · Return to Capture](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-04-capture.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-05-pending"></a>
+### 33 · Send and wait for response headers
+
+[Video 02:16](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=136.619) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![33 · Send and wait for response headers](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-05-pending.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-06-code"></a>
+### 34 · Change response status to 202
+
+[Video 02:20](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=140.315) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![34 · Change response status to 202](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-06-code.png)
+
+<a id="walkthrough-breakpoints-request-variants-status-07-forward"></a>
+### 35 · Verify the status changes while the response body is retained
+
+[Video 02:23](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=143.962) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![35 · Verify the status changes while the response body is retained](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-07-forward.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-01-rule"></a>
+### 36 · Return to the Rule for cleanup
+
+[Video 02:27](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=147.102) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![36 · Return to the Rule for cleanup](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-01-rule.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-02-disable"></a>
+### 37 · Disable this Rule
+
+[Video 02:30](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=150.190) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![37 · Disable this Rule](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-02-disable.png)
+
+<a id="walkthrough-breakpoints-request-variants-finish-03-apply"></a>
+### 38 · Apply the disabled state
+
+[Video 02:33](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants.mp4#t=153.211) · [Back to the video](#walkthrough-breakpoints-request-variants-video)
+
+![38 · Apply the disabled state](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-03-apply.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:breakpoints-request-variants:end -->
+
+<!-- recorded-walkthrough:breakpoints-mixed-queues:start -->
+<a id="walkthrough-breakpoints-mixed-queues"></a>
+## Recorded walkthrough: mixed queues, actual Upgrade behavior and shutdown with pending traffic
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>requestPath</code> | <code>/guide/mixed/request-head</code> |
+| <code>responsePath</code> | <code>/guide/mixed/response-queued</code> |
+| <code>upgradePath</code> | <code>/guide/mixed/upgrade-queued</code> |
+| <code>livePath</code> | <code>/guide/mixed/live</code> |
+| <code>exitPath</code> | <code>/guide/mixed/request-exit</code> |
+| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;guide-original-http&quot;}</code> |
+| <code>unsentDraft</code> | <code>{&quot;message&quot;:&quot;guide-unsubmitted-draft&quot;}</code> |
+| <code>firstFrame</code> | <code>guide-ws-head</code> |
+| <code>secondFrame</code> | <code>guide-ws-queued</code> |
+| <code>exitFrame</code> | <code>guide-ws-exit-must-not-forward</code> |
+| <code>httpScope</code> | <code>Request and response waits share queueKey=http</code> |
+| <code>upgradeBoundary</code> | <code>The released App established this real Upgrade without a pending item despite the configured narrow GET Rule; no queued Upgrade is claimed</code> |
+| <code>wsScope</code> | <code>Established connection frames have a separate ws:* queue</code> |
+| <code>closeImage</code> | <code>Before the actual Close; post-close cancellation and host restoration are separate evidence, not a desktop recording</code> |
+
+<a id="walkthrough-breakpoints-mixed-queues-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4" poster="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.vtt" default>
+</video>
+
+<a id="walkthrough-breakpoints-mixed-queues-01-http-head"></a>
+### 01 · Send an HTTP request as queue head
+
+[Video 00:00](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=0.322) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![01 · Send an HTTP request as queue head](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-02-response-queued"></a>
+### 02 · Queue a response in the same HTTP queue
+
+[Video 00:03](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=3.470) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![02 · Queue a response in the same HTTP queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-02-response-queued.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-03-upgrade-result"></a>
+### 03 · Observe Upgrade connecting without joining this queue
+
+[Video 00:06](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=6.604) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![03 · Observe Upgrade connecting without joining this queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-03-upgrade-result.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-04-live-connection"></a>
+### 04 · Select the established WS connection
+
+[Video 00:10](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=10.196) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![04 · Select the established WS connection](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-04-live-connection.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-05-ws-head"></a>
+### 05 · Send the first WS frame as its own queue head
+
+[Video 00:13](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=13.295) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![05 · Send the first WS frame as its own queue head](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-05-ws-head.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-06-ws-queued"></a>
+### 06 · Queue an origin frame in the same WS queue
+
+[Video 00:16](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=16.693) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![06 · Queue an origin frame in the same WS queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-06-ws-queued.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-07-http-draft"></a>
+### 07 · Enter an HTTP head draft without submitting it
+
+[Video 00:19](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=19.923) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![07 · Enter an HTTP head draft without submitting it](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-07-http-draft.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-08-inspect-response"></a>
+### 08 · Select the queued response for read-only inspection
+
+[Video 00:23](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=23.929) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![08 · Select the queued response for read-only inspection](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-08-inspect-response.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-09-inspect-upgrade"></a>
+### 09 · Select the established connection without claiming Queued
+
+[Video 00:27](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=27.156) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![09 · Select the established connection without claiming Queued](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-09-inspect-upgrade.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-10-http-menu"></a>
+### 10 · Return to the HTTP head and open batch actions
+
+[Video 00:30](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=30.953) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![10 · Return to the HTTP head and open batch actions](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-10-http-menu.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-11-continue-http"></a>
+### 11 · Continue only HTTP without applying the draft
+
+[Video 00:34](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=34.339) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![11 · Continue only HTTP without applying the draft](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-11-continue-http.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-12-ws-still-pending"></a>
+### 12 · Return to WS and confirm its waits remain
+
+[Video 00:38](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=38.154) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![12 · Return to WS and confirm its waits remain](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-12-ws-still-pending.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-13-drop-ws"></a>
+### 13 · Drop only the current WS queue
+
+[Video 00:41](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=41.534) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![13 · Drop only the current WS queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-13-drop-ws.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-14-exit-http"></a>
+### 14 · Hold a new HTTP request for the exit scenario
+
+[Video 00:45](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=45.053) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![14 · Hold a new HTTP request for the exit scenario](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-14-exit-http.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-15-exit-ws"></a>
+### 15 · Retain a WS wait at the same time
+
+[Video 00:48](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=48.126) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![15 · Retain a WS wait at the same time](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-15-exit-ws.png)
+
+<a id="walkthrough-breakpoints-mixed-queues-16-before-close"></a>
+### 16 · Record both waits before the actual Close
+
+[Video 00:51](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues.mp4#t=51.398) · [Back to the video](#walkthrough-breakpoints-mixed-queues-video)
+
+![16 · Record both waits before the actual Close](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-16-before-close.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:breakpoints-mixed-queues:end -->

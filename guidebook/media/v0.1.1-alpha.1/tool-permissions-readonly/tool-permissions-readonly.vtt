@@ -1,0 +1,445 @@
+WEBVTT
+
+1
+00:00:00.362 --> 00:00:03.364
+查找capture_clear / Find capture_clear
+
+2
+00:00:03.364 --> 00:00:06.421
+关闭Agent清理权限 / Disable Agent clear access
+
+3
+00:00:06.421 --> 00:00:09.475
+独立关闭MCP清理权限 / Independently disable MCP clear access
+
+4
+00:00:09.475 --> 00:00:12.522
+核对真实MCP调用被拒绝 / Verify the actual MCP call is rejected
+
+5
+00:00:12.522 --> 00:00:15.641
+打开本地演示Agent / Open the local demo Agent
+
+6
+00:00:15.641 --> 00:00:18.788
+核对Agent也不能执行禁用动作 / Verify Agent also cannot execute the disabled action
+
+7
+00:00:18.788 --> 00:00:21.872
+实际记录仍保留 / Verify the actual record remains
+
+8
+00:00:21.872 --> 00:00:25.253
+关闭面板返回授权表 / Close the panel and return to capabilities
+
+9
+00:00:25.253 --> 00:00:28.310
+清空搜索显示全部分组 / Clear search to show every group
+
+10
+00:00:28.310 --> 00:00:31.537
+关闭agent的capture_start_recording / Disable agent capture_start_recording
+
+11
+00:00:31.537 --> 00:00:35.313
+关闭mcp的capture_start_recording / Disable mcp capture_start_recording
+
+12
+00:00:35.313 --> 00:00:38.618
+关闭agent的capture_stop_recording / Disable agent capture_stop_recording
+
+13
+00:00:38.618 --> 00:00:41.919
+关闭mcp的capture_stop_recording / Disable mcp capture_stop_recording
+
+14
+00:00:41.919 --> 00:00:45.197
+关闭agent的capture_cancel_transfer_job / Disable agent capture_cancel_transfer_job
+
+15
+00:00:45.197 --> 00:00:48.424
+关闭mcp的capture_cancel_transfer_job / Disable mcp capture_cancel_transfer_job
+
+16
+00:00:48.424 --> 00:00:51.646
+关闭agent的capture_export_body / Disable agent capture_export_body
+
+17
+00:00:51.646 --> 00:00:54.921
+关闭mcp的capture_export_body / Disable mcp capture_export_body
+
+18
+00:00:54.921 --> 00:00:58.179
+关闭agent的capture_export_har / Disable agent capture_export_har
+
+19
+00:00:58.179 --> 00:01:01.429
+关闭mcp的capture_export_har / Disable mcp capture_export_har
+
+20
+00:01:01.429 --> 00:01:04.611
+关闭agent的capture_import_har / Disable agent capture_import_har
+
+21
+00:01:04.611 --> 00:01:07.855
+关闭mcp的capture_import_har / Disable mcp capture_import_har
+
+22
+00:01:07.855 --> 00:01:11.118
+关闭agent的capture_export_archive / Disable agent capture_export_archive
+
+23
+00:01:11.118 --> 00:01:14.323
+关闭mcp的capture_export_archive / Disable mcp capture_export_archive
+
+24
+00:01:14.323 --> 00:01:17.541
+关闭agent的capture_import_archive / Disable agent capture_import_archive
+
+25
+00:01:17.541 --> 00:01:20.851
+关闭mcp的capture_import_archive / Disable mcp capture_import_archive
+
+26
+00:01:20.851 --> 00:01:24.139
+关闭agent的rules_replace_tree / Disable agent rules_replace_tree
+
+27
+00:01:24.139 --> 00:01:27.362
+关闭mcp的rules_replace_tree / Disable mcp rules_replace_tree
+
+28
+00:01:27.362 --> 00:01:30.545
+关闭agent的rules_export / Disable agent rules_export
+
+29
+00:01:30.545 --> 00:01:33.722
+关闭mcp的rules_export / Disable mcp rules_export
+
+30
+00:01:33.722 --> 00:01:36.917
+关闭agent的rules_import / Disable agent rules_import
+
+31
+00:01:36.917 --> 00:01:40.674
+关闭mcp的rules_import / Disable mcp rules_import
+
+32
+00:01:40.674 --> 00:01:43.890
+关闭agent的composer_send_request / Disable agent composer_send_request
+
+33
+00:01:43.890 --> 00:01:47.173
+关闭mcp的composer_send_request / Disable mcp composer_send_request
+
+34
+00:01:47.173 --> 00:01:50.419
+关闭agent的composer_probe_connection / Disable agent composer_probe_connection
+
+35
+00:01:50.419 --> 00:01:53.639
+关闭mcp的composer_probe_connection / Disable mcp composer_probe_connection
+
+36
+00:01:53.639 --> 00:01:56.893
+关闭agent的composer_replace_collection / Disable agent composer_replace_collection
+
+37
+00:01:56.893 --> 00:02:00.149
+关闭mcp的composer_replace_collection / Disable mcp composer_replace_collection
+
+38
+00:02:00.149 --> 00:02:03.390
+关闭agent的composer_export_collection / Disable agent composer_export_collection
+
+39
+00:02:03.390 --> 00:02:06.597
+关闭mcp的composer_export_collection / Disable mcp composer_export_collection
+
+40
+00:02:06.597 --> 00:02:09.812
+关闭agent的composer_import_collection / Disable agent composer_import_collection
+
+41
+00:02:09.812 --> 00:02:13.033
+关闭mcp的composer_import_collection / Disable mcp composer_import_collection
+
+42
+00:02:13.033 --> 00:02:16.265
+关闭agent的breakpoints_enable_http / Disable agent breakpoints_enable_http
+
+43
+00:02:16.265 --> 00:02:19.479
+关闭mcp的breakpoints_enable_http / Disable mcp breakpoints_enable_http
+
+44
+00:02:19.479 --> 00:02:22.687
+关闭agent的breakpoints_disable_http / Disable agent breakpoints_disable_http
+
+45
+00:02:22.687 --> 00:02:25.867
+关闭mcp的breakpoints_disable_http / Disable mcp breakpoints_disable_http
+
+46
+00:02:25.867 --> 00:02:29.056
+关闭agent的breakpoints_enable_websocket / Disable agent breakpoints_enable_websocket
+
+47
+00:02:29.056 --> 00:02:32.292
+关闭mcp的breakpoints_enable_websocket / Disable mcp breakpoints_enable_websocket
+
+48
+00:02:32.292 --> 00:02:35.504
+关闭agent的breakpoints_disable_websocket / Disable agent breakpoints_disable_websocket
+
+49
+00:02:35.504 --> 00:02:38.699
+关闭mcp的breakpoints_disable_websocket / Disable mcp breakpoints_disable_websocket
+
+50
+00:02:38.699 --> 00:02:41.931
+关闭agent的breakpoints_continue / Disable agent breakpoints_continue
+
+51
+00:02:41.931 --> 00:02:45.144
+关闭mcp的breakpoints_continue / Disable mcp breakpoints_continue
+
+52
+00:02:45.144 --> 00:02:48.371
+关闭agent的breakpoints_forward_edited / Disable agent breakpoints_forward_edited
+
+53
+00:02:48.371 --> 00:02:51.571
+关闭mcp的breakpoints_forward_edited / Disable mcp breakpoints_forward_edited
+
+54
+00:02:51.571 --> 00:02:54.763
+关闭agent的breakpoints_drop / Disable agent breakpoints_drop
+
+55
+00:02:54.763 --> 00:02:57.932
+关闭mcp的breakpoints_drop / Disable mcp breakpoints_drop
+
+56
+00:02:57.932 --> 00:03:01.115
+关闭agent的breakpoints_continue_queue / Disable agent breakpoints_continue_queue
+
+57
+00:03:01.115 --> 00:03:04.323
+关闭mcp的breakpoints_continue_queue / Disable mcp breakpoints_continue_queue
+
+58
+00:03:04.323 --> 00:03:07.550
+关闭agent的breakpoints_drop_queue / Disable agent breakpoints_drop_queue
+
+59
+00:03:07.550 --> 00:03:10.768
+关闭mcp的breakpoints_drop_queue / Disable mcp breakpoints_drop_queue
+
+60
+00:03:10.768 --> 00:03:13.975
+关闭agent的breakpoints_continue_rule / Disable agent breakpoints_continue_rule
+
+61
+00:03:13.975 --> 00:03:17.204
+关闭mcp的breakpoints_continue_rule / Disable mcp breakpoints_continue_rule
+
+62
+00:03:17.204 --> 00:03:20.417
+关闭agent的diagnostics_export / Disable agent diagnostics_export
+
+63
+00:03:20.417 --> 00:03:23.628
+关闭mcp的diagnostics_export / Disable mcp diagnostics_export
+
+64
+00:03:23.628 --> 00:03:26.846
+关闭agent的settings_generate_certificate / Disable agent settings_generate_certificate
+
+65
+00:03:26.846 --> 00:03:30.044
+关闭mcp的settings_generate_certificate / Disable mcp settings_generate_certificate
+
+66
+00:03:30.044 --> 00:03:33.284
+关闭agent的settings_install_certificate / Disable agent settings_install_certificate
+
+67
+00:03:33.284 --> 00:03:36.498
+关闭mcp的settings_install_certificate / Disable mcp settings_install_certificate
+
+68
+00:03:36.498 --> 00:03:39.707
+关闭agent的settings_uninstall_certificate / Disable agent settings_uninstall_certificate
+
+69
+00:03:39.707 --> 00:03:42.903
+关闭mcp的settings_uninstall_certificate / Disable mcp settings_uninstall_certificate
+
+70
+00:03:42.903 --> 00:03:46.125
+关闭agent的settings_delete_certificate / Disable agent settings_delete_certificate
+
+71
+00:03:46.125 --> 00:03:49.352
+关闭mcp的settings_delete_certificate / Disable mcp settings_delete_certificate
+
+72
+00:03:49.352 --> 00:03:52.570
+关闭agent的settings_reveal_certificate / Disable agent settings_reveal_certificate
+
+73
+00:03:52.570 --> 00:03:55.782
+关闭mcp的settings_reveal_certificate / Disable mcp settings_reveal_certificate
+
+74
+00:03:55.782 --> 00:03:59.014
+关闭agent的settings_view_certificate / Disable agent settings_view_certificate
+
+75
+00:03:59.014 --> 00:04:02.230
+关闭mcp的settings_view_certificate / Disable mcp settings_view_certificate
+
+76
+00:04:02.230 --> 00:04:05.454
+关闭agent的settings_open_certificate_manager / Disable agent settings_open_certificate_manager
+
+77
+00:04:05.454 --> 00:04:08.685
+关闭mcp的settings_open_certificate_manager / Disable mcp settings_open_certificate_manager
+
+78
+00:04:08.685 --> 00:04:11.904
+关闭agent的settings_enable_app_container / Disable agent settings_enable_app_container
+
+79
+00:04:11.904 --> 00:04:15.138
+关闭mcp的settings_enable_app_container / Disable mcp settings_enable_app_container
+
+80
+00:04:15.138 --> 00:04:18.397
+关闭agent的settings_disable_app_container / Disable agent settings_disable_app_container
+
+81
+00:04:18.397 --> 00:04:21.598
+关闭mcp的settings_disable_app_container / Disable mcp settings_disable_app_container
+
+82
+00:04:21.598 --> 00:04:24.769
+关闭agent的settings_enable_all_app_containers / Disable agent settings_enable_all_app_containers
+
+83
+00:04:24.769 --> 00:04:27.999
+关闭mcp的settings_enable_all_app_containers / Disable mcp settings_enable_all_app_containers
+
+84
+00:04:27.999 --> 00:04:31.203
+关闭agent的settings_disable_all_app_containers / Disable agent settings_disable_all_app_containers
+
+85
+00:04:31.203 --> 00:04:34.428
+关闭mcp的settings_disable_all_app_containers / Disable mcp settings_disable_all_app_containers
+
+86
+00:04:34.428 --> 00:04:37.622
+关闭agent的settings_enable_system_proxy / Disable agent settings_enable_system_proxy
+
+87
+00:04:37.622 --> 00:04:40.847
+关闭mcp的settings_enable_system_proxy / Disable mcp settings_enable_system_proxy
+
+88
+00:04:40.847 --> 00:04:44.025
+关闭agent的settings_restore_system_proxy / Disable agent settings_restore_system_proxy
+
+89
+00:04:44.025 --> 00:04:47.204
+关闭mcp的settings_restore_system_proxy / Disable mcp settings_restore_system_proxy
+
+90
+00:04:47.204 --> 00:04:50.435
+关闭agent的settings_replace_tls_insecure_hosts / Disable agent settings_replace_tls_insecure_hosts
+
+91
+00:04:50.435 --> 00:04:53.698
+关闭mcp的settings_replace_tls_insecure_hosts / Disable mcp settings_replace_tls_insecure_hosts
+
+92
+00:04:53.698 --> 00:04:56.907
+关闭agent的settings_replace_tls_passthrough / Disable agent settings_replace_tls_passthrough
+
+93
+00:04:56.907 --> 00:05:00.115
+关闭mcp的settings_replace_tls_passthrough / Disable mcp settings_replace_tls_passthrough
+
+94
+00:05:00.115 --> 00:05:03.336
+关闭agent的settings_enable_https_decryption / Disable agent settings_enable_https_decryption
+
+95
+00:05:03.336 --> 00:05:06.543
+关闭mcp的settings_enable_https_decryption / Disable mcp settings_enable_https_decryption
+
+96
+00:05:06.543 --> 00:05:09.756
+关闭agent的settings_disable_https_decryption / Disable agent settings_disable_https_decryption
+
+97
+00:05:09.756 --> 00:05:12.976
+关闭mcp的settings_disable_https_decryption / Disable mcp settings_disable_https_decryption
+
+98
+00:05:12.976 --> 00:05:16.166
+关闭agent的settings_set_language / Disable agent settings_set_language
+
+99
+00:05:16.166 --> 00:05:19.393
+关闭mcp的settings_set_language / Disable mcp settings_set_language
+
+100
+00:05:19.393 --> 00:05:22.596
+关闭agent的settings_set_theme / Disable agent settings_set_theme
+
+101
+00:05:22.596 --> 00:05:25.815
+关闭mcp的settings_set_theme / Disable mcp settings_set_theme
+
+102
+00:05:25.815 --> 00:05:29.024
+关闭agent的settings_set_export_privacy_defaults / Disable agent settings_set_export_privacy_defaults
+
+103
+00:05:29.024 --> 00:05:32.257
+关闭mcp的settings_set_export_privacy_defaults / Disable mcp settings_set_export_privacy_defaults
+
+104
+00:05:32.257 --> 00:05:35.284
+滚动复核capture分组 / Scroll to review the capture group
+
+105
+00:05:35.284 --> 00:05:38.339
+滚动复核rules分组 / Scroll to review the rules group
+
+106
+00:05:38.339 --> 00:05:41.352
+滚动复核composer分组 / Scroll to review the composer group
+
+107
+00:05:41.352 --> 00:05:44.364
+滚动复核breakpoints分组 / Scroll to review the breakpoints group
+
+108
+00:05:44.364 --> 00:05:47.380
+滚动复核diagnostics分组 / Scroll to review the diagnostics group
+
+109
+00:05:47.380 --> 00:05:50.398
+滚动复核settings分组 / Scroll to review the settings group
+
+110
+00:05:50.398 --> 00:05:54.039
+核对MCP只发现query / Verify MCP discovers query Tools only
+
+111
+00:05:54.039 --> 00:05:57.018
+保留完整只读配置后正常关闭 / Retain the complete read-only setup before normal Close

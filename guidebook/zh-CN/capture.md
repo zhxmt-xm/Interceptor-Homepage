@@ -429,17 +429,25 @@
 
     ![折叠组标题，不执行 Capture Clear](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
 
-15. 如需查看演示路径之外的全部流量，再清空搜索框。
+15. 点击搜索框右侧的清空按钮，移除 `/guide/filters`，而不是点击 Capture Clear。本次搜索框已空，仍保留全部四条记录，Recording 仍为暂停。[视频步骤](#walkthrough-capture-filters-13-clear-search)
 
-    **待配图**：本次最终仍保留 `/guide/filters` 搜索，没有录到完全清空搜索框的操作。
+    ![清空搜索后保留四条已暂停的演示记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 16. 需要其他维度时选择 Application、Host、Protocol、Content type 或 Rule。
 
-    **待配图**：新片段只操作 Method 与 Status，没有逐项操作其余分组，也不证明 Windows 应用归属。
+    [独立的全部分组实录](#walkthrough-capture-facets)从两条已捕获的公开请求开始：`/guide/facets/selected-json` 与 `/guide/facets/other-text`；已应用的 `Guide facets` 只命中前者，准备规则的方法见[Rules](rules.md#first-rule)。这不是前面四条请求的同一段录像。
+
+    按实录逐项[展开并选择 Application](#walkthrough-capture-facets-01-application)、[Host](#walkthrough-capture-facets-03-host-group)、[Protocol](#walkthrough-capture-facets-05-protocol-group)、[Content type](#walkthrough-capture-facets-07-type-group)与[Rule](#walkthrough-capture-facets-09-rule-group)，每次展开和选择都有独立图片与视频时间。macOS本次归属为Unknown，不冒充Windows应用识别。
+
+    ![只保留json且命中Guide facets的实际结果](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
+
+    取消json后仍由Rule保留一条；使用[清除分组筛选](#walkthrough-capture-facets-12-clear-facets)后恢复两条，但搜索词`/guide/facets`不变。筛选栏的[收起与显示](#walkthrough-capture-facets-13-hide-filters)也不删除记录。演示结束按实录停用并Apply `Guide facets`。
 
 **预期结果**
 
 同一组内多个选项是“满足任意一个”；不同组之间，以及搜索与分组之间，是“同时满足”。
+
+搜索匹配 Host 与 Path，不包含端口。需要找本机 TLS 示例时输入 `localhost`，再在详情中核对本次端口；不要把 `localhost:63604` 当作同等搜索。
 
 **关键说明**
 
@@ -470,9 +478,17 @@
 
    ![同一请求的 Timing](../media/v0.1.1-alpha.1/capture/capture-10-timing.png)
 
-5. 有请求正文时打开 Request；按需要拖动列表与详情分栏。
+5. 有请求正文时打开 Request。另一个[正文检查实录](#walkthrough-capture-inspection)使用 `POST /guide/inspection/body`，请求包含`requestId: guide-request`、96条entries及24个Query字段，不把它当成前面的GET。[视频步骤](#walkthrough-capture-inspection-09-request)
 
-   **待配图**：本次 GET 没有展示请求正文编辑区，也没有单独录制分栏拖动；Response 和 Timing 图不能替代。
+   ![实际POST的Request与查询字段](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
+
+6. 选择 Raw，读取相同的请求正文。[视频步骤](#walkthrough-capture-inspection-10-raw)
+
+   ![请求正文的Raw模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
+
+7. 拖动列表与详情之间的分隔轨道，扩大详情区域；本次向左拖240px，并在结束时恢复。[视频步骤](#walkthrough-capture-inspection-11-widen)
+
+   ![实际拖动后变宽的详情](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
 
 **预期结果**
 
@@ -500,7 +516,13 @@
 
    ![同一 JSON 的 Raw 模式，未声称是 Source](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
 
-   **待配图**：Source 的实际切换尚未录制。
+   Markdown使用独立的`/guide/inspection/body`响应，标题为`Guide response source`。从[Preview](#walkthrough-capture-inspection-17-preview)聚焦模式控件后，按右方向键选择[Split](#walkthrough-capture-inspection-18-split)，再右移一次选择[Source](#walkthrough-capture-inspection-19-source)；这三个操作各有图片，不把JSON Raw当作Markdown Source。
+
+   ![Markdown的实际Split模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
+
+   ![Markdown的实际Source模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
+
+   [Copy Source](#walkthrough-capture-inspection-20-copy-source)复制原始Markdown；全屏及Escape返回也保持Source，完整步骤在同一实录中。
 
 4. 使用全屏入口放大当前正文。
 
@@ -516,7 +538,13 @@
 
 7. 需要访问溢出内容时滚动或拖动分栏。
 
-   **待配图**：现有模式图不展示真实滚轮或拖动过程；长正文与边界滚动仍缺独立步骤图。
+   长请求正文先用[真实滚轮](#walkthrough-capture-inspection-12-inner-scroll)滚动，再用`Command+ArrowDown`到达`guide-request-end`；在详情边缘向上滚动后，把鼠标移回已到底的正文，继续滚轮可移动外层详情。[内外层交接步骤](#walkthrough-capture-inspection-14-outer-up)
+
+   ![键盘到达真实请求末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
+
+   ![正文到底后继续滚动外层](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+
+   Markdown Source同样有[滚轮与键盘到末尾](#walkthrough-capture-inspection-21-source-scroll)的实录，末尾为`guide-response-end`。滚动和拖拽不重发该POST，也不修改线上正文。
 
 **可用模式**
 
@@ -539,6 +567,7 @@
 
 - 文本、WebSocket 和 gRPC 的只读预览最多 `2 MiB`；图片读取与解码使用独立的 `16 MiB` 上限。
 - 完整正文不超过 `1 MiB` 时可以自动格式化；`1–2 MiB` 需要手动点击 Format。截断预览或捕获不完整的正文不应格式化。
+- [大正文逐步实录](#walkthrough-capture-body-limits)分别演示超过1MiB后的[手动Format](#walkthrough-capture-body-limits-07-format)、3MiB数据只显示/Copy前2MiB的[截断预览](#walkthrough-capture-body-limits-11-preview)，以及通过原生Save保存完整`guide-full-response.json`。输入范围、实际总字节和每一步图片都在该实录中，不拿普通小JSON图替代。
 - Format 只改变显示；失败时保留原文。没有 Format 按钮的模式，不代表该响应无法读取。
 - Copy 复制当前查看器提供的内容，不应当作完整大文件导出的替代。
 - 需要保存捕获到的完整正文时用 Save body。它不受只读预览上限替代，但无法恢复网络中断时从未捕获到的字节。
@@ -552,21 +581,59 @@
 
 **步骤**
 
-1. 查找请求详情中的真实规则效果标记。
+本节使用[独立 Rules 实录](rules.md#walkthrough-rules-response-evidence)里的 `Guide response and body`。先完成其中的创建、Apply 和 POST；请求为 `/guide/response-evidence/request-body`，客户端原文是 `{"message":"guide-original"}`，实际发送给源站的是 `{"message":"guide-final"}`。
 
-   **待配图**：现有规则结果图没有独立演示效果标记的查看与跳转，不以普通 Header 图替代。
+1. 在 Capture 选择这条 `request-body` 请求。[视频步骤](rules.md#walkthrough-rules-response-evidence-32-body-select)
 
-2. 如果正文提供 Body version 选择，先确认当前选择是 Original 还是 Final。下图引用 [Rules 的 Body 动作实拍](rules.md#walkthrough-rules-actions)：`Guide body` 将响应替换为 `{"message":"guide-body"}`，画面是 Final，不是前面的 orders 原文。
+   ![选中正文改写对应的 POST](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-32-body-select.png)
 
-   ![Rules Body 动作后的 Final 正文 guide-body](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-11-result.png)
+2. 打开 Request，检查正文旁的规则效果和 Text 来源；默认显示 Final `guide-final`。[视频步骤](rules.md#walkthrough-rules-response-evidence-33-final)
 
-3. 切换可用版本，比较内容；需要检查规则时使用效果标记的跳转入口。
+   ![Request 中实际的 Final 与规则效果](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-33-final.png)
 
-   **待配图**：尚未录制 Original/Final 来回切换及效果标记跳转；上图只覆盖 Final。
+3. 切换 Original，读取 `guide-original`。[视频步骤](rules.md#walkthrough-rules-response-evidence-34-original)
 
-4. 复制、保存或全屏前，再确认当前版本。
+   ![同一请求的 Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png)
 
-   **待配图**：未录制版本选择后的复制、Save body 或全屏操作，不能拿无规则正文的画面替代。
+4. 选择 Raw，仍应看到 Original，不因显示模式改变版本。[视频步骤](rules.md#walkthrough-rules-response-evidence-35-raw)
+
+   ![Raw 模式保留 Original 选择](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-35-raw.png)
+
+5. 点击 Copy，复制当前 Original。[视频步骤](rules.md#walkthrough-rules-response-evidence-36-copy-original)
+
+   ![Original 的实际复制操作](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-36-copy-original.png)
+
+6. 点击 Fullscreen，放大后的正文仍为 `guide-original`。[视频步骤](rules.md#walkthrough-rules-response-evidence-37-fullscreen)
+
+   ![Original 的真实全屏正文](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-37-fullscreen.png)
+
+7. 按 Escape 返回详情，移开鼠标后继续选择版本。[视频步骤](rules.md#walkthrough-rules-response-evidence-38-close-fullscreen)
+
+   ![返回详情后仍保留 Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-38-close-fullscreen.png)
+
+8. 切回 Final，确认显示 `guide-final`。[视频步骤](rules.md#walkthrough-rules-response-evidence-39-final-again)
+
+   ![同一请求再次显示 Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png)
+
+9. 点击 Copy，此时复制的是 Final，不是上一份 Original。[视频步骤](rules.md#walkthrough-rules-response-evidence-40-copy-final)
+
+   ![Final 的实际复制操作](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-40-copy-final.png)
+
+10. 点击 Save body，在原生面板选择自己的演示目录，保存为 `guide-final.json`。[视频步骤](rules.md#walkthrough-rules-response-evidence-41-save-dialog)
+
+    ![仅包含本轮文件名的真实 Save 面板](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-41-save-dialog.png)
+
+11. 保存后回到同一请求，当前仍是 Final；本次文件内容已核对为 `{"message":"guide-final"}`。[视频步骤](rules.md#walkthrough-rules-response-evidence-42-saved)
+
+    ![保存后仍显示同一 Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-42-saved.png)
+
+12. 点击正文的规则效果标记，跳回产生这份正文的 `Guide response and body`。[视频步骤](rules.md#walkthrough-rules-response-evidence-43-body-rule)
+
+    ![效果标记实际定位到对应规则](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-43-body-rule.png)
+
+响应方向另见[同一实录的后续步骤](rules.md#walkthrough-rules-response-evidence-44-response-body)：这时 Final 是 `{"message":"guide-response-final"}`，Original 明确不可用，不是空原文。演示结束后[停用并 Apply](rules.md#walkthrough-rules-response-evidence-52-disable)。
+
+![响应替换后原文不可用的实际提示](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png)
 
 **预期结果**
 
@@ -588,7 +655,13 @@
 
 1. 让目标客户端通过代理发起 HTTPS 请求。若只看到 TLS tunnel，先区分“已经经过代理”和“可以解密”。
 
-   **待配图**：本次协议片段录到了已解密请求，没有单独录制 TLS tunnel 的未解密状态。
+   [TLS 实录](settings.md#walkthrough-settings-tls-passthrough)先按 `localhost` 搜索，再开启 Recording；本次端口为 `63604`，读者使用自己的实际端口。下面是同一连接的[发送](settings.md#walkthrough-settings-tls-passthrough-03-opaque-request)、[选中](settings.md#walkthrough-settings-tls-passthrough-04-tunnel-select)和[Tunnel 详情](settings.md#walkthrough-settings-tls-passthrough-05-tunnel)，不借用普通 HTTP 成功图。
+
+   ![未解密的真实 CONNECT 进入列表](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png)
+
+   ![选择本轮 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png)
+
+   ![真实 Tunnel 元信息，没有 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
 
 2. 到 Settings 检查现有 CA 信任；下图是录制机器已有的受信任 CA，不是首次安装或系统授权。
 
@@ -602,7 +675,9 @@
 
 4. 核对 TLS passthrough 是否排除了你的目标；需要调整时按 [Settings](settings.md#tls-passthrough)操作。
 
-   **待配图**：现有录制没有完成 passthrough 命中与配置调整的往返。
+   新增实录已按[Settings 的完整步骤](settings.md#tls-passthrough)添加精确 `localhost`、重新连接、查看命中、定位并删除条目，再建立新连接恢复解密。图中全局 MITM 开启，但这个匹配连接仍只显示 Tunnel；不能因此断言解密故障。
+
+   ![启用 MITM 时实际命中 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
 
 5. 让客户端建立新连接，再观察后续请求。下图是这次录制的 `/playground/h2-json` HTTP/2 请求，不是此前的 HTTP orders。
 
@@ -642,7 +717,9 @@
 
 3. 需要时在 Protocol 中选择 HTTP/2。
 
-   **待配图**：实拍使用搜索框限定范围，没有点击 Protocol 筛选项。
+   [HTTP/2独立实录](#walkthrough-capture-http2-10-protocol-group)实际展开Protocol并选择HTTP/2；它使用自己的`/guide/h2`请求，不是把旧的`/playground`录制改名。
+
+   ![真实选择HTTP/2协议分组](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
 
 4. 在 Headers 展开实际可用的 trailers。
 
@@ -654,11 +731,27 @@
 
 6. 对较长或流式响应，观察同一记录的接收进度和最终状态，不因已看到一部分文本就提前判断完整。
 
-   **待配图**：本段未逐步录制长流接收和结束，短 JSON 的完成画面不能代替。
+   新实录的`/guide/h2/stream`先收到第一段，再收到第二段，最后才结束；[完整进度步骤](#walkthrough-capture-http2-03-first-part)逐步核对真实字节。接收中行数、大小会更新，但此版本的普通HTTP正文还没有可读视图，不能把“未捕获响应正文”误当作没有经过代理。
+
+   ![正在接收64KB，但正文暂未可读](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
+
+   ![第二段到达后实际进度增加](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
+
+   ![结束后完整正文才可读取和复制](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
+
+   结束时还可查看`x-guide-end: complete`，见[trailer步骤](#walkthrough-capture-http2-09-trailers)。这是分段接收的同一GET，不是反复发起请求。
 
 7. 若连接关闭，比较该请求是否正常结束、客户端实际收到的内容和后续新请求能否建立连接。
 
-   **待配图 / blocked**：GOAWAY、reset、中断与重连的专项过程尚未录制，不能用普通 HTTP/2 成功请求标通过。
+   [客户端错误GOAWAY](#walkthrough-capture-http2-client-01-interrupt)和[源站错误GOAWAY](#walkthrough-capture-http2-origin-01-interrupt)各有真实操作：原POST的Header声明`524288`字节，实际只捕获`262144`字节，随后是新连接上的独立`/recovered` GET；并非重放原POST。实验只影响自有源站，不能用来故意中断别人的服务。
+
+   ![原请求Header仍声明512KiB](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
+
+   ![真正捕获到的部分正文为256KiB](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
+
+   ![独立恢复GET实际返回正常正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
+
+   本段不把两个错误GOAWAY扩成正常GOAWAY下所有多流收尾、每种reset和重试策略均已实拍。
 
 **预期结果**：分别判断每条请求的结果，不把共享连接的一个事件等同于全部请求成功或失败。
 
@@ -686,11 +779,33 @@
 
 5. 长消息按需展开、复制或全屏查看。
 
-   **待配图**：现有消息较短，未单独操作消息复制或全屏；HTTP 正文全屏图不能替代消息操作。
+   [WebSocket消息实录](#walkthrough-capture-websocket-messages)另用`/guide/messages/websocket/detail`：`guide-short`、`guide-long`及后续消息均为本轮公开数据。展开后[缩放高度](#walkthrough-capture-websocket-messages-12-resize)、滚轮/键盘到底、[继续滚动列表](#walkthrough-capture-websocket-messages-15-scroll-out)、Copy和Fullscreen均有各自步骤图。
+
+   ![真实WebSocket长消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
+
+   ![消息自身的实际全屏](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
+
+   这段长消息是binary JSON：正文Raw的Copy得到UTF-8，而[消息专用Copy](#walkthrough-capture-websocket-messages-17-payload-copy)仍给原binary的Hex。不要把两种复制内容当成同一个格式。
+
+   gRPC有自己的[完整消息实录](#walkthrough-capture-grpc-messages)，使用`/guide/messages/grpc/detail`的六条JSON消息，独立演示展开、Raw、复制、拖动高度、内外滚动及全屏；已有CA和自有localhost例外的准备按[HTTPS步骤](settings.md#https-decryption)，不是新的CA安装录像。
+
+   ![gRPC长消息的实际正文与控制](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
+
+   ![gRPC消息自己的全屏查看](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
 
 6. 消息较多时使用列表滚动或分页，避免把当前屏幕当成完整会话。
 
-   **待配图**：尚未录制多页消息和滚动边界。
+   WebSocket另建`/guide/messages/websocket/pages`，实际发送205条text消息；[切连接和滚动加载](#walkthrough-capture-websocket-messages-20-paged-input)后展开并复制最后一条`{"index":204,"message":"guide-page-204"}`。列表序号205与示例JSON的零起始index 204是不同编号。
+
+   ![实际滚动到后续WebSocket消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
+
+   ![实际复制第205条text消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
+
+   gRPC也有独立的`/guide/messages/grpc/pages`：从[205条消息的输入](#walkthrough-capture-grpc-messages-20-paged-input)到滚动分页、展开末条、切Raw并继续滚动到正文完全可见，再Copy核对相同的index 204。不能仅凭页码或已经挂载的DOM断言文字在当前窗口可读。
+
+   ![gRPC第205条的正文完整显示在窗口内](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
+
+   ![复制同一条gRPC末尾消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
 
 **预期结果**
 
@@ -717,7 +832,7 @@
 
    ![选择 HAR 后的选项](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
 
-3. 选择实际要保存的范围。本次选择当前请求；全部记录与当前筛选结果分支仍待配图。
+3. 选择实际要保存的范围。本次选择当前请求；[三种范围的独立实录](transfer.md#walkthrough-transfer-scopes)另用三条`/guide/export-scopes`请求，实际导出并核对全部3条、筛选2条和选中1条的文件，不用同一张单请求图代表三种范围。
 
    ![选择当前请求的范围](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
 
@@ -757,15 +872,31 @@
 
 2. 等待 Capture 的正文保存、HAR 或归档文件任务结束；若仍在取消清理中，也要等待完成。
 
-   **待配图**：没有录制正在执行或取消清理的文件任务；完成画面不能展示清理中的等待过程。
+   [运行中归档取消实录](transfer.md#walkthrough-transfer-cancel)使用本轮自有128MiB响应，拍到实际running进度、真实Cancel、取消后原记录保留及文件清理完成，再执行Clear；不是原生文件面板取消。
+
+   ![实际运行中的归档进度](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+   **待配图**：这段证明取消清理完成后可Clear，尚未在运行中通过其他入口发起Clear并展示拒绝结果，也不替代退出等待专项。
 
 3. 使用 Clear 清空不需保留的演示记录，按实际界面完成确认并检查列表、选择和计数。下图回到 `capture` 录制的清空操作。
 
    ![Capture 清空演示记录后的实际列表](../media/v0.1.1-alpha.1/capture/capture-17-clear.png)
 
-4. 再发起新请求，确认 Recording 状态符合预期。
+4. Clear之后的完整对照使用另一段[正文检查实录](#walkthrough-capture-inspection-29-clear)：它先暂停并清空本轮临时记录，清理后仍暂停，不把之前的Resume画面挪到这里。
 
-   **待配图**：现有“恢复录制后新请求”发生在 Clear 之前，不用它冒充 Clear 之后的验证。
+   ![本次真正Clear后的空列表与暂停状态](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
+
+5. 重新开启Recording。[视频步骤](#walkthrough-capture-inspection-30-resume)
+
+   ![Clear之后重新开启Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
+
+6. 发送新的`/guide/inspection/after-clear`，确认新记录出现。[视频步骤](#walkthrough-capture-inspection-31-new-request)
+
+   ![Clear之后实际捕获的新请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
+
+7. 选择新请求并打开Response，核对`{"afterClear":"guide-visible"}`。[视频步骤](#walkthrough-capture-inspection-32-new-body)
+
+   ![新请求的真实正文仍可读取](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
 
 **预期结果**
 
@@ -867,6 +998,7 @@
 | <code>afterAnd</code> | <code>2</code> |
 | <code>afterSearch</code> | <code>1</code> |
 | <code>finalRecords</code> | <code>4</code> |
+| <code>finalSearch</code> | <code>(empty; cleared through the search control, not Capture Clear)</code> |
 
 <a id="walkthrough-capture-filters-video"></a>
 
@@ -877,86 +1009,93 @@
 <a id="walkthrough-capture-filters-01-records"></a>
 ### 01 · 查看四条演示请求
 
-[视频 00:00](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=0.199) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:00](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=0.325) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![01 · 查看四条演示请求](../media/v0.1.1-alpha.1/capture-filters/capture-filters-01-records.png)
 
 <a id="walkthrough-capture-filters-02-methods"></a>
 ### 02 · 展开 Method
 
-[视频 00:03](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=3.015) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:03](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=3.149) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![02 · 展开 Method](../media/v0.1.1-alpha.1/capture-filters/capture-filters-02-methods.png)
 
 <a id="walkthrough-capture-filters-03-get"></a>
 ### 03 · 只选 GET
 
-[视频 00:05](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=5.903) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:06](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=6.002) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![03 · 只选 GET](../media/v0.1.1-alpha.1/capture-filters/capture-filters-03-get.png)
 
 <a id="walkthrough-capture-filters-04-get-post"></a>
 ### 04 · 同组再选 POST
 
-[视频 00:08](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=8.805) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:08](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=8.857) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![04 · 同组再选 POST](../media/v0.1.1-alpha.1/capture-filters/capture-filters-04-get-post.png)
 
 <a id="walkthrough-capture-filters-05-status"></a>
 ### 05 · 展开 Status
 
-[视频 00:11](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=11.703) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:11](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=11.750) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![05 · 展开 Status](../media/v0.1.1-alpha.1/capture-filters/capture-filters-05-status.png)
 
 <a id="walkthrough-capture-filters-06-and-status"></a>
 ### 06 · 再选 200，跨组 AND
 
-[视频 00:14](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=14.559) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:14](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=14.601) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![06 · 再选 200，跨组 AND](../media/v0.1.1-alpha.1/capture-filters/capture-filters-06-and-status.png)
 
 <a id="walkthrough-capture-filters-07-search"></a>
 ### 07 · 叠加 post-ok 搜索
 
-[视频 00:17](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=17.454) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:17](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=17.501) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![07 · 叠加 post-ok 搜索](../media/v0.1.1-alpha.1/capture-filters/capture-filters-07-search.png)
 
 <a id="walkthrough-capture-filters-08-search-back"></a>
 ### 08 · 恢复演示搜索范围
 
-[视频 00:20](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=20.253) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:20](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=20.399) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![08 · 恢复演示搜索范围](../media/v0.1.1-alpha.1/capture-filters/capture-filters-08-search-back.png)
 
 <a id="walkthrough-capture-filters-09-remove-status"></a>
 ### 09 · 取消 Status 条件
 
-[视频 00:23](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=23.104) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:23](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=23.251) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![09 · 取消 Status 条件](../media/v0.1.1-alpha.1/capture-filters/capture-filters-09-remove-status.png)
 
 <a id="walkthrough-capture-filters-10-remove-post"></a>
 ### 10 · 取消 POST
 
-[视频 00:25](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=25.954) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:26](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=26.100) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![10 · 取消 POST](../media/v0.1.1-alpha.1/capture-filters/capture-filters-10-remove-post.png)
 
 <a id="walkthrough-capture-filters-11-remove-get"></a>
 ### 11 · 取消 GET，保留原记录
 
-[视频 00:28](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=28.809) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:28](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=28.960) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![11 · 取消 GET，保留原记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-11-remove-get.png)
 
 <a id="walkthrough-capture-filters-12-collapse"></a>
 ### 12 · 只折叠组标题
 
-[视频 00:31](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=31.657) · [返回本节视频](#walkthrough-capture-filters-video)
+[视频 00:31](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=31.850) · [返回本节视频](#walkthrough-capture-filters-video)
 
 ![12 · 只折叠组标题](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
+
+<a id="walkthrough-capture-filters-13-clear-search"></a>
+### 13 · 清空搜索但不删除请求
+
+[视频 00:34](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=34.751) · [返回本节视频](#walkthrough-capture-filters-video)
+
+![13 · 清空搜索但不删除请求](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
 <!-- recorded-walkthrough:capture-filters:end -->
@@ -1084,3 +1223,1228 @@
 
 下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
 <!-- recorded-walkthrough:capture-shortcuts:end -->
+
+<!-- recorded-walkthrough:capture-inspection:start -->
+<a id="walkthrough-capture-inspection"></a>
+## 逐步骤实操：请求正文、Markdown Source与滚动
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>url</code> | <code>http://127.0.0.1:55601/guide/inspection/body?detail0=guide-0&amp;detail1=guide-1&amp;detail2=guide-2&amp;detail3=guide-3&amp;detail4=guide-4&amp;detail5=guide-5&amp;detail6=guide-6&amp;detail7=guide-7&amp;detail8=guide-8&amp;detail9=guide-9&amp;detail10=guide-10&amp;detail11=guide-11&amp;detail12=guide-12&amp;detail13=guide-13&amp;detail14=guide-14&amp;detail15=guide-15&amp;detail16=guide-16&amp;detail17=guide-17&amp;detail18=guide-18&amp;detail19=guide-19&amp;detail20=guide-20&amp;detail21=guide-21&amp;detail22=guide-22&amp;detail23=guide-23</code> |
+| <code>search</code> | <code>/guide/inspection</code> |
+| <code>requestId</code> | <code>guide-request</code> |
+| <code>requestEntries</code> | <code>request-000 through request-095</code> |
+| <code>queryFields</code> | <code>detail0=guide-0 through detail23=guide-23</code> |
+| <code>requestEnd</code> | <code>guide-request-end</code> |
+| <code>responseTitle</code> | <code>Guide response source</code> |
+| <code>responseEntries</code> | <code>response-000 through response-159</code> |
+| <code>responseEnd</code> | <code>guide-response-end</code> |
+| <code>responseMime</code> | <code>text/markdown</code> |
+| <code>inspectorDrag</code> | <code>240px wider, then restored</code> |
+| <code>afterClearPath</code> | <code>/guide/inspection/after-clear</code> |
+| <code>afterClearBody</code> | <code>{&quot;afterClear&quot;:&quot;guide-visible&quot;}</code> |
+
+<a id="walkthrough-capture-inspection-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4" poster="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.vtt" default>
+</video>
+
+<a id="walkthrough-capture-inspection-01-filter"></a>
+### 01 · 限定本轮检查路径
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=0.418) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![01 · 限定本轮检查路径](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png)
+
+<a id="walkthrough-capture-inspection-02-record"></a>
+### 02 · 开启 Recording
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=3.213) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-02-record.png)
+
+<a id="walkthrough-capture-inspection-03-post"></a>
+### 03 · 发送长正文 POST
+
+[视频 00:05](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=5.968) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![03 · 发送长正文 POST](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-03-post.png)
+
+<a id="walkthrough-capture-inspection-04-pause"></a>
+### 04 · 暂停后检查已捕获请求
+
+[视频 00:08](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=8.764) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![04 · 暂停后检查已捕获请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-04-pause.png)
+
+<a id="walkthrough-capture-inspection-05-select"></a>
+### 05 · 选择 body 请求
+
+[视频 00:11](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=11.606) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![05 · 选择 body 请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-05-select.png)
+
+<a id="walkthrough-capture-inspection-06-headers"></a>
+### 06 · 查看 Headers
+
+[视频 00:14](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=14.657) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![06 · 查看 Headers](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-06-headers.png)
+
+<a id="walkthrough-capture-inspection-07-collapse"></a>
+### 07 · 折叠 General
+
+[视频 00:17](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=17.469) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![07 · 折叠 General](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-07-collapse.png)
+
+<a id="walkthrough-capture-inspection-08-expand"></a>
+### 08 · 重新展开 General
+
+[视频 00:20](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=20.306) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![08 · 重新展开 General](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-08-expand.png)
+
+<a id="walkthrough-capture-inspection-09-request"></a>
+### 09 · 打开 Request 正文
+
+[视频 00:23](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=23.156) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![09 · 打开 Request 正文](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
+
+<a id="walkthrough-capture-inspection-10-raw"></a>
+### 10 · 选择请求 Raw
+
+[视频 00:26](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=26.913) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![10 · 选择请求 Raw](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
+
+<a id="walkthrough-capture-inspection-11-widen"></a>
+### 11 · 拖动分栏扩大详情
+
+[视频 00:29](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=29.907) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![11 · 拖动分栏扩大详情](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
+
+<a id="walkthrough-capture-inspection-12-inner-scroll"></a>
+### 12 · 在正文内使用滚轮
+
+[视频 00:39](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=39.008) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![12 · 在正文内使用滚轮](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png)
+
+<a id="walkthrough-capture-inspection-13-request-end"></a>
+### 13 · 用键盘到达请求末尾
+
+[视频 00:42](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=42.007) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![13 · 用键盘到达请求末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
+
+<a id="walkthrough-capture-inspection-14-outer-up"></a>
+### 14 · 在详情边缘向上滚动
+
+[视频 00:44](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=44.907) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![14 · 在详情边缘向上滚动](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-14-outer-up.png)
+
+<a id="walkthrough-capture-inspection-15-scroll-chain"></a>
+### 15 · 正文到底后继续滚动外层
+
+[视频 00:47](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=47.856) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![15 · 正文到底后继续滚动外层](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+
+<a id="walkthrough-capture-inspection-16-copy-request"></a>
+### 16 · 复制完整请求正文
+
+[视频 00:50](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=50.915) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![16 · 复制完整请求正文](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-16-copy-request.png)
+
+<a id="walkthrough-capture-inspection-17-preview"></a>
+### 17 · 打开 Markdown Preview
+
+[视频 00:53](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=53.808) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![17 · 打开 Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-17-preview.png)
+
+<a id="walkthrough-capture-inspection-18-split"></a>
+### 18 · 右方向键切换 Split
+
+[视频 00:56](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=56.710) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![18 · 右方向键切换 Split](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
+
+<a id="walkthrough-capture-inspection-19-source"></a>
+### 19 · 再次右移切换 Source
+
+[视频 00:59](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=59.608) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![19 · 再次右移切换 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
+
+<a id="walkthrough-capture-inspection-20-copy-source"></a>
+### 20 · 复制 Markdown Source
+
+[视频 01:02](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=62.463) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![20 · 复制 Markdown Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-20-copy-source.png)
+
+<a id="walkthrough-capture-inspection-21-source-scroll"></a>
+### 21 · 滚动长 Source
+
+[视频 01:05](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=65.307) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![21 · 滚动长 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-21-source-scroll.png)
+
+<a id="walkthrough-capture-inspection-22-source-end"></a>
+### 22 · 用键盘查看 Source 末尾
+
+[视频 01:08](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=68.219) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![22 · 用键盘查看 Source 末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-22-source-end.png)
+
+<a id="walkthrough-capture-inspection-23-fullscreen"></a>
+### 23 · 全屏查看 Source
+
+[视频 01:11](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=71.057) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![23 · 全屏查看 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-23-fullscreen.png)
+
+<a id="walkthrough-capture-inspection-24-return"></a>
+### 24 · Escape 返回 Source
+
+[视频 01:13](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=73.957) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![24 · Escape 返回 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-24-return.png)
+
+<a id="walkthrough-capture-inspection-25-preview-again"></a>
+### 25 · 返回 Markdown Preview
+
+[视频 01:16](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=76.912) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![25 · 返回 Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-25-preview-again.png)
+
+<a id="walkthrough-capture-inspection-26-hex"></a>
+### 26 · 查看同一响应的 Hex
+
+[视频 01:19](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=79.756) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![26 · 查看同一响应的 Hex](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-26-hex.png)
+
+<a id="walkthrough-capture-inspection-27-restore-width"></a>
+### 27 · 拖回原来的详情宽度
+
+[视频 01:22](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=82.608) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![27 · 拖回原来的详情宽度](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-27-restore-width.png)
+
+<a id="walkthrough-capture-inspection-28-close-details"></a>
+### 28 · 关闭详情回到列表
+
+[视频 01:26](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=86.207) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![28 · 关闭详情回到列表](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-28-close-details.png)
+
+<a id="walkthrough-capture-inspection-29-clear"></a>
+### 29 · Clear 本轮临时记录
+
+[视频 01:29](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=89.006) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![29 · Clear 本轮临时记录](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
+
+<a id="walkthrough-capture-inspection-30-resume"></a>
+### 30 · 清理后重新开启 Recording
+
+[视频 01:31](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=91.858) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![30 · 清理后重新开启 Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
+
+<a id="walkthrough-capture-inspection-31-new-request"></a>
+### 31 · 发送清理后的新请求
+
+[视频 01:34](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=94.707) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![31 · 发送清理后的新请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
+
+<a id="walkthrough-capture-inspection-32-new-body"></a>
+### 32 · 确认新请求正文可读
+
+[视频 01:37](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=97.515) · [返回本节视频](#walkthrough-capture-inspection-video)
+
+![32 · 确认新请求正文可读](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-inspection:end -->
+
+<!-- recorded-walkthrough:capture-facets:start -->
+<a id="walkthrough-capture-facets"></a>
+## 逐步骤实操：Application、Host、Protocol、Type与Rule筛选
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>search</code> | <code>/guide/facets</code> |
+| <code>ruleName</code> | <code>Guide facets</code> |
+| <code>rulePath</code> | <code>/guide/facets/selected-json</code> |
+| <code>host</code> | <code>127.0.0.1</code> |
+| <code>protocol</code> | <code>HTTP/1.1</code> |
+| <code>application</code> | <code>Unknown (actual macOS result, not Windows attribution)</code> |
+| <code>prerequisite</code> | <code>Two captured owned requests and one applied Guide facets Rule; recording is paused before filming</code> |
+| <code>jsonPath</code> | <code>/guide/facets/selected-json</code> |
+| <code>textPath</code> | <code>/guide/facets/other-text</code> |
+| <code>header</code> | <code>x-guide-facet: selected</code> |
+| <code>initialRecords</code> | <code>2</code> |
+| <code>afterJson</code> | <code>1</code> |
+| <code>afterRule</code> | <code>1</code> |
+| <code>afterClearFacets</code> | <code>2</code> |
+
+<a id="walkthrough-capture-facets-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4" poster="../media/v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-facets/capture-facets.vtt" default>
+</video>
+
+<a id="walkthrough-capture-facets-01-application"></a>
+### 01 · 展开 Application
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=0.370) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![01 · 展开 Application](../media/v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png)
+
+<a id="walkthrough-capture-facets-02-unknown"></a>
+### 02 · 选择本次 Unknown 归属
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=3.318) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![02 · 选择本次 Unknown 归属](../media/v0.1.1-alpha.1/capture-facets/capture-facets-02-unknown.png)
+
+<a id="walkthrough-capture-facets-03-host-group"></a>
+### 03 · 展开 Host
+
+[视频 00:06](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=6.320) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![03 · 展开 Host](../media/v0.1.1-alpha.1/capture-facets/capture-facets-03-host-group.png)
+
+<a id="walkthrough-capture-facets-04-host-select"></a>
+### 04 · 选择 127.0.0.1
+
+[视频 00:09](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=9.318) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![04 · 选择 127.0.0.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-04-host-select.png)
+
+<a id="walkthrough-capture-facets-05-protocol-group"></a>
+### 05 · 展开 Protocol
+
+[视频 00:12](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=12.372) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![05 · 展开 Protocol](../media/v0.1.1-alpha.1/capture-facets/capture-facets-05-protocol-group.png)
+
+<a id="walkthrough-capture-facets-06-protocol-select"></a>
+### 06 · 选择 HTTP/1.1
+
+[视频 00:15](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=15.372) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![06 · 选择 HTTP/1.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-06-protocol-select.png)
+
+<a id="walkthrough-capture-facets-07-type-group"></a>
+### 07 · 展开 Content type
+
+[视频 00:18](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=18.369) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![07 · 展开 Content type](../media/v0.1.1-alpha.1/capture-facets/capture-facets-07-type-group.png)
+
+<a id="walkthrough-capture-facets-08-json"></a>
+### 08 · 选择 json，剩一条请求
+
+[视频 00:21](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=21.370) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![08 · 选择 json，剩一条请求](../media/v0.1.1-alpha.1/capture-facets/capture-facets-08-json.png)
+
+<a id="walkthrough-capture-facets-09-rule-group"></a>
+### 09 · 展开 Rule
+
+[视频 00:24](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=24.373) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![09 · 展开 Rule](../media/v0.1.1-alpha.1/capture-facets/capture-facets-09-rule-group.png)
+
+<a id="walkthrough-capture-facets-10-rule-select"></a>
+### 10 · 选择实际命中的 Guide facets
+
+[视频 00:27](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=27.380) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![10 · 选择实际命中的 Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
+
+<a id="walkthrough-capture-facets-11-remove-type"></a>
+### 11 · 取消 json，仍按规则保留一条
+
+[视频 00:30](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=30.420) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![11 · 取消 json，仍按规则保留一条](../media/v0.1.1-alpha.1/capture-facets/capture-facets-11-remove-type.png)
+
+<a id="walkthrough-capture-facets-12-clear-facets"></a>
+### 12 · 清除分组筛选但保留搜索
+
+[视频 00:33](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=33.419) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![12 · 清除分组筛选但保留搜索](../media/v0.1.1-alpha.1/capture-facets/capture-facets-12-clear-facets.png)
+
+<a id="walkthrough-capture-facets-13-hide-filters"></a>
+### 13 · 收起筛选栏
+
+[视频 00:36](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=36.451) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![13 · 收起筛选栏](../media/v0.1.1-alpha.1/capture-facets/capture-facets-13-hide-filters.png)
+
+<a id="walkthrough-capture-facets-14-show-filters"></a>
+### 14 · 重新显示筛选栏
+
+[视频 00:39](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=39.418) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![14 · 重新显示筛选栏](../media/v0.1.1-alpha.1/capture-facets/capture-facets-14-show-filters.png)
+
+<a id="walkthrough-capture-facets-15-rules"></a>
+### 15 · 返回示例规则
+
+[视频 00:42](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=42.416) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![15 · 返回示例规则](../media/v0.1.1-alpha.1/capture-facets/capture-facets-15-rules.png)
+
+<a id="walkthrough-capture-facets-16-disable"></a>
+### 16 · 停用 Guide facets
+
+[视频 00:45](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=45.485) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![16 · 停用 Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-16-disable.png)
+
+<a id="walkthrough-capture-facets-17-apply-disabled"></a>
+### 17 · Apply 停用状态
+
+[视频 00:48](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=48.474) · [返回本节视频](#walkthrough-capture-facets-video)
+
+![17 · Apply 停用状态](../media/v0.1.1-alpha.1/capture-facets/capture-facets-17-apply-disabled.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-facets:end -->
+
+<!-- recorded-walkthrough:capture-websocket-messages:start -->
+<a id="walkthrough-capture-websocket-messages"></a>
+## 逐步骤实操：WebSocket消息展开、复制、全屏与分页
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>protocol</code> | <code>websocket</code> |
+| <code>filter</code> | <code>/guide/messages/websocket</code> |
+| <code>detailPath</code> | <code>/guide/messages/websocket/detail</code> |
+| <code>pagePath</code> | <code>/guide/messages/websocket/pages</code> |
+| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
+| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
+| <code>firstCount</code> | <code>6</code> |
+| <code>pagedCount</code> | <code>205</code> |
+| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
+| <code>detailEncoding</code> | <code>binary JSON; body Copy is text, message Copy is Hex</code> |
+| <code>pagedEncoding</code> | <code>WebSocket text</code> |
+| <code>tlsScope</code> | <code>plain WebSocket; no CA changes</code> |
+
+<a id="walkthrough-capture-websocket-messages-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4" poster="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.vtt" default>
+</video>
+
+<a id="walkthrough-capture-websocket-messages-01-filter"></a>
+### 01 · 限定本轮消息路径
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=0.292) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![01 · 限定本轮消息路径](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png)
+
+<a id="walkthrough-capture-websocket-messages-02-record"></a>
+### 02 · 开启 Recording
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=3.425) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-02-record.png)
+
+<a id="walkthrough-capture-websocket-messages-03-messages"></a>
+### 03 · 发送六条公开消息
+
+[视频 00:06](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=6.510) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![03 · 发送六条公开消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-03-messages.png)
+
+<a id="walkthrough-capture-websocket-messages-04-select"></a>
+### 04 · 选择本轮连接
+
+[视频 00:09](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=9.708) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![04 · 选择本轮连接](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-04-select.png)
+
+<a id="walkthrough-capture-websocket-messages-05-tab"></a>
+### 05 · 打开消息页
+
+[视频 00:12](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=12.999) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![05 · 打开消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-05-tab.png)
+
+<a id="walkthrough-capture-websocket-messages-06-direction"></a>
+### 06 · 选择 Sent 消息
+
+[视频 00:16](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=16.154) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![06 · 选择 Sent 消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-06-direction.png)
+
+<a id="walkthrough-capture-websocket-messages-07-short"></a>
+### 07 · 展开 guide-short
+
+[视频 00:19](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=19.329) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![07 · 展开 guide-short](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-07-short.png)
+
+<a id="walkthrough-capture-websocket-messages-08-short-raw"></a>
+### 08 · 选择 Raw 查看原文
+
+[视频 00:22](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=22.700) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![08 · 选择 Raw 查看原文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-08-short-raw.png)
+
+<a id="walkthrough-capture-websocket-messages-09-copy-short"></a>
+### 09 · 复制当前短消息正文
+
+[视频 00:25](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=25.786) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![09 · 复制当前短消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-09-copy-short.png)
+
+<a id="walkthrough-capture-websocket-messages-10-collapse-short"></a>
+### 10 · 收起短消息
+
+[视频 00:28](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=28.824) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![10 · 收起短消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-10-collapse-short.png)
+
+<a id="walkthrough-capture-websocket-messages-11-long"></a>
+### 11 · 展开 guide-long
+
+[视频 00:31](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=31.824) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![11 · 展开 guide-long](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
+
+<a id="walkthrough-capture-websocket-messages-12-resize"></a>
+### 12 · 拖动正文右下角缩小高度
+
+[视频 00:35](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=35.030) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![12 · 拖动正文右下角缩小高度](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-12-resize.png)
+
+<a id="walkthrough-capture-websocket-messages-13-wheel"></a>
+### 13 · 在长消息中滚动
+
+[视频 00:38](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=38.319) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![13 · 在长消息中滚动](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-13-wheel.png)
+
+<a id="walkthrough-capture-websocket-messages-14-keyboard-end"></a>
+### 14 · 用键盘到达消息末尾
+
+[视频 00:41](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=41.375) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![14 · 用键盘到达消息末尾](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-14-keyboard-end.png)
+
+<a id="walkthrough-capture-websocket-messages-15-scroll-out"></a>
+### 15 · 到底后继续滚动消息列表
+
+[视频 00:44](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=44.360) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![15 · 到底后继续滚动消息列表](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-15-scroll-out.png)
+
+<a id="walkthrough-capture-websocket-messages-16-copy-long"></a>
+### 16 · 复制完整长消息正文
+
+[视频 00:47](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=47.377) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![16 · 复制完整长消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-16-copy-long.png)
+
+<a id="walkthrough-capture-websocket-messages-17-payload-copy"></a>
+### 17 · 复制 binary 消息的原始 Hex
+
+[视频 00:50](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=50.389) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![17 · 复制 binary 消息的原始 Hex](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-17-payload-copy.png)
+
+<a id="walkthrough-capture-websocket-messages-18-fullscreen"></a>
+### 18 · 全屏查看这条消息
+
+[视频 00:53](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=53.428) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![18 · 全屏查看这条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
+
+<a id="walkthrough-capture-websocket-messages-19-return"></a>
+### 19 · Escape 返回同一消息
+
+[视频 00:56](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=56.627) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![19 · Escape 返回同一消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-19-return.png)
+
+<a id="walkthrough-capture-websocket-messages-20-paged-input"></a>
+### 20 · 在新连接发送205条消息
+
+[视频 00:59](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=59.711) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![20 · 在新连接发送205条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-20-paged-input.png)
+
+<a id="walkthrough-capture-websocket-messages-21-paged-select"></a>
+### 21 · 选择新的 pages 连接
+
+[视频 01:02](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=62.916) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![21 · 选择新的 pages 连接](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-21-paged-select.png)
+
+<a id="walkthrough-capture-websocket-messages-22-paged-tab"></a>
+### 22 · 打开新连接的消息
+
+[视频 01:05](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=65.929) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![22 · 打开新连接的消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-22-paged-tab.png)
+
+<a id="walkthrough-capture-websocket-messages-23-load-pages"></a>
+### 23 · 滚动加载后续消息页
+
+[视频 01:08](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=68.917) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![23 · 滚动加载后续消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
+
+<a id="walkthrough-capture-websocket-messages-24-last-message"></a>
+### 24 · 展开第205条消息
+
+[视频 01:12](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=72.380) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![24 · 展开第205条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-24-last-message.png)
+
+<a id="walkthrough-capture-websocket-messages-25-copy-last"></a>
+### 25 · 复制最后一条并核对 index 204
+
+[视频 01:15](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=75.492) · [返回本节视频](#walkthrough-capture-websocket-messages-video)
+
+![25 · 复制最后一条并核对 index 204](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-websocket-messages:end -->
+
+<!-- recorded-walkthrough:capture-http2:start -->
+<a id="walkthrough-capture-http2"></a>
+## 逐步骤实操：HTTP/2接收进度、中断与新连接恢复
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>filter</code> | <code>/guide/h2</code> |
+| <code>streamPath</code> | <code>/guide/h2/stream</code> |
+| <code>firstPartBytes</code> | <code>65559</code> |
+| <code>twoPartBytes</code> | <code>131119</code> |
+| <code>completeBytes</code> | <code>131141</code> |
+| <code>firstMarker</code> | <code>part-one: guide-start</code> |
+| <code>secondMarker</code> | <code>part-two: guide-middle</code> |
+| <code>finalMarker</code> | <code>part-three: guide-end</code> |
+| <code>trailer</code> | <code>x-guide-end: complete</code> |
+| <code>errorGoawayCode</code> | <code>2</code> |
+| <code>declaredBytes</code> | <code>524288</code> |
+| <code>capturedPartialBytes</code> | <code>262144</code> |
+| <code>recovery</code> | <code>separate GET on a new connection; original POST not replayed</code> |
+| <code>inflightBody</code> | <code>Received byte counts update before the normal HTTP response body becomes readable</code> |
+
+<a id="walkthrough-capture-http2-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4" poster="../media/v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-http2/capture-http2.vtt" default>
+</video>
+
+<a id="walkthrough-capture-http2-01-scope"></a>
+### 01 · 限定本轮 HTTP/2 路径
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=0.368) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![01 · 限定本轮 HTTP/2 路径](../media/v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png)
+
+<a id="walkthrough-capture-http2-02-record"></a>
+### 02 · 开启 Recording
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=3.251) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-http2/capture-http2-02-record.png)
+
+<a id="walkthrough-capture-http2-03-first-part"></a>
+### 03 · 接收第一段但保持连接未结束
+
+[视频 00:06](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=6.160) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![03 · 接收第一段但保持连接未结束](../media/v0.1.1-alpha.1/capture-http2/capture-http2-03-first-part.png)
+
+<a id="walkthrough-capture-http2-04-select"></a>
+### 04 · 选择仍在接收的 stream
+
+[视频 00:09](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=9.144) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![04 · 选择仍在接收的 stream](../media/v0.1.1-alpha.1/capture-http2/capture-http2-04-select.png)
+
+<a id="walkthrough-capture-http2-05-headers"></a>
+### 05 · 核对声明的完整长度
+
+[视频 00:12](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=12.156) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![05 · 核对声明的完整长度](../media/v0.1.1-alpha.1/capture-http2/capture-http2-05-headers.png)
+
+<a id="walkthrough-capture-http2-06-partial-body"></a>
+### 06 · 区分接收进度与正文可读性
+
+[视频 00:15](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=15.119) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![06 · 区分接收进度与正文可读性](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
+
+<a id="walkthrough-capture-http2-07-second-part"></a>
+### 07 · 继续接收第二段
+
+[视频 00:18](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=18.064) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![07 · 继续接收第二段](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
+
+<a id="walkthrough-capture-http2-08-complete"></a>
+### 08 · 结束响应并核对完整正文
+
+[视频 00:21](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=21.065) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![08 · 结束响应并核对完整正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
+
+<a id="walkthrough-capture-http2-09-trailers"></a>
+### 09 · 查看结束时的 trailer
+
+[视频 00:24](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=24.355) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![09 · 查看结束时的 trailer](../media/v0.1.1-alpha.1/capture-http2/capture-http2-09-trailers.png)
+
+<a id="walkthrough-capture-http2-10-protocol-group"></a>
+### 10 · 展开 Protocol 分组
+
+[视频 00:27](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=27.682) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![10 · 展开 Protocol 分组](../media/v0.1.1-alpha.1/capture-http2/capture-http2-10-protocol-group.png)
+
+<a id="walkthrough-capture-http2-11-http2-filter"></a>
+### 11 · 选择实际 HTTP/2 协议
+
+[视频 00:30](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=30.685) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![11 · 选择实际 HTTP/2 协议](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
+
+<a id="walkthrough-capture-http2-client-01-interrupt"></a>
+### 12 · 观察客户端中断与新连接
+
+[视频 00:33](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=33.765) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![12 · 观察客户端中断与新连接](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-01-interrupt.png)
+
+<a id="walkthrough-capture-http2-client-02-original"></a>
+### 13 · 选择原来的 POST
+
+[视频 00:36](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=36.818) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![13 · 选择原来的 POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-02-original.png)
+
+<a id="walkthrough-capture-http2-client-03-length"></a>
+### 14 · 查看仍声明 524288 的 Header
+
+[视频 00:39](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=39.909) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![14 · 查看仍声明 524288 的 Header](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
+
+<a id="walkthrough-capture-http2-client-04-partial"></a>
+### 15 · 读取真正捕获到的部分正文
+
+[视频 00:42](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=42.909) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![15 · 读取真正捕获到的部分正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
+
+<a id="walkthrough-capture-http2-client-05-recovered"></a>
+### 16 · 选择独立的 recovered GET
+
+[视频 00:46](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=46.063) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![16 · 选择独立的 recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-05-recovered.png)
+
+<a id="walkthrough-capture-http2-client-06-recovery-body"></a>
+### 17 · 读取新连接的正常响应
+
+[视频 00:49](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=49.784) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![17 · 读取新连接的正常响应](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
+
+<a id="walkthrough-capture-http2-origin-01-interrupt"></a>
+### 18 · 观察源站中断与新连接
+
+[视频 00:52](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=52.955) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![18 · 观察源站中断与新连接](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-01-interrupt.png)
+
+<a id="walkthrough-capture-http2-origin-02-original"></a>
+### 19 · 选择原来的 POST
+
+[视频 00:55](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=55.924) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![19 · 选择原来的 POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-02-original.png)
+
+<a id="walkthrough-capture-http2-origin-03-length"></a>
+### 20 · 查看仍声明 524288 的 Header
+
+[视频 00:59](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=59.070) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![20 · 查看仍声明 524288 的 Header](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-03-length.png)
+
+<a id="walkthrough-capture-http2-origin-04-partial"></a>
+### 21 · 读取真正捕获到的部分正文
+
+[视频 01:02](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=62.113) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![21 · 读取真正捕获到的部分正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-04-partial.png)
+
+<a id="walkthrough-capture-http2-origin-05-recovered"></a>
+### 22 · 选择独立的 recovered GET
+
+[视频 01:05](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=65.315) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![22 · 选择独立的 recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-05-recovered.png)
+
+<a id="walkthrough-capture-http2-origin-06-recovery-body"></a>
+### 23 · 读取新连接的正常响应
+
+[视频 01:08](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=68.550) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![23 · 读取新连接的正常响应](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-06-recovery-body.png)
+
+<a id="walkthrough-capture-http2-24-settings"></a>
+### 24 · 返回 Settings
+
+[视频 01:11](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=71.709) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![24 · 返回 Settings](../media/v0.1.1-alpha.1/capture-http2/capture-http2-24-settings.png)
+
+<a id="walkthrough-capture-http2-25-certificates"></a>
+### 25 · 打开 Certificates
+
+[视频 01:14](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=74.727) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![25 · 打开 Certificates](../media/v0.1.1-alpha.1/capture-http2/capture-http2-25-certificates.png)
+
+<a id="walkthrough-capture-http2-26-mitm-off"></a>
+### 26 · 关闭本轮 HTTPS 解密
+
+[视频 01:17](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=77.716) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![26 · 关闭本轮 HTTPS 解密](../media/v0.1.1-alpha.1/capture-http2/capture-http2-26-mitm-off.png)
+
+<a id="walkthrough-capture-http2-27-origin-remove"></a>
+### 27 · 移除本轮源站例外
+
+[视频 01:20](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=80.964) · [返回本节视频](#walkthrough-capture-http2-video)
+
+![27 · 移除本轮源站例外](../media/v0.1.1-alpha.1/capture-http2/capture-http2-27-origin-remove.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-http2:end -->
+
+<!-- recorded-walkthrough:capture-body-limits:start -->
+<a id="walkthrough-capture-body-limits"></a>
+## 逐步骤实操：大正文格式化、预览上限与完整保存
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>search</code> | <code>/guide/body-limits</code> |
+| <code>manualPath</code> | <code>/guide/body-limits/manual</code> |
+| <code>largePath</code> | <code>/guide/body-limits/large</code> |
+| <code>manualDataBytes</code> | <code>1310720</code> |
+| <code>manualWireBytes</code> | <code>1310785</code> |
+| <code>largeDataBytes</code> | <code>3145728</code> |
+| <code>largeWireBytes</code> | <code>3145791</code> |
+| <code>previewBytes</code> | <code>2097152</code> |
+| <code>manualStart</code> | <code>guide-manual-start</code> |
+| <code>largeStart</code> | <code>guide-large-start</code> |
+| <code>savedEnd</code> | <code>guide-large-end</code> |
+| <code>savedFile</code> | <code>guide-full-response.json</code> |
+
+<a id="walkthrough-capture-body-limits-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4" poster="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.vtt" default>
+</video>
+
+<a id="walkthrough-capture-body-limits-01-scope"></a>
+### 01 · 限定本轮正文路径
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=0.463) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![01 · 限定本轮正文路径](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png)
+
+<a id="walkthrough-capture-body-limits-02-record"></a>
+### 02 · 开启 Recording
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=3.538) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-02-record.png)
+
+<a id="walkthrough-capture-body-limits-03-manual-request"></a>
+### 03 · 请求超过1MiB的JSON
+
+[视频 00:06](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=6.544) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![03 · 请求超过1MiB的JSON](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-03-manual-request.png)
+
+<a id="walkthrough-capture-body-limits-04-manual-select"></a>
+### 04 · 选择 manual 请求
+
+[视频 00:09](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=9.695) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![04 · 选择 manual 请求](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-04-manual-select.png)
+
+<a id="walkthrough-capture-body-limits-05-unformatted"></a>
+### 05 · 查看尚未自动格式化的正文
+
+[视频 00:13](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=13.006) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![05 · 查看尚未自动格式化的正文](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-05-unformatted.png)
+
+<a id="walkthrough-capture-body-limits-06-copy-before"></a>
+### 06 · 复制并核对原始文本
+
+[视频 00:16](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=16.745) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![06 · 复制并核对原始文本](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-06-copy-before.png)
+
+<a id="walkthrough-capture-body-limits-07-format"></a>
+### 07 · 手动点击 Format
+
+[视频 00:20](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=20.036) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![07 · 手动点击 Format](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png)
+
+<a id="walkthrough-capture-body-limits-08-copy-formatted"></a>
+### 08 · 核对格式化只改变显示
+
+[视频 00:23](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=23.290) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![08 · 核对格式化只改变显示](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-08-copy-formatted.png)
+
+<a id="walkthrough-capture-body-limits-09-large-request"></a>
+### 09 · 请求超过2MiB的完整JSON
+
+[视频 00:26](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=26.482) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![09 · 请求超过2MiB的完整JSON](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-09-large-request.png)
+
+<a id="walkthrough-capture-body-limits-10-large-select"></a>
+### 10 · 选择 large 请求
+
+[视频 00:29](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=29.607) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![10 · 选择 large 请求](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-10-large-select.png)
+
+<a id="walkthrough-capture-body-limits-11-preview"></a>
+### 11 · 查看有上限的正文预览
+
+[视频 00:32](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=32.764) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![11 · 查看有上限的正文预览](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-11-preview.png)
+
+<a id="walkthrough-capture-body-limits-12-copy-preview"></a>
+### 12 · Copy只取当前2MiB预览
+
+[视频 00:35](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=35.793) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![12 · Copy只取当前2MiB预览](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-12-copy-preview.png)
+
+<a id="walkthrough-capture-body-limits-13-save-dialog"></a>
+### 13 · 保存完整 guide-full-response.json
+
+[视频 00:52](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=52.012) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![13 · 保存完整 guide-full-response.json](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-13-save-dialog.png)
+
+<a id="walkthrough-capture-body-limits-14-saved-complete"></a>
+### 14 · 核对保存文件没有按预览截断
+
+[视频 00:56](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=56.353) · [返回本节视频](#walkthrough-capture-body-limits-video)
+
+![14 · 核对保存文件没有按预览截断](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-14-saved-complete.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-body-limits:end -->
+
+<!-- recorded-walkthrough:capture-grpc-messages:start -->
+<a id="walkthrough-capture-grpc-messages"></a>
+## 逐步骤实操：gRPC消息正文、复制、全屏与分页
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>protocol</code> | <code>grpc</code> |
+| <code>filter</code> | <code>/guide/messages/grpc</code> |
+| <code>detailPath</code> | <code>/guide/messages/grpc/detail</code> |
+| <code>pagePath</code> | <code>/guide/messages/grpc/pages</code> |
+| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
+| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
+| <code>firstCount</code> | <code>6</code> |
+| <code>pagedCount</code> | <code>205</code> |
+| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
+| <code>detailEncoding</code> | <code>gRPC JSON</code> |
+| <code>pagedEncoding</code> | <code>gRPC JSON</code> |
+| <code>tlsScope</code> | <code>existing CA; localhost exception removed, decryption stopped</code> |
+
+<a id="walkthrough-capture-grpc-messages-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4" poster="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.vtt" default>
+</video>
+
+<a id="walkthrough-capture-grpc-messages-01-filter"></a>
+### 01 · 限定本轮消息路径
+
+[视频 00:00](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=0.436) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![01 · 限定本轮消息路径](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png)
+
+<a id="walkthrough-capture-grpc-messages-02-record"></a>
+### 02 · 开启 Recording
+
+[视频 00:03](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=3.346) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-02-record.png)
+
+<a id="walkthrough-capture-grpc-messages-03-messages"></a>
+### 03 · 发送六条公开消息
+
+[视频 00:06](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=6.244) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![03 · 发送六条公开消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-03-messages.png)
+
+<a id="walkthrough-capture-grpc-messages-04-select"></a>
+### 04 · 选择本轮连接
+
+[视频 00:09](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=9.241) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![04 · 选择本轮连接](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-04-select.png)
+
+<a id="walkthrough-capture-grpc-messages-05-tab"></a>
+### 05 · 打开消息页
+
+[视频 00:12](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=12.450) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![05 · 打开消息页](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-05-tab.png)
+
+<a id="walkthrough-capture-grpc-messages-06-direction"></a>
+### 06 · 选择 Response 消息
+
+[视频 00:15](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=15.446) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![06 · 选择 Response 消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-06-direction.png)
+
+<a id="walkthrough-capture-grpc-messages-07-short"></a>
+### 07 · 展开 guide-short
+
+[视频 00:18](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=18.393) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![07 · 展开 guide-short](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-07-short.png)
+
+<a id="walkthrough-capture-grpc-messages-08-short-raw"></a>
+### 08 · 选择 Raw 查看原文
+
+[视频 00:21](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=21.541) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![08 · 选择 Raw 查看原文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-08-short-raw.png)
+
+<a id="walkthrough-capture-grpc-messages-09-copy-short"></a>
+### 09 · 复制当前短消息正文
+
+[视频 00:24](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=24.544) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![09 · 复制当前短消息正文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-09-copy-short.png)
+
+<a id="walkthrough-capture-grpc-messages-10-collapse-short"></a>
+### 10 · 收起短消息
+
+[视频 00:27](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=27.512) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![10 · 收起短消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-10-collapse-short.png)
+
+<a id="walkthrough-capture-grpc-messages-11-long"></a>
+### 11 · 展开 guide-long
+
+[视频 00:30](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=30.484) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![11 · 展开 guide-long](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
+
+<a id="walkthrough-capture-grpc-messages-12-resize"></a>
+### 12 · 拖动正文右下角缩小高度
+
+[视频 00:33](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=33.692) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![12 · 拖动正文右下角缩小高度](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-12-resize.png)
+
+<a id="walkthrough-capture-grpc-messages-13-wheel"></a>
+### 13 · 在长消息中滚动
+
+[视频 00:37](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=37.093) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![13 · 在长消息中滚动](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-13-wheel.png)
+
+<a id="walkthrough-capture-grpc-messages-14-keyboard-end"></a>
+### 14 · 用键盘到达消息末尾
+
+[视频 00:40](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=40.143) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![14 · 用键盘到达消息末尾](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-14-keyboard-end.png)
+
+<a id="walkthrough-capture-grpc-messages-15-scroll-out"></a>
+### 15 · 到底后继续滚动消息列表
+
+[视频 00:43](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=43.139) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![15 · 到底后继续滚动消息列表](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-15-scroll-out.png)
+
+<a id="walkthrough-capture-grpc-messages-16-copy-long"></a>
+### 16 · 复制完整长消息正文
+
+[视频 00:46](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=46.092) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![16 · 复制完整长消息正文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-16-copy-long.png)
+
+<a id="walkthrough-capture-grpc-messages-17-payload-copy"></a>
+### 17 · 使用消息专用 Copy
+
+[视频 00:49](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=49.053) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![17 · 使用消息专用 Copy](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-17-payload-copy.png)
+
+<a id="walkthrough-capture-grpc-messages-18-fullscreen"></a>
+### 18 · 全屏查看这条消息
+
+[视频 00:52](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=52.041) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![18 · 全屏查看这条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
+
+<a id="walkthrough-capture-grpc-messages-19-return"></a>
+### 19 · Escape 返回同一消息
+
+[视频 00:55](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=55.136) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![19 · Escape 返回同一消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-19-return.png)
+
+<a id="walkthrough-capture-grpc-messages-20-paged-input"></a>
+### 20 · 在新连接发送205条消息
+
+[视频 00:58](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=58.298) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![20 · 在新连接发送205条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-20-paged-input.png)
+
+<a id="walkthrough-capture-grpc-messages-21-paged-select"></a>
+### 21 · 选择新的 pages 连接
+
+[视频 01:01](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=61.191) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![21 · 选择新的 pages 连接](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-21-paged-select.png)
+
+<a id="walkthrough-capture-grpc-messages-22-paged-tab"></a>
+### 22 · 打开新连接的消息
+
+[视频 01:04](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=64.193) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![22 · 打开新连接的消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-22-paged-tab.png)
+
+<a id="walkthrough-capture-grpc-messages-23-load-pages"></a>
+### 23 · 滚动加载后续消息页
+
+[视频 01:07](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=67.193) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![23 · 滚动加载后续消息页](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-23-load-pages.png)
+
+<a id="walkthrough-capture-grpc-messages-24-last-message"></a>
+### 24 · 展开第205条消息
+
+[视频 01:10](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=70.643) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![24 · 展开第205条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24-last-message.png)
+
+<a id="walkthrough-capture-grpc-messages-24a-last-raw"></a>
+### 25 · 切到 Raw 查看末条原文
+
+[视频 01:13](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=73.694) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![25 · 切到 Raw 查看末条原文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24a-last-raw.png)
+
+<a id="walkthrough-capture-grpc-messages-24b-last-visible"></a>
+### 26 · 继续滚动使末条正文完整可见
+
+[视频 01:16](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=76.744) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![26 · 继续滚动使末条正文完整可见](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
+
+<a id="walkthrough-capture-grpc-messages-25-copy-last"></a>
+### 27 · 复制最后一条并核对 index 204
+
+[视频 01:19](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=79.793) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![27 · 复制最后一条并核对 index 204](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
+
+<a id="walkthrough-capture-grpc-messages-26-settings"></a>
+### 28 · 返回 Settings
+
+[视频 01:22](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=82.792) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![28 · 返回 Settings](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-26-settings.png)
+
+<a id="walkthrough-capture-grpc-messages-27-certificates"></a>
+### 29 · 打开 Certificates
+
+[视频 01:25](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=85.745) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![29 · 打开 Certificates](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-27-certificates.png)
+
+<a id="walkthrough-capture-grpc-messages-28-mitm-off"></a>
+### 30 · 关闭本轮解密
+
+[视频 01:28](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=88.642) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![30 · 关闭本轮解密](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-28-mitm-off.png)
+
+<a id="walkthrough-capture-grpc-messages-29-origin-remove"></a>
+### 31 · 移除自有localhost例外
+
+[视频 01:31](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=91.746) · [返回本节视频](#walkthrough-capture-grpc-messages-video)
+
+![31 · 移除自有localhost例外](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-29-origin-remove.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:capture-grpc-messages:end -->

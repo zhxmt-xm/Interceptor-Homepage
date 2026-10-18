@@ -109,9 +109,9 @@
 
    ![选中真实 composer.send 成功记录](../media/v0.1.1-alpha.1/diagnostics/diagnostics-02-record.png)
 
-4. 在详情中展开关联操作和时间线，区分开始、完成、取消与失败。
+4. 选中记录后读取右侧自动展示的关联时间线；这里没有额外的“展开时间线”按钮。
 
-   **待配图**：没有分别展开关联操作/时间线，也未录制取消和失败记录；成功详情图只覆盖上一步。
+   ![真正失败的上游操作与自动时间线](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-11-timeline.png)
 
 **预期结果**：把用户操作与可观察的运行记录关联起来，而不是只凭一句错误描述猜原因。
 
@@ -140,15 +140,17 @@
 
 5. 确认列表和选择属于本次操作，必要时清除过滤重新定位。
 
-   **待配图**：已有组合筛选结果，没有完整清除过滤的逐步画面。
+   ![Process、Level、Outcome全部回到all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-16-filters-cleared.png)
 
 6. 想看更早数据时使用页面加载入口，等待记录进入列表。
 
-   **待配图**：未录制加载历史页。
+   ![加载由真实Composer操作产生的历史页](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-17-earlier.png)
 
 7. 调整列表和详情分栏，滚动阅读完整内容。
 
-   **待配图**：未录制分栏拖动或较长详情的滚动。
+   ![拖动列表与详情分栏](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-12-widen.png)
+
+   ![滚动实际历史记录列表](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-18-list-wheel.png)
 
 **预期结果**：筛选改变当前查看范围，不删除底层记录；加载更早记录与刷新最新记录是不同动作。
 
@@ -165,15 +167,23 @@
 
 2. 检查失败摘要和对应进程，再回到所属功能核对实际状态。
 
-   **待配图**：现有记录是成功结果，未录制失败摘要与所属功能往返。
+   本例在Settings填写自有返回404的PAC URL，Apply失败后Discard草稿，再选择`main.upstream.apply.failed`。完整输入与恢复见[实录](#walkthrough-diagnostics-lifecycle)。
+
+   ![选中main的实际失败记录](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-10-select-failed.png)
 
 3. 网络发送检查客户端与目标；文件操作检查任务终态；代理操作检查当前系统归属。
 
-   **待配图**：这些失败排查分支未逐项录制，不能拿一条成功日志代替端到端结果。
+   Composer网络失败仍可能对应`composer.send`的`info/success`命令记录：命令成功返回了网络失败结果，不等于HTTP成功。回到Composer用同一自有服务重新Send，实际响应才证明业务恢复。
+
+   ![真实网络失败而非命令异常](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04-send-failed.png)
+
+   ![再次Send后核对成功响应](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-23-recovered.png)
 
 4. 避免把用户取消、目标拒绝、协议错误和 App 内部错误混成同一类。
 
-   **待配图**：缺各类不同终态的对照场景，不伪造错误来补图。
+   `cancelled`、`timed_out`筛选可以没有记录，不把空列表伪称为实际超时。用户取消的具体操作见[原生Save取消](agent.md#walkthrough-agent-tool-lifecycle-12-cancel-native)和[运行中归档取消](transfer.md#walkthrough-transfer-cancel)。
+
+   ![切换到cancelled筛选的实际结果](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-cancelled.png)
 
 **预期结果**：得到具体的排查方向，不因看到一条成功记录就假定整条流程成功。
 
@@ -186,7 +196,7 @@
 
 1. 复现一次有权执行的最小问题，并记下时间、版本和系统。
 
-   **待配图**：本次是 macOS x64、`0.1.1-alpha.1` 的正常 `composer.send` 示例，不是故障复现；输入和发起阶段未在 Diagnostics 片段中展示。
+   本章基础片段使用成功的`composer.send`；[进阶实录](#walkthrough-diagnostics-lifecycle-04a-upstream)另外展示自有PAC地址返回404后的真实Apply失败。两者都使用macOS x64、`0.1.1-alpha.1`，不伪造故障日志。
 
 2. 本例使用 Process `core`、Level `info`、Outcome `success`；实际故障应按自己的记录调整，不能过滤掉所需错误。
 
@@ -206,7 +216,7 @@
 
 5. 分享前再检查内容，附上操作步骤、预期结果和实际错误。
 
-   **待配图**：没有最终隐私复核或提交工单的录制；JSONL 导出完成不表示文件可以不经检查就分享。
+   这是分享前的安全要求，不是自动上传步骤。本教程没有把导出文件发给第三方；导出完成也不表示可以不经检查就分享。
 
 **预期结果**：得到逐行 JSON 的诊断文件，便于核对，不需要公开整个 App 数据目录。
 
@@ -222,19 +232,23 @@
 
 1. 仅开启需要的 Diagnostics 查询 Tool。
 
-   **待配图**：权限录制使用 Capture Tool，没有逐项配置 Diagnostics Tool。
+   [完整只读配置](tool-permissions.md#walkthrough-tool-permissions-readonly)逐项关闭change、保留query，包含Diagnostics分组；需要导出时再明确授予`diagnostics_export`。
 
 2. 让 AI 限定来源、时间线索和操作，不要求它读取全部无关日志。
 
-   **待配图**：没有 Diagnostics 专用 Agent/MCP 指令与查询返回。
+   ![Agent按明确目标查询真实Recent记录](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png)
 
 3. 区分当前 Core 内存快照与持久查询结果。
 
-   **待配图**：未录制两类 Tool 结果的对照，UI 记录列表不能代替。
+   先用`diagnostics_get_recent`读当前Core快照，再把实际返回的`traceId`传给`diagnostics_get_trace`；需要持久记录用`diagnostics_query`。不要给`diagnostics_get_trace`添加不存在的`limit`参数，也不要用它查询任意历史。
+
+   ![使用刚返回的traceId读取Trace](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png)
 
 4. 需要导出时单独审批导出操作，并完成原生保存窗口。
 
-   **待配图**：上面已录 UI Export 的原生窗口，但没有 Agent/MCP 导出审批，不冒充 Tool 调用链。
+   [Agent实录](agent.md#walkthrough-agent-tool-lifecycle-10-export-request)和[MCP实录](mcp.md#walkthrough-mcp-tool-lifecycle-08-export-ask)分别包含真实审批、Save取消、再次保存和任务完成查询。
+
+   ![Agent审批后仍需选择真实保存位置](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
 
 **预期结果**：AI 获得必要的脱敏摘要，正式导出仍由用户选择文件。
 
@@ -247,3 +261,295 @@
 - 当前没有完整 HTTP/2 帧录制及所有 session/stream 与请求的精确关联；不能从普通请求日志重建全部 SETTINGS、RST_STREAM 或 GOAWAY。
 - 记录不是自动按天数或条数淘汰；Capture Clear 也不是完整 Diagnostics 历史清理入口。
 - 导出没有包含某个内部属性，不代表可以让 AI 从别处推测还原。
+
+<!-- recorded-walkthrough:diagnostics-lifecycle:start -->
+<a id="walkthrough-diagnostics-lifecycle"></a>
+## 实际失败、过滤、历史和JSONL
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>successUrl</code> | <code>http://127.0.0.1:60694/guide/diagnostics-visible/success</code> |
+| <code>failureUrl</code> | <code>http://127.0.0.1:60696/guide/diagnostics-failure</code> |
+| <code>unavailablePac</code> | <code>http://127.0.0.1:60694/guide/diagnostics-visible/unavailable.pac</code> |
+| <code>failedOrigin</code> | <code>Owned loopback TCP service closes its accepted connection</code> |
+| <code>history</code> | <code>120 real Composer Send operations prepared before filming, not seeded diagnostic rows</code> |
+| <code>command</code> | <code>composer.send</code> |
+| <code>failedAction</code> | <code>main.upstream.apply.failed</code> |
+| <code>failureFilter</code> | <code>main / error / failed</code> |
+| <code>clearedFilter</code> | <code>all / all / all</code> |
+| <code>outcomeBoundary</code> | <code>Composer returns a normal command result with ok=false for network failure; diagnostic success does not imply HTTP success</code> |
+| <code>file</code> | <code>guide-diagnostics-lifecycle.jsonl</code> |
+| <code>timeline</code> | <code>Shown automatically for the selected operation; not an expandable control</code> |
+
+<a id="walkthrough-diagnostics-lifecycle-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-01-input.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.vtt" default>
+</video>
+
+<a id="walkthrough-diagnostics-lifecycle-01-input"></a>
+### 01 · 填写本次可见的成功请求
+
+[视频 00:00](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=0.394) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![01 · 填写本次可见的成功请求](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-01-input.png)
+
+<a id="walkthrough-diagnostics-lifecycle-02-send-success"></a>
+### 02 · 真实Send并核对成功响应
+
+[视频 00:03](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=3.409) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![02 · 真实Send并核对成功响应](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-02-send-success.png)
+
+<a id="walkthrough-diagnostics-lifecycle-03-failed-input"></a>
+### 03 · 填写本轮会关闭连接的自有端点
+
+[视频 00:06](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=6.492) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![03 · 填写本轮会关闭连接的自有端点](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-03-failed-input.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04-send-failed"></a>
+### 04 · 观察真实网络失败
+
+[视频 00:09](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=9.508) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![04 · 观察真实网络失败](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04-send-failed.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04a-upstream"></a>
+### 05 · 打开自有PAC失败示例
+
+[视频 00:12](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=12.536) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![05 · 打开自有PAC失败示例](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04a-upstream.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04b-pac-mode"></a>
+### 06 · 选择PAC草稿
+
+[视频 00:15](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=15.664) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![06 · 选择PAC草稿](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04b-pac-mode.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04c-pac-url"></a>
+### 07 · 填写本轮返回404的PAC地址
+
+[视频 00:18](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=18.719) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![07 · 填写本轮返回404的PAC地址](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04c-pac-url.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04d-pac-failure"></a>
+### 08 · Apply实际失败并保持原路线
+
+[视频 00:21](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=21.729) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![08 · Apply实际失败并保持原路线](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04d-pac-failure.png)
+
+<a id="walkthrough-diagnostics-lifecycle-04e-discard"></a>
+### 09 · Discard失败草稿不改原配置
+
+[视频 00:24](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=24.868) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![09 · Discard失败草稿不改原配置](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04e-discard.png)
+
+<a id="walkthrough-diagnostics-lifecycle-05-diagnostics"></a>
+### 10 · 进入Diagnostics
+
+[视频 00:27](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=27.901) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![10 · 进入Diagnostics](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05-diagnostics.png)
+
+<a id="walkthrough-diagnostics-lifecycle-05a-save-evidence"></a>
+### 11 · 先导出当前记录留证据
+
+[视频 00:43](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=43.163) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![11 · 先导出当前记录留证据](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05a-save-evidence.png)
+
+<a id="walkthrough-diagnostics-lifecycle-05b-evidence"></a>
+### 12 · 核对产品导出的真实结果分类
+
+[视频 00:47](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=47.649) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![12 · 核对产品导出的真实结果分类](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05b-evidence.png)
+
+<a id="walkthrough-diagnostics-lifecycle-06-core"></a>
+### 13 · 按core进程筛选
+
+[视频 00:50](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=50.649) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![13 · 按core进程筛选](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06-core.png)
+
+<a id="walkthrough-diagnostics-lifecycle-06a-main"></a>
+### 14 · 切到失败操作所属main进程
+
+[视频 00:53](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=53.798) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![14 · 切到失败操作所属main进程](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06a-main.png)
+
+<a id="walkthrough-diagnostics-lifecycle-07-error"></a>
+### 15 · 按error级别筛选
+
+[视频 00:56](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=56.869) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![15 · 按error级别筛选](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-07-error.png)
+
+<a id="walkthrough-diagnostics-lifecycle-08-success-filter"></a>
+### 16 · 查看success结果组合
+
+[视频 00:59](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=59.908) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![16 · 查看success结果组合](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-08-success-filter.png)
+
+<a id="walkthrough-diagnostics-lifecycle-09-failed-filter"></a>
+### 17 · 切到failed结果
+
+[视频 01:02](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=62.921) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![17 · 切到failed结果](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-09-failed-filter.png)
+
+<a id="walkthrough-diagnostics-lifecycle-10-select-failed"></a>
+### 18 · 选择真正失败的上游操作
+
+[视频 01:05](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=65.945) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![18 · 选择真正失败的上游操作](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-10-select-failed.png)
+
+<a id="walkthrough-diagnostics-lifecycle-11-timeline"></a>
+### 19 · 读取自动展示的关联时间线
+
+[视频 01:08](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=68.993) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![19 · 读取自动展示的关联时间线](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-11-timeline.png)
+
+<a id="walkthrough-diagnostics-lifecycle-12-widen"></a>
+### 20 · 拖动Diagnostics分栏
+
+[视频 01:11](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=71.977) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![20 · 拖动Diagnostics分栏](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-12-widen.png)
+
+<a id="walkthrough-diagnostics-lifecycle-13-level-warn"></a>
+### 21 · 切换Level至warn
+
+[视频 01:15](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=75.497) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![21 · 切换Level至warn](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-warn.png)
+
+<a id="walkthrough-diagnostics-lifecycle-13-level-info"></a>
+### 22 · 切换Level至info
+
+[视频 01:18](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=78.532) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![22 · 切换Level至info](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-info.png)
+
+<a id="walkthrough-diagnostics-lifecycle-13-level-debug"></a>
+### 23 · 切换Level至debug
+
+[视频 01:21](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=81.568) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![23 · 切换Level至debug](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-debug.png)
+
+<a id="walkthrough-diagnostics-lifecycle-13-level-all"></a>
+### 24 · 切换Level至all
+
+[视频 01:24](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=84.599) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![24 · 切换Level至all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-all.png)
+
+<a id="walkthrough-diagnostics-lifecycle-14-outcome-cancelled"></a>
+### 25 · 切换Outcome至cancelled
+
+[视频 01:27](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=87.627) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![25 · 切换Outcome至cancelled](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-cancelled.png)
+
+<a id="walkthrough-diagnostics-lifecycle-14-outcome-timed_out"></a>
+### 26 · 切换Outcome至timed_out
+
+[视频 01:30](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=90.640) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![26 · 切换Outcome至timed_out](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-timed_out.png)
+
+<a id="walkthrough-diagnostics-lifecycle-14-outcome-all"></a>
+### 27 · 切换Outcome至all
+
+[视频 01:33](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=93.657) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![27 · 切换Outcome至all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-all.png)
+
+<a id="walkthrough-diagnostics-lifecycle-15-process-renderer"></a>
+### 28 · 切换Process至renderer
+
+[视频 01:36](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=96.677) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![28 · 切换Process至renderer](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-renderer.png)
+
+<a id="walkthrough-diagnostics-lifecycle-15-process-all"></a>
+### 29 · 切换Process至all
+
+[视频 01:39](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=99.701) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![29 · 切换Process至all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-all.png)
+
+<a id="walkthrough-diagnostics-lifecycle-16-filters-cleared"></a>
+### 30 · 确认三个筛选全部清除
+
+[视频 01:42](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=102.732) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![30 · 确认三个筛选全部清除](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-16-filters-cleared.png)
+
+<a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>
+### 31 · 加载实际历史页
+
+[视频 01:45](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=105.821) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![31 · 加载实际历史页](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-17-earlier.png)
+
+<a id="walkthrough-diagnostics-lifecycle-18-list-wheel"></a>
+### 32 · 滚动真实历史列表
+
+[视频 01:49](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=109.118) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![32 · 滚动真实历史列表](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-18-list-wheel.png)
+
+<a id="walkthrough-diagnostics-lifecycle-19-export"></a>
+### 33 · 保存本次Diagnostics JSONL
+
+[视频 02:02](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=122.469) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![33 · 保存本次Diagnostics JSONL](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-19-export.png)
+
+<a id="walkthrough-diagnostics-lifecycle-20-exported"></a>
+### 34 · 核对实际导出而不是只看弹窗
+
+[视频 02:06](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=126.942) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![34 · 核对实际导出而不是只看弹窗](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-20-exported.png)
+
+<a id="walkthrough-diagnostics-lifecycle-21-composer-return"></a>
+### 35 · 返回产生记录的Composer
+
+[视频 02:09](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=129.945) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![35 · 返回产生记录的Composer](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-21-composer-return.png)
+
+<a id="walkthrough-diagnostics-lifecycle-22-good-url"></a>
+### 36 · 改回可工作的自有服务
+
+[视频 02:13](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=133.053) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![36 · 改回可工作的自有服务](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-22-good-url.png)
+
+<a id="walkthrough-diagnostics-lifecycle-23-recovered"></a>
+### 37 · 再次Send核对真实业务恢复
+
+[视频 02:16](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle.mp4#t=136.067) · [返回本节视频](#walkthrough-diagnostics-lifecycle-video)
+
+![37 · 再次Send核对真实业务恢复](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-23-recovered.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:diagnostics-lifecycle:end -->

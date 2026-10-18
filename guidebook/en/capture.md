@@ -429,19 +429,25 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
     ![Collapsing a group heading without Capture Clear](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
 
-15. To see traffic outside the demonstration path, clear search as well.
+15. Use the clear button inside the search field to remove `/guide/filters`, not Capture Clear. The field is now empty, all four records remain, and Recording is still paused. [Video step](#walkthrough-capture-filters-13-clear-search)
 
-    **Image pending:** the final state retains `/guide/filters`; completely clearing search was not recorded.
+    ![Clearing search retains all four paused example records](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 16. Select Application, Host, Protocol, Content type or Rule when those dimensions are needed.
 
-    **Image pending:** this new clip operates Method and Status only, not the remaining groups or Windows application attribution.
+    The [separate complete-facet recording](#walkthrough-capture-facets) starts with two captured public requests, `/guide/facets/selected-json` and `/guide/facets/other-text`. The applied `Guide facets` Rule matches only the first; follow [Rules](rules.md#first-rule) for rule preparation. This is not the earlier four-request recording.
+
+    Follow the individual steps for [Application](#walkthrough-capture-facets-01-application), [Host](#walkthrough-capture-facets-03-host-group), [Protocol](#walkthrough-capture-facets-05-protocol-group), [Content type](#walkthrough-capture-facets-07-type-group) and [Rule](#walkthrough-capture-facets-09-rule-group). Every expansion and selection has its own image and video time. This macOS recording reports Unknown attribution, not Windows process identification.
+
+    ![The actual json request matched by Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
+
+    Removing json still leaves one request through the Rule filter. [Clearing facet selections](#walkthrough-capture-facets-12-clear-facets) restores both while preserving `/guide/facets` search. [Hiding and showing the panel](#walkthrough-capture-facets-13-hide-filters) also preserves records. Disable and Apply `Guide facets` when finished.
 
 **Expected result:** selections within one group are OR; different groups, and search combined with groups, are AND.
 
 **Notes**
 
-- Search matches Host and Path, not arbitrary headers or body text.
+- Search matches Host and Path, not the port, arbitrary headers or body text. For the local TLS example, search `localhost` and verify the actual port in details; `localhost:63604` is not an equivalent search.
 - Group counts refer to the complete current recording, not necessarily the currently visible filtered rows.
 - Pending means the relevant information is not yet available; it does not automatically mean failure.
 - Selecting a value leaves the group expanded. Its title controls expansion.
@@ -469,9 +475,17 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
    ![Timing for the same request](../media/v0.1.1-alpha.1/capture/capture-10-timing.png)
 
-5. For a request with a body, open Request; drag the list/detail separator as needed.
+5. Open Request for a request with a body. The separate [body-inspection recording](#walkthrough-capture-inspection) uses `POST /guide/inspection/body`, with `requestId: guide-request`, 96 entries and 24 Query fields. It is not the earlier GET. [Video step](#walkthrough-capture-inspection-09-request)
 
-   **Image pending:** this GET did not demonstrate a request-body view or divider dragging. Response and Timing are not substitutes.
+   ![The actual POST Request and its Query fields](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
+
+6. Select Raw to read the same request body. [Video step](#walkthrough-capture-inspection-10-raw)
+
+   ![Raw view of the request body](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
+
+7. Drag the list/detail divider to widen the Inspector. This example moves it 240px left and restores it later. [Video step](#walkthrough-capture-inspection-11-widen)
+
+   ![Details widened by an actual splitter drag](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
 
 **Expected result:** viewing another tab does not resend or modify traffic. Collapsing one section does not collapse all the others.
 
@@ -498,7 +512,13 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
    ![Raw view of this JSON, not Source](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
 
-   **Image pending:** switching to Source was not recorded.
+   The separate `/guide/inspection/body` response is Markdown titled `Guide response source`. Focus its mode control in [Preview](#walkthrough-capture-inspection-17-preview), use ArrowRight for [Split](#walkthrough-capture-inspection-18-split), then ArrowRight again for [Source](#walkthrough-capture-inspection-19-source). Each operation has a screenshot; JSON Raw is not presented as Markdown Source.
+
+   ![Actual Markdown Split mode](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
+
+   ![Actual Markdown Source mode](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
+
+   [Copy Source](#walkthrough-capture-inspection-20-copy-source) copies the original Markdown. Fullscreen and Escape retain Source; the same recording includes the complete sequence.
 
 4. Open the body's fullscreen view.
 
@@ -514,7 +534,13 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 7. Scroll or resize the pane to access overflow.
 
-   **Image pending:** static mode images do not show wheel or divider actions. Long-body and boundary scrolling still need their own steps.
+   Use the [actual wheel](#walkthrough-capture-inspection-12-inner-scroll) inside the long request body, then `Command+ArrowDown` to reach `guide-request-end`. Scroll upward at the Inspector edge, move back over the body already at its end, and continue the wheel to scroll outer details. [Scroll-handoff steps](#walkthrough-capture-inspection-14-outer-up)
+
+   ![The actual request end reached by keyboard](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
+
+   ![Continuing into outer scrolling at the body boundary](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+
+   Markdown Source also has recorded [wheel and keyboard end navigation](#walkthrough-capture-inspection-21-source-scroll), ending at `guide-response-end`. Scrolling and resizing neither resend the POST nor modify wire content.
 
 | Content | Typical views |
 | --- | --- |
@@ -533,6 +559,7 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 - Text, WebSocket and gRPC read-only previews are limited to `2 MiB`. Images have a separate `16 MiB` read/decode budget.
 - Complete bodies up to `1 MiB` can format automatically. Complete `1–2 MiB` bodies require Format. Truncated or incomplete captures must not be formatted.
+- The [large-body recording](#walkthrough-capture-body-limits) shows [manual Format](#walkthrough-capture-body-limits-07-format) above 1 MiB, a [3 MiB source previewed/copied only up to 2 MiB](#walkthrough-capture-body-limits-11-preview), and native saving of complete `guide-full-response.json`. Its actual input sizes and every step image are included; ordinary small JSON images are not substituted.
 - Format only changes presentation; failures retain source text. A mode without Format is not necessarily unreadable.
 - Copy uses the viewer's currently available content, not necessarily an entire large file.
 - Save body exports the complete captured body, not just the preview. It cannot recover bytes never received before a network interruption.
@@ -545,21 +572,59 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 **Steps**
 
-1. Look for genuine rule-effect markers in the request details.
+Use `Guide response and body` from the [separate Rules recording](rules.md#walkthrough-rules-response-evidence). Complete its creation, Apply and POST steps first. The request path is `/guide/response-evidence/request-body`; the client sends `{"message":"guide-original"}`, while the origin actually receives `{"message":"guide-final"}`.
 
-   **Image pending:** the available rule-result images do not separately demonstrate effect-marker inspection or navigation.
+1. Select the `request-body` request in Capture. [Video step](rules.md#walkthrough-rules-response-evidence-32-body-select)
 
-2. If Body version is available, check whether Original or Final is selected. This image comes from the [Rules Body action](rules.md#walkthrough-rules-actions): `Guide body` replaces the response with `{"message":"guide-body"}`. It shows Final, not the earlier orders original.
+   ![Selecting the POST whose body was rewritten](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-32-body-select.png)
 
-   ![Final guide-body response from the Rules Body action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-11-result.png)
+2. Open Request and inspect the body-rule effect and Text source. Final initially shows `guide-final`. [Video step](rules.md#walkthrough-rules-response-evidence-33-final)
 
-3. Compare available versions and follow the effect marker to inspect its rule if needed.
+   ![The actual Final and rule effect in Request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-33-final.png)
 
-   **Image pending:** toggling Original/Final and following the effect marker were not recorded. The image above only covers Final.
+3. Select Original and read `guide-original`. [Video step](rules.md#walkthrough-rules-response-evidence-34-original)
 
-4. Check the selected version again before copying, saving or entering fullscreen.
+   ![Original for the same request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png)
 
-   **Image pending:** copying, Save body and fullscreen after a version selection were not recorded. Unmodified-body images do not cover this branch.
+4. Choose Raw. The selected version remains Original rather than changing with the display mode. [Video step](rules.md#walkthrough-rules-response-evidence-35-raw)
+
+   ![Raw preserves the Original selection](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-35-raw.png)
+
+5. Click Copy to copy the current Original. [Video step](rules.md#walkthrough-rules-response-evidence-36-copy-original)
+
+   ![Actually copying Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-36-copy-original.png)
+
+6. Open Fullscreen. The enlarged body still contains `guide-original`. [Video step](rules.md#walkthrough-rules-response-evidence-37-fullscreen)
+
+   ![The actual Original body fullscreen](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-37-fullscreen.png)
+
+7. Press Escape to return to details and move the pointer away before selecting another version. [Video step](rules.md#walkthrough-rules-response-evidence-38-close-fullscreen)
+
+   ![Details still show Original after returning](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-38-close-fullscreen.png)
+
+8. Select Final again and confirm `guide-final`. [Video step](rules.md#walkthrough-rules-response-evidence-39-final-again)
+
+   ![The same request shows Final again](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png)
+
+9. Click Copy. This copies Final, not the previous Original. [Video step](rules.md#walkthrough-rules-response-evidence-40-copy-final)
+
+   ![Actually copying Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-40-copy-final.png)
+
+10. Click Save body, choose your example directory in the native panel and save as `guide-final.json`. [Video step](rules.md#walkthrough-rules-response-evidence-41-save-dialog)
+
+    ![The real Save panel with only this example filename](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-41-save-dialog.png)
+
+11. Return to the same request after saving. Final is still selected; the file was checked to contain `{"message":"guide-final"}`. [Video step](rules.md#walkthrough-rules-response-evidence-42-saved)
+
+    ![The same Final remains visible after saving](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-42-saved.png)
+
+12. Click the body-rule effect to return to its writer, `Guide response and body`. [Video step](rules.md#walkthrough-rules-response-evidence-43-body-rule)
+
+    ![The effect actually locates its corresponding Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-43-body-rule.png)
+
+The [remaining steps in the same recording](rules.md#walkthrough-rules-response-evidence-44-response-body) cover the response phase: Final becomes `{"message":"guide-response-final"}`, with Original explicitly unavailable, not empty. [Disable and Apply](rules.md#walkthrough-rules-response-evidence-52-disable) when finished.
+
+![The actual unavailable-original notice after response replacement](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png)
 
 **Expected result:** these actions apply to the selected body version rather than silently using another one.
 
@@ -578,7 +643,13 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 1. Send HTTPS through the proxy. If it appears only as TLS tunnel, distinguish proxy routing from decryption readiness.
 
-   **Image pending:** this protocol recording shows decrypted traffic, not a separate undecrypted tunnel state.
+   The [TLS recording](settings.md#walkthrough-settings-tls-passthrough) first searches for `localhost` and starts Recording. Its port is `63604`; use your own actual port. These are the same connection's [request](settings.md#walkthrough-settings-tls-passthrough-03-opaque-request), [selection](settings.md#walkthrough-settings-tls-passthrough-04-tunnel-select) and [Tunnel details](settings.md#walkthrough-settings-tls-passthrough-05-tunnel), not an unrelated successful HTTP request.
+
+   ![The real opaque CONNECT appears in the list](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png)
+
+   ![Selecting this run's CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png)
+
+   ![Actual Tunnel metadata without an HTTP body](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
 
 2. Check existing CA trust in Settings. This is the recording machine's already-trusted CA, not first installation or native authorization.
 
@@ -592,7 +663,9 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 4. Check whether TLS passthrough excludes the destination; follow [Settings](settings.md#tls-passthrough) if a change is required.
 
-   **Image pending:** a passthrough match and configuration-adjustment round trip was not recorded.
+   The new [complete Settings procedure](settings.md#tls-passthrough) adds exact `localhost`, reconnects, inspects the match, locates and removes the entry, then reconnects to restore decryption. Global MITM is enabled in this image, but the matched connection is still a Tunnel; that alone is not a decryption failure.
+
+   ![An actual TLS passthrough match while MITM is enabled](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
 
 5. Establish a new connection and inspect subsequent traffic. This image is the recorded `/playground/h2-json` HTTP/2 request, not the earlier HTTP orders request.
 
@@ -630,7 +703,9 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 3. Select HTTP/2 in Protocol if needed.
 
-   **Image pending:** the recording used search rather than selecting a Protocol filter.
+   The [separate HTTP/2 recording](#walkthrough-capture-http2-10-protocol-group) actually expands Protocol and selects HTTP/2. It owns `/guide/h2` requests rather than renaming the older `/playground` footage.
+
+   ![Actually selecting the HTTP/2 Protocol facet](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
 
 4. Expand the available trailers in Headers.
 
@@ -642,11 +717,27 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 6. For streaming responses, observe received data and final state in the same record instead of treating a visible prefix as complete.
 
-   **Image pending:** long-stream receipt and completion were not recorded step by step. A completed short JSON response is not a substitute.
+   The new `/guide/h2/stream` receives a first part, then a second part, before ending. [The complete progress sequence](#walkthrough-capture-http2-03-first-part) checks real received bytes. While receiving, row sizes update but this release does not yet expose the normal HTTP body for reading; an unavailable body does not mean traffic bypassed the proxy.
+
+   ![64 KB received while the body is not yet readable](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
+
+   ![Actual progress increases after the second part](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
+
+   ![The complete body becomes readable and copyable after ending](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
+
+   The [completion trailer](#walkthrough-capture-http2-09-trailers) is `x-guide-end: complete`. These are stages of one GET, not repeated requests.
 
 7. When a connection ends, compare request completion, client-received bytes and whether a new connection can serve another request.
 
-   **Image pending / blocked:** GOAWAY, reset, interruption and reconnection need their own recorded cases; an ordinary HTTP/2 success does not verify them.
+   [Client error GOAWAY](#walkthrough-capture-http2-client-01-interrupt) and [origin error GOAWAY](#walkthrough-capture-http2-origin-01-interrupt) each have an actual sequence. The original POST declares `524288` bytes but only `262144` are captured; a separate `/recovered` GET then uses a new connection, without replaying the POST. The experiment affects only its owned origin, never someone else's service.
+
+   ![The original Header still declares 512 KiB](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
+
+   ![Only 256 KiB of the original body were actually captured](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
+
+   ![The separate recovery GET returns a normal body](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
+
+   These two error cases do not certify all normal-GOAWAY multi-stream endings, reset types or retry strategies.
 
 **Expected result:** evaluate each request, not every stream collectively from one connection event.
 
@@ -675,11 +766,33 @@ Existing records remain. Requests started while paused are not backfilled; new r
 
 5. Expand, copy or use fullscreen for long messages.
 
-   **Image pending:** these messages were short; message copying and fullscreen were not separately recorded. HTTP-body fullscreen is not the same operation.
+   The [WebSocket message recording](#walkthrough-capture-websocket-messages) owns `/guide/messages/websocket/detail`, containing public `guide-short`, `guide-long` and subsequent messages. [Height resizing](#walkthrough-capture-websocket-messages-12-resize), wheel/keyboard end navigation, [list scroll handoff](#walkthrough-capture-websocket-messages-15-scroll-out), Copy and Fullscreen each have their own step images.
+
+   ![The actual long WebSocket message body](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
+
+   ![Fullscreen for the actual message](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
+
+   The long message is binary JSON: Raw-body Copy returns UTF-8, while [message-specific Copy](#walkthrough-capture-websocket-messages-17-payload-copy) returns original binary Hex. Do not treat these as identical formats.
+
+   gRPC has its own [complete message recording](#walkthrough-capture-grpc-messages), using six JSON messages at `/guide/messages/grpc/detail`. It independently shows expansion, Raw, copying, height resizing, inner/outer scrolling and fullscreen. Follow the [HTTPS prerequisites](settings.md#https-decryption) for the existing CA and owned localhost exception; this is not a new CA-installation recording.
+
+   ![The actual long gRPC message and its controls](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
+
+   ![Fullscreen for the gRPC message itself](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
 
 6. Scroll or paginate longer message lists; the visible screen is not the entire session.
 
-   **Image pending:** multiple pages and message-list scroll boundaries were not recorded.
+   Another connection, `/guide/messages/websocket/pages`, actually sends 205 text messages. After [switching connections and loading further pages](#walkthrough-capture-websocket-messages-20-paged-input), expand and copy the last `{"index":204,"message":"guide-page-204"}`. Displayed message number 205 differs from the JSON example's zero-based index 204.
+
+   ![Actually scrolling into later WebSocket message pages](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
+
+   ![Actually copying text message 205](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
+
+   gRPC also owns `/guide/messages/grpc/pages`: [send 205 messages](#walkthrough-capture-grpc-messages-20-paged-input), scroll through pages, expand the last, select Raw and scroll until its whole body is visible, then Copy and verify index 204. A page number or a mounted DOM node alone does not prove the text is readable in the viewport.
+
+   ![The complete body of gRPC message 205 is visible](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
+
+   ![Copying the same final gRPC message](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
 
 **Expected result:** distinguish client-to-server from server-to-client data and observe new messages.
 
@@ -705,7 +818,7 @@ These file-operation images explicitly reuse [Transfer](transfer.md#har). Its re
 
    ![Options after choosing HAR](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
 
-3. Choose the intended scope. This recording selects the current request; all-record and filtered-record branches remain image pending.
+3. Choose the intended scope. This recording selects the current request; the [separate three-scope walkthrough](transfer.md#walkthrough-transfer-scopes) owns three `/guide/export-scopes` requests and verifies actual files with all 3, filtered 2 and selected 1 entries. One selected-request image is not used to stand for all three scopes.
 
    ![Current-request export scope](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
 
@@ -744,15 +857,31 @@ These file-operation images explicitly reuse [Transfer](transfer.md#har). Its re
 
 2. Wait for body/HAR/archive tasks and any cancellation cleanup.
 
-   **Image pending:** no active/cancelling file task was recorded; a completed task does not show waiting during cleanup.
+   The [running archive cancellation](transfer.md#walkthrough-transfer-cancel) owns a 128 MiB response and records actual running progress, Cancel, retained source data, completed file cleanup and only then Clear. It is not native file-dialog cancellation.
+
+   ![Actual running archive progress](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+   **Image pending:** this proves Clear after cancellation cleanup. Rejecting Clear through another entry while work is still running, and waiting during exit, remain separate cases.
 
 3. Clear the unneeded demonstration records, complete any product confirmation and inspect list, selection and counts. This image returns to the `capture` recording's actual Clear operation.
 
    ![Actual Capture list after clearing demo records](../media/v0.1.1-alpha.1/capture/capture-17-clear.png)
 
-4. Send a new request and check the intended Recording state.
+4. The complete post-Clear comparison comes from the separate [body-inspection recording](#walkthrough-capture-inspection-29-clear). It pauses first and clears this run's temporary records, remaining paused afterward; an earlier Resume image is not reused as this action.
 
-   **Image pending:** the recorded “new request after resuming” preceded Clear. It cannot demonstrate a post-Clear check.
+   ![The actual empty list and paused state after Clear](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
+
+5. Resume Recording. [Video step](#walkthrough-capture-inspection-30-resume)
+
+   ![Actually resuming Recording after Clear](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
+
+6. Send new `/guide/inspection/after-clear` and verify a new record appears. [Video step](#walkthrough-capture-inspection-31-new-request)
+
+   ![The new request actually captured after Clear](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
+
+7. Select it and open Response to read `{"afterClear":"guide-visible"}`. [Video step](#walkthrough-capture-inspection-32-new-body)
+
+   ![The new request's actual readable response](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
 
 **Expected result:** old records disappear without late events restoring them. If Recording is still enabled, newly started requests can appear.
 
@@ -853,6 +982,7 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>afterAnd</code> | <code>2</code> |
 | <code>afterSearch</code> | <code>1</code> |
 | <code>finalRecords</code> | <code>4</code> |
+| <code>finalSearch</code> | <code>(empty; cleared through the search control, not Capture Clear)</code> |
 
 <a id="walkthrough-capture-filters-video"></a>
 
@@ -863,86 +993,93 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 <a id="walkthrough-capture-filters-01-records"></a>
 ### 01 · Inspect four example requests
 
-[Video 00:00](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=0.199) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:00](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=0.325) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![01 · Inspect four example requests](../media/v0.1.1-alpha.1/capture-filters/capture-filters-01-records.png)
 
 <a id="walkthrough-capture-filters-02-methods"></a>
 ### 02 · Expand Method
 
-[Video 00:03](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=3.015) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:03](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=3.149) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![02 · Expand Method](../media/v0.1.1-alpha.1/capture-filters/capture-filters-02-methods.png)
 
 <a id="walkthrough-capture-filters-03-get"></a>
 ### 03 · Select GET
 
-[Video 00:05](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=5.903) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:06](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=6.002) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![03 · Select GET](../media/v0.1.1-alpha.1/capture-filters/capture-filters-03-get.png)
 
 <a id="walkthrough-capture-filters-04-get-post"></a>
 ### 04 · Also select POST in the same group
 
-[Video 00:08](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=8.805) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:08](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=8.857) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![04 · Also select POST in the same group](../media/v0.1.1-alpha.1/capture-filters/capture-filters-04-get-post.png)
 
 <a id="walkthrough-capture-filters-05-status"></a>
 ### 05 · Expand Status
 
-[Video 00:11](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=11.703) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:11](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=11.750) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![05 · Expand Status](../media/v0.1.1-alpha.1/capture-filters/capture-filters-05-status.png)
 
 <a id="walkthrough-capture-filters-06-and-status"></a>
 ### 06 · Select 200 for an AND across groups
 
-[Video 00:14](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=14.559) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:14](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=14.601) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![06 · Select 200 for an AND across groups](../media/v0.1.1-alpha.1/capture-filters/capture-filters-06-and-status.png)
 
 <a id="walkthrough-capture-filters-07-search"></a>
 ### 07 · Add a post-ok search
 
-[Video 00:17](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=17.454) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:17](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=17.501) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![07 · Add a post-ok search](../media/v0.1.1-alpha.1/capture-filters/capture-filters-07-search.png)
 
 <a id="walkthrough-capture-filters-08-search-back"></a>
 ### 08 · Restore the example search scope
 
-[Video 00:20](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=20.253) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:20](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=20.399) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![08 · Restore the example search scope](../media/v0.1.1-alpha.1/capture-filters/capture-filters-08-search-back.png)
 
 <a id="walkthrough-capture-filters-09-remove-status"></a>
 ### 09 · Remove Status selection
 
-[Video 00:23](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=23.104) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:23](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=23.251) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![09 · Remove Status selection](../media/v0.1.1-alpha.1/capture-filters/capture-filters-09-remove-status.png)
 
 <a id="walkthrough-capture-filters-10-remove-post"></a>
 ### 10 · Remove POST selection
 
-[Video 00:25](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=25.954) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:26](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=26.100) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![10 · Remove POST selection](../media/v0.1.1-alpha.1/capture-filters/capture-filters-10-remove-post.png)
 
 <a id="walkthrough-capture-filters-11-remove-get"></a>
 ### 11 · Remove GET without deleting records
 
-[Video 00:28](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=28.809) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:28](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=28.960) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![11 · Remove GET without deleting records](../media/v0.1.1-alpha.1/capture-filters/capture-filters-11-remove-get.png)
 
 <a id="walkthrough-capture-filters-12-collapse"></a>
 ### 12 · Collapse only the group
 
-[Video 00:31](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=31.657) · [Back to the video](#walkthrough-capture-filters-video)
+[Video 00:31](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=31.850) · [Back to the video](#walkthrough-capture-filters-video)
 
 ![12 · Collapse only the group](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
+
+<a id="walkthrough-capture-filters-13-clear-search"></a>
+### 13 · Clear search without deleting requests
+
+[Video 00:34](../media/v0.1.1-alpha.1/capture-filters/capture-filters.mp4#t=34.751) · [Back to the video](#walkthrough-capture-filters-video)
+
+![13 · Clear search without deleting requests](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:capture-filters:end -->
@@ -1070,3 +1207,1228 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:capture-shortcuts:end -->
+
+<!-- recorded-walkthrough:capture-inspection:start -->
+<a id="walkthrough-capture-inspection"></a>
+## Recorded walkthrough: request bodies, Markdown Source and scrolling
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>url</code> | <code>http://127.0.0.1:55601/guide/inspection/body?detail0=guide-0&amp;detail1=guide-1&amp;detail2=guide-2&amp;detail3=guide-3&amp;detail4=guide-4&amp;detail5=guide-5&amp;detail6=guide-6&amp;detail7=guide-7&amp;detail8=guide-8&amp;detail9=guide-9&amp;detail10=guide-10&amp;detail11=guide-11&amp;detail12=guide-12&amp;detail13=guide-13&amp;detail14=guide-14&amp;detail15=guide-15&amp;detail16=guide-16&amp;detail17=guide-17&amp;detail18=guide-18&amp;detail19=guide-19&amp;detail20=guide-20&amp;detail21=guide-21&amp;detail22=guide-22&amp;detail23=guide-23</code> |
+| <code>search</code> | <code>/guide/inspection</code> |
+| <code>requestId</code> | <code>guide-request</code> |
+| <code>requestEntries</code> | <code>request-000 through request-095</code> |
+| <code>queryFields</code> | <code>detail0=guide-0 through detail23=guide-23</code> |
+| <code>requestEnd</code> | <code>guide-request-end</code> |
+| <code>responseTitle</code> | <code>Guide response source</code> |
+| <code>responseEntries</code> | <code>response-000 through response-159</code> |
+| <code>responseEnd</code> | <code>guide-response-end</code> |
+| <code>responseMime</code> | <code>text/markdown</code> |
+| <code>inspectorDrag</code> | <code>240px wider, then restored</code> |
+| <code>afterClearPath</code> | <code>/guide/inspection/after-clear</code> |
+| <code>afterClearBody</code> | <code>{&quot;afterClear&quot;:&quot;guide-visible&quot;}</code> |
+
+<a id="walkthrough-capture-inspection-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4" poster="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.vtt" default>
+</video>
+
+<a id="walkthrough-capture-inspection-01-filter"></a>
+### 01 · Scope the inspection path
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=0.418) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![01 · Scope the inspection path](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png)
+
+<a id="walkthrough-capture-inspection-02-record"></a>
+### 02 · Start Recording
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=3.213) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![02 · Start Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-02-record.png)
+
+<a id="walkthrough-capture-inspection-03-post"></a>
+### 03 · Send the long-body POST
+
+[Video 00:05](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=5.968) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![03 · Send the long-body POST](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-03-post.png)
+
+<a id="walkthrough-capture-inspection-04-pause"></a>
+### 04 · Pause before inspecting the captured request
+
+[Video 00:08](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=8.764) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![04 · Pause before inspecting the captured request](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-04-pause.png)
+
+<a id="walkthrough-capture-inspection-05-select"></a>
+### 05 · Select the body request
+
+[Video 00:11](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=11.606) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![05 · Select the body request](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-05-select.png)
+
+<a id="walkthrough-capture-inspection-06-headers"></a>
+### 06 · Inspect Headers
+
+[Video 00:14](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=14.657) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![06 · Inspect Headers](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-06-headers.png)
+
+<a id="walkthrough-capture-inspection-07-collapse"></a>
+### 07 · Collapse General
+
+[Video 00:17](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=17.469) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![07 · Collapse General](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-07-collapse.png)
+
+<a id="walkthrough-capture-inspection-08-expand"></a>
+### 08 · Expand General again
+
+[Video 00:20](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=20.306) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![08 · Expand General again](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-08-expand.png)
+
+<a id="walkthrough-capture-inspection-09-request"></a>
+### 09 · Open the Request body
+
+[Video 00:23](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=23.156) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![09 · Open the Request body](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
+
+<a id="walkthrough-capture-inspection-10-raw"></a>
+### 10 · Select request Raw
+
+[Video 00:26](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=26.913) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![10 · Select request Raw](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
+
+<a id="walkthrough-capture-inspection-11-widen"></a>
+### 11 · Drag the splitter to widen details
+
+[Video 00:29](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=29.907) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![11 · Drag the splitter to widen details](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
+
+<a id="walkthrough-capture-inspection-12-inner-scroll"></a>
+### 12 · Scroll inside the body with the wheel
+
+[Video 00:39](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=39.008) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![12 · Scroll inside the body with the wheel](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png)
+
+<a id="walkthrough-capture-inspection-13-request-end"></a>
+### 13 · Reach the request end with the keyboard
+
+[Video 00:42](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=42.007) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![13 · Reach the request end with the keyboard](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
+
+<a id="walkthrough-capture-inspection-14-outer-up"></a>
+### 14 · Scroll up at the Inspector edge
+
+[Video 00:44](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=44.907) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![14 · Scroll up at the Inspector edge](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-14-outer-up.png)
+
+<a id="walkthrough-capture-inspection-15-scroll-chain"></a>
+### 15 · Continue scrolling the outer pane at the body boundary
+
+[Video 00:47](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=47.856) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![15 · Continue scrolling the outer pane at the body boundary](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+
+<a id="walkthrough-capture-inspection-16-copy-request"></a>
+### 16 · Copy the complete request body
+
+[Video 00:50](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=50.915) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![16 · Copy the complete request body](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-16-copy-request.png)
+
+<a id="walkthrough-capture-inspection-17-preview"></a>
+### 17 · Open Markdown Preview
+
+[Video 00:53](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=53.808) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![17 · Open Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-17-preview.png)
+
+<a id="walkthrough-capture-inspection-18-split"></a>
+### 18 · Use ArrowRight to switch to Split
+
+[Video 00:56](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=56.710) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![18 · Use ArrowRight to switch to Split](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
+
+<a id="walkthrough-capture-inspection-19-source"></a>
+### 19 · Press ArrowRight again for Source
+
+[Video 00:59](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=59.608) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![19 · Press ArrowRight again for Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
+
+<a id="walkthrough-capture-inspection-20-copy-source"></a>
+### 20 · Copy Markdown Source
+
+[Video 01:02](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=62.463) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![20 · Copy Markdown Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-20-copy-source.png)
+
+<a id="walkthrough-capture-inspection-21-source-scroll"></a>
+### 21 · Scroll the long Source
+
+[Video 01:05](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=65.307) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![21 · Scroll the long Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-21-source-scroll.png)
+
+<a id="walkthrough-capture-inspection-22-source-end"></a>
+### 22 · Use the keyboard to inspect the Source end
+
+[Video 01:08](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=68.219) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![22 · Use the keyboard to inspect the Source end](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-22-source-end.png)
+
+<a id="walkthrough-capture-inspection-23-fullscreen"></a>
+### 23 · View Source fullscreen
+
+[Video 01:11](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=71.057) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![23 · View Source fullscreen](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-23-fullscreen.png)
+
+<a id="walkthrough-capture-inspection-24-return"></a>
+### 24 · Return to Source with Escape
+
+[Video 01:13](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=73.957) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![24 · Return to Source with Escape](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-24-return.png)
+
+<a id="walkthrough-capture-inspection-25-preview-again"></a>
+### 25 · Return to Markdown Preview
+
+[Video 01:16](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=76.912) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![25 · Return to Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-25-preview-again.png)
+
+<a id="walkthrough-capture-inspection-26-hex"></a>
+### 26 · Inspect Hex for the same response
+
+[Video 01:19](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=79.756) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![26 · Inspect Hex for the same response](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-26-hex.png)
+
+<a id="walkthrough-capture-inspection-27-restore-width"></a>
+### 27 · Restore the original detail width
+
+[Video 01:22](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=82.608) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![27 · Restore the original detail width](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-27-restore-width.png)
+
+<a id="walkthrough-capture-inspection-28-close-details"></a>
+### 28 · Close details and return to the list
+
+[Video 01:26](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=86.207) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![28 · Close details and return to the list](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-28-close-details.png)
+
+<a id="walkthrough-capture-inspection-29-clear"></a>
+### 29 · Clear this run’s temporary records
+
+[Video 01:29](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=89.006) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![29 · Clear this run’s temporary records](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
+
+<a id="walkthrough-capture-inspection-30-resume"></a>
+### 30 · Resume Recording after Clear
+
+[Video 01:31](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=91.858) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![30 · Resume Recording after Clear](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
+
+<a id="walkthrough-capture-inspection-31-new-request"></a>
+### 31 · Send a new request after Clear
+
+[Video 01:34](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=94.707) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![31 · Send a new request after Clear](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
+
+<a id="walkthrough-capture-inspection-32-new-body"></a>
+### 32 · Verify the new request body is readable
+
+[Video 01:37](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection.mp4#t=97.515) · [Back to the video](#walkthrough-capture-inspection-video)
+
+![32 · Verify the new request body is readable](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-inspection:end -->
+
+<!-- recorded-walkthrough:capture-facets:start -->
+<a id="walkthrough-capture-facets"></a>
+## Recorded walkthrough: Application, Host, Protocol, Type and Rule filters
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>search</code> | <code>/guide/facets</code> |
+| <code>ruleName</code> | <code>Guide facets</code> |
+| <code>rulePath</code> | <code>/guide/facets/selected-json</code> |
+| <code>host</code> | <code>127.0.0.1</code> |
+| <code>protocol</code> | <code>HTTP/1.1</code> |
+| <code>application</code> | <code>Unknown (actual macOS result, not Windows attribution)</code> |
+| <code>prerequisite</code> | <code>Two captured owned requests and one applied Guide facets Rule; recording is paused before filming</code> |
+| <code>jsonPath</code> | <code>/guide/facets/selected-json</code> |
+| <code>textPath</code> | <code>/guide/facets/other-text</code> |
+| <code>header</code> | <code>x-guide-facet: selected</code> |
+| <code>initialRecords</code> | <code>2</code> |
+| <code>afterJson</code> | <code>1</code> |
+| <code>afterRule</code> | <code>1</code> |
+| <code>afterClearFacets</code> | <code>2</code> |
+
+<a id="walkthrough-capture-facets-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4" poster="../media/v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-facets/capture-facets.vtt" default>
+</video>
+
+<a id="walkthrough-capture-facets-01-application"></a>
+### 01 · Expand Application
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=0.370) · [Back to the video](#walkthrough-capture-facets-video)
+
+![01 · Expand Application](../media/v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png)
+
+<a id="walkthrough-capture-facets-02-unknown"></a>
+### 02 · Select this run’s Unknown attribution
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=3.318) · [Back to the video](#walkthrough-capture-facets-video)
+
+![02 · Select this run’s Unknown attribution](../media/v0.1.1-alpha.1/capture-facets/capture-facets-02-unknown.png)
+
+<a id="walkthrough-capture-facets-03-host-group"></a>
+### 03 · Expand Host
+
+[Video 00:06](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=6.320) · [Back to the video](#walkthrough-capture-facets-video)
+
+![03 · Expand Host](../media/v0.1.1-alpha.1/capture-facets/capture-facets-03-host-group.png)
+
+<a id="walkthrough-capture-facets-04-host-select"></a>
+### 04 · Select 127.0.0.1
+
+[Video 00:09](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=9.318) · [Back to the video](#walkthrough-capture-facets-video)
+
+![04 · Select 127.0.0.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-04-host-select.png)
+
+<a id="walkthrough-capture-facets-05-protocol-group"></a>
+### 05 · Expand Protocol
+
+[Video 00:12](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=12.372) · [Back to the video](#walkthrough-capture-facets-video)
+
+![05 · Expand Protocol](../media/v0.1.1-alpha.1/capture-facets/capture-facets-05-protocol-group.png)
+
+<a id="walkthrough-capture-facets-06-protocol-select"></a>
+### 06 · Select HTTP/1.1
+
+[Video 00:15](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=15.372) · [Back to the video](#walkthrough-capture-facets-video)
+
+![06 · Select HTTP/1.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-06-protocol-select.png)
+
+<a id="walkthrough-capture-facets-07-type-group"></a>
+### 07 · Expand Content type
+
+[Video 00:18](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=18.369) · [Back to the video](#walkthrough-capture-facets-video)
+
+![07 · Expand Content type](../media/v0.1.1-alpha.1/capture-facets/capture-facets-07-type-group.png)
+
+<a id="walkthrough-capture-facets-08-json"></a>
+### 08 · Select json to keep one request
+
+[Video 00:21](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=21.370) · [Back to the video](#walkthrough-capture-facets-video)
+
+![08 · Select json to keep one request](../media/v0.1.1-alpha.1/capture-facets/capture-facets-08-json.png)
+
+<a id="walkthrough-capture-facets-09-rule-group"></a>
+### 09 · Expand Rule
+
+[Video 00:24](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=24.373) · [Back to the video](#walkthrough-capture-facets-video)
+
+![09 · Expand Rule](../media/v0.1.1-alpha.1/capture-facets/capture-facets-09-rule-group.png)
+
+<a id="walkthrough-capture-facets-10-rule-select"></a>
+### 10 · Select the matched Guide facets Rule
+
+[Video 00:27](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=27.380) · [Back to the video](#walkthrough-capture-facets-video)
+
+![10 · Select the matched Guide facets Rule](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
+
+<a id="walkthrough-capture-facets-11-remove-type"></a>
+### 11 · Remove json while the Rule still keeps one request
+
+[Video 00:30](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=30.420) · [Back to the video](#walkthrough-capture-facets-video)
+
+![11 · Remove json while the Rule still keeps one request](../media/v0.1.1-alpha.1/capture-facets/capture-facets-11-remove-type.png)
+
+<a id="walkthrough-capture-facets-12-clear-facets"></a>
+### 12 · Clear facet selections while keeping search
+
+[Video 00:33](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=33.419) · [Back to the video](#walkthrough-capture-facets-video)
+
+![12 · Clear facet selections while keeping search](../media/v0.1.1-alpha.1/capture-facets/capture-facets-12-clear-facets.png)
+
+<a id="walkthrough-capture-facets-13-hide-filters"></a>
+### 13 · Hide the filter panel
+
+[Video 00:36](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=36.451) · [Back to the video](#walkthrough-capture-facets-video)
+
+![13 · Hide the filter panel](../media/v0.1.1-alpha.1/capture-facets/capture-facets-13-hide-filters.png)
+
+<a id="walkthrough-capture-facets-14-show-filters"></a>
+### 14 · Show the filter panel again
+
+[Video 00:39](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=39.418) · [Back to the video](#walkthrough-capture-facets-video)
+
+![14 · Show the filter panel again](../media/v0.1.1-alpha.1/capture-facets/capture-facets-14-show-filters.png)
+
+<a id="walkthrough-capture-facets-15-rules"></a>
+### 15 · Return to the example Rule
+
+[Video 00:42](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=42.416) · [Back to the video](#walkthrough-capture-facets-video)
+
+![15 · Return to the example Rule](../media/v0.1.1-alpha.1/capture-facets/capture-facets-15-rules.png)
+
+<a id="walkthrough-capture-facets-16-disable"></a>
+### 16 · Disable Guide facets
+
+[Video 00:45](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=45.485) · [Back to the video](#walkthrough-capture-facets-video)
+
+![16 · Disable Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-16-disable.png)
+
+<a id="walkthrough-capture-facets-17-apply-disabled"></a>
+### 17 · Apply the disabled state
+
+[Video 00:48](../media/v0.1.1-alpha.1/capture-facets/capture-facets.mp4#t=48.474) · [Back to the video](#walkthrough-capture-facets-video)
+
+![17 · Apply the disabled state](../media/v0.1.1-alpha.1/capture-facets/capture-facets-17-apply-disabled.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-facets:end -->
+
+<!-- recorded-walkthrough:capture-websocket-messages:start -->
+<a id="walkthrough-capture-websocket-messages"></a>
+## Recorded walkthrough: WebSocket message bodies, copying, fullscreen and paging
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>protocol</code> | <code>websocket</code> |
+| <code>filter</code> | <code>/guide/messages/websocket</code> |
+| <code>detailPath</code> | <code>/guide/messages/websocket/detail</code> |
+| <code>pagePath</code> | <code>/guide/messages/websocket/pages</code> |
+| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
+| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
+| <code>firstCount</code> | <code>6</code> |
+| <code>pagedCount</code> | <code>205</code> |
+| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
+| <code>detailEncoding</code> | <code>binary JSON; body Copy is text, message Copy is Hex</code> |
+| <code>pagedEncoding</code> | <code>WebSocket text</code> |
+| <code>tlsScope</code> | <code>plain WebSocket; no CA changes</code> |
+
+<a id="walkthrough-capture-websocket-messages-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4" poster="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.vtt" default>
+</video>
+
+<a id="walkthrough-capture-websocket-messages-01-filter"></a>
+### 01 · Scope this run’s message paths
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=0.292) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![01 · Scope this run’s message paths](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png)
+
+<a id="walkthrough-capture-websocket-messages-02-record"></a>
+### 02 · Start Recording
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=3.425) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![02 · Start Recording](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-02-record.png)
+
+<a id="walkthrough-capture-websocket-messages-03-messages"></a>
+### 03 · Send six public messages
+
+[Video 00:06](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=6.510) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![03 · Send six public messages](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-03-messages.png)
+
+<a id="walkthrough-capture-websocket-messages-04-select"></a>
+### 04 · Select this run’s connection
+
+[Video 00:09](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=9.708) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![04 · Select this run’s connection](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-04-select.png)
+
+<a id="walkthrough-capture-websocket-messages-05-tab"></a>
+### 05 · Open the messages tab
+
+[Video 00:12](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=12.999) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![05 · Open the messages tab](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-05-tab.png)
+
+<a id="walkthrough-capture-websocket-messages-06-direction"></a>
+### 06 · Select sent messages
+
+[Video 00:16](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=16.154) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![06 · Select sent messages](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-06-direction.png)
+
+<a id="walkthrough-capture-websocket-messages-07-short"></a>
+### 07 · Expand guide-short
+
+[Video 00:19](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=19.329) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![07 · Expand guide-short](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-07-short.png)
+
+<a id="walkthrough-capture-websocket-messages-08-short-raw"></a>
+### 08 · Select Raw to inspect the text
+
+[Video 00:22](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=22.700) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![08 · Select Raw to inspect the text](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-08-short-raw.png)
+
+<a id="walkthrough-capture-websocket-messages-09-copy-short"></a>
+### 09 · Copy the current short message body
+
+[Video 00:25](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=25.786) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![09 · Copy the current short message body](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-09-copy-short.png)
+
+<a id="walkthrough-capture-websocket-messages-10-collapse-short"></a>
+### 10 · Collapse the short message
+
+[Video 00:28](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=28.824) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![10 · Collapse the short message](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-10-collapse-short.png)
+
+<a id="walkthrough-capture-websocket-messages-11-long"></a>
+### 11 · Expand guide-long
+
+[Video 00:31](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=31.824) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![11 · Expand guide-long](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
+
+<a id="walkthrough-capture-websocket-messages-12-resize"></a>
+### 12 · Drag the body corner to reduce its height
+
+[Video 00:35](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=35.030) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![12 · Drag the body corner to reduce its height](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-12-resize.png)
+
+<a id="walkthrough-capture-websocket-messages-13-wheel"></a>
+### 13 · Scroll inside the long message
+
+[Video 00:38](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=38.319) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![13 · Scroll inside the long message](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-13-wheel.png)
+
+<a id="walkthrough-capture-websocket-messages-14-keyboard-end"></a>
+### 14 · Reach the message end with the keyboard
+
+[Video 00:41](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=41.375) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![14 · Reach the message end with the keyboard](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-14-keyboard-end.png)
+
+<a id="walkthrough-capture-websocket-messages-15-scroll-out"></a>
+### 15 · Continue scrolling the list at the body boundary
+
+[Video 00:44](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=44.360) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![15 · Continue scrolling the list at the body boundary](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-15-scroll-out.png)
+
+<a id="walkthrough-capture-websocket-messages-16-copy-long"></a>
+### 16 · Copy the complete long message body
+
+[Video 00:47](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=47.377) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![16 · Copy the complete long message body](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-16-copy-long.png)
+
+<a id="walkthrough-capture-websocket-messages-17-payload-copy"></a>
+### 17 · Copy the binary message as original Hex
+
+[Video 00:50](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=50.389) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![17 · Copy the binary message as original Hex](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-17-payload-copy.png)
+
+<a id="walkthrough-capture-websocket-messages-18-fullscreen"></a>
+### 18 · View this message fullscreen
+
+[Video 00:53](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=53.428) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![18 · View this message fullscreen](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
+
+<a id="walkthrough-capture-websocket-messages-19-return"></a>
+### 19 · Return to the same message with Escape
+
+[Video 00:56](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=56.627) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![19 · Return to the same message with Escape](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-19-return.png)
+
+<a id="walkthrough-capture-websocket-messages-20-paged-input"></a>
+### 20 · Send 205 messages on a new connection
+
+[Video 00:59](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=59.711) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![20 · Send 205 messages on a new connection](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-20-paged-input.png)
+
+<a id="walkthrough-capture-websocket-messages-21-paged-select"></a>
+### 21 · Select the new pages connection
+
+[Video 01:02](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=62.916) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![21 · Select the new pages connection](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-21-paged-select.png)
+
+<a id="walkthrough-capture-websocket-messages-22-paged-tab"></a>
+### 22 · Open messages for the new connection
+
+[Video 01:05](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=65.929) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![22 · Open messages for the new connection](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-22-paged-tab.png)
+
+<a id="walkthrough-capture-websocket-messages-23-load-pages"></a>
+### 23 · Scroll to load subsequent message pages
+
+[Video 01:08](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=68.917) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![23 · Scroll to load subsequent message pages](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
+
+<a id="walkthrough-capture-websocket-messages-24-last-message"></a>
+### 24 · Expand message 205
+
+[Video 01:12](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=72.380) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![24 · Expand message 205](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-24-last-message.png)
+
+<a id="walkthrough-capture-websocket-messages-25-copy-last"></a>
+### 25 · Copy the last message and verify index 204
+
+[Video 01:15](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages.mp4#t=75.492) · [Back to the video](#walkthrough-capture-websocket-messages-video)
+
+![25 · Copy the last message and verify index 204](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-websocket-messages:end -->
+
+<!-- recorded-walkthrough:capture-http2:start -->
+<a id="walkthrough-capture-http2"></a>
+## Recorded walkthrough: HTTP/2 progress, interruption and recovery on new connections
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>filter</code> | <code>/guide/h2</code> |
+| <code>streamPath</code> | <code>/guide/h2/stream</code> |
+| <code>firstPartBytes</code> | <code>65559</code> |
+| <code>twoPartBytes</code> | <code>131119</code> |
+| <code>completeBytes</code> | <code>131141</code> |
+| <code>firstMarker</code> | <code>part-one: guide-start</code> |
+| <code>secondMarker</code> | <code>part-two: guide-middle</code> |
+| <code>finalMarker</code> | <code>part-three: guide-end</code> |
+| <code>trailer</code> | <code>x-guide-end: complete</code> |
+| <code>errorGoawayCode</code> | <code>2</code> |
+| <code>declaredBytes</code> | <code>524288</code> |
+| <code>capturedPartialBytes</code> | <code>262144</code> |
+| <code>recovery</code> | <code>separate GET on a new connection; original POST not replayed</code> |
+| <code>inflightBody</code> | <code>Received byte counts update before the normal HTTP response body becomes readable</code> |
+
+<a id="walkthrough-capture-http2-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4" poster="../media/v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-http2/capture-http2.vtt" default>
+</video>
+
+<a id="walkthrough-capture-http2-01-scope"></a>
+### 01 · Scope this run’s HTTP/2 paths
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=0.368) · [Back to the video](#walkthrough-capture-http2-video)
+
+![01 · Scope this run’s HTTP/2 paths](../media/v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png)
+
+<a id="walkthrough-capture-http2-02-record"></a>
+### 02 · Start Recording
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=3.251) · [Back to the video](#walkthrough-capture-http2-video)
+
+![02 · Start Recording](../media/v0.1.1-alpha.1/capture-http2/capture-http2-02-record.png)
+
+<a id="walkthrough-capture-http2-03-first-part"></a>
+### 03 · Receive the first part without ending the response
+
+[Video 00:06](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=6.160) · [Back to the video](#walkthrough-capture-http2-video)
+
+![03 · Receive the first part without ending the response](../media/v0.1.1-alpha.1/capture-http2/capture-http2-03-first-part.png)
+
+<a id="walkthrough-capture-http2-04-select"></a>
+### 04 · Select the stream while receiving
+
+[Video 00:09](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=9.144) · [Back to the video](#walkthrough-capture-http2-video)
+
+![04 · Select the stream while receiving](../media/v0.1.1-alpha.1/capture-http2/capture-http2-04-select.png)
+
+<a id="walkthrough-capture-http2-05-headers"></a>
+### 05 · Inspect the declared complete length
+
+[Video 00:12](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=12.156) · [Back to the video](#walkthrough-capture-http2-video)
+
+![05 · Inspect the declared complete length](../media/v0.1.1-alpha.1/capture-http2/capture-http2-05-headers.png)
+
+<a id="walkthrough-capture-http2-06-partial-body"></a>
+### 06 · Distinguish received bytes from a readable body
+
+[Video 00:15](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=15.119) · [Back to the video](#walkthrough-capture-http2-video)
+
+![06 · Distinguish received bytes from a readable body](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
+
+<a id="walkthrough-capture-http2-07-second-part"></a>
+### 07 · Receive the second part
+
+[Video 00:18](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=18.064) · [Back to the video](#walkthrough-capture-http2-video)
+
+![07 · Receive the second part](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
+
+<a id="walkthrough-capture-http2-08-complete"></a>
+### 08 · End the response and verify the complete body
+
+[Video 00:21](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=21.065) · [Back to the video](#walkthrough-capture-http2-video)
+
+![08 · End the response and verify the complete body](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
+
+<a id="walkthrough-capture-http2-09-trailers"></a>
+### 09 · Inspect the completion trailer
+
+[Video 00:24](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=24.355) · [Back to the video](#walkthrough-capture-http2-video)
+
+![09 · Inspect the completion trailer](../media/v0.1.1-alpha.1/capture-http2/capture-http2-09-trailers.png)
+
+<a id="walkthrough-capture-http2-10-protocol-group"></a>
+### 10 · Expand the Protocol group
+
+[Video 00:27](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=27.682) · [Back to the video](#walkthrough-capture-http2-video)
+
+![10 · Expand the Protocol group](../media/v0.1.1-alpha.1/capture-http2/capture-http2-10-protocol-group.png)
+
+<a id="walkthrough-capture-http2-11-http2-filter"></a>
+### 11 · Select the actual HTTP/2 protocol
+
+[Video 00:30](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=30.685) · [Back to the video](#walkthrough-capture-http2-video)
+
+![11 · Select the actual HTTP/2 protocol](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
+
+<a id="walkthrough-capture-http2-client-01-interrupt"></a>
+### 12 · Observe client interruption and a new connection
+
+[Video 00:33](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=33.765) · [Back to the video](#walkthrough-capture-http2-video)
+
+![12 · Observe client interruption and a new connection](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-01-interrupt.png)
+
+<a id="walkthrough-capture-http2-client-02-original"></a>
+### 13 · Select the original POST
+
+[Video 00:36](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=36.818) · [Back to the video](#walkthrough-capture-http2-video)
+
+![13 · Select the original POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-02-original.png)
+
+<a id="walkthrough-capture-http2-client-03-length"></a>
+### 14 · Inspect the Header still declaring 524288 bytes
+
+[Video 00:39](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=39.909) · [Back to the video](#walkthrough-capture-http2-video)
+
+![14 · Inspect the Header still declaring 524288 bytes](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
+
+<a id="walkthrough-capture-http2-client-04-partial"></a>
+### 15 · Read the actually captured partial body
+
+[Video 00:42](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=42.909) · [Back to the video](#walkthrough-capture-http2-video)
+
+![15 · Read the actually captured partial body](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
+
+<a id="walkthrough-capture-http2-client-05-recovered"></a>
+### 16 · Select the separate recovered GET
+
+[Video 00:46](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=46.063) · [Back to the video](#walkthrough-capture-http2-video)
+
+![16 · Select the separate recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-05-recovered.png)
+
+<a id="walkthrough-capture-http2-client-06-recovery-body"></a>
+### 17 · Read the normal response on the new connection
+
+[Video 00:49](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=49.784) · [Back to the video](#walkthrough-capture-http2-video)
+
+![17 · Read the normal response on the new connection](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
+
+<a id="walkthrough-capture-http2-origin-01-interrupt"></a>
+### 18 · Observe origin interruption and a new connection
+
+[Video 00:52](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=52.955) · [Back to the video](#walkthrough-capture-http2-video)
+
+![18 · Observe origin interruption and a new connection](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-01-interrupt.png)
+
+<a id="walkthrough-capture-http2-origin-02-original"></a>
+### 19 · Select the original POST
+
+[Video 00:55](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=55.924) · [Back to the video](#walkthrough-capture-http2-video)
+
+![19 · Select the original POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-02-original.png)
+
+<a id="walkthrough-capture-http2-origin-03-length"></a>
+### 20 · Inspect the Header still declaring 524288 bytes
+
+[Video 00:59](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=59.070) · [Back to the video](#walkthrough-capture-http2-video)
+
+![20 · Inspect the Header still declaring 524288 bytes](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-03-length.png)
+
+<a id="walkthrough-capture-http2-origin-04-partial"></a>
+### 21 · Read the actually captured partial body
+
+[Video 01:02](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=62.113) · [Back to the video](#walkthrough-capture-http2-video)
+
+![21 · Read the actually captured partial body](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-04-partial.png)
+
+<a id="walkthrough-capture-http2-origin-05-recovered"></a>
+### 22 · Select the separate recovered GET
+
+[Video 01:05](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=65.315) · [Back to the video](#walkthrough-capture-http2-video)
+
+![22 · Select the separate recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-05-recovered.png)
+
+<a id="walkthrough-capture-http2-origin-06-recovery-body"></a>
+### 23 · Read the normal response on the new connection
+
+[Video 01:08](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=68.550) · [Back to the video](#walkthrough-capture-http2-video)
+
+![23 · Read the normal response on the new connection](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-06-recovery-body.png)
+
+<a id="walkthrough-capture-http2-24-settings"></a>
+### 24 · Return to Settings
+
+[Video 01:11](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=71.709) · [Back to the video](#walkthrough-capture-http2-video)
+
+![24 · Return to Settings](../media/v0.1.1-alpha.1/capture-http2/capture-http2-24-settings.png)
+
+<a id="walkthrough-capture-http2-25-certificates"></a>
+### 25 · Open Certificates
+
+[Video 01:14](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=74.727) · [Back to the video](#walkthrough-capture-http2-video)
+
+![25 · Open Certificates](../media/v0.1.1-alpha.1/capture-http2/capture-http2-25-certificates.png)
+
+<a id="walkthrough-capture-http2-26-mitm-off"></a>
+### 26 · Disable this run’s HTTPS decryption
+
+[Video 01:17](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=77.716) · [Back to the video](#walkthrough-capture-http2-video)
+
+![26 · Disable this run’s HTTPS decryption](../media/v0.1.1-alpha.1/capture-http2/capture-http2-26-mitm-off.png)
+
+<a id="walkthrough-capture-http2-27-origin-remove"></a>
+### 27 · Remove this run’s origin exception
+
+[Video 01:20](../media/v0.1.1-alpha.1/capture-http2/capture-http2.mp4#t=80.964) · [Back to the video](#walkthrough-capture-http2-video)
+
+![27 · Remove this run’s origin exception](../media/v0.1.1-alpha.1/capture-http2/capture-http2-27-origin-remove.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-http2:end -->
+
+<!-- recorded-walkthrough:capture-body-limits:start -->
+<a id="walkthrough-capture-body-limits"></a>
+## Recorded walkthrough: large-body formatting, preview limits and complete saving
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>search</code> | <code>/guide/body-limits</code> |
+| <code>manualPath</code> | <code>/guide/body-limits/manual</code> |
+| <code>largePath</code> | <code>/guide/body-limits/large</code> |
+| <code>manualDataBytes</code> | <code>1310720</code> |
+| <code>manualWireBytes</code> | <code>1310785</code> |
+| <code>largeDataBytes</code> | <code>3145728</code> |
+| <code>largeWireBytes</code> | <code>3145791</code> |
+| <code>previewBytes</code> | <code>2097152</code> |
+| <code>manualStart</code> | <code>guide-manual-start</code> |
+| <code>largeStart</code> | <code>guide-large-start</code> |
+| <code>savedEnd</code> | <code>guide-large-end</code> |
+| <code>savedFile</code> | <code>guide-full-response.json</code> |
+
+<a id="walkthrough-capture-body-limits-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4" poster="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.vtt" default>
+</video>
+
+<a id="walkthrough-capture-body-limits-01-scope"></a>
+### 01 · Scope this run’s body paths
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=0.463) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![01 · Scope this run’s body paths](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png)
+
+<a id="walkthrough-capture-body-limits-02-record"></a>
+### 02 · Start Recording
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=3.538) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![02 · Start Recording](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-02-record.png)
+
+<a id="walkthrough-capture-body-limits-03-manual-request"></a>
+### 03 · Request JSON larger than 1 MiB
+
+[Video 00:06](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=6.544) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![03 · Request JSON larger than 1 MiB](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-03-manual-request.png)
+
+<a id="walkthrough-capture-body-limits-04-manual-select"></a>
+### 04 · Select the manual request
+
+[Video 00:09](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=9.695) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![04 · Select the manual request](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-04-manual-select.png)
+
+<a id="walkthrough-capture-body-limits-05-unformatted"></a>
+### 05 · Inspect the body without automatic formatting
+
+[Video 00:13](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=13.006) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![05 · Inspect the body without automatic formatting](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-05-unformatted.png)
+
+<a id="walkthrough-capture-body-limits-06-copy-before"></a>
+### 06 · Copy and verify the original text
+
+[Video 00:16](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=16.745) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![06 · Copy and verify the original text](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-06-copy-before.png)
+
+<a id="walkthrough-capture-body-limits-07-format"></a>
+### 07 · Click Format manually
+
+[Video 00:20](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=20.036) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![07 · Click Format manually](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png)
+
+<a id="walkthrough-capture-body-limits-08-copy-formatted"></a>
+### 08 · Verify formatting changes only presentation
+
+[Video 00:23](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=23.290) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![08 · Verify formatting changes only presentation](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-08-copy-formatted.png)
+
+<a id="walkthrough-capture-body-limits-09-large-request"></a>
+### 09 · Request complete JSON larger than 2 MiB
+
+[Video 00:26](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=26.482) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![09 · Request complete JSON larger than 2 MiB](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-09-large-request.png)
+
+<a id="walkthrough-capture-body-limits-10-large-select"></a>
+### 10 · Select the large request
+
+[Video 00:29](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=29.607) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![10 · Select the large request](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-10-large-select.png)
+
+<a id="walkthrough-capture-body-limits-11-preview"></a>
+### 11 · Inspect the bounded body preview
+
+[Video 00:32](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=32.764) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![11 · Inspect the bounded body preview](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-11-preview.png)
+
+<a id="walkthrough-capture-body-limits-12-copy-preview"></a>
+### 12 · Copy only the current 2 MiB preview
+
+[Video 00:35](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=35.793) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![12 · Copy only the current 2 MiB preview](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-12-copy-preview.png)
+
+<a id="walkthrough-capture-body-limits-13-save-dialog"></a>
+### 13 · Save the complete guide-full-response.json
+
+[Video 00:52](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=52.012) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![13 · Save the complete guide-full-response.json](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-13-save-dialog.png)
+
+<a id="walkthrough-capture-body-limits-14-saved-complete"></a>
+### 14 · Verify the saved file is not truncated to the preview
+
+[Video 00:56](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits.mp4#t=56.353) · [Back to the video](#walkthrough-capture-body-limits-video)
+
+![14 · Verify the saved file is not truncated to the preview](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-14-saved-complete.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-body-limits:end -->
+
+<!-- recorded-walkthrough:capture-grpc-messages:start -->
+<a id="walkthrough-capture-grpc-messages"></a>
+## Recorded walkthrough: gRPC message bodies, copying, fullscreen and paging
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>protocol</code> | <code>grpc</code> |
+| <code>filter</code> | <code>/guide/messages/grpc</code> |
+| <code>detailPath</code> | <code>/guide/messages/grpc/detail</code> |
+| <code>pagePath</code> | <code>/guide/messages/grpc/pages</code> |
+| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
+| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
+| <code>firstCount</code> | <code>6</code> |
+| <code>pagedCount</code> | <code>205</code> |
+| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
+| <code>detailEncoding</code> | <code>gRPC JSON</code> |
+| <code>pagedEncoding</code> | <code>gRPC JSON</code> |
+| <code>tlsScope</code> | <code>existing CA; localhost exception removed, decryption stopped</code> |
+
+<a id="walkthrough-capture-grpc-messages-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4" poster="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.vtt" default>
+</video>
+
+<a id="walkthrough-capture-grpc-messages-01-filter"></a>
+### 01 · Scope this run’s message paths
+
+[Video 00:00](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=0.436) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![01 · Scope this run’s message paths](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png)
+
+<a id="walkthrough-capture-grpc-messages-02-record"></a>
+### 02 · Start Recording
+
+[Video 00:03](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=3.346) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![02 · Start Recording](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-02-record.png)
+
+<a id="walkthrough-capture-grpc-messages-03-messages"></a>
+### 03 · Send six public messages
+
+[Video 00:06](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=6.244) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![03 · Send six public messages](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-03-messages.png)
+
+<a id="walkthrough-capture-grpc-messages-04-select"></a>
+### 04 · Select this run’s connection
+
+[Video 00:09](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=9.241) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![04 · Select this run’s connection](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-04-select.png)
+
+<a id="walkthrough-capture-grpc-messages-05-tab"></a>
+### 05 · Open the messages tab
+
+[Video 00:12](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=12.450) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![05 · Open the messages tab](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-05-tab.png)
+
+<a id="walkthrough-capture-grpc-messages-06-direction"></a>
+### 06 · Select response messages
+
+[Video 00:15](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=15.446) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![06 · Select response messages](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-06-direction.png)
+
+<a id="walkthrough-capture-grpc-messages-07-short"></a>
+### 07 · Expand guide-short
+
+[Video 00:18](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=18.393) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![07 · Expand guide-short](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-07-short.png)
+
+<a id="walkthrough-capture-grpc-messages-08-short-raw"></a>
+### 08 · Select Raw to inspect the text
+
+[Video 00:21](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=21.541) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![08 · Select Raw to inspect the text](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-08-short-raw.png)
+
+<a id="walkthrough-capture-grpc-messages-09-copy-short"></a>
+### 09 · Copy the current short message body
+
+[Video 00:24](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=24.544) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![09 · Copy the current short message body](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-09-copy-short.png)
+
+<a id="walkthrough-capture-grpc-messages-10-collapse-short"></a>
+### 10 · Collapse the short message
+
+[Video 00:27](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=27.512) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![10 · Collapse the short message](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-10-collapse-short.png)
+
+<a id="walkthrough-capture-grpc-messages-11-long"></a>
+### 11 · Expand guide-long
+
+[Video 00:30](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=30.484) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![11 · Expand guide-long](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
+
+<a id="walkthrough-capture-grpc-messages-12-resize"></a>
+### 12 · Drag the body corner to reduce its height
+
+[Video 00:33](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=33.692) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![12 · Drag the body corner to reduce its height](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-12-resize.png)
+
+<a id="walkthrough-capture-grpc-messages-13-wheel"></a>
+### 13 · Scroll inside the long message
+
+[Video 00:37](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=37.093) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![13 · Scroll inside the long message](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-13-wheel.png)
+
+<a id="walkthrough-capture-grpc-messages-14-keyboard-end"></a>
+### 14 · Reach the message end with the keyboard
+
+[Video 00:40](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=40.143) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![14 · Reach the message end with the keyboard](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-14-keyboard-end.png)
+
+<a id="walkthrough-capture-grpc-messages-15-scroll-out"></a>
+### 15 · Continue scrolling the list at the body boundary
+
+[Video 00:43](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=43.139) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![15 · Continue scrolling the list at the body boundary](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-15-scroll-out.png)
+
+<a id="walkthrough-capture-grpc-messages-16-copy-long"></a>
+### 16 · Copy the complete long message body
+
+[Video 00:46](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=46.092) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![16 · Copy the complete long message body](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-16-copy-long.png)
+
+<a id="walkthrough-capture-grpc-messages-17-payload-copy"></a>
+### 17 · Use the message-specific Copy
+
+[Video 00:49](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=49.053) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![17 · Use the message-specific Copy](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-17-payload-copy.png)
+
+<a id="walkthrough-capture-grpc-messages-18-fullscreen"></a>
+### 18 · View this message fullscreen
+
+[Video 00:52](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=52.041) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![18 · View this message fullscreen](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
+
+<a id="walkthrough-capture-grpc-messages-19-return"></a>
+### 19 · Return to the same message with Escape
+
+[Video 00:55](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=55.136) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![19 · Return to the same message with Escape](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-19-return.png)
+
+<a id="walkthrough-capture-grpc-messages-20-paged-input"></a>
+### 20 · Send 205 messages on a new connection
+
+[Video 00:58](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=58.298) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![20 · Send 205 messages on a new connection](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-20-paged-input.png)
+
+<a id="walkthrough-capture-grpc-messages-21-paged-select"></a>
+### 21 · Select the new pages connection
+
+[Video 01:01](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=61.191) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![21 · Select the new pages connection](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-21-paged-select.png)
+
+<a id="walkthrough-capture-grpc-messages-22-paged-tab"></a>
+### 22 · Open messages for the new connection
+
+[Video 01:04](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=64.193) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![22 · Open messages for the new connection](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-22-paged-tab.png)
+
+<a id="walkthrough-capture-grpc-messages-23-load-pages"></a>
+### 23 · Scroll to load subsequent message pages
+
+[Video 01:07](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=67.193) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![23 · Scroll to load subsequent message pages](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-23-load-pages.png)
+
+<a id="walkthrough-capture-grpc-messages-24-last-message"></a>
+### 24 · Expand message 205
+
+[Video 01:10](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=70.643) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![24 · Expand message 205](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24-last-message.png)
+
+<a id="walkthrough-capture-grpc-messages-24a-last-raw"></a>
+### 25 · Switch to Raw for the last message text
+
+[Video 01:13](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=73.694) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![25 · Switch to Raw for the last message text](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24a-last-raw.png)
+
+<a id="walkthrough-capture-grpc-messages-24b-last-visible"></a>
+### 26 · Continue scrolling to show the whole last message
+
+[Video 01:16](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=76.744) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![26 · Continue scrolling to show the whole last message](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
+
+<a id="walkthrough-capture-grpc-messages-25-copy-last"></a>
+### 27 · Copy the last message and verify index 204
+
+[Video 01:19](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=79.793) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![27 · Copy the last message and verify index 204](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
+
+<a id="walkthrough-capture-grpc-messages-26-settings"></a>
+### 28 · Return to Settings
+
+[Video 01:22](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=82.792) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![28 · Return to Settings](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-26-settings.png)
+
+<a id="walkthrough-capture-grpc-messages-27-certificates"></a>
+### 29 · Open Certificates
+
+[Video 01:25](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=85.745) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![29 · Open Certificates](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-27-certificates.png)
+
+<a id="walkthrough-capture-grpc-messages-28-mitm-off"></a>
+### 30 · Disable this run’s decryption
+
+[Video 01:28](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=88.642) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![30 · Disable this run’s decryption](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-28-mitm-off.png)
+
+<a id="walkthrough-capture-grpc-messages-29-origin-remove"></a>
+### 31 · Remove the owned localhost exception
+
+[Video 01:31](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages.mp4#t=91.746) · [Back to the video](#walkthrough-capture-grpc-messages-video)
+
+![31 · Remove the owned localhost exception](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-29-origin-remove.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:capture-grpc-messages:end -->

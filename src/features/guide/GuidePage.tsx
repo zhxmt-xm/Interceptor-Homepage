@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Icon from '../../components/Icon/Icon';
 import type { Locale } from '../../content';
 import {
@@ -13,9 +13,10 @@ import GuideOutline from './GuideOutline';
 import GuideOverview from './GuideOverview';
 import styles from './GuidePage.module.css';
 import GuideSidebar from './GuideSidebar';
-import { readGuideDocument } from './utils';
+import { readGuideDocument, scrollToGuideFragment } from './utils';
 
 export default function GuidePage({ page, locale }: { page: GuidePageId; locale: Locale }) {
+  const navigate = useNavigate();
   const document = readGuideDocument(page, locale);
   const chapter = GUIDE_CHAPTERS.find((item) => item.slug === page);
   const index = GUIDE_CHAPTERS.findIndex((item) => item.slug === page);
@@ -31,6 +32,40 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
       className={styles.layout}
       data-overview={overview}
       data-automation-id="guide.root"
+      onClick={(event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey ||
+          !(event.target instanceof Element)
+        )
+          return;
+        const anchor = event.target.closest('a');
+        const href = anchor?.getAttribute('href');
+        if (
+          !anchor ||
+          !event.currentTarget.contains(anchor) ||
+          anchor.hasAttribute('download') ||
+          anchor.target ||
+          !href ||
+          (!href.startsWith('#') && !/^\/guide(?:\/|[?#]|$)/.test(href))
+        )
+          return;
+        const destination = new URL(href, window.location.href);
+        event.preventDefault();
+        if (destination.href === window.location.href) {
+          scrollToGuideFragment();
+        } else {
+          navigate({
+            pathname: destination.pathname,
+            search: destination.search,
+            hash: destination.hash,
+          });
+        }
+      }}
     >
       <GuideSidebar page={page} locale={locale} />
       <div className={styles.reading}>
@@ -55,7 +90,7 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
           </p>
         </div>
         {overview && <GuideOverview locale={locale} />}
-        <GuideArticle key={`${locale}/${page}`} page={page} document={document} locale={locale} />
+        <GuideArticle key={`${locale}/${page}`} document={document} locale={locale} />
         {!overview && (
           <nav className={styles.pagination} aria-label={copy.directory}>
             {previous ? (

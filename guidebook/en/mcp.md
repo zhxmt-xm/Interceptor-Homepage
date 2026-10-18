@@ -262,9 +262,9 @@ The caller here is a local official-SDK demonstration, not VS Code, Claude or a 
 <a id="approval"></a>
 ## Request a change from the host
 
-1. Enable the Tool in the MCP column, not merely Agent.
+1. Check the Tool is enabled in the MCP column, not merely Agent. This example already has `capture_stop_recording` enabled and does not toggle it again.
 
-   **Image pending:** the permissions chapter demonstrates `capture_clear` switches; this pause uses `capture_stop_recording`, whose individual enabling was not recorded.
+   ![Checking separate MCP permission for capture_stop_recording](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
 
 2. Ask `Guide local client` to pause new recording. In Ask, inspect caller, Tool, arguments and effects in the App. This is the SDK caller, not a commercial host conversation.
 
@@ -284,7 +284,9 @@ The caller here is a local official-SDK demonstration, not VS Code, Claude or a 
 
 6. Other operations may still need native file/system prompts before success.
 
-   **Image pending:** Pause needs neither. Manual Export or another platform's dialog does not demonstrate an MCP approval continuation.
+   The [MCP export recording](#walkthrough-mcp-tool-lifecycle-08-export-ask) actually calls `diagnostics_export`, showing Deny, Allow followed by native Save cancellation, saving again and querying completion. It does not reuse manual Export or claim Windows authorization.
+
+   ![MCP Allow still opens a native Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
 
 **Expected result:** the App enforces its own authorization even if the external host considers the operation approved.
 
@@ -301,7 +303,7 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 
 2. Identify a known old App or owned service; never blindly terminate an unknown process.
 
-   **Image pending:** the recording used an owned conflict process, without a separate OS process-identification window.
+   The conflicting service was deliberately started for this recording, so its owner is known. Only the App is recorded, not another process manager. Identify an unknown owner before acting; do not blindly terminate an unfamiliar process.
 
 3. End the confirmed owned conflict and retry Enable without changing the endpoint. This shows the App retry result; ending the other process itself remains image pending.
 
@@ -329,11 +331,15 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 
 9. Copy effective configurations and update each affected host.
 
-   **Image pending / blocked:** real host configuration after this endpoint change was not recorded. Credential-rotation copying is a different operation.
+   This independently recorded copy occurs after changing the endpoint, not during credential rotation. The real external-host settings page remains blocked. This example retains credentials only in the local SDK's memory.
+
+   ![Copying current configuration after changing the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
 
 10. Reconnect the host and repeat a read-only query.
 
-    **Image pending:** this restart clip did not query the new endpoint. A query to an old endpoint is not proof.
+    ![The local SDK actually querying the new endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
+
+    This result belongs to the local official SDK caller, not an unrecorded external-host compatibility claim.
 
 11. Disable this demonstration Server afterward.
 
@@ -374,7 +380,7 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 
 7. Quit normally and let calls and listeners finish cleanup.
 
-   **Image pending:** disabling Server is not quitting the App; this clip has no shutdown/process-cleanup images.
+   Disabling Server is not quitting the App. Normal shutdown, released listeners and restored system proxy are checked separately after recording. A disabled-Server image is not process-cleanup proof, and recording does not expand to the desktop or a process manager.
 
 **Expected result:** rotation invalidates old credentials; revoke targets one client; disable stops all MCP access.
 
@@ -393,11 +399,11 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 
 3. If discovery is empty, inspect Server, identity, protocol and MCP permissions.
 
-   **Image pending:** an actual Browser Host's empty-discovery investigation was not recorded.
+   **External-host environment blocked:** an actual Browser Host's empty-discovery investigation is not recorded. For App-side rejection and restart discovery, see the [complete read-only recording](tool-permissions.md#walkthrough-tool-permissions-readonly).
 
 4. If queries work but changes wait, check App approval, native windows and business prerequisites.
 
-   **Image pending:** SDK Ask images only demonstrate App approval. That Browser Host's wait/native-window scenario was not recorded.
+   **External-host environment blocked:** that Browser Host's waiting scenario is not recorded. Actual App approval and native windows for the local SDK are shown in the [Tool lifecycle](#walkthrough-mcp-tool-lifecycle); the two callers are not conflated.
 
 5. After host upgrades, verify a real query/action rather than only seeing a registered server entry.
 
@@ -471,3 +477,264 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:mcp-endpoint:end -->
+
+<!-- recorded-walkthrough:mcp-tool-lifecycle:start -->
+<a id="walkthrough-mcp-tool-lifecycle"></a>
+## Cancelled approval, export and in-flight Client revocation
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>caller</code> | <code>Official SDK on localhost; App-side UI, not an external Host settings page</code> |
+| <code>clientName</code> | <code>Guide MCP lifecycle</code> |
+| <code>endpoint</code> | <code>http://127.0.0.1:57686/mcp</code> |
+| <code>queries</code> | <code>diagnostics_get_recent and diagnostics_get_trace using the actual returned traceId</code> |
+| <code>file</code> | <code>guide-mcp-diagnostics.jsonl</code> |
+| <code>cancelledFile</code> | <code>guide-mcp-cancelled.jsonl</code> |
+| <code>inFlightUrl</code> | <code>http://127.0.0.1:57678/guide/mcp-tools/in-flight</code> |
+| <code>revocation</code> | <code>The owned Composer socket is cancelled and the old Client can no longer query</code> |
+
+<a id="walkthrough-mcp-tool-lifecycle-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.vtt" default>
+</video>
+
+<a id="walkthrough-mcp-tool-lifecycle-01-client"></a>
+### 01 · Inspect this actual SDK Client
+
+[Video 00:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=0.435) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![01 · Inspect this actual SDK Client](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a>
+### 02 · Locate MCP permission for this pause Tool
+
+[Video 00:03](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=3.484) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![02 · Locate MCP permission for this pause Tool](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>
+### 03 · Start an operation awaiting approval
+
+[Video 00:06](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=6.503) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![03 · Start an operation awaiting approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-03-pending-ask.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>
+### 04 · Have the caller actually cancel the request
+
+[Video 00:09](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=9.516) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![04 · Have the caller actually cancel the request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-04-caller-abort.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a>
+### 05 · Locate Diagnostics query and export permissions
+
+[Video 00:12](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=12.548) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![05 · Locate Diagnostics query and export permissions](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-05-diagnostics-permissions.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-06-recent"></a>
+### 06 · Query Recent through the SDK without approval
+
+[Video 00:15](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=15.588) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![06 · Query Recent through the SDK without approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-06-recent.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-07-trace"></a>
+### 07 · Query Trace using the returned traceId
+
+[Video 00:18](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=18.586) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![07 · Query Trace using the returned traceId](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-07-trace.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a>
+### 08 · Request export and review actual arguments
+
+[Video 00:21](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=21.583) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![08 · Request export and review actual arguments](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-08-export-ask.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-09-deny"></a>
+### 09 · Deny without opening a file window
+
+[Video 00:24](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=24.621) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![09 · Deny without opening a file window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-09-deny.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a>
+### 10 · Request export again
+
+[Video 00:27](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=27.656) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![10 · Request export again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-10-export-again.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a>
+### 11 · Allow still opens a real Save window
+
+[Video 00:40](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=40.864) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![11 · Allow still opens a real Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a>
+### 12 · Actually cancel native Save
+
+[Video 00:44](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=44.187) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![12 · Actually cancel native Save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-12-native-cancel.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a>
+### 13 · Request the export to save
+
+[Video 00:48](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=48.765) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![13 · Request the export to save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-13-export-save.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-14-save"></a>
+### 14 · Save guide-mcp-diagnostics.jsonl
+
+[Video 01:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=60.872) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![14 · Save guide-mcp-diagnostics.jsonl](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-14-save.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a>
+### 15 · Query the actual task and verify the file
+
+[Video 01:05](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=65.126) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![15 · Query the actual task and verify the file](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-15-job-completed.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>
+### 16 · Clear search and return to Client controls
+
+[Video 01:08](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=68.087) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![16 · Clear search and return to Client controls](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-16-clear-search.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>
+### 17 · Select Auto for this long-call example
+
+[Video 01:11](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=71.313) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![17 · Select Auto for this long-call example](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-17-auto.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a>
+### 18 · Start an actual unfinished Composer request
+
+[Video 01:14](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=74.350) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![18 · Start an actual unfinished Composer request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-18-long-request.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a>
+### 19 · Open revocation confirmation during the call
+
+[Video 01:17](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=77.425) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![19 · Open revocation confirmation during the call](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-19-revoke-dialog.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a>
+### 20 · Revoke the Client and verify actual request cancellation
+
+[Video 01:20](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=80.504) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![20 · Revoke the Client and verify actual request cancellation](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-20-revoke.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a>
+### 21 · Verify the old Client identity cannot query again
+
+[Video 01:23](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=83.599) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![21 · Verify the old Client identity cannot query again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-21-old-identity.png)
+
+<a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
+### 22 · Disable this run’s MCP Server
+
+[Video 01:26](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=86.575) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
+
+![22 · Disable this run’s MCP Server](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-22-stop.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:mcp-tool-lifecycle:end -->
+
+<!-- recorded-walkthrough:mcp-endpoint-reconnect:start -->
+<a id="walkthrough-mcp-endpoint-reconnect"></a>
+## Replace a conflicting endpoint and rediscover Tools
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>oldEndpoint</code> | <code>http://127.0.0.1:59234/mcp</code> |
+| <code>newEndpoint</code> | <code>http://127.0.0.1:59291/mcp</code> |
+| <code>clientName</code> | <code>Guide endpoint client</code> |
+| <code>caller</code> | <code>Actual official local SDK; no commercial Host configuration screen is claimed</code> |
+| <code>identity</code> | <code>Endpoint changes; the same Client credential remains valid and is never shown</code> |
+| <code>evidenceGeneration</code> | <code>endpoint-reopened</code> |
+
+<a id="walkthrough-mcp-endpoint-reconnect-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4" poster="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.vtt" default>
+</video>
+
+<a id="walkthrough-mcp-endpoint-reconnect-01-settings"></a>
+### 01 · Open MCP settings after restart
+
+[Video 00:00](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=0.434) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![01 · Open MCP settings after restart](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-02-conflict"></a>
+### 02 · Inspect the actual endpoint conflict
+
+[Video 00:03](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=3.768) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![02 · Inspect the actual endpoint conflict](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-02-conflict.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-03-change"></a>
+### 03 · Explicitly change the endpoint
+
+[Video 00:06](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=6.798) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![03 · Explicitly change the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-03-change.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-04-copy-current"></a>
+### 04 · Copy current configuration without showing credentials
+
+[Video 00:09](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=9.870) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![04 · Copy current configuration without showing credentials](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-05-reconnect"></a>
+### 05 · Reconnect the local SDK using the new address
+
+[Video 00:13](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=13.258) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![05 · Reconnect the local SDK using the new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-05-reconnect.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-06-query-new-endpoint"></a>
+### 06 · Execute an actual query at the new endpoint
+
+[Video 00:16](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=16.378) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![06 · Execute an actual query at the new endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
+
+<a id="walkthrough-mcp-endpoint-reconnect-07-disable"></a>
+### 07 · Disable the demo Server at its new address
+
+[Video 00:19](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=19.396) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
+
+![07 · Disable the demo Server at its new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-07-disable.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:mcp-endpoint-reconnect:end -->

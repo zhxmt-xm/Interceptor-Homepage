@@ -1,4 +1,4 @@
-import type { Root } from 'hast';
+import type { ComponentProps } from 'react';
 import type { GuidePageId } from '../../content/guidebook';
 
 export interface GuideHeading {
@@ -8,7 +8,11 @@ export interface GuideHeading {
 
 export interface GuideDocument {
   readonly title: string;
-  readonly tree: Root;
+  readonly html: string;
+  readonly videos: readonly {
+    attributes: Pick<ComponentProps<'video'>, 'poster' | 'title' | 'lang'> & { src: string };
+    tracks: readonly (ComponentProps<'track'> & { src: string })[];
+  }[];
   readonly headings: readonly GuideHeading[];
 }
 

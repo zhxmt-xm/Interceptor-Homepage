@@ -192,9 +192,15 @@ The actual request is `http://127.0.0.1:55059/guide/transfer/order`, body `{"ord
 
    ![HAR configuration after selection](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
 
-3. This recording selects the current request. All-record and filtered-record branches remain image pending.
+3. This recording selects the current request. The [separate scope recording](#walkthrough-transfer-scopes) owns three `/guide/export-scopes` requests, filters to two and selects one. Its complete sequence creates `guide-all.har`, `guide-filtered.har` and `guide-selected.har`, whose actual files contain exactly 3, 2 and 1 request URLs.
 
    ![Actual current-request scope](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+
+   ![Selecting all records from three inputs](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+
+   ![Selecting the two filtered records from the same inputs](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+
+   The recording includes each real Save panel and completion result, then [imports the filtered file created by the same Export flow](#walkthrough-transfer-scopes-import-01-menu). Only two records are appended, without resending requests.
 
 4. Inspect body inclusion and Authorization/Cookie masking, and read format-loss/sensitive-data warnings. Masking is not universal.
 
@@ -308,7 +314,7 @@ The actual request is `http://127.0.0.1:55059/guide/transfer/order`, body `{"ord
 
 2. If Original/Final is available, choose the required version first.
 
-   **Image pending:** this example did not switch rule-modified body versions. Ordinary JSON is not evidence of version selection.
+   This ordinary JSON example has no two-version comparison. See the [actual version switching and saving](capture.md#区分原始内容与规则修改结果): a separate `/guide/response-evidence/request-body` switches from Original to Final and saves `guide-final.json`. Do not confuse it with this section's `guide-response.json`.
 
 3. Use Save body and enter `guide-response.json` in the real native panel.
 
@@ -333,7 +339,11 @@ The actual request is `http://127.0.0.1:55059/guide/transfer/order`, body `{"ord
 
 2. Use Cancel if no longer needed and wait for a terminal outcome.
 
-   **Image pending:** the file round trip did not cancel a running job. Native-dialog cancellation and Rules-preview cancellation are different operations.
+   The [archive-cancellation recording](#walkthrough-transfer-cancel) owns a 128 MiB response at `/guide/transfer-cancel/large-source`. After selecting `guide-cancel.iarchive`, inspect actual running progress and click the job's Cancel, not the native Save panel's Cancel.
+
+   ![Actual running archive progress and its cancellation control](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+   ![Actual Cancel returns to Capture while retaining the source record](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
 
 3. If saving already completed, a late Cancel is not undo; manage the saved file deliberately.
 
@@ -341,9 +351,11 @@ The actual request is `http://127.0.0.1:55059/guide/transfer/order`, body `{"ord
 
 4. Wait for active operations and cancellation cleanup before Clear or quitting.
 
-   This shows Clear after a completed archive. Clear rejection during an active task, cancellation cleanup and quit waits remain image pending.
+   In the same cancellation recording, [wait for cleanup](#walkthrough-transfer-cancel-07-cleaned) and verify no final or partial archive remains, while the source record is retained. Clear only afterward; Recording remains paused. Clear rejection through another entry during a running job and quitting with active work remain separate gaps.
 
-   ![Clear only after archive completion](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
+   ![The source record remains after cancellation cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+
+   ![Actually clearing only after cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
 
 **Expected result:** cancellation completes explicitly, errors remain errors and committed output stays completed.
 
@@ -377,7 +389,7 @@ These are two independent recordings, not interchangeable inputs: Rules uses `gu
 
    ![Actual Collection import preview](../media/v0.1.1-alpha.1/composer-editing/composer-editing-28-preview.png)
 
-4. Cancel unwanted effects. Rules actually cancels first and retains its tree; Collection cancellation remains image pending.
+4. Cancel unwanted effects. Rules actually cancels first and retains its tree. The [separate Collection management recording](composer.md#walkthrough-composer-collection) now also shows preview cancellation; this section's `composer-editing` recording still demonstrates direct confirmation.
 
    ![Actually cancelling Rules preview](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
 
@@ -421,3 +433,269 @@ These are two independent recordings, not interchangeable inputs: Rules uses `gu
 **Expected result:** a minimal reproducible artifact you are authorized to disclose.
 
 **Notes:** masking is not universal anonymization. Native archives and configuration exports are sensitive files. When uncertain, reproduce the issue using newly generated credential-free test data.
+
+<!-- recorded-walkthrough:transfer-scopes:start -->
+<a id="walkthrough-transfer-scopes"></a>
+## Recorded walkthrough: all, filtered and selected export scopes
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>paths</code> | <code>/guide/export-scopes/filtered-one, /guide/export-scopes/filtered-two, /guide/export-scopes/other</code> |
+| <code>filter</code> | <code>/guide/export-scopes/filtered</code> |
+| <code>selectedPath</code> | <code>/guide/export-scopes/filtered-one</code> |
+| <code>allFile</code> | <code>guide-all.har (3 entries)</code> |
+| <code>filteredFile</code> | <code>guide-filtered.har (2 entries)</code> |
+| <code>selectedFile</code> | <code>guide-selected.har (1 entry)</code> |
+| <code>afterImport</code> | <code>5 total, 4 match the filter</code> |
+| <code>inputSource</code> | <code>Import uses guide-filtered.har created by this same product Export flow</code> |
+
+<a id="walkthrough-transfer-scopes-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4" poster="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.vtt" default>
+</video>
+
+<a id="walkthrough-transfer-scopes-01-filter"></a>
+### 01 · Search filtered to show two records
+
+[Video 00:00](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=0.383) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![01 · Search filtered to show two records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png)
+
+<a id="walkthrough-transfer-scopes-02-select"></a>
+### 02 · Select filtered-one
+
+[Video 00:03](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=3.318) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![02 · Select filtered-one](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-02-select.png)
+
+<a id="walkthrough-transfer-scopes-all-01-menu"></a>
+### 03 · Open the Export menu
+
+[Video 00:06](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=6.370) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![03 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-all-02-har"></a>
+### 04 · Choose HAR
+
+[Video 00:09](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=9.317) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![04 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-02-har.png)
+
+<a id="walkthrough-transfer-scopes-all-03-scope"></a>
+### 05 · All records
+
+[Video 00:12](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=12.318) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![05 · All records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-all-04-save"></a>
+### 06 · Save guide-all.har
+
+[Video 00:36](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=36.621) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![06 · Save guide-all.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-04-save.png)
+
+<a id="walkthrough-transfer-scopes-all-05-complete"></a>
+### 07 · Verify 3 exported requests
+
+[Video 00:41](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=41.657) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![07 · Verify 3 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-filtered-01-menu"></a>
+### 08 · Open the Export menu
+
+[Video 00:44](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=44.769) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![08 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-filtered-02-har"></a>
+### 09 · Choose HAR
+
+[Video 00:47](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=47.723) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![09 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-02-har.png)
+
+<a id="walkthrough-transfer-scopes-filtered-03-scope"></a>
+### 10 · Current filter
+
+[Video 00:50](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=50.671) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![10 · Current filter](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-filtered-04-save"></a>
+### 11 · Save guide-filtered.har
+
+[Video 01:12](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=72.290) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![11 · Save guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-04-save.png)
+
+<a id="walkthrough-transfer-scopes-filtered-05-complete"></a>
+### 12 · Verify 2 exported requests
+
+[Video 01:17](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=77.287) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![12 · Verify 2 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-selected-01-menu"></a>
+### 13 · Open the Export menu
+
+[Video 01:20](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=80.425) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![13 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-selected-02-har"></a>
+### 14 · Choose HAR
+
+[Video 01:23](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=83.373) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![14 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-02-har.png)
+
+<a id="walkthrough-transfer-scopes-selected-03-scope"></a>
+### 15 · Selected request
+
+[Video 01:26](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=86.366) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![15 · Selected request](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-selected-04-save"></a>
+### 16 · Save guide-selected.har
+
+[Video 01:48](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=108.192) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![16 · Save guide-selected.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-04-save.png)
+
+<a id="walkthrough-transfer-scopes-selected-05-complete"></a>
+### 17 · Verify 1 exported requests
+
+[Video 01:53](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=113.571) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![17 · Verify 1 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-import-01-menu"></a>
+### 18 · Open the Import menu
+
+[Video 01:56](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=116.569) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![18 · Open the Import menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-import-02-har"></a>
+### 19 · Choose HAR import
+
+[Video 01:59](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=119.527) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![19 · Choose HAR import](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-02-har.png)
+
+<a id="walkthrough-transfer-scopes-import-03-open"></a>
+### 20 · Open the exported guide-filtered.har
+
+[Video 02:15](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=135.688) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![20 · Open the exported guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-03-open.png)
+
+<a id="walkthrough-transfer-scopes-import-04-complete"></a>
+### 21 · Verify only the two file entries are appended
+
+[Video 02:20](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=140.942) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![21 · Verify only the two file entries are appended](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-04-complete.png)
+
+<a id="walkthrough-transfer-scopes-import-05-all"></a>
+### 22 · Clear search to view all five records
+
+[Video 02:24](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=144.365) · [Back to the video](#walkthrough-transfer-scopes-video)
+
+![22 · Clear search to view all five records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-05-all.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:transfer-scopes:end -->
+
+<!-- recorded-walkthrough:transfer-cancel:start -->
+<a id="walkthrough-transfer-cancel"></a>
+## Recorded walkthrough: cancelling a running archive and waiting for cleanup
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>path</code> | <code>/guide/transfer-cancel/large-source</code> |
+| <code>responseBytes</code> | <code>134217728</code> |
+| <code>responseSha256</code> | <code>611e09db6a2947d55c5718fc7a7b9885c263fa33ebcea9ea87ff9d20c19d3d9d</code> |
+| <code>archive</code> | <code>guide-cancel.iarchive</code> |
+| <code>cancellation</code> | <code>Cancel clicked while the real archive job was running</code> |
+| <code>result</code> | <code>No archive or partial file remains; source record retained until explicit Clear</code> |
+
+<a id="walkthrough-transfer-cancel-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4" poster="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.vtt" default>
+</video>
+
+<a id="walkthrough-transfer-cancel-01-source"></a>
+### 01 · Inspect the completed large response
+
+[Video 00:00](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=0.409) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![01 · Inspect the completed large response](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png)
+
+<a id="walkthrough-transfer-cancel-02-export-menu"></a>
+### 02 · Open Export
+
+[Video 00:03](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=3.321) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![02 · Open Export](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-02-export-menu.png)
+
+<a id="walkthrough-transfer-cancel-03-archive"></a>
+### 03 · Choose Native Archive
+
+[Video 00:06](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=6.276) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![03 · Choose Native Archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-03-archive.png)
+
+<a id="walkthrough-transfer-cancel-04-save-dialog"></a>
+### 04 · Choose guide-cancel.iarchive
+
+[Video 00:29](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=29.450) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![04 · Choose guide-cancel.iarchive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-04-save-dialog.png)
+
+<a id="walkthrough-transfer-cancel-05-running"></a>
+### 05 · Inspect actual running progress
+
+[Video 00:34](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=34.628) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![05 · Inspect actual running progress](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+<a id="walkthrough-transfer-cancel-06-cancel"></a>
+### 06 · Cancel the running archive
+
+[Video 00:35](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=35.394) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![06 · Cancel the running archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
+
+<a id="walkthrough-transfer-cancel-07-cleaned"></a>
+### 07 · Wait for cancellation cleanup
+
+[Video 00:38](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=38.772) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![07 · Wait for cancellation cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+
+<a id="walkthrough-transfer-cancel-08-clear"></a>
+### 08 · Clear only after cleanup finishes
+
+[Video 00:41](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=41.727) · [Back to the video](#walkthrough-transfer-cancel-video)
+
+![08 · Clear only after cleanup finishes](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:transfer-cancel:end -->

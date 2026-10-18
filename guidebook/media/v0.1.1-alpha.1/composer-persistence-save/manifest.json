@@ -1,0 +1,177 @@
+{
+  "chapter": "composer-persistence-save",
+  "title": {
+    "zh-CN": "逐步骤实操：保存深层目录中的完整请求字段",
+    "en": "Recorded walkthrough: saving complete request fields in a deep folder"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "folders": "Guide persistence 1 > Guide persistence 2 > Guide persistence 3",
+    "requestName": "Guide persisted fields",
+    "url": "http://127.0.0.1:49253/guide/persisted-request?guide=url",
+    "method": "POST",
+    "protocol": "http/1.1",
+    "enabledHeader": "x-guide-persist: retained",
+    "disabledHeader": "x-guide-disabled: omitted",
+    "query": "scope=retained",
+    "body": "{\"message\":\"persisted-fields\",\"count\":2}",
+    "auth": "Bearer with the deliberately public example value",
+    "publicToken": "public-persistence-example",
+    "sentBeforeClose": "0",
+    "closeImage": "Saved state before actual Close; shutdown is independently verified by the driver"
+  },
+  "duration": 38.778442416,
+  "video": "composer-persistence-save.mp4",
+  "captions": "composer-persistence-save.vtt",
+  "steps": [
+    {
+      "id": "01-new-request",
+      "title": "在第三级目录新建请求 / Create a request in the third-level folder",
+      "image": "composer-persistence-save-01-new-request.png",
+      "seconds": 0.36245478000000003
+    },
+    {
+      "id": "02-name",
+      "title": "命名Guide persisted fields / Name it Guide persisted fields",
+      "image": "composer-persistence-save-02-name.png",
+      "seconds": 3.9249963320000005
+    },
+    {
+      "id": "03-url",
+      "title": "填写带Query的自有地址 / Enter the owned URL with its Query",
+      "image": "composer-persistence-save-03-url.png",
+      "seconds": 7.485452878999999
+    },
+    {
+      "id": "04-method",
+      "title": "选择POST / Select POST",
+      "image": "composer-persistence-save-04-method.png",
+      "seconds": 10.502643393
+    },
+    {
+      "id": "05-protocol",
+      "title": "固定HTTP/1.1 / Select HTTP/1.1 explicitly",
+      "image": "composer-persistence-save-05-protocol.png",
+      "seconds": 13.595159819
+    },
+    {
+      "id": "06-header-x-guide-persist",
+      "title": "添加Header x-guide-persist / Add Header x-guide-persist",
+      "image": "composer-persistence-save-06-header-x-guide-persist.png",
+      "seconds": 16.635120784999998
+    },
+    {
+      "id": "06-header-x-guide-disabled",
+      "title": "添加Header x-guide-disabled / Add Header x-guide-disabled",
+      "image": "composer-persistence-save-06-header-x-guide-disabled.png",
+      "seconds": 19.741124798999998
+    },
+    {
+      "id": "07-disable-header",
+      "title": "停用但保留第二个Header / Disable but retain the second Header",
+      "image": "composer-persistence-save-07-disable-header.png",
+      "seconds": 22.848689217
+    },
+    {
+      "id": "08-query",
+      "title": "添加scope=retained / Add scope=retained",
+      "image": "composer-persistence-save-08-query.png",
+      "seconds": 25.897779939
+    },
+    {
+      "id": "09-json",
+      "title": "保存本次JSON正文 / Save this JSON body",
+      "image": "composer-persistence-save-09-json.png",
+      "seconds": 29.110691625
+    },
+    {
+      "id": "10-auth",
+      "title": "保存公开演示Bearer字段 / Save the public demonstration Bearer field",
+      "image": "composer-persistence-save-10-auth.png",
+      "seconds": 32.657664806999996
+    },
+    {
+      "id": "11-saved",
+      "title": "确认真正保存且尚未Send / Confirm saved state without sending",
+      "image": "composer-persistence-save-11-saved.png",
+      "seconds": 35.841437193
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-persistence-save-01-new-request.png",
+      "bytes": 230064,
+      "sha256": "39d01eb8acd9bddc80bb5f0e4eaa60c2043853fb1174ba74ada69100cea844b7"
+    },
+    {
+      "file": "composer-persistence-save-02-name.png",
+      "bytes": 237415,
+      "sha256": "9f3e8f203a6650c1ffc19d1ac4b570fef109bd79d721ea1e7c1e240576720f69"
+    },
+    {
+      "file": "composer-persistence-save-03-url.png",
+      "bytes": 246896,
+      "sha256": "ecf6314559f597c3558cf2fc864155967159519f188a512146ffc8d0de46ee51"
+    },
+    {
+      "file": "composer-persistence-save-04-method.png",
+      "bytes": 248668,
+      "sha256": "7907501c944f7a53bd4222bc860c2ea73bb13faac574f1ca3d0ace507d37079c"
+    },
+    {
+      "file": "composer-persistence-save-05-protocol.png",
+      "bytes": 248755,
+      "sha256": "66ca54e8f317aa28d7fafefec43b158c2013d342f5f81e8f492b77d34d50eab4"
+    },
+    {
+      "file": "composer-persistence-save-06-header-x-guide-persist.png",
+      "bytes": 257338,
+      "sha256": "5da5568f492a5b6dc02837939dbd104c1f4c4d083c4101ce7b3667f16de29556"
+    },
+    {
+      "file": "composer-persistence-save-06-header-x-guide-disabled.png",
+      "bytes": 265451,
+      "sha256": "f9dffec0ebac6d15709669bb5fd57a49594f44549e813ac32fda3d589ab0c3e3"
+    },
+    {
+      "file": "composer-persistence-save-07-disable-header.png",
+      "bytes": 264674,
+      "sha256": "0a9fb8e6ec1afb199839ee97baeb229427849635a5e36b015122084f68585f84"
+    },
+    {
+      "file": "composer-persistence-save-08-query.png",
+      "bytes": 255554,
+      "sha256": "d887e1bdc8dec36f4e3c4e0139a93e65b5f54bd459d91ead13c3ae9c0f98a76c"
+    },
+    {
+      "file": "composer-persistence-save-09-json.png",
+      "bytes": 270764,
+      "sha256": "94fc9f6cf505cf3dcd2ed3e5ee05f4afd00ad451da06617f65c050577c64128b"
+    },
+    {
+      "file": "composer-persistence-save-10-auth.png",
+      "bytes": 262021,
+      "sha256": "60554d3d64c560b8792845716ea6716899d7ba9251ece105fb3e27c44c7f7314"
+    },
+    {
+      "file": "composer-persistence-save-11-saved.png",
+      "bytes": 264310,
+      "sha256": "badb3703f5ca74f765f4095ed8ed7cea59a8a94f6e48b6fa0c8c5feb92f3d863"
+    },
+    {
+      "file": "composer-persistence-save.mp4",
+      "bytes": 178241,
+      "sha256": "a91a9fde4f006843706da6023be2980949aa89ca4c4cbd96f6a7de40149af34e"
+    },
+    {
+      "file": "composer-persistence-save.vtt",
+      "bytes": 1101,
+      "sha256": "9a95e5ba209bdc07079bd21b8bce407d45ba26c71d1ebc000b87c2464909c130"
+    }
+  ]
+}

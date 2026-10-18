@@ -1,0 +1,209 @@
+WEBVTT
+
+1
+00:00:00.412 --> 00:00:03.407
+打开 Rules / Open Rules
+
+2
+00:00:03.407 --> 00:00:06.404
+新建根目录 / Create a root folder
+
+3
+00:00:06.404 --> 00:00:09.353
+命名 Guide hierarchy / Name it Guide hierarchy
+
+4
+00:00:09.353 --> 00:00:12.755
+通过目录菜单新建子目录 / Create a child through the folder menu
+
+5
+00:00:12.755 --> 00:00:15.705
+命名 Guide API / Name it Guide API
+
+6
+00:00:15.705 --> 00:00:19.104
+新建第三级目录 / Create the third folder level
+
+7
+00:00:19.104 --> 00:00:22.056
+命名 Guide final / Name it Guide final
+
+8
+00:00:22.056 --> 00:00:25.106
+核对不能继续新建第四级目录 / Verify a fourth folder level is unavailable
+
+9
+00:00:25.106 --> 00:00:28.204
+在第三级新建规则 / Create a Rule in the third-level folder
+
+10
+00:00:28.204 --> 00:00:31.156
+检查未填写字段与Apply禁用 / Inspect missing fields and disabled Apply
+
+11
+00:00:31.156 --> 00:00:34.113
+命名 Guide nested priority / Name the Rule Guide nested priority
+
+12
+00:00:34.113 --> 00:00:37.065
+限定Host为127.0.0.1 / Restrict Host to 127.0.0.1
+
+13
+00:00:37.065 --> 00:00:40.415
+添加Path条件 / Add a Path condition
+
+14
+00:00:40.415 --> 00:00:43.411
+限定本轮规则路径 / Restrict this run’s Rule path
+
+15
+00:00:43.411 --> 00:00:46.417
+填写x-guide-tree / Enter x-guide-tree
+
+16
+00:00:46.417 --> 00:00:49.404
+填写nested / Enter nested
+
+17
+00:00:49.404 --> 00:00:52.365
+启用完整规则 / Enable the completed Rule
+
+18
+00:00:52.365 --> 00:00:55.404
+Apply目录与规则 / Apply the folders and Rule
+
+19
+00:00:55.404 --> 00:00:58.753
+在菜单中重命名目录 / Rename the folder through its menu
+
+20
+00:00:58.753 --> 00:01:01.713
+将Guide API改为Guide routes / Rename Guide API to Guide routes
+
+21
+00:01:01.713 --> 00:01:04.705
+Apply目录名称 / Apply the folder name
+
+22
+00:01:04.705 --> 00:01:07.662
+按目录名称搜索 / Search by folder name
+
+23
+00:01:07.662 --> 00:01:10.653
+清空Rules搜索 / Clear Rules search
+
+24
+00:01:10.653 --> 00:01:13.655
+折叠根目录 / Collapse the root folder
+
+25
+00:01:13.655 --> 00:01:16.606
+展开原来的目录 / Expand the same folder again
+
+26
+00:01:16.606 --> 00:01:23.454
+发送匹配请求核对nested / Send a matching request and verify nested
+
+27
+00:01:23.454 --> 00:01:26.454
+打开命中规则的菜单 / Open the matched Rule menu
+
+28
+00:01:26.454 --> 00:01:29.605
+跳转到这条规则的请求 / Navigate to this Rule’s requests
+
+29
+00:01:29.605 --> 00:01:32.554
+展开并核对已选规则分组 / Expand and verify the selected Rule facet
+
+30
+00:01:32.554 --> 00:01:35.504
+检查导航选中的匹配请求 / Inspect the matched request selected by navigation
+
+31
+00:01:35.504 --> 00:01:38.465
+查看Header设置标记 / Inspect the Header set marker
+
+32
+00:01:38.465 --> 00:01:41.506
+点击标记返回同一规则 / Follow the marker to the same Rule
+
+33
+00:01:41.506 --> 00:01:44.462
+打开根级菜单 / Open the root-level menu
+
+34
+00:01:44.462 --> 00:01:47.463
+从根菜单新建顺序对照规则 / Create a precedence comparison Rule at the root
+
+35
+00:01:47.463 --> 00:01:50.408
+命名Guide root priority / Name it Guide root priority
+
+36
+00:01:50.408 --> 00:01:53.354
+填写同一Host / Enter the same Host
+
+37
+00:01:53.354 --> 00:01:56.756
+为根规则添加Path / Add Path to the root Rule
+
+38
+00:01:56.756 --> 00:01:59.712
+填写同一测试路径 / Enter the same example path
+
+39
+00:01:59.712 --> 00:02:02.704
+填写同一Header / Enter the same Header
+
+40
+00:02:02.704 --> 00:02:05.669
+填写root作为后写值 / Enter root as the later value
+
+41
+00:02:05.669 --> 00:02:08.657
+启用根级顺序规则 / Enable the root precedence Rule
+
+42
+00:02:08.657 --> 00:02:11.656
+Apply两条规则 / Apply both Rules
+
+43
+00:02:11.656 --> 00:02:14.560
+核对根规则最后覆盖为root / Verify the root Rule writes root last
+
+44
+00:02:14.560 --> 00:02:17.515
+打开非最后一条规则的删除菜单 / Open deletion for the non-last Rule
+
+45
+00:02:17.515 --> 00:02:20.506
+只删除Guide nested priority / Delete only Guide nested priority
+
+46
+00:02:20.506 --> 00:02:23.504
+Apply非最后一条删除 / Apply the non-last deletion
+
+47
+00:02:23.504 --> 00:02:26.604
+打开空目录的删除菜单 / Open deletion for the empty folder tree
+
+48
+00:02:26.604 --> 00:02:29.605
+删除已空的三级目录 / Delete the empty three-level folder tree
+
+49
+00:02:29.605 --> 00:02:32.604
+Apply空目录删除 / Apply empty-folder deletion
+
+50
+00:02:32.604 --> 00:02:35.515
+核对剩余规则仍正常命中 / Verify the remaining Rule still matches
+
+51
+00:02:35.515 --> 00:02:38.560
+保留并停用最后一条规则 / Retain and disable the last Rule
+
+52
+00:02:38.560 --> 00:02:41.497
+Apply停用状态 / Apply the disabled state

@@ -386,11 +386,21 @@ The first part comes from the [body and Collection recording](#walkthrough-compo
 
 2. If the endpoint needs authentication, enter only test credentials intended for your own service.
 
-   **Image pending / blocked:** no credentials were entered. A controlled authentication setup is missing; empty fields are not evidence of success.
+   The [public loopback-authentication recording](#walkthrough-composer-auth) owns a temporary `127.0.0.1` service accepting only this example's `guide-user`, `public-demo-password` and `public-demo-token`. These deliberately public test strings work only for that service, not system accounts, real services or API keys. Never substitute your real credentials into the public example.
+
+   ![Entering public Basic example values for the owned service](../media/v0.1.1-alpha.1/composer-auth/composer-auth-08-password.png)
+
+   ![Entering the public token example for the same owned service](../media/v0.1.1-alpha.1/composer-auth/composer-auth-11-token.png)
 
 3. Recheck the URL, send and inspect the response.
 
-   **Image pending / blocked:** no authenticated round trip was recorded. An unauthenticated Send is not a substitute.
+   The same recording receives 401 with None, then 200 with Basic and with the token option. The response `scheme` and actual origin Header are checked together; populated controls alone are not authentication success.
+
+   ![Actual 401 without authentication](../media/v0.1.1-alpha.1/composer-auth/composer-auth-04-none.png)
+
+   ![Actual Basic request returning 200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-09-basic-result.png)
+
+   ![Actual token-authenticated request returning 200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-12-bearer-result.png)
 
 4. Restore None after inspecting the controls.
 
@@ -398,7 +408,11 @@ The first part comes from the [body and Collection recording](#walkthrough-compo
 
 5. Before recording or sharing, remove real credentials and check Headers for other authorization fields.
 
-   **Image pending:** removing credentials and checking residual headers was not recorded. Choosing None does not remove all custom headers.
+   The [cleanup steps](#walkthrough-composer-auth-13-none-again) first verify that None removes automatically generated authentication, then add a public Authorization Header manually: it still goes out with Auth None. Only [deleting that row](#walkthrough-composer-auth-20-delete-header) produces 401 again. Finally all three example inputs are cleared and None is retained. No real credential is used.
+
+   ![Auth None retains an explicitly added Header](../media/v0.1.1-alpha.1/composer-auth/composer-auth-19-none-keeps-header.png)
+
+   ![Actual 401 after deleting the explicit Header](../media/v0.1.1-alpha.1/composer-auth/composer-auth-21-header-removed.png)
 
 **Expected result:** authentication is constructed from the selected Auth settings at send time.
 
@@ -579,7 +593,7 @@ This uses the separate `composer-inspection`, not C04 or Capture viewer images. 
 - Complete bodies up to `1 MiB` can format automatically; `1–2 MiB` requires Format. Truncated/incomplete previews are not formatted.
 - Formatting failure preserves source text. Copy reflects the available view, not necessarily a complete large response file.
 - Resizing should not change request or collection selection.
-- **Image pending:** other MIME-specific previews, formatting failures, disabled formatting for truncated/incomplete bodies, and real wheel/keyboard boundary scrolling are not covered by this JSON/CSS example and two divider drags.
+- The [response-formatting recording](#walkthrough-composer-response-formatting) additionally shows HTML/JavaScript auto-formatting, XML preserved when formatting fails, and JSON previews above 2 MiB. A short JavaScript function may gain spaces while remaining one line; oversized Copy is only the preview and Format is disabled. See [Capture](capture.md#walkthrough-capture-inspection) for actual nested scrolling in the shared body viewer, not a static fullscreen substitute.
 
 <a id="管理-collection"></a>
 ## Manage a Collection
@@ -658,7 +672,7 @@ This uses the separate `composer-inspection`, not C04 or Capture viewer images. 
 
     ![Collection request and URL retained after the actual restart](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png)
 
-    See the full [Workspace sequence](workspace.md#saved-data). **Image pending:** this verifies that request's name/URL. The folder operations above are now recorded, but deep-folder and every-field combinations across restart are not separately verified.
+    See [Workspace](workspace.md#saved-data) for the basic name/URL sequence. A complete representative request separately [saves its fields](#walkthrough-composer-persistence-save) and [verifies them after restart](#walkthrough-composer-persistence-restart): the same three-level folder/request identity restores method/protocol, Header states, Query, JSON and public Auth before one explicit Send verifies actual bytes. This does not exhaust every Body/Auth combination.
 
 **Expected result:** collection edits persist automatically. There is no separate Save button or unsaved-draft workflow.
 
@@ -737,7 +751,7 @@ Before sending, inspect both the complete restored URL and the current Query tab
 
 1. Check the collection for real credentials and personal data. This example is `Guide collection` / `Guide form request`, with no credentials entered.
 
-   **Image pending:** the field-by-field privacy review has no separate image. A later file image does not establish that arbitrary collections are anonymous.
+   This is a safety requirement before sharing, not automatic anonymization. The following examples contain this run's public data; exporting successfully does not make arbitrary everyday collections safe to share.
 
 2. Use Export collection and save `guide-collection.json` in the real native save dialog.
 
@@ -774,23 +788,37 @@ Before sending, inspect both the complete restored URL and the current Query tab
 
 **Purpose:** let AI send a specific test request or manage a saved collection.
 
-1. Enable only the required Composer tools in [Tool permissions](tool-permissions.md).
+1. Inspect required capabilities in [Tool permissions](tool-permissions.md). Reading a Collection uses query access; sending requests is a change and is not covered by read-only access.
 
-   **Image pending:** the permissions recording did not individually enable Composer tools.
+   The [complete read-only recording](tool-permissions.md#walkthrough-tool-permissions-readonly) operates individual Composer switches. Rows hidden by search are not automatically disabled.
 
 2. State the destination, method and allowed operations. Start in Ask.
 
-   **Image pending:** no corresponding Composer request instruction and Ask-policy setup was recorded.
+   The [MCP call lifecycle](mcp.md#walkthrough-mcp-tool-lifecycle-17-auto) explicitly uses Auto for an owned long request, then revokes the Client and verifies real network cancellation. It is not presented as Ask send approval.
 
 3. Review the destination/method before approving Send. Read the current collection before replacing it.
 
-   **Image pending / blocked:** the Agent/MCP recordings do not include Composer send approval or a Collection read/update round trip.
+   The [Composer-specific recording](#walkthrough-composer-tools) uses Ask for `Guide Composer tools`. It first denies POST with no origin request, then allows the same destination and verifies an actual 201. It reads the saved tree and retains the actual request ID/revision while renaming to `Guide MCP renamed request`, separately checking no write on Deny and notification-driven UI changes on Allow.
 
-4. Check the actual collection or response in Composer, not only the model's explanation.
+   ![The actual destination and arguments in Composer POST approval](../media/v0.1.1-alpha.1/composer-tools/composer-tools-11-send-ask.png)
 
-   **Image pending:** there is no Composer UI result for those tool operations. A manual Send image is not a substitute.
+   ![Actual request/folder scope for Collection replacement](../media/v0.1.1-alpha.1/composer-tools/composer-tools-16-replace-ask.png)
+
+4. After sending, inspect the actual Tool result's status, Headers and body preview, not only the model's conclusion. Tool sending does not fill the current Composer editor's response pane; that pane is updated by your UI Send. After changing a Collection, check its notification-driven UI update in Composer. These are different operations.
+
+   `guide-ui-response` below belongs to the earlier UI Send; only the caller receives the Tool's `guide-tool-response`. The [same recording](#walkthrough-composer-tools-15-ui-response-kept) actually checks this boundary, while a Collection rename does synchronize with the mounted UI. Also see [MCP in-flight revocation](mcp.md#walkthrough-mcp-tool-lifecycle-18-long-request).
+
+   ![The current UI response remains unchanged after Tool sending](../media/v0.1.1-alpha.1/composer-tools/composer-tools-15-ui-response-kept.png)
+
+   ![The Collection name synchronizes after allowing replacement](../media/v0.1.1-alpha.1/composer-tools/composer-tools-19-replace-allow.png)
 
 **Expected result:** AI uses the same business operations and collection changes synchronize with the UI. Importing a collection does not Send.
+
+See the separate [native file Tool recording](#walkthrough-composer-file-tools): `Guide Collection files` first denies export, cancels a real Save, then exports `guide-tool-collection.json` through the product. Every Import reads that same file, separately cancelling Open, cancelling preview and confirming append. Auto still requires native Open and confirmation. The final three identically named requests have distinct IDs, retain the original and never Send automatically.
+
+![Actual native Save for the Collection Tool](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-10-save-file.png)
+
+![Auto still requires Collection import confirmation](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-preview.png)
 
 **Notes:** `composer_probe_connection` performs a TLS handshake only; `composer_send_request` sends HTTP. Successful probing is not a successful API response. See the [Tool reference](tool-reference.md#composer).
 
@@ -1872,3 +1900,1066 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 
 The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
 <!-- recorded-walkthrough:composer-replay:end -->
+
+<!-- recorded-walkthrough:composer-auth:start -->
+<a id="walkthrough-composer-auth"></a>
+## Recorded walkthrough: public loopback authentication and Authorization cleanup
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>url</code> | <code>http://127.0.0.1:62653/guide/composer-auth</code> |
+| <code>username</code> | <code>guide-user</code> |
+| <code>password</code> | <code>public-demo-password</code> |
+| <code>bearerToken</code> | <code>public-demo-token</code> |
+| <code>scope</code> | <code>Public demonstration strings accepted only by this temporary loopback origin; not real credentials</code> |
+| <code>responses</code> | <code>None 401; Basic 200; Bearer 200; None without explicit Header 401</code> |
+| <code>explicitHeader</code> | <code>Auth None leaves a user-added Authorization Header until its row is deleted</code> |
+
+<a id="walkthrough-composer-auth-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4" poster="../media/v0.1.1-alpha.1/composer-auth/composer-auth-01-composer.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-auth/composer-auth.vtt" default>
+</video>
+
+<a id="walkthrough-composer-auth-01-composer"></a>
+### 01 · Open Composer
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=0.469) · [Back to the video](#walkthrough-composer-auth-video)
+
+![01 · Open Composer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-01-composer.png)
+
+<a id="walkthrough-composer-auth-02-new"></a>
+### 02 · Create an authentication example request
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=3.426) · [Back to the video](#walkthrough-composer-auth-video)
+
+![02 · Create an authentication example request](../media/v0.1.1-alpha.1/composer-auth/composer-auth-02-new.png)
+
+<a id="walkthrough-composer-auth-03-url"></a>
+### 03 · Enter the owned loopback service address
+
+[Video 00:06](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=6.429) · [Back to the video](#walkthrough-composer-auth-video)
+
+![03 · Enter the owned loopback service address](../media/v0.1.1-alpha.1/composer-auth/composer-auth-03-url.png)
+
+<a id="walkthrough-composer-auth-04-none"></a>
+### 04 · Send without authentication and receive 401
+
+[Video 00:09](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=9.432) · [Back to the video](#walkthrough-composer-auth-video)
+
+![04 · Send without authentication and receive 401](../media/v0.1.1-alpha.1/composer-auth/composer-auth-04-none.png)
+
+<a id="walkthrough-composer-auth-05-auth-tab"></a>
+### 05 · Open Auth
+
+[Video 00:12](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=12.826) · [Back to the video](#walkthrough-composer-auth-video)
+
+![05 · Open Auth](../media/v0.1.1-alpha.1/composer-auth/composer-auth-05-auth-tab.png)
+
+<a id="walkthrough-composer-auth-06-basic"></a>
+### 06 · Choose Basic
+
+[Video 00:15](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=15.775) · [Back to the video](#walkthrough-composer-auth-video)
+
+![06 · Choose Basic](../media/v0.1.1-alpha.1/composer-auth/composer-auth-06-basic.png)
+
+<a id="walkthrough-composer-auth-07-username"></a>
+### 07 · Enter the public example username
+
+[Video 00:18](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=18.888) · [Back to the video](#walkthrough-composer-auth-video)
+
+![07 · Enter the public example username](../media/v0.1.1-alpha.1/composer-auth/composer-auth-07-username.png)
+
+<a id="walkthrough-composer-auth-08-password"></a>
+### 08 · Enter the loopback-only example password
+
+[Video 00:21](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=21.835) · [Back to the video](#walkthrough-composer-auth-video)
+
+![08 · Enter the loopback-only example password](../media/v0.1.1-alpha.1/composer-auth/composer-auth-08-password.png)
+
+<a id="walkthrough-composer-auth-09-basic-result"></a>
+### 09 · Send Basic and verify 200
+
+[Video 00:24](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=24.775) · [Back to the video](#walkthrough-composer-auth-video)
+
+![09 · Send Basic and verify 200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-09-basic-result.png)
+
+<a id="walkthrough-composer-auth-10-bearer"></a>
+### 10 · Switch to Bearer
+
+[Video 00:27](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=27.930) · [Back to the video](#walkthrough-composer-auth-video)
+
+![10 · Switch to Bearer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-10-bearer.png)
+
+<a id="walkthrough-composer-auth-11-token"></a>
+### 11 · Enter the public example token
+
+[Video 00:30](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=30.975) · [Back to the video](#walkthrough-composer-auth-video)
+
+![11 · Enter the public example token](../media/v0.1.1-alpha.1/composer-auth/composer-auth-11-token.png)
+
+<a id="walkthrough-composer-auth-12-bearer-result"></a>
+### 12 · Send Bearer and verify 200
+
+[Video 00:33](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=33.929) · [Back to the video](#walkthrough-composer-auth-video)
+
+![12 · Send Bearer and verify 200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-12-bearer-result.png)
+
+<a id="walkthrough-composer-auth-13-none-again"></a>
+### 13 · Switch back to None
+
+[Video 00:37](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=37.018) · [Back to the video](#walkthrough-composer-auth-video)
+
+![13 · Switch back to None](../media/v0.1.1-alpha.1/composer-auth/composer-auth-13-none-again.png)
+
+<a id="walkthrough-composer-auth-14-none-result"></a>
+### 14 · Verify automatic Authorization was removed
+
+[Video 00:40](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=40.018) · [Back to the video](#walkthrough-composer-auth-video)
+
+![14 · Verify automatic Authorization was removed](../media/v0.1.1-alpha.1/composer-auth/composer-auth-14-none-result.png)
+
+<a id="walkthrough-composer-auth-15-headers"></a>
+### 15 · Open Headers for an explicit field
+
+[Video 00:43](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=43.226) · [Back to the video](#walkthrough-composer-auth-video)
+
+![15 · Open Headers for an explicit field](../media/v0.1.1-alpha.1/composer-auth/composer-auth-15-headers.png)
+
+<a id="walkthrough-composer-auth-16-explicit-name"></a>
+### 16 · Enter the Authorization name
+
+[Video 00:46](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=46.137) · [Back to the video](#walkthrough-composer-auth-video)
+
+![16 · Enter the Authorization name](../media/v0.1.1-alpha.1/composer-auth/composer-auth-16-explicit-name.png)
+
+<a id="walkthrough-composer-auth-17-explicit-value"></a>
+### 17 · Enter the same public Bearer value
+
+[Video 00:49](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=49.026) · [Back to the video](#walkthrough-composer-auth-video)
+
+![17 · Enter the same public Bearer value](../media/v0.1.1-alpha.1/composer-auth/composer-auth-17-explicit-value.png)
+
+<a id="walkthrough-composer-auth-18-add-header"></a>
+### 18 · Add the explicit Header
+
+[Video 00:51](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=51.977) · [Back to the video](#walkthrough-composer-auth-video)
+
+![18 · Add the explicit Header](../media/v0.1.1-alpha.1/composer-auth/composer-auth-18-add-header.png)
+
+<a id="walkthrough-composer-auth-19-none-keeps-header"></a>
+### 19 · None does not remove explicit Authorization
+
+[Video 00:54](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=54.927) · [Back to the video](#walkthrough-composer-auth-video)
+
+![19 · None does not remove explicit Authorization](../media/v0.1.1-alpha.1/composer-auth/composer-auth-19-none-keeps-header.png)
+
+<a id="walkthrough-composer-auth-20-delete-header"></a>
+### 20 · Delete the explicit Authorization row
+
+[Video 00:58](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=58.032) · [Back to the video](#walkthrough-composer-auth-video)
+
+![20 · Delete the explicit Authorization row](../media/v0.1.1-alpha.1/composer-auth/composer-auth-20-delete-header.png)
+
+<a id="walkthrough-composer-auth-21-header-removed"></a>
+### 21 · Verify the request no longer carries authentication
+
+[Video 01:01](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=61.033) · [Back to the video](#walkthrough-composer-auth-video)
+
+![21 · Verify the request no longer carries authentication](../media/v0.1.1-alpha.1/composer-auth/composer-auth-21-header-removed.png)
+
+<a id="walkthrough-composer-auth-22-clear-basic-type"></a>
+### 22 · Return to Basic to clear example inputs
+
+[Video 01:04](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=64.119) · [Back to the video](#walkthrough-composer-auth-video)
+
+![22 · Return to Basic to clear example inputs](../media/v0.1.1-alpha.1/composer-auth/composer-auth-22-clear-basic-type.png)
+
+<a id="walkthrough-composer-auth-23-clear-username"></a>
+### 23 · Clear the example username
+
+[Video 01:07](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=67.227) · [Back to the video](#walkthrough-composer-auth-video)
+
+![23 · Clear the example username](../media/v0.1.1-alpha.1/composer-auth/composer-auth-23-clear-username.png)
+
+<a id="walkthrough-composer-auth-24-clear-password"></a>
+### 24 · Clear the example password
+
+[Video 01:10](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=70.176) · [Back to the video](#walkthrough-composer-auth-video)
+
+![24 · Clear the example password](../media/v0.1.1-alpha.1/composer-auth/composer-auth-24-clear-password.png)
+
+<a id="walkthrough-composer-auth-25-clear-bearer-type"></a>
+### 25 · Return to Bearer
+
+[Video 01:13](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=73.127) · [Back to the video](#walkthrough-composer-auth-video)
+
+![25 · Return to Bearer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-25-clear-bearer-type.png)
+
+<a id="walkthrough-composer-auth-26-clear-token"></a>
+### 26 · Clear the example token
+
+[Video 01:16](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=76.133) · [Back to the video](#walkthrough-composer-auth-video)
+
+![26 · Clear the example token](../media/v0.1.1-alpha.1/composer-auth/composer-auth-26-clear-token.png)
+
+<a id="walkthrough-composer-auth-27-finish-none"></a>
+### 27 · Finish with None
+
+[Video 01:19](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=79.077) · [Back to the video](#walkthrough-composer-auth-video)
+
+![27 · Finish with None](../media/v0.1.1-alpha.1/composer-auth/composer-auth-27-finish-none.png)
+
+<a id="walkthrough-composer-auth-28-no-capture"></a>
+### 28 · Verify Composer did not create Capture records
+
+[Video 01:22](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=82.074) · [Back to the video](#walkthrough-composer-auth-video)
+
+![28 · Verify Composer did not create Capture records](../media/v0.1.1-alpha.1/composer-auth/composer-auth-28-no-capture.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-auth:end -->
+
+<!-- recorded-walkthrough:composer-tools:start -->
+<a id="walkthrough-composer-tools"></a>
+## Recorded walkthrough: MCP send approval and Collection read/replace
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>caller</code> | <code>Official local SDK; not a commercial Host interface</code> |
+| <code>clientName</code> | <code>Guide Composer tools</code> |
+| <code>endpoint</code> | <code>http://127.0.0.1:52619/mcp</code> |
+| <code>originalName</code> | <code>Guide UI request</code> |
+| <code>replacedName</code> | <code>Guide MCP renamed request</code> |
+| <code>savedUrl</code> | <code>http://127.0.0.1:52615/guide/composer-tools/saved</code> |
+| <code>sentUrl</code> | <code>http://127.0.0.1:52615/guide/composer-tools/allowed</code> |
+| <code>uiResponse</code> | <code>guide-ui-response</code> |
+| <code>toolResponse</code> | <code>{&quot;message&quot;:&quot;guide-tool-response&quot;}</code> |
+| <code>method</code> | <code>POST</code> |
+| <code>requestBody</code> | <code>{&quot;message&quot;:&quot;guide-tool-request&quot;}</code> |
+| <code>requestHeader</code> | <code>x-guide-tool: public-example</code> |
+| <code>collectionHeader</code> | <code>x-guide-collection: public-example</code> |
+| <code>protocol</code> | <code>http/1.1</code> |
+| <code>timeoutMs</code> | <code>5000</code> |
+| <code>originalRevision</code> | <code>4</code> |
+| <code>finalRevision</code> | <code>5</code> |
+| <code>uiBoundary</code> | <code>Tool sending returns to its caller; Collection replacement notifies the mounted Composer UI</code> |
+
+<a id="walkthrough-composer-tools-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4" poster="../media/v0.1.1-alpha.1/composer-tools/composer-tools-01-ask-client.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-tools/composer-tools.vtt" default>
+</video>
+
+<a id="walkthrough-composer-tools-01-ask-client"></a>
+### 01 · Inspect Ask for this Client
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=0.205) · [Back to the video](#walkthrough-composer-tools-video)
+
+![01 · Inspect Ask for this Client](../media/v0.1.1-alpha.1/composer-tools/composer-tools-01-ask-client.png)
+
+<a id="walkthrough-composer-tools-02-composer"></a>
+### 02 · Open Composer
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=3.441) · [Back to the video](#walkthrough-composer-tools-video)
+
+![02 · Open Composer](../media/v0.1.1-alpha.1/composer-tools/composer-tools-02-composer.png)
+
+<a id="walkthrough-composer-tools-03-create"></a>
+### 03 · Create this Collection request
+
+[Video 00:06](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=6.545) · [Back to the video](#walkthrough-composer-tools-video)
+
+![03 · Create this Collection request](../media/v0.1.1-alpha.1/composer-tools/composer-tools-03-create.png)
+
+<a id="walkthrough-composer-tools-04-rename-menu"></a>
+### 04 · Open the request rename action
+
+[Video 00:09](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=9.697) · [Back to the video](#walkthrough-composer-tools-video)
+
+![04 · Open the request rename action](../media/v0.1.1-alpha.1/composer-tools/composer-tools-04-rename-menu.png)
+
+<a id="walkthrough-composer-tools-05-name"></a>
+### 05 · Save the name Guide UI request
+
+[Video 00:13](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=13.182) · [Back to the video](#walkthrough-composer-tools-video)
+
+![05 · Save the name Guide UI request](../media/v0.1.1-alpha.1/composer-tools/composer-tools-05-name.png)
+
+<a id="walkthrough-composer-tools-06-url"></a>
+### 06 · Enter the owned UI request URL
+
+[Video 00:16](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=16.275) · [Back to the video](#walkthrough-composer-tools-video)
+
+![06 · Enter the owned UI request URL](../media/v0.1.1-alpha.1/composer-tools/composer-tools-06-url.png)
+
+<a id="walkthrough-composer-tools-07-header"></a>
+### 07 · Add the public example Header
+
+[Video 00:19](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=19.336) · [Back to the video](#walkthrough-composer-tools-video)
+
+![07 · Add the public example Header](../media/v0.1.1-alpha.1/composer-tools/composer-tools-07-header.png)
+
+<a id="walkthrough-composer-tools-08-ui-send"></a>
+### 08 · Send through UI and read guide-ui-response
+
+[Video 00:22](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=22.574) · [Back to the video](#walkthrough-composer-tools-video)
+
+![08 · Send through UI and read guide-ui-response](../media/v0.1.1-alpha.1/composer-tools/composer-tools-08-ui-send.png)
+
+<a id="walkthrough-composer-tools-09-saved"></a>
+### 09 · Wait for the Collection to be saved
+
+[Video 00:25](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=25.934) · [Back to the video](#walkthrough-composer-tools-video)
+
+![09 · Wait for the Collection to be saved](../media/v0.1.1-alpha.1/composer-tools/composer-tools-09-saved.png)
+
+<a id="walkthrough-composer-tools-10-query"></a>
+### 10 · Query the actually saved Collection
+
+[Video 00:28](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=28.992) · [Back to the video](#walkthrough-composer-tools-video)
+
+![10 · Query the actually saved Collection](../media/v0.1.1-alpha.1/composer-tools/composer-tools-10-query.png)
+
+<a id="walkthrough-composer-tools-11-send-ask"></a>
+### 11 · Inspect the actual Composer send approval
+
+[Video 00:32](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=32.061) · [Back to the video](#walkthrough-composer-tools-video)
+
+![11 · Inspect the actual Composer send approval](../media/v0.1.1-alpha.1/composer-tools/composer-tools-11-send-ask.png)
+
+<a id="walkthrough-composer-tools-12-send-deny"></a>
+### 12 · Deny without sending a network request
+
+[Video 00:35](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=35.179) · [Back to the video](#walkthrough-composer-tools-video)
+
+![12 · Deny without sending a network request](../media/v0.1.1-alpha.1/composer-tools/composer-tools-12-send-deny.png)
+
+<a id="walkthrough-composer-tools-13-send-again"></a>
+### 13 · Request the same explicit destination again
+
+[Video 00:38](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=38.306) · [Back to the video](#walkthrough-composer-tools-video)
+
+![13 · Request the same explicit destination again](../media/v0.1.1-alpha.1/composer-tools/composer-tools-13-send-again.png)
+
+<a id="walkthrough-composer-tools-14-send-allow"></a>
+### 14 · Allow and verify the real POST and 201 result
+
+[Video 00:41](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=41.907) · [Back to the video](#walkthrough-composer-tools-video)
+
+![14 · Allow and verify the real POST and 201 result](../media/v0.1.1-alpha.1/composer-tools/composer-tools-14-send-allow.png)
+
+<a id="walkthrough-composer-tools-15-ui-response-kept"></a>
+### 15 · Tool results do not replace the current UI response
+
+[Video 00:45](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=45.021) · [Back to the video](#walkthrough-composer-tools-video)
+
+![15 · Tool results do not replace the current UI response](../media/v0.1.1-alpha.1/composer-tools/composer-tools-15-ui-response-kept.png)
+
+<a id="walkthrough-composer-tools-16-replace-ask"></a>
+### 16 · Inspect the actual Collection replacement scope
+
+[Video 00:48](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=48.075) · [Back to the video](#walkthrough-composer-tools-video)
+
+![16 · Inspect the actual Collection replacement scope](../media/v0.1.1-alpha.1/composer-tools/composer-tools-16-replace-ask.png)
+
+<a id="walkthrough-composer-tools-17-replace-deny"></a>
+### 17 · Deny and retain the original Collection
+
+[Video 00:51](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=51.130) · [Back to the video](#walkthrough-composer-tools-video)
+
+![17 · Deny and retain the original Collection](../media/v0.1.1-alpha.1/composer-tools/composer-tools-17-replace-deny.png)
+
+<a id="walkthrough-composer-tools-18-replace-again"></a>
+### 18 · Request replacement from the same read revision again
+
+[Video 00:54](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=54.223) · [Back to the video](#walkthrough-composer-tools-video)
+
+![18 · Request replacement from the same read revision again](../media/v0.1.1-alpha.1/composer-tools/composer-tools-18-replace-again.png)
+
+<a id="walkthrough-composer-tools-19-replace-allow"></a>
+### 19 · Allow and observe notification-driven UI synchronization
+
+[Video 00:57](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=57.281) · [Back to the video](#walkthrough-composer-tools-video)
+
+![19 · Allow and observe notification-driven UI synchronization](../media/v0.1.1-alpha.1/composer-tools/composer-tools-19-replace-allow.png)
+
+<a id="walkthrough-composer-tools-20-query-latest"></a>
+### 20 · Query the final saved revision
+
+[Video 01:00](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=60.467) · [Back to the video](#walkthrough-composer-tools-video)
+
+![20 · Query the final saved revision](../media/v0.1.1-alpha.1/composer-tools/composer-tools-20-query-latest.png)
+
+<a id="walkthrough-composer-tools-21-mcp-settings"></a>
+### 21 · Return to this MCP configuration
+
+[Video 01:03](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=63.511) · [Back to the video](#walkthrough-composer-tools-video)
+
+![21 · Return to this MCP configuration](../media/v0.1.1-alpha.1/composer-tools/composer-tools-21-mcp-settings.png)
+
+<a id="walkthrough-composer-tools-22-disable"></a>
+### 22 · Close the demo Client connection and Server
+
+[Video 01:07](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=67.092) · [Back to the video](#walkthrough-composer-tools-video)
+
+![22 · Close the demo Client connection and Server](../media/v0.1.1-alpha.1/composer-tools/composer-tools-22-disable.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-tools:end -->
+
+<!-- recorded-walkthrough:composer-file-tools:start -->
+<a id="walkthrough-composer-file-tools"></a>
+## Recorded walkthrough: native Collection file Tools and confirmation
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>caller</code> | <code>Official local SDK, not a commercial Host UI</code> |
+| <code>clientName</code> | <code>Guide Collection files</code> |
+| <code>endpoint</code> | <code>http://127.0.0.1:65024/mcp</code> |
+| <code>requestName</code> | <code>Guide file request</code> |
+| <code>url</code> | <code>http://127.0.0.1:65022/guide/collection-file-tools</code> |
+| <code>header</code> | <code>x-guide-file: public-collection</code> |
+| <code>exportedFile</code> | <code>guide-tool-collection.json</code> |
+| <code>cancelledFile</code> | <code>guide-cancelled-collection.json</code> |
+| <code>sourceOfImport</code> | <code>The same file exported by the product in this workflow</code> |
+| <code>importSemantics</code> | <code>Cancel does not write; confirmation appends with fresh request identities; Auto still confirms</code> |
+| <code>networkRequests</code> | <code>0; file Tools do not Send</code> |
+
+<a id="walkthrough-composer-file-tools-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4" poster="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-01-request.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.vtt" default>
+</video>
+
+<a id="walkthrough-composer-file-tools-01-request"></a>
+### 01 · Create and name this request
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=0.452) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![01 · Create and name this request](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-01-request.png)
+
+<a id="walkthrough-composer-file-tools-02-url"></a>
+### 02 · Enter the public test URL
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=3.976) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![02 · Enter the public test URL](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-02-url.png)
+
+<a id="walkthrough-composer-file-tools-03-header"></a>
+### 03 · Save a public Header without sending
+
+[Video 00:06](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=6.995) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![03 · Save a public Header without sending](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-03-header.png)
+
+<a id="walkthrough-composer-file-tools-04-export-ask"></a>
+### 04 · Inspect Collection Export approval
+
+[Video 00:10](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=10.888) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![04 · Inspect Collection Export approval](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-04-export-ask.png)
+
+<a id="walkthrough-composer-file-tools-05-export-deny"></a>
+### 05 · Deny without writing a file
+
+[Video 00:13](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=13.890) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![05 · Deny without writing a file](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-05-export-deny.png)
+
+<a id="walkthrough-composer-file-tools-06-export-cancel-ask"></a>
+### 06 · Request Export again and allow it
+
+[Video 00:16](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=16.916) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![06 · Request Export again and allow it](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-06-export-cancel-ask.png)
+
+<a id="walkthrough-composer-file-tools-07-save-cancel-panel"></a>
+### 07 · Inspect Save in the owned directory
+
+[Video 00:30](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=30.071) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![07 · Inspect Save in the owned directory](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-07-save-cancel-panel.png)
+
+<a id="walkthrough-composer-file-tools-08-save-cancelled"></a>
+### 08 · Native Save cancellation does not export
+
+[Video 00:35](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=35.435) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![08 · Native Save cancellation does not export](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-08-save-cancelled.png)
+
+<a id="walkthrough-composer-file-tools-09-export-save-ask"></a>
+### 09 · Request the Export to save
+
+[Video 00:38](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=38.445) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![09 · Request the Export to save](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-09-export-save-ask.png)
+
+<a id="walkthrough-composer-file-tools-10-save-file"></a>
+### 10 · Save guide-tool-collection.json
+
+[Video 00:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=50.804) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![10 · Save guide-tool-collection.json](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-10-save-file.png)
+
+<a id="walkthrough-composer-file-tools-11-export-result"></a>
+### 11 · Inspect the file actually exported by the product
+
+[Video 00:55](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=55.068) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![11 · Inspect the file actually exported by the product](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-11-export-result.png)
+
+<a id="walkthrough-composer-file-tools-12-import-deny-ask"></a>
+### 12 · Inspect the separate Import approval
+
+[Video 00:58](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=58.042) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![12 · Inspect the separate Import approval](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-12-import-deny-ask.png)
+
+<a id="walkthrough-composer-file-tools-13-import-denied"></a>
+### 13 · Deny without importing the Collection
+
+[Video 01:01](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=61.038) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![13 · Deny without importing the Collection](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-13-import-denied.png)
+
+<a id="walkthrough-composer-file-tools-14-open-cancel-ask"></a>
+### 14 · Allow still requires an Open panel
+
+[Video 01:04](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=64.101) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![14 · Allow still requires an Open panel](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-14-open-cancel-ask.png)
+
+<a id="walkthrough-composer-file-tools-15-open-cancel-panel"></a>
+### 15 · Select only this flow’s exported file
+
+[Video 01:20](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=80.346) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![15 · Select only this flow’s exported file](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-15-open-cancel-panel.png)
+
+<a id="walkthrough-composer-file-tools-16-open-cancelled"></a>
+### 16 · Cancel Open and retain the original Collection
+
+[Video 01:26](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=86.971) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![16 · Cancel Open and retain the original Collection](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-16-open-cancelled.png)
+
+<a id="walkthrough-composer-file-tools-cancel-preview-ask"></a>
+### 17 · Review Import approval again
+
+[Video 01:29](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=89.964) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![17 · Review Import approval again](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-ask.png)
+
+<a id="walkthrough-composer-file-tools-cancel-preview-open"></a>
+### 18 · Open the same product-created file
+
+[Video 01:45](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=105.739) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![18 · Open the same product-created file](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-open.png)
+
+<a id="walkthrough-composer-file-tools-cancel-preview-preview"></a>
+### 19 · Read the actual import preview
+
+[Video 01:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=110.750) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![19 · Read the actual import preview](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-preview.png)
+
+<a id="walkthrough-composer-file-tools-cancel-preview-decision"></a>
+### 20 · Cancel preview without changing the Collection
+
+[Video 01:53](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=113.767) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![20 · Cancel preview without changing the Collection](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-decision.png)
+
+<a id="walkthrough-composer-file-tools-confirm-preview-ask"></a>
+### 21 · Review Import approval again
+
+[Video 01:56](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=116.847) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![21 · Review Import approval again](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-ask.png)
+
+<a id="walkthrough-composer-file-tools-confirm-preview-open"></a>
+### 22 · Open the same product-created file
+
+[Video 02:12](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=132.906) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![22 · Open the same product-created file](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-open.png)
+
+<a id="walkthrough-composer-file-tools-confirm-preview-preview"></a>
+### 23 · Read the actual import preview
+
+[Video 02:18](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=138.048) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![23 · Read the actual import preview](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-preview.png)
+
+<a id="walkthrough-composer-file-tools-confirm-preview-decision"></a>
+### 24 · Confirm append without replacing the original request
+
+[Video 02:21](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=141.061) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![24 · Confirm append without replacing the original request](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-decision.png)
+
+<a id="walkthrough-composer-file-tools-auto-mode"></a>
+### 25 · Select Auto for this repeated import
+
+[Video 02:24](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=144.144) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![25 · Select Auto for this repeated import](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-mode.png)
+
+<a id="walkthrough-composer-file-tools-auto-open"></a>
+### 26 · Auto still uses native Open
+
+[Video 02:39](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=159.266) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![26 · Auto still uses native Open](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-open.png)
+
+<a id="walkthrough-composer-file-tools-auto-preview"></a>
+### 27 · Auto still waits for product preview confirmation
+
+[Video 02:44](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=164.354) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![27 · Auto still waits for product preview confirmation](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-preview.png)
+
+<a id="walkthrough-composer-file-tools-auto-confirm"></a>
+### 28 · Confirm the second append and check distinct identities
+
+[Video 02:47](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=167.446) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![28 · Confirm the second append and check distinct identities](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-confirm.png)
+
+<a id="walkthrough-composer-file-tools-stop-server"></a>
+### 29 · Disable this run’s MCP Server
+
+[Video 02:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=170.529) · [Back to the video](#walkthrough-composer-file-tools-video)
+
+![29 · Disable this run’s MCP Server](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-stop-server.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-file-tools:end -->
+
+<!-- recorded-walkthrough:composer-persistence-save:start -->
+<a id="walkthrough-composer-persistence-save"></a>
+## Recorded walkthrough: saving complete request fields in a deep folder
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>folders</code> | <code>Guide persistence 1 &gt; Guide persistence 2 &gt; Guide persistence 3</code> |
+| <code>requestName</code> | <code>Guide persisted fields</code> |
+| <code>url</code> | <code>http://127.0.0.1:49253/guide/persisted-request?guide=url</code> |
+| <code>method</code> | <code>POST</code> |
+| <code>protocol</code> | <code>http/1.1</code> |
+| <code>enabledHeader</code> | <code>x-guide-persist: retained</code> |
+| <code>disabledHeader</code> | <code>x-guide-disabled: omitted</code> |
+| <code>query</code> | <code>scope=retained</code> |
+| <code>body</code> | <code>{&quot;message&quot;:&quot;persisted-fields&quot;,&quot;count&quot;:2}</code> |
+| <code>auth</code> | <code>Bearer with the deliberately public example value</code> |
+| <code>publicToken</code> | <code>public-persistence-example</code> |
+| <code>sentBeforeClose</code> | <code>0</code> |
+| <code>closeImage</code> | <code>Saved state before actual Close; shutdown is independently verified by the driver</code> |
+
+<a id="walkthrough-composer-persistence-save-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4" poster="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-01-new-request.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.vtt" default>
+</video>
+
+<a id="walkthrough-composer-persistence-save-01-new-request"></a>
+### 01 · Create a request in the third-level folder
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=0.362) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![01 · Create a request in the third-level folder](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-01-new-request.png)
+
+<a id="walkthrough-composer-persistence-save-02-name"></a>
+### 02 · Name it Guide persisted fields
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=3.925) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![02 · Name it Guide persisted fields](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-02-name.png)
+
+<a id="walkthrough-composer-persistence-save-03-url"></a>
+### 03 · Enter the owned URL with its Query
+
+[Video 00:07](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=7.485) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![03 · Enter the owned URL with its Query](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-03-url.png)
+
+<a id="walkthrough-composer-persistence-save-04-method"></a>
+### 04 · Select POST
+
+[Video 00:10](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=10.503) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![04 · Select POST](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-04-method.png)
+
+<a id="walkthrough-composer-persistence-save-05-protocol"></a>
+### 05 · Select HTTP/1.1 explicitly
+
+[Video 00:13](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=13.595) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![05 · Select HTTP/1.1 explicitly](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-05-protocol.png)
+
+<a id="walkthrough-composer-persistence-save-06-header-x-guide-persist"></a>
+### 06 · Add Header x-guide-persist
+
+[Video 00:16](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=16.635) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![06 · Add Header x-guide-persist](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-persist.png)
+
+<a id="walkthrough-composer-persistence-save-06-header-x-guide-disabled"></a>
+### 07 · Add Header x-guide-disabled
+
+[Video 00:19](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=19.741) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![07 · Add Header x-guide-disabled](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-disabled.png)
+
+<a id="walkthrough-composer-persistence-save-07-disable-header"></a>
+### 08 · Disable but retain the second Header
+
+[Video 00:22](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=22.849) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![08 · Disable but retain the second Header](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-07-disable-header.png)
+
+<a id="walkthrough-composer-persistence-save-08-query"></a>
+### 09 · Add scope=retained
+
+[Video 00:25](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=25.898) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![09 · Add scope=retained](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-08-query.png)
+
+<a id="walkthrough-composer-persistence-save-09-json"></a>
+### 10 · Save this JSON body
+
+[Video 00:29](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=29.111) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![10 · Save this JSON body](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-09-json.png)
+
+<a id="walkthrough-composer-persistence-save-10-auth"></a>
+### 11 · Save the public demonstration Bearer field
+
+[Video 00:32](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=32.658) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![11 · Save the public demonstration Bearer field](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-10-auth.png)
+
+<a id="walkthrough-composer-persistence-save-11-saved"></a>
+### 12 · Confirm saved state without sending
+
+[Video 00:35](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=35.841) · [Back to the video](#walkthrough-composer-persistence-save-video)
+
+![12 · Confirm saved state without sending](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-11-saved.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-persistence-save:end -->
+
+<!-- recorded-walkthrough:composer-persistence-restart:start -->
+<a id="walkthrough-composer-persistence-restart"></a>
+## Recorded walkthrough: verifying fields and sending after a real restart
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>folders</code> | <code>Guide persistence 1 &gt; Guide persistence 2 &gt; Guide persistence 3</code> |
+| <code>requestName</code> | <code>Guide persisted fields</code> |
+| <code>url</code> | <code>http://127.0.0.1:49253/guide/persisted-request?guide=url</code> |
+| <code>method</code> | <code>POST</code> |
+| <code>protocol</code> | <code>http/1.1</code> |
+| <code>expectedPath</code> | <code>/guide/persisted-request?guide=url&amp;scope=retained</code> |
+| <code>body</code> | <code>{&quot;message&quot;:&quot;persisted-fields&quot;,&quot;count&quot;:2}</code> |
+| <code>enabledHeader</code> | <code>x-guide-persist: retained</code> |
+| <code>disabledHeader</code> | <code>x-guide-disabled: omitted</code> |
+| <code>publicToken</code> | <code>public-persistence-example</code> |
+| <code>sentAfterRestart</code> | <code>One explicit UI Send; no automatic replay</code> |
+| <code>evidenceGeneration</code> | <code>composer-reopened</code> |
+
+<a id="walkthrough-composer-persistence-restart-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4" poster="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-1.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.vtt" default>
+</video>
+
+<a id="walkthrough-composer-persistence-restart-01-folder-1"></a>
+### 01 · Inspect retained folder level 1
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=0.406) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![01 · Inspect retained folder level 1](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-1.png)
+
+<a id="walkthrough-composer-persistence-restart-01-folder-2"></a>
+### 02 · Inspect retained folder level 2
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=3.397) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![02 · Inspect retained folder level 2](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-2.png)
+
+<a id="walkthrough-composer-persistence-restart-01-folder-3"></a>
+### 03 · Inspect retained folder level 3
+
+[Video 00:06](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=6.450) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![03 · Inspect retained folder level 3](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-3.png)
+
+<a id="walkthrough-composer-persistence-restart-02-select"></a>
+### 04 · Open the same saved request
+
+[Video 00:09](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=9.495) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![04 · Open the same saved request](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-02-select.png)
+
+<a id="walkthrough-composer-persistence-restart-03-headers"></a>
+### 05 · Verify Header values and enabled states
+
+[Video 00:12](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=12.595) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![05 · Verify Header values and enabled states](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-03-headers.png)
+
+<a id="walkthrough-composer-persistence-restart-04-query"></a>
+### 06 · Verify the Query row without refilling it
+
+[Video 00:15](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=15.642) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![06 · Verify the Query row without refilling it](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-04-query.png)
+
+<a id="walkthrough-composer-persistence-restart-05-body"></a>
+### 07 · Verify the actually restored JSON body
+
+[Video 00:18](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=18.663) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![07 · Verify the actually restored JSON body](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-05-body.png)
+
+<a id="walkthrough-composer-persistence-restart-06-auth"></a>
+### 08 · Verify the restored public Auth field
+
+[Video 00:21](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=21.886) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![08 · Verify the restored public Auth field](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-06-auth.png)
+
+<a id="walkthrough-composer-persistence-restart-07-send"></a>
+### 09 · Send once after restart and verify actual bytes
+
+[Video 00:24](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=24.930) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![09 · Send once after restart and verify actual bytes](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-07-send.png)
+
+<a id="walkthrough-composer-persistence-restart-08-clear-auth"></a>
+### 10 · Clear the demonstration Auth value
+
+[Video 00:27](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=27.995) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![10 · Clear the demonstration Auth value](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-08-clear-auth.png)
+
+<a id="walkthrough-composer-persistence-restart-09-none"></a>
+### 11 · Restore Auth None and wait for saving
+
+[Video 00:31](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=31.060) · [Back to the video](#walkthrough-composer-persistence-restart-video)
+
+![11 · Restore Auth None and wait for saving](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-09-none.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-persistence-restart:end -->
+
+<!-- recorded-walkthrough:composer-response-formatting:start -->
+<a id="walkthrough-composer-response-formatting"></a>
+## Recorded walkthrough: auto formatting, original text on failure and the 2 MiB preview
+
+These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+
+
+| Example field | Actual recorded value |
+| --- | --- |
+| <code>baseUrl</code> | <code>http://127.0.0.1:49907/guide/response-formatting</code> |
+| <code>html</code> | <code>&lt;main&gt;&lt;section&gt;&lt;p&gt;guide-html&lt;/p&gt;&lt;/section&gt;&lt;/main&gt;</code> |
+| <code>javascript</code> | <code>function guideExample(){const count=2;return {count};}</code> |
+| <code>invalidXml</code> | <code>&lt;root&gt;&lt;</code> |
+| <code>previewLimitBytes</code> | <code>2097152</code> |
+| <code>largeJsonBytes</code> | <code>2097199</code> |
+| <code>largeJsonMarker</code> | <code>guide-large-response</code> |
+| <code>scope</code> | <code>HTML/JavaScript auto formatting, XML failure preservation, oversized preview and response-scoped view restoration</code> |
+
+<a id="walkthrough-composer-response-formatting-video"></a>
+
+<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4" poster="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-01-new.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.vtt" default>
+</video>
+
+<a id="walkthrough-composer-response-formatting-html-01-new"></a>
+### 01 · Create Guide HTML response
+
+[Video 00:00](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=0.508) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![01 · Create Guide HTML response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-01-new.png)
+
+<a id="walkthrough-composer-response-formatting-html-02-name"></a>
+### 02 · Name Guide HTML response
+
+[Video 00:03](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=3.585) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![02 · Name Guide HTML response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-02-name.png)
+
+<a id="walkthrough-composer-response-formatting-html-03-url"></a>
+### 03 · Enter the actual html URL
+
+[Video 00:07](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=7.082) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![03 · Enter the actual html URL](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-03-url.png)
+
+<a id="walkthrough-composer-response-formatting-html-04-send"></a>
+### 04 · Send and read the html response
+
+[Video 00:10](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=10.086) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![04 · Send and read the html response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-04-send.png)
+
+<a id="walkthrough-composer-response-formatting-html-06-copy"></a>
+### 05 · Copy and verify the actual html view
+
+[Video 00:13](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=13.459) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![05 · Copy and verify the actual html view](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-06-copy.png)
+
+<a id="walkthrough-composer-response-formatting-javascript-01-new"></a>
+### 06 · Create Guide JavaScript response
+
+[Video 00:16](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=16.590) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![06 · Create Guide JavaScript response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-01-new.png)
+
+<a id="walkthrough-composer-response-formatting-javascript-02-name"></a>
+### 07 · Name Guide JavaScript response
+
+[Video 00:19](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=19.665) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![07 · Name Guide JavaScript response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-02-name.png)
+
+<a id="walkthrough-composer-response-formatting-javascript-03-url"></a>
+### 08 · Enter the actual javascript URL
+
+[Video 00:23](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=23.081) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![08 · Enter the actual javascript URL](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-03-url.png)
+
+<a id="walkthrough-composer-response-formatting-javascript-04-send"></a>
+### 09 · Send and read the javascript response
+
+[Video 00:26](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=26.080) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![09 · Send and read the javascript response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-04-send.png)
+
+<a id="walkthrough-composer-response-formatting-javascript-06-copy"></a>
+### 10 · Copy and verify the actual javascript view
+
+[Video 00:30](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=30.629) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![10 · Copy and verify the actual javascript view](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-06-copy.png)
+
+<a id="walkthrough-composer-response-formatting-xml-01-new"></a>
+### 11 · Create Guide XML source
+
+[Video 00:33](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=33.726) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![11 · Create Guide XML source](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-01-new.png)
+
+<a id="walkthrough-composer-response-formatting-xml-02-name"></a>
+### 12 · Name Guide XML source
+
+[Video 00:36](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=36.782) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![12 · Name Guide XML source](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-02-name.png)
+
+<a id="walkthrough-composer-response-formatting-xml-03-url"></a>
+### 13 · Enter the actual xml URL
+
+[Video 00:40](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=40.215) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![13 · Enter the actual xml URL](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-03-url.png)
+
+<a id="walkthrough-composer-response-formatting-xml-04-send"></a>
+### 14 · Send and read the xml response
+
+[Video 00:43](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=43.214) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![14 · Send and read the xml response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-04-send.png)
+
+<a id="walkthrough-composer-response-formatting-xml-05-format"></a>
+### 15 · Try Format and retain the invalid XML source
+
+[Video 00:46](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=46.288) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![15 · Try Format and retain the invalid XML source](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-05-format.png)
+
+<a id="walkthrough-composer-response-formatting-xml-06-copy"></a>
+### 16 · Copy and verify the actual xml view
+
+[Video 00:49](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=49.330) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![16 · Copy and verify the actual xml view](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-06-copy.png)
+
+<a id="walkthrough-composer-response-formatting-large-01-new"></a>
+### 17 · Create Guide large JSON
+
+[Video 00:52](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=52.349) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![17 · Create Guide large JSON](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-01-new.png)
+
+<a id="walkthrough-composer-response-formatting-large-02-name"></a>
+### 18 · Name Guide large JSON
+
+[Video 00:55](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=55.390) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![18 · Name Guide large JSON](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-02-name.png)
+
+<a id="walkthrough-composer-response-formatting-large-03-url"></a>
+### 19 · Enter the actual large URL
+
+[Video 00:58](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=58.806) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![19 · Enter the actual large URL](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-03-url.png)
+
+<a id="walkthrough-composer-response-formatting-large-04-send"></a>
+### 20 · Send and read the large response
+
+[Video 01:01](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=61.798) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![20 · Send and read the large response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-04-send.png)
+
+<a id="walkthrough-composer-response-formatting-large-06-copy"></a>
+### 21 · Copy and verify the actual large view
+
+[Video 01:04](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=64.951) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![21 · Copy and verify the actual large view](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-06-copy.png)
+
+<a id="walkthrough-composer-response-formatting-restore-html"></a>
+### 22 · Return to HTML and retain its formatted view
+
+[Video 01:08](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=68.065) · [Back to the video](#walkthrough-composer-response-formatting-video)
+
+![22 · Return to HTML and retain its formatted view](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-restore-html.png)
+
+The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
+<!-- recorded-walkthrough:composer-response-formatting:end -->

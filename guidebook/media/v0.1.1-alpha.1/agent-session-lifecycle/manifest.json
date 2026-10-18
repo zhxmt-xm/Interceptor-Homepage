@@ -1,0 +1,207 @@
+{
+  "chapter": "agent-session-lifecycle",
+  "title": {
+    "zh-CN": "快捷键、Context、新Chat与运行中删除",
+    "en": "Keyboard, Context, new Chats and running deletion"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "profileName": "Guide session demo",
+    "modelId": "guide-session-model",
+    "endpoint": "http://127.0.0.1:52300/guide-session/v1",
+    "prompt": "Explain why a fresh Chat has separate context.",
+    "answer": "Demo response: this local example reports usage; a new Chat starts a separate history.",
+    "reportedInputTokens": "120000 (deliberately reported by the local demo, not commercial billing)",
+    "retainedChat": "Guide retained chat",
+    "freshChat": "Guide fresh context",
+    "deletedRunningChat": "Guide running delete",
+    "closeImage": "Before the actual Close; the driver verifies the real shutdown between recordings"
+  },
+  "duration": 50.64802762899999,
+  "video": "agent-session-lifecycle.mp4",
+  "captions": "agent-session-lifecycle.vtt",
+  "steps": [
+    {
+      "id": "01-panel",
+      "title": "打开Agent面板 / Open the Agent panel",
+      "image": "agent-session-lifecycle-01-panel.png",
+      "seconds": 0.21819739499999924
+    },
+    {
+      "id": "02-chat",
+      "title": "新建需要保留的Chat / Create the Chat to retain",
+      "image": "agent-session-lifecycle-02-chat.png",
+      "seconds": 3.921806790999999
+    },
+    {
+      "id": "03-name",
+      "title": "命名Guide retained chat / Name it Guide retained chat",
+      "image": "agent-session-lifecycle-03-name.png",
+      "seconds": 7.126578971999999
+    },
+    {
+      "id": "04-prompt",
+      "title": "输入本轮公开问题 / Enter this run’s public prompt",
+      "image": "agent-session-lifecycle-04-prompt.png",
+      "seconds": 10.673721509
+    },
+    {
+      "id": "05-keyboard-send",
+      "title": "用Command+Enter发送 / Send with Command+Enter",
+      "image": "agent-session-lifecycle-05-keyboard-send.png",
+      "seconds": 13.748620754
+    },
+    {
+      "id": "06-keyboard-context",
+      "title": "通过真实Tab导航读取Context / Use actual Tab navigation to read Context",
+      "image": "agent-session-lifecycle-06-keyboard-context.png",
+      "seconds": 17.442947666999995
+    },
+    {
+      "id": "07-dismiss-context",
+      "title": "离开Context焦点 / Move focus away from Context",
+      "image": "agent-session-lifecycle-07-dismiss-context.png",
+      "seconds": 20.743939181
+    },
+    {
+      "id": "08-fresh-chat",
+      "title": "参考用量后新建独立Chat / Start a separate Chat after reviewing usage",
+      "image": "agent-session-lifecycle-08-fresh-chat.png",
+      "seconds": 23.874466970999997
+    },
+    {
+      "id": "09-fresh-name",
+      "title": "命名Guide fresh context / Name it Guide fresh context",
+      "image": "agent-session-lifecycle-09-fresh-name.png",
+      "seconds": 27.014152309
+    },
+    {
+      "id": "10-running-chat",
+      "title": "再建运行中删除示例 / Create the running-deletion example",
+      "image": "agent-session-lifecycle-10-running-chat.png",
+      "seconds": 30.488950887
+    },
+    {
+      "id": "11-running-prompt",
+      "title": "发起保持流式响应的本地演示 / Start the local held-stream example",
+      "image": "agent-session-lifecycle-11-running-prompt.png",
+      "seconds": 34.079007696
+    },
+    {
+      "id": "12-running-delete-dialog",
+      "title": "运行中打开删除确认 / Open deletion confirmation while running",
+      "image": "agent-session-lifecycle-12-running-delete-dialog.png",
+      "seconds": 37.802452013999996
+    },
+    {
+      "id": "13-delete-running",
+      "title": "确认删除并取消这条流 / Confirm deletion and cancel that stream",
+      "image": "agent-session-lifecycle-13-delete-running.png",
+      "seconds": 41.118133277
+    },
+    {
+      "id": "14-retained-chat",
+      "title": "回到保留的Chat / Return to the retained Chat",
+      "image": "agent-session-lifecycle-14-retained-chat.png",
+      "seconds": 44.464199391
+    },
+    {
+      "id": "15-before-close",
+      "title": "确认持久内容后正常关闭 / Confirm persistent content before normal Close",
+      "image": "agent-session-lifecycle-15-before-close.png",
+      "seconds": 47.607211608
+    }
+  ],
+  "assets": [
+    {
+      "file": "agent-session-lifecycle-01-panel.png",
+      "bytes": 473003,
+      "sha256": "a1e0197e1eb03451b3d2cea6c4938359fb74ae696e5397e391d6b527abb956e3"
+    },
+    {
+      "file": "agent-session-lifecycle-02-chat.png",
+      "bytes": 477817,
+      "sha256": "c1218c7fb960a1b091cdf4b82446e0cf610ab0dab55e15875460eb8e3e207ceb"
+    },
+    {
+      "file": "agent-session-lifecycle-03-name.png",
+      "bytes": 465333,
+      "sha256": "6317622b529b8e42dedabfbdad100618d9635f842b96e4245bf262a108a92609"
+    },
+    {
+      "file": "agent-session-lifecycle-04-prompt.png",
+      "bytes": 469383,
+      "sha256": "bed1e9fb3c89c2466941ce2fb94312b742fd6b39b7ec822666247a21e760337d"
+    },
+    {
+      "file": "agent-session-lifecycle-05-keyboard-send.png",
+      "bytes": 494329,
+      "sha256": "f53e36b4b92eb10c84ed3f35d314dab2f108dbbf692616d231f0365604f40e7b"
+    },
+    {
+      "file": "agent-session-lifecycle-06-keyboard-context.png",
+      "bytes": 530587,
+      "sha256": "208c60bb312a7f03b7b8fd2ee7f12714646e89fb8bae288c243e83533976b34e"
+    },
+    {
+      "file": "agent-session-lifecycle-07-dismiss-context.png",
+      "bytes": 494312,
+      "sha256": "9a2a23973ea744e04ab40bf771319c88ee7ca52a4b6a0ccb991b9a3f024dc057"
+    },
+    {
+      "file": "agent-session-lifecycle-08-fresh-chat.png",
+      "bytes": 477817,
+      "sha256": "c1218c7fb960a1b091cdf4b82446e0cf610ab0dab55e15875460eb8e3e207ceb"
+    },
+    {
+      "file": "agent-session-lifecycle-09-fresh-name.png",
+      "bytes": 465587,
+      "sha256": "b12089d4ca2720e6e0b9f94ba4a7e39d6802a35794d7cbb4ca140450fca1585a"
+    },
+    {
+      "file": "agent-session-lifecycle-10-running-chat.png",
+      "bytes": 465167,
+      "sha256": "432d1c38b6f7e6440ecf23a12ad3f0384b06d72fc8418d60c910731236b51e3c"
+    },
+    {
+      "file": "agent-session-lifecycle-11-running-prompt.png",
+      "bytes": 497173,
+      "sha256": "e5b9003d5519668bde3a38bb017ece966f23e72b0664f6930eb915bd814b299d"
+    },
+    {
+      "file": "agent-session-lifecycle-12-running-delete-dialog.png",
+      "bytes": 579590,
+      "sha256": "6116ab9d683a0d6c2ab157146e38f7757dbe250c2062ead50cf6739552628759"
+    },
+    {
+      "file": "agent-session-lifecycle-13-delete-running.png",
+      "bytes": 510554,
+      "sha256": "e5028c9986d2f2a790b4688a0829dd66ca642b9e029694778a2ca400aac247a5"
+    },
+    {
+      "file": "agent-session-lifecycle-14-retained-chat.png",
+      "bytes": 494329,
+      "sha256": "f53e36b4b92eb10c84ed3f35d314dab2f108dbbf692616d231f0365604f40e7b"
+    },
+    {
+      "file": "agent-session-lifecycle-15-before-close.png",
+      "bytes": 505122,
+      "sha256": "51193e317901f54627fd694938524b5ef54a602b97260d79624f812454932e80"
+    },
+    {
+      "file": "agent-session-lifecycle.mp4",
+      "bytes": 389044,
+      "sha256": "6294c0b31b98deffe6fdf95c1ee2e7a6fba629425b4d86f4aadd9c308a9366b4"
+    },
+    {
+      "file": "agent-session-lifecycle.vtt",
+      "bytes": 1453,
+      "sha256": "4e3e863b4acb25b8654f4bb68d17bb65f1ee98d1147a134306e2c8380453f1c6"
+    }
+  ]
+}

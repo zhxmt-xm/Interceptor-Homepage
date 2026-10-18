@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.362 --> 00:00:03.925
+在第三级目录新建请求 / Create a request in the third-level folder
+
+2
+00:00:03.925 --> 00:00:07.485
+命名Guide persisted fields / Name it Guide persisted fields
+
+3
+00:00:07.485 --> 00:00:10.503
+填写带Query的自有地址 / Enter the owned URL with its Query
+
+4
+00:00:10.503 --> 00:00:13.595
+选择POST / Select POST
+
+5
+00:00:13.595 --> 00:00:16.635
+固定HTTP/1.1 / Select HTTP/1.1 explicitly
+
+6
+00:00:16.635 --> 00:00:19.741
+添加Header x-guide-persist / Add Header x-guide-persist
+
+7
+00:00:19.741 --> 00:00:22.849
+添加Header x-guide-disabled / Add Header x-guide-disabled
+
+8
+00:00:22.849 --> 00:00:25.898
+停用但保留第二个Header / Disable but retain the second Header
+
+9
+00:00:25.898 --> 00:00:29.111
+添加scope=retained / Add scope=retained
+
+10
+00:00:29.111 --> 00:00:32.658
+保存本次JSON正文 / Save this JSON body
+
+11
+00:00:32.658 --> 00:00:35.841
+保存公开演示Bearer字段 / Save the public demonstration Bearer field
+
+12
+00:00:35.841 --> 00:00:38.778
+确认真正保存且尚未Send / Confirm saved state without sending

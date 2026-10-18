@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.383 --> 00:00:03.318
+搜索filtered，保留两条可见记录 / Search filtered to show two records
+
+2
+00:00:03.318 --> 00:00:06.370
+选中filtered-one / Select filtered-one
+
+3
+00:00:06.370 --> 00:00:09.317
+打开Export菜单 / Open the Export menu
+
+4
+00:00:09.317 --> 00:00:12.318
+选择HAR / Choose HAR
+
+5
+00:00:12.318 --> 00:00:36.621
+全部记录 / All records
+
+6
+00:00:36.621 --> 00:00:41.657
+保存guide-all.har / Save guide-all.har
+
+7
+00:00:41.657 --> 00:00:44.769
+核对保存3条请求 / Verify 3 exported requests
+
+8
+00:00:44.769 --> 00:00:47.723
+打开Export菜单 / Open the Export menu
+
+9
+00:00:47.723 --> 00:00:50.671
+选择HAR / Choose HAR
+
+10
+00:00:50.671 --> 00:01:12.290
+当前筛选 / Current filter
+
+11
+00:01:12.290 --> 00:01:17.287
+保存guide-filtered.har / Save guide-filtered.har
+
+12
+00:01:17.287 --> 00:01:20.425
+核对保存2条请求 / Verify 2 exported requests
+
+13
+00:01:20.425 --> 00:01:23.373
+打开Export菜单 / Open the Export menu
+
+14
+00:01:23.373 --> 00:01:26.366
+选择HAR / Choose HAR
+
+15
+00:01:26.366 --> 00:01:48.192
+当前选中 / Selected request
+
+16
+00:01:48.192 --> 00:01:53.571
+保存guide-selected.har / Save guide-selected.har
+
+17
+00:01:53.571 --> 00:01:56.569
+核对保存1条请求 / Verify 1 exported requests
+
+18
+00:01:56.569 --> 00:01:59.527
+打开Import菜单 / Open the Import menu
+
+19
+00:01:59.527 --> 00:02:15.688
+选择HAR导入 / Choose HAR import
+
+20
+00:02:15.688 --> 00:02:20.942
+打开刚导出的guide-filtered.har / Open the exported guide-filtered.har
+
+21
+00:02:20.942 --> 00:02:24.365
+确认仅追加文件中的两条 / Verify only the two file entries are appended
+
+22
+00:02:24.365 --> 00:02:27.325
+清空搜索查看全部五条 / Clear search to view all five records

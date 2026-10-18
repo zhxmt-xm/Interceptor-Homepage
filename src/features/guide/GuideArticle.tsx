@@ -1,38 +1,35 @@
-import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
-import { memo, useLayoutEffect, useMemo } from 'react';
-import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
+import { memo, useCallback, useLayoutEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import type { Locale } from '../../content';
-import { GUIDE_LANGUAGE, type GuidePageId } from '../../content/guidebook';
+import { GUIDE_LANGUAGE } from '../../content/guidebook';
 import styles from './GuideArticle.module.css';
-import GuideImage from './GuideImage';
-import GuideLink from './GuideLink';
-import GuideTable from './GuideTable';
 import GuideVideo from './GuideVideo';
 import type { GuideDocument } from './interfaces';
-import { resolveGuideTree, scrollToGuideFragment } from './utils';
+import { scrollToGuideFragment } from './utils';
 
 interface Props {
-  page: GuidePageId;
   document: GuideDocument;
   locale: Locale;
 }
 
-function GuideArticle({ page, document: guideDocument, locale }: Props) {
+function GuideArticle({ document: guideDocument, locale }: Props) {
   const location = useLocation();
-  const content = useMemo(
-    () =>
-      toJsxRuntime(resolveGuideTree(guideDocument.tree, page, locale), {
-        Fragment,
-        jsx,
-        jsxs,
-        components: { a: GuideLink, img: GuideImage, table: GuideTable, video: GuideVideo },
-      }),
-    [guideDocument, page, locale],
+  const markup = useMemo(() => ({ __html: guideDocument.html }), [guideDocument]);
+  const [videoContainers, setVideoContainers] = useState<HTMLElement[]>([]);
+  const bindArticle = useCallback(
+    (article: HTMLElement | null) => {
+      if (!article) return;
+      const containers = Array.from(article.querySelectorAll<HTMLElement>('[data-guide-video]'));
+      if (containers.length !== guideDocument.videos.length)
+        throw new Error('Compiled guidebook video slots do not match their metadata.');
+      setVideoContainers(containers);
+    },
+    [guideDocument],
   );
 
   useLayoutEffect(() => {
-    if (!location.hash) return;
+    if (!location.hash || videoContainers.length !== guideDocument.videos.length) return;
     window.addEventListener('hashchange', scrollToGuideFragment);
     scrollToGuideFragment();
     let active = true;
@@ -43,16 +40,32 @@ function GuideArticle({ page, document: guideDocument, locale }: Props) {
       active = false;
       window.removeEventListener('hashchange', scrollToGuideFragment);
     };
-  }, [guideDocument, location.hash]);
+  }, [guideDocument, location.hash, videoContainers]);
 
   return (
-    <article
-      className={styles.article}
-      lang={GUIDE_LANGUAGE[locale]}
-      data-automation-id="guide.article"
-    >
-      {content}
-    </article>
+    <>
+      <article
+        ref={bindArticle}
+        className={styles.article}
+        lang={GUIDE_LANGUAGE[locale]}
+        data-automation-id="guide.article"
+        dangerouslySetInnerHTML={markup}
+      />
+      {guideDocument.videos.map((video, index) => {
+        const container = videoContainers[index];
+        return container
+          ? createPortal(
+              <GuideVideo {...video.attributes}>
+                {video.tracks.map((track) => (
+                  <track key={track.src} {...track} />
+                ))}
+              </GuideVideo>,
+              container,
+              String(index),
+            )
+          : null;
+      })}
+    </>
   );
 }
 

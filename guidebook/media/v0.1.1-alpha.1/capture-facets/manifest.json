@@ -1,0 +1,233 @@
+{
+  "chapter": "capture-facets",
+  "title": {
+    "zh-CN": "逐步骤实操：Application、Host、Protocol、Type与Rule筛选",
+    "en": "Recorded walkthrough: Application, Host, Protocol, Type and Rule filters"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "search": "/guide/facets",
+    "ruleName": "Guide facets",
+    "rulePath": "/guide/facets/selected-json",
+    "host": "127.0.0.1",
+    "protocol": "HTTP/1.1",
+    "application": "Unknown (actual macOS result, not Windows attribution)",
+    "prerequisite": "Two captured owned requests and one applied Guide facets Rule; recording is paused before filming",
+    "jsonPath": "/guide/facets/selected-json",
+    "textPath": "/guide/facets/other-text",
+    "header": "x-guide-facet: selected",
+    "initialRecords": "2",
+    "afterJson": "1",
+    "afterRule": "1",
+    "afterClearFacets": "2"
+  },
+  "duration": 51.411103122,
+  "video": "capture-facets.mp4",
+  "captions": "capture-facets.vtt",
+  "steps": [
+    {
+      "id": "01-application",
+      "title": "展开 Application / Expand Application",
+      "image": "capture-facets-01-application.png",
+      "seconds": 0.37044041700000163
+    },
+    {
+      "id": "02-unknown",
+      "title": "选择本次 Unknown 归属 / Select this run’s Unknown attribution",
+      "image": "capture-facets-02-unknown.png",
+      "seconds": 3.3178686310000014
+    },
+    {
+      "id": "03-host-group",
+      "title": "展开 Host / Expand Host",
+      "image": "capture-facets-03-host-group.png",
+      "seconds": 6.319678151
+    },
+    {
+      "id": "04-host-select",
+      "title": "选择 127.0.0.1 / Select 127.0.0.1",
+      "image": "capture-facets-04-host-select.png",
+      "seconds": 9.317897578
+    },
+    {
+      "id": "05-protocol-group",
+      "title": "展开 Protocol / Expand Protocol",
+      "image": "capture-facets-05-protocol-group.png",
+      "seconds": 12.372466789000002
+    },
+    {
+      "id": "06-protocol-select",
+      "title": "选择 HTTP/1.1 / Select HTTP/1.1",
+      "image": "capture-facets-06-protocol-select.png",
+      "seconds": 15.371580688999998
+    },
+    {
+      "id": "07-type-group",
+      "title": "展开 Content type / Expand Content type",
+      "image": "capture-facets-07-type-group.png",
+      "seconds": 18.368772833999998
+    },
+    {
+      "id": "08-json",
+      "title": "选择 json，剩一条请求 / Select json to keep one request",
+      "image": "capture-facets-08-json.png",
+      "seconds": 21.370156077000004
+    },
+    {
+      "id": "09-rule-group",
+      "title": "展开 Rule / Expand Rule",
+      "image": "capture-facets-09-rule-group.png",
+      "seconds": 24.373226535000004
+    },
+    {
+      "id": "10-rule-select",
+      "title": "选择实际命中的 Guide facets / Select the matched Guide facets Rule",
+      "image": "capture-facets-10-rule-select.png",
+      "seconds": 27.379717987
+    },
+    {
+      "id": "11-remove-type",
+      "title": "取消 json，仍按规则保留一条 / Remove json while the Rule still keeps one request",
+      "image": "capture-facets-11-remove-type.png",
+      "seconds": 30.419614704000004
+    },
+    {
+      "id": "12-clear-facets",
+      "title": "清除分组筛选但保留搜索 / Clear facet selections while keeping search",
+      "image": "capture-facets-12-clear-facets.png",
+      "seconds": 33.419234748
+    },
+    {
+      "id": "13-hide-filters",
+      "title": "收起筛选栏 / Hide the filter panel",
+      "image": "capture-facets-13-hide-filters.png",
+      "seconds": 36.45131529300001
+    },
+    {
+      "id": "14-show-filters",
+      "title": "重新显示筛选栏 / Show the filter panel again",
+      "image": "capture-facets-14-show-filters.png",
+      "seconds": 39.417626178999996
+    },
+    {
+      "id": "15-rules",
+      "title": "返回示例规则 / Return to the example Rule",
+      "image": "capture-facets-15-rules.png",
+      "seconds": 42.41645820000001
+    },
+    {
+      "id": "16-disable",
+      "title": "停用 Guide facets / Disable Guide facets",
+      "image": "capture-facets-16-disable.png",
+      "seconds": 45.485123695999995
+    },
+    {
+      "id": "17-apply-disabled",
+      "title": "Apply 停用状态 / Apply the disabled state",
+      "image": "capture-facets-17-apply-disabled.png",
+      "seconds": 48.473656015
+    }
+  ],
+  "assets": [
+    {
+      "file": "capture-facets-01-application.png",
+      "bytes": 261869,
+      "sha256": "8c37183ef896f628d70697129f10cd91ace7e4eafaba5cb5f380a18960ab87b2"
+    },
+    {
+      "file": "capture-facets-02-unknown.png",
+      "bytes": 247136,
+      "sha256": "2c219c87b8eae0024d6262a22b99aea39060c549127afaae29e0fb1dc5a934c0"
+    },
+    {
+      "file": "capture-facets-03-host-group.png",
+      "bytes": 254535,
+      "sha256": "3c97cebb51564ecbd46ec597e46efaea25c53abfe979a16cdb09d3df77772f2c"
+    },
+    {
+      "file": "capture-facets-04-host-select.png",
+      "bytes": 253969,
+      "sha256": "0f2b1961a617c76709f467626b5703d103d982a0e626b157c653d4c0d56abe6a"
+    },
+    {
+      "file": "capture-facets-05-protocol-group.png",
+      "bytes": 260033,
+      "sha256": "568b0d83ac870017b7e3f921aa817d363140d2ed686a87b828bc27f1989a3b6b"
+    },
+    {
+      "file": "capture-facets-06-protocol-select.png",
+      "bytes": 259149,
+      "sha256": "fd287e9e21607bb9ef42f5bb8202a0faa6f2382dbfac0af5cd5806d63cfa8c92"
+    },
+    {
+      "file": "capture-facets-07-type-group.png",
+      "bytes": 268035,
+      "sha256": "88da0ac37111f2ff05af3814bcddc7963948d18c307a66b3960065cfac204ce5"
+    },
+    {
+      "file": "capture-facets-08-json.png",
+      "bytes": 251830,
+      "sha256": "23a93c5af985b24c9c8ce76e10e8bae9766fb912dd07afe6e4c3d4093fd689b9"
+    },
+    {
+      "file": "capture-facets-09-rule-group.png",
+      "bytes": 259405,
+      "sha256": "950c949b04c046108bfa132e95279e490a423081a6dc838693174f9d5e154788"
+    },
+    {
+      "file": "capture-facets-10-rule-select.png",
+      "bytes": 258990,
+      "sha256": "926532227e10ef9b7a01c338be96698336fecd2c1555aa8b7612d904f873938f"
+    },
+    {
+      "file": "capture-facets-11-remove-type.png",
+      "bytes": 259326,
+      "sha256": "59c92dfa6c8024738d82a9eb5fa0f5b70279e4739f7dc5499fd9b14361fd80d6"
+    },
+    {
+      "file": "capture-facets-12-clear-facets.png",
+      "bytes": 294279,
+      "sha256": "59152819be560e3ee19842bf776ba11a1c23fa7053858c5f640859f97cc2ebe2"
+    },
+    {
+      "file": "capture-facets-13-hide-filters.png",
+      "bytes": 218964,
+      "sha256": "f0e3941fc8ac36aadbf18dcf4805a847f80383a39c63717dc244816911a454a8"
+    },
+    {
+      "file": "capture-facets-14-show-filters.png",
+      "bytes": 274181,
+      "sha256": "12f6e8c1369d3ca127d3b1a091b3e843657d9537c32ca1632a1cd211b8af06a9"
+    },
+    {
+      "file": "capture-facets-15-rules.png",
+      "bytes": 254219,
+      "sha256": "8fee89abae29f37e488042301ad355b63a0d89d1347fc711828dc69c756f417c"
+    },
+    {
+      "file": "capture-facets-16-disable.png",
+      "bytes": 256425,
+      "sha256": "3c72ed18d11492346ab5e82560a5ed0cfacd96dfe8e21079e65aa64544069c47"
+    },
+    {
+      "file": "capture-facets-17-apply-disabled.png",
+      "bytes": 252931,
+      "sha256": "89a3f5065d1d36e3e208122290189c83e336329dfaf334fb483ccad0fccd4405"
+    },
+    {
+      "file": "capture-facets.mp4",
+      "bytes": 214918,
+      "sha256": "f4ff30bb410b0330738e02c9bd1acf641b6d86d7ce2280681ecc0066439444dd"
+    },
+    {
+      "file": "capture-facets.vtt",
+      "bytes": 1423,
+      "sha256": "8a6511e56102f320adb70c95fe9ec5c63781082490a95d530eec2124c36b9a50"
+    }
+  ]
+}

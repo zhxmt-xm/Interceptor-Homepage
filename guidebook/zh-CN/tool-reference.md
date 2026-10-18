@@ -129,17 +129,17 @@
 
 1. 找到对应业务章节，先理解操作后果。
 
-   本例只涉及[代理状态查询](capture.md)与暂停新录制，不演示 Clear。**待配图**：按完整 catalog 选择任意 Tool 的发现过程尚未录制，下面不代表表中所有 Tool 均已实拍。
+   下方基础例使用代理状态查询和暂停录制；[完整权限实录](tool-permissions.md#walkthrough-tool-permissions-readonly)逐项检查整个catalog并验证禁用动作确实被拒绝。本表是入口速查，不声称每个Tool的全部参数组合都已拍成独立影片。
 
 2. 在 Settings 的 Tool capabilities 搜索 `capture_get_proxy_status`，检查目标入口的权限，再关闭无关项。
 
    ![权限章节中实际查找状态查询 Tool](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
 
-   **待配图**：其他 Tool 的逐项开关不由此图覆盖。
+   其他分组的逐项操作见[完整只读配置](tool-permissions.md#walkthrough-tool-permissions-readonly)；不要把搜索框里看不到的行当成已关闭。
 
 3. 从当前 Tool schema 读取准确参数，不从名称猜字段。
 
-   **待配图**：现有 App 画面没有完整的 Host schema 阅读步骤；不把本表当成参数表。
+   [Agent的Recent→Trace→导出](agent.md#walkthrough-agent-tool-lifecycle)与[MCP的查询/导出审批](mcp.md#walkthrough-mcp-tool-lifecycle)展示实际参数和结果。真实外部Host的schema页面仍缺环境，不把这个名称表当成完整参数表。
 
 4. 先查状态。下图准确引用 MCP 的本地 SDK 查询，不是商业 Host 的设置或对话画面。
 

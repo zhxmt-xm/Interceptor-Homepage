@@ -110,8 +110,8 @@
   "assets": [
     {
       "file": "settings.mp4",
-      "bytes": 308202,
-      "sha256": "3bbd954eff6b5ab11636ab6ab6c4db989f752450c26af6d138b705e9cc488bea"
+      "bytes": 320430,
+      "sha256": "55ac82a81322c3b8712eafd99afe5923295bd6b9be0b4d66939946dd69234d00"
     },
     {
       "file": "settings.vtt",

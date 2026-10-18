@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:00.109 --> 00:00:03.189
+打开Rules / Open Rules
+
+2
+00:00:03.189 --> 00:00:06.256
+创建初始规则 / Create the initial Rule
+
+3
+00:00:06.256 --> 00:00:09.246
+命名Guide initial / Name it Guide initial
+
+4
+00:00:09.246 --> 00:00:12.249
+限定127.0.0.1 / Restrict to 127.0.0.1
+
+5
+00:00:12.249 --> 00:00:15.604
+添加Path条件 / Add a Path condition
+
+6
+00:00:15.604 --> 00:00:18.617
+限定冲突演示路径 / Restrict the conflict example paths
+
+7
+00:00:18.617 --> 00:00:21.620
+填写x-guide-conflict / Enter x-guide-conflict
+
+8
+00:00:21.620 --> 00:00:24.623
+填写initial / Enter initial
+
+9
+00:00:24.623 --> 00:00:27.644
+启用初始规则 / Enable the initial Rule
+
+10
+00:00:27.644 --> 00:00:30.716
+Apply初始版本 / Apply the initial revision
+
+11
+00:00:30.716 --> 00:00:33.724
+留下本地名称草稿 / Leave a local name draft
+
+12
+00:00:33.724 --> 00:00:36.742
+留下未Apply的local值 / Leave an unapplied local value
+
+13
+00:00:36.742 --> 00:00:39.845
+检查第二写入者的实际Ask审批 / Inspect the second writer’s actual Ask approval
+
+14
+00:00:39.845 --> 00:00:42.902
+允许第二写入者保存remote / Allow the second writer to save remote
+
+15
+00:00:42.902 --> 00:00:45.898
+核对本地草稿没有被静默覆盖 / Verify the local draft was not silently overwritten
+
+16
+00:00:45.898 --> 00:00:48.894
+核对新请求实际使用remote / Verify new traffic actually uses remote
+
+17
+00:00:48.894 --> 00:00:51.969
+明确Reload放弃本地草稿 / Explicitly Reload and discard the local draft
+
+18
+00:00:51.969 --> 00:00:54.992
+基于新版本填写Guide merged / Enter Guide merged based on the new revision
+
+19
+00:00:54.992 --> 00:00:57.996
+填写merged值 / Enter the merged value
+
+20
+00:00:57.996 --> 00:01:01.064
+Apply新的编辑 / Apply the new edits
+
+21
+00:01:01.064 --> 00:01:04.044
+核对新请求使用merged / Verify a new request uses merged
+
+22
+00:01:04.044 --> 00:01:07.071
+停用演示规则 / Disable the example Rule
+
+23
+00:01:07.071 --> 00:01:10.107
+Apply停用状态 / Apply the disabled state
+
+24
+00:01:10.107 --> 00:01:13.438
+返回MCP设置收尾 / Return to MCP settings for cleanup
+
+25
+00:01:13.438 --> 00:01:16.482
+关闭本轮MCP Server / Stop this run’s MCP Server

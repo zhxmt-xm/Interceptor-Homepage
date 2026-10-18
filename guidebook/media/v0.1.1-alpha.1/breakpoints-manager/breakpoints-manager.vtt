@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:00.384 --> 00:00:03.573
+查看快捷操作的历史请求 / Inspect the captured shortcut source
+
+2
+00:00:03.573 --> 00:00:07.098
+打开Breakpoint作用范围菜单 / Open the Breakpoint scope menu
+
+3
+00:00:07.098 --> 00:00:07.873
+选择Endpoint并立即Apply / Choose Endpoint and apply immediately
+
+4
+00:00:07.873 --> 00:00:11.197
+使用创建提示中的Undo / Use Undo in the creation notice
+
+5
+00:00:11.197 --> 00:00:14.204
+发送新请求确认已撤销 / Send a new request to verify undo
+
+6
+00:00:14.204 --> 00:00:17.647
+再次打开同一Endpoint菜单 / Reopen the same Endpoint menu
+
+7
+00:00:17.647 --> 00:00:20.701
+重新创建本轮断点 / Recreate this example Breakpoint
+
+8
+00:00:20.701 --> 00:00:23.751
+打开断点管理器 / Open the Breakpoint manager
+
+9
+00:00:23.751 --> 00:00:26.753
+关闭全局Break on match / Turn off global Break on match
+
+10
+00:00:26.753 --> 00:00:30.102
+关闭管理器 / Close the manager
+
+11
+00:00:30.102 --> 00:00:33.097
+确认全局关闭时不暂停新请求 / Verify new requests do not pause while globally disabled
+
+12
+00:00:33.097 --> 00:00:36.097
+再次打开管理器 / Open the manager again
+
+13
+00:00:36.097 --> 00:00:39.154
+重新开启Break on match / Enable Break on match again
+
+14
+00:00:39.154 --> 00:00:42.451
+回到请求列表 / Return to the request list
+
+15
+00:00:42.451 --> 00:00:45.396
+发送会由客户端取消的请求 / Send a request that the client will cancel
+
+16
+00:00:45.396 --> 00:00:48.397
+查看这个Head等待项 / Inspect this Head item
+
+17
+00:00:48.397 --> 00:00:51.394
+客户端结束后等待项自动解除 / Let the client abort and release the pending item
+
+18
+00:00:51.394 --> 00:00:54.496
+重新发送得到新的等待项 / Send again to obtain a new pending item
+
+19
+00:00:54.496 --> 00:00:57.783
+原样放行请求阶段 / Continue the request phase unchanged
+
+20
+00:00:57.783 --> 00:01:00.987
+原样放行响应阶段 / Continue the response phase unchanged
+
+21
+00:01:00.987 --> 00:01:03.953
+打开管理器停用单条规则 / Open the manager to disable one Rule
+
+22
+00:01:03.953 --> 00:01:06.945
+只停用本轮Endpoint规则 / Disable only this Endpoint Rule
+
+23
+00:01:06.945 --> 00:01:10.212
+返回列表检查停用结果 / Return to the list to inspect disabling
+
+24
+00:01:10.212 --> 00:01:13.147
+新请求不再被该规则挂起 / Verify the disabled Rule no longer pauses new requests
+
+25
+00:01:13.147 --> 00:01:16.539
+从管理器进入对应Rules / Open the corresponding Rule from the manager

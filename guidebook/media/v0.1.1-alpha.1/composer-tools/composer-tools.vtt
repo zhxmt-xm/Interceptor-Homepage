@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:00.205 --> 00:00:03.441
+检查本次Client的Ask模式 / Inspect Ask for this Client
+
+2
+00:00:03.441 --> 00:00:06.545
+打开Composer / Open Composer
+
+3
+00:00:06.545 --> 00:00:09.697
+新建本次Collection请求 / Create this Collection request
+
+4
+00:00:09.697 --> 00:00:13.182
+打开请求的重命名入口 / Open the request rename action
+
+5
+00:00:13.182 --> 00:00:16.275
+保存名称Guide UI request / Save the name Guide UI request
+
+6
+00:00:16.275 --> 00:00:19.336
+填写本次自有UI请求地址 / Enter the owned UI request URL
+
+7
+00:00:19.336 --> 00:00:22.574
+添加公开示例Header / Add the public example Header
+
+8
+00:00:22.574 --> 00:00:25.934
+通过UI Send读取guide-ui-response / Send through UI and read guide-ui-response
+
+9
+00:00:25.934 --> 00:00:28.992
+等待Collection实际保存 / Wait for the Collection to be saved
+
+10
+00:00:28.992 --> 00:00:32.061
+只读获取实际保存的Collection / Query the actually saved Collection
+
+11
+00:00:32.061 --> 00:00:35.179
+检查Composer发送的实际审批 / Inspect the actual Composer send approval
+
+12
+00:00:35.179 --> 00:00:38.306
+Deny不发送网络请求 / Deny without sending a network request
+
+13
+00:00:38.306 --> 00:00:41.907
+重新请求同一个明确目标 / Request the same explicit destination again
+
+14
+00:00:41.907 --> 00:00:45.021
+Allow后核对真实POST与201结果 / Allow and verify the real POST and 201 result
+
+15
+00:00:45.021 --> 00:00:48.075
+Tool结果不替换当前UI响应 / Tool results do not replace the current UI response
+
+16
+00:00:48.075 --> 00:00:51.130
+检查Collection替换的实际范围 / Inspect the actual Collection replacement scope
+
+17
+00:00:51.130 --> 00:00:54.223
+Deny保留原Collection / Deny and retain the original Collection
+
+18
+00:00:54.223 --> 00:00:57.281
+用同一已读取版本重新请求 / Request replacement from the same read revision again
+
+19
+00:00:57.281 --> 00:01:00.467
+Allow后查看当前UI自动同步 / Allow and observe notification-driven UI synchronization
+
+20
+00:01:00.467 --> 00:01:03.511
+重新读取最终保存版本 / Query the final saved revision
+
+21
+00:01:03.511 --> 00:01:07.092
+回到本次MCP设置 / Return to this MCP configuration
+
+22
+00:01:07.092 --> 00:01:10.745
+关闭演示Client连接与Server / Close the demo Client connection and Server

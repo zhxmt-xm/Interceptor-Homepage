@@ -1,0 +1,282 @@
+{
+  "chapter": "composer-response-formatting",
+  "title": {
+    "zh-CN": "逐步骤实操：自动格式化、错误原文与2MiB预览",
+    "en": "Recorded walkthrough: auto formatting, original text on failure and the 2 MiB preview"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "baseUrl": "http://127.0.0.1:49907/guide/response-formatting",
+    "html": "<main><section><p>guide-html</p></section></main>",
+    "javascript": "function guideExample(){const count=2;return {count};}",
+    "invalidXml": "<root><",
+    "previewLimitBytes": "2097152",
+    "largeJsonBytes": "2097199",
+    "largeJsonMarker": "guide-large-response",
+    "scope": "HTML/JavaScript auto formatting, XML failure preservation, oversized preview and response-scoped view restoration"
+  },
+  "duration": 71.23379296799999,
+  "video": "composer-response-formatting.mp4",
+  "captions": "composer-response-formatting.vtt",
+  "steps": [
+    {
+      "id": "html-01-new",
+      "title": "新建Guide HTML response / Create Guide HTML response",
+      "image": "composer-response-formatting-html-01-new.png",
+      "seconds": 0.5084580310000001
+    },
+    {
+      "id": "html-02-name",
+      "title": "命名Guide HTML response / Name Guide HTML response",
+      "image": "composer-response-formatting-html-02-name.png",
+      "seconds": 3.5852652259999997
+    },
+    {
+      "id": "html-03-url",
+      "title": "填写html实际地址 / Enter the actual html URL",
+      "image": "composer-response-formatting-html-03-url.png",
+      "seconds": 7.081952562999999
+    },
+    {
+      "id": "html-04-send",
+      "title": "发送并读取html响应 / Send and read the html response",
+      "image": "composer-response-formatting-html-04-send.png",
+      "seconds": 10.086070277
+    },
+    {
+      "id": "html-06-copy",
+      "title": "Copy核对html的实际显示 / Copy and verify the actual html view",
+      "image": "composer-response-formatting-html-06-copy.png",
+      "seconds": 13.459201066999999
+    },
+    {
+      "id": "javascript-01-new",
+      "title": "新建Guide JavaScript response / Create Guide JavaScript response",
+      "image": "composer-response-formatting-javascript-01-new.png",
+      "seconds": 16.589841921999998
+    },
+    {
+      "id": "javascript-02-name",
+      "title": "命名Guide JavaScript response / Name Guide JavaScript response",
+      "image": "composer-response-formatting-javascript-02-name.png",
+      "seconds": 19.664974546999996
+    },
+    {
+      "id": "javascript-03-url",
+      "title": "填写javascript实际地址 / Enter the actual javascript URL",
+      "image": "composer-response-formatting-javascript-03-url.png",
+      "seconds": 23.081381942
+    },
+    {
+      "id": "javascript-04-send",
+      "title": "发送并读取javascript响应 / Send and read the javascript response",
+      "image": "composer-response-formatting-javascript-04-send.png",
+      "seconds": 26.08002412
+    },
+    {
+      "id": "javascript-06-copy",
+      "title": "Copy核对javascript的实际显示 / Copy and verify the actual javascript view",
+      "image": "composer-response-formatting-javascript-06-copy.png",
+      "seconds": 30.629492248000002
+    },
+    {
+      "id": "xml-01-new",
+      "title": "新建Guide XML source / Create Guide XML source",
+      "image": "composer-response-formatting-xml-01-new.png",
+      "seconds": 33.72580859
+    },
+    {
+      "id": "xml-02-name",
+      "title": "命名Guide XML source / Name Guide XML source",
+      "image": "composer-response-formatting-xml-02-name.png",
+      "seconds": 36.781664045
+    },
+    {
+      "id": "xml-03-url",
+      "title": "填写xml实际地址 / Enter the actual xml URL",
+      "image": "composer-response-formatting-xml-03-url.png",
+      "seconds": 40.215442057
+    },
+    {
+      "id": "xml-04-send",
+      "title": "发送并读取xml响应 / Send and read the xml response",
+      "image": "composer-response-formatting-xml-04-send.png",
+      "seconds": 43.213687716
+    },
+    {
+      "id": "xml-05-format",
+      "title": "尝试Format并保留无效XML原文 / Try Format and retain the invalid XML source",
+      "image": "composer-response-formatting-xml-05-format.png",
+      "seconds": 46.287505683999996
+    },
+    {
+      "id": "xml-06-copy",
+      "title": "Copy核对xml的实际显示 / Copy and verify the actual xml view",
+      "image": "composer-response-formatting-xml-06-copy.png",
+      "seconds": 49.329553717
+    },
+    {
+      "id": "large-01-new",
+      "title": "新建Guide large JSON / Create Guide large JSON",
+      "image": "composer-response-formatting-large-01-new.png",
+      "seconds": 52.348623030000006
+    },
+    {
+      "id": "large-02-name",
+      "title": "命名Guide large JSON / Name Guide large JSON",
+      "image": "composer-response-formatting-large-02-name.png",
+      "seconds": 55.39016428600001
+    },
+    {
+      "id": "large-03-url",
+      "title": "填写large实际地址 / Enter the actual large URL",
+      "image": "composer-response-formatting-large-03-url.png",
+      "seconds": 58.805539398
+    },
+    {
+      "id": "large-04-send",
+      "title": "发送并读取large响应 / Send and read the large response",
+      "image": "composer-response-formatting-large-04-send.png",
+      "seconds": 61.798314783
+    },
+    {
+      "id": "large-06-copy",
+      "title": "Copy核对large的实际显示 / Copy and verify the actual large view",
+      "image": "composer-response-formatting-large-06-copy.png",
+      "seconds": 64.950631485
+    },
+    {
+      "id": "restore-html",
+      "title": "切回HTML保留原格式化视图 / Return to HTML and retain its formatted view",
+      "image": "composer-response-formatting-restore-html.png",
+      "seconds": 68.064969851
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-response-formatting-html-01-new.png",
+      "bytes": 228117,
+      "sha256": "ee0a47255e07c1ba716815ef69593a3934fee91d241994a5b1ff060d148ad989"
+    },
+    {
+      "file": "composer-response-formatting-html-02-name.png",
+      "bytes": 218186,
+      "sha256": "669221359388669e7ddb55c4e0dd72751b35de8ab9d1e3142de3a68e39531448"
+    },
+    {
+      "file": "composer-response-formatting-html-03-url.png",
+      "bytes": 226427,
+      "sha256": "ad23efe4b1de3d5af0f5d550fe04ffca81c76421db5f3f35f35f6bfa18c78a75"
+    },
+    {
+      "file": "composer-response-formatting-html-04-send.png",
+      "bytes": 256979,
+      "sha256": "a83a64b2ce595cd033a456c38ea1e6336a6ecc4419dc945b24a1dc2a6d9cb6af"
+    },
+    {
+      "file": "composer-response-formatting-html-06-copy.png",
+      "bytes": 293893,
+      "sha256": "7c0b65e737600e339f9e3b0155ba3b95ccc2c0e8cd274f297ad35028744e725c"
+    },
+    {
+      "file": "composer-response-formatting-javascript-01-new.png",
+      "bytes": 246265,
+      "sha256": "ca2a6bab612914072f1146fce53bdad8c239ea4afba11efaafec8b8e9fc8b80b"
+    },
+    {
+      "file": "composer-response-formatting-javascript-02-name.png",
+      "bytes": 238959,
+      "sha256": "9a5f589b49f27ee267df6684a324879114fefd445b7988194d4805db91a02d67"
+    },
+    {
+      "file": "composer-response-formatting-javascript-03-url.png",
+      "bytes": 250643,
+      "sha256": "a2c397938c890dbe475c171128b0507f1e97b91728814447558a2ba314adc2ac"
+    },
+    {
+      "file": "composer-response-formatting-javascript-04-send.png",
+      "bytes": 276687,
+      "sha256": "0d47b7c37343728e06c5d2e3fa52f18fa845c43a2b6af52646a0fcce41ee6a6d"
+    },
+    {
+      "file": "composer-response-formatting-javascript-06-copy.png",
+      "bytes": 311737,
+      "sha256": "20b84a90065d17f3ab3afbbb624d3681f2cb3a61cbd42ec35a9100344bb1a669"
+    },
+    {
+      "file": "composer-response-formatting-xml-01-new.png",
+      "bytes": 258111,
+      "sha256": "66096d01190b83a57db9766a28606930bb7abae571a8cbe9ae7ddcca9e5e716d"
+    },
+    {
+      "file": "composer-response-formatting-xml-02-name.png",
+      "bytes": 248195,
+      "sha256": "bf226016d5b61961cf187b057bff70afed4b81aa7d8c91666e1369904f4ff855"
+    },
+    {
+      "file": "composer-response-formatting-xml-03-url.png",
+      "bytes": 257503,
+      "sha256": "f738206da28e5fc7290140e05b9ab1498ce8390331eab6bbec92118636ba1754"
+    },
+    {
+      "file": "composer-response-formatting-xml-04-send.png",
+      "bytes": 280187,
+      "sha256": "4cedd3bd2d351d0462ba2c089a336adf005a69e4b9e682ab38fb60d08de6c7c8"
+    },
+    {
+      "file": "composer-response-formatting-xml-05-format.png",
+      "bytes": 293270,
+      "sha256": "4cd09def169126a60988061a0deac0713fe5dedd8281c74758e62d33efa01f4c"
+    },
+    {
+      "file": "composer-response-formatting-xml-06-copy.png",
+      "bytes": 304083,
+      "sha256": "ae4f6e4a9bbbf21c898fb0f2eb53a3180fcbdf26519ce43ef8fd7d701116ea90"
+    },
+    {
+      "file": "composer-response-formatting-large-01-new.png",
+      "bytes": 267445,
+      "sha256": "95ff3f89c9d8ec466f0ef012fddf161885dbae62c45d0d34241e82f0205d2bdd"
+    },
+    {
+      "file": "composer-response-formatting-large-02-name.png",
+      "bytes": 257342,
+      "sha256": "ba00a99aa59e3892192c876d73d28d0f08b26c0f15916a0a37ab7f21c178744b"
+    },
+    {
+      "file": "composer-response-formatting-large-03-url.png",
+      "bytes": 266973,
+      "sha256": "0c672c1f43516e3c4213727d6c4f02d583445a05a14f52ae8ae3e14959341981"
+    },
+    {
+      "file": "composer-response-formatting-large-04-send.png",
+      "bytes": 331204,
+      "sha256": "e9bdbf80e00121c4a33cb8883eeb81cd5b0fa91daec07357b0b23d91edfc2c00"
+    },
+    {
+      "file": "composer-response-formatting-large-06-copy.png",
+      "bytes": 356231,
+      "sha256": "9f6dd1da6b2b3bbb5c7a3c38b4b5e56a1e416d21743c3f6be2b0baea998e5787"
+    },
+    {
+      "file": "composer-response-formatting-restore-html.png",
+      "bytes": 318596,
+      "sha256": "a18410f3bf5c119c9946de7ef3acdb92074c34d654f358f43f32be700fef92e7"
+    },
+    {
+      "file": "composer-response-formatting.mp4",
+      "bytes": 410545,
+      "sha256": "4c14165968dc3bd7007da79a8817dedb9330e368ba29c45c6372f4f4b0eb7e91"
+    },
+    {
+      "file": "composer-response-formatting.vtt",
+      "bytes": 2100,
+      "sha256": "f6fe4ec0d2157059bbc5804dfd9013e2f6bcfa7ef772ba0d93a69807e081d2e1"
+    }
+  ]
+}

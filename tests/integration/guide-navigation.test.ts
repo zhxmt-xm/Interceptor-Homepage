@@ -3,6 +3,9 @@ import path from 'node:path';
 import { expect, test } from '@playwright/test';
 import { toggleHeaderLanguage } from './header-controls';
 
+// DOM snapshots compete with the measured render; retain timing JSON and failure screenshots.
+test.use({ trace: 'off' });
+
 test('opening the guide from home does not download a module for each media file', async ({
   page,
 }, testInfo) => {
@@ -55,7 +58,7 @@ test('opening the guide from home does not download a module for each media file
 test('offscreen recordings do not compete with the chapter text for loading', async ({ page }) => {
   const recordings: string[] = [];
   page.on('request', (request) => {
-    if (request.resourceType() === 'media') recordings.push(request.url());
+    if (new URL(request.url()).pathname.endsWith('.mp4')) recordings.push(request.url());
   });
   await page.goto('/guide/rules');
   const article = page.getByTestId('guide.article');
@@ -93,7 +96,10 @@ test('ready reader switches unseen chapters without fetching code, text or style
   const blockingRequests: string[] = [];
   await page.route('**/*', (route) => {
     if (
-      ['script', 'stylesheet', 'fetch', 'xhr', 'document'].includes(route.request().resourceType())
+      ['script', 'stylesheet', 'fetch', 'xhr', 'document'].includes(
+        route.request().resourceType(),
+      ) &&
+      !new URL(route.request().url()).pathname.endsWith('.mp4')
     ) {
       blockingRequests.push(route.request().url());
       return route.abort('failed');

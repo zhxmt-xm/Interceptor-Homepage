@@ -1,0 +1,783 @@
+{
+  "chapter": "rules-matching-modes",
+  "title": {
+    "zh-CN": "逐步骤实操：包含、精确、正则、大小写与MIME匹配",
+    "en": "Recorded walkthrough: contains, exact, regex, case and MIME matching"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "ruleName": "Guide matching modes",
+    "host": "127.0.0.1",
+    "path": "/guide/matching/Case",
+    "header": "x-guide-mode: matched",
+    "containsInput": "/guide/matching/case/extra",
+    "exactInput": "/guide/matching/Case",
+    "regex": "^/guide/matching/[A-Z]+$",
+    "regexUpper": "/guide/matching/READY",
+    "regexLower": "/guide/matching/ready",
+    "mime": "application/*",
+    "positiveMime": "application/json",
+    "negativeMime": "text/plain",
+    "invalidRegex": "[",
+    "invalidRegexLimit": "This release permits Apply but the invalid regex never matches; fix the expression rather than trusting the applied label"
+  },
+  "duration": 205.37710895299998,
+  "video": "rules-matching-modes.mp4",
+  "captions": "rules-matching-modes.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开Rules / Open Rules",
+      "image": "rules-matching-modes-01-rules.png",
+      "seconds": 0.40957511599999996
+    },
+    {
+      "id": "02-create",
+      "title": "创建匹配模式规则 / Create the matching-mode Rule",
+      "image": "rules-matching-modes-02-create.png",
+      "seconds": 3.3848918870000015
+    },
+    {
+      "id": "03-name",
+      "title": "命名Guide matching modes / Name it Guide matching modes",
+      "image": "rules-matching-modes-03-name.png",
+      "seconds": 6.433354460999999
+    },
+    {
+      "id": "04-host",
+      "title": "填写127.0.0.1 / Enter 127.0.0.1",
+      "image": "rules-matching-modes-04-host.png",
+      "seconds": 9.392028515999998
+    },
+    {
+      "id": "05-path-condition",
+      "title": "添加Path条件 / Add a Path condition",
+      "image": "rules-matching-modes-05-path-condition.png",
+      "seconds": 12.337324702999998
+    },
+    {
+      "id": "06-path-value",
+      "title": "填写区分大小写的示例Path / Enter the example Path with mixed case",
+      "image": "rules-matching-modes-06-path-value.png",
+      "seconds": 15.634832756
+    },
+    {
+      "id": "07-header",
+      "title": "填写x-guide-mode / Enter x-guide-mode",
+      "image": "rules-matching-modes-07-header.png",
+      "seconds": 18.592597233999996
+    },
+    {
+      "id": "08-value",
+      "title": "填写matched / Enter matched",
+      "image": "rules-matching-modes-08-value.png",
+      "seconds": 21.540653623
+    },
+    {
+      "id": "09-enable",
+      "title": "启用规则 / Enable the Rule",
+      "image": "rules-matching-modes-09-enable.png",
+      "seconds": 24.488223854
+    },
+    {
+      "id": "10-contains",
+      "title": "Apply默认包含模式 / Apply the default contains mode",
+      "image": "rules-matching-modes-10-contains.png",
+      "seconds": 27.490004777
+    },
+    {
+      "id": "contains-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-contains-capture.png",
+      "seconds": 30.537257133000004
+    },
+    {
+      "id": "contains-request",
+      "title": "发送contains请求 / Send the contains request",
+      "image": "rules-matching-modes-contains-request.png",
+      "seconds": 33.538094261000005
+    },
+    {
+      "id": "contains-headers",
+      "title": "查看实际命中的Header / Inspect the actually matched Header",
+      "image": "rules-matching-modes-contains-headers.png",
+      "seconds": 36.484395707999994
+    },
+    {
+      "id": "contains-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-contains-rules.png",
+      "seconds": 39.687378026000005
+    },
+    {
+      "id": "11-case-sensitive",
+      "title": "开启Aa区分大小写 / Enable Aa case sensitivity",
+      "image": "rules-matching-modes-11-case-sensitive.png",
+      "seconds": 42.737615479999995
+    },
+    {
+      "id": "12-apply-case",
+      "title": "Apply大小写设置 / Apply the case setting",
+      "image": "rules-matching-modes-12-apply-case.png",
+      "seconds": 45.732837478
+    },
+    {
+      "id": "case-sensitive-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-case-sensitive-capture.png",
+      "seconds": 48.737770841999996
+    },
+    {
+      "id": "case-sensitive-request",
+      "title": "发送case-sensitive请求 / Send the case-sensitive request",
+      "image": "rules-matching-modes-case-sensitive-request.png",
+      "seconds": 51.83424661599999
+    },
+    {
+      "id": "case-sensitive-headers",
+      "title": "确认此输入没有改写Header / Verify this input did not rewrite the Header",
+      "image": "rules-matching-modes-case-sensitive-headers.png",
+      "seconds": 54.824296021
+    },
+    {
+      "id": "case-sensitive-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-case-sensitive-rules.png",
+      "seconds": 57.987552043
+    },
+    {
+      "id": "13-exact",
+      "title": "开启精确匹配 / Enable exact matching",
+      "image": "rules-matching-modes-13-exact.png",
+      "seconds": 61.035718261999996
+    },
+    {
+      "id": "14-apply-exact",
+      "title": "Apply精确匹配 / Apply exact matching",
+      "image": "rules-matching-modes-14-apply-exact.png",
+      "seconds": 63.982741622999995
+    },
+    {
+      "id": "exact-negative-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-exact-negative-capture.png",
+      "seconds": 66.987492333
+    },
+    {
+      "id": "exact-negative-request",
+      "title": "发送exact-negative请求 / Send the exact-negative request",
+      "image": "rules-matching-modes-exact-negative-request.png",
+      "seconds": 70.085665824
+    },
+    {
+      "id": "exact-negative-headers",
+      "title": "确认此输入没有改写Header / Verify this input did not rewrite the Header",
+      "image": "rules-matching-modes-exact-negative-headers.png",
+      "seconds": 73.03536342
+    },
+    {
+      "id": "exact-negative-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-exact-negative-rules.png",
+      "seconds": 76.187597513
+    },
+    {
+      "id": "exact-positive-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-exact-positive-capture.png",
+      "seconds": 79.340360101
+    },
+    {
+      "id": "exact-positive-request",
+      "title": "发送exact-positive请求 / Send the exact-positive request",
+      "image": "rules-matching-modes-exact-positive-request.png",
+      "seconds": 82.44841279599999
+    },
+    {
+      "id": "exact-positive-headers",
+      "title": "查看实际命中的Header / Inspect the actually matched Header",
+      "image": "rules-matching-modes-exact-positive-headers.png",
+      "seconds": 85.432147667
+    },
+    {
+      "id": "exact-positive-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-exact-positive-rules.png",
+      "seconds": 88.583231841
+    },
+    {
+      "id": "15-regex",
+      "title": "切换到正则模式 / Switch to regex mode",
+      "image": "rules-matching-modes-15-regex.png",
+      "seconds": 91.63338688900001
+    },
+    {
+      "id": "16-invalid-regex",
+      "title": "填写无效正则 / Enter an invalid regex",
+      "image": "rules-matching-modes-16-invalid-regex.png",
+      "seconds": 94.635307413
+    },
+    {
+      "id": "16a-apply-invalid",
+      "title": "核对当前版本仍允许Apply / Observe that this release still allows Apply",
+      "image": "rules-matching-modes-16a-apply-invalid.png",
+      "seconds": 97.58474405
+    },
+    {
+      "id": "invalid-regex-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-invalid-regex-capture.png",
+      "seconds": 100.587544654
+    },
+    {
+      "id": "invalid-regex-request",
+      "title": "发送invalid-regex请求 / Send the invalid-regex request",
+      "image": "rules-matching-modes-invalid-regex-request.png",
+      "seconds": 103.685577213
+    },
+    {
+      "id": "invalid-regex-headers",
+      "title": "确认此输入没有改写Header / Verify this input did not rewrite the Header",
+      "image": "rules-matching-modes-invalid-regex-headers.png",
+      "seconds": 106.63336773099999
+    },
+    {
+      "id": "invalid-regex-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-invalid-regex-rules.png",
+      "seconds": 109.785706904
+    },
+    {
+      "id": "17-valid-regex",
+      "title": "修正为只匹配大写段的正则 / Fix the regex to match an uppercase segment",
+      "image": "rules-matching-modes-17-valid-regex.png",
+      "seconds": 112.83430747
+    },
+    {
+      "id": "18-apply-regex",
+      "title": "Apply有效正则 / Apply the valid regex",
+      "image": "rules-matching-modes-18-apply-regex.png",
+      "seconds": 115.83497354899998
+    },
+    {
+      "id": "regex-positive-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-regex-positive-capture.png",
+      "seconds": 118.834231718
+    },
+    {
+      "id": "regex-positive-request",
+      "title": "发送regex-positive请求 / Send the regex-positive request",
+      "image": "rules-matching-modes-regex-positive-request.png",
+      "seconds": 121.93451305799998
+    },
+    {
+      "id": "regex-positive-headers",
+      "title": "查看实际命中的Header / Inspect the actually matched Header",
+      "image": "rules-matching-modes-regex-positive-headers.png",
+      "seconds": 124.883816199
+    },
+    {
+      "id": "regex-positive-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-regex-positive-rules.png",
+      "seconds": 128.08325458899998
+    },
+    {
+      "id": "regex-negative-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-regex-negative-capture.png",
+      "seconds": 131.13310233599998
+    },
+    {
+      "id": "regex-negative-request",
+      "title": "发送regex-negative请求 / Send the regex-negative request",
+      "image": "rules-matching-modes-regex-negative-request.png",
+      "seconds": 134.23791566199998
+    },
+    {
+      "id": "regex-negative-headers",
+      "title": "确认此输入没有改写Header / Verify this input did not rewrite the Header",
+      "image": "rules-matching-modes-regex-negative-headers.png",
+      "seconds": 137.184190041
+    },
+    {
+      "id": "regex-negative-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-regex-negative-rules.png",
+      "seconds": 140.44509894599997
+    },
+    {
+      "id": "19-ignore-case",
+      "title": "关闭Aa使正则不区分大小写 / Disable Aa for case-insensitive regex",
+      "image": "rules-matching-modes-19-ignore-case.png",
+      "seconds": 143.490207122
+    },
+    {
+      "id": "20-apply-ignore-case",
+      "title": "Apply正则大小写设置 / Apply the regex case setting",
+      "image": "rules-matching-modes-20-apply-ignore-case.png",
+      "seconds": 146.482361904
+    },
+    {
+      "id": "regex-ignore-case-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-regex-ignore-case-capture.png",
+      "seconds": 149.48820386799997
+    },
+    {
+      "id": "regex-ignore-case-request",
+      "title": "发送regex-ignore-case请求 / Send the regex-ignore-case request",
+      "image": "rules-matching-modes-regex-ignore-case-request.png",
+      "seconds": 152.585270415
+    },
+    {
+      "id": "regex-ignore-case-headers",
+      "title": "查看实际命中的Header / Inspect the actually matched Header",
+      "image": "rules-matching-modes-regex-ignore-case-headers.png",
+      "seconds": 155.541874784
+    },
+    {
+      "id": "regex-ignore-case-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-regex-ignore-case-rules.png",
+      "seconds": 158.683173655
+    },
+    {
+      "id": "21-response-action",
+      "title": "将Header动作改为Response / Change the Header action to Response",
+      "image": "rules-matching-modes-21-response-action.png",
+      "seconds": 161.739968065
+    },
+    {
+      "id": "22-mime-condition",
+      "title": "添加响应MIME条件 / Add a response MIME condition",
+      "image": "rules-matching-modes-22-mime-condition.png",
+      "seconds": 165.08468994799998
+    },
+    {
+      "id": "23-mime-wildcard",
+      "title": "填写application/*通配 / Enter the application/* wildcard",
+      "image": "rules-matching-modes-23-mime-wildcard.png",
+      "seconds": 168.504651607
+    },
+    {
+      "id": "24-apply-mime",
+      "title": "Apply响应MIME条件 / Apply the response MIME condition",
+      "image": "rules-matching-modes-24-apply-mime.png",
+      "seconds": 171.44667981999999
+    },
+    {
+      "id": "mime-json-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-mime-json-capture.png",
+      "seconds": 174.438140358
+    },
+    {
+      "id": "mime-json-request",
+      "title": "发送mime-json请求 / Send the mime-json request",
+      "image": "rules-matching-modes-mime-json-request.png",
+      "seconds": 177.536028198
+    },
+    {
+      "id": "mime-json-headers",
+      "title": "查看实际命中的Header / Inspect the actually matched Header",
+      "image": "rules-matching-modes-mime-json-headers.png",
+      "seconds": 180.48937716199998
+    },
+    {
+      "id": "mime-json-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-mime-json-rules.png",
+      "seconds": 183.789943172
+    },
+    {
+      "id": "mime-text-capture",
+      "title": "返回Capture检查输入 / Return to Capture to inspect the input",
+      "image": "rules-matching-modes-mime-text-capture.png",
+      "seconds": 186.835409971
+    },
+    {
+      "id": "mime-text-request",
+      "title": "发送mime-text请求 / Send the mime-text request",
+      "image": "rules-matching-modes-mime-text-request.png",
+      "seconds": 190.03570461700002
+    },
+    {
+      "id": "mime-text-headers",
+      "title": "确认此输入没有改写Header / Verify this input did not rewrite the Header",
+      "image": "rules-matching-modes-mime-text-headers.png",
+      "seconds": 193.08584624
+    },
+    {
+      "id": "mime-text-rules",
+      "title": "返回同一规则 / Return to the same Rule",
+      "image": "rules-matching-modes-mime-text-rules.png",
+      "seconds": 196.339356477
+    },
+    {
+      "id": "25-disable",
+      "title": "停用演示规则 / Disable the demonstration Rule",
+      "image": "rules-matching-modes-25-disable.png",
+      "seconds": 199.435624956
+    },
+    {
+      "id": "26-apply-disabled",
+      "title": "Apply停用状态 / Apply the disabled state",
+      "image": "rules-matching-modes-26-apply-disabled.png",
+      "seconds": 202.432462944
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-matching-modes-01-rules.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "rules-matching-modes-02-create.png",
+      "bytes": 249983,
+      "sha256": "e3701ded4099552aa5c6ced2f6b61cc05025b8cad11fc935d7f3588ceb34c26c"
+    },
+    {
+      "file": "rules-matching-modes-03-name.png",
+      "bytes": 259076,
+      "sha256": "c287dfa0bb11205c1bf714f9b878d2d14369f545161765c8a6f5891a6c8b2dfa"
+    },
+    {
+      "file": "rules-matching-modes-04-host.png",
+      "bytes": 248335,
+      "sha256": "17129b1449537bc6e8012cb0ee9829d25e177abadcccfc665ba3bcac9fc92906"
+    },
+    {
+      "file": "rules-matching-modes-05-path-condition.png",
+      "bytes": 250068,
+      "sha256": "b120827dbe7db1bf94640dc75371279f1915e58b2879586d99f000935e6a4fa6"
+    },
+    {
+      "file": "rules-matching-modes-06-path-value.png",
+      "bytes": 250651,
+      "sha256": "32d6e486d7dccd9564183f378d785c1d1c25f725e0d3e97de6c1338946519581"
+    },
+    {
+      "file": "rules-matching-modes-07-header.png",
+      "bytes": 258643,
+      "sha256": "4e28cca843002fbac4b72a8fc4a707a182961d753fadd6e1456859f0c9131a59"
+    },
+    {
+      "file": "rules-matching-modes-08-value.png",
+      "bytes": 259180,
+      "sha256": "de792daa23b87f3e4e29682d097776d06c5c42c5282709cea7b9f19a59e94f9b"
+    },
+    {
+      "file": "rules-matching-modes-09-enable.png",
+      "bytes": 260764,
+      "sha256": "7fea5442b884702f5e04901b98ea3ed64a9621cd096d3405bbe25dc9741bab96"
+    },
+    {
+      "file": "rules-matching-modes-10-contains.png",
+      "bytes": 256514,
+      "sha256": "5a8fbef57a3f0fe1c85c828975aeba74b6c0cdc313564d7c2805984e79b9304d"
+    },
+    {
+      "file": "rules-matching-modes-contains-capture.png",
+      "bytes": 220719,
+      "sha256": "74a9e1efce2bf278b40e5a546995608c9aef34cc98f16d215ca2048509f27399"
+    },
+    {
+      "file": "rules-matching-modes-contains-request.png",
+      "bytes": 230419,
+      "sha256": "2687672557bb0465c9e4f469cd4b28b50350a8e85efaa5ab2fe73b608a5538d8"
+    },
+    {
+      "file": "rules-matching-modes-contains-headers.png",
+      "bytes": 383637,
+      "sha256": "b77504748cce2af9f17fad704d2d8a73442932139c3a8a39333510eab222397e"
+    },
+    {
+      "file": "rules-matching-modes-contains-rules.png",
+      "bytes": 256217,
+      "sha256": "a1aceacb29640326c259961b51c3f1c9083f9032200ba2c0f0b4a0ac75f8ad7f"
+    },
+    {
+      "file": "rules-matching-modes-11-case-sensitive.png",
+      "bytes": 260704,
+      "sha256": "aa2ddf247c58b8e9e0063e17a7c646b5904a0d4004b9afdf1d0f2655676da160"
+    },
+    {
+      "file": "rules-matching-modes-12-apply-case.png",
+      "bytes": 257191,
+      "sha256": "cd37a4ad94080321a270cfb81a2b619d9be02ea36b790fce03d53a77cc88a700"
+    },
+    {
+      "file": "rules-matching-modes-case-sensitive-capture.png",
+      "bytes": 383625,
+      "sha256": "a7dd2d20adee29a548a9abce17ea4b28759f7182257981d34e3949e63b733e6c"
+    },
+    {
+      "file": "rules-matching-modes-case-sensitive-request.png",
+      "bytes": 401187,
+      "sha256": "efdcf1d6fbb808136aa96b910af5c7470b222657a81bc1e61d97289783b51c02"
+    },
+    {
+      "file": "rules-matching-modes-case-sensitive-headers.png",
+      "bytes": 391722,
+      "sha256": "d420b0bbd689b9ba7e852525fbd0cc953faaf935a2819651a942b42be1296db6"
+    },
+    {
+      "file": "rules-matching-modes-case-sensitive-rules.png",
+      "bytes": 257063,
+      "sha256": "fcffabb060efb103ba796280b649a5cbc69c3e0a6b4e2813dc96a750c93d8d57"
+    },
+    {
+      "file": "rules-matching-modes-13-exact.png",
+      "bytes": 261244,
+      "sha256": "3deed4e22be954c6439517e25a4f4f53c1b61d21e4d6d60f7d79e274a1889ccb"
+    },
+    {
+      "file": "rules-matching-modes-14-apply-exact.png",
+      "bytes": 257361,
+      "sha256": "0a2b3001f940981fc6a5cbc1b614553cc879c81ea9183731a2dee63bd243ad47"
+    },
+    {
+      "file": "rules-matching-modes-exact-negative-capture.png",
+      "bytes": 391692,
+      "sha256": "cf20b0be140e176af47bcaf93fb88d8b1b88266d922522828a26bb9a0b66052a"
+    },
+    {
+      "file": "rules-matching-modes-exact-negative-request.png",
+      "bytes": 408026,
+      "sha256": "1dd434c52cf8b917dd6eece7d7bb8cfdb7e51f8f429bd425a6e76514d85c9dec"
+    },
+    {
+      "file": "rules-matching-modes-exact-negative-headers.png",
+      "bytes": 409266,
+      "sha256": "6aab7f3ac8af60832dba6db28d572560598e86846f8b09fc3db0433eba286053"
+    },
+    {
+      "file": "rules-matching-modes-exact-negative-rules.png",
+      "bytes": 257229,
+      "sha256": "69fa8f8b20063267b386bdca883e8a9549266a67bcb658f2760cb2210b8a5d2b"
+    },
+    {
+      "file": "rules-matching-modes-exact-positive-capture.png",
+      "bytes": 408095,
+      "sha256": "399aad4ed13340cc6251047d3841debd4001269a60796358cc9d436bc90855ef"
+    },
+    {
+      "file": "rules-matching-modes-exact-positive-request.png",
+      "bytes": 424712,
+      "sha256": "671592a9a15da8f40d5b569462eda4f85600b34bb1f307fe0c83dcf924213239"
+    },
+    {
+      "file": "rules-matching-modes-exact-positive-headers.png",
+      "bytes": 432500,
+      "sha256": "206f45050534c042f7619a393cd0990589a13cd5e933d25bc526c88d5e7bd8d4"
+    },
+    {
+      "file": "rules-matching-modes-exact-positive-rules.png",
+      "bytes": 257486,
+      "sha256": "c51e2f12f0a05e1d732f5f6b2f0df25cdfe83d153f943ddfb391d3e292d9bba1"
+    },
+    {
+      "file": "rules-matching-modes-15-regex.png",
+      "bytes": 261489,
+      "sha256": "ae0b7ff03634680bcc30240d0b4460499b79e821f0e74b594230d0a2589ff843"
+    },
+    {
+      "file": "rules-matching-modes-16-invalid-regex.png",
+      "bytes": 249522,
+      "sha256": "0dde911198ef262d144aa01bffbb30b02336450f66b8b66524294e9d4de4a28b"
+    },
+    {
+      "file": "rules-matching-modes-16a-apply-invalid.png",
+      "bytes": 245466,
+      "sha256": "e1490dbca9b2a740a0633633f6a22b6a5bc21884b4cc64e0f6191c1f7dfb288b"
+    },
+    {
+      "file": "rules-matching-modes-invalid-regex-capture.png",
+      "bytes": 432538,
+      "sha256": "94723162b41f76c8f106a2020bcb089eb58ca064e405e0ebc795d4e8dee2958f"
+    },
+    {
+      "file": "rules-matching-modes-invalid-regex-request.png",
+      "bytes": 448941,
+      "sha256": "bd6eb3a79292b88ce449a2c82a52a6a88869b90810665f968913129a1841fe07"
+    },
+    {
+      "file": "rules-matching-modes-invalid-regex-headers.png",
+      "bytes": 439755,
+      "sha256": "782fb052108973bdf8b283ecef5d0672f7d8a84dc7ca859485255b2ef062d6c4"
+    },
+    {
+      "file": "rules-matching-modes-invalid-regex-rules.png",
+      "bytes": 245328,
+      "sha256": "8297674a06b7e8457c81aea22b946f8e65f2c0e2ffe048905e043019c95552ad"
+    },
+    {
+      "file": "rules-matching-modes-17-valid-regex.png",
+      "bytes": 262671,
+      "sha256": "1d5c2c299555bfcf8ae57c2cb6a32492a49ad41be8277cc21249ef9c6804f6a4"
+    },
+    {
+      "file": "rules-matching-modes-18-apply-regex.png",
+      "bytes": 259149,
+      "sha256": "3d840316922ecbd7e2f60ba7382fbe2b7afe2152473fe522752755a8df07de67"
+    },
+    {
+      "file": "rules-matching-modes-regex-positive-capture.png",
+      "bytes": 439744,
+      "sha256": "fd34b3257d12cce7665b7939bdde0cb1ab827a3a53a53a15314384ea545768e8"
+    },
+    {
+      "file": "rules-matching-modes-regex-positive-request.png",
+      "bytes": 454931,
+      "sha256": "b2b4d8c371fcbd9bb0ccd36dde898075f892a3c628819c49edc195563dcfeec5"
+    },
+    {
+      "file": "rules-matching-modes-regex-positive-headers.png",
+      "bytes": 463909,
+      "sha256": "9353bc92d3466edadd4f6f6cf6cde44d29384e11d08a0dd6b537e6ac95dc2a72"
+    },
+    {
+      "file": "rules-matching-modes-regex-positive-rules.png",
+      "bytes": 259061,
+      "sha256": "7a73b3d711f22bd0d564639b2e4dd3c83d634c85fab09fed2a69f35d55ca26ba"
+    },
+    {
+      "file": "rules-matching-modes-regex-negative-capture.png",
+      "bytes": 463882,
+      "sha256": "cd25a761901a80c50ebabbaf730a7470483bdd7972645d30e734a99dc892d8e1"
+    },
+    {
+      "file": "rules-matching-modes-regex-negative-request.png",
+      "bytes": 478850,
+      "sha256": "76cfd7f055a1304c059e182b69a80b250d2bc2336042117153c26452c3d5cefa"
+    },
+    {
+      "file": "rules-matching-modes-regex-negative-headers.png",
+      "bytes": 468762,
+      "sha256": "2273bd85349f7caa88e80651c7dbea9f7406c5d67ed53d0bbd73f199ed5a8ec9"
+    },
+    {
+      "file": "rules-matching-modes-regex-negative-rules.png",
+      "bytes": 259061,
+      "sha256": "7a73b3d711f22bd0d564639b2e4dd3c83d634c85fab09fed2a69f35d55ca26ba"
+    },
+    {
+      "file": "rules-matching-modes-19-ignore-case.png",
+      "bytes": 262994,
+      "sha256": "581c21e7ff415abc464d208660a802633b1a28f8e7f8e882771bf7c27b94f4a3"
+    },
+    {
+      "file": "rules-matching-modes-20-apply-ignore-case.png",
+      "bytes": 259115,
+      "sha256": "ba48fdffe6d52f000b4f7781987a0268123eed4b49735b89318e5ab175916f09"
+    },
+    {
+      "file": "rules-matching-modes-regex-ignore-case-capture.png",
+      "bytes": 468747,
+      "sha256": "40882262beb19c6be06c7e44b370e65410190dcf02c4fc1c3eb658dd95f081d2"
+    },
+    {
+      "file": "rules-matching-modes-regex-ignore-case-request.png",
+      "bytes": 486080,
+      "sha256": "ebacd7376040c5e8f7c50d1940d5308a1f2ff9cbe030af304d804bf36ca30d71"
+    },
+    {
+      "file": "rules-matching-modes-regex-ignore-case-headers.png",
+      "bytes": 494586,
+      "sha256": "a35a4ff5f27cd3a13cf003ccbdc899e67ccc1150bd38796a5f329db29c69c1cc"
+    },
+    {
+      "file": "rules-matching-modes-regex-ignore-case-rules.png",
+      "bytes": 258864,
+      "sha256": "7747d967b9de41c93318cbe4ab0147b186b2ed97a9b6a57ae7cbdb9cfaa8a6df"
+    },
+    {
+      "file": "rules-matching-modes-21-response-action.png",
+      "bytes": 263330,
+      "sha256": "dee930c9298b5b4b819bbdec67d2210682aef6730872e9b00c25bfd5c518591c"
+    },
+    {
+      "file": "rules-matching-modes-22-mime-condition.png",
+      "bytes": 270009,
+      "sha256": "c22279387c3d7b37c71cea09e5c357907febec5bd22aebe39de832fef9f161ab"
+    },
+    {
+      "file": "rules-matching-modes-23-mime-wildcard.png",
+      "bytes": 272241,
+      "sha256": "088888972ea9fa9c180bcd8bb108a263b1370244546d596ade8bb5bcb1055277"
+    },
+    {
+      "file": "rules-matching-modes-24-apply-mime.png",
+      "bytes": 268455,
+      "sha256": "362fcce61881e441e85095dd0e36ec82dd090d45d09105adfdf80a91a94678f6"
+    },
+    {
+      "file": "rules-matching-modes-mime-json-capture.png",
+      "bytes": 494314,
+      "sha256": "f25830559ec6a38dee22dabf7315968bf6aa4121ab2ce08dcfbb8a7d9db1856a"
+    },
+    {
+      "file": "rules-matching-modes-mime-json-request.png",
+      "bytes": 508234,
+      "sha256": "2d24f1620fa205b2bd6cfbc7ce57602366d1ddfdef3535e7bdc01c2a34ada92d"
+    },
+    {
+      "file": "rules-matching-modes-mime-json-headers.png",
+      "bytes": 509348,
+      "sha256": "d2f3b443524adab3adbd381e63dd12d2e29ece52d3c4dc698d18cd2bac4f2389"
+    },
+    {
+      "file": "rules-matching-modes-mime-json-rules.png",
+      "bytes": 268462,
+      "sha256": "82371227b184d305b79871422c1678d827e4b4cfb82a64e3ba1e348cdd7410b3"
+    },
+    {
+      "file": "rules-matching-modes-mime-text-capture.png",
+      "bytes": 509346,
+      "sha256": "a56f6bca4727800d9c4702b0234891911aa675d036dcd25ca74582778231e183"
+    },
+    {
+      "file": "rules-matching-modes-mime-text-request.png",
+      "bytes": 523874,
+      "sha256": "de0d98b31c43244f73d02b48c99092fe6aee2acb523af852db353b63fd2ab7f5"
+    },
+    {
+      "file": "rules-matching-modes-mime-text-headers.png",
+      "bytes": 521297,
+      "sha256": "bd763ed29ec05c6dbffd59eb8605f763818a53765314feef7ba0ac44177e4501"
+    },
+    {
+      "file": "rules-matching-modes-mime-text-rules.png",
+      "bytes": 268462,
+      "sha256": "82371227b184d305b79871422c1678d827e4b4cfb82a64e3ba1e348cdd7410b3"
+    },
+    {
+      "file": "rules-matching-modes-25-disable.png",
+      "bytes": 271229,
+      "sha256": "6d6be0a0e9f988b69c02e165146109cc984bb7283951d1355dce6bbdd1521580"
+    },
+    {
+      "file": "rules-matching-modes-26-apply-disabled.png",
+      "bytes": 267856,
+      "sha256": "632eb3ab853104e26c1677888557abdd223c0bc643f79a5e4404eccfacabecb3"
+    },
+    {
+      "file": "rules-matching-modes.mp4",
+      "bytes": 1318885,
+      "sha256": "52aa0fafc9f1f185ed6f7773d5fbff1360f1de84a4c0f6c6de79b9b03b1123da"
+    },
+    {
+      "file": "rules-matching-modes.vtt",
+      "bytes": 6113,
+      "sha256": "eed6ab35ed22d00c9f5d22af3bb663efd79ca3d5cd9a41a7a9269ba441672417"
+    }
+  ]
+}

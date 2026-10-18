@@ -1,0 +1,137 @@
+WEBVTT
+
+1
+00:00:00.335 --> 00:00:03.185
+按 localhost 筛选 / Filter by localhost
+
+2
+00:00:03.185 --> 00:00:05.979
+开启 Recording / Start Recording
+
+3
+00:00:05.979 --> 00:00:08.883
+建立未解密 TLS 连接 / Establish an opaque TLS connection
+
+4
+00:00:08.883 --> 00:00:11.833
+选择 CONNECT 隧道 / Select the CONNECT tunnel
+
+5
+00:00:11.833 --> 00:00:14.732
+查看 Tunnel 而非 HTTP 正文 / Inspect Tunnel rather than an HTTP body
+
+6
+00:00:14.732 --> 00:00:17.889
+从 Tunnel 打开 HTTPS Setup / Open HTTPS Setup from Tunnel
+
+7
+00:00:17.889 --> 00:00:20.882
+取消且保持未解密 / Cancel without enabling decryption
+
+8
+00:00:20.882 --> 00:00:23.783
+打开 Settings / Open Settings
+
+9
+00:00:23.783 --> 00:00:26.683
+检查已有受信任 CA / Inspect the existing trusted CA
+
+10
+00:00:26.683 --> 00:00:29.533
+填写自有源站 localhost / Enter the owned origin localhost
+
+11
+00:00:29.533 --> 00:00:32.485
+仅添加本轮源站例外 / Add only this run’s origin exception
+
+12
+00:00:32.485 --> 00:00:35.584
+开启 HTTPS 解密 / Enable HTTPS decryption
+
+13
+00:00:35.584 --> 00:00:38.482
+返回 Capture / Return to Capture
+
+14
+00:00:38.482 --> 00:00:41.384
+用新连接请求 HTTPS / Request HTTPS over a new connection
+
+15
+00:00:41.384 --> 00:00:44.283
+选择解密后的 GET / Select the decrypted GET
+
+16
+00:00:44.283 --> 00:00:47.434
+读取真实 HTTPS 正文 / Read the actual HTTPS body
+
+17
+00:00:47.434 --> 00:00:50.334
+返回 Settings / Return to Settings
+
+18
+00:00:50.334 --> 00:00:53.233
+打开 TLS passthrough / Open TLS passthrough
+
+19
+00:00:53.233 --> 00:00:56.084
+填写精确主机 localhost / Enter the exact host localhost
+
+20
+00:00:56.084 --> 00:00:59.034
+添加并保存透传条目 / Add and save the passthrough entry
+
+21
+00:00:59.034 --> 00:01:02.034
+返回 Capture 检查新连接 / Return to Capture to inspect a new connection
+
+22
+00:01:02.034 --> 00:01:04.933
+重新建立同一源站 HTTPS 连接 / Reconnect to the same HTTPS origin
+
+23
+00:01:04.933 --> 00:01:07.830
+选择新增 CONNECT / Select the new CONNECT tunnel
+
+24
+00:01:07.830 --> 00:01:10.732
+核对命中 TLS passthrough / Verify the TLS passthrough match
+
+25
+00:01:10.732 --> 00:01:13.634
+从 Tunnel 定位实际名单条目 / Locate the actual entry from Tunnel
+
+26
+00:01:13.634 --> 00:01:16.486
+删除本轮 localhost 透传项 / Remove this run’s localhost passthrough entry
+
+27
+00:01:16.486 --> 00:01:19.434
+返回 Capture 检查恢复 / Return to Capture to inspect restoration
+
+28
+00:01:19.434 --> 00:01:22.332
+再次用新连接请求 HTTPS / Request HTTPS over another new connection
+
+29
+00:01:22.332 --> 00:01:25.285
+选择恢复解密的 GET / Select the newly decrypted GET
+
+30
+00:01:25.285 --> 00:01:28.231
+核对 HTTP 正文恢复 / Verify the HTTP body is visible again
+
+31
+00:01:28.231 --> 00:01:31.133
+返回 Settings 清理本轮配置 / Return to Settings to restore this run’s configuration
+
+32
+00:01:31.133 --> 00:01:34.034
+打开 Certificates / Open Certificates
+
+33
+00:01:34.034 --> 00:01:37.079
+关闭本轮解密 / Disable this run’s decryption
+
+34
+00:01:37.079 --> 00:01:40.529
+移除自有源站例外 / Remove the owned origin exception

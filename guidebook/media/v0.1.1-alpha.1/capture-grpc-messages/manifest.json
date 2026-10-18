@@ -1,0 +1,385 @@
+{
+  "chapter": "capture-grpc-messages",
+  "title": {
+    "zh-CN": "逐步骤实操：gRPC消息正文、复制、全屏与分页",
+    "en": "Recorded walkthrough: gRPC message bodies, copying, fullscreen and paging"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "protocol": "grpc",
+    "filter": "/guide/messages/grpc",
+    "detailPath": "/guide/messages/grpc/detail",
+    "pagePath": "/guide/messages/grpc/pages",
+    "firstMessage": "{\"message\":\"guide-short\",\"state\":\"ready\"}",
+    "longMessage": "guide-long with 28 entries; ending guide-message-end",
+    "firstCount": "6",
+    "pagedCount": "205",
+    "finalMessage": "{\"index\":204,\"message\":\"guide-page-204\"}",
+    "detailEncoding": "gRPC JSON",
+    "pagedEncoding": "gRPC JSON",
+    "tlsScope": "existing CA; localhost exception removed, decryption stopped"
+  },
+  "duration": 94.92785440200002,
+  "video": "capture-grpc-messages.mp4",
+  "captions": "capture-grpc-messages.vtt",
+  "steps": [
+    {
+      "id": "01-filter",
+      "title": "限定本轮消息路径 / Scope this run’s message paths",
+      "image": "capture-grpc-messages-01-filter.png",
+      "seconds": 0.436207070000004
+    },
+    {
+      "id": "02-record",
+      "title": "开启 Recording / Start Recording",
+      "image": "capture-grpc-messages-02-record.png",
+      "seconds": 3.3460522679999993
+    },
+    {
+      "id": "03-messages",
+      "title": "发送六条公开消息 / Send six public messages",
+      "image": "capture-grpc-messages-03-messages.png",
+      "seconds": 6.244393268000015
+    },
+    {
+      "id": "04-select",
+      "title": "选择本轮连接 / Select this run’s connection",
+      "image": "capture-grpc-messages-04-select.png",
+      "seconds": 9.240947505000019
+    },
+    {
+      "id": "05-tab",
+      "title": "打开消息页 / Open the messages tab",
+      "image": "capture-grpc-messages-05-tab.png",
+      "seconds": 12.450460359000019
+    },
+    {
+      "id": "06-direction",
+      "title": "选择 Response 消息 / Select response messages",
+      "image": "capture-grpc-messages-06-direction.png",
+      "seconds": 15.445635406999994
+    },
+    {
+      "id": "07-short",
+      "title": "展开 guide-short / Expand guide-short",
+      "image": "capture-grpc-messages-07-short.png",
+      "seconds": 18.393145233999995
+    },
+    {
+      "id": "08-short-raw",
+      "title": "选择 Raw 查看原文 / Select Raw to inspect the text",
+      "image": "capture-grpc-messages-08-short-raw.png",
+      "seconds": 21.540936583000004
+    },
+    {
+      "id": "09-copy-short",
+      "title": "复制当前短消息正文 / Copy the current short message body",
+      "image": "capture-grpc-messages-09-copy-short.png",
+      "seconds": 24.54369640700001
+    },
+    {
+      "id": "10-collapse-short",
+      "title": "收起短消息 / Collapse the short message",
+      "image": "capture-grpc-messages-10-collapse-short.png",
+      "seconds": 27.512270954000005
+    },
+    {
+      "id": "11-long",
+      "title": "展开 guide-long / Expand guide-long",
+      "image": "capture-grpc-messages-11-long.png",
+      "seconds": 30.48362383700002
+    },
+    {
+      "id": "12-resize",
+      "title": "拖动正文右下角缩小高度 / Drag the body corner to reduce its height",
+      "image": "capture-grpc-messages-12-resize.png",
+      "seconds": 33.69224258800002
+    },
+    {
+      "id": "13-wheel",
+      "title": "在长消息中滚动 / Scroll inside the long message",
+      "image": "capture-grpc-messages-13-wheel.png",
+      "seconds": 37.093286445000004
+    },
+    {
+      "id": "14-keyboard-end",
+      "title": "用键盘到达消息末尾 / Reach the message end with the keyboard",
+      "image": "capture-grpc-messages-14-keyboard-end.png",
+      "seconds": 40.143387487
+    },
+    {
+      "id": "15-scroll-out",
+      "title": "到底后继续滚动消息列表 / Continue scrolling the list at the body boundary",
+      "image": "capture-grpc-messages-15-scroll-out.png",
+      "seconds": 43.139424412000025
+    },
+    {
+      "id": "16-copy-long",
+      "title": "复制完整长消息正文 / Copy the complete long message body",
+      "image": "capture-grpc-messages-16-copy-long.png",
+      "seconds": 46.09209218000001
+    },
+    {
+      "id": "17-payload-copy",
+      "title": "使用消息专用 Copy / Use the message-specific Copy",
+      "image": "capture-grpc-messages-17-payload-copy.png",
+      "seconds": 49.05349721200002
+    },
+    {
+      "id": "18-fullscreen",
+      "title": "全屏查看这条消息 / View this message fullscreen",
+      "image": "capture-grpc-messages-18-fullscreen.png",
+      "seconds": 52.041036313999996
+    },
+    {
+      "id": "19-return",
+      "title": "Escape 返回同一消息 / Return to the same message with Escape",
+      "image": "capture-grpc-messages-19-return.png",
+      "seconds": 55.13559868700002
+    },
+    {
+      "id": "20-paged-input",
+      "title": "在新连接发送205条消息 / Send 205 messages on a new connection",
+      "image": "capture-grpc-messages-20-paged-input.png",
+      "seconds": 58.29835883000001
+    },
+    {
+      "id": "21-paged-select",
+      "title": "选择新的 pages 连接 / Select the new pages connection",
+      "image": "capture-grpc-messages-21-paged-select.png",
+      "seconds": 61.190594672
+    },
+    {
+      "id": "22-paged-tab",
+      "title": "打开新连接的消息 / Open messages for the new connection",
+      "image": "capture-grpc-messages-22-paged-tab.png",
+      "seconds": 64.193012686
+    },
+    {
+      "id": "23-load-pages",
+      "title": "滚动加载后续消息页 / Scroll to load subsequent message pages",
+      "image": "capture-grpc-messages-23-load-pages.png",
+      "seconds": 67.19314648600002
+    },
+    {
+      "id": "24-last-message",
+      "title": "展开第205条消息 / Expand message 205",
+      "image": "capture-grpc-messages-24-last-message.png",
+      "seconds": 70.64264331100001
+    },
+    {
+      "id": "24a-last-raw",
+      "title": "切到 Raw 查看末条原文 / Switch to Raw for the last message text",
+      "image": "capture-grpc-messages-24a-last-raw.png",
+      "seconds": 73.694205715
+    },
+    {
+      "id": "24b-last-visible",
+      "title": "继续滚动使末条正文完整可见 / Continue scrolling to show the whole last message",
+      "image": "capture-grpc-messages-24b-last-visible.png",
+      "seconds": 76.74382100599999
+    },
+    {
+      "id": "25-copy-last",
+      "title": "复制最后一条并核对 index 204 / Copy the last message and verify index 204",
+      "image": "capture-grpc-messages-25-copy-last.png",
+      "seconds": 79.79306523900001
+    },
+    {
+      "id": "26-settings",
+      "title": "返回 Settings / Return to Settings",
+      "image": "capture-grpc-messages-26-settings.png",
+      "seconds": 82.79235522700002
+    },
+    {
+      "id": "27-certificates",
+      "title": "打开 Certificates / Open Certificates",
+      "image": "capture-grpc-messages-27-certificates.png",
+      "seconds": 85.74458045900002
+    },
+    {
+      "id": "28-mitm-off",
+      "title": "关闭本轮解密 / Disable this run’s decryption",
+      "image": "capture-grpc-messages-28-mitm-off.png",
+      "seconds": 88.64210771100002
+    },
+    {
+      "id": "29-origin-remove",
+      "title": "移除自有localhost例外 / Remove the owned localhost exception",
+      "image": "capture-grpc-messages-29-origin-remove.png",
+      "seconds": 91.745562906
+    }
+  ],
+  "assets": [
+    {
+      "file": "capture-grpc-messages-01-filter.png",
+      "bytes": 222370,
+      "sha256": "b6fa44860b30afb8990fc2bc5adf65b056a8b0fbcfc6f1efea238aac30c676a0"
+    },
+    {
+      "file": "capture-grpc-messages-02-record.png",
+      "bytes": 222370,
+      "sha256": "b6fa44860b30afb8990fc2bc5adf65b056a8b0fbcfc6f1efea238aac30c676a0"
+    },
+    {
+      "file": "capture-grpc-messages-03-messages.png",
+      "bytes": 234571,
+      "sha256": "7e3e03909c19c228dd026c9073b12dae173f24eac4f813596c7e2fc6b7b40dfa"
+    },
+    {
+      "file": "capture-grpc-messages-04-select.png",
+      "bytes": 380494,
+      "sha256": "7ade7195ce4a2414512ef42341b50a00ccd647f40d72107cfb8985ddc62b67cf"
+    },
+    {
+      "file": "capture-grpc-messages-05-tab.png",
+      "bytes": 351659,
+      "sha256": "181212e6f616b078b146b24e970bca623545e8a2eb550c7ddcae5abdef16924b"
+    },
+    {
+      "file": "capture-grpc-messages-06-direction.png",
+      "bytes": 351659,
+      "sha256": "181212e6f616b078b146b24e970bca623545e8a2eb550c7ddcae5abdef16924b"
+    },
+    {
+      "file": "capture-grpc-messages-07-short.png",
+      "bytes": 386220,
+      "sha256": "4ee8d844d55c6a5e20931e62545b6413cbc77d83fac319d623b675ecfc9d8bfd"
+    },
+    {
+      "file": "capture-grpc-messages-08-short-raw.png",
+      "bytes": 383526,
+      "sha256": "9a045795c1e1d825aca8f3b8c3499709241cd21d39488f5ac831031aa5095d47"
+    },
+    {
+      "file": "capture-grpc-messages-09-copy-short.png",
+      "bytes": 408161,
+      "sha256": "5756ab466e233d1f8642292aa6f93f9779e92b4765c09a2abfae6e7aa72abc35"
+    },
+    {
+      "file": "capture-grpc-messages-10-collapse-short.png",
+      "bytes": 353468,
+      "sha256": "f62c1a9a27a606031c75437d68411e3b442ba1c3185bd13fa614ec890daba9c7"
+    },
+    {
+      "file": "capture-grpc-messages-11-long.png",
+      "bytes": 378670,
+      "sha256": "125c9bfd33b05d98c67d826bb8d089437543baa3427dae13aabad7ecff7cff24"
+    },
+    {
+      "file": "capture-grpc-messages-12-resize.png",
+      "bytes": 379272,
+      "sha256": "447708977d7c54982abccba66ebba2acd3f407eefaac938cdab6041b54e776ea"
+    },
+    {
+      "file": "capture-grpc-messages-13-wheel.png",
+      "bytes": 381019,
+      "sha256": "e6dbefbdc54922092f8432eb2f42a587f8568b3805e1b7b588616dcb287537e5"
+    },
+    {
+      "file": "capture-grpc-messages-14-keyboard-end.png",
+      "bytes": 380099,
+      "sha256": "6e08db2d03901023a8e222681ada9b86df4adb973b3b073518b1fc81ddeae4f1"
+    },
+    {
+      "file": "capture-grpc-messages-15-scroll-out.png",
+      "bytes": 389048,
+      "sha256": "5c5cdde485c1d0860047766ce3a1cd485e1a1b5a1086dab04f7d55c600e29e0d"
+    },
+    {
+      "file": "capture-grpc-messages-16-copy-long.png",
+      "bytes": 414434,
+      "sha256": "4ebb752854822f4c2ed589240a9e44b8c554aecf6041e7af8e544638142b165d"
+    },
+    {
+      "file": "capture-grpc-messages-17-payload-copy.png",
+      "bytes": 393894,
+      "sha256": "67ef282c5ca4178f6458bc126fd3d1105c1aae267c8057433f1010fd3c0ee741"
+    },
+    {
+      "file": "capture-grpc-messages-18-fullscreen.png",
+      "bytes": 345810,
+      "sha256": "12299ab863ed25eb8ca5619fde52ed105e2a41142315aedab772d98f98bc8d1f"
+    },
+    {
+      "file": "capture-grpc-messages-19-return.png",
+      "bytes": 378670,
+      "sha256": "125c9bfd33b05d98c67d826bb8d089437543baa3427dae13aabad7ecff7cff24"
+    },
+    {
+      "file": "capture-grpc-messages-20-paged-input.png",
+      "bytes": 396223,
+      "sha256": "3d2ace81292e9d838a2ac3b93c4fb3f1670643533c05a864a72e0a9c77ae8d33"
+    },
+    {
+      "file": "capture-grpc-messages-21-paged-select.png",
+      "bytes": 458956,
+      "sha256": "c35f7ce0338638fab03603d11251b7a6759df7e89bb74b5d649600e36d376562"
+    },
+    {
+      "file": "capture-grpc-messages-22-paged-tab.png",
+      "bytes": 458919,
+      "sha256": "12068ce4f8b7c164fe879dbb0b67ca9fa3aa319bcd9c53545fcad0da20da4121"
+    },
+    {
+      "file": "capture-grpc-messages-23-load-pages.png",
+      "bytes": 470363,
+      "sha256": "1215535f26f506ae01e06889a0f539af218237036aec754813132993dcb36f0f"
+    },
+    {
+      "file": "capture-grpc-messages-24-last-message.png",
+      "bytes": 475236,
+      "sha256": "90ac57265317311f740715a73a87cab6e4553539da5434fab0aea08cb15492c8"
+    },
+    {
+      "file": "capture-grpc-messages-24a-last-raw.png",
+      "bytes": 474463,
+      "sha256": "a80ad5463359a876525e8158e456f010b137239c798047f497a689b273055244"
+    },
+    {
+      "file": "capture-grpc-messages-24b-last-visible.png",
+      "bytes": 461882,
+      "sha256": "a1080d1484d263d6942abb068cc9a335f9e63fae5f9cd7a6aa2ff4d533c81182"
+    },
+    {
+      "file": "capture-grpc-messages-25-copy-last.png",
+      "bytes": 475802,
+      "sha256": "2d996752f300a665a7168e5729234abf57a528da439118a261fafc72c376d4ae"
+    },
+    {
+      "file": "capture-grpc-messages-26-settings.png",
+      "bytes": 380454,
+      "sha256": "60f33457cf53f13f6cfa5dcfe3833300ad423fc40f4e2e70f8f5649a93bdbc12"
+    },
+    {
+      "file": "capture-grpc-messages-27-certificates.png",
+      "bytes": 380105,
+      "sha256": "a0b22c012407f4a6226c36a94fe19bb87c788cc6022ea36f4b6a2193b57cbb62"
+    },
+    {
+      "file": "capture-grpc-messages-28-mitm-off.png",
+      "bytes": 376395,
+      "sha256": "855fd65dce8b89d2b557079a5a62ceacb49e84b8a0a1c8d52649674789c5a7af"
+    },
+    {
+      "file": "capture-grpc-messages-29-origin-remove.png",
+      "bytes": 362010,
+      "sha256": "c405403405de88ff7a035a0f803c3407da950717dac4f2dce08b6fe9061bed49"
+    },
+    {
+      "file": "capture-grpc-messages.mp4",
+      "bytes": 796805,
+      "sha256": "58b8dae8fd07ef355674fa959a2a57778dd073c1c94498c42a94e7800554b57b"
+    },
+    {
+      "file": "capture-grpc-messages.vtt",
+      "bytes": 2872,
+      "sha256": "75474290b05c3bb2b48dc7c5bc99149657c4becb69094c4d629da5844c5b4aa7"
+    }
+  ]
+}

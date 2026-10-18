@@ -1,0 +1,649 @@
+{
+  "chapter": "rules-response-evidence",
+  "title": {
+    "zh-CN": "逐步骤实操：响应 Header 与正文版本证据",
+    "en": "Recorded walkthrough: response Headers and body-version evidence"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window and owned Save panel; no microphone",
+  "example": {
+    "ruleName": "Guide response and body",
+    "host": "127.0.0.1",
+    "path": "/guide/response-evidence",
+    "origin": "http://127.0.0.1:62520/guide/response-evidence",
+    "responseHeader": "x-guide-list",
+    "originalHeader": "one",
+    "appendedHeader": "two",
+    "originalBody": "{\"message\":\"guide-original\"}",
+    "requestFinal": "{\"message\":\"guide-final\"}",
+    "responseFinal": "{\"message\":\"guide-response-final\"}",
+    "savedFile": "guide-final.json",
+    "responseOriginal": "unavailable; not an empty response body"
+  },
+  "duration": 178.47219769900002,
+  "video": "rules-response-evidence.mp4",
+  "captions": "rules-response-evidence.vtt",
+  "steps": [
+    {
+      "id": "01-rules",
+      "title": "打开 Rules / Open Rules",
+      "image": "rules-response-evidence-01-rules.png",
+      "seconds": 0.16838538300000072
+    },
+    {
+      "id": "02-root-menu",
+      "title": "打开空白区域菜单 / Open the empty-area menu",
+      "image": "rules-response-evidence-02-root-menu.png",
+      "seconds": 3.3017710160000022
+    },
+    {
+      "id": "03-create",
+      "title": "新建规则 / Create a Rule",
+      "image": "rules-response-evidence-03-create.png",
+      "seconds": 6.353407013
+    },
+    {
+      "id": "04-name",
+      "title": "命名 Guide response and body / Name the Rule Guide response and body",
+      "image": "rules-response-evidence-04-name.png",
+      "seconds": 9.503928406000004
+    },
+    {
+      "id": "05-host",
+      "title": "限制 Host 为 127.0.0.1 / Restrict Host to 127.0.0.1",
+      "image": "rules-response-evidence-05-host.png",
+      "seconds": 12.443076225
+    },
+    {
+      "id": "06-add-path",
+      "title": "添加 Path 条件 / Add a Path condition",
+      "image": "rules-response-evidence-06-add-path.png",
+      "seconds": 15.293092859
+    },
+    {
+      "id": "07-path",
+      "title": "限制本轮示例 Path / Restrict the example Path",
+      "image": "rules-response-evidence-07-path.png",
+      "seconds": 18.543877698
+    },
+    {
+      "id": "08-response-phase",
+      "title": "Header 选择 Response / Choose Response for the Header",
+      "image": "rules-response-evidence-08-response-phase.png",
+      "seconds": 21.392197166000003
+    },
+    {
+      "id": "09-header",
+      "title": "填写 x-guide-list / Enter x-guide-list",
+      "image": "rules-response-evidence-09-header.png",
+      "seconds": 24.691986703999998
+    },
+    {
+      "id": "10-append",
+      "title": "选择 append / Choose append",
+      "image": "rules-response-evidence-10-append.png",
+      "seconds": 27.541746893
+    },
+    {
+      "id": "11-value",
+      "title": "追加值填 two / Enter the appended value two",
+      "image": "rules-response-evidence-11-value.png",
+      "seconds": 30.739575850999998
+    },
+    {
+      "id": "12-enable",
+      "title": "启用示例规则 / Enable the example Rule",
+      "image": "rules-response-evidence-12-enable.png",
+      "seconds": 33.642704884000004
+    },
+    {
+      "id": "13-apply-append",
+      "title": "Apply 响应 append / Apply response append",
+      "image": "rules-response-evidence-13-apply-append.png",
+      "seconds": 36.491606354000005
+    },
+    {
+      "id": "14-capture",
+      "title": "回到 Capture / Return to Capture",
+      "image": "rules-response-evidence-14-capture.png",
+      "seconds": 39.443468712000005
+    },
+    {
+      "id": "15-append-request",
+      "title": "重新请求 append / Send a new append request",
+      "image": "rules-response-evidence-15-append-request.png",
+      "seconds": 42.340745252000005
+    },
+    {
+      "id": "16-append-select",
+      "title": "选择 append 请求 / Select the append request",
+      "image": "rules-response-evidence-16-append-select.png",
+      "seconds": 45.189796683000004
+    },
+    {
+      "id": "17-append-headers",
+      "title": "核对响应保留 one 并追加 two / Verify the response retains one and appends two",
+      "image": "rules-response-evidence-17-append-headers.png",
+      "seconds": 48.19341538599999
+    },
+    {
+      "id": "18-edit-remove",
+      "title": "返回原规则 / Return to the same Rule",
+      "image": "rules-response-evidence-18-edit-remove.png",
+      "seconds": 51.094878438
+    },
+    {
+      "id": "19-remove",
+      "title": "改为 remove / Switch to remove",
+      "image": "rules-response-evidence-19-remove.png",
+      "seconds": 54.09231354400001
+    },
+    {
+      "id": "20-apply-remove",
+      "title": "Apply 响应 remove / Apply response removal",
+      "image": "rules-response-evidence-20-apply-remove.png",
+      "seconds": 57.392236793
+    },
+    {
+      "id": "21-capture-remove",
+      "title": "返回 Capture 核对移除 / Return to Capture to inspect removal",
+      "image": "rules-response-evidence-21-capture-remove.png",
+      "seconds": 60.293253725999996
+    },
+    {
+      "id": "22-remove-request",
+      "title": "重新请求 remove / Send a new remove request",
+      "image": "rules-response-evidence-22-remove-request.png",
+      "seconds": 63.39416093
+    },
+    {
+      "id": "23-remove-select",
+      "title": "选择 remove 请求 / Select the remove request",
+      "image": "rules-response-evidence-23-remove-select.png",
+      "seconds": 66.293293736
+    },
+    {
+      "id": "24-edit-body",
+      "title": "返回 Rules 编辑正文动作 / Return to Rules to edit the body action",
+      "image": "rules-response-evidence-24-edit-body.png",
+      "seconds": 69.39320030299999
+    },
+    {
+      "id": "25-remove-header",
+      "title": "移除 Header 动作 / Remove the Header action",
+      "image": "rules-response-evidence-25-remove-header.png",
+      "seconds": 72.44133842299999
+    },
+    {
+      "id": "26-add-body",
+      "title": "添加 Body 动作 / Add a Body action",
+      "image": "rules-response-evidence-26-add-body.png",
+      "seconds": 75.29761201299999
+    },
+    {
+      "id": "27-request-phase",
+      "title": "Body 选择 Request / Choose Request for the Body",
+      "image": "rules-response-evidence-27-request-phase.png",
+      "seconds": 78.594485923
+    },
+    {
+      "id": "28-body-value",
+      "title": "填写 guide-final 正文 / Enter the guide-final body",
+      "image": "rules-response-evidence-28-body-value.png",
+      "seconds": 81.89253121
+    },
+    {
+      "id": "29-apply-body",
+      "title": "Apply 请求正文 / Apply request-body replacement",
+      "image": "rules-response-evidence-29-apply-body.png",
+      "seconds": 84.740482642
+    },
+    {
+      "id": "30-capture-body",
+      "title": "返回 Capture 观察正文 / Return to Capture to inspect the body",
+      "image": "rules-response-evidence-30-capture-body.png",
+      "seconds": 87.599897956
+    },
+    {
+      "id": "31-post",
+      "title": "发送 guide-original 的 POST / Send a POST containing guide-original",
+      "image": "rules-response-evidence-31-post.png",
+      "seconds": 90.642862672
+    },
+    {
+      "id": "32-body-select",
+      "title": "选择 request-body 请求 / Select the request-body request",
+      "image": "rules-response-evidence-32-body-select.png",
+      "seconds": 93.545149764
+    },
+    {
+      "id": "33-final",
+      "title": "Request 默认显示 Final / Request initially shows Final",
+      "image": "rules-response-evidence-33-final.png",
+      "seconds": 96.395958368
+    },
+    {
+      "id": "34-original",
+      "title": "切换 Original / Switch to Original",
+      "image": "rules-response-evidence-34-original.png",
+      "seconds": 99.695792785
+    },
+    {
+      "id": "35-raw",
+      "title": "选择 Raw / Choose Raw",
+      "image": "rules-response-evidence-35-raw.png",
+      "seconds": 102.592051
+    },
+    {
+      "id": "36-copy-original",
+      "title": "复制 Original / Copy Original",
+      "image": "rules-response-evidence-36-copy-original.png",
+      "seconds": 105.440532047
+    },
+    {
+      "id": "37-fullscreen",
+      "title": "全屏查看 Original / View Original fullscreen",
+      "image": "rules-response-evidence-37-fullscreen.png",
+      "seconds": 108.343189715
+    },
+    {
+      "id": "38-close-fullscreen",
+      "title": "Escape 返回详情 / Return to details with Escape",
+      "image": "rules-response-evidence-38-close-fullscreen.png",
+      "seconds": 111.33933365099999
+    },
+    {
+      "id": "39-final-again",
+      "title": "再次切换 Final / Switch back to Final",
+      "image": "rules-response-evidence-39-final-again.png",
+      "seconds": 114.43011562000001
+    },
+    {
+      "id": "40-copy-final",
+      "title": "复制 Final / Copy Final",
+      "image": "rules-response-evidence-40-copy-final.png",
+      "seconds": 117.33335660799999
+    },
+    {
+      "id": "41-save-dialog",
+      "title": "保存 Final 为 guide-final.json / Save Final as guide-final.json",
+      "image": "rules-response-evidence-41-save-dialog.png",
+      "seconds": 133.03448166700002
+    },
+    {
+      "id": "42-saved",
+      "title": "确认保存的是 Final / Confirm the saved body is Final",
+      "image": "rules-response-evidence-42-saved.png",
+      "seconds": 137.20086184500002
+    },
+    {
+      "id": "43-body-rule",
+      "title": "点击正文效果返回对应规则 / Follow the body effect to its Rule",
+      "image": "rules-response-evidence-43-body-rule.png",
+      "seconds": 139.96134823900002
+    },
+    {
+      "id": "44-response-body",
+      "title": "将 Body 改为 Response / Change the Body phase to Response",
+      "image": "rules-response-evidence-44-response-body.png",
+      "seconds": 142.852187326
+    },
+    {
+      "id": "45-response-value",
+      "title": "填写 guide-response-final / Enter guide-response-final",
+      "image": "rules-response-evidence-45-response-value.png",
+      "seconds": 146.09368703200002
+    },
+    {
+      "id": "46-apply-response",
+      "title": "Apply 响应正文 / Apply response-body replacement",
+      "image": "rules-response-evidence-46-apply-response.png",
+      "seconds": 148.92353601200003
+    },
+    {
+      "id": "47-capture-response",
+      "title": "返回 Capture 核对响应 / Return to Capture to inspect the response",
+      "image": "rules-response-evidence-47-capture-response.png",
+      "seconds": 151.815976457
+    },
+    {
+      "id": "48-response-request",
+      "title": "发送新的 response-body 请求 / Send a new response-body request",
+      "image": "rules-response-evidence-48-response-request.png",
+      "seconds": 154.79297866000002
+    },
+    {
+      "id": "49-response-select",
+      "title": "选择 response-body 请求 / Select the response-body request",
+      "image": "rules-response-evidence-49-response-select.png",
+      "seconds": 157.604208905
+    },
+    {
+      "id": "50-unavailable",
+      "title": "核对响应 Original 不可用 / Verify response Original is unavailable",
+      "image": "rules-response-evidence-50-unavailable.png",
+      "seconds": 160.483403775
+    },
+    {
+      "id": "51-rule-again",
+      "title": "返回产生响应的规则 / Return to the response writer Rule",
+      "image": "rules-response-evidence-51-rule-again.png",
+      "seconds": 163.47658533600003
+    },
+    {
+      "id": "52-disable",
+      "title": "停用本轮规则 / Disable this example Rule",
+      "image": "rules-response-evidence-52-disable.png",
+      "seconds": 166.35336428200003
+    },
+    {
+      "id": "53-apply-disabled",
+      "title": "Apply 停用状态 / Apply the disabled state",
+      "image": "rules-response-evidence-53-apply-disabled.png",
+      "seconds": 169.192832989
+    },
+    {
+      "id": "54-capture-restored",
+      "title": "返回 Capture 验证恢复 / Return to Capture to verify restoration",
+      "image": "rules-response-evidence-54-capture-restored.png",
+      "seconds": 172.08060481400003
+    },
+    {
+      "id": "55-restored-request",
+      "title": "发送新请求核对无改写 / Verify a new request is unmodified",
+      "image": "rules-response-evidence-55-restored-request.png",
+      "seconds": 175.116452041
+    }
+  ],
+  "assets": [
+    {
+      "file": "rules-response-evidence-01-rules.png",
+      "bytes": 176795,
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+    },
+    {
+      "file": "rules-response-evidence-02-root-menu.png",
+      "bytes": 246248,
+      "sha256": "e7fa8e17866f46aa311e7b6d394f979f7bcee11a7cdc673c5d560ded0881eca2"
+    },
+    {
+      "file": "rules-response-evidence-03-create.png",
+      "bytes": 234828,
+      "sha256": "d1cdb7e6d4b42d2ee748a7601ec3c21e8f937d20ff9805f6e9a9ec115fbc937c"
+    },
+    {
+      "file": "rules-response-evidence-04-name.png",
+      "bytes": 244671,
+      "sha256": "dbf5603cda7161b425b893fcdee4ac7a50cf2daf864b5f530429705d40ebe2b9"
+    },
+    {
+      "file": "rules-response-evidence-05-host.png",
+      "bytes": 234086,
+      "sha256": "041eab432b12c247b8fcaf8dcda73810a5b420fcdd4130f98a14d018eae65efc"
+    },
+    {
+      "file": "rules-response-evidence-06-add-path.png",
+      "bytes": 251508,
+      "sha256": "5acd70ca5d3cbc629ec88c3afd6676179ea87552f8ea2dd6f8da4c948c857152"
+    },
+    {
+      "file": "rules-response-evidence-07-path.png",
+      "bytes": 252957,
+      "sha256": "a38febcbf3250fb1537ff27abe6f1dd97d961e2211e2702089067e3645eb0b5c"
+    },
+    {
+      "file": "rules-response-evidence-08-response-phase.png",
+      "bytes": 253715,
+      "sha256": "b460238111fb3819ed3fb3ee95770f044599f7ad0cd843843b3e14da890dad36"
+    },
+    {
+      "file": "rules-response-evidence-09-header.png",
+      "bytes": 260809,
+      "sha256": "c56694d824a05ed32102d524b61b4032a89fa403cbf35938e9b514f3ce830b15"
+    },
+    {
+      "file": "rules-response-evidence-10-append.png",
+      "bytes": 261761,
+      "sha256": "6c0e103c10c0f6bdcb2ab526cfc9ea3eab126da4774c00a4458d78d11c7f88af"
+    },
+    {
+      "file": "rules-response-evidence-11-value.png",
+      "bytes": 259871,
+      "sha256": "c82f51039fc612217aa12591c4cfa90772e5731055397ce1e61f049ebaf2baa7"
+    },
+    {
+      "file": "rules-response-evidence-12-enable.png",
+      "bytes": 261671,
+      "sha256": "685a3c193073d1da98f65a4abe27894aa1337239eedcc11539de2cbc2e4fc481"
+    },
+    {
+      "file": "rules-response-evidence-13-apply-append.png",
+      "bytes": 257481,
+      "sha256": "ebbc3ea1d7cb725b026fcc657a6b287b2220cd0624d5fdbf4a26db0861ed95f5"
+    },
+    {
+      "file": "rules-response-evidence-14-capture.png",
+      "bytes": 229231,
+      "sha256": "928a7956897d03c3755c9ecda00daa1a4f6bbc0f5f72d456b47c9df8bbf21c25"
+    },
+    {
+      "file": "rules-response-evidence-15-append-request.png",
+      "bytes": 236720,
+      "sha256": "70e6191c81a43947c751f722690ae6ba70cc3a3078ab71e9488a9ff38093dd70"
+    },
+    {
+      "file": "rules-response-evidence-16-append-select.png",
+      "bytes": 388481,
+      "sha256": "c0a18bacb53a4357772f6a5cfd0a35f4086de0903ba7888b7812598728c3b1c7"
+    },
+    {
+      "file": "rules-response-evidence-17-append-headers.png",
+      "bytes": 388488,
+      "sha256": "559da6ac22adb1692f17d548a1e0b4eb1ac00a5b76f8d073893cbb49177adab1"
+    },
+    {
+      "file": "rules-response-evidence-18-edit-remove.png",
+      "bytes": 257146,
+      "sha256": "47ff3ccafd2b4149eaac8c7f08c45969e6e9ccb638e6d8534809fc23d7c909e1"
+    },
+    {
+      "file": "rules-response-evidence-19-remove.png",
+      "bytes": 261680,
+      "sha256": "99a68041d3fdf44eff442bebb1fc0feaf1dbf2ef32767a0e22273388a17f3454"
+    },
+    {
+      "file": "rules-response-evidence-20-apply-remove.png",
+      "bytes": 256912,
+      "sha256": "9f2f8dcf684c4356f516f24645d8a06569d3df8552afd296ec94906a855db4ee"
+    },
+    {
+      "file": "rules-response-evidence-21-capture-remove.png",
+      "bytes": 388429,
+      "sha256": "c1e567ba576e15dd9b282f5e4e01191e3e8e8d5ec459adff88744911cc918f0c"
+    },
+    {
+      "file": "rules-response-evidence-22-remove-request.png",
+      "bytes": 406402,
+      "sha256": "eae68f2a87d631691f7954c5978b10947a09f3445ba49b78fb3a244db771f7a4"
+    },
+    {
+      "file": "rules-response-evidence-23-remove-select.png",
+      "bytes": 409796,
+      "sha256": "cf242163077ece6365d0134f58fa7260d27ffc21e3511241d9d755d0eac6a438"
+    },
+    {
+      "file": "rules-response-evidence-24-edit-body.png",
+      "bytes": 257042,
+      "sha256": "be860125e7cdfc3b45d38d35ce296e53fa274c833a7b3c5c2f3effbe3b2e012c"
+    },
+    {
+      "file": "rules-response-evidence-25-remove-header.png",
+      "bytes": 235663,
+      "sha256": "e4e74ac699ac17248df2cff91c9fe58c2a1aabd2b6d0c0eee47a6a46c6853a49"
+    },
+    {
+      "file": "rules-response-evidence-26-add-body.png",
+      "bytes": 258631,
+      "sha256": "18eab356be100569d6e66c243ade3a247dacf683a66a6d298fefdde653c1ebe4"
+    },
+    {
+      "file": "rules-response-evidence-27-request-phase.png",
+      "bytes": 260532,
+      "sha256": "05b2ba166ba8639434ae728efae98ed3fc0bbbf3ede5cd65f9bd29baa15c439d"
+    },
+    {
+      "file": "rules-response-evidence-28-body-value.png",
+      "bytes": 264965,
+      "sha256": "03334c0785cfb8eee69db7c1bc7e6d87f4c7cfb6336b2f8274f2c727bf38e070"
+    },
+    {
+      "file": "rules-response-evidence-29-apply-body.png",
+      "bytes": 261434,
+      "sha256": "6bf1bf6b8fb7dfc62bac88a9670eb5a0ed153429339377e91a0125f6153abc82"
+    },
+    {
+      "file": "rules-response-evidence-30-capture-body.png",
+      "bytes": 409774,
+      "sha256": "18f39ac48f8efcd6b21825261d512d6378d0786870e39a8694243dd824dc1c3a"
+    },
+    {
+      "file": "rules-response-evidence-31-post.png",
+      "bytes": 426717,
+      "sha256": "a7da2b6a608083aec889ba131925112e5eb6e6ff14d09aaa16e17d3f8e0d82ba"
+    },
+    {
+      "file": "rules-response-evidence-32-body-select.png",
+      "bytes": 414264,
+      "sha256": "19579dd5741e0189757fa99574dc069b2782052209e978c0c9d41f7daca9ba64"
+    },
+    {
+      "file": "rules-response-evidence-33-final.png",
+      "bytes": 378183,
+      "sha256": "f5f4df132fc6abadbfc8b56ee3019508d8abd4a087e406a402970c5b0f6b8505"
+    },
+    {
+      "file": "rules-response-evidence-34-original.png",
+      "bytes": 379259,
+      "sha256": "1065b52274093c903acd6d0a1ecafe47bec1d7e78da89f66564c8539275546d4"
+    },
+    {
+      "file": "rules-response-evidence-35-raw.png",
+      "bytes": 378783,
+      "sha256": "30fc97bbb2cb89f5b737db8a9bd81d9d83336f788238313b185f4a62e22d0938"
+    },
+    {
+      "file": "rules-response-evidence-36-copy-original.png",
+      "bytes": 403066,
+      "sha256": "887e7f5fd940f6e44fc52f0ac474caec69af321a6d98d5e14be2fad1c5dc4901"
+    },
+    {
+      "file": "rules-response-evidence-37-fullscreen.png",
+      "bytes": 253382,
+      "sha256": "8b73226d23d084c8c630ca1064413616b56c4a1127b06cf3abbe51759912292d"
+    },
+    {
+      "file": "rules-response-evidence-38-close-fullscreen.png",
+      "bytes": 378783,
+      "sha256": "30fc97bbb2cb89f5b737db8a9bd81d9d83336f788238313b185f4a62e22d0938"
+    },
+    {
+      "file": "rules-response-evidence-39-final-again.png",
+      "bytes": 377689,
+      "sha256": "497f46f5394fe51f8fdf43ed5ee8e7498e2c56b77494b31946f39ae7a0dbab05"
+    },
+    {
+      "file": "rules-response-evidence-40-copy-final.png",
+      "bytes": 402237,
+      "sha256": "d14ab2f267524cb6af33abbc875de9843547851d41bd557b5c79e629440c14ea"
+    },
+    {
+      "file": "rules-response-evidence-41-save-dialog.png",
+      "bytes": 56087,
+      "sha256": "49da9ca1b694a78b54e33c841e1f7c7101194db64d9a8c58251028043a52322f"
+    },
+    {
+      "file": "rules-response-evidence-42-saved.png",
+      "bytes": 378769,
+      "sha256": "16af059078ae20134751ba2ef6879436b75e74d2fb37cd5e7ff2bd39cfe27b0f"
+    },
+    {
+      "file": "rules-response-evidence-43-body-rule.png",
+      "bytes": 261464,
+      "sha256": "9bbf0c9a13b36e35bcfd38522fa41ca70404c2f99495d0db49d5850b020b0456"
+    },
+    {
+      "file": "rules-response-evidence-44-response-body.png",
+      "bytes": 265256,
+      "sha256": "599fc5960e074fa9d03030ceb8d6d059a68988f5a191281d955171ebb543363f"
+    },
+    {
+      "file": "rules-response-evidence-45-response-value.png",
+      "bytes": 266393,
+      "sha256": "9ef8de33a02adf65d0e5941be92211de4a0283b4e9c20847963e0327dbc8d6f9"
+    },
+    {
+      "file": "rules-response-evidence-46-apply-response.png",
+      "bytes": 262572,
+      "sha256": "07bb134dc7e77973db55cc97c8ebf17b5720b0373d285787a6b7b17055b64a9a"
+    },
+    {
+      "file": "rules-response-evidence-47-capture-response.png",
+      "bytes": 379478,
+      "sha256": "9086ad94ec2570bf9b1c6d52b5df0a06e525254a398d7c9561fe9a5aa139d3a0"
+    },
+    {
+      "file": "rules-response-evidence-48-response-request.png",
+      "bytes": 394797,
+      "sha256": "d3f9478551f9caab11ec2e9f25024bc1a894e405312fe2bc3c4475d47adf4e1e"
+    },
+    {
+      "file": "rules-response-evidence-49-response-select.png",
+      "bytes": 365912,
+      "sha256": "391e6e8c8792e02db99dc5d26e223db60ca0b9b2e1dbc58dadfca233120a902b"
+    },
+    {
+      "file": "rules-response-evidence-50-unavailable.png",
+      "bytes": 365734,
+      "sha256": "128f655456d374b6867652919fa7cd9ddf8db70986646be2612a6a8c881ed64f"
+    },
+    {
+      "file": "rules-response-evidence-51-rule-again.png",
+      "bytes": 262454,
+      "sha256": "ba845a3d7d79e2ed461c76923d8e8e815645c357aff4524c42456d78d5d38efe"
+    },
+    {
+      "file": "rules-response-evidence-52-disable.png",
+      "bytes": 264963,
+      "sha256": "d5c6a6cb3368808f2fba54412c59b9ddd6c78166ee8af48e74c73c77161fa612"
+    },
+    {
+      "file": "rules-response-evidence-53-apply-disabled.png",
+      "bytes": 261242,
+      "sha256": "9c370ca6d9d20483a2fa32c7d8431c1857bd374b51f79721029ff70f3b349c3e"
+    },
+    {
+      "file": "rules-response-evidence-54-capture-restored.png",
+      "bytes": 365628,
+      "sha256": "9365e1018c850c678113487b05d6e475281b40b1212b10272ae19bea85a68307"
+    },
+    {
+      "file": "rules-response-evidence-55-restored-request.png",
+      "bytes": 356952,
+      "sha256": "d02f04608a300ebd6d23748490acef032a0103e7b59104828764636938c280ab"
+    },
+    {
+      "file": "rules-response-evidence.mp4",
+      "bytes": 1093512,
+      "sha256": "2f0e4c516f5d43f78274485a395286090b88489dcecea99046e55652baf5927e"
+    },
+    {
+      "file": "rules-response-evidence.vtt",
+      "bytes": 4746,
+      "sha256": "880cdbe56d498f3880474f0e9737ba10bb5c6c4651fa4dc6d8fb0b708a5f7be9"
+    }
+  ]
+}

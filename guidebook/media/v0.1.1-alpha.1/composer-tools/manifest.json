@@ -1,0 +1,292 @@
+{
+  "chapter": "composer-tools",
+  "title": {
+    "zh-CN": "逐步骤实操：MCP发送审批与Collection读取替换",
+    "en": "Recorded walkthrough: MCP send approval and Collection read/replace"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "caller": "Official local SDK; not a commercial Host interface",
+    "clientName": "Guide Composer tools",
+    "endpoint": "http://127.0.0.1:52619/mcp",
+    "originalName": "Guide UI request",
+    "replacedName": "Guide MCP renamed request",
+    "savedUrl": "http://127.0.0.1:52615/guide/composer-tools/saved",
+    "sentUrl": "http://127.0.0.1:52615/guide/composer-tools/allowed",
+    "uiResponse": "guide-ui-response",
+    "toolResponse": "{\"message\":\"guide-tool-response\"}",
+    "method": "POST",
+    "requestBody": "{\"message\":\"guide-tool-request\"}",
+    "requestHeader": "x-guide-tool: public-example",
+    "collectionHeader": "x-guide-collection: public-example",
+    "protocol": "http/1.1",
+    "timeoutMs": "5000",
+    "originalRevision": "4",
+    "finalRevision": "5",
+    "uiBoundary": "Tool sending returns to its caller; Collection replacement notifies the mounted Composer UI"
+  },
+  "duration": 70.74450463800001,
+  "video": "composer-tools.mp4",
+  "captions": "composer-tools.vtt",
+  "steps": [
+    {
+      "id": "01-ask-client",
+      "title": "检查本次Client的Ask模式 / Inspect Ask for this Client",
+      "image": "composer-tools-01-ask-client.png",
+      "seconds": 0.20481282799999462
+    },
+    {
+      "id": "02-composer",
+      "title": "打开Composer / Open Composer",
+      "image": "composer-tools-02-composer.png",
+      "seconds": 3.441291186999995
+    },
+    {
+      "id": "03-create",
+      "title": "新建本次Collection请求 / Create this Collection request",
+      "image": "composer-tools-03-create.png",
+      "seconds": 6.544708155
+    },
+    {
+      "id": "04-rename-menu",
+      "title": "打开请求的重命名入口 / Open the request rename action",
+      "image": "composer-tools-04-rename-menu.png",
+      "seconds": 9.697110668000008
+    },
+    {
+      "id": "05-name",
+      "title": "保存名称Guide UI request / Save the name Guide UI request",
+      "image": "composer-tools-05-name.png",
+      "seconds": 13.18190516699999
+    },
+    {
+      "id": "06-url",
+      "title": "填写本次自有UI请求地址 / Enter the owned UI request URL",
+      "image": "composer-tools-06-url.png",
+      "seconds": 16.275370792
+    },
+    {
+      "id": "07-header",
+      "title": "添加公开示例Header / Add the public example Header",
+      "image": "composer-tools-07-header.png",
+      "seconds": 19.335545855000003
+    },
+    {
+      "id": "08-ui-send",
+      "title": "通过UI Send读取guide-ui-response / Send through UI and read guide-ui-response",
+      "image": "composer-tools-08-ui-send.png",
+      "seconds": 22.573964566000008
+    },
+    {
+      "id": "09-saved",
+      "title": "等待Collection实际保存 / Wait for the Collection to be saved",
+      "image": "composer-tools-09-saved.png",
+      "seconds": 25.933873900000005
+    },
+    {
+      "id": "10-query",
+      "title": "只读获取实际保存的Collection / Query the actually saved Collection",
+      "image": "composer-tools-10-query.png",
+      "seconds": 28.991510972999997
+    },
+    {
+      "id": "11-send-ask",
+      "title": "检查Composer发送的实际审批 / Inspect the actual Composer send approval",
+      "image": "composer-tools-11-send-ask.png",
+      "seconds": 32.06122301700001
+    },
+    {
+      "id": "12-send-deny",
+      "title": "Deny不发送网络请求 / Deny without sending a network request",
+      "image": "composer-tools-12-send-deny.png",
+      "seconds": 35.179209841
+    },
+    {
+      "id": "13-send-again",
+      "title": "重新请求同一个明确目标 / Request the same explicit destination again",
+      "image": "composer-tools-13-send-again.png",
+      "seconds": 38.30643591
+    },
+    {
+      "id": "14-send-allow",
+      "title": "Allow后核对真实POST与201结果 / Allow and verify the real POST and 201 result",
+      "image": "composer-tools-14-send-allow.png",
+      "seconds": 41.906682057
+    },
+    {
+      "id": "15-ui-response-kept",
+      "title": "Tool结果不替换当前UI响应 / Tool results do not replace the current UI response",
+      "image": "composer-tools-15-ui-response-kept.png",
+      "seconds": 45.02067583200001
+    },
+    {
+      "id": "16-replace-ask",
+      "title": "检查Collection替换的实际范围 / Inspect the actual Collection replacement scope",
+      "image": "composer-tools-16-replace-ask.png",
+      "seconds": 48.07549717700001
+    },
+    {
+      "id": "17-replace-deny",
+      "title": "Deny保留原Collection / Deny and retain the original Collection",
+      "image": "composer-tools-17-replace-deny.png",
+      "seconds": 51.13045370099999
+    },
+    {
+      "id": "18-replace-again",
+      "title": "用同一已读取版本重新请求 / Request replacement from the same read revision again",
+      "image": "composer-tools-18-replace-again.png",
+      "seconds": 54.223026558000015
+    },
+    {
+      "id": "19-replace-allow",
+      "title": "Allow后查看当前UI自动同步 / Allow and observe notification-driven UI synchronization",
+      "image": "composer-tools-19-replace-allow.png",
+      "seconds": 57.280677273999984
+    },
+    {
+      "id": "20-query-latest",
+      "title": "重新读取最终保存版本 / Query the final saved revision",
+      "image": "composer-tools-20-query-latest.png",
+      "seconds": 60.467074406
+    },
+    {
+      "id": "21-mcp-settings",
+      "title": "回到本次MCP设置 / Return to this MCP configuration",
+      "image": "composer-tools-21-mcp-settings.png",
+      "seconds": 63.510524703
+    },
+    {
+      "id": "22-disable",
+      "title": "关闭演示Client连接与Server / Close the demo Client connection and Server",
+      "image": "composer-tools-22-disable.png",
+      "seconds": 67.092201249
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-tools-01-ask-client.png",
+      "bytes": 461999,
+      "sha256": "1bc419ffad79c0c2efbe5340c293eeac5b71bed80efb8dfd2c12378645c944fa"
+    },
+    {
+      "file": "composer-tools-02-composer.png",
+      "bytes": 173392,
+      "sha256": "44a3d77f5558a5e0ceb197ee16e2949d284e373945b0e805939cad8d9c3f2110"
+    },
+    {
+      "file": "composer-tools-03-create.png",
+      "bytes": 228117,
+      "sha256": "ee0a47255e07c1ba716815ef69593a3934fee91d241994a5b1ff060d148ad989"
+    },
+    {
+      "file": "composer-tools-04-rename-menu.png",
+      "bytes": 212850,
+      "sha256": "0b4fc435995ab1c1e806473ff70da7b13115aa5aae95e483b0ee8fab9c504ade"
+    },
+    {
+      "file": "composer-tools-05-name.png",
+      "bytes": 217465,
+      "sha256": "ee9a31daf9099e0aa19413f0eb7fe49fc71bd06c8a367b184b913d093cc77ee6"
+    },
+    {
+      "file": "composer-tools-06-url.png",
+      "bytes": 224931,
+      "sha256": "6201a4951c1c30c99c38446236649935f065c53e830790fc00231015ef9098f8"
+    },
+    {
+      "file": "composer-tools-07-header.png",
+      "bytes": 236540,
+      "sha256": "257d5c3c5d9e15ac81d160248133dc25f009236864649d69d048bf4f18cbbb37"
+    },
+    {
+      "file": "composer-tools-08-ui-send.png",
+      "bytes": 259585,
+      "sha256": "33b63995ced14539b0b87829c074eb5d3011ad7005b6369b4c3d83d1982d5b95"
+    },
+    {
+      "file": "composer-tools-09-saved.png",
+      "bytes": 259585,
+      "sha256": "33b63995ced14539b0b87829c074eb5d3011ad7005b6369b4c3d83d1982d5b95"
+    },
+    {
+      "file": "composer-tools-10-query.png",
+      "bytes": 259585,
+      "sha256": "33b63995ced14539b0b87829c074eb5d3011ad7005b6369b4c3d83d1982d5b95"
+    },
+    {
+      "file": "composer-tools-11-send-ask.png",
+      "bytes": 352229,
+      "sha256": "9864789d60aa7a1d599c30ff644c0f4a418ba9c08f5b0e64f3fbfe2f2121896b"
+    },
+    {
+      "file": "composer-tools-12-send-deny.png",
+      "bytes": 259516,
+      "sha256": "c678eb68691e7e859dda982e61d7e6eb66153120aedc089dae84c206beea1c0d"
+    },
+    {
+      "file": "composer-tools-13-send-again.png",
+      "bytes": 352256,
+      "sha256": "02077342fd874e874dbd59814d156f64f2583f5daefac3b8202f104dcca88a6a"
+    },
+    {
+      "file": "composer-tools-14-send-allow.png",
+      "bytes": 259516,
+      "sha256": "c678eb68691e7e859dda982e61d7e6eb66153120aedc089dae84c206beea1c0d"
+    },
+    {
+      "file": "composer-tools-15-ui-response-kept.png",
+      "bytes": 259516,
+      "sha256": "c678eb68691e7e859dda982e61d7e6eb66153120aedc089dae84c206beea1c0d"
+    },
+    {
+      "file": "composer-tools-16-replace-ask.png",
+      "bytes": 391287,
+      "sha256": "37c8040904a97a834618602be3dc2d0f30d58cd474474f9f7631b6e1cb435173"
+    },
+    {
+      "file": "composer-tools-17-replace-deny.png",
+      "bytes": 259516,
+      "sha256": "c678eb68691e7e859dda982e61d7e6eb66153120aedc089dae84c206beea1c0d"
+    },
+    {
+      "file": "composer-tools-18-replace-again.png",
+      "bytes": 391303,
+      "sha256": "32a95fe5dbfea0ac5788ff4a3358646372eb2e4342c167e54f5b5f3a40da7ef9"
+    },
+    {
+      "file": "composer-tools-19-replace-allow.png",
+      "bytes": 262493,
+      "sha256": "25382138408f5e717e6604bb9f05e0e76117be3edcf59c694b1094ca7f432632"
+    },
+    {
+      "file": "composer-tools-20-query-latest.png",
+      "bytes": 262493,
+      "sha256": "25382138408f5e717e6604bb9f05e0e76117be3edcf59c694b1094ca7f432632"
+    },
+    {
+      "file": "composer-tools-21-mcp-settings.png",
+      "bytes": 434467,
+      "sha256": "62e199b53f0b269348f3b2393e4b09185f93377f154fefe93fef0c27d31e5888"
+    },
+    {
+      "file": "composer-tools-22-disable.png",
+      "bytes": 434722,
+      "sha256": "a993bfd228035d4fce5f547181d3a37bc41ab7dca1f630680eac0d6baa69af5d"
+    },
+    {
+      "file": "composer-tools.mp4",
+      "bytes": 576913,
+      "sha256": "9fd85420cb176372a79b2a7fbe8ab2ffdfdd80c61cdcce9d5b53ab56c22b7420"
+    },
+    {
+      "file": "composer-tools.vtt",
+      "bytes": 2316,
+      "sha256": "28f9f41894bded4e93785ac49e89bbb8d4d8f9af02c10f238037e0d25fb7ab04"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.409 --> 00:00:03.321
+检查已完成的大响应 / Inspect the completed large response
+
+2
+00:00:03.321 --> 00:00:06.276
+打开Export / Open Export
+
+3
+00:00:06.276 --> 00:00:29.450
+选择Native Archive / Choose Native Archive
+
+4
+00:00:29.450 --> 00:00:34.628
+选择guide-cancel.iarchive / Choose guide-cancel.iarchive
+
+5
+00:00:34.628 --> 00:00:35.394
+查看真实运行中的进度 / Inspect actual running progress
+
+6
+00:00:35.394 --> 00:00:38.772
+取消正在运行的归档 / Cancel the running archive
+
+7
+00:00:38.772 --> 00:00:41.727
+等待取消清理完成 / Wait for cancellation cleanup
+
+8
+00:00:41.727 --> 00:00:44.779
+清理完成后再Clear / Clear only after cleanup finishes

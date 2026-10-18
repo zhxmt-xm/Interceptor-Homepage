@@ -17,11 +17,11 @@ Images reuse actual operations from the owning chapters to locate checks. A heal
 
 2. Clear search/filter conditions, not captured data.
 
-   **Image pending:** restoring `/guide/capture` is not clearing every condition and does not demonstrate this step.
+   ![Actually clearing search after removing group filters, without clearing records](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 3. Send one identifiable test request and inspect client DNS/connection errors.
 
-   This is Capture's successful `/guide/capture/orders` arrival. Client DNS/connection failures remain image pending.
+   This shows Capture's successful `/guide/capture/orders`. For an actual connection failure, see [Composer against an owned endpoint that closes its connection](diagnostics.md#walkthrough-diagnostics-lifecycle-04-send-failed). That is not a DNS failure; do not conflate error types.
 
    ![Actual external test request arriving in Capture](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
 
@@ -44,7 +44,7 @@ Distinguish no request, no proxy routing, no recording and a hidden filtered res
 
 1. Tunnel metadata can prove routing, not decryption.
 
-   **Image pending:** the protocol recording has no undecrypted tunnel state; plaintext HTTP/2 cannot substitute.
+   ![Actual undecrypted CONNECT and Tunnel details](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
 
 2. Check actual CA, trust and decryption state.
 
@@ -75,7 +75,7 @@ Use [decryption](settings.md#https-decryption) or [passthrough](settings.md#tls-
 
 1. Check for an unapplied draft, disabled state or missing fields.
 
-   These are `Guide test header`'s actual enable and Apply states; missing-field errors remain image pending.
+   These are `Guide test header`'s actual enable and Apply states. See the separate [rule tree and validation recording](rules.md#walkthrough-rules-tree) for incomplete fields.
 
    ![Enabled editing stage still requiring Apply](../media/v0.1.1-alpha.1/rules/rules-09-enable.png)
 
@@ -107,7 +107,9 @@ Use [decryption](settings.md#https-decryption) or [passthrough](settings.md#tls-
 
 6. On conflict, preserve needed edits before explicit Reload and re-edit. Reload discards the draft.
 
-   **Image pending / blocked:** a two-writer conflict and Reload recovery were not recorded.
+   ![Explicit Reload after the second writer commits](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-17-reload.png)
+
+   Follow [conflict recovery](rules.md#walkthrough-rules-conflict), edit the latest revision and verify a new request instead of resubmitting a stale draft.
 
 A hit count and a concrete effect are different. Check [actual results](rules.md#effects).
 
@@ -116,17 +118,17 @@ A hit count and a concrete effect are different. Check [actual results](rules.md
 
 1. Inspect pending breakpoints, clearing filters if necessary.
 
-   This reuses `Guide request breakpoint`'s actual wait; clearing filters remains image pending.
+   This reuses `Guide request breakpoint`'s actual wait. Follow [removing group filters and clearing search](capture.md#walkthrough-capture-filters-09-remove-status) when needed; clearing search is not Clear.
 
    ![Actual pending request breakpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-12-pending.png)
 
 2. Distinguish queue head and Queued from network loading.
 
-   **Image pending:** requests were handled one at a time, with no simultaneous Queued items.
+   The [queue recording](breakpoints.md#walkthrough-breakpoints-queue) suspends several requests together and demonstrates the head, Queued entries, drafts and batch scope. Separate single-item operations are not presented as one queue.
 
 3. Continue or drop unneeded waits after confirming batch scope.
 
-   These belong to two different requests in Breakpoints, not two decisions on one resolved target. Batch branches remain image pending.
+   These belong to different requests, not two decisions on one resolved target. The [queue and batch recording](breakpoints.md#walkthrough-breakpoints-queue) separately checks complete batch scope.
 
    ![One actual unchanged continuation](../media/v0.1.1-alpha.1/breakpoints/breakpoints-17-unmodified.png)
 
@@ -140,7 +142,7 @@ A hit count and a concrete effect are different. Check [actual results](rules.md
 
 5. Requery after client disconnection rather than repeatedly submitting an old ID.
 
-   **Image pending:** client disconnection, stale IDs and requery were not recorded as a round trip.
+   The [manager recording](breakpoints.md#walkthrough-breakpoints-manager) includes a real caller cancellation and removal of the waiting item. Do not submit old content after an item disappears; the video does not force reuse of a stale ID through an internal API.
 
 There is no fixed automatic continuation timeout. Disabling matching is not proof that all existing waits have been resolved.
 
@@ -149,17 +151,19 @@ There is no fixed automatic continuation timeout. Disabling matching is not proo
 
 1. Distinguish preview limits, receiving data, actual interruption and decode failure.
 
-   This reuses Capture's corrupt-gzip warning, showing decode failure only. Receiving, interruption and oversized-preview branches remain image pending.
+   This is a corrupt-gzip decoding failure. The [HTTP/2 recording](capture.md#walkthrough-capture-http2) separately shows receiving progress, partial content after an error GOAWAY and recovery through a new request. [Large bodies](capture.md#walkthrough-capture-body-limits) demonstrate preview limits. These are different states.
 
    ![Actual corrupt-gzip decoding warning](../media/v0.1.1-alpha.1/capture/capture-29-encoding-corrupt-gzip.png)
 
 2. A `2 MiB` text preview does not prove only that much was captured.
 
-   **Image pending:** oversized-text preview and complete-file comparison were not recorded step by step.
+   The [large-body recording](capture.md#walkthrough-capture-body-limits) shows the preview limit for JSON larger than 2 MiB and saving the complete `guide-full-response.json`. Preview or Copy is not the entire file.
 
 3. Use manual Format for complete `1–2 MiB` content; truncated/incomplete data is not formatted.
 
-   **Image pending:** Format in that size range and refusal for incomplete data were not recorded.
+   ![Manual Format beyond the automatic-formatting range](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png)
+
+   The same recording checks oversized-preview controls; an incomplete body is not presented as fully received.
 
 4. Images, unknown binary or media can offer metadata and Save only.
 
@@ -179,7 +183,7 @@ There is no fixed automatic continuation timeout. Disabling matching is not proo
 
 6. For imported HAR, check whether bodies or protocol details were absent in the source.
 
-   **Image pending:** the normal HAR round trip is not a removed-body or missing-protocol comparison.
+   The [body-stripped HAR round trip](settings.md#walkthrough-settings-privacy-export-18-strip-bodies) first Exports and then Imports through the same flow, checking the actual removed bodies. It does not recreate protocol data absent from HAR.
 
 Captured bytes, previews and network completion differ: [body views](capture.md#选择正文查看方式).
 
@@ -194,7 +198,7 @@ Captured bytes, previews and network completion differ: [body views](capture.md#
 
 2. Look for a waiting or cancelled native dialog.
 
-   This is the real Save panel awaiting confirmation of `guide-recording.har`; native-dialog cancellation remains image pending.
+   This is the real Save panel for `guide-recording.har`. [Agent JSONL Save cancellation](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel) and [MCP Save cancellation](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel) have separate recordings with their own filenames and operations.
 
    ![Actual native save panel still needing a user decision](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
 
@@ -210,7 +214,7 @@ Captured bytes, previews and network completion differ: [body views](capture.md#
 
 5. Wait for Capture file operations or cancellation cleanup before Clear.
 
-   **Image pending:** Clear refusal during a running/cancelling task was not recorded.
+   The [running Archive cancellation](transfer.md#walkthrough-transfer-cancel) waits for cancellation cleanup before Clear. Do not force a disabled action; a started job is not a completed job.
 
 6. Apply the format's append/identity rules; repeated imports do not overwrite.
 
@@ -233,23 +237,31 @@ Retain original files. Do not delete active storage or force-kill merely because
 
 2. Retest changed configuration; old verification cannot save a different draft.
 
-   **Image pending:** invalidated verification after editing and the retest/save recovery were not recorded.
+   The existing recording changes `Guide model two` to Model ID `guide-two-edited`, checks that Save becomes unavailable, then retests and saves. These are three independently recorded steps, not a Base URL or credential change.
+
+   ![Save becomes unavailable after changing Model ID](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
+
+   ![Retesting the current configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
+
+   ![Saving the currently verified configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
 
 3. Inspect Tool approval, OS authorization or native file windows if a chat waits.
 
-   This is a normal Ask wait for `Pause recording after asking me.`, not a hung model. Agent native-authorization/file-wait branches remain image pending.
+   This is a normal Ask wait for `Pause recording after asking me.`, not a hung model. [Agent export](agent.md#walkthrough-agent-tool-lifecycle-10-export-request) separately records the actual native Save wait, cancellation and saving after approval. Windows authorization still needs that platform.
 
    ![Actual Agent Tool awaiting user approval](../media/v0.1.1-alpha.1/agent/agent-18a-tool-question.png)
 
 4. Check the Agent column, not MCP, and clear search to see all switches.
 
-   This permissions image only shows Agent `capture_clear` disabled. Clearing search and actual rejected execution remain image pending.
+   This image locates the independent Agent switch. The [complete read-only recording](tool-permissions.md#walkthrough-tool-permissions-readonly) separately clears search, operates every change switch, verifies rejection and retained records, then checks persistence after restart.
 
    ![Actual state with only Agent disabled](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-04-disable-agent.png)
 
 5. Inspect real state before retrying a possibly completed send/change.
 
-   **Image pending:** existing Stop/Retry uses a stream demo, not a failed operation that already sent a request or wrote configuration.
+   ![Stopping a reply after completed Pause does not undo Recording state](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
+
+   The [complete Tool recording](agent.md#walkthrough-agent-tool-lifecycle) then restates a read-only goal and distinguishes export start from completion. Check actual state before retrying.
 
 6. Requery current Capture identities after restart.
 
@@ -272,7 +284,7 @@ VS Code GitHub login is not internal model setup. Stop does not undo completed e
 
 3. Update the host after credential rotation or endpoint changes.
 
-   This is `Guide local client` configuration update and SDK reconnection after rotation. Real host updates after endpoint changes remain image pending.
+   This shows `Guide local client` reconnecting after rotation. The [new-endpoint recording](mcp.md#walkthrough-mcp-endpoint-reconnect) separately changes the address, copies current configuration and performs a real SDK query. A commercial host's configuration still needs its own environment and is not replaced with SDK images.
 
    ![Copying new configuration and reconnecting after rotation](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
 
@@ -284,7 +296,7 @@ VS Code GitHub login is not internal model setup. Stop does not undo completed e
 
 5. If discovery is empty, check MCP authorization and host discovery state.
 
-   This only shows MCP `capture_clear` disabled, not an empty host tool list. Actual discovery failure remains image pending.
+   This locates the MCP column. For actual rejected calls and query-only discovery after restart, see [read-only permissions](tool-permissions.md#walkthrough-tool-permissions-readonly). A switch image is not an external host's empty tool list.
 
    ![Actual MCP cleanup switch state from permissions](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-05-disable-mcp.png)
 
@@ -292,7 +304,9 @@ VS Code GitHub login is not internal model setup. Stop does not undo completed e
 
    ![Actual pending MCP Pause approval](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
 
-   **Image pending:** this Pause has no native window and cannot demonstrate another Tool's file or UAC wait.
+   ![MCP approval followed by an actual native Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
+
+   The local SDK's native cancellation and subsequent saving have separate steps. Windows UAC still requires that platform and is not conflated with Save.
 
 Follow [MCP](mcp.md) in order. Never include Client credentials in an issue.
 
@@ -305,7 +319,9 @@ Follow [MCP](mcp.md) in order. Never include Client credentials in an issue.
 
 2. Distinguish failed from up-to-date.
 
-   **Image pending:** the clip only inspects the current page, without an operational comparison of failed/up-to-date results.
+   ![An actual Check returns failed and GitHub HTTP 404](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png)
+
+   This is an actual failure, not `up-to-date`; a different outcome was not fabricated for comparison.
 
 3. A suitable anonymously accessible stable release is required; private sources, prerelease-only state or network restrictions can prevent it.
 
@@ -326,7 +342,7 @@ The App has no GitHub PAT update-login field.
 
 1. Confirm whether the App is minimized, still shutting down or actually stopped; do not start several instances.
 
-   **Image pending:** minimized, shutting-down and stopped-process states were not compared. Closing Agent is not App exit.
+   The [window-controls recording](workspace.md#walkthrough-workspace-window-controls) shows actual maximize/restore and minimize with separate native-state checks. [Normal Close with pending traffic](breakpoints.md#walkthrough-breakpoints-mixed-queues) verifies cancellation and process exit. Closing Agent is still not App exit; desktop pictures do not impersonate the App's ended state.
 
 2. After an abnormal exit, first ensure the old instance is gone, then start Interceptor normally and inspect recovery.
 
@@ -334,7 +350,9 @@ The App has no GitHub PAT update-login field.
 
 3. Use System proxy Restore or quit normally after recovery finishes.
 
-   **Image pending:** Settings' System proxy inspection was read-only, without Restore and its terminal state.
+   ![Actual Restore of the original system route](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png)
+
+   The [proxy-control recording](settings.md#walkthrough-settings-proxy-routing) separately checks Restore, Recording and enabling again. Pausing Recording is not restoring the OS proxy.
 
 4. If another application changed proxies, inspect both configurations instead of overwriting newer settings.
 

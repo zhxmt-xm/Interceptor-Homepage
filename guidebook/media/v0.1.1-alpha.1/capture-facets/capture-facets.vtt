@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:00.370 --> 00:00:03.318
+展开 Application / Expand Application
+
+2
+00:00:03.318 --> 00:00:06.320
+选择本次 Unknown 归属 / Select this run’s Unknown attribution
+
+3
+00:00:06.320 --> 00:00:09.318
+展开 Host / Expand Host
+
+4
+00:00:09.318 --> 00:00:12.372
+选择 127.0.0.1 / Select 127.0.0.1
+
+5
+00:00:12.372 --> 00:00:15.372
+展开 Protocol / Expand Protocol
+
+6
+00:00:15.372 --> 00:00:18.369
+选择 HTTP/1.1 / Select HTTP/1.1
+
+7
+00:00:18.369 --> 00:00:21.370
+展开 Content type / Expand Content type
+
+8
+00:00:21.370 --> 00:00:24.373
+选择 json，剩一条请求 / Select json to keep one request
+
+9
+00:00:24.373 --> 00:00:27.380
+展开 Rule / Expand Rule
+
+10
+00:00:27.380 --> 00:00:30.420
+选择实际命中的 Guide facets / Select the matched Guide facets Rule
+
+11
+00:00:30.420 --> 00:00:33.419
+取消 json，仍按规则保留一条 / Remove json while the Rule still keeps one request
+
+12
+00:00:33.419 --> 00:00:36.451
+清除分组筛选但保留搜索 / Clear facet selections while keeping search
+
+13
+00:00:36.451 --> 00:00:39.418
+收起筛选栏 / Hide the filter panel
+
+14
+00:00:39.418 --> 00:00:42.416
+重新显示筛选栏 / Show the filter panel again
+
+15
+00:00:42.416 --> 00:00:45.485
+返回示例规则 / Return to the example Rule
+
+16
+00:00:45.485 --> 00:00:48.474
+停用 Guide facets / Disable Guide facets
+
+17
+00:00:48.474 --> 00:00:51.411
+Apply 停用状态 / Apply the disabled state

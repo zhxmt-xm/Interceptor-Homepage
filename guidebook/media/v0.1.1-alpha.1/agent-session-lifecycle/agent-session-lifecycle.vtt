@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:00.218 --> 00:00:03.922
+打开Agent面板 / Open the Agent panel
+
+2
+00:00:03.922 --> 00:00:07.127
+新建需要保留的Chat / Create the Chat to retain
+
+3
+00:00:07.127 --> 00:00:10.674
+命名Guide retained chat / Name it Guide retained chat
+
+4
+00:00:10.674 --> 00:00:13.749
+输入本轮公开问题 / Enter this run’s public prompt
+
+5
+00:00:13.749 --> 00:00:17.443
+用Command+Enter发送 / Send with Command+Enter
+
+6
+00:00:17.443 --> 00:00:20.744
+通过真实Tab导航读取Context / Use actual Tab navigation to read Context
+
+7
+00:00:20.744 --> 00:00:23.874
+离开Context焦点 / Move focus away from Context
+
+8
+00:00:23.874 --> 00:00:27.014
+参考用量后新建独立Chat / Start a separate Chat after reviewing usage
+
+9
+00:00:27.014 --> 00:00:30.489
+命名Guide fresh context / Name it Guide fresh context
+
+10
+00:00:30.489 --> 00:00:34.079
+再建运行中删除示例 / Create the running-deletion example
+
+11
+00:00:34.079 --> 00:00:37.802
+发起保持流式响应的本地演示 / Start the local held-stream example
+
+12
+00:00:37.802 --> 00:00:41.118
+运行中打开删除确认 / Open deletion confirmation while running
+
+13
+00:00:41.118 --> 00:00:44.464
+确认删除并取消这条流 / Confirm deletion and cancel that stream
+
+14
+00:00:44.464 --> 00:00:47.607
+回到保留的Chat / Return to the retained Chat
+
+15
+00:00:47.607 --> 00:00:50.648
+确认持久内容后正常关闭 / Confirm persistent content before normal Close

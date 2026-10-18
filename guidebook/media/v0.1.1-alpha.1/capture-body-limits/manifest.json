@@ -1,0 +1,198 @@
+{
+  "chapter": "capture-body-limits",
+  "title": {
+    "zh-CN": "逐步骤实操：大正文格式化、预览上限与完整保存",
+    "en": "Recorded walkthrough: large-body formatting, preview limits and complete saving"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "search": "/guide/body-limits",
+    "manualPath": "/guide/body-limits/manual",
+    "largePath": "/guide/body-limits/large",
+    "manualDataBytes": "1310720",
+    "manualWireBytes": "1310785",
+    "largeDataBytes": "3145728",
+    "largeWireBytes": "3145791",
+    "previewBytes": "2097152",
+    "manualStart": "guide-manual-start",
+    "largeStart": "guide-large-start",
+    "savedEnd": "guide-large-end",
+    "savedFile": "guide-full-response.json"
+  },
+  "duration": 59.230784076,
+  "video": "capture-body-limits.mp4",
+  "captions": "capture-body-limits.vtt",
+  "steps": [
+    {
+      "id": "01-scope",
+      "title": "限定本轮正文路径 / Scope this run’s body paths",
+      "image": "capture-body-limits-01-scope.png",
+      "seconds": 0.46303145900000164
+    },
+    {
+      "id": "02-record",
+      "title": "开启 Recording / Start Recording",
+      "image": "capture-body-limits-02-record.png",
+      "seconds": 3.5381713799999996
+    },
+    {
+      "id": "03-manual-request",
+      "title": "请求超过1MiB的JSON / Request JSON larger than 1 MiB",
+      "image": "capture-body-limits-03-manual-request.png",
+      "seconds": 6.544192094000002
+    },
+    {
+      "id": "04-manual-select",
+      "title": "选择 manual 请求 / Select the manual request",
+      "image": "capture-body-limits-04-manual-select.png",
+      "seconds": 9.695068902
+    },
+    {
+      "id": "05-unformatted",
+      "title": "查看尚未自动格式化的正文 / Inspect the body without automatic formatting",
+      "image": "capture-body-limits-05-unformatted.png",
+      "seconds": 13.006206651000001
+    },
+    {
+      "id": "06-copy-before",
+      "title": "复制并核对原始文本 / Copy and verify the original text",
+      "image": "capture-body-limits-06-copy-before.png",
+      "seconds": 16.744763720999998
+    },
+    {
+      "id": "07-format",
+      "title": "手动点击 Format / Click Format manually",
+      "image": "capture-body-limits-07-format.png",
+      "seconds": 20.035535754000005
+    },
+    {
+      "id": "08-copy-formatted",
+      "title": "核对格式化只改变显示 / Verify formatting changes only presentation",
+      "image": "capture-body-limits-08-copy-formatted.png",
+      "seconds": 23.290242198
+    },
+    {
+      "id": "09-large-request",
+      "title": "请求超过2MiB的完整JSON / Request complete JSON larger than 2 MiB",
+      "image": "capture-body-limits-09-large-request.png",
+      "seconds": 26.481649764
+    },
+    {
+      "id": "10-large-select",
+      "title": "选择 large 请求 / Select the large request",
+      "image": "capture-body-limits-10-large-select.png",
+      "seconds": 29.607126726
+    },
+    {
+      "id": "11-preview",
+      "title": "查看有上限的正文预览 / Inspect the bounded body preview",
+      "image": "capture-body-limits-11-preview.png",
+      "seconds": 32.764340009
+    },
+    {
+      "id": "12-copy-preview",
+      "title": "Copy只取当前2MiB预览 / Copy only the current 2 MiB preview",
+      "image": "capture-body-limits-12-copy-preview.png",
+      "seconds": 35.793276989
+    },
+    {
+      "id": "13-save-dialog",
+      "title": "保存完整 guide-full-response.json / Save the complete guide-full-response.json",
+      "image": "capture-body-limits-13-save-dialog.png",
+      "seconds": 52.012487997
+    },
+    {
+      "id": "14-saved-complete",
+      "title": "核对保存文件没有按预览截断 / Verify the saved file is not truncated to the preview",
+      "image": "capture-body-limits-14-saved-complete.png",
+      "seconds": 56.352960061000005
+    }
+  ],
+  "assets": [
+    {
+      "file": "capture-body-limits-01-scope.png",
+      "bytes": 222256,
+      "sha256": "beeff6b199980ad605b194c6e2562b93024d1c3e462167e58f1a9e6e20d3355c"
+    },
+    {
+      "file": "capture-body-limits-02-record.png",
+      "bytes": 222256,
+      "sha256": "beeff6b199980ad605b194c6e2562b93024d1c3e462167e58f1a9e6e20d3355c"
+    },
+    {
+      "file": "capture-body-limits-03-manual-request.png",
+      "bytes": 233264,
+      "sha256": "966d7cdc495d830c047ccc9c7212cacf9c8b87566691f367c9ed24f67e602c0e"
+    },
+    {
+      "file": "capture-body-limits-04-manual-select.png",
+      "bytes": 357700,
+      "sha256": "347d3017d4eec969d5865d94134299ca55f493440645a16d5b427ea2844f62f5"
+    },
+    {
+      "file": "capture-body-limits-05-unformatted.png",
+      "bytes": 350477,
+      "sha256": "2140f5f65916e4bd83a5d663edc8713ad01840bf95f2857f86586d79bd4f4697"
+    },
+    {
+      "file": "capture-body-limits-06-copy-before.png",
+      "bytes": 375623,
+      "sha256": "87953bed39787d2e9f06319c3a9fc0e75c945d0f36043c45d85a575191afc223"
+    },
+    {
+      "file": "capture-body-limits-07-format.png",
+      "bytes": 359554,
+      "sha256": "d4c10d8d14ef6f29a0e4465befac6dbf51503484c294509215097071b04f0406"
+    },
+    {
+      "file": "capture-body-limits-08-copy-formatted.png",
+      "bytes": 371058,
+      "sha256": "3922d2c3f2318a2d502c8b898beff1e7751207e71138c49f57ce417bb5bebcae"
+    },
+    {
+      "file": "capture-body-limits-09-large-request.png",
+      "bytes": 374829,
+      "sha256": "e0b01acb60beb61c08996cab0bb918611be48b0147780b35f68ecb55d90d2d10"
+    },
+    {
+      "file": "capture-body-limits-10-large-select.png",
+      "bytes": 383046,
+      "sha256": "8d3e5b7bfad35966dc747c3a0e649c427b0b76e048d6aa6dadf94e4e4e2f0817"
+    },
+    {
+      "file": "capture-body-limits-11-preview.png",
+      "bytes": 383204,
+      "sha256": "aacf787824fce62d3605f1daa6346c9c3bb1d7d56ebd5eb434f3aa22887053ba"
+    },
+    {
+      "file": "capture-body-limits-12-copy-preview.png",
+      "bytes": 404297,
+      "sha256": "836426c8785c8b42ffcca0a7a7e330edef183707f22caba45448cd5c7fc5ca85"
+    },
+    {
+      "file": "capture-body-limits-13-save-dialog.png",
+      "bytes": 58214,
+      "sha256": "a143486d535efeb89429355b6d403393692629d00d7bd4378ec32d1af1cae572"
+    },
+    {
+      "file": "capture-body-limits-14-saved-complete.png",
+      "bytes": 383073,
+      "sha256": "83b70b6da488028c059d1a90f56581f53170fe66433c6feeb173eab338121ffd"
+    },
+    {
+      "file": "capture-body-limits.mp4",
+      "bytes": 712528,
+      "sha256": "377d8841336b0d351cc6260304fee382f082a994f63afb78e5022540489d1985"
+    },
+    {
+      "file": "capture-body-limits.vtt",
+      "bytes": 1371,
+      "sha256": "0d403e24046a272ffc43220e0b80e9571772457798ea79df37baed9897f1985b"
+    }
+  ]
+}

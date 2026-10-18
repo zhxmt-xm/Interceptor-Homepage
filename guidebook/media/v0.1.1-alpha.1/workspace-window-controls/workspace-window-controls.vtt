@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.436 --> 00:00:03.689
+查看当前正常窗口 / Inspect the current normal window
+
+2
+00:00:03.689 --> 00:00:07.592
+点击最大化 / Click Maximize
+
+3
+00:00:07.592 --> 00:00:11.531
+再次点击恢复原窗口 / Click again to restore the window
+
+4
+00:00:11.531 --> 00:00:16.893
+查看最小化按钮，随后实际点击 / Inspect Minimize before actually clicking it
+
+5
+00:00:16.893 --> 00:00:20.114
+恢复后检查同一窗口（不录Dock） / Inspect the returned window without recording the Dock

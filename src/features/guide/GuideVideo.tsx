@@ -11,6 +11,7 @@ export default function GuideVideo({
   const video = useRef<HTMLVideoElement>(null);
   const [loadRequested, setLoadRequested] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [videoSource, setVideoSource] = useState<{ source: string; url: string }>();
   const english = lang === 'en';
 
   useEffect(() => {
@@ -27,6 +28,32 @@ export default function GuideVideo({
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!loadRequested || !src) return;
+    const controller = new AbortController();
+    let objectUrl: string | undefined;
+    void fetch(src, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Guide video request failed: ${response.status}`);
+        return response.blob();
+      })
+      .then((blob) => {
+        if (controller.signal.aborted) return;
+        objectUrl = URL.createObjectURL(blob);
+        setVideoSource({ source: src, url: objectUrl });
+        setFailed(false);
+      })
+      .catch((error: unknown) => {
+        if (controller.signal.aborted) return;
+        console.error('Unable to load guide video', error);
+        setFailed(true);
+      });
+    return () => {
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [loadRequested, src]);
+
   return (
     <div className={styles.media}>
       <video
@@ -36,7 +63,7 @@ export default function GuideVideo({
         preload="metadata"
         width={1600}
         height={900}
-        src={loadRequested ? src : undefined}
+        src={videoSource?.source === src ? videoSource?.url : undefined}
         poster={loadRequested ? poster : undefined}
         title={title}
         lang={lang}
@@ -45,7 +72,7 @@ export default function GuideVideo({
       >
         {loadRequested ? children : null}
       </video>
-      {failed && (
+      {(failed || (loadRequested && !src)) && (
         <p className={styles.error} role="alert">
           {english ? 'The video could not be loaded. ' : '视频未能加载。'}
           <a href={src} target="_blank" rel="noopener noreferrer">

@@ -1,0 +1,157 @@
+WEBVTT
+
+1
+00:00:00.473 --> 00:00:03.481
+打开Rules / Open Rules
+
+2
+00:00:03.481 --> 00:00:06.587
+创建Guide mapping / Create Guide mapping
+
+3
+00:00:06.587 --> 00:00:09.585
+限定原请求Host为localhost / Restrict the original Host to localhost
+
+4
+00:00:09.585 --> 00:00:13.013
+添加Path条件 / Add a Path condition
+
+5
+00:00:13.013 --> 00:00:16.027
+限定演示前缀 / Restrict the example prefix
+
+6
+00:00:16.027 --> 00:00:19.059
+移除默认Header动作 / Remove the default Header action
+
+7
+00:00:19.059 --> 00:00:22.530
+添加Map Remote / Add Map Remote
+
+8
+00:00:22.530 --> 00:00:25.608
+将目标scheme明确设为http / Explicitly set the target scheme to http
+
+9
+00:00:25.608 --> 00:00:28.612
+把目标Host改为127.0.0.1 / Change target Host to 127.0.0.1
+
+10
+00:00:28.612 --> 00:00:31.668
+填写另一个真实HTTP服务端口 / Enter the other actual HTTP service port
+
+11
+00:00:31.668 --> 00:00:34.649
+填写remote-target路径 / Enter the remote-target path
+
+12
+00:00:34.649 --> 00:00:37.675
+启用映射规则 / Enable the mapping Rule
+
+13
+00:00:37.675 --> 00:00:40.716
+Apply映射 / Apply mapping
+
+14
+00:00:40.716 --> 00:00:44.263
+核对HTTPS输入到HTTP目标的真实往返 / Verify HTTPS input reaches the actual HTTP destination
+
+15
+00:00:44.263 --> 00:00:47.349
+返回映射规则 / Return to the mapping Rule
+
+16
+00:00:47.349 --> 00:00:50.369
+停用Map Remote / Disable Map Remote
+
+17
+00:00:50.369 --> 00:00:53.387
+Apply停用 / Apply disabling
+
+18
+00:00:53.387 --> 00:00:56.647
+停用后恢复原HTTPS端点的404 / Restore the original HTTPS endpoint’s 404 after disabling
+
+19
+00:00:56.647 --> 00:01:09.992
+获取可以由产品保存的公开正文 / Fetch the public body the product can save
+
+20
+00:01:09.992 --> 00:01:14.432
+产品保存guide-map-local.json / Save guide-map-local.json through the product
+
+21
+00:01:14.432 --> 00:01:17.388
+核对实际产品文件 / Verify the actual product-created file
+
+22
+00:01:17.388 --> 00:01:20.471
+返回规则准备Map Local / Return to prepare Map Local
+
+23
+00:01:20.471 --> 00:01:23.486
+将本段原请求Host设为127.0.0.1 / Set this example’s original Host to 127.0.0.1
+
+24
+00:01:23.486 --> 00:01:26.515
+移除Map Remote动作 / Remove the Map Remote action
+
+25
+00:01:26.515 --> 00:01:29.864
+添加Map Local / Add Map Local
+
+26
+00:01:29.864 --> 00:01:32.863
+填写本轮不存在的文件名 / Enter the owned missing-file name
+
+27
+00:01:32.863 --> 00:01:35.873
+启用Map Local / Enable Map Local
+
+28
+00:01:35.873 --> 00:01:38.933
+Apply本地映射 / Apply local mapping
+
+29
+00:01:38.933 --> 00:01:42.225
+核对缺失文件的真实404 / Verify the actual missing-file 404
+
+30
+00:01:42.225 --> 00:01:45.348
+返回规则修正路径 / Return to correct the path
+
+31
+00:01:45.348 --> 00:01:48.348
+选择同流程产品保存的实际路径 / Enter the actual path saved by this workflow
+
+32
+00:01:48.348 --> 00:01:51.383
+Apply正确路径 / Apply the correct path
+
+33
+00:01:51.383 --> 00:01:54.616
+核对实际文件替换与源站未调用 / Verify file replacement without calling the origin
+
+34
+00:01:54.616 --> 00:01:57.740
+返回规则收尾 / Return to the Rule for cleanup
+
+35
+00:01:57.740 --> 00:02:00.768
+停用映射规则 / Disable the mapping Rule
+
+36
+00:02:00.768 --> 00:02:03.810
+Apply最终停用 / Apply final disabling
+
+37
+00:02:03.810 --> 00:02:06.865
+进入Certificates恢复本轮TLS设置 / Open Certificates to restore this run’s TLS settings
+
+38
+00:02:06.865 --> 00:02:09.883
+关闭本轮解密 / Disable this run’s decryption
+
+39
+00:02:09.883 --> 00:02:13.108
+移除localhost源站例外 / Remove the localhost origin exception

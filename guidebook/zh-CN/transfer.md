@@ -194,9 +194,15 @@
 
    ![选择 HAR 后的配置窗口](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
 
-3. 本次选择当前请求。全部记录或当前筛选结果也可按界面选择，但这些切换分支仍待配图。
+3. 本次选择当前请求。[独立的范围实录](#walkthrough-transfer-scopes)另准备三条`/guide/export-scopes`请求，筛选后显示两条且选中其中一条；完整操作分别生成`guide-all.har`、`guide-filtered.har`和`guide-selected.har`，实际文件分别只有3、2、1条URL。
 
    ![实际当前请求范围](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+
+   ![三条输入时选择全部记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+
+   ![同一组三条输入中选择当前筛选两条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+
+   每个文件的真实Save面板与完成结果都在该实录中；随后[导入同一次Export生成的筛选文件](#walkthrough-transfer-scopes-import-01-menu)，只追加两条，不重发源站请求。
 
 4. 核对是否保留正文、Authorization/Cookie 遮罩，并阅读格式损失与敏感数据提示，不假设遮罩会处理所有字段。
 
@@ -316,7 +322,7 @@
 
 2. 若有 Original/Final 选择，先确定要保存哪一份。
 
-   **待配图**：本次没有在规则改写的双版本正文间切换，不用普通 JSON 图冒充版本选择。
+   本次普通 JSON 没有双版本对照。另见[真实版本切换与保存](capture.md#区分原始内容与规则修改结果)：独立的 `/guide/response-evidence/request-body` 从 Original 切到 Final，并保存 `guide-final.json`；不要把它与本段的 `guide-response.json` 混为同一个文件。
 
 3. 使用 Save body，在真实保存窗口填写 `guide-response.json`。
 
@@ -348,7 +354,11 @@
 
 2. 不再需要时使用任务的 Cancel，等待最终状态。
 
-   **待配图**：现有文件往返未执行运行中的 Cancel；原生面板取消或 Rules 预览取消是不同操作。
+   [归档取消实录](#walkthrough-transfer-cancel)使用自有`/guide/transfer-cancel/large-source`的128MiB响应。选择`guide-cancel.iarchive`后，先检查真实running进度，再点击任务Cancel，不是取消原生Save面板。
+
+   ![真正运行中的归档进度和取消入口](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+   ![真实Cancel之后返回保留原记录的Capture](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
 
 3. 若任务已经完成，不把迟到的取消当作撤销；自行按需要管理已保存文件。
 
@@ -356,9 +366,11 @@
 
 4. 需要 Clear 或关闭 App 时，先等待有关任务及取消清理完成。
 
-   本图是已完成归档后的 Clear，运行中拒绝 Clear、取消清理与退出等待仍待配图。
+   在同一取消实录中，[等待清理完成](#walkthrough-transfer-cancel-07-cleaned)后确认没有正式归档或部分文件，原始记录仍在；随后才Clear，暂停状态保持。运行中通过其他入口触发Clear拒绝和带任务退出仍有独立缺口，不将此处扩成通过。
 
-   ![归档完成后才执行的 Clear](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
+   ![取消清理完成后原记录仍保留](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+
+   ![清理完成后实际Clear](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
 
 **预期结果**：取消过程显式结束，失败保持为失败，已经提交成功的保存保持为完成。
 
@@ -392,7 +404,7 @@
 
    ![Collection 真实导入预览](../media/v0.1.1-alpha.1/composer-editing/composer-editing-28-preview.png)
 
-4. 不接受时取消。Rules 实拍先取消并保留原树；Collection 取消分支仍待配图。
+4. 不接受时取消。Rules 实拍先取消并保留原树；[Collection 的独立管理实录](composer.md#walkthrough-composer-collection)也已展示预览取消，本段 `composer-editing` 则仍是直接确认的那次操作。
 
    ![Rules 实际取消预览](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
 
@@ -443,3 +455,269 @@
 **预期结果**：分享的是最小、可公开的复现资料。
 
 **关键说明**：遮罩不是对任意业务字段的完整匿名化。原生归档和集合配置尤其应按敏感文件管理；无法确认可公开时，用重新产生的无凭据测试数据替代。
+
+<!-- recorded-walkthrough:transfer-scopes:start -->
+<a id="walkthrough-transfer-scopes"></a>
+## 逐步骤实操：全部、筛选和选中导出范围
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>paths</code> | <code>/guide/export-scopes/filtered-one, /guide/export-scopes/filtered-two, /guide/export-scopes/other</code> |
+| <code>filter</code> | <code>/guide/export-scopes/filtered</code> |
+| <code>selectedPath</code> | <code>/guide/export-scopes/filtered-one</code> |
+| <code>allFile</code> | <code>guide-all.har (3 entries)</code> |
+| <code>filteredFile</code> | <code>guide-filtered.har (2 entries)</code> |
+| <code>selectedFile</code> | <code>guide-selected.har (1 entry)</code> |
+| <code>afterImport</code> | <code>5 total, 4 match the filter</code> |
+| <code>inputSource</code> | <code>Import uses guide-filtered.har created by this same product Export flow</code> |
+
+<a id="walkthrough-transfer-scopes-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4" poster="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.vtt" default>
+</video>
+
+<a id="walkthrough-transfer-scopes-01-filter"></a>
+### 01 · 搜索filtered，保留两条可见记录
+
+[视频 00:00](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=0.383) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![01 · 搜索filtered，保留两条可见记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png)
+
+<a id="walkthrough-transfer-scopes-02-select"></a>
+### 02 · 选中filtered-one
+
+[视频 00:03](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=3.318) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![02 · 选中filtered-one](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-02-select.png)
+
+<a id="walkthrough-transfer-scopes-all-01-menu"></a>
+### 03 · 打开Export菜单
+
+[视频 00:06](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=6.370) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![03 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-all-02-har"></a>
+### 04 · 选择HAR
+
+[视频 00:09](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=9.317) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![04 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-02-har.png)
+
+<a id="walkthrough-transfer-scopes-all-03-scope"></a>
+### 05 · 全部记录
+
+[视频 00:12](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=12.318) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![05 · 全部记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-all-04-save"></a>
+### 06 · 保存guide-all.har
+
+[视频 00:36](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=36.621) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![06 · 保存guide-all.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-04-save.png)
+
+<a id="walkthrough-transfer-scopes-all-05-complete"></a>
+### 07 · 核对保存3条请求
+
+[视频 00:41](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=41.657) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![07 · 核对保存3条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-filtered-01-menu"></a>
+### 08 · 打开Export菜单
+
+[视频 00:44](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=44.769) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![08 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-filtered-02-har"></a>
+### 09 · 选择HAR
+
+[视频 00:47](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=47.723) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![09 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-02-har.png)
+
+<a id="walkthrough-transfer-scopes-filtered-03-scope"></a>
+### 10 · 当前筛选
+
+[视频 00:50](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=50.671) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![10 · 当前筛选](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-filtered-04-save"></a>
+### 11 · 保存guide-filtered.har
+
+[视频 01:12](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=72.290) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![11 · 保存guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-04-save.png)
+
+<a id="walkthrough-transfer-scopes-filtered-05-complete"></a>
+### 12 · 核对保存2条请求
+
+[视频 01:17](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=77.287) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![12 · 核对保存2条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-selected-01-menu"></a>
+### 13 · 打开Export菜单
+
+[视频 01:20](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=80.425) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![13 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-selected-02-har"></a>
+### 14 · 选择HAR
+
+[视频 01:23](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=83.373) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![14 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-02-har.png)
+
+<a id="walkthrough-transfer-scopes-selected-03-scope"></a>
+### 15 · 当前选中
+
+[视频 01:26](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=86.366) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![15 · 当前选中](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-03-scope.png)
+
+<a id="walkthrough-transfer-scopes-selected-04-save"></a>
+### 16 · 保存guide-selected.har
+
+[视频 01:48](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=108.192) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![16 · 保存guide-selected.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-04-save.png)
+
+<a id="walkthrough-transfer-scopes-selected-05-complete"></a>
+### 17 · 核对保存1条请求
+
+[视频 01:53](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=113.571) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![17 · 核对保存1条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-05-complete.png)
+
+<a id="walkthrough-transfer-scopes-import-01-menu"></a>
+### 18 · 打开Import菜单
+
+[视频 01:56](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=116.569) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![18 · 打开Import菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-01-menu.png)
+
+<a id="walkthrough-transfer-scopes-import-02-har"></a>
+### 19 · 选择HAR导入
+
+[视频 01:59](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=119.527) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![19 · 选择HAR导入](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-02-har.png)
+
+<a id="walkthrough-transfer-scopes-import-03-open"></a>
+### 20 · 打开刚导出的guide-filtered.har
+
+[视频 02:15](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=135.688) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![20 · 打开刚导出的guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-03-open.png)
+
+<a id="walkthrough-transfer-scopes-import-04-complete"></a>
+### 21 · 确认仅追加文件中的两条
+
+[视频 02:20](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=140.942) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![21 · 确认仅追加文件中的两条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-04-complete.png)
+
+<a id="walkthrough-transfer-scopes-import-05-all"></a>
+### 22 · 清空搜索查看全部五条
+
+[视频 02:24](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes.mp4#t=144.365) · [返回本节视频](#walkthrough-transfer-scopes-video)
+
+![22 · 清空搜索查看全部五条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-05-all.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:transfer-scopes:end -->
+
+<!-- recorded-walkthrough:transfer-cancel:start -->
+<a id="walkthrough-transfer-cancel"></a>
+## 逐步骤实操：取消运行中的归档并等待清理
+
+以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+
+
+| 示例字段 | 录制中的实际值 |
+| --- | --- |
+| <code>path</code> | <code>/guide/transfer-cancel/large-source</code> |
+| <code>responseBytes</code> | <code>134217728</code> |
+| <code>responseSha256</code> | <code>611e09db6a2947d55c5718fc7a7b9885c263fa33ebcea9ea87ff9d20c19d3d9d</code> |
+| <code>archive</code> | <code>guide-cancel.iarchive</code> |
+| <code>cancellation</code> | <code>Cancel clicked while the real archive job was running</code> |
+| <code>result</code> | <code>No archive or partial file remains; source record retained until explicit Clear</code> |
+
+<a id="walkthrough-transfer-cancel-video"></a>
+
+<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4" poster="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png">
+<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.vtt" default>
+</video>
+
+<a id="walkthrough-transfer-cancel-01-source"></a>
+### 01 · 检查已完成的大响应
+
+[视频 00:00](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=0.409) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![01 · 检查已完成的大响应](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png)
+
+<a id="walkthrough-transfer-cancel-02-export-menu"></a>
+### 02 · 打开Export
+
+[视频 00:03](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=3.321) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![02 · 打开Export](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-02-export-menu.png)
+
+<a id="walkthrough-transfer-cancel-03-archive"></a>
+### 03 · 选择Native Archive
+
+[视频 00:06](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=6.276) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![03 · 选择Native Archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-03-archive.png)
+
+<a id="walkthrough-transfer-cancel-04-save-dialog"></a>
+### 04 · 选择guide-cancel.iarchive
+
+[视频 00:29](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=29.450) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![04 · 选择guide-cancel.iarchive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-04-save-dialog.png)
+
+<a id="walkthrough-transfer-cancel-05-running"></a>
+### 05 · 查看真实运行中的进度
+
+[视频 00:34](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=34.628) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![05 · 查看真实运行中的进度](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+
+<a id="walkthrough-transfer-cancel-06-cancel"></a>
+### 06 · 取消正在运行的归档
+
+[视频 00:35](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=35.394) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![06 · 取消正在运行的归档](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
+
+<a id="walkthrough-transfer-cancel-07-cleaned"></a>
+### 07 · 等待取消清理完成
+
+[视频 00:38](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=38.772) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![07 · 等待取消清理完成](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+
+<a id="walkthrough-transfer-cancel-08-clear"></a>
+### 08 · 清理完成后再Clear
+
+[视频 00:41](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel.mp4#t=41.727) · [返回本节视频](#walkthrough-transfer-cancel-video)
+
+![08 · 清理完成后再Clear](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
+
+下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
+<!-- recorded-walkthrough:transfer-cancel:end -->

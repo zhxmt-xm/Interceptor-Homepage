@@ -1,0 +1,82 @@
+{
+  "chapter": "settings-update-check",
+  "title": {
+    "zh-CN": "实际检查更新与失败状态",
+    "en": "Real update check and its failure state"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "source": "The actual Release update source zhxmt-xm/Interceptor, without injected credentials",
+    "checkResult": "failed",
+    "lastCheckedAt": "2026-10-16T12:57:32.772Z",
+    "downloaded": "false",
+    "installerOpened": "false",
+    "boundary": "Only the actual Check action/result is recorded; download and native installation require their own conditions"
+  },
+  "duration": 12.609596395,
+  "video": "settings-update-check.mp4",
+  "captions": "settings-update-check.vtt",
+  "steps": [
+    {
+      "id": "01-settings",
+      "title": "打开Settings / Open Settings",
+      "image": "settings-update-check-01-settings.png",
+      "seconds": 0.5113062379999901
+    },
+    {
+      "id": "02-updates",
+      "title": "进入Updates查看真实状态 / Open Updates and inspect the actual state",
+      "image": "settings-update-check-02-updates.png",
+      "seconds": 3.5916628520000087
+    },
+    {
+      "id": "03-check",
+      "title": "真实点击Check / Actually click Check",
+      "image": "settings-update-check-03-check.png",
+      "seconds": 6.632097936999984
+    },
+    {
+      "id": "04-result",
+      "title": "核对这次检查的实际终态 / Inspect the actual terminal result of this check",
+      "image": "settings-update-check-04-result.png",
+      "seconds": 9.669112701000005
+    }
+  ],
+  "assets": [
+    {
+      "file": "settings-update-check-01-settings.png",
+      "bytes": 359972,
+      "sha256": "e07cfc6bb5065f8911f30c6f1ae838cbc2623720a3c82651dce22895de7fd1ea"
+    },
+    {
+      "file": "settings-update-check-02-updates.png",
+      "bytes": 335330,
+      "sha256": "5ed06dc63d6c9f9675cf33ede7f805fad62994fdf0cf003e8b7e79cbeda3aaef"
+    },
+    {
+      "file": "settings-update-check-03-check.png",
+      "bytes": 335338,
+      "sha256": "d2900d40659fddd2b1512aacdc0749546181d1d4fa51a3fa91c08baee4991840"
+    },
+    {
+      "file": "settings-update-check-04-result.png",
+      "bytes": 335338,
+      "sha256": "d2900d40659fddd2b1512aacdc0749546181d1d4fa51a3fa91c08baee4991840"
+    },
+    {
+      "file": "settings-update-check.mp4",
+      "bytes": 108299,
+      "sha256": "11b355e567c48bd9bcf679908fa2e7e135ba061fcc2144023eeb3521ab162566"
+    },
+    {
+      "file": "settings-update-check.vtt",
+      "bytes": 372,
+      "sha256": "958844bb1679526db9326602b9b42f058b9e9202c84456c5821a0e7dc6bb0d30"
+    }
+  ]
+}

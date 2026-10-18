@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:00.387 --> 00:00:03.482
+打开Agent并建立Chat / Open Agent and create a Chat
+
+2
+00:00:03.482 --> 00:00:06.519
+明确选择Ask / Explicitly choose Ask
+
+3
+00:00:06.519 --> 00:00:09.633
+请求暂停后继续解释 / Ask to pause Recording and then continue explaining
+
+4
+00:00:09.633 --> 00:00:12.731
+允许已明确的暂停操作 / Allow the explicit pause operation
+
+5
+00:00:12.731 --> 00:00:15.785
+Stop模型回复不撤销已完成的Tool / Stop the response without undoing the completed Tool
+
+6
+00:00:15.785 --> 00:00:18.860
+Retry本次只继续解释 / Retry with explanation only in this example
+
+7
+00:00:18.860 --> 00:00:22.066
+重新明确只读目标 / Restate a read-only goal
+
+8
+00:00:22.066 --> 00:00:25.286
+执行真实Diagnostics Recent查询 / Execute a real Diagnostics Recent query
+
+9
+00:00:25.286 --> 00:00:28.444
+用刚返回的traceId查询关联记录 / Query related records using the returned traceId
+
+10
+00:00:28.444 --> 00:00:41.719
+请求需要审批的Diagnostics导出 / Request a Diagnostics export requiring approval
+
+11
+00:00:41.719 --> 00:00:45.041
+审批后仍需真实Save窗口 / Approval still leads to a real Save window
+
+12
+00:00:45.041 --> 00:00:49.672
+取消原生保存而不是伪造返回值 / Cancel native saving without replacing its return value
+
+13
+00:00:49.672 --> 00:01:02.057
+重新发起并检查参数 / Request export again and review parameters
+
+14
+00:01:02.057 --> 00:01:06.407
+保存guide-agent-diagnostics.jsonl / Save guide-agent-diagnostics.jsonl
+
+15
+00:01:06.407 --> 00:01:09.384
+区分任务已开始与完成 / Distinguish a started job from completion
+
+16
+00:01:09.384 --> 00:01:12.558
+查询实际文件任务直到完成 / Query the actual file task for completion
+
+17
+00:01:12.558 --> 00:01:15.493
+保留暂停状态并核对实际结果 / Retain the paused state and verify the actual result

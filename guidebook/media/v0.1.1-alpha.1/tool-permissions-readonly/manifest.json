@@ -1,0 +1,1260 @@
+{
+  "chapter": "tool-permissions-readonly",
+  "title": {
+    "zh-CN": "完整只读配置与真实拒绝调用",
+    "en": "Complete read-only configuration and rejected calls"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "client": "Guide readonly client",
+    "model": "Guide permission demo (keyless local endpoint)",
+    "blockedOperation": "capture_clear rejected by both Agent and MCP without clearing the real record",
+    "changeToolCount": "48",
+    "queryToolCount": "21",
+    "disabledChanges": "capture_start_recording, capture_stop_recording, capture_clear, capture_cancel_transfer_job, capture_export_body, capture_export_har, capture_import_har, capture_export_archive, capture_import_archive, rules_replace_tree, rules_export, rules_import, composer_send_request, composer_probe_connection, composer_replace_collection, composer_export_collection, composer_import_collection, breakpoints_enable_http, breakpoints_disable_http, breakpoints_enable_websocket, breakpoints_disable_websocket, breakpoints_continue, breakpoints_forward_edited, breakpoints_drop, breakpoints_continue_queue, breakpoints_drop_queue, breakpoints_continue_rule, diagnostics_export, settings_generate_certificate, settings_install_certificate, settings_uninstall_certificate, settings_delete_certificate, settings_reveal_certificate, settings_view_certificate, settings_open_certificate_manager, settings_enable_app_container, settings_disable_app_container, settings_enable_all_app_containers, settings_disable_all_app_containers, settings_enable_system_proxy, settings_restore_system_proxy, settings_replace_tls_insecure_hosts, settings_replace_tls_passthrough, settings_enable_https_decryption, settings_disable_https_decryption, settings_set_language, settings_set_theme, settings_set_export_privacy_defaults",
+    "closeImage": "Before actual Close; real shutdown is separately verified"
+  },
+  "duration": 357.01776747799994,
+  "video": "tool-permissions-readonly.mp4",
+  "captions": "tool-permissions-readonly.vtt",
+  "steps": [
+    {
+      "id": "01-search",
+      "title": "查找capture_clear / Find capture_clear",
+      "image": "tool-permissions-readonly-01-search.png",
+      "seconds": 0.36187593099999865
+    },
+    {
+      "id": "02-disable-agent-clear",
+      "title": "关闭Agent清理权限 / Disable Agent clear access",
+      "image": "tool-permissions-readonly-02-disable-agent-clear.png",
+      "seconds": 3.364289209999999
+    },
+    {
+      "id": "03-disable-mcp-clear",
+      "title": "独立关闭MCP清理权限 / Independently disable MCP clear access",
+      "image": "tool-permissions-readonly-03-disable-mcp-clear.png",
+      "seconds": 6.420944059999998
+    },
+    {
+      "id": "04-mcp-rejection",
+      "title": "核对真实MCP调用被拒绝 / Verify the actual MCP call is rejected",
+      "image": "tool-permissions-readonly-04-mcp-rejection.png",
+      "seconds": 9.475203072000001
+    },
+    {
+      "id": "05-agent",
+      "title": "打开本地演示Agent / Open the local demo Agent",
+      "image": "tool-permissions-readonly-05-agent.png",
+      "seconds": 12.521960474
+    },
+    {
+      "id": "06-agent-rejection",
+      "title": "核对Agent也不能执行禁用动作 / Verify Agent also cannot execute the disabled action",
+      "image": "tool-permissions-readonly-06-agent-rejection.png",
+      "seconds": 15.641116051999997
+    },
+    {
+      "id": "07-retained-record",
+      "title": "实际记录仍保留 / Verify the actual record remains",
+      "image": "tool-permissions-readonly-07-retained-record.png",
+      "seconds": 18.787630640000003
+    },
+    {
+      "id": "08-close-agent",
+      "title": "关闭面板返回授权表 / Close the panel and return to capabilities",
+      "image": "tool-permissions-readonly-08-close-agent.png",
+      "seconds": 21.872044267999996
+    },
+    {
+      "id": "09-clear-search",
+      "title": "清空搜索显示全部分组 / Clear search to show every group",
+      "image": "tool-permissions-readonly-09-clear-search.png",
+      "seconds": 25.253274593
+    },
+    {
+      "id": "disable-agent-capture_start_recording",
+      "title": "关闭agent的capture_start_recording / Disable agent capture_start_recording",
+      "image": "tool-permissions-readonly-disable-agent-capture_start_recording.png",
+      "seconds": 28.309685448999996
+    },
+    {
+      "id": "disable-mcp-capture_start_recording",
+      "title": "关闭mcp的capture_start_recording / Disable mcp capture_start_recording",
+      "image": "tool-permissions-readonly-disable-mcp-capture_start_recording.png",
+      "seconds": 31.536926562
+    },
+    {
+      "id": "disable-agent-capture_stop_recording",
+      "title": "关闭agent的capture_stop_recording / Disable agent capture_stop_recording",
+      "image": "tool-permissions-readonly-disable-agent-capture_stop_recording.png",
+      "seconds": 35.312611753
+    },
+    {
+      "id": "disable-mcp-capture_stop_recording",
+      "title": "关闭mcp的capture_stop_recording / Disable mcp capture_stop_recording",
+      "image": "tool-permissions-readonly-disable-mcp-capture_stop_recording.png",
+      "seconds": 38.617511531
+    },
+    {
+      "id": "disable-agent-capture_cancel_transfer_job",
+      "title": "关闭agent的capture_cancel_transfer_job / Disable agent capture_cancel_transfer_job",
+      "image": "tool-permissions-readonly-disable-agent-capture_cancel_transfer_job.png",
+      "seconds": 41.919458999
+    },
+    {
+      "id": "disable-mcp-capture_cancel_transfer_job",
+      "title": "关闭mcp的capture_cancel_transfer_job / Disable mcp capture_cancel_transfer_job",
+      "image": "tool-permissions-readonly-disable-mcp-capture_cancel_transfer_job.png",
+      "seconds": 45.196958407
+    },
+    {
+      "id": "disable-agent-capture_export_body",
+      "title": "关闭agent的capture_export_body / Disable agent capture_export_body",
+      "image": "tool-permissions-readonly-disable-agent-capture_export_body.png",
+      "seconds": 48.423684837
+    },
+    {
+      "id": "disable-mcp-capture_export_body",
+      "title": "关闭mcp的capture_export_body / Disable mcp capture_export_body",
+      "image": "tool-permissions-readonly-disable-mcp-capture_export_body.png",
+      "seconds": 51.64610511899999
+    },
+    {
+      "id": "disable-agent-capture_export_har",
+      "title": "关闭agent的capture_export_har / Disable agent capture_export_har",
+      "image": "tool-permissions-readonly-disable-agent-capture_export_har.png",
+      "seconds": 54.92141749899999
+    },
+    {
+      "id": "disable-mcp-capture_export_har",
+      "title": "关闭mcp的capture_export_har / Disable mcp capture_export_har",
+      "image": "tool-permissions-readonly-disable-mcp-capture_export_har.png",
+      "seconds": 58.178515561999994
+    },
+    {
+      "id": "disable-agent-capture_import_har",
+      "title": "关闭agent的capture_import_har / Disable agent capture_import_har",
+      "image": "tool-permissions-readonly-disable-agent-capture_import_har.png",
+      "seconds": 61.428777198999995
+    },
+    {
+      "id": "disable-mcp-capture_import_har",
+      "title": "关闭mcp的capture_import_har / Disable mcp capture_import_har",
+      "image": "tool-permissions-readonly-disable-mcp-capture_import_har.png",
+      "seconds": 64.610995524
+    },
+    {
+      "id": "disable-agent-capture_export_archive",
+      "title": "关闭agent的capture_export_archive / Disable agent capture_export_archive",
+      "image": "tool-permissions-readonly-disable-agent-capture_export_archive.png",
+      "seconds": 67.85514361199999
+    },
+    {
+      "id": "disable-mcp-capture_export_archive",
+      "title": "关闭mcp的capture_export_archive / Disable mcp capture_export_archive",
+      "image": "tool-permissions-readonly-disable-mcp-capture_export_archive.png",
+      "seconds": 71.11772241300001
+    },
+    {
+      "id": "disable-agent-capture_import_archive",
+      "title": "关闭agent的capture_import_archive / Disable agent capture_import_archive",
+      "image": "tool-permissions-readonly-disable-agent-capture_import_archive.png",
+      "seconds": 74.32307976
+    },
+    {
+      "id": "disable-mcp-capture_import_archive",
+      "title": "关闭mcp的capture_import_archive / Disable mcp capture_import_archive",
+      "image": "tool-permissions-readonly-disable-mcp-capture_import_archive.png",
+      "seconds": 77.54121861499999
+    },
+    {
+      "id": "disable-agent-rules_replace_tree",
+      "title": "关闭agent的rules_replace_tree / Disable agent rules_replace_tree",
+      "image": "tool-permissions-readonly-disable-agent-rules_replace_tree.png",
+      "seconds": 80.851242883
+    },
+    {
+      "id": "disable-mcp-rules_replace_tree",
+      "title": "关闭mcp的rules_replace_tree / Disable mcp rules_replace_tree",
+      "image": "tool-permissions-readonly-disable-mcp-rules_replace_tree.png",
+      "seconds": 84.138828599
+    },
+    {
+      "id": "disable-agent-rules_export",
+      "title": "关闭agent的rules_export / Disable agent rules_export",
+      "image": "tool-permissions-readonly-disable-agent-rules_export.png",
+      "seconds": 87.361606501
+    },
+    {
+      "id": "disable-mcp-rules_export",
+      "title": "关闭mcp的rules_export / Disable mcp rules_export",
+      "image": "tool-permissions-readonly-disable-mcp-rules_export.png",
+      "seconds": 90.54544332600001
+    },
+    {
+      "id": "disable-agent-rules_import",
+      "title": "关闭agent的rules_import / Disable agent rules_import",
+      "image": "tool-permissions-readonly-disable-agent-rules_import.png",
+      "seconds": 93.72195512599998
+    },
+    {
+      "id": "disable-mcp-rules_import",
+      "title": "关闭mcp的rules_import / Disable mcp rules_import",
+      "image": "tool-permissions-readonly-disable-mcp-rules_import.png",
+      "seconds": 96.917238232
+    },
+    {
+      "id": "disable-agent-composer_send_request",
+      "title": "关闭agent的composer_send_request / Disable agent composer_send_request",
+      "image": "tool-permissions-readonly-disable-agent-composer_send_request.png",
+      "seconds": 100.67370235499999
+    },
+    {
+      "id": "disable-mcp-composer_send_request",
+      "title": "关闭mcp的composer_send_request / Disable mcp composer_send_request",
+      "image": "tool-permissions-readonly-disable-mcp-composer_send_request.png",
+      "seconds": 103.88977516699998
+    },
+    {
+      "id": "disable-agent-composer_probe_connection",
+      "title": "关闭agent的composer_probe_connection / Disable agent composer_probe_connection",
+      "image": "tool-permissions-readonly-disable-agent-composer_probe_connection.png",
+      "seconds": 107.17306715
+    },
+    {
+      "id": "disable-mcp-composer_probe_connection",
+      "title": "关闭mcp的composer_probe_connection / Disable mcp composer_probe_connection",
+      "image": "tool-permissions-readonly-disable-mcp-composer_probe_connection.png",
+      "seconds": 110.419387767
+    },
+    {
+      "id": "disable-agent-composer_replace_collection",
+      "title": "关闭agent的composer_replace_collection / Disable agent composer_replace_collection",
+      "image": "tool-permissions-readonly-disable-agent-composer_replace_collection.png",
+      "seconds": 113.63934545699999
+    },
+    {
+      "id": "disable-mcp-composer_replace_collection",
+      "title": "关闭mcp的composer_replace_collection / Disable mcp composer_replace_collection",
+      "image": "tool-permissions-readonly-disable-mcp-composer_replace_collection.png",
+      "seconds": 116.89346654999999
+    },
+    {
+      "id": "disable-agent-composer_export_collection",
+      "title": "关闭agent的composer_export_collection / Disable agent composer_export_collection",
+      "image": "tool-permissions-readonly-disable-agent-composer_export_collection.png",
+      "seconds": 120.14871246700001
+    },
+    {
+      "id": "disable-mcp-composer_export_collection",
+      "title": "关闭mcp的composer_export_collection / Disable mcp composer_export_collection",
+      "image": "tool-permissions-readonly-disable-mcp-composer_export_collection.png",
+      "seconds": 123.389753807
+    },
+    {
+      "id": "disable-agent-composer_import_collection",
+      "title": "关闭agent的composer_import_collection / Disable agent composer_import_collection",
+      "image": "tool-permissions-readonly-disable-agent-composer_import_collection.png",
+      "seconds": 126.597070705
+    },
+    {
+      "id": "disable-mcp-composer_import_collection",
+      "title": "关闭mcp的composer_import_collection / Disable mcp composer_import_collection",
+      "image": "tool-permissions-readonly-disable-mcp-composer_import_collection.png",
+      "seconds": 129.812496112
+    },
+    {
+      "id": "disable-agent-breakpoints_enable_http",
+      "title": "关闭agent的breakpoints_enable_http / Disable agent breakpoints_enable_http",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_enable_http.png",
+      "seconds": 133.03315504399998
+    },
+    {
+      "id": "disable-mcp-breakpoints_enable_http",
+      "title": "关闭mcp的breakpoints_enable_http / Disable mcp breakpoints_enable_http",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_enable_http.png",
+      "seconds": 136.26489496799996
+    },
+    {
+      "id": "disable-agent-breakpoints_disable_http",
+      "title": "关闭agent的breakpoints_disable_http / Disable agent breakpoints_disable_http",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_disable_http.png",
+      "seconds": 139.478718139
+    },
+    {
+      "id": "disable-mcp-breakpoints_disable_http",
+      "title": "关闭mcp的breakpoints_disable_http / Disable mcp breakpoints_disable_http",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_disable_http.png",
+      "seconds": 142.686622459
+    },
+    {
+      "id": "disable-agent-breakpoints_enable_websocket",
+      "title": "关闭agent的breakpoints_enable_websocket / Disable agent breakpoints_enable_websocket",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_enable_websocket.png",
+      "seconds": 145.86658862299998
+    },
+    {
+      "id": "disable-mcp-breakpoints_enable_websocket",
+      "title": "关闭mcp的breakpoints_enable_websocket / Disable mcp breakpoints_enable_websocket",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_enable_websocket.png",
+      "seconds": 149.055939419
+    },
+    {
+      "id": "disable-agent-breakpoints_disable_websocket",
+      "title": "关闭agent的breakpoints_disable_websocket / Disable agent breakpoints_disable_websocket",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_disable_websocket.png",
+      "seconds": 152.29201015499999
+    },
+    {
+      "id": "disable-mcp-breakpoints_disable_websocket",
+      "title": "关闭mcp的breakpoints_disable_websocket / Disable mcp breakpoints_disable_websocket",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_disable_websocket.png",
+      "seconds": 155.503844966
+    },
+    {
+      "id": "disable-agent-breakpoints_continue",
+      "title": "关闭agent的breakpoints_continue / Disable agent breakpoints_continue",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_continue.png",
+      "seconds": 158.699064889
+    },
+    {
+      "id": "disable-mcp-breakpoints_continue",
+      "title": "关闭mcp的breakpoints_continue / Disable mcp breakpoints_continue",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_continue.png",
+      "seconds": 161.931425535
+    },
+    {
+      "id": "disable-agent-breakpoints_forward_edited",
+      "title": "关闭agent的breakpoints_forward_edited / Disable agent breakpoints_forward_edited",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_forward_edited.png",
+      "seconds": 165.143888267
+    },
+    {
+      "id": "disable-mcp-breakpoints_forward_edited",
+      "title": "关闭mcp的breakpoints_forward_edited / Disable mcp breakpoints_forward_edited",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_forward_edited.png",
+      "seconds": 168.371495062
+    },
+    {
+      "id": "disable-agent-breakpoints_drop",
+      "title": "关闭agent的breakpoints_drop / Disable agent breakpoints_drop",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_drop.png",
+      "seconds": 171.570637097
+    },
+    {
+      "id": "disable-mcp-breakpoints_drop",
+      "title": "关闭mcp的breakpoints_drop / Disable mcp breakpoints_drop",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_drop.png",
+      "seconds": 174.762640686
+    },
+    {
+      "id": "disable-agent-breakpoints_continue_queue",
+      "title": "关闭agent的breakpoints_continue_queue / Disable agent breakpoints_continue_queue",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_continue_queue.png",
+      "seconds": 177.93234106499997
+    },
+    {
+      "id": "disable-mcp-breakpoints_continue_queue",
+      "title": "关闭mcp的breakpoints_continue_queue / Disable mcp breakpoints_continue_queue",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_continue_queue.png",
+      "seconds": 181.11520533299998
+    },
+    {
+      "id": "disable-agent-breakpoints_drop_queue",
+      "title": "关闭agent的breakpoints_drop_queue / Disable agent breakpoints_drop_queue",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_drop_queue.png",
+      "seconds": 184.323278548
+    },
+    {
+      "id": "disable-mcp-breakpoints_drop_queue",
+      "title": "关闭mcp的breakpoints_drop_queue / Disable mcp breakpoints_drop_queue",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_drop_queue.png",
+      "seconds": 187.55046044199997
+    },
+    {
+      "id": "disable-agent-breakpoints_continue_rule",
+      "title": "关闭agent的breakpoints_continue_rule / Disable agent breakpoints_continue_rule",
+      "image": "tool-permissions-readonly-disable-agent-breakpoints_continue_rule.png",
+      "seconds": 190.768089786
+    },
+    {
+      "id": "disable-mcp-breakpoints_continue_rule",
+      "title": "关闭mcp的breakpoints_continue_rule / Disable mcp breakpoints_continue_rule",
+      "image": "tool-permissions-readonly-disable-mcp-breakpoints_continue_rule.png",
+      "seconds": 193.974559572
+    },
+    {
+      "id": "disable-agent-diagnostics_export",
+      "title": "关闭agent的diagnostics_export / Disable agent diagnostics_export",
+      "image": "tool-permissions-readonly-disable-agent-diagnostics_export.png",
+      "seconds": 197.20435420599998
+    },
+    {
+      "id": "disable-mcp-diagnostics_export",
+      "title": "关闭mcp的diagnostics_export / Disable mcp diagnostics_export",
+      "image": "tool-permissions-readonly-disable-mcp-diagnostics_export.png",
+      "seconds": 200.41747599
+    },
+    {
+      "id": "disable-agent-settings_generate_certificate",
+      "title": "关闭agent的settings_generate_certificate / Disable agent settings_generate_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_generate_certificate.png",
+      "seconds": 203.627749479
+    },
+    {
+      "id": "disable-mcp-settings_generate_certificate",
+      "title": "关闭mcp的settings_generate_certificate / Disable mcp settings_generate_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_generate_certificate.png",
+      "seconds": 206.84555490399998
+    },
+    {
+      "id": "disable-agent-settings_install_certificate",
+      "title": "关闭agent的settings_install_certificate / Disable agent settings_install_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_install_certificate.png",
+      "seconds": 210.043813501
+    },
+    {
+      "id": "disable-mcp-settings_install_certificate",
+      "title": "关闭mcp的settings_install_certificate / Disable mcp settings_install_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_install_certificate.png",
+      "seconds": 213.28382725199998
+    },
+    {
+      "id": "disable-agent-settings_uninstall_certificate",
+      "title": "关闭agent的settings_uninstall_certificate / Disable agent settings_uninstall_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_uninstall_certificate.png",
+      "seconds": 216.497980235
+    },
+    {
+      "id": "disable-mcp-settings_uninstall_certificate",
+      "title": "关闭mcp的settings_uninstall_certificate / Disable mcp settings_uninstall_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_uninstall_certificate.png",
+      "seconds": 219.706525833
+    },
+    {
+      "id": "disable-agent-settings_delete_certificate",
+      "title": "关闭agent的settings_delete_certificate / Disable agent settings_delete_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_delete_certificate.png",
+      "seconds": 222.902850001
+    },
+    {
+      "id": "disable-mcp-settings_delete_certificate",
+      "title": "关闭mcp的settings_delete_certificate / Disable mcp settings_delete_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_delete_certificate.png",
+      "seconds": 226.124505527
+    },
+    {
+      "id": "disable-agent-settings_reveal_certificate",
+      "title": "关闭agent的settings_reveal_certificate / Disable agent settings_reveal_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_reveal_certificate.png",
+      "seconds": 229.351543137
+    },
+    {
+      "id": "disable-mcp-settings_reveal_certificate",
+      "title": "关闭mcp的settings_reveal_certificate / Disable mcp settings_reveal_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_reveal_certificate.png",
+      "seconds": 232.569695859
+    },
+    {
+      "id": "disable-agent-settings_view_certificate",
+      "title": "关闭agent的settings_view_certificate / Disable agent settings_view_certificate",
+      "image": "tool-permissions-readonly-disable-agent-settings_view_certificate.png",
+      "seconds": 235.782455608
+    },
+    {
+      "id": "disable-mcp-settings_view_certificate",
+      "title": "关闭mcp的settings_view_certificate / Disable mcp settings_view_certificate",
+      "image": "tool-permissions-readonly-disable-mcp-settings_view_certificate.png",
+      "seconds": 239.01448932
+    },
+    {
+      "id": "disable-agent-settings_open_certificate_manager",
+      "title": "关闭agent的settings_open_certificate_manager / Disable agent settings_open_certificate_manager",
+      "image": "tool-permissions-readonly-disable-agent-settings_open_certificate_manager.png",
+      "seconds": 242.229902608
+    },
+    {
+      "id": "disable-mcp-settings_open_certificate_manager",
+      "title": "关闭mcp的settings_open_certificate_manager / Disable mcp settings_open_certificate_manager",
+      "image": "tool-permissions-readonly-disable-mcp-settings_open_certificate_manager.png",
+      "seconds": 245.454046446
+    },
+    {
+      "id": "disable-agent-settings_enable_app_container",
+      "title": "关闭agent的settings_enable_app_container / Disable agent settings_enable_app_container",
+      "image": "tool-permissions-readonly-disable-agent-settings_enable_app_container.png",
+      "seconds": 248.68530453799997
+    },
+    {
+      "id": "disable-mcp-settings_enable_app_container",
+      "title": "关闭mcp的settings_enable_app_container / Disable mcp settings_enable_app_container",
+      "image": "tool-permissions-readonly-disable-mcp-settings_enable_app_container.png",
+      "seconds": 251.904070739
+    },
+    {
+      "id": "disable-agent-settings_disable_app_container",
+      "title": "关闭agent的settings_disable_app_container / Disable agent settings_disable_app_container",
+      "image": "tool-permissions-readonly-disable-agent-settings_disable_app_container.png",
+      "seconds": 255.13771339400003
+    },
+    {
+      "id": "disable-mcp-settings_disable_app_container",
+      "title": "关闭mcp的settings_disable_app_container / Disable mcp settings_disable_app_container",
+      "image": "tool-permissions-readonly-disable-mcp-settings_disable_app_container.png",
+      "seconds": 258.397488367
+    },
+    {
+      "id": "disable-agent-settings_enable_all_app_containers",
+      "title": "关闭agent的settings_enable_all_app_containers / Disable agent settings_enable_all_app_containers",
+      "image": "tool-permissions-readonly-disable-agent-settings_enable_all_app_containers.png",
+      "seconds": 261.59755170100004
+    },
+    {
+      "id": "disable-mcp-settings_enable_all_app_containers",
+      "title": "关闭mcp的settings_enable_all_app_containers / Disable mcp settings_enable_all_app_containers",
+      "image": "tool-permissions-readonly-disable-mcp-settings_enable_all_app_containers.png",
+      "seconds": 264.769259564
+    },
+    {
+      "id": "disable-agent-settings_disable_all_app_containers",
+      "title": "关闭agent的settings_disable_all_app_containers / Disable agent settings_disable_all_app_containers",
+      "image": "tool-permissions-readonly-disable-agent-settings_disable_all_app_containers.png",
+      "seconds": 267.999052409
+    },
+    {
+      "id": "disable-mcp-settings_disable_all_app_containers",
+      "title": "关闭mcp的settings_disable_all_app_containers / Disable mcp settings_disable_all_app_containers",
+      "image": "tool-permissions-readonly-disable-mcp-settings_disable_all_app_containers.png",
+      "seconds": 271.202628746
+    },
+    {
+      "id": "disable-agent-settings_enable_system_proxy",
+      "title": "关闭agent的settings_enable_system_proxy / Disable agent settings_enable_system_proxy",
+      "image": "tool-permissions-readonly-disable-agent-settings_enable_system_proxy.png",
+      "seconds": 274.42835330099996
+    },
+    {
+      "id": "disable-mcp-settings_enable_system_proxy",
+      "title": "关闭mcp的settings_enable_system_proxy / Disable mcp settings_enable_system_proxy",
+      "image": "tool-permissions-readonly-disable-mcp-settings_enable_system_proxy.png",
+      "seconds": 277.621538328
+    },
+    {
+      "id": "disable-agent-settings_restore_system_proxy",
+      "title": "关闭agent的settings_restore_system_proxy / Disable agent settings_restore_system_proxy",
+      "image": "tool-permissions-readonly-disable-agent-settings_restore_system_proxy.png",
+      "seconds": 280.84717560099995
+    },
+    {
+      "id": "disable-mcp-settings_restore_system_proxy",
+      "title": "关闭mcp的settings_restore_system_proxy / Disable mcp settings_restore_system_proxy",
+      "image": "tool-permissions-readonly-disable-mcp-settings_restore_system_proxy.png",
+      "seconds": 284.024902497
+    },
+    {
+      "id": "disable-agent-settings_replace_tls_insecure_hosts",
+      "title": "关闭agent的settings_replace_tls_insecure_hosts / Disable agent settings_replace_tls_insecure_hosts",
+      "image": "tool-permissions-readonly-disable-agent-settings_replace_tls_insecure_hosts.png",
+      "seconds": 287.20429546599996
+    },
+    {
+      "id": "disable-mcp-settings_replace_tls_insecure_hosts",
+      "title": "关闭mcp的settings_replace_tls_insecure_hosts / Disable mcp settings_replace_tls_insecure_hosts",
+      "image": "tool-permissions-readonly-disable-mcp-settings_replace_tls_insecure_hosts.png",
+      "seconds": 290.435466095
+    },
+    {
+      "id": "disable-agent-settings_replace_tls_passthrough",
+      "title": "关闭agent的settings_replace_tls_passthrough / Disable agent settings_replace_tls_passthrough",
+      "image": "tool-permissions-readonly-disable-agent-settings_replace_tls_passthrough.png",
+      "seconds": 293.69752212099996
+    },
+    {
+      "id": "disable-mcp-settings_replace_tls_passthrough",
+      "title": "关闭mcp的settings_replace_tls_passthrough / Disable mcp settings_replace_tls_passthrough",
+      "image": "tool-permissions-readonly-disable-mcp-settings_replace_tls_passthrough.png",
+      "seconds": 296.906674691
+    },
+    {
+      "id": "disable-agent-settings_enable_https_decryption",
+      "title": "关闭agent的settings_enable_https_decryption / Disable agent settings_enable_https_decryption",
+      "image": "tool-permissions-readonly-disable-agent-settings_enable_https_decryption.png",
+      "seconds": 300.114697868
+    },
+    {
+      "id": "disable-mcp-settings_enable_https_decryption",
+      "title": "关闭mcp的settings_enable_https_decryption / Disable mcp settings_enable_https_decryption",
+      "image": "tool-permissions-readonly-disable-mcp-settings_enable_https_decryption.png",
+      "seconds": 303.33643143200004
+    },
+    {
+      "id": "disable-agent-settings_disable_https_decryption",
+      "title": "关闭agent的settings_disable_https_decryption / Disable agent settings_disable_https_decryption",
+      "image": "tool-permissions-readonly-disable-agent-settings_disable_https_decryption.png",
+      "seconds": 306.543450766
+    },
+    {
+      "id": "disable-mcp-settings_disable_https_decryption",
+      "title": "关闭mcp的settings_disable_https_decryption / Disable mcp settings_disable_https_decryption",
+      "image": "tool-permissions-readonly-disable-mcp-settings_disable_https_decryption.png",
+      "seconds": 309.755591407
+    },
+    {
+      "id": "disable-agent-settings_set_language",
+      "title": "关闭agent的settings_set_language / Disable agent settings_set_language",
+      "image": "tool-permissions-readonly-disable-agent-settings_set_language.png",
+      "seconds": 312.97563734899995
+    },
+    {
+      "id": "disable-mcp-settings_set_language",
+      "title": "关闭mcp的settings_set_language / Disable mcp settings_set_language",
+      "image": "tool-permissions-readonly-disable-mcp-settings_set_language.png",
+      "seconds": 316.165504136
+    },
+    {
+      "id": "disable-agent-settings_set_theme",
+      "title": "关闭agent的settings_set_theme / Disable agent settings_set_theme",
+      "image": "tool-permissions-readonly-disable-agent-settings_set_theme.png",
+      "seconds": 319.39286404099994
+    },
+    {
+      "id": "disable-mcp-settings_set_theme",
+      "title": "关闭mcp的settings_set_theme / Disable mcp settings_set_theme",
+      "image": "tool-permissions-readonly-disable-mcp-settings_set_theme.png",
+      "seconds": 322.59609064299997
+    },
+    {
+      "id": "disable-agent-settings_set_export_privacy_defaults",
+      "title": "关闭agent的settings_set_export_privacy_defaults / Disable agent settings_set_export_privacy_defaults",
+      "image": "tool-permissions-readonly-disable-agent-settings_set_export_privacy_defaults.png",
+      "seconds": 325.815429419
+    },
+    {
+      "id": "disable-mcp-settings_set_export_privacy_defaults",
+      "title": "关闭mcp的settings_set_export_privacy_defaults / Disable mcp settings_set_export_privacy_defaults",
+      "image": "tool-permissions-readonly-disable-mcp-settings_set_export_privacy_defaults.png",
+      "seconds": 329.024237546
+    },
+    {
+      "id": "review-capture",
+      "title": "滚动复核capture分组 / Scroll to review the capture group",
+      "image": "tool-permissions-readonly-review-capture.png",
+      "seconds": 332.256806739
+    },
+    {
+      "id": "review-rules",
+      "title": "滚动复核rules分组 / Scroll to review the rules group",
+      "image": "tool-permissions-readonly-review-rules.png",
+      "seconds": 335.284126286
+    },
+    {
+      "id": "review-composer",
+      "title": "滚动复核composer分组 / Scroll to review the composer group",
+      "image": "tool-permissions-readonly-review-composer.png",
+      "seconds": 338.339164519
+    },
+    {
+      "id": "review-breakpoints",
+      "title": "滚动复核breakpoints分组 / Scroll to review the breakpoints group",
+      "image": "tool-permissions-readonly-review-breakpoints.png",
+      "seconds": 341.352498829
+    },
+    {
+      "id": "review-diagnostics",
+      "title": "滚动复核diagnostics分组 / Scroll to review the diagnostics group",
+      "image": "tool-permissions-readonly-review-diagnostics.png",
+      "seconds": 344.36361474
+    },
+    {
+      "id": "review-settings",
+      "title": "滚动复核settings分组 / Scroll to review the settings group",
+      "image": "tool-permissions-readonly-review-settings.png",
+      "seconds": 347.38043689899996
+    },
+    {
+      "id": "10-readonly-list",
+      "title": "核对MCP只发现query / Verify MCP discovers query Tools only",
+      "image": "tool-permissions-readonly-10-readonly-list.png",
+      "seconds": 350.39786424700003
+    },
+    {
+      "id": "11-before-close",
+      "title": "保留完整只读配置后正常关闭 / Retain the complete read-only setup before normal Close",
+      "image": "tool-permissions-readonly-11-before-close.png",
+      "seconds": 354.039192657
+    }
+  ],
+  "assets": [
+    {
+      "file": "tool-permissions-readonly-01-search.png",
+      "bytes": 405521,
+      "sha256": "542094fc8c8398f47ed9ddb4f8e071d1325b069378c113e875692bf6e62cdbb2"
+    },
+    {
+      "file": "tool-permissions-readonly-02-disable-agent-clear.png",
+      "bytes": 391107,
+      "sha256": "29ca5553ad3d0364a773711ac9dadd24fabc5128010ec240fdf354af107f1889"
+    },
+    {
+      "file": "tool-permissions-readonly-03-disable-mcp-clear.png",
+      "bytes": 390805,
+      "sha256": "15ad9390912965c03a10489de43f879014f6569a7ff64fb8c3c1820446c4c6e5"
+    },
+    {
+      "file": "tool-permissions-readonly-04-mcp-rejection.png",
+      "bytes": 390805,
+      "sha256": "15ad9390912965c03a10489de43f879014f6569a7ff64fb8c3c1820446c4c6e5"
+    },
+    {
+      "file": "tool-permissions-readonly-05-agent.png",
+      "bytes": 431750,
+      "sha256": "70c5fb818506fc1be2ff7af3740f120e9b6ce9723cb4c8e707e65678ece184d2"
+    },
+    {
+      "file": "tool-permissions-readonly-06-agent-rejection.png",
+      "bytes": 478261,
+      "sha256": "a62b672d8760d607e1cd7abfca5697bf7910f9d665f9dd41b76a0e3884803bf6"
+    },
+    {
+      "file": "tool-permissions-readonly-07-retained-record.png",
+      "bytes": 306850,
+      "sha256": "51d4ca988dcd6c426ec751285dd86632df1cb96e7f71dbfddf564305aac04511"
+    },
+    {
+      "file": "tool-permissions-readonly-08-close-agent.png",
+      "bytes": 446670,
+      "sha256": "043caab6107e6b099d9c6ecd30bf3eb9378599bf6153057a29f97111c68c638e"
+    },
+    {
+      "file": "tool-permissions-readonly-09-clear-search.png",
+      "bytes": 447342,
+      "sha256": "8ee99079cfe71e6e0d787a792c79dd3b9cf427dc27c92473712a4f58cb8eb551"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_start_recording.png",
+      "bytes": 448535,
+      "sha256": "9f60edc851e6c65a3f99e3a26006fb12ea460ea4766e185e755e726c145bc99d"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_start_recording.png",
+      "bytes": 448212,
+      "sha256": "d70ad575b40e5a9f15564f74fa6ab589a50b3f5aaeeabb7aebc9a18406c2c211"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_stop_recording.png",
+      "bytes": 448313,
+      "sha256": "3b2f519d5a0e846d68b51269866cfc5caec29ddf37d9ebcd2b9d95856419dae8"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_stop_recording.png",
+      "bytes": 448105,
+      "sha256": "7076c122f2aba043246d6506f2fddf5b261a83078ee1815d8046911793dea73a"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_cancel_transfer_job.png",
+      "bytes": 537913,
+      "sha256": "d95ac509cf6ebf7bf7b9937f7a3cde26feb47fbfb3223c0ab2c7c6ef6525dab3"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_cancel_transfer_job.png",
+      "bytes": 537588,
+      "sha256": "57ca4bf7d6f9faf1f705397dd3bfb542f1a95647b3a71427f9ed07689760f165"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_export_body.png",
+      "bytes": 537795,
+      "sha256": "21b447e083db227c3a7e2b544a5fe40e11cfff4a0b80f549658b2bc12329f27a"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_export_body.png",
+      "bytes": 537434,
+      "sha256": "1588adb4b7cc2d100c0d5d59012627abdb928d371e3d46f52e1315136ec311d8"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_export_har.png",
+      "bytes": 537627,
+      "sha256": "86d3e4f5c7e29ae28a13355d5dc2f9b8e658bc27a5aa223db27c8517b18ffecf"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_export_har.png",
+      "bytes": 537332,
+      "sha256": "c6f85513166d9f7280c4d9a6b4fa10f6c63c5b470e3e5044f02534035ed10925"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_import_har.png",
+      "bytes": 537478,
+      "sha256": "4b77cbd59ac198df310a210119c1cf61b861bd1f1a3e41650ee124c2f4f763d4"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_import_har.png",
+      "bytes": 537120,
+      "sha256": "cab4bc60e9a1239bbd0a18e6512d742d7a7ad0f8ec29faa126cae415b52e30a7"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_export_archive.png",
+      "bytes": 537105,
+      "sha256": "e3fbd2e8bb077ff4133f8331a12ace968b5db399eb42dbd4e9596bfabad276ca"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_export_archive.png",
+      "bytes": 536836,
+      "sha256": "5d9ccf1ae7bf6572e8dad308f3a6f81a303411d0b9cf10d3880ec23a86eaf806"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-capture_import_archive.png",
+      "bytes": 537110,
+      "sha256": "b7b0c8cc8be63b75f0d3be31e9c6b79766f4b329148baa37edd7327848a552ad"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-capture_import_archive.png",
+      "bytes": 536806,
+      "sha256": "dd1924d53b0a710ac539976024779b81268523c29cf55a893b5b0fb0c2c0d24c"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-rules_replace_tree.png",
+      "bytes": 522039,
+      "sha256": "c73a139afbd527ca05bf011e69ada3955ebc9ad01f75cea8e86d3e9c8cdc3159"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-rules_replace_tree.png",
+      "bytes": 521721,
+      "sha256": "ae9a54d5dcf384beeff515dea3a2c9ef49c638e977e706b1039ef4e265119eae"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-rules_export.png",
+      "bytes": 521870,
+      "sha256": "0287a8f116551c6900db80bd746b94586451c5054a950eebb57e8810addc6868"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-rules_export.png",
+      "bytes": 521574,
+      "sha256": "0592cc0b96a9c846acf0bb19082c9f1043a44916aa666e6868aeedf6041a7878"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-rules_import.png",
+      "bytes": 521721,
+      "sha256": "2f69c10999dcb5538959a7178ba0e9248abb802769d7e9e3805e54b4a3d6eaba"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-rules_import.png",
+      "bytes": 521346,
+      "sha256": "cfa7333c60fdf51ba2b747908dce84247d47a6e050a5ec82fea59dcceae2f3c1"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-composer_send_request.png",
+      "bytes": 521546,
+      "sha256": "582fa65709592d9405fb3421a5c94a54fa93525cf7e291667986148adeb9785f"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-composer_send_request.png",
+      "bytes": 521216,
+      "sha256": "97df0a59a27d37e73197c9c679d7e15a16393110d6db71d25f6a279721d3ef4a"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-composer_probe_connection.png",
+      "bytes": 521355,
+      "sha256": "194749a6df026d2c579bac3301ad4392ebbfcdedcbc0244c28da8f2600ac56ff"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-composer_probe_connection.png",
+      "bytes": 521097,
+      "sha256": "a8c5e75419b0d8ccaf7f3ea0512da69d86cd19688e9fc6832262707e11e2e4f5"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-composer_replace_collection.png",
+      "bytes": 521294,
+      "sha256": "bd3b98fc24bf1e54ef204c9109cfab867500521f10c1671f94b0b29ae35faf14"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-composer_replace_collection.png",
+      "bytes": 521011,
+      "sha256": "b6f48d9441ad3fe24eb8b2094856a7cdc5205d2c2fbfa74bd3166abd6c51aa7f"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-composer_export_collection.png",
+      "bytes": 521130,
+      "sha256": "6ad1d6804e67f767520427081bb5d902ad8c991bd1308c01ecff65e521fb7168"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-composer_export_collection.png",
+      "bytes": 520906,
+      "sha256": "822a1931ee848152750b03c81b59b2964bbf52b3b0a27ad63733c82d7d440c59"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-composer_import_collection.png",
+      "bytes": 537516,
+      "sha256": "01dea21d18a46866a22182683951368604277b66d1ff14e772696755e9c9af81"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-composer_import_collection.png",
+      "bytes": 537389,
+      "sha256": "b2d2aae705af1d215edc9065d2f76aa87e30ec67d29b743b6cd865dd437e4108"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_enable_http.png",
+      "bytes": 537873,
+      "sha256": "43e54a63a0227dcab6bc1b2899fe19b461790754c1ba905f1d86e8b2826b14ec"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_enable_http.png",
+      "bytes": 537591,
+      "sha256": "cd6538d6d3b0510fae24ceaa5db2373e6180d307b148c8c1d1b45c0b462f5fc0"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_disable_http.png",
+      "bytes": 537710,
+      "sha256": "ae5aaa406b44023d51782e65a5fbc13ac9ca802e09e7867d8ed82d5a2fbc14e7"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_disable_http.png",
+      "bytes": 537403,
+      "sha256": "6eb0f81b9a2febda0a56c507ab11ae5bb0b2296212b9b2779029fc56e63fac33"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_enable_websocket.png",
+      "bytes": 537551,
+      "sha256": "f4475480c2802e6fef5b014baa3fb20c2db89deacea25cf4258226f4ea68c1d8"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_enable_websocket.png",
+      "bytes": 537212,
+      "sha256": "349a26162e34a64f55de0ccc514e2e14b065049a8e82f9e6568c1d8ebf44cc5e"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_disable_websocket.png",
+      "bytes": 537136,
+      "sha256": "ca0fb2e426868402508d3a273f74d8ab0c4c9832437b8bcb35cff034b02c01c6"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_disable_websocket.png",
+      "bytes": 536939,
+      "sha256": "e61e0467f4be2e01e9b842bca56e5e321edf6a6702c2b00d11bf7117c23bb853"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_continue.png",
+      "bytes": 537127,
+      "sha256": "26e76af63f34742f484f8ffb614d1c7d717d59b5e17b7930989b759c72cfea95"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_continue.png",
+      "bytes": 536881,
+      "sha256": "c7f238df839f0b70d1a4d0bbccffe5af75381cb950cd0e2b4a80fbe033f241b2"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_forward_edited.png",
+      "bytes": 537035,
+      "sha256": "666300b51df7ff3ed59cedf1d8e7a29f7e715a107a991f44bbfe7154797b859d"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_forward_edited.png",
+      "bytes": 536796,
+      "sha256": "8e321fbfbab0bf43c7db3d666d4a7c5c694375fecf7470d4f86851d31d34acf4"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_drop.png",
+      "bytes": 549719,
+      "sha256": "ce2ae8e6feee2978fc17e18dd6129de5c8e8be1553f775ce900244e8cb0e6b9b"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_drop.png",
+      "bytes": 549361,
+      "sha256": "c033ea644dd24621f32fcd5b951b6071c43d763299ceec30ea6858f30b2cc8b6"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_continue_queue.png",
+      "bytes": 549516,
+      "sha256": "0673b0e315ce3f862ba9052af9f2542950b0329a1cd1bb20a83a5d9bfc5b52cd"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_continue_queue.png",
+      "bytes": 549262,
+      "sha256": "0549d9eea5102e281065d1793a9eef8dd7be5a07bd842554d26fa7c199b4408f"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_drop_queue.png",
+      "bytes": 549389,
+      "sha256": "90639383c644b3cf24f5ad3770b0343054ba28247bcbec557d7f5c17c020c477"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_drop_queue.png",
+      "bytes": 549251,
+      "sha256": "477b6aacd22a0eec46df7ae220abe7644fcaecdd73ca6d552e37acaea2b32dcf"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-breakpoints_continue_rule.png",
+      "bytes": 549339,
+      "sha256": "3e45a81343ecb853f67f0978676468a5e952adc7440c72bd80ab8c024c439ec5"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-breakpoints_continue_rule.png",
+      "bytes": 549189,
+      "sha256": "0c6c06627df83517a4c8c7ef8f3122515a245b495661644cc413a9c963e733ab"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-diagnostics_export.png",
+      "bytes": 549187,
+      "sha256": "5f0941677499b030a085969cab23e49148cdd5c2392ba3b54b2271c53fe775a4"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-diagnostics_export.png",
+      "bytes": 549031,
+      "sha256": "8613f6c32af8ad492864d629f23cb897ec4552da5b3ace7a28453159505bcc4d"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_generate_certificate.png",
+      "bytes": 588636,
+      "sha256": "afd2c51acdf179e41bd4c6a6d954381d1643f24d357bd6b7149de438ec045a52"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_generate_certificate.png",
+      "bytes": 588404,
+      "sha256": "facba50c75c04ebd77fb2d0f7596a3970252e7f28fc4efa24b5aa39d652e1dce"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_install_certificate.png",
+      "bytes": 588428,
+      "sha256": "61d988ca688d9b28b2f04f00044425ea7e6d3ffca28592d1b064383adf8588cc"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_install_certificate.png",
+      "bytes": 588190,
+      "sha256": "197f3d4da1ad8d8d1bbb4ee2d19fb7ebf58e141fb3bca4b6c1708011af057dcf"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_uninstall_certificate.png",
+      "bytes": 588167,
+      "sha256": "35d2fe71e7f7a3b82e6a08daa6ec61b9a5063a9ddd7d4699eda3e7b8dbc85677"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_uninstall_certificate.png",
+      "bytes": 587949,
+      "sha256": "3f3c201db6f82b48eb8ce0bc84c9b92e975d803a5e6bea6d7a0dd8b0db0f875f"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_delete_certificate.png",
+      "bytes": 588079,
+      "sha256": "e6008fe922a08ac7caa08b4627878e253b20a4e895d741c524d23a3ea3a7d1c2"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_delete_certificate.png",
+      "bytes": 587886,
+      "sha256": "b6ed20f0712c3fc6ca0b18f6f8ffdab5491c90c2fb52dfe7baccff574c5fc630"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_reveal_certificate.png",
+      "bytes": 587997,
+      "sha256": "665606ea8268439b64d13a4cd7843142a484a53ab2f98ffcd787c9d3f3e85b51"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_reveal_certificate.png",
+      "bytes": 587797,
+      "sha256": "74e3866ae94bdc6adc7a1ee29cf62eed882816314778611e214e9b49f40974f5"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_view_certificate.png",
+      "bytes": 587949,
+      "sha256": "0dec6ed75215575c96254d2cf73b792d768037afccb50fe0d7f082b5579901fa"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_view_certificate.png",
+      "bytes": 587744,
+      "sha256": "f47293b22a8e9d632b2d8ce9890fca6fd0758b610df71fc1c4984dbf99e66c32"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_open_certificate_manager.png",
+      "bytes": 587862,
+      "sha256": "b44efba3565f3f24793613a4f9cf6df11520ec41575ebd8a4e677f0ac89884eb"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_open_certificate_manager.png",
+      "bytes": 587654,
+      "sha256": "7f855da0780ab737351eb0bbadf34819aeaca8f8e3532c1b45acbb741e7e8ae3"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_enable_app_container.png",
+      "bytes": 627000,
+      "sha256": "9368a8e0c8844a6813b309b64fe51fef799d0ee3c924d51dd478efcd4f899027"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_enable_app_container.png",
+      "bytes": 626739,
+      "sha256": "a8d7726073f5e08d956af97933008b31139dde6a28333d06a1b9244a4737b684"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_disable_app_container.png",
+      "bytes": 626881,
+      "sha256": "a47d07fd7d1dbc8e57ba7fa2680449dd10c504ce0e4ed3428174067a7df5028a"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_disable_app_container.png",
+      "bytes": 626632,
+      "sha256": "fdc332aa8934532a646dbf581db5c84eba95eecea87abc0b0cbdda1f6bca9530"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_enable_all_app_containers.png",
+      "bytes": 626699,
+      "sha256": "1b577c1f536c5f0d9e0f7746a576c5ee4769c34bdeb49f45a5216aa2001909ff"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_enable_all_app_containers.png",
+      "bytes": 626441,
+      "sha256": "f388217b42fa8f1ca19767033ba2ef079845544ae2d8e26aa0f8280d674706de"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_disable_all_app_containers.png",
+      "bytes": 626737,
+      "sha256": "baa885d99ac9e5461a41236a6e2aae81dcb2275dbc05f553c56682d791274c95"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_disable_all_app_containers.png",
+      "bytes": 626395,
+      "sha256": "ef46e1bcc94dcf30c7d3f4e4390100ee6a0f2bb07435ffc259d2e2df776cce6a"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_enable_system_proxy.png",
+      "bytes": 626664,
+      "sha256": "b32a75d777ce2ca605a158d1fa4a6024d1822d4061954a97d989dd4d084a8957"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_enable_system_proxy.png",
+      "bytes": 626262,
+      "sha256": "a53d40e6be41fc425c89f5a3cfe393e00cb773ba04fd9c13f030b6b048e55a05"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_restore_system_proxy.png",
+      "bytes": 626428,
+      "sha256": "76fd333f6538bfd5d1f1bb21318f37b9157da622a032d6233f41036107bd1805"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_restore_system_proxy.png",
+      "bytes": 626088,
+      "sha256": "3f9adc62a1269a0a228f279837b2d9ceaeb2620bce540383ff37c3305fc57407"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_replace_tls_insecure_hosts.png",
+      "bytes": 626144,
+      "sha256": "9d8edb581fbc88d95e4b8fa39985df66a70de75c3cc65e6737e788ee3ec16186"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_replace_tls_insecure_hosts.png",
+      "bytes": 625903,
+      "sha256": "37968939f3551ed8eeeba41c3ebb66d29c90ee5b27e618323b38f57667ee6ddb"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_replace_tls_passthrough.png",
+      "bytes": 626108,
+      "sha256": "543035f1fc20e5c73d137eaebbe1b1ae9845ff6e78759c0bf466675479eef5e4"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_replace_tls_passthrough.png",
+      "bytes": 625866,
+      "sha256": "c1c10bcf44b942f520870f55b199994a7a16277ee4926724b527405156156810"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_enable_https_decryption.png",
+      "bytes": 625930,
+      "sha256": "bf47ebeee1d287a27655d79b956c9a8775360a6164ee5519490178ad90f4c71e"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_enable_https_decryption.png",
+      "bytes": 625677,
+      "sha256": "7fa895e3854b00cc8c30312511a8a51263e99cf25027a61eae2891350c89c635"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_disable_https_decryption.png",
+      "bytes": 612376,
+      "sha256": "94b497dd2fd1752291be8cb7b5ddab9533dd29d8bd8497cb4741d9ee19800d27"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_disable_https_decryption.png",
+      "bytes": 612218,
+      "sha256": "a679c24eb33b71e55324e9b1a4dff771dea81b669ede2911eb25812ccf31e9a6"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_set_language.png",
+      "bytes": 612644,
+      "sha256": "7ee1e67277cc4b2407cb11ee01d609c42811095533b40e91e6083ffa42e60915"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_set_language.png",
+      "bytes": 612541,
+      "sha256": "dd454cae290f30f1398d091046732cb740fc9fe022226090ba9e188aea11a8fe"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_set_theme.png",
+      "bytes": 612627,
+      "sha256": "d9ab9958c3a04256c1f53849ae2befe9d2001c5554f004867294621d6adac146"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_set_theme.png",
+      "bytes": 612465,
+      "sha256": "53be2b78e9c1163e6899317d0c04ab00ea4be2ed7ba09ce991fe20e4685fb7ba"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-agent-settings_set_export_privacy_defaults.png",
+      "bytes": 612611,
+      "sha256": "2bb42f92e2a54d261f21c6bcb4f8775016a1cb6c726741f97911020f19671d66"
+    },
+    {
+      "file": "tool-permissions-readonly-disable-mcp-settings_set_export_privacy_defaults.png",
+      "bytes": 612350,
+      "sha256": "8b62a84b6d2ac88c28087786c9e21e2a0c02781e8abcaa1eec2a74d20f42f20f"
+    },
+    {
+      "file": "tool-permissions-readonly-review-capture.png",
+      "bytes": 470166,
+      "sha256": "5940761f3295a547279b892b4c414c3f532108be2e76e4ee5f6b7793effa911a"
+    },
+    {
+      "file": "tool-permissions-readonly-review-rules.png",
+      "bytes": 525237,
+      "sha256": "17437af8e3493ef87911ced19ef6fe2d00a4dec70e9e7e8eb8fa00af504fcb8b"
+    },
+    {
+      "file": "tool-permissions-readonly-review-composer.png",
+      "bytes": 525237,
+      "sha256": "17437af8e3493ef87911ced19ef6fe2d00a4dec70e9e7e8eb8fa00af504fcb8b"
+    },
+    {
+      "file": "tool-permissions-readonly-review-breakpoints.png",
+      "bytes": 546535,
+      "sha256": "6a4ac8dc5cdb54624166b4e17edc7ad6c18b444e3f5fc7c5a6f2a4725a995b41"
+    },
+    {
+      "file": "tool-permissions-readonly-review-diagnostics.png",
+      "bytes": 570180,
+      "sha256": "431aeaf4ca5e5a2c895037cf988463071343c905037e4cec604728a86d1fa070"
+    },
+    {
+      "file": "tool-permissions-readonly-review-settings.png",
+      "bytes": 570180,
+      "sha256": "431aeaf4ca5e5a2c895037cf988463071343c905037e4cec604728a86d1fa070"
+    },
+    {
+      "file": "tool-permissions-readonly-10-readonly-list.png",
+      "bytes": 570180,
+      "sha256": "431aeaf4ca5e5a2c895037cf988463071343c905037e4cec604728a86d1fa070"
+    },
+    {
+      "file": "tool-permissions-readonly-11-before-close.png",
+      "bytes": 578437,
+      "sha256": "eb2daaf1cd13eba3f549280b5e48b934605ddb3702b6b2144806bb36b10e79f3"
+    },
+    {
+      "file": "tool-permissions-readonly.mp4",
+      "bytes": 3118042,
+      "sha256": "4862f98cb38ae9af87b955ea288aa72f1c51ff819b963e97c048f1465b5a13f0"
+    },
+    {
+      "file": "tool-permissions-readonly.vtt",
+      "bytes": 12481,
+      "sha256": "0649ebdbf7f4b0c66ac8dcee88f827d2154c59579ab07dcff209cba9abec8471"
+    }
+  ]
+}

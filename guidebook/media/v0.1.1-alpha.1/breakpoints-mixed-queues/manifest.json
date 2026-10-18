@@ -1,0 +1,222 @@
+{
+  "chapter": "breakpoints-mixed-queues",
+  "title": {
+    "zh-CN": "逐步骤实操：混合队列、Upgrade实际行为与持等待退出",
+    "en": "Recorded walkthrough: mixed queues, actual Upgrade behavior and shutdown with pending traffic"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "requestPath": "/guide/mixed/request-head",
+    "responsePath": "/guide/mixed/response-queued",
+    "upgradePath": "/guide/mixed/upgrade-queued",
+    "livePath": "/guide/mixed/live",
+    "exitPath": "/guide/mixed/request-exit",
+    "originalBody": "{\"message\":\"guide-original-http\"}",
+    "unsentDraft": "{\"message\":\"guide-unsubmitted-draft\"}",
+    "firstFrame": "guide-ws-head",
+    "secondFrame": "guide-ws-queued",
+    "exitFrame": "guide-ws-exit-must-not-forward",
+    "httpScope": "Request and response waits share queueKey=http",
+    "upgradeBoundary": "The released App established this real Upgrade without a pending item despite the configured narrow GET Rule; no queued Upgrade is claimed",
+    "wsScope": "Established connection frames have a separate ws:* queue",
+    "closeImage": "Before the actual Close; post-close cancellation and host restoration are separate evidence, not a desktop recording"
+  },
+  "duration": 54.38640423499999,
+  "video": "breakpoints-mixed-queues.mp4",
+  "captions": "breakpoints-mixed-queues.vtt",
+  "steps": [
+    {
+      "id": "01-http-head",
+      "title": "发送HTTP请求成为队首 / Send an HTTP request as queue head",
+      "image": "breakpoints-mixed-queues-01-http-head.png",
+      "seconds": 0.32168497100000243
+    },
+    {
+      "id": "02-response-queued",
+      "title": "让响应进入同一HTTP队列 / Queue a response in the same HTTP queue",
+      "image": "breakpoints-mixed-queues-02-response-queued.png",
+      "seconds": 3.4697642910000033
+    },
+    {
+      "id": "03-upgrade-result",
+      "title": "检查Upgrade实际建立连接而未排队 / Observe Upgrade connecting without joining this queue",
+      "image": "breakpoints-mixed-queues-03-upgrade-result.png",
+      "seconds": 6.604157396000002
+    },
+    {
+      "id": "04-live-connection",
+      "title": "选择已经建立的WS连接 / Select the established WS connection",
+      "image": "breakpoints-mixed-queues-04-live-connection.png",
+      "seconds": 10.196225850000003
+    },
+    {
+      "id": "05-ws-head",
+      "title": "发送第一条WS帧成为独立队首 / Send the first WS frame as its own queue head",
+      "image": "breakpoints-mixed-queues-05-ws-head.png",
+      "seconds": 13.295213351
+    },
+    {
+      "id": "06-ws-queued",
+      "title": "源站帧进入同一WS队列 / Queue an origin frame in the same WS queue",
+      "image": "breakpoints-mixed-queues-06-ws-queued.png",
+      "seconds": 16.693043884999998
+    },
+    {
+      "id": "07-http-draft",
+      "title": "为HTTP队首填写但不提交草稿 / Enter an HTTP head draft without submitting it",
+      "image": "breakpoints-mixed-queues-07-http-draft.png",
+      "seconds": 19.922740584
+    },
+    {
+      "id": "08-inspect-response",
+      "title": "选择排队响应，只读查看 / Select the queued response for read-only inspection",
+      "image": "breakpoints-mixed-queues-08-inspect-response.png",
+      "seconds": 23.928866176000003
+    },
+    {
+      "id": "09-inspect-upgrade",
+      "title": "选择已建立的连接，不伪造Queued / Select the established connection without claiming Queued",
+      "image": "breakpoints-mixed-queues-09-inspect-upgrade.png",
+      "seconds": 27.155626678
+    },
+    {
+      "id": "10-http-menu",
+      "title": "回到HTTP队首并打开批量菜单 / Return to the HTTP head and open batch actions",
+      "image": "breakpoints-mixed-queues-10-http-menu.png",
+      "seconds": 30.952701762000004
+    },
+    {
+      "id": "11-continue-http",
+      "title": "仅Continue HTTP队列，草稿不应用 / Continue only HTTP without applying the draft",
+      "image": "breakpoints-mixed-queues-11-continue-http.png",
+      "seconds": 34.339414679
+    },
+    {
+      "id": "12-ws-still-pending",
+      "title": "回到WS确认等待项仍在 / Return to WS and confirm its waits remain",
+      "image": "breakpoints-mixed-queues-12-ws-still-pending.png",
+      "seconds": 38.154424124
+    },
+    {
+      "id": "13-drop-ws",
+      "title": "仅Drop当前WS队列 / Drop only the current WS queue",
+      "image": "breakpoints-mixed-queues-13-drop-ws.png",
+      "seconds": 41.533803289000005
+    },
+    {
+      "id": "14-exit-http",
+      "title": "为退出场景挂起新HTTP请求 / Hold a new HTTP request for the exit scenario",
+      "image": "breakpoints-mixed-queues-14-exit-http.png",
+      "seconds": 45.052709740000005
+    },
+    {
+      "id": "15-exit-ws",
+      "title": "同时保留一条WS等待项 / Retain a WS wait at the same time",
+      "image": "breakpoints-mixed-queues-15-exit-ws.png",
+      "seconds": 48.12645895300001
+    },
+    {
+      "id": "16-before-close",
+      "title": "记录真实Close之前的两条等待 / Record both waits before the actual Close",
+      "image": "breakpoints-mixed-queues-16-before-close.png",
+      "seconds": 51.397585617000004
+    }
+  ],
+  "assets": [
+    {
+      "file": "breakpoints-mixed-queues-01-http-head.png",
+      "bytes": 273952,
+      "sha256": "bc3913be943cfcf5472b9a59b9ff7ee6bc450aae211faaa1f3e5c4c0ac08850b"
+    },
+    {
+      "file": "breakpoints-mixed-queues-02-response-queued.png",
+      "bytes": 287535,
+      "sha256": "665a88dac5d828ce388c15d14b84a36627eec35e2f8552c75b027fd5599339d9"
+    },
+    {
+      "file": "breakpoints-mixed-queues-03-upgrade-result.png",
+      "bytes": 300023,
+      "sha256": "364efa12da7dc35c133aa795bc9c4a8563c91da897e9ad94cb3c7e936beb500f"
+    },
+    {
+      "file": "breakpoints-mixed-queues-04-live-connection.png",
+      "bytes": 300027,
+      "sha256": "09dff11e7d32d07e2c5b02711e41c3639066711947c9a3c77123547ea5d438a7"
+    },
+    {
+      "file": "breakpoints-mixed-queues-05-ws-head.png",
+      "bytes": 356166,
+      "sha256": "afccd30f763d1c157a4954754560bd9ded9c4eabdaa0314bf1e02a44bf80d80f"
+    },
+    {
+      "file": "breakpoints-mixed-queues-06-ws-queued.png",
+      "bytes": 363069,
+      "sha256": "e8702877c8773cea8451a1945bc6a6861a95833a81e0dbe64f2b49e8bc123a26"
+    },
+    {
+      "file": "breakpoints-mixed-queues-07-http-draft.png",
+      "bytes": 398058,
+      "sha256": "295782e6c6e256fcef089f642db1a931f9b71abff04031b569b454e0d8115147"
+    },
+    {
+      "file": "breakpoints-mixed-queues-08-inspect-response.png",
+      "bytes": 348862,
+      "sha256": "52127e4a6fc9f1da7e13903206f35d3ffd2274970a68c7c8f8f999e452a48ffb"
+    },
+    {
+      "file": "breakpoints-mixed-queues-09-inspect-upgrade.png",
+      "bytes": 366574,
+      "sha256": "8d615f7da6e5e2b5efbc5786686b8b57f086f5f815730e291c052587ac354842"
+    },
+    {
+      "file": "breakpoints-mixed-queues-10-http-menu.png",
+      "bytes": 434918,
+      "sha256": "b09c1493eecc1372cbf5516e0e67cf9623b45ab7014702a0a1fd841eb601243f"
+    },
+    {
+      "file": "breakpoints-mixed-queues-11-continue-http.png",
+      "bytes": 400831,
+      "sha256": "dfad3de7c8e863327e73f151dd544bc86268e8480b9432462ce8bfde57ff2deb"
+    },
+    {
+      "file": "breakpoints-mixed-queues-12-ws-still-pending.png",
+      "bytes": 372475,
+      "sha256": "203b64caceec8f326417b5524277f4109686aa3e7b21e85191cfa0e64f1ce08e"
+    },
+    {
+      "file": "breakpoints-mixed-queues-13-drop-ws.png",
+      "bytes": 329333,
+      "sha256": "adcf25f44a76e6b7046b9285448fcd6b3e61511cefbedf02a916e318905edf36"
+    },
+    {
+      "file": "breakpoints-mixed-queues-14-exit-http.png",
+      "bytes": 331209,
+      "sha256": "29abfe1dbc2432f44c0b8ebcc11cddc7f8a86f9b0c16767b960e6b3ec15ee826"
+    },
+    {
+      "file": "breakpoints-mixed-queues-15-exit-ws.png",
+      "bytes": 400288,
+      "sha256": "bc4a28ca971e6a75d7ffb032cf3c556715720578f58279bca8f6508bfa8bc7bb"
+    },
+    {
+      "file": "breakpoints-mixed-queues-16-before-close.png",
+      "bytes": 400288,
+      "sha256": "bc4a28ca971e6a75d7ffb032cf3c556715720578f58279bca8f6508bfa8bc7bb"
+    },
+    {
+      "file": "breakpoints-mixed-queues.mp4",
+      "bytes": 437154,
+      "sha256": "5980ccbe8c4a78269db5b026721f419b9d19037480fd5050afb9e9a366fae064"
+    },
+    {
+      "file": "breakpoints-mixed-queues.vtt",
+      "bytes": 1828,
+      "sha256": "661608bf7fad43e6a18a8c96078c2d50766123eb8b4f08a886736ae2bb72ca2c"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "chapter": "settings-upstream",
+  "title": {
+    "zh-CN": "逐步骤实操：Manual、PAC、Direct与共享草稿",
+    "en": "Recorded walkthrough: Manual, PAC, Direct and shared drafts"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "origin": "http://127.0.0.1:51204/guide/upstream",
+    "proxyHost": "127.0.0.1",
+    "proxyPort": "51206",
+    "pacUrl": "http://127.0.0.1:51204/guide/upstream/route.pac",
+    "pacChoice": "127.0.0.1 uses the owned PROXY; localhost uses DIRECT",
+    "draftBoundary": "Cancel/Discard do not Apply; Open in Settings retains the same draft",
+    "finalMode": "system",
+    "scope": "Owned HTTP routes only; no WPAD, external credentials or system proxy preference writes"
+  },
+  "duration": 78.20392790300001,
+  "video": "settings-upstream.mp4",
+  "captions": "settings-upstream.vtt",
+  "steps": [
+    {
+      "id": "01-settings",
+      "title": "打开Settings / Open Settings",
+      "image": "settings-upstream-01-settings.png",
+      "seconds": 0.4580408040000002
+    },
+    {
+      "id": "02-upstream",
+      "title": "打开Upstream proxy / Open Upstream proxy",
+      "image": "settings-upstream-02-upstream.png",
+      "seconds": 3.4237399700000024
+    },
+    {
+      "id": "03-direct-draft",
+      "title": "选择Direct草稿 / Select a Direct draft",
+      "image": "settings-upstream-03-direct-draft.png",
+      "seconds": 6.414963124000002
+    },
+    {
+      "id": "04-discard",
+      "title": "Discard草稿不改路线 / Discard the draft without changing the route",
+      "image": "settings-upstream-04-discard.png",
+      "seconds": 9.361095032000001
+    },
+    {
+      "id": "05-manual",
+      "title": "选择Manual / Select Manual",
+      "image": "settings-upstream-05-manual.png",
+      "seconds": 12.310373487000001
+    },
+    {
+      "id": "06-host",
+      "title": "填写自有上游Host / Enter the owned upstream Host",
+      "image": "settings-upstream-06-host.png",
+      "seconds": 15.310957151000002
+    },
+    {
+      "id": "07-port",
+      "title": "填写实际上游端口 / Enter the actual upstream port",
+      "image": "settings-upstream-07-port.png",
+      "seconds": 18.259877197
+    },
+    {
+      "id": "08-apply-manual",
+      "title": "Apply Manual / Apply Manual",
+      "image": "settings-upstream-08-apply-manual.png",
+      "seconds": 21.205740346
+    },
+    {
+      "id": "09-manual-request",
+      "title": "用真实转发核对Manual / Verify Manual through actual forwarding",
+      "image": "settings-upstream-09-manual-request.png",
+      "seconds": 24.261972779000004
+    },
+    {
+      "id": "10-capture",
+      "title": "返回Capture查看生效路线 / Return to Capture to inspect the active route",
+      "image": "settings-upstream-10-capture.png",
+      "seconds": 27.166538776000003
+    },
+    {
+      "id": "11-shortcut",
+      "title": "打开底栏快捷浮层 / Open the statusbar popover",
+      "image": "settings-upstream-11-shortcut.png",
+      "seconds": 30.209447921
+    },
+    {
+      "id": "12-pac-draft",
+      "title": "在浮层选择PAC草稿 / Select a PAC draft in the popover",
+      "image": "settings-upstream-12-pac-draft.png",
+      "seconds": 33.257311933
+    },
+    {
+      "id": "13-pac-url",
+      "title": "填写自有PAC地址 / Enter the owned PAC URL",
+      "image": "settings-upstream-13-pac-url.png",
+      "seconds": 36.249889951
+    },
+    {
+      "id": "14-cancel-draft",
+      "title": "Cancel放弃本次浮层草稿 / Cancel this popover draft",
+      "image": "settings-upstream-14-cancel-draft.png",
+      "seconds": 39.168080209
+    },
+    {
+      "id": "15-reopen",
+      "title": "重开浮层核对仍为Manual / Reopen and verify Manual remains",
+      "image": "settings-upstream-15-reopen.png",
+      "seconds": 42.409765864
+    },
+    {
+      "id": "16-pac-again",
+      "title": "重新选择PAC / Select PAC again",
+      "image": "settings-upstream-16-pac-again.png",
+      "seconds": 45.408844152
+    },
+    {
+      "id": "17-pac-url-again",
+      "title": "再次填写本轮PAC / Enter this run’s PAC again",
+      "image": "settings-upstream-17-pac-url-again.png",
+      "seconds": 48.368746404
+    },
+    {
+      "id": "18-open-settings",
+      "title": "把同一草稿带到Settings / Carry the same draft into Settings",
+      "image": "settings-upstream-18-open-settings.png",
+      "seconds": 51.410646417
+    },
+    {
+      "id": "19-apply-pac",
+      "title": "Apply PAC / Apply PAC",
+      "image": "settings-upstream-19-apply-pac.png",
+      "seconds": 54.408209443000004
+    },
+    {
+      "id": "20-pac-proxy",
+      "title": "核对PAC选择PROXY / Verify PAC selects PROXY",
+      "image": "settings-upstream-20-pac-proxy.png",
+      "seconds": 57.49548405400001
+    },
+    {
+      "id": "21-pac-direct",
+      "title": "核对同一PAC选择DIRECT / Verify the same PAC selects DIRECT",
+      "image": "settings-upstream-21-pac-direct.png",
+      "seconds": 60.414695108000004
+    },
+    {
+      "id": "22-direct",
+      "title": "显式选择Direct / Select Direct explicitly",
+      "image": "settings-upstream-22-direct.png",
+      "seconds": 63.35948747
+    },
+    {
+      "id": "23-apply-direct",
+      "title": "Apply Direct / Apply Direct",
+      "image": "settings-upstream-23-apply-direct.png",
+      "seconds": 66.309037438
+    },
+    {
+      "id": "24-direct-request",
+      "title": "核对Direct不经过上游 / Verify Direct bypasses the upstream",
+      "image": "settings-upstream-24-direct-request.png",
+      "seconds": 69.30892507600001
+    },
+    {
+      "id": "25-system",
+      "title": "恢复System选择 / Restore the System selection",
+      "image": "settings-upstream-25-system.png",
+      "seconds": 72.210966395
+    },
+    {
+      "id": "26-apply-system",
+      "title": "Apply System / Apply System",
+      "image": "settings-upstream-26-apply-system.png",
+      "seconds": 75.15876332500001
+    }
+  ],
+  "assets": [
+    {
+      "file": "settings-upstream-01-settings.png",
+      "bytes": 362710,
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+    },
+    {
+      "file": "settings-upstream-02-upstream.png",
+      "bytes": 364259,
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+    },
+    {
+      "file": "settings-upstream-03-direct-draft.png",
+      "bytes": 357303,
+      "sha256": "fef383069bc909b204533b5e1517c706aaf3abbc3a415971eeaac84647056ba0"
+    },
+    {
+      "file": "settings-upstream-04-discard.png",
+      "bytes": 364259,
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+    },
+    {
+      "file": "settings-upstream-05-manual.png",
+      "bytes": 374188,
+      "sha256": "960a97e1e2eacc38d2ead5dc0bb794f6740f6c9f9db6fd461925cdd225706478"
+    },
+    {
+      "file": "settings-upstream-06-host.png",
+      "bytes": 373465,
+      "sha256": "f57a261a3a4ee681c5f87e6bc87cb3c63c777f145d15a34a320ff97576f5f267"
+    },
+    {
+      "file": "settings-upstream-07-port.png",
+      "bytes": 364227,
+      "sha256": "bbb91f2383f87879cef9b52ddd1b2afa94d1cc90ba83e6a206debbc433fdf32b"
+    },
+    {
+      "file": "settings-upstream-08-apply-manual.png",
+      "bytes": 357851,
+      "sha256": "eb693699d3c32ac6139980c02c0355bff19e8105bf634ecd0f1a048c90a3bdc5"
+    },
+    {
+      "file": "settings-upstream-09-manual-request.png",
+      "bytes": 357851,
+      "sha256": "eb693699d3c32ac6139980c02c0355bff19e8105bf634ecd0f1a048c90a3bdc5"
+    },
+    {
+      "file": "settings-upstream-10-capture.png",
+      "bytes": 230552,
+      "sha256": "edbcbb8d1f96155d71b17d87ef40b3f20b9dd0678f5294b27ca211b89f310b3f"
+    },
+    {
+      "file": "settings-upstream-11-shortcut.png",
+      "bytes": 363519,
+      "sha256": "351d34ae0acf42378c43c7dcbe35d8e40c5d35052c361e656c18b115c0612eb8"
+    },
+    {
+      "file": "settings-upstream-12-pac-draft.png",
+      "bytes": 373864,
+      "sha256": "92dcc1b6669b28473997ec057c8abb665fa5aeb00dda2a589865239917e28e21"
+    },
+    {
+      "file": "settings-upstream-13-pac-url.png",
+      "bytes": 368187,
+      "sha256": "5d06e93c7aef775a31b93fecc049b8eada447f3e6f6365b185169b2f2f3555eb"
+    },
+    {
+      "file": "settings-upstream-14-cancel-draft.png",
+      "bytes": 230182,
+      "sha256": "a998f8ea7b7271f25f25ca696669c15acecb7472cd9665f52a0c676eca95e438"
+    },
+    {
+      "file": "settings-upstream-15-reopen.png",
+      "bytes": 362067,
+      "sha256": "e293e5408b4e82d85f24dc9eed05a02b976ad22d129392cef1379ad58d49c893"
+    },
+    {
+      "file": "settings-upstream-16-pac-again.png",
+      "bytes": 365697,
+      "sha256": "c1a3ce3f9c51d5bb6feaa32122670a1d3e213b49fb4a3fa58135ac33136a2f10"
+    },
+    {
+      "file": "settings-upstream-17-pac-url-again.png",
+      "bytes": 366418,
+      "sha256": "792b19ae7bb16c2007c3978be99624659f9d448c0b113affc5d43b1d064093ec"
+    },
+    {
+      "file": "settings-upstream-18-open-settings.png",
+      "bytes": 361847,
+      "sha256": "3306f2559af2f7ea5fa4784bae28e6826d300da527c3a99d40974c851eba69bb"
+    },
+    {
+      "file": "settings-upstream-19-apply-pac.png",
+      "bytes": 358253,
+      "sha256": "195e3d979d11874081c49c1f153488ee8a4b53def9394a477697aa0b6ea227f8"
+    },
+    {
+      "file": "settings-upstream-20-pac-proxy.png",
+      "bytes": 358253,
+      "sha256": "195e3d979d11874081c49c1f153488ee8a4b53def9394a477697aa0b6ea227f8"
+    },
+    {
+      "file": "settings-upstream-21-pac-direct.png",
+      "bytes": 358253,
+      "sha256": "195e3d979d11874081c49c1f153488ee8a4b53def9394a477697aa0b6ea227f8"
+    },
+    {
+      "file": "settings-upstream-22-direct.png",
+      "bytes": 356424,
+      "sha256": "43aeefe2dbb85817c0aec864cd75ab9359a50d059fdd51efc3aa6a5d37b42523"
+    },
+    {
+      "file": "settings-upstream-23-apply-direct.png",
+      "bytes": 350867,
+      "sha256": "12b88278eb76fae7f639dd712cf51308376ca35233e4dbf1ff5cee0c275a61de"
+    },
+    {
+      "file": "settings-upstream-24-direct-request.png",
+      "bytes": 350867,
+      "sha256": "12b88278eb76fae7f639dd712cf51308376ca35233e4dbf1ff5cee0c275a61de"
+    },
+    {
+      "file": "settings-upstream-25-system.png",
+      "bytes": 365267,
+      "sha256": "e1798073b2a95cdf895fab088934a3672c39d8bc7de4d8036ef8d226d13d8e7c"
+    },
+    {
+      "file": "settings-upstream-26-apply-system.png",
+      "bytes": 364259,
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+    },
+    {
+      "file": "settings-upstream.mp4",
+      "bytes": 561254,
+      "sha256": "b5473217a94ea06098297595fee54fb4ac0cfddf2a27305b4a08a1ab36ad9b4d"
+    },
+    {
+      "file": "settings-upstream.vtt",
+      "bytes": 2188,
+      "sha256": "4ec60d78bf202a4df810bc141e3f2c8cb0c53ebd3d46c45995555624f8c6096f"
+    }
+  ]
+}

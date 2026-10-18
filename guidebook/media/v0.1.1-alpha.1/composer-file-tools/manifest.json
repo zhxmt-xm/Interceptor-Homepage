@@ -1,0 +1,362 @@
+{
+  "chapter": "composer-file-tools",
+  "title": {
+    "zh-CN": "逐步骤实操：Collection原生文件Tool与确认边界",
+    "en": "Recorded walkthrough: native Collection file Tools and confirmation"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "recording": "isolated native App window; no microphone",
+  "example": {
+    "caller": "Official local SDK, not a commercial Host UI",
+    "clientName": "Guide Collection files",
+    "endpoint": "http://127.0.0.1:65024/mcp",
+    "requestName": "Guide file request",
+    "url": "http://127.0.0.1:65022/guide/collection-file-tools",
+    "header": "x-guide-file: public-collection",
+    "exportedFile": "guide-tool-collection.json",
+    "cancelledFile": "guide-cancelled-collection.json",
+    "sourceOfImport": "The same file exported by the product in this workflow",
+    "importSemantics": "Cancel does not write; confirmation appends with fresh request identities; Auto still confirms",
+    "networkRequests": "0; file Tools do not Send"
+  },
+  "duration": 174.027265948,
+  "video": "composer-file-tools.mp4",
+  "captions": "composer-file-tools.vtt",
+  "steps": [
+    {
+      "id": "01-request",
+      "title": "创建并命名本轮请求 / Create and name this request",
+      "image": "composer-file-tools-01-request.png",
+      "seconds": 0.45180247400000006
+    },
+    {
+      "id": "02-url",
+      "title": "填写本轮公开测试地址 / Enter the public test URL",
+      "image": "composer-file-tools-02-url.png",
+      "seconds": 3.975758776999999
+    },
+    {
+      "id": "03-header",
+      "title": "保存公开Header但不Send / Save a public Header without sending",
+      "image": "composer-file-tools-03-header.png",
+      "seconds": 6.9948134090000025
+    },
+    {
+      "id": "04-export-ask",
+      "title": "检查Collection Export审批 / Inspect Collection Export approval",
+      "image": "composer-file-tools-04-export-ask.png",
+      "seconds": 10.887713365
+    },
+    {
+      "id": "05-export-deny",
+      "title": "Deny不写出文件 / Deny without writing a file",
+      "image": "composer-file-tools-05-export-deny.png",
+      "seconds": 13.889591936
+    },
+    {
+      "id": "06-export-cancel-ask",
+      "title": "再次请求Export并Allow / Request Export again and allow it",
+      "image": "composer-file-tools-06-export-cancel-ask.png",
+      "seconds": 16.916415441999998
+    },
+    {
+      "id": "07-save-cancel-panel",
+      "title": "在自有目录查看Save面板 / Inspect Save in the owned directory",
+      "image": "composer-file-tools-07-save-cancel-panel.png",
+      "seconds": 30.071324941
+    },
+    {
+      "id": "08-save-cancelled",
+      "title": "取消原生Save后没有导出 / Native Save cancellation does not export",
+      "image": "composer-file-tools-08-save-cancelled.png",
+      "seconds": 35.435095308
+    },
+    {
+      "id": "09-export-save-ask",
+      "title": "请求真正保存的Export / Request the Export to save",
+      "image": "composer-file-tools-09-export-save-ask.png",
+      "seconds": 38.445354736
+    },
+    {
+      "id": "10-save-file",
+      "title": "保存guide-tool-collection.json / Save guide-tool-collection.json",
+      "image": "composer-file-tools-10-save-file.png",
+      "seconds": 50.803714563999996
+    },
+    {
+      "id": "11-export-result",
+      "title": "检查产品实际导出的文件 / Inspect the file actually exported by the product",
+      "image": "composer-file-tools-11-export-result.png",
+      "seconds": 55.068130997
+    },
+    {
+      "id": "12-import-deny-ask",
+      "title": "检查Import自己的审批 / Inspect the separate Import approval",
+      "image": "composer-file-tools-12-import-deny-ask.png",
+      "seconds": 58.042070393
+    },
+    {
+      "id": "13-import-denied",
+      "title": "Deny不导入Collection / Deny without importing the Collection",
+      "image": "composer-file-tools-13-import-denied.png",
+      "seconds": 61.037570609
+    },
+    {
+      "id": "14-open-cancel-ask",
+      "title": "Allow后仍需要Open面板 / Allow still requires an Open panel",
+      "image": "composer-file-tools-14-open-cancel-ask.png",
+      "seconds": 64.101333002
+    },
+    {
+      "id": "15-open-cancel-panel",
+      "title": "只选择本流程导出的文件 / Select only this flow’s exported file",
+      "image": "composer-file-tools-15-open-cancel-panel.png",
+      "seconds": 80.346189166
+    },
+    {
+      "id": "16-open-cancelled",
+      "title": "取消Open保留原集合 / Cancel Open and retain the original Collection",
+      "image": "composer-file-tools-16-open-cancelled.png",
+      "seconds": 86.970726505
+    },
+    {
+      "id": "cancel-preview-ask",
+      "title": "再次检查Import审批 / Review Import approval again",
+      "image": "composer-file-tools-cancel-preview-ask.png",
+      "seconds": 89.963884819
+    },
+    {
+      "id": "cancel-preview-open",
+      "title": "打开同一份产品文件 / Open the same product-created file",
+      "image": "composer-file-tools-cancel-preview-open.png",
+      "seconds": 105.739450093
+    },
+    {
+      "id": "cancel-preview-preview",
+      "title": "读取真实导入预览 / Read the actual import preview",
+      "image": "composer-file-tools-cancel-preview-preview.png",
+      "seconds": 110.74988849100001
+    },
+    {
+      "id": "cancel-preview-decision",
+      "title": "取消预览不修改集合 / Cancel preview without changing the Collection",
+      "image": "composer-file-tools-cancel-preview-decision.png",
+      "seconds": 113.76713201
+    },
+    {
+      "id": "confirm-preview-ask",
+      "title": "再次检查Import审批 / Review Import approval again",
+      "image": "composer-file-tools-confirm-preview-ask.png",
+      "seconds": 116.847383515
+    },
+    {
+      "id": "confirm-preview-open",
+      "title": "打开同一份产品文件 / Open the same product-created file",
+      "image": "composer-file-tools-confirm-preview-open.png",
+      "seconds": 132.905587668
+    },
+    {
+      "id": "confirm-preview-preview",
+      "title": "读取真实导入预览 / Read the actual import preview",
+      "image": "composer-file-tools-confirm-preview-preview.png",
+      "seconds": 138.04820961999997
+    },
+    {
+      "id": "confirm-preview-decision",
+      "title": "确认追加而不覆盖原请求 / Confirm append without replacing the original request",
+      "image": "composer-file-tools-confirm-preview-decision.png",
+      "seconds": 141.061417264
+    },
+    {
+      "id": "auto-mode",
+      "title": "为本轮重复导入选择Auto / Select Auto for this repeated import",
+      "image": "composer-file-tools-auto-mode.png",
+      "seconds": 144.144070648
+    },
+    {
+      "id": "auto-open",
+      "title": "Auto仍使用真实Open / Auto still uses native Open",
+      "image": "composer-file-tools-auto-open.png",
+      "seconds": 159.26617206100002
+    },
+    {
+      "id": "auto-preview",
+      "title": "Auto仍等待产品预览确认 / Auto still waits for product preview confirmation",
+      "image": "composer-file-tools-auto-preview.png",
+      "seconds": 164.353849867
+    },
+    {
+      "id": "auto-confirm",
+      "title": "确认第二次追加并检查独立身份 / Confirm the second append and check distinct identities",
+      "image": "composer-file-tools-auto-confirm.png",
+      "seconds": 167.44607634000002
+    },
+    {
+      "id": "stop-server",
+      "title": "关闭本轮MCP Server / Disable this run’s MCP Server",
+      "image": "composer-file-tools-stop-server.png",
+      "seconds": 170.52883642
+    }
+  ],
+  "assets": [
+    {
+      "file": "composer-file-tools-01-request.png",
+      "bytes": 217243,
+      "sha256": "14593b8c936708f96caa8d53eeb19a8ef231f156bfbffcd69165117ee65527c2"
+    },
+    {
+      "file": "composer-file-tools-02-url.png",
+      "bytes": 223881,
+      "sha256": "83e9efb2b45d42874222c1f91b8d345808eafa291729afdddf1f7f1981c46f70"
+    },
+    {
+      "file": "composer-file-tools-03-header.png",
+      "bytes": 233116,
+      "sha256": "be19ba6ccfc869eef7b67b375591be0624a40555396e7caf4fd8de84e9c6ce80"
+    },
+    {
+      "file": "composer-file-tools-04-export-ask.png",
+      "bytes": 287135,
+      "sha256": "af9ee085d651e7c7548375dbe08fd6cb1961b811affb7c5ed1c018bc39700766"
+    },
+    {
+      "file": "composer-file-tools-05-export-deny.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-06-export-cancel-ask.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-07-save-cancel-panel.png",
+      "bytes": 56070,
+      "sha256": "7dfbd31d33d077bb8b9fdfe2e4df97d26a33d66ed56969b6f3ee9b27d6981ed5"
+    },
+    {
+      "file": "composer-file-tools-08-save-cancelled.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-09-export-save-ask.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-10-save-file.png",
+      "bytes": 54882,
+      "sha256": "d3961054370bf3c1380c9b1ffcee06ad800d3e381795dcfaa7af98062790712a"
+    },
+    {
+      "file": "composer-file-tools-11-export-result.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-12-import-deny-ask.png",
+      "bytes": 300752,
+      "sha256": "32a0bcc3bc9593480358f99fa151457627ea04769576d8d635a11858e1ab129d"
+    },
+    {
+      "file": "composer-file-tools-13-import-denied.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-14-open-cancel-ask.png",
+      "bytes": 235822,
+      "sha256": "24b7e24160fe85d02c97aa413e24c91cd1804a0eabe505df4daa5069b449c45d"
+    },
+    {
+      "file": "composer-file-tools-15-open-cancel-panel.png",
+      "bytes": 141502,
+      "sha256": "f1eea03b07a2c4251387d1d6b6e95e8de31512b884c375884fe08cee29e3be73"
+    },
+    {
+      "file": "composer-file-tools-16-open-cancelled.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-cancel-preview-ask.png",
+      "bytes": 235808,
+      "sha256": "4914cc963503a75a8222f9b2dc46e984c7bdcd86c630bddaafe0c20eea4e875f"
+    },
+    {
+      "file": "composer-file-tools-cancel-preview-open.png",
+      "bytes": 141502,
+      "sha256": "f1eea03b07a2c4251387d1d6b6e95e8de31512b884c375884fe08cee29e3be73"
+    },
+    {
+      "file": "composer-file-tools-cancel-preview-preview.png",
+      "bytes": 251133,
+      "sha256": "5d0d5ce7463ab5faf79c7040d1f3ee3f1328bbd7023524e4875526bee725da9b"
+    },
+    {
+      "file": "composer-file-tools-cancel-preview-decision.png",
+      "bytes": 232342,
+      "sha256": "36768f3ed92d1b04c9667f65c0ea5c6ca2cfa1d61cbdeae3e2094721faf6e116"
+    },
+    {
+      "file": "composer-file-tools-confirm-preview-ask.png",
+      "bytes": 235793,
+      "sha256": "9ffb061e9fe0552884f317c2eab4c26f4a560712e54ede7688a415b32aeb0603"
+    },
+    {
+      "file": "composer-file-tools-confirm-preview-open.png",
+      "bytes": 141502,
+      "sha256": "f1eea03b07a2c4251387d1d6b6e95e8de31512b884c375884fe08cee29e3be73"
+    },
+    {
+      "file": "composer-file-tools-confirm-preview-preview.png",
+      "bytes": 251133,
+      "sha256": "5d0d5ce7463ab5faf79c7040d1f3ee3f1328bbd7023524e4875526bee725da9b"
+    },
+    {
+      "file": "composer-file-tools-confirm-preview-decision.png",
+      "bytes": 238693,
+      "sha256": "fd09600af8b1e227e236a4ed58e4a421fed77998b353a921ed0d862fa614317d"
+    },
+    {
+      "file": "composer-file-tools-auto-mode.png",
+      "bytes": 238666,
+      "sha256": "709063eacf7c2f13d032c905a469d3ffe3b87c482b33e0a8b93cfc55813a55ac"
+    },
+    {
+      "file": "composer-file-tools-auto-open.png",
+      "bytes": 141502,
+      "sha256": "f1eea03b07a2c4251387d1d6b6e95e8de31512b884c375884fe08cee29e3be73"
+    },
+    {
+      "file": "composer-file-tools-auto-preview.png",
+      "bytes": 254937,
+      "sha256": "0780422e7fcdd56230939c51656793ccd5b39bfd2a4499266ea40751d47233b3"
+    },
+    {
+      "file": "composer-file-tools-auto-confirm.png",
+      "bytes": 244532,
+      "sha256": "f42919e8a40c5ebead61628df7d1a6e77d949ee9311d39b3d0d15ec68db22d8c"
+    },
+    {
+      "file": "composer-file-tools-stop-server.png",
+      "bytes": 434952,
+      "sha256": "ce37caaea2db491176862300ec2738cc6ebae00203395f7d689d7064eeda25e0"
+    },
+    {
+      "file": "composer-file-tools.mp4",
+      "bytes": 1087645,
+      "sha256": "366a65e0eb63df87b1ea55dbf11ab67d9b07fa05cb7461e63bbd375e2a0a1a26"
+    },
+    {
+      "file": "composer-file-tools.vtt",
+      "bytes": 2944,
+      "sha256": "b75f18fc3d9f5b679c2d42c24a7ff5e5f2af4b74d295e5b926cf385de6ee74db"
+    }
+  ]
+}

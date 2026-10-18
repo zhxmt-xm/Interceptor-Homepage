@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.366 --> 00:00:03.354
+打开Rules / Open Rules
+
+2
+00:00:03.354 --> 00:00:06.466
+创建Guide response controls / Create Guide response controls
+
+3
+00:00:06.466 --> 00:00:09.407
+限定127.0.0.1 / Restrict to 127.0.0.1
+
+4
+00:00:09.407 --> 00:00:12.765
+添加Path / Add Path
+
+5
+00:00:12.765 --> 00:00:15.759
+限定本轮动作路径 / Restrict this run’s action paths
+
+6
+00:00:15.759 --> 00:00:18.757
+移除前一个动作 / Remove the previous action
+
+7
+00:00:18.757 --> 00:00:22.054
+添加本次动作 / Add this action
+
+8
+00:00:22.054 --> 00:00:25.003
+设置503模拟状态 / Set mock status 503
+
+9
+00:00:25.003 --> 00:00:27.953
+为模拟响应添加Header / Add a Header to the synthetic response
+
+10
+00:00:27.953 --> 00:00:30.905
+填写content-type / Enter content-type
+
+11
+00:00:30.905 --> 00:00:33.904
+填写application/json / Enter application/json
+
+12
+00:00:33.904 --> 00:00:36.904
+添加第二个模拟Header / Add the second synthetic Header
+
+13
+00:00:36.904 --> 00:00:39.855
+填写x-guide-maintenance / Enter x-guide-maintenance
+
+14
+00:00:39.855 --> 00:00:42.796
+填写planned / Enter planned
+
+15
+00:00:42.796 --> 00:00:45.759
+填写模拟JSON正文 / Enter the synthetic JSON body
+
+16
+00:00:45.759 --> 00:00:48.757
+启用当前动作 / Enable the current action
+
+17
+00:00:48.757 --> 00:00:51.762
+Apply当前动作 / Apply the current action
+
+18
+00:00:51.762 --> 00:00:55.556
+核对503、Header与模拟正文 / Verify status 503, Headers and the mock body
+
+19
+00:00:55.556 --> 00:00:58.714
+返回同一规则 / Return to the same Rule
+
+20
+00:00:58.714 --> 00:01:01.709
+停用这条规则 / Disable this Rule
+
+21
+00:01:01.709 --> 00:01:04.708
+Apply停用状态 / Apply the disabled state
+
+22
+00:01:04.708 --> 00:01:07.956
+发送新请求核对源站恢复 / Verify origin recovery with a new request
+
+23
+00:01:07.956 --> 00:01:10.956
+返回Rules继续编辑 / Return to Rules to continue editing
+
+24
+00:01:10.956 --> 00:01:13.906
+移除前一个动作 / Remove the previous action
+
+25
+00:01:13.906 --> 00:01:17.265
+添加本次动作 / Add this action
+
+26
+00:01:17.265 --> 00:01:20.207
+设置2000ms延迟 / Set a 2000ms delay
+
+27
+00:01:20.207 --> 00:01:23.206
+启用当前动作 / Enable the current action
+
+28
+00:01:23.206 --> 00:01:26.258
+Apply当前动作 / Apply the current action
+
+29
+00:01:26.258 --> 00:01:31.619
+核对实际等待后仍到达源站 / Verify the real wait still reaches the origin
+
+30
+00:01:31.619 --> 00:01:34.666
+返回同一规则 / Return to the same Rule
+
+31
+00:01:34.666 --> 00:01:37.593
+停用这条规则 / Disable this Rule
+
+32
+00:01:37.593 --> 00:01:40.566
+Apply停用状态 / Apply the disabled state
+
+33
+00:01:40.566 --> 00:01:43.865
+发送新请求核对源站恢复 / Verify origin recovery with a new request
+
+34
+00:01:43.865 --> 00:01:46.858
+返回Rules继续编辑 / Return to Rules to continue editing
+
+35
+00:01:46.858 --> 00:01:49.804
+移除前一个动作 / Remove the previous action
+
+36
+00:01:49.804 --> 00:01:53.205
+添加本次动作 / Add this action
+
+37
+00:01:53.205 --> 00:01:56.253
+选择reset模式 / Select reset mode
+
+38
+00:01:56.253 --> 00:01:59.206
+启用当前动作 / Enable the current action
+
+39
+00:01:59.206 --> 00:02:02.207
+Apply当前动作 / Apply the current action
+
+40
+00:02:02.207 --> 00:02:05.957
+核对reset阻断 / Verify reset blocking
+
+41
+00:02:05.957 --> 00:02:08.958
+返回规则切换阻断方式 / Return to the Rule to change blocking mode
+
+42
+00:02:08.958 --> 00:02:12.005
+选择close模式 / Select close mode
+
+43
+00:02:12.005 --> 00:02:14.962
+Apply close模式 / Apply close mode
+
+44
+00:02:14.962 --> 00:02:18.654
+核对close阻断 / Verify close blocking
+
+45
+00:02:18.654 --> 00:02:21.805
+返回同一规则 / Return to the same Rule
+
+46
+00:02:21.805 --> 00:02:24.807
+停用这条规则 / Disable this Rule
+
+47
+00:02:24.807 --> 00:02:27.753
+Apply停用状态 / Apply the disabled state
+
+48
+00:02:27.753 --> 00:02:30.957
+发送新请求核对源站恢复 / Verify origin recovery with a new request
+
+49
+00:02:30.957 --> 00:02:33.957
+返回Rules继续编辑 / Return to Rules to continue editing
+
+50
+00:02:33.957 --> 00:02:36.912
+移除前一个动作 / Remove the previous action
+
+51
+00:02:36.912 --> 00:02:40.155
+添加本次动作 / Add this action
+
+52
+00:02:40.155 --> 00:02:43.449
+Header选择Response / Select Response for the Header
+
+53
+00:02:43.449 --> 00:02:46.368
+填写content-encoding / Enter content-encoding
+
+54
+00:02:46.368 --> 00:02:49.306
+填写gzip / Enter gzip
+
+55
+00:02:49.306 --> 00:02:52.306
+启用当前动作 / Enable the current action
+
+56
+00:02:52.306 --> 00:02:55.252
+Apply当前动作 / Apply the current action
+
+57
+00:02:55.252 --> 00:02:58.700
+只改Header不会压缩原文 / Header-only editing does not compress the original body
+
+58
+00:02:58.700 --> 00:03:01.765
+返回规则添加明确Body替换 / Return to add an explicit Body replacement
+
+59
+00:03:01.765 --> 00:03:05.105
+添加Body动作 / Add the Body action
+
+60
+00:03:05.105 --> 00:03:08.406
+Body选择Response / Select Response for Body
+
+61
+00:03:08.406 --> 00:03:11.347
+填写guide-encoded-body / Enter guide-encoded-body
+
+62
+00:03:11.347 --> 00:03:14.357
+Apply Header与Body / Apply Header and Body
+
+63
+00:03:14.357 --> 00:03:18.006
+核对gzip线上字节与可读正文 / Verify gzipped wire bytes and the readable body
+
+64
+00:03:18.006 --> 00:03:21.070
+返回同一规则 / Return to the same Rule
+
+65
+00:03:21.070 --> 00:03:24.055
+停用这条规则 / Disable this Rule
+
+66
+00:03:24.055 --> 00:03:27.111
+Apply停用状态 / Apply the disabled state
+
+67
+00:03:27.111 --> 00:03:30.452
+发送新请求核对源站恢复 / Verify origin recovery with a new request
+
+68
+00:03:30.452 --> 00:03:33.399
+返回Rules继续编辑 / Return to Rules to continue editing

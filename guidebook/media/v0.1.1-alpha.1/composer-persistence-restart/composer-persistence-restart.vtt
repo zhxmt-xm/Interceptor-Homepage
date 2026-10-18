@@ -1,0 +1,45 @@
+WEBVTT
+
+1
+00:00:00.406 --> 00:00:03.397
+检查保留的第1级目录 / Inspect retained folder level 1
+
+2
+00:00:03.397 --> 00:00:06.450
+检查保留的第2级目录 / Inspect retained folder level 2
+
+3
+00:00:06.450 --> 00:00:09.495
+检查保留的第3级目录 / Inspect retained folder level 3
+
+4
+00:00:09.495 --> 00:00:12.595
+打开同一个保存请求 / Open the same saved request
+
+5
+00:00:12.595 --> 00:00:15.642
+核对Header值与启停状态 / Verify Header values and enabled states
+
+6
+00:00:15.642 --> 00:00:18.663
+核对未重填的Query行 / Verify the Query row without refilling it
+
+7
+00:00:18.663 --> 00:00:21.886
+核对实际回载的JSON正文 / Verify the actually restored JSON body
+
+8
+00:00:21.886 --> 00:00:24.930
+核对实际回载的公开Auth字段 / Verify the restored public Auth field
+
+9
+00:00:24.930 --> 00:00:27.995
+仅在重启后Send一次核对实际字节 / Send once after restart and verify actual bytes
+
+10
+00:00:27.995 --> 00:00:31.060
+清空演示Auth值 / Clear the demonstration Auth value
+
+11
+00:00:31.060 --> 00:00:34.978
+恢复Auth None并等待保存 / Restore Auth None and wait for saving

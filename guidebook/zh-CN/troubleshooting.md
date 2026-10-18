@@ -17,11 +17,11 @@
 
 2. 清空搜索与筛选，而不是 Clear 记录。
 
-   **待配图**：现有搜索示例恢复 `/guide/capture`，并非清空所有条件，不能当作本步。
+   ![取消各分组后真正清空搜索，不清空录制](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
 
 3. 让客户端再发一条明确的测试请求，检查客户端是否报 DNS 或连接错误。
 
-   图中是 Capture 实拍的 `/guide/capture/orders` 成功到达；DNS/连接失败的客户端画面仍待配图。
+   图中是Capture的`/guide/capture/orders`成功到达。连接失败另见[Composer自有端点关闭连接](diagnostics.md#walkthrough-diagnostics-lifecycle-04-send-failed)；它不是DNS故障，不混称错误类型。
 
    ![实际外部测试请求到达 Capture](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
 
@@ -44,7 +44,7 @@
 
 1. 能看到 tunnel，说明连接可能已经经过代理，不等于已经解密。
 
-   **待配图**：现有协议片段没有未解密 tunnel 状态，明文 HTTP/2 不能替代。
+   ![实际未解密的CONNECT与Tunnel详情](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
 
 2. 检查 CA、信任和 HTTPS decryption 的实际状态。
 
@@ -75,7 +75,7 @@
 
 1. 检查是否仍是未应用草稿，规则是否开启，字段是否完整。
 
-   以下为 Rules 中 `Guide test header` 的启用和 Apply 两个真实状态；未填写报错分支仍待配图。
+   以下为`Guide test header`的启用与Apply两个真实状态；字段不完整时的检查另见[规则树与校验](rules.md#walkthrough-rules-tree)。
 
    ![开启但仍需 Apply 的操作阶段](../media/v0.1.1-alpha.1/rules/rules-09-enable.png)
 
@@ -107,7 +107,9 @@
 
 6. Apply 冲突时先保留需要的编辑，显式 Reload 获取最新树后重新编辑；Reload 会放弃当前草稿，不盲目点它。
 
-   **待配图 / blocked**：双写入者冲突与 Reload 恢复未录制。
+   ![第二写入者提交后显式Reload](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-17-reload.png)
+
+   按[冲突恢复](rules.md#walkthrough-rules-conflict)重新编辑最新版本并用新请求核对，不重复提交旧草稿。
 
 **判断**：规则命中与真实 Header/Body 效果不同，结合[命中检查](rules.md#effects)确认。
 
@@ -116,17 +118,17 @@
 
 1. 检查 Capture 是否存在 pending breakpoint，必要时解除筛选。
 
-   本图引用 `Guide request breakpoint` 的实际等待项；解除筛选操作仍待配图。
+   本图引用`Guide request breakpoint`的实际等待项；解除筛选可按[取消分组与清空搜索](capture.md#walkthrough-capture-filters-09-remove-status)操作，清空搜索不是Clear。
 
    ![实际 pending 请求断点](../media/v0.1.1-alpha.1/breakpoints/breakpoints-12-pending.png)
 
 2. 查看队首与 Queued，不把排队状态当作网络加载动画。
 
-   **待配图**：录制依次处理单项，没有同时排队的 Queued。
+   [队列实录](breakpoints.md#walkthrough-breakpoints-queue)同时挂起多条请求，展示队首、后续Queued、草稿与批量范围；不是把几次单项操作拼称同一队列。
 
 3. 原样放行或丢弃不再需要的等待项；批量操作先确认队列或规则范围。
 
-   下图分别属于 Breakpoints 演示中的两条不同请求，不是对同一已处理目标操作两次；批量分支仍待配图。
+   下图分别属于两条不同请求，不是对同一已处理目标操作两次；[队列与批量实录](breakpoints.md#walkthrough-breakpoints-queue)另有完整范围检查。
 
    ![第一条实际原样放行](../media/v0.1.1-alpha.1/breakpoints/breakpoints-17-unmodified.png)
 
@@ -140,7 +142,7 @@
 
 5. 客户端已经断开时重新查询，不向已消失的等待项反复提交。
 
-   **待配图**：客户端断开、旧 ID 失效和重新查询的往返未录制。
+   [管理器实录](breakpoints.md#walkthrough-breakpoints-manager)包含客户端实际取消后等待项消失。已经消失的项不要再提交旧内容；视频不通过内部API强行复用旧ID。
 
 **关键说明**：人工断点没有固定超时自动继续；停用规则也不能代替核对已有等待项是否解决。
 
@@ -149,17 +151,19 @@
 
 1. 区分只读预览上限、仍在接收、真实中断和解码失败。
 
-   本图引用 Capture 的损坏 gzip 提示，只展示解码失败；仍在接收、中断和超限分支仍待配图。
+   本图为损坏gzip的解码失败；[HTTP/2过程](capture.md#walkthrough-capture-http2)另行展示接收中、错误GOAWAY后的部分正文与新请求恢复，[大正文](capture.md#walkthrough-capture-body-limits)展示预览上限。不要把这些状态混成一个错误。
 
    ![真实损坏 gzip 的解码提示](../media/v0.1.1-alpha.1/capture/capture-29-encoding-corrupt-gzip.png)
 
 2. 文本预览超过 `2 MiB` 不表示捕获只保存了这些字节。
 
-   **待配图**：没有超限文本预览与完整文件的逐步对照。
+   [大正文实录](capture.md#walkthrough-capture-body-limits)展示超过2MiB的JSON预览限制与完整`guide-full-response.json`保存，不能把预览或Copy当成完整文件。
 
 3. 完整正文在 `1–2 MiB` 时用手动 Format；截断或不完整正文不能格式化。
 
-   **待配图**：该大小范围的 Format 操作和不完整正文拒绝格式化未录制。
+   ![超过自动格式化范围后手动Format](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png)
+
+   同段还检查超限预览的操作状态；未完成正文不假装已经完整接收。
 
 4. 图片、未知二进制、音视频可能只有元信息与保存入口。
 
@@ -179,7 +183,7 @@
 
 6. 若数据从 HAR 导入，检查是否本来就被移除了正文或无法表示相关协议内容。
 
-   **待配图**：本次正常 HAR 往返不是移除正文或协议信息缺失的对照。
+   [移除正文的HAR往返](settings.md#walkthrough-settings-privacy-export-18-strip-bodies)由同一流程先Export再Import，真实核对正文已移除；它不凭空补回HAR没有的协议数据。
 
 **判断**：保存完整数据、读取预览和网络完整接收是不同事实，详见 [Capture](capture.md#选择正文查看方式)。
 
@@ -194,7 +198,7 @@
 
 2. 检查原生文件窗口是否仍在等待，是否被用户取消。
 
-   下图是等待确认 `guide-recording.har` 的真实 Save 面板；原生面板取消分支仍待配图。
+   下图是等待确认`guide-recording.har`的真实Save面板。[Agent的JSONL Save取消](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel)和[MCP的Save取消](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel)另有独立实录，文件名与操作不混用。
 
    ![尚需用户完成的真实保存面板](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
 
@@ -210,7 +214,7 @@
 
 5. Capture 文件任务或取消清理仍在进行时，等待完成后再 Clear。
 
-   **待配图**：运行中或取消清理状态下 Clear 被拒绝的场景未录制。
+   [运行中Archive取消](transfer.md#walkthrough-transfer-cancel)先等待取消清理结束，再Clear。不要强行调用禁用操作；看到任务开始也不等于完成。
 
 6. 部分导入或身份变化按对应格式说明理解；重复导入不是覆盖更新。
 
@@ -233,23 +237,31 @@
 
 2. 修改配置后无法保存：重新 Test，旧的验证结果不能保存另一份配置。
 
-   **待配图**：编辑后失去验证、重新 Test/Save 的故障分支未录制。
+   现有实录把`Guide model two`的Model ID改为`guide-two-edited`，先确认Save失效，再重新Test并保存。下列三步各有真实画面；它们不冒充Base URL或凭据变更。
+
+   ![修改Model ID后Save不再可用](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
+
+   ![重新Test验证当前配置](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
+
+   ![保存当前已验证的配置](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
 
 3. 对话停在等待：检查 App Tool 审批、系统授权或文件窗口。
 
-   这里是 `Pause recording after asking me.` 的正常 Ask 等待，不是模型卡死；原生授权/文件等待的 Agent 分支仍待配图。
+   这里是`Pause recording after asking me.`的正常Ask等待，不是模型卡死；[Agent导出](agent.md#walkthrough-agent-tool-lifecycle-10-export-request)另行展示审批后真实Save的等待、取消与保存。Windows原生授权仍缺相应平台。
 
    ![实际等待用户审批的 Agent Tool](../media/v0.1.1-alpha.1/agent/agent-18a-tool-question.png)
 
 4. Tool 不可用：检查正确的 Agent 列，而不是 MCP 列；清空搜索查看完整开关。
 
-   本图来自权限章节，只展示 Agent 的 `capture_clear` 被关闭；清空搜索与实际拒绝调用仍待配图。
+   下图定位Agent的独立开关。[完整只读实录](tool-permissions.md#walkthrough-tool-permissions-readonly)另有清空搜索、逐项配置、实际拒绝调用和记录保留，重启后继续核对。
 
    ![只关闭 Agent 列的实际状态](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-04-disable-agent.png)
 
 5. 已发送请求或写配置的结果不确定：先回产品查状态，再决定 Retry。
 
-   **待配图**：现有 Stop/Retry 是流式演示，没有已发送业务请求或写配置的故障对照。
+   ![已完成Pause后Stop回复，Recording不会被撤销](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
+
+   [完整Tool实录](agent.md#walkthrough-agent-tool-lifecycle)随后重新限定只读查询，再区分导出任务开始和完成；重试前先查实际状态。
 
 6. 历史中的请求 ID 失效：重新查询当前 Capture，不猜新 ID。
 
@@ -272,7 +284,7 @@
 
 3. 检查复制的是当前 Client 的配置；轮换凭据或更换 endpoint 后，Host 需要更新。
 
-   下面是 `Guide local client` 轮换后更新配置及 SDK 重连；换 endpoint 后的真实 Host 更新仍待配图。
+   下面是`Guide local client`轮换后重连。[新endpoint实录](mcp.md#walkthrough-mcp-endpoint-reconnect)另有更换地址、复制新配置及SDK实际查询；外部商业Host配置仍缺自己的环境，不用SDK画面代替。
 
    ![轮换后复制新配置并重新连接](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
 
@@ -284,7 +296,7 @@
 
 5. 能连接但没有 Tool 时，检查 MCP 列授权和 Host 的工具发现状态。
 
-   本图仅展示 `capture_clear` 的 MCP 列关闭；不是 Host 空列表，实际发现失败仍待配图。
+   下图定位MCP列。实际禁用后的调用拒绝与重启后的仅query发现见[只读权限](tool-permissions.md#walkthrough-tool-permissions-readonly)，不把开关图片冒充外部Host的空列表。
 
    ![权限章节的实际 MCP 清理开关状态](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-05-disable-mcp.png)
 
@@ -292,7 +304,9 @@
 
    ![MCP Pause 的实际待审批状态](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
 
-   **待配图**：本次 Pause 没有原生窗口，不能证明其他 Tool 的文件或 UAC 等待。
+   ![MCP审批后等待真实Save窗口](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
+
+   本地SDK的Save取消和再次保存已有独立步骤；Windows UAC仍需要相应平台，不混称。
 
 **处理**：按 [MCP](mcp.md)逐层区分网络、认证、协议、权限与业务错误；不把凭据公开到工单。
 
@@ -305,7 +319,9 @@
 
 2. 检查实际状态是否为 failed，而不是把失败解读成 up-to-date。
 
-   **待配图**：该片段只查看当前页面，没有 failed/up-to-date 两种结果的操作对照。
+   ![实际Check返回failed与GitHub HTTP 404](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png)
+
+   这是实际失败，不是`up-to-date`，也没有伪造另一种结果作对照。
 
 3. 当前更新源需要匿名可读的合适稳定版本；私有仓库、仅有预发布或网络受限都可能影响结果。
 
@@ -326,7 +342,7 @@
 
 1. 先确认 App 是最小化、仍在收尾，还是确实已退出；不要同时启动多个实例。
 
-   **待配图**：没有最小化、退出中与进程已结束的对照，关闭 Agent 面板不是退出。
+   [窗口控件](workspace.md#walkthrough-workspace-window-controls)展示真实最大化/还原与最小化，窗口状态另行核对；[持等待正常Close](breakpoints.md#walkthrough-breakpoints-mixed-queues)验证实际取消与进程退出。关闭Agent面板仍不是退出，不用桌面图片冒充App的结束状态。
 
 2. 若上一个实例异常退出，确认它已经结束后再正常启动 Interceptor，读取正式恢复状态。
 
@@ -334,7 +350,9 @@
 
 3. 在 System proxy 使用 Restore，或在恢复完成后正常关闭。
 
-   **待配图**：Settings 的 System proxy 片段只读，没有 Restore 和恢复终态。
+   ![实际Restore恢复原系统路由](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png)
+
+   [代理控制实录](settings.md#walkthrough-settings-proxy-routing)分别检查Restore、Recording和重新Enable，不把暂停录制当作恢复系统代理。
 
 4. 如果会话期间别的软件修改了代理，核对双方当前配置；不要要求 Interceptor 覆盖对方的新设置。
 

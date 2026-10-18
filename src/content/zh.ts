@@ -42,17 +42,17 @@ export const chinese: typeof english = {
   showcase: {
     label: '工作台总览',
     eyebrow: 'ONE WORKSPACE. THE WHOLE PICTURE.',
-    alt: 'Interceptor Capture 工作台设计预览，展示示例 HTTP、WebSocket 和 gRPC 流量。',
+    alt: 'Interceptor 发布版 Capture 实拍，展示本地示例请求与 JSON 响应。',
     description: '一个工作台，从找到请求，到验证下一个想法。',
-    caption: '界面设计预览与示例数据，非发布版本截图。',
-    original: '查看原尺寸设计图',
+    caption: '发布版 App 实拍 · 本地演示数据',
+    original: '查看原尺寸截图',
   },
   features: {
     eyebrow: 'LESS GUESSWORK. MORE SIGNAL.',
     title: '让看不见的过程，\n变成看得懂的线索。',
     body: '从一个意外的状态码，到一个难以复现的 API 问题。\n把需要的工具，放在同一个地方。',
-    imageNote: '界面设计预览 · 示例数据',
-    openImage: '查看原尺寸设计图',
+    imageNote: '真实 App 截图 · 本地演示数据',
+    openImage: '查看原尺寸截图',
     sections: [
       {
         id: 'capture',
@@ -66,7 +66,7 @@ export const chinese: typeof english = {
           '在 HTTP 之外，继续追踪 WebSocket 帧与 gRPC 消息。',
         ],
         tags: ['HTTP(S)', 'WebSocket', 'gRPC'],
-        imageAlt: 'Capture 设计预览，展示应用筛选与示例网络交互。',
+        imageAlt: 'Capture 实拍，展示本地请求列表、筛选区与 JSON 响应。',
       },
       {
         id: 'rules',
@@ -80,7 +80,7 @@ export const chinese: typeof english = {
           '改写内容、映射本地文件，或重定向接口。',
           '不改后端，也能阻断流量或模拟网络延迟。',
         ],
-        imageAlt: 'Rules 设计预览，展示匹配条件、本地映射与响应改写。',
+        imageAlt: 'Rules 实拍，展示已生效的 Host、Path 条件与请求 Header 改写。',
       },
       {
         id: 'breakpoints',
@@ -94,7 +94,7 @@ export const chinese: typeof english = {
           '先看清原始内容，再编辑需要改变的部分。',
           '选择继续、转发修改后的内容，或直接丢弃。',
         ],
-        imageAlt: 'Breakpoints 设计预览，展示已挂起的响应和可编辑的状态码、headers及正文。',
+        imageAlt: 'Breakpoints 实拍，展示已挂起的 POST 请求与可编辑的 JSON 正文。',
       },
       {
         id: 'composer',
@@ -108,7 +108,7 @@ export const chinese: typeof english = {
           '重新发送，并直接检查返回的响应。',
           '把常用请求保存在集合中，随时接着调试。',
         ],
-        imageAlt: 'Composer 设计预览，展示请求集合、示例请求和JSON响应。',
+        imageAlt: 'Composer 实拍，展示请求 Header、真实发送结果与 JSON 响应。',
       },
       {
         id: 'agent',
@@ -122,7 +122,7 @@ export const chinese: typeof english = {
           '调用已启用的工具，需要时先由你批准。',
           '重新打开本地保存的对话，接着已有线索继续。',
         ],
-        imageAlt: 'Agent 设计预览，展示Capture旁的示例调试对话。',
+        imageAlt: 'Agent 实拍，展示 Capture 旁使用本地演示模型完成的对话。',
       },
       {
         id: 'mcp',
@@ -136,7 +136,8 @@ export const chinese: typeof english = {
           '选择可用工具，以及 Ask 或 Auto 执行模式。',
         ],
         tags: ['MCP', 'External clients', 'Permissions'],
-        imageAlt: 'MCP设置设计预览，展示本机端点、接入客户端及独立的Tool权限开关。',
+        imageAlt:
+          'MCP 设置实拍，展示运行中的本机服务、演示 Client 和 Tool 开关，不代表外部 Host 验收。',
       },
     ],
     capabilities: [

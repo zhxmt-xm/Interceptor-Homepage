@@ -42,17 +42,17 @@ export const english = {
   showcase: {
     label: 'Workspace overview',
     eyebrow: 'ONE WORKSPACE. THE WHOLE PICTURE.',
-    alt: 'Interceptor Capture workspace design preview with sample HTTP, WebSocket, and gRPC traffic.',
+    alt: 'Released Interceptor Capture workspace with local demo requests and a JSON response.',
     description: 'One workspace. From the first request to the next idea.',
-    caption: 'Interface design with sample data — not a released-build screenshot.',
-    original: 'Open the full-size design image',
+    caption: 'Released App screenshot · Local demo data',
+    original: 'Open the full-size screenshot',
   },
   features: {
     eyebrow: 'LESS GUESSWORK. MORE SIGNAL.',
     title: 'Make the invisible\nunderstandable.',
     body: 'From a mysterious status code to a stubborn API bug. Keep the tools you need in the same place.',
-    imageNote: 'Interface design · Sample data',
-    openImage: 'Open the full-size design image',
+    imageNote: 'Actual App screenshot · Local demo data',
+    openImage: 'Open the full-size screenshot',
     sections: [
       {
         id: 'capture',
@@ -66,7 +66,7 @@ export const english = {
           'Follow WebSocket frames and gRPC messages alongside HTTP traffic.',
         ],
         tags: ['HTTP(S)', 'WebSocket', 'gRPC'],
-        imageAlt: 'Capture design preview with application filters and sample network exchanges.',
+        imageAlt: 'Actual Capture workspace with local requests, filters, and a JSON response.',
       },
       {
         id: 'rules',
@@ -80,7 +80,8 @@ export const english = {
           'Rewrite content, map a local file, or redirect an endpoint.',
           'Block traffic or add delay without changing the backend.',
         ],
-        imageAlt: 'Rules design preview showing match conditions and local-response rewriting.',
+        imageAlt:
+          'Actual Rules workspace with applied Host and Path conditions and a request-header rewrite.',
       },
       {
         id: 'breakpoints',
@@ -94,8 +95,7 @@ export const english = {
           'Inspect the original content before making an edit.',
           'Continue, forward an edited message, or drop it deliberately.',
         ],
-        imageAlt:
-          'Breakpoints design preview with a paused response and editable status, headers, and body.',
+        imageAlt: 'Actual Breakpoints workspace with a paused POST request and editable JSON body.',
       },
       {
         id: 'composer',
@@ -110,7 +110,7 @@ export const english = {
           'Keep useful requests organized in reusable collections.',
         ],
         imageAlt:
-          'Composer design preview with a request collection, sample request, and JSON response.',
+          'Actual Composer workspace with a request header, a real send, and its JSON response.',
       },
       {
         id: 'agent',
@@ -124,7 +124,8 @@ export const english = {
           'Use enabled tools, with approval when required.',
           'Resume locally stored conversations when you return.',
         ],
-        imageAlt: 'Agent design preview showing a sample debugging conversation beside Capture.',
+        imageAlt:
+          'Actual Agent conversation beside Capture, completed with a local demonstration model.',
       },
       {
         id: 'mcp',
@@ -139,7 +140,7 @@ export const english = {
         ],
         tags: ['MCP', 'External clients', 'Permissions'],
         imageAlt:
-          'MCP settings design preview showing a local endpoint, configured client, and per-tool permissions.',
+          'Actual MCP settings with a running loopback server, a demo Client, and Tool switches; not external-host acceptance.',
       },
     ] satisfies FeatureDetail[],
     capabilities: [

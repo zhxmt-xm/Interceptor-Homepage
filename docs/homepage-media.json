@@ -1,0 +1,30 @@
+{
+  "release": "v0.1.1-alpha.1",
+  "releaseAsset": "Interceptor-0.1.1-alpha.1-darwin-x64.zip",
+  "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
+  "platform": "macOS x64",
+  "appLanguage": "zh-CN",
+  "capture": "Actual isolated native App window; light and dark selected through product UI; no recoloring or compositing.",
+  "workflow": "Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/application/guidebook-homepage-media.workflow.ts",
+  "imageWidth": 3200,
+  "imageHeight": 1800,
+  "demoBoundaries": {
+    "traffic": "Owned loopback requests under /showcase/.",
+    "agent": "Keyless deterministic local demonstration model, not commercial-model acceptance.",
+    "mcp": "Actual loopback server and demo Client settings, not external-host compatibility acceptance."
+  },
+  "images": {
+    "capture-light.png": "9805a31c4c36b1df9b2df2db98b5a4f991722be30b8b49340f6c5d8bb0e3f924",
+    "capture-dark.png": "43725c77a9a2b7947268155ea03506b98acda8955b66ae78d512bb4ae154159c",
+    "rules-light.png": "d4d6d1adba77e1772e33d49d055f179d20bbad78df65712ce4a3e6122163588e",
+    "rules-dark.png": "7ea76510a7aa71f05db67ed625b133642e3c24ecc6188837274c5865754b381c",
+    "breakpoints-light.png": "98ea11e2c66e49f56fe1ad02a2b2a8147a7c1a914677680fe2a7ed0c366c5f4d",
+    "breakpoints-dark.png": "fb1463d6bb6dc8a040859e994a61e3466a630b426d33fe67a3f3442a6fa4b132",
+    "composer-light.png": "4295d78016d603ec60d56ab5e472f004c4d759e6957e100e16183978c97d57cf",
+    "composer-dark.png": "c0bd9af491f0c056c3897f8636ca74906d0ba7db51ad1dcefdedbbee80d8d027",
+    "agent-light.png": "31652f309d8dfd78f3aea6c4a8d37256e953a8a57c439e151106ccca8125d35e",
+    "agent-dark.png": "e74c629302398cf905f8e1ad2608e893997b6bd6368d22d151523865f4156e01",
+    "mcp-light.png": "71fe0668179395f251e4895c1ec735612cf7b41a6ac7cc146e3b75534153373e",
+    "mcp-dark.png": "11726b742d79c40210d25b428f4ebb7a6d842d7e513721a79660caf78d61733c"
+  }
+}

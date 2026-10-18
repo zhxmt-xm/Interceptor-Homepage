@@ -23,7 +23,8 @@ export default defineConfig({
   webServer: externalUrl
     ? undefined
     : {
-        command: 'npm run build && npm run preview -- --port 4176',
+        command:
+          'npm run build && wrangler dev --local --ip 127.0.0.1 --port 4176 --inspector-port 0',
         url: baseURL,
         reuseExistingServer: false,
         timeout: 120_000,

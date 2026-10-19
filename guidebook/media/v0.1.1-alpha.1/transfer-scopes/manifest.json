@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "paths": "/guide/export-scopes/filtered-one, /guide/export-scopes/filtered-two, /guide/export-scopes/other",
     "filter": "/guide/export-scopes/filtered",
@@ -20,263 +19,274 @@
     "afterImport": "5 total, 4 match the filter",
     "inputSource": "Import uses guide-filtered.har created by this same product Export flow"
   },
-  "duration": 147.32547583800002,
-  "video": "transfer-scopes.mp4",
-  "captions": "transfer-scopes.vtt",
   "steps": [
     {
       "id": "01-filter",
       "title": "搜索filtered，保留两条可见记录 / Search filtered to show two records",
-      "image": "transfer-scopes-01-filter.png",
-      "seconds": 0.3828639370000001
+      "image": "transfer-scopes-01-filter.png"
     },
     {
       "id": "02-select",
       "title": "选中filtered-one / Select filtered-one",
-      "image": "transfer-scopes-02-select.png",
-      "seconds": 3.318040379
+      "image": "transfer-scopes-02-select.png"
     },
     {
       "id": "all-01-menu",
       "title": "打开Export菜单 / Open the Export menu",
-      "image": "transfer-scopes-all-01-menu.png",
-      "seconds": 6.370421069000002
+      "image": "transfer-scopes-all-01-menu.png"
     },
     {
       "id": "all-02-har",
       "title": "选择HAR / Choose HAR",
-      "image": "transfer-scopes-all-02-har.png",
-      "seconds": 9.316801393
+      "image": "transfer-scopes-all-02-har.png"
     },
     {
       "id": "all-03-scope",
       "title": "全部记录 / All records",
-      "image": "transfer-scopes-all-03-scope.png",
-      "seconds": 12.317644963000001
+      "image": "transfer-scopes-all-03-scope.png"
     },
     {
       "id": "all-04-save",
       "title": "保存guide-all.har / Save guide-all.har",
-      "image": "transfer-scopes-all-04-save.png",
-      "seconds": 36.62113565400001
+      "image": "transfer-scopes-all-04-save.png"
     },
     {
       "id": "all-05-complete",
       "title": "核对保存3条请求 / Verify 3 exported requests",
-      "image": "transfer-scopes-all-05-complete.png",
-      "seconds": 41.65657379900001
+      "image": "transfer-scopes-all-05-complete.png"
     },
     {
       "id": "filtered-01-menu",
       "title": "打开Export菜单 / Open the Export menu",
-      "image": "transfer-scopes-filtered-01-menu.png",
-      "seconds": 44.769167550999995
+      "image": "transfer-scopes-filtered-01-menu.png"
     },
     {
       "id": "filtered-02-har",
       "title": "选择HAR / Choose HAR",
-      "image": "transfer-scopes-filtered-02-har.png",
-      "seconds": 47.722729347
+      "image": "transfer-scopes-filtered-02-har.png"
     },
     {
       "id": "filtered-03-scope",
       "title": "当前筛选 / Current filter",
-      "image": "transfer-scopes-filtered-03-scope.png",
-      "seconds": 50.67055738
+      "image": "transfer-scopes-filtered-03-scope.png"
     },
     {
       "id": "filtered-04-save",
       "title": "保存guide-filtered.har / Save guide-filtered.har",
-      "image": "transfer-scopes-filtered-04-save.png",
-      "seconds": 72.28982299100001
+      "image": "transfer-scopes-filtered-04-save.png"
     },
     {
       "id": "filtered-05-complete",
       "title": "核对保存2条请求 / Verify 2 exported requests",
-      "image": "transfer-scopes-filtered-05-complete.png",
-      "seconds": 77.286747808
+      "image": "transfer-scopes-filtered-05-complete.png"
     },
     {
       "id": "selected-01-menu",
       "title": "打开Export菜单 / Open the Export menu",
-      "image": "transfer-scopes-selected-01-menu.png",
-      "seconds": 80.424783314
+      "image": "transfer-scopes-selected-01-menu.png"
     },
     {
       "id": "selected-02-har",
       "title": "选择HAR / Choose HAR",
-      "image": "transfer-scopes-selected-02-har.png",
-      "seconds": 83.373480746
+      "image": "transfer-scopes-selected-02-har.png"
     },
     {
       "id": "selected-03-scope",
       "title": "当前选中 / Selected request",
-      "image": "transfer-scopes-selected-03-scope.png",
-      "seconds": 86.36574148700001
+      "image": "transfer-scopes-selected-03-scope.png"
     },
     {
       "id": "selected-04-save",
       "title": "保存guide-selected.har / Save guide-selected.har",
-      "image": "transfer-scopes-selected-04-save.png",
-      "seconds": 108.192363592
+      "image": "transfer-scopes-selected-04-save.png"
     },
     {
       "id": "selected-05-complete",
       "title": "核对保存1条请求 / Verify 1 exported requests",
-      "image": "transfer-scopes-selected-05-complete.png",
-      "seconds": 113.571295605
+      "image": "transfer-scopes-selected-05-complete.png"
     },
     {
       "id": "import-01-menu",
       "title": "打开Import菜单 / Open the Import menu",
-      "image": "transfer-scopes-import-01-menu.png",
-      "seconds": 116.56900938900002
+      "image": "transfer-scopes-import-01-menu.png"
     },
     {
       "id": "import-02-har",
       "title": "选择HAR导入 / Choose HAR import",
-      "image": "transfer-scopes-import-02-har.png",
-      "seconds": 119.52656628600002
+      "image": "transfer-scopes-import-02-har.png"
     },
     {
       "id": "import-03-open",
       "title": "打开刚导出的guide-filtered.har / Open the exported guide-filtered.har",
-      "image": "transfer-scopes-import-03-open.png",
-      "seconds": 135.688403458
+      "image": "transfer-scopes-import-03-open.png"
     },
     {
       "id": "import-04-complete",
       "title": "确认仅追加文件中的两条 / Verify only the two file entries are appended",
-      "image": "transfer-scopes-import-04-complete.png",
-      "seconds": 140.942384033
+      "image": "transfer-scopes-import-04-complete.png"
     },
     {
       "id": "import-05-all",
       "title": "清空搜索查看全部五条 / Clear search to view all five records",
-      "image": "transfer-scopes-import-05-all.png",
-      "seconds": 144.365347392
+      "image": "transfer-scopes-import-05-all.png"
     }
   ],
   "assets": [
     {
       "file": "transfer-scopes-01-filter.png",
       "bytes": 268361,
-      "sha256": "5efcb2b4f50ef3f13dcc06aa12c425b6e48de148ec83be481fc49bfa0ec80049"
+      "sha256": "5efcb2b4f50ef3f13dcc06aa12c425b6e48de148ec83be481fc49bfa0ec80049",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-02-select.png",
       "bytes": 377240,
-      "sha256": "6c60dddd7049c6b481ced007a8e51cf193691a31193a3404e4d5684aad5d0e39"
+      "sha256": "6c60dddd7049c6b481ced007a8e51cf193691a31193a3404e4d5684aad5d0e39",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-all-01-menu.png",
       "bytes": 414802,
-      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a"
+      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-all-02-har.png",
       "bytes": 393631,
-      "sha256": "6358e5acc29a9e9dc47e9ca16ecd906c9f910e72c64d3446b9802255b374ca48"
+      "sha256": "6358e5acc29a9e9dc47e9ca16ecd906c9f910e72c64d3446b9802255b374ca48",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-all-03-scope.png",
       "bytes": 393998,
-      "sha256": "54c7d27d67da7e73b3c7cd24daba5066119f8d68ef0521c25ef4180c9fc4fbe9"
+      "sha256": "54c7d27d67da7e73b3c7cd24daba5066119f8d68ef0521c25ef4180c9fc4fbe9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-all-04-save.png",
       "bytes": 54547,
-      "sha256": "cb29dd3a8080eff99c127eb56b98f3f039325f205f4444826c03dcbf5406ccef"
+      "sha256": "cb29dd3a8080eff99c127eb56b98f3f039325f205f4444826c03dcbf5406ccef",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "transfer-scopes-all-05-complete.png",
       "bytes": 377590,
-      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608"
+      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-filtered-01-menu.png",
       "bytes": 414802,
-      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a"
+      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-filtered-02-har.png",
       "bytes": 393998,
-      "sha256": "078acc1255c027fb8a5266930b293c19b2eff1ce1e130c74c89bf605a8145b6f"
+      "sha256": "078acc1255c027fb8a5266930b293c19b2eff1ce1e130c74c89bf605a8145b6f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-filtered-03-scope.png",
       "bytes": 393539,
-      "sha256": "0e03844076ea7bcb0c53a9aa1a762bc81149a8c21a9bfa272639ab3b451b4a16"
+      "sha256": "0e03844076ea7bcb0c53a9aa1a762bc81149a8c21a9bfa272639ab3b451b4a16",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-filtered-04-save.png",
       "bytes": 56005,
-      "sha256": "11295b97f5e0bb3b54c1b9cfa8d91a053c70a51c32037a33a83e49b11e8dede0"
+      "sha256": "11295b97f5e0bb3b54c1b9cfa8d91a053c70a51c32037a33a83e49b11e8dede0",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "transfer-scopes-filtered-05-complete.png",
       "bytes": 377590,
-      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608"
+      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-selected-01-menu.png",
       "bytes": 414802,
-      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a"
+      "sha256": "5c438a0a6f36304122b9e9749f352d2b73df6198be49afb5f28fc4ad929dcd9a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-selected-02-har.png",
       "bytes": 393631,
-      "sha256": "6358e5acc29a9e9dc47e9ca16ecd906c9f910e72c64d3446b9802255b374ca48"
+      "sha256": "6358e5acc29a9e9dc47e9ca16ecd906c9f910e72c64d3446b9802255b374ca48",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-selected-03-scope.png",
       "bytes": 393487,
-      "sha256": "529897b344bd8430b422654b0bacf3babfa77115a4f9aabf2304134a03497807"
+      "sha256": "529897b344bd8430b422654b0bacf3babfa77115a4f9aabf2304134a03497807",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-selected-04-save.png",
       "bytes": 56388,
-      "sha256": "99baae03630a5511d150908fd0507f59f7c23ba36d51ecc5d27ce1fbc557ead5"
+      "sha256": "99baae03630a5511d150908fd0507f59f7c23ba36d51ecc5d27ce1fbc557ead5",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "transfer-scopes-selected-05-complete.png",
       "bytes": 377590,
-      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608"
+      "sha256": "14e23e5771c43863c18451d8551c321dfa519cb8d9b240a60ef0e6edaef05608",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-import-01-menu.png",
       "bytes": 419982,
-      "sha256": "994c0f3edc04c54278e42973639344abc0bfd206b4a74ee34332eef7bc8ef2b8"
+      "sha256": "994c0f3edc04c54278e42973639344abc0bfd206b4a74ee34332eef7bc8ef2b8",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-import-02-har.png",
       "bytes": 332955,
-      "sha256": "dd0da26b0013a9a31753c31654dadbaac858ed91a76e83eed07b4383ac2d4e0a"
+      "sha256": "dd0da26b0013a9a31753c31654dadbaac858ed91a76e83eed07b4383ac2d4e0a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-import-03-open.png",
       "bytes": 154230,
-      "sha256": "3b423ed86f152566fb68f2c546ac925179438145058cd7f720a302b8b93ae814"
+      "sha256": "3b423ed86f152566fb68f2c546ac925179438145058cd7f720a302b8b93ae814",
+      "width": 1600,
+      "height": 896
     },
     {
       "file": "transfer-scopes-import-04-complete.png",
       "bytes": 409324,
-      "sha256": "d641ed5a5adce20e0dfe340ed08d6352f02c211b08b7600d4438d5b9dc50452e"
+      "sha256": "d641ed5a5adce20e0dfe340ed08d6352f02c211b08b7600d4438d5b9dc50452e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-scopes-import-05-all.png",
       "bytes": 419152,
-      "sha256": "649e47a193bcfeb7e1d4ad5c0d556699d712f84421ba3ac7474151b0b827d027"
-    },
-    {
-      "file": "transfer-scopes.mp4",
-      "bytes": 1113334,
-      "sha256": "4b6a6eaef82255a7c6e56a11d23f7d24a31d1e592705ef1379f8f3d6e742ff42"
-    },
-    {
-      "file": "transfer-scopes.vtt",
-      "bytes": 1757,
-      "sha256": "a6192b63f10ae9de912e51051e688f5ca8d3c5bd65524388fe5c800caf2ada89"
+      "sha256": "649e47a193bcfeb7e1d4ad5c0d556699d712f84421ba3ac7474151b0b827d027",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

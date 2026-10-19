@@ -9,82 +9,75 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App and owned file-panel windows; no microphone",
   "example": {
     "oldEndpoint": "http://127.0.0.1:49659/mcp",
     "newEndpoint": "http://127.0.0.1:49835/mcp",
     "prerequisite": "MCP was enabled before normal App restart; its saved port was occupied by an owned demo process"
   },
-  "duration": 15.166091879999993,
-  "video": "mcp-endpoint.mp4",
-  "captions": "mcp-endpoint.vtt",
   "steps": [
     {
       "id": "01-settings",
       "title": "重启后打开 Settings / Open Settings after restart",
-      "image": "mcp-endpoint-01-settings.png",
-      "seconds": 0.4143558780000021
+      "image": "mcp-endpoint-01-settings.png"
     },
     {
       "id": "02-conflict",
       "title": "检查已保存 endpoint 冲突 / Inspect the saved endpoint conflict",
-      "image": "mcp-endpoint-02-conflict.png",
-      "seconds": 3.2615922490000084
+      "image": "mcp-endpoint-02-conflict.png"
     },
     {
       "id": "03-change",
       "title": "显式更换 endpoint / Explicitly change the endpoint",
-      "image": "mcp-endpoint-03-change.png",
-      "seconds": 6.460852180999995
+      "image": "mcp-endpoint-03-change.png"
     },
     {
       "id": "04-note-new-address",
       "title": "核对需要更新的地址 / Inspect the address that hosts must update",
-      "image": "mcp-endpoint-04-note-new-address.png",
-      "seconds": 9.360432564999995
+      "image": "mcp-endpoint-04-note-new-address.png"
     },
     {
       "id": "05-disable",
       "title": "关闭演示 Server / Disable the demonstration Server",
-      "image": "mcp-endpoint-05-disable.png",
-      "seconds": 12.261467904999998
+      "image": "mcp-endpoint-05-disable.png"
     }
   ],
   "assets": [
     {
-      "file": "mcp-endpoint.mp4",
-      "bytes": 167399,
-      "sha256": "e952a0cecdeb36aee964e48c8656349350f39e59f875e4e9f92b4b29055a9dad"
-    },
-    {
-      "file": "mcp-endpoint.vtt",
-      "bytes": 480,
-      "sha256": "c0227d626f83264e086304b7232967de8b5eb744bd5f6e6158a63e68fb3b8d99"
-    },
-    {
       "file": "mcp-endpoint-01-settings.png",
       "bytes": 362710,
-      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "mcp-endpoint-02-conflict.png",
       "bytes": 440033,
-      "sha256": "2ec51b2bfea47f040716efeb0da31cf0356e649faa5becb9f8ea32a0de4e38a3"
+      "sha256": "2ec51b2bfea47f040716efeb0da31cf0356e649faa5becb9f8ea32a0de4e38a3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "mcp-endpoint-03-change.png",
       "bytes": 435470,
-      "sha256": "3fc221cf8f4febf4e507534dec4b766f463a02b6b46a3ba6f1e7d90333ea31f4"
+      "sha256": "3fc221cf8f4febf4e507534dec4b766f463a02b6b46a3ba6f1e7d90333ea31f4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "mcp-endpoint-04-note-new-address.png",
       "bytes": 435470,
-      "sha256": "3fc221cf8f4febf4e507534dec4b766f463a02b6b46a3ba6f1e7d90333ea31f4"
+      "sha256": "3fc221cf8f4febf4e507534dec4b766f463a02b6b46a3ba6f1e7d90333ea31f4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "mcp-endpoint-05-disable.png",
       "bytes": 435311,
-      "sha256": "fbe1d6b27ff10d68f54dafc9e17ae9dd983714ffcf41cebebfde82ecb6291e57"
+      "sha256": "fbe1d6b27ff10d68f54dafc9e17ae9dd983714ffcf41cebebfde82ecb6291e57",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

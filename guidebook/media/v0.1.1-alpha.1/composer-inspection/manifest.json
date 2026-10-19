@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated workflow-owned App window; no display, desktop or region recording; no microphone",
   "example": {
     "responseUrl": "http://127.0.0.1:62704/guide/composer-inspection/response",
     "requestHeader": "x-guide-request",
@@ -26,450 +25,478 @@
     "cssResponseBytes": "1048594",
     "cssPadding": "ASCII spaces after the rule; above the 1 MiB automatic formatting threshold"
   },
-  "duration": 115.30800156800001,
-  "video": "composer-inspection.mp4",
-  "captions": "composer-inspection.vtt",
   "steps": [
     {
       "id": "01-open",
       "title": "打开 Composer / Open Composer",
-      "image": "composer-inspection-01-open.png",
-      "seconds": 0.37459569700000067
+      "image": "composer-inspection-01-open.png"
     },
     {
       "id": "02-new",
       "title": "新建响应检查请求 / Create the response inspection request",
-      "image": "composer-inspection-02-new.png",
-      "seconds": 3.295742759000001
+      "image": "composer-inspection-02-new.png"
     },
     {
       "id": "03-url",
       "title": "填写响应检查地址 / Enter the response inspection URL",
-      "image": "composer-inspection-03-url.png",
-      "seconds": 6.2058728069999995
+      "image": "composer-inspection-03-url.png"
     },
     {
       "id": "04-header-name",
       "title": "填写 x-guide-request / Enter x-guide-request",
-      "image": "composer-inspection-04-header-name.png",
-      "seconds": 9.095714761
+      "image": "composer-inspection-04-header-name.png"
     },
     {
       "id": "05-header-value",
       "title": "填写 inspection-demo / Enter inspection-demo",
-      "image": "composer-inspection-05-header-value.png",
-      "seconds": 11.945598863999999
+      "image": "composer-inspection-05-header-value.png"
     },
     {
       "id": "06-add-header",
       "title": "添加请求 Header / Add the request Header",
-      "image": "composer-inspection-06-add-header.png",
-      "seconds": 14.811539621
+      "image": "composer-inspection-06-add-header.png"
     },
     {
       "id": "07-send",
       "title": "Send 并接收真实 JSON / Send and receive real JSON",
-      "image": "composer-inspection-07-send.png",
-      "seconds": 17.695571671000003
+      "image": "composer-inspection-07-send.png"
     },
     {
       "id": "08-headers",
       "title": "打开响应 Headers / Open response Headers",
-      "image": "composer-inspection-08-headers.png",
-      "seconds": 20.844634109999998
+      "image": "composer-inspection-08-headers.png"
     },
     {
       "id": "09-response-collapse",
       "title": "折叠 Response Headers / Collapse Response Headers",
-      "image": "composer-inspection-09-response-collapse.png",
-      "seconds": 23.845002018
+      "image": "composer-inspection-09-response-collapse.png"
     },
     {
       "id": "10-request-collapse",
       "title": "折叠 Request Headers / Collapse Request Headers",
-      "image": "composer-inspection-10-request-collapse.png",
-      "seconds": 26.745091397999996
+      "image": "composer-inspection-10-request-collapse.png"
     },
     {
       "id": "11-response-expand",
       "title": "展开 Response Headers / Expand Response Headers",
-      "image": "composer-inspection-11-response-expand.png",
-      "seconds": 29.645079032
+      "image": "composer-inspection-11-response-expand.png"
     },
     {
       "id": "12-request-expand",
       "title": "展开 Request Headers / Expand Request Headers",
-      "image": "composer-inspection-12-request-expand.png",
-      "seconds": 32.545835686
+      "image": "composer-inspection-12-request-expand.png"
     },
     {
       "id": "13-cookies",
       "title": "打开响应 Cookies / Open response Cookies",
-      "image": "composer-inspection-13-cookies.png",
-      "seconds": 35.452549452
+      "image": "composer-inspection-13-cookies.png"
     },
     {
       "id": "14-cookies-collapse",
       "title": "折叠 Cookies 分组 / Collapse the Cookies section",
-      "image": "composer-inspection-14-cookies-collapse.png",
-      "seconds": 38.357307931
+      "image": "composer-inspection-14-cookies-collapse.png"
     },
     {
       "id": "15-cookies-expand",
       "title": "展开 Cookies 分组 / Expand the Cookies section",
-      "image": "composer-inspection-15-cookies-expand.png",
-      "seconds": 41.249690913
+      "image": "composer-inspection-15-cookies-expand.png"
     },
     {
       "id": "16-timing",
       "title": "查看 Timing 与连接信息 / Inspect Timing and connection details",
-      "image": "composer-inspection-16-timing.png",
-      "seconds": 44.156948041999996
+      "image": "composer-inspection-16-timing.png"
     },
     {
       "id": "17-timing-collapse",
       "title": "折叠 Timing 分组 / Collapse Timing",
-      "image": "composer-inspection-17-timing-collapse.png",
-      "seconds": 47.099828822999996
+      "image": "composer-inspection-17-timing-collapse.png"
     },
     {
       "id": "18-connection-collapse",
       "title": "折叠 Connection 分组 / Collapse Connection",
-      "image": "composer-inspection-18-connection-collapse.png",
-      "seconds": 50.004303532
+      "image": "composer-inspection-18-connection-collapse.png"
     },
     {
       "id": "19-timing-expand",
       "title": "展开 Timing 分组 / Expand Timing",
-      "image": "composer-inspection-19-timing-expand.png",
-      "seconds": 52.895065484
+      "image": "composer-inspection-19-timing-expand.png"
     },
     {
       "id": "20-connection-expand",
       "title": "展开 Connection 分组 / Expand Connection",
-      "image": "composer-inspection-20-connection-expand.png",
-      "seconds": 55.795355220000005
+      "image": "composer-inspection-20-connection-expand.png"
     },
     {
       "id": "21-body",
       "title": "返回响应 Body / Return to response Body",
-      "image": "composer-inspection-21-body.png",
-      "seconds": 58.69516871799999
+      "image": "composer-inspection-21-body.png"
     },
     {
       "id": "22-tree",
       "title": "切换 Tree / Switch to Tree",
-      "image": "composer-inspection-22-tree.png",
-      "seconds": 61.595416395
+      "image": "composer-inspection-22-tree.png"
     },
     {
       "id": "23-tree-collapse",
       "title": "折叠 JSON 根节点 / Collapse the JSON root",
-      "image": "composer-inspection-23-tree-collapse.png",
-      "seconds": 64.496685555
+      "image": "composer-inspection-23-tree-collapse.png"
     },
     {
       "id": "24-tree-expand",
       "title": "展开 JSON 根节点 / Expand the JSON root",
-      "image": "composer-inspection-24-tree-expand.png",
-      "seconds": 67.350047708
+      "image": "composer-inspection-24-tree-expand.png"
     },
     {
       "id": "25-tree-menu",
       "title": "打开 message 的右键菜单 / Open the message context menu",
-      "image": "composer-inspection-25-tree-menu.png",
-      "seconds": 70.19751135799999
+      "image": "composer-inspection-25-tree-menu.png"
     },
     {
       "id": "26-tree-copy-value",
       "title": "复制 message 的值 / Copy the message value",
-      "image": "composer-inspection-26-tree-copy-value.png",
-      "seconds": 73.09553138900002
+      "image": "composer-inspection-26-tree-copy-value.png"
     },
     {
       "id": "27-raw",
       "title": "切换 Raw / Switch to Raw",
-      "image": "composer-inspection-27-raw.png",
-      "seconds": 75.995448313
+      "image": "composer-inspection-27-raw.png"
     },
     {
       "id": "28-copy-raw",
       "title": "复制 Raw 原始文本 / Copy the Raw response text",
-      "image": "composer-inspection-28-copy-raw.png",
-      "seconds": 78.90701363699999
+      "image": "composer-inspection-28-copy-raw.png"
     },
     {
       "id": "29-hex",
       "title": "切换 Hex 字节视图 / Switch to Hex bytes",
-      "image": "composer-inspection-29-hex.png",
-      "seconds": 81.80394277799999
+      "image": "composer-inspection-29-hex.png"
     },
     {
       "id": "30-copy-hex",
       "title": "复制 Hex 并核对原始字节 / Copy Hex and verify the original bytes",
-      "image": "composer-inspection-30-copy-hex.png",
-      "seconds": 84.69826756499998
+      "image": "composer-inspection-30-copy-hex.png"
     },
     {
       "id": "31-fullscreen",
       "title": "全屏查看响应 Hex / Open the response Hex fullscreen",
-      "image": "composer-inspection-31-fullscreen.png",
-      "seconds": 87.59545954800001
+      "image": "composer-inspection-31-fullscreen.png"
     },
     {
       "id": "32-exit-fullscreen",
       "title": "退出正文全屏 / Exit body fullscreen",
-      "image": "composer-inspection-32-exit-fullscreen.png",
-      "seconds": 90.545913183
+      "image": "composer-inspection-32-exit-fullscreen.png"
     },
     {
       "id": "33-collection-drag",
       "title": "拖宽 Collection 分栏 / Widen the Collection pane",
-      "image": "composer-inspection-33-collection-drag.png",
-      "seconds": 93.44720287599999
+      "image": "composer-inspection-33-collection-drag.png"
     },
     {
       "id": "34-response-drag",
       "title": "向上拖动以增高响应区 / Drag upward to enlarge the response pane",
-      "image": "composer-inspection-34-response-drag.png",
-      "seconds": 96.84662856099999
+      "image": "composer-inspection-34-response-drag.png"
     },
     {
       "id": "35-format-url",
       "title": "填写独立 CSS 地址 / Enter the separate CSS URL",
-      "image": "composer-inspection-35-format-url.png",
-      "seconds": 100.248476062
+      "image": "composer-inspection-35-format-url.png"
     },
     {
       "id": "36-css-send",
       "title": "接收需要手动 Format 的 CSS / Receive CSS requiring manual Format",
-      "image": "composer-inspection-36-css-send.png",
-      "seconds": 103.096256188
+      "image": "composer-inspection-36-css-send.png"
     },
     {
       "id": "37-css-copy-before",
       "title": "复制并核对 Format 前的 CSS / Copy and verify CSS before Format",
-      "image": "composer-inspection-37-css-copy-before.png",
-      "seconds": 106.09672784499999
+      "image": "composer-inspection-37-css-copy-before.png"
     },
     {
       "id": "38-format",
       "title": "点击 Format 格式化响应 / Click Format on the response",
-      "image": "composer-inspection-38-format.png",
-      "seconds": 109.14608583299999
+      "image": "composer-inspection-38-format.png"
     },
     {
       "id": "39-css-copy-after",
       "title": "复制并核对格式化结果 / Copy and verify the formatted result",
-      "image": "composer-inspection-39-css-copy-after.png",
-      "seconds": 112.396673698
+      "image": "composer-inspection-39-css-copy-after.png"
     }
   ],
   "assets": [
     {
-      "file": "composer-inspection.mp4",
-      "bytes": 636385,
-      "sha256": "b6be97943bc2c4caabf5a06a44dd79424f327fa2c8e3f19490ab0a781c880a92"
-    },
-    {
-      "file": "composer-inspection.vtt",
-      "bytes": 3337,
-      "sha256": "350cfafa750f3c3c9a7b3953dc31dc183ffc2db691af38ac333722efc23a17fd"
-    },
-    {
       "file": "composer-inspection-01-open.png",
       "bytes": 176130,
-      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-02-new.png",
       "bytes": 230855,
-      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a"
+      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-03-url.png",
       "bytes": 240312,
-      "sha256": "926e2df28372df1bce508eb2a588b3ee780229c40b8eab26715786a94f1fed63"
+      "sha256": "926e2df28372df1bce508eb2a588b3ee780229c40b8eab26715786a94f1fed63",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-04-header-name.png",
       "bytes": 243571,
-      "sha256": "7a2753b15618bef96870b1a5f689c458d5794ee7d084a815a1162d87c2b1d141"
+      "sha256": "7a2753b15618bef96870b1a5f689c458d5794ee7d084a815a1162d87c2b1d141",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-05-header-value.png",
       "bytes": 247280,
-      "sha256": "9e977d9b3f80e7fb46ce60b15010df78e83eeade1b103832f3f5ac2e90f834cf"
+      "sha256": "9e977d9b3f80e7fb46ce60b15010df78e83eeade1b103832f3f5ac2e90f834cf",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-06-add-header.png",
       "bytes": 234678,
-      "sha256": "a6f968f6e2ff334a5633bf7ce0a93b604855b920f533cea4fe29e237e01dbbe1"
+      "sha256": "a6f968f6e2ff334a5633bf7ce0a93b604855b920f533cea4fe29e237e01dbbe1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-07-send.png",
       "bytes": 283340,
-      "sha256": "3bab86ab53d04701f1131c0902d664fa7b61ca831c90d097a3161589e3b0c8b3"
+      "sha256": "3bab86ab53d04701f1131c0902d664fa7b61ca831c90d097a3161589e3b0c8b3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-08-headers.png",
       "bytes": 319090,
-      "sha256": "a5dd2eb94088a0f4b05719e08256e5c8935af444df9fe2286827901972d186c1"
+      "sha256": "a5dd2eb94088a0f4b05719e08256e5c8935af444df9fe2286827901972d186c1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-09-response-collapse.png",
       "bytes": 258930,
-      "sha256": "a2ef984fcc9b884f5e165dfcf9fd2017a566360a1eb82706a1ecd04aa1b78243"
+      "sha256": "a2ef984fcc9b884f5e165dfcf9fd2017a566360a1eb82706a1ecd04aa1b78243",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-10-request-collapse.png",
       "bytes": 249888,
-      "sha256": "d7373575df333cfc3035b2afee4fa7713326126421d686042861bc8ac8611ece"
+      "sha256": "d7373575df333cfc3035b2afee4fa7713326126421d686042861bc8ac8611ece",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-11-response-expand.png",
       "bytes": 319123,
-      "sha256": "d25c32b93cf806ebe7eefb5aa99bb9f820d885b4d6bf512671f54fdff4666982"
+      "sha256": "d25c32b93cf806ebe7eefb5aa99bb9f820d885b4d6bf512671f54fdff4666982",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-12-request-expand.png",
       "bytes": 320555,
-      "sha256": "5e960b0bcc186c913300bbe4fdf22ab7a0db2a0a760fbb52e5f90bf77838cb75"
+      "sha256": "5e960b0bcc186c913300bbe4fdf22ab7a0db2a0a760fbb52e5f90bf77838cb75",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-13-cookies.png",
       "bytes": 257554,
-      "sha256": "7921cb4e4eeb55804111c7c005a0175c9335f2c1259e4f2d38e772638ac0dd0b"
+      "sha256": "7921cb4e4eeb55804111c7c005a0175c9335f2c1259e4f2d38e772638ac0dd0b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-14-cookies-collapse.png",
       "bytes": 243550,
-      "sha256": "88095973eb387bedf530a811c47a1f64897db7ee2eebd77329f6f8daa87ca76a"
+      "sha256": "88095973eb387bedf530a811c47a1f64897db7ee2eebd77329f6f8daa87ca76a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-15-cookies-expand.png",
       "bytes": 257584,
-      "sha256": "a23c180371a99b07c478755de6b54c36bf7a6b6e1344260506d2eeb8ad1944b0"
+      "sha256": "a23c180371a99b07c478755de6b54c36bf7a6b6e1344260506d2eeb8ad1944b0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-16-timing.png",
       "bytes": 277714,
-      "sha256": "d456520aa8b639730842acb9a8dde1628061b9a1058e7c9b184e5c2dbabf3640"
+      "sha256": "d456520aa8b639730842acb9a8dde1628061b9a1058e7c9b184e5c2dbabf3640",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-17-timing-collapse.png",
       "bytes": 252463,
-      "sha256": "09570e31bacd151890726e2ac009a29f6c315880994285b204ed0880b2ecad0c"
+      "sha256": "09570e31bacd151890726e2ac009a29f6c315880994285b204ed0880b2ecad0c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-18-connection-collapse.png",
       "bytes": 247092,
-      "sha256": "066d04fc239c8f63553e4e434dc6a871f884d7b2dddef489d3c56fb9f1666a87"
+      "sha256": "066d04fc239c8f63553e4e434dc6a871f884d7b2dddef489d3c56fb9f1666a87",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-19-timing-expand.png",
       "bytes": 272267,
-      "sha256": "62d395b1ace4d94a08c6b3ae311f1730a1b682910b26ecb384f2c0a30c8902bd"
+      "sha256": "62d395b1ace4d94a08c6b3ae311f1730a1b682910b26ecb384f2c0a30c8902bd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-20-connection-expand.png",
       "bytes": 277805,
-      "sha256": "69dfe38473662c81d2a6748e4cfa8bed1765a3a1419c6fa7e827df1cf0fbc3f9"
+      "sha256": "69dfe38473662c81d2a6748e4cfa8bed1765a3a1419c6fa7e827df1cf0fbc3f9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-21-body.png",
       "bytes": 283281,
-      "sha256": "ba583201b762bdc38d80cff6385cfb1eb03a7ff413e90cd017ee5585d8f9d9f6"
+      "sha256": "ba583201b762bdc38d80cff6385cfb1eb03a7ff413e90cd017ee5585d8f9d9f6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-22-tree.png",
       "bytes": 278168,
-      "sha256": "f5b3635fb1f92eb0f351edf9787763e8973cca62f308d8543b072b96e5bc1587"
+      "sha256": "f5b3635fb1f92eb0f351edf9787763e8973cca62f308d8543b072b96e5bc1587",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-23-tree-collapse.png",
       "bytes": 255711,
-      "sha256": "e409992a5f963b861523ce1667d763a2ee419eca058a0db4b91c9aa3dd483d9b"
+      "sha256": "e409992a5f963b861523ce1667d763a2ee419eca058a0db4b91c9aa3dd483d9b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-24-tree-expand.png",
       "bytes": 278831,
-      "sha256": "e109ba088c803f902a7b2bd7c664a63e9c2b1fc768eedef1d01a8144cd68c307"
+      "sha256": "e109ba088c803f902a7b2bd7c664a63e9c2b1fc768eedef1d01a8144cd68c307",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-25-tree-menu.png",
       "bytes": 307519,
-      "sha256": "fd9aa9ae717524421b573309983cd838178d36e43b581b60c4aab6fb79dcc979"
+      "sha256": "fd9aa9ae717524421b573309983cd838178d36e43b581b60c4aab6fb79dcc979",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-26-tree-copy-value.png",
       "bytes": 291880,
-      "sha256": "4e615335d0e66752d05e1c8b92b11a5b8be562208ff95c8b46f917f06b994dae"
+      "sha256": "4e615335d0e66752d05e1c8b92b11a5b8be562208ff95c8b46f917f06b994dae",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-27-raw.png",
       "bytes": 275465,
-      "sha256": "6a95ced9ed57c7e3a46f1e54b83c731dda61970b90dd73f6555d22e3edf7187f"
+      "sha256": "6a95ced9ed57c7e3a46f1e54b83c731dda61970b90dd73f6555d22e3edf7187f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-28-copy-raw.png",
       "bytes": 299822,
-      "sha256": "d67fcea6c4b1658e3e58f65529a0f1ae9550394320f933f9e4661a1ee43ec851"
+      "sha256": "d67fcea6c4b1658e3e58f65529a0f1ae9550394320f933f9e4661a1ee43ec851",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-29-hex.png",
       "bytes": 314455,
-      "sha256": "b7b0ac50a0c28ba307325b189cf1115079e50214d42ca8f28e52802263124104"
+      "sha256": "b7b0ac50a0c28ba307325b189cf1115079e50214d42ca8f28e52802263124104",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-30-copy-hex.png",
       "bytes": 339533,
-      "sha256": "2de40f04a9ba585ac62a89ef879759234383efd3384811f805cf5560e7049dae"
+      "sha256": "2de40f04a9ba585ac62a89ef879759234383efd3384811f805cf5560e7049dae",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-31-fullscreen.png",
       "bytes": 278684,
-      "sha256": "34aad95b68f551d15690c187d9ccdbcec716acf50c23f724d12e3a41397bf495"
+      "sha256": "34aad95b68f551d15690c187d9ccdbcec716acf50c23f724d12e3a41397bf495",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-32-exit-fullscreen.png",
       "bytes": 314455,
-      "sha256": "b7b0ac50a0c28ba307325b189cf1115079e50214d42ca8f28e52802263124104"
+      "sha256": "b7b0ac50a0c28ba307325b189cf1115079e50214d42ca8f28e52802263124104",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-33-collection-drag.png",
       "bytes": 314224,
-      "sha256": "8ec77c9874a896b5204353851e2b9c17a1ed9baa9f64959a7e53e37d323d14e0"
+      "sha256": "8ec77c9874a896b5204353851e2b9c17a1ed9baa9f64959a7e53e37d323d14e0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-34-response-drag.png",
       "bytes": 313313,
-      "sha256": "adf265b297fd015c3875221537b46abad0cbde2f4fde649a6d4158c4a3f72ed7"
+      "sha256": "adf265b297fd015c3875221537b46abad0cbde2f4fde649a6d4158c4a3f72ed7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-35-format-url.png",
       "bytes": 313578,
-      "sha256": "385b88c4252ed15b56da262d632df7f088aeb9802da9d71aa070643ba2aea805"
+      "sha256": "385b88c4252ed15b56da262d632df7f088aeb9802da9d71aa070643ba2aea805",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-36-css-send.png",
       "bytes": 256465,
-      "sha256": "fa2089b5231c056a8cf608d9bf45d8b4c91a11bb965a02ba558b89f27888c76b"
+      "sha256": "fa2089b5231c056a8cf608d9bf45d8b4c91a11bb965a02ba558b89f27888c76b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-37-css-copy-before.png",
       "bytes": 281510,
-      "sha256": "e057c934d24bb3efa46f4e81873a43b34ef42af5f18e1555808e216a20c6ee02"
+      "sha256": "e057c934d24bb3efa46f4e81873a43b34ef42af5f18e1555808e216a20c6ee02",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-38-format.png",
       "bytes": 268783,
-      "sha256": "8a0a30badb21ec249bac39876f62cbdc584294a8b114a69782965e412109e3fa"
+      "sha256": "8a0a30badb21ec249bac39876f62cbdc584294a8b114a69782965e412109e3fa",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-inspection-39-css-copy-after.png",
       "bytes": 281448,
-      "sha256": "44297dc66b65ee13d58c72e7d411d9c96e4ec521958b5db77b0d7210ccdd3a98"
+      "sha256": "44297dc66b65ee13d58c72e7d411d9c96e4ec521958b5db77b0d7210ccdd3a98",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "successUrl": "http://127.0.0.1:60694/guide/diagnostics-visible/success",
     "failureUrl": "http://127.0.0.1:60696/guide/diagnostics-failure",
@@ -24,428 +23,454 @@
     "file": "guide-diagnostics-lifecycle.jsonl",
     "timeline": "Shown automatically for the selected operation; not an expandable control"
   },
-  "duration": 139.59503224,
-  "video": "diagnostics-lifecycle.mp4",
-  "captions": "diagnostics-lifecycle.vtt",
   "steps": [
     {
       "id": "01-input",
       "title": "填写本次可见的成功请求 / Enter the visible success example",
-      "image": "diagnostics-lifecycle-01-input.png",
-      "seconds": 0.3943931870000015
+      "image": "diagnostics-lifecycle-01-input.png"
     },
     {
       "id": "02-send-success",
       "title": "真实Send并核对成功响应 / Actually Send and verify the successful response",
-      "image": "diagnostics-lifecycle-02-send-success.png",
-      "seconds": 3.4094244279999986
+      "image": "diagnostics-lifecycle-02-send-success.png"
     },
     {
       "id": "03-failed-input",
       "title": "填写本轮会关闭连接的自有端点 / Enter the owned endpoint that closes its connection",
-      "image": "diagnostics-lifecycle-03-failed-input.png",
-      "seconds": 6.4922581520000024
+      "image": "diagnostics-lifecycle-03-failed-input.png"
     },
     {
       "id": "04-send-failed",
       "title": "观察真实网络失败 / Observe the real network failure",
-      "image": "diagnostics-lifecycle-04-send-failed.png",
-      "seconds": 9.507546224000006
+      "image": "diagnostics-lifecycle-04-send-failed.png"
     },
     {
       "id": "04a-upstream",
       "title": "打开自有PAC失败示例 / Open the owned PAC failure example",
-      "image": "diagnostics-lifecycle-04a-upstream.png",
-      "seconds": 12.536229643999999
+      "image": "diagnostics-lifecycle-04a-upstream.png"
     },
     {
       "id": "04b-pac-mode",
       "title": "选择PAC草稿 / Choose a PAC draft",
-      "image": "diagnostics-lifecycle-04b-pac-mode.png",
-      "seconds": 15.664020538000004
+      "image": "diagnostics-lifecycle-04b-pac-mode.png"
     },
     {
       "id": "04c-pac-url",
       "title": "填写本轮返回404的PAC地址 / Enter the owned PAC URL that returns 404",
-      "image": "diagnostics-lifecycle-04c-pac-url.png",
-      "seconds": 18.719382529
+      "image": "diagnostics-lifecycle-04c-pac-url.png"
     },
     {
       "id": "04d-pac-failure",
       "title": "Apply实际失败并保持原路线 / Observe actual Apply failure while retaining the route",
-      "image": "diagnostics-lifecycle-04d-pac-failure.png",
-      "seconds": 21.728566508000004
+      "image": "diagnostics-lifecycle-04d-pac-failure.png"
     },
     {
       "id": "04e-discard",
       "title": "Discard失败草稿不改原配置 / Discard the failed draft without changing saved configuration",
-      "image": "diagnostics-lifecycle-04e-discard.png",
-      "seconds": 24.868142678000005
+      "image": "diagnostics-lifecycle-04e-discard.png"
     },
     {
       "id": "05-diagnostics",
       "title": "进入Diagnostics / Open Diagnostics",
-      "image": "diagnostics-lifecycle-05-diagnostics.png",
-      "seconds": 27.900768334
+      "image": "diagnostics-lifecycle-05-diagnostics.png"
     },
     {
       "id": "05a-save-evidence",
       "title": "先导出当前记录留证据 / Export current records before filtering",
-      "image": "diagnostics-lifecycle-05a-save-evidence.png",
-      "seconds": 43.163043914
+      "image": "diagnostics-lifecycle-05a-save-evidence.png"
     },
     {
       "id": "05b-evidence",
       "title": "核对产品导出的真实结果分类 / Inspect the actual exported outcome classifications",
-      "image": "diagnostics-lifecycle-05b-evidence.png",
-      "seconds": 47.648990574
+      "image": "diagnostics-lifecycle-05b-evidence.png"
     },
     {
       "id": "06-core",
       "title": "按core进程筛选 / Filter by core process",
-      "image": "diagnostics-lifecycle-06-core.png",
-      "seconds": 50.648562929
+      "image": "diagnostics-lifecycle-06-core.png"
     },
     {
       "id": "06a-main",
       "title": "切到失败操作所属main进程 / Switch to the failed action’s main process",
-      "image": "diagnostics-lifecycle-06a-main.png",
-      "seconds": 53.797562434
+      "image": "diagnostics-lifecycle-06a-main.png"
     },
     {
       "id": "07-error",
       "title": "按error级别筛选 / Filter by error level",
-      "image": "diagnostics-lifecycle-07-error.png",
-      "seconds": 56.868598336000005
+      "image": "diagnostics-lifecycle-07-error.png"
     },
     {
       "id": "08-success-filter",
       "title": "查看success结果组合 / Inspect the success outcome combination",
-      "image": "diagnostics-lifecycle-08-success-filter.png",
-      "seconds": 59.907669384
+      "image": "diagnostics-lifecycle-08-success-filter.png"
     },
     {
       "id": "09-failed-filter",
       "title": "切到failed结果 / Switch to failed outcomes",
-      "image": "diagnostics-lifecycle-09-failed-filter.png",
-      "seconds": 62.920851988
+      "image": "diagnostics-lifecycle-09-failed-filter.png"
     },
     {
       "id": "10-select-failed",
       "title": "选择真正失败的上游操作 / Select the actually failed upstream action",
-      "image": "diagnostics-lifecycle-10-select-failed.png",
-      "seconds": 65.944506735
+      "image": "diagnostics-lifecycle-10-select-failed.png"
     },
     {
       "id": "11-timeline",
       "title": "读取自动展示的关联时间线 / Read the automatically shown related timeline",
-      "image": "diagnostics-lifecycle-11-timeline.png",
-      "seconds": 68.99266958399998
+      "image": "diagnostics-lifecycle-11-timeline.png"
     },
     {
       "id": "12-widen",
       "title": "拖动Diagnostics分栏 / Drag the Diagnostics splitter",
-      "image": "diagnostics-lifecycle-12-widen.png",
-      "seconds": 71.97673610400001
+      "image": "diagnostics-lifecycle-12-widen.png"
     },
     {
       "id": "13-level-warn",
       "title": "切换Level至warn / Cycle Level to warn",
-      "image": "diagnostics-lifecycle-13-level-warn.png",
-      "seconds": 75.496825964
+      "image": "diagnostics-lifecycle-13-level-warn.png"
     },
     {
       "id": "13-level-info",
       "title": "切换Level至info / Cycle Level to info",
-      "image": "diagnostics-lifecycle-13-level-info.png",
-      "seconds": 78.532045969
+      "image": "diagnostics-lifecycle-13-level-info.png"
     },
     {
       "id": "13-level-debug",
       "title": "切换Level至debug / Cycle Level to debug",
-      "image": "diagnostics-lifecycle-13-level-debug.png",
-      "seconds": 81.56798354099999
+      "image": "diagnostics-lifecycle-13-level-debug.png"
     },
     {
       "id": "13-level-all",
       "title": "切换Level至all / Cycle Level to all",
-      "image": "diagnostics-lifecycle-13-level-all.png",
-      "seconds": 84.598831122
+      "image": "diagnostics-lifecycle-13-level-all.png"
     },
     {
       "id": "14-outcome-cancelled",
       "title": "切换Outcome至cancelled / Cycle Outcome to cancelled",
-      "image": "diagnostics-lifecycle-14-outcome-cancelled.png",
-      "seconds": 87.626807814
+      "image": "diagnostics-lifecycle-14-outcome-cancelled.png"
     },
     {
       "id": "14-outcome-timed_out",
       "title": "切换Outcome至timed_out / Cycle Outcome to timed_out",
-      "image": "diagnostics-lifecycle-14-outcome-timed_out.png",
-      "seconds": 90.63981147099999
+      "image": "diagnostics-lifecycle-14-outcome-timed_out.png"
     },
     {
       "id": "14-outcome-all",
       "title": "切换Outcome至all / Cycle Outcome to all",
-      "image": "diagnostics-lifecycle-14-outcome-all.png",
-      "seconds": 93.65673579900002
+      "image": "diagnostics-lifecycle-14-outcome-all.png"
     },
     {
       "id": "15-process-renderer",
       "title": "切换Process至renderer / Cycle Process to renderer",
-      "image": "diagnostics-lifecycle-15-process-renderer.png",
-      "seconds": 96.677278709
+      "image": "diagnostics-lifecycle-15-process-renderer.png"
     },
     {
       "id": "15-process-all",
       "title": "切换Process至all / Cycle Process to all",
-      "image": "diagnostics-lifecycle-15-process-all.png",
-      "seconds": 99.701253135
+      "image": "diagnostics-lifecycle-15-process-all.png"
     },
     {
       "id": "16-filters-cleared",
       "title": "确认三个筛选全部清除 / Verify all three filters are cleared",
-      "image": "diagnostics-lifecycle-16-filters-cleared.png",
-      "seconds": 102.73184284600002
+      "image": "diagnostics-lifecycle-16-filters-cleared.png"
     },
     {
       "id": "17-earlier",
       "title": "加载实际历史页 / Load the actual earlier page",
-      "image": "diagnostics-lifecycle-17-earlier.png",
-      "seconds": 105.82139423500001
+      "image": "diagnostics-lifecycle-17-earlier.png"
     },
     {
       "id": "18-list-wheel",
       "title": "滚动真实历史列表 / Scroll the real history list",
-      "image": "diagnostics-lifecycle-18-list-wheel.png",
-      "seconds": 109.11755833100001
+      "image": "diagnostics-lifecycle-18-list-wheel.png"
     },
     {
       "id": "19-export",
       "title": "保存本次Diagnostics JSONL / Save this Diagnostics JSONL",
-      "image": "diagnostics-lifecycle-19-export.png",
-      "seconds": 122.468732437
+      "image": "diagnostics-lifecycle-19-export.png"
     },
     {
       "id": "20-exported",
       "title": "核对实际导出而不是只看弹窗 / Verify the actual export, not just the dialog",
-      "image": "diagnostics-lifecycle-20-exported.png",
-      "seconds": 126.94158414500001
+      "image": "diagnostics-lifecycle-20-exported.png"
     },
     {
       "id": "21-composer-return",
       "title": "返回产生记录的Composer / Return to Composer, which produced the records",
-      "image": "diagnostics-lifecycle-21-composer-return.png",
-      "seconds": 129.94499682300003
+      "image": "diagnostics-lifecycle-21-composer-return.png"
     },
     {
       "id": "22-good-url",
       "title": "改回可工作的自有服务 / Return to the working owned service",
-      "image": "diagnostics-lifecycle-22-good-url.png",
-      "seconds": 133.052977313
+      "image": "diagnostics-lifecycle-22-good-url.png"
     },
     {
       "id": "23-recovered",
       "title": "再次Send核对真实业务恢复 / Send again and verify actual recovery",
-      "image": "diagnostics-lifecycle-23-recovered.png",
-      "seconds": 136.06674091000002
+      "image": "diagnostics-lifecycle-23-recovered.png"
     }
   ],
   "assets": [
     {
       "file": "diagnostics-lifecycle-01-input.png",
       "bytes": 246317,
-      "sha256": "d7a5310c034423c834f3738333022ba07cfc06c30d82cae57a4aee8f4d8fd222"
+      "sha256": "d7a5310c034423c834f3738333022ba07cfc06c30d82cae57a4aee8f4d8fd222",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-02-send-success.png",
       "bytes": 247346,
-      "sha256": "a1494f0952130fe886d2a71d1fc3042e5353a39e665e282135105ddac7ca399f"
+      "sha256": "a1494f0952130fe886d2a71d1fc3042e5353a39e665e282135105ddac7ca399f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-03-failed-input.png",
       "bytes": 245917,
-      "sha256": "0e8e4de7da553ace08ef956bd0e7738805664eeaca2f0051147e7077a2b5c8c7"
+      "sha256": "0e8e4de7da553ace08ef956bd0e7738805664eeaca2f0051147e7077a2b5c8c7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04-send-failed.png",
       "bytes": 227398,
-      "sha256": "a02b39265e174b16ef1e7d76ffa2cf62703178e6e4b9f2235ae12a6a585bdf73"
+      "sha256": "a02b39265e174b16ef1e7d76ffa2cf62703178e6e4b9f2235ae12a6a585bdf73",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04a-upstream.png",
       "bytes": 361521,
-      "sha256": "e8b7b121b78d1f73de02f308dd3e53844f297ccdf23d8b36b5eaeb311e26562b"
+      "sha256": "e8b7b121b78d1f73de02f308dd3e53844f297ccdf23d8b36b5eaeb311e26562b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04b-pac-mode.png",
       "bytes": 366749,
-      "sha256": "3d9093584fc525de01ffe901bd5f9b386c24bc1f892f28201ce7c7a90215416b"
+      "sha256": "3d9093584fc525de01ffe901bd5f9b386c24bc1f892f28201ce7c7a90215416b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04c-pac-url.png",
       "bytes": 364465,
-      "sha256": "ac2892d9756ad23ee71087e182e45aea2e88b7acf7e07bed90b94a37d1dcbfaa"
+      "sha256": "ac2892d9756ad23ee71087e182e45aea2e88b7acf7e07bed90b94a37d1dcbfaa",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04d-pac-failure.png",
       "bytes": 380933,
-      "sha256": "62b85addb9a3edfa7cf71ed2b5ee7d4d833c93cdbf774c2819218620bbd67a07"
+      "sha256": "62b85addb9a3edfa7cf71ed2b5ee7d4d833c93cdbf774c2819218620bbd67a07",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-04e-discard.png",
       "bytes": 361521,
-      "sha256": "e8b7b121b78d1f73de02f308dd3e53844f297ccdf23d8b36b5eaeb311e26562b"
+      "sha256": "e8b7b121b78d1f73de02f308dd3e53844f297ccdf23d8b36b5eaeb311e26562b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-05-diagnostics.png",
       "bytes": 394348,
-      "sha256": "a59ead99d00e04a3a17ae2c5f227ad36c2e28b6564719812dfa6831dbeebb5e2"
+      "sha256": "a59ead99d00e04a3a17ae2c5f227ad36c2e28b6564719812dfa6831dbeebb5e2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-05a-save-evidence.png",
       "bytes": 58595,
-      "sha256": "e2ab015f90a6f11656b94c1a352b100f3155073fb2c872f99dfcdce1bfa419d7"
+      "sha256": "e2ab015f90a6f11656b94c1a352b100f3155073fb2c872f99dfcdce1bfa419d7",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "diagnostics-lifecycle-05b-evidence.png",
       "bytes": 394788,
-      "sha256": "6836e9e7ad48ffb7e55d1bcb561bf863e4e25ac2c264c20f6c8363fea307444c"
+      "sha256": "6836e9e7ad48ffb7e55d1bcb561bf863e4e25ac2c264c20f6c8363fea307444c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-06-core.png",
       "bytes": 393686,
-      "sha256": "251b18732e62940ad260dc08342ca9c09a21055b60464486fff39e8540ee5ec7"
+      "sha256": "251b18732e62940ad260dc08342ca9c09a21055b60464486fff39e8540ee5ec7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-06a-main.png",
       "bytes": 282445,
-      "sha256": "b8e58a1cf8b721d35371342740c5d931bd0a4643d93032ec4d3e14e76e938516"
+      "sha256": "b8e58a1cf8b721d35371342740c5d931bd0a4643d93032ec4d3e14e76e938516",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-07-error.png",
       "bytes": 228994,
-      "sha256": "3ec5142882fa123a03487267959a8005ef4f511b84ed580b3ed0738a8ce72fb6"
+      "sha256": "3ec5142882fa123a03487267959a8005ef4f511b84ed580b3ed0738a8ce72fb6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-08-success-filter.png",
       "bytes": 193645,
-      "sha256": "0e96bac1be23cf4661f95722f5ce858e17fc63f1a055ee656076ec40d83ed883"
+      "sha256": "0e96bac1be23cf4661f95722f5ce858e17fc63f1a055ee656076ec40d83ed883",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-09-failed-filter.png",
       "bytes": 230435,
-      "sha256": "ba233ec2e47673d7acb81c5f1399acad027b0fe74f0a53a7d2115e79681a5047"
+      "sha256": "ba233ec2e47673d7acb81c5f1399acad027b0fe74f0a53a7d2115e79681a5047",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-10-select-failed.png",
       "bytes": 240521,
-      "sha256": "d952d927ec5b188d6b18d0e2d56c1f673baac30af43679fb2ff2bf6fccc03ff6"
+      "sha256": "d952d927ec5b188d6b18d0e2d56c1f673baac30af43679fb2ff2bf6fccc03ff6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-11-timeline.png",
       "bytes": 240521,
-      "sha256": "d952d927ec5b188d6b18d0e2d56c1f673baac30af43679fb2ff2bf6fccc03ff6"
+      "sha256": "d952d927ec5b188d6b18d0e2d56c1f673baac30af43679fb2ff2bf6fccc03ff6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-12-widen.png",
       "bytes": 240087,
-      "sha256": "f20db8dab39d413f3b9a353d4dc92d87df7ac0529d150ac52368845077916b63"
+      "sha256": "f20db8dab39d413f3b9a353d4dc92d87df7ac0529d150ac52368845077916b63",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-13-level-warn.png",
       "bytes": 203130,
-      "sha256": "693033cd7cf9912a8743ad8507d0fd89f10e77681faae03ff2ba37554fe20031"
+      "sha256": "693033cd7cf9912a8743ad8507d0fd89f10e77681faae03ff2ba37554fe20031",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-13-level-info.png",
       "bytes": 193100,
-      "sha256": "a3f74a99ba75eb0ba1305fd6ac4bf73354e15a8f965148de7b506c654b5abb39"
+      "sha256": "a3f74a99ba75eb0ba1305fd6ac4bf73354e15a8f965148de7b506c654b5abb39",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-13-level-debug.png",
       "bytes": 194021,
-      "sha256": "702215f7f5932151c384cc68b6ac1cdda0acc80b8887016924060cb5fb501087"
+      "sha256": "702215f7f5932151c384cc68b6ac1cdda0acc80b8887016924060cb5fb501087",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-13-level-all.png",
       "bytes": 255108,
-      "sha256": "e26071e6aa4cecf49fde7ecabf3f08944049c42637514901b05ddb2b33c80025"
+      "sha256": "e26071e6aa4cecf49fde7ecabf3f08944049c42637514901b05ddb2b33c80025",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-14-outcome-cancelled.png",
       "bytes": 192721,
-      "sha256": "b69e8a68801b4b031e8400b827b638fd534f2c459e9c2c3dad5bf09037bc407d"
+      "sha256": "b69e8a68801b4b031e8400b827b638fd534f2c459e9c2c3dad5bf09037bc407d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-14-outcome-timed_out.png",
       "bytes": 192817,
-      "sha256": "b2d5dbf222cce2e1a59043ee683464ee8164640a87f43f38ab6b61d51dafafa9"
+      "sha256": "b2d5dbf222cce2e1a59043ee683464ee8164640a87f43f38ab6b61d51dafafa9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-14-outcome-all.png",
       "bytes": 294150,
-      "sha256": "75955165bc5a9110651750fb0a85e891880b7de053f325d90c2d52148a3e1174"
+      "sha256": "75955165bc5a9110651750fb0a85e891880b7de053f325d90c2d52148a3e1174",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-15-process-renderer.png",
       "bytes": 191149,
-      "sha256": "9ace0568c6a38c65fd7ff5232d0781dddd80dce71ac688648199364fd5b10b3d"
+      "sha256": "9ace0568c6a38c65fd7ff5232d0781dddd80dce71ac688648199364fd5b10b3d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-15-process-all.png",
       "bytes": 408018,
-      "sha256": "a462856d386c4216b4dd1ff694ae0898b0a0c6ede303653f3af0182d7251237f"
+      "sha256": "a462856d386c4216b4dd1ff694ae0898b0a0c6ede303653f3af0182d7251237f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-16-filters-cleared.png",
       "bytes": 408340,
-      "sha256": "a179354daf54a395f9a8f30af8f544900cbd0f67961e4d26747c4e37c8378043"
+      "sha256": "a179354daf54a395f9a8f30af8f544900cbd0f67961e4d26747c4e37c8378043",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-17-earlier.png",
       "bytes": 406690,
-      "sha256": "d94b19a64e348b9a73b0aa5c43c44cdad932abe53289fe6b01374274d05e7b1a"
+      "sha256": "d94b19a64e348b9a73b0aa5c43c44cdad932abe53289fe6b01374274d05e7b1a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-18-list-wheel.png",
       "bytes": 405079,
-      "sha256": "ae6f77714084cb3ca7a1a1c98485cce4e8db22b6d727b58606694d7ab4189b23"
+      "sha256": "ae6f77714084cb3ca7a1a1c98485cce4e8db22b6d727b58606694d7ab4189b23",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-19-export.png",
       "bytes": 58283,
-      "sha256": "e508946f2e4b50fc4938feb230dd1da3b6eef3a92007e2b5e7caff7701f1bee0"
+      "sha256": "e508946f2e4b50fc4938feb230dd1da3b6eef3a92007e2b5e7caff7701f1bee0",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "diagnostics-lifecycle-20-exported.png",
       "bytes": 404738,
-      "sha256": "aa85477fb555f057a227265c4c8a52dfff62750f917f4071e16f53b9d1527bfa"
+      "sha256": "aa85477fb555f057a227265c4c8a52dfff62750f917f4071e16f53b9d1527bfa",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-21-composer-return.png",
       "bytes": 227355,
-      "sha256": "9e2b1452b06c58e07e3d8cad41f97c125496d749279c915fe0beec0826312055"
+      "sha256": "9e2b1452b06c58e07e3d8cad41f97c125496d749279c915fe0beec0826312055",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-22-good-url.png",
       "bytes": 228784,
-      "sha256": "4d9a10b8f573c238786ebef218d8244428c4f3da9dca18486808a64e532b12c7"
+      "sha256": "4d9a10b8f573c238786ebef218d8244428c4f3da9dca18486808a64e532b12c7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "diagnostics-lifecycle-23-recovered.png",
       "bytes": 247053,
-      "sha256": "f6c8f60e2c212ee76bab8af6a15124959898b4344eff769073c5a7637295e2cc"
-    },
-    {
-      "file": "diagnostics-lifecycle.mp4",
-      "bytes": 830390,
-      "sha256": "87e6b429e8ef3f3a60bfe771dfc12f6dfda021fd7ad19ce0d7cca1a2614a7c23"
-    },
-    {
-      "file": "diagnostics-lifecycle.vtt",
-      "bytes": 3611,
-      "sha256": "441b062fd61a344b968ece4f16bb66abb2bfbe24ab755ca7e5e9c9afa2e4ab07"
+      "sha256": "f6c8f60e2c212ee76bab8af6a15124959898b4344eff769073c5a7637295e2cc",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

@@ -5,7 +5,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "ruleName": "Guide test header",
     "host": "127.0.0.1",
@@ -14,175 +13,178 @@
     "headerName": "x-interceptor-guide",
     "headerValue": "rules-demo"
   },
-  "duration": 42.839331749999985,
-  "video": "rules.mp4",
-  "captions": "rules.vtt",
   "steps": [
     {
       "id": "01-open",
       "title": "打开 Rules / Open Rules",
-      "image": "rules-01-open.png",
-      "seconds": 0.33446761799999514
+      "image": "rules-01-open.png"
     },
     {
       "id": "02-create",
       "title": "新建规则 / Create a Rule",
-      "image": "rules-02-create.png",
-      "seconds": 3.1894511740000016
+      "image": "rules-02-create.png"
     },
     {
       "id": "03-name",
       "title": "命名 Guide test header / Name the Rule",
-      "image": "rules-03-name.png",
-      "seconds": 6.087164676999993
+      "image": "rules-03-name.png"
     },
     {
       "id": "04-host",
       "title": "限制 Host 为 127.0.0.1 / Restrict the host",
-      "image": "rules-04-host.png",
-      "seconds": 8.938505753999998
+      "image": "rules-04-host.png"
     },
     {
       "id": "05-path-condition",
       "title": "添加 Path 条件 / Add a Path matcher",
-      "image": "rules-05-path-condition.png",
-      "seconds": 11.788937695999994
+      "image": "rules-05-path-condition.png"
     },
     {
       "id": "06-path",
       "title": "填写 /guide/rules/order / Enter the test path",
-      "image": "rules-06-path.png",
-      "seconds": 14.99080071499999
+      "image": "rules-06-path.png"
     },
     {
       "id": "07-header-name",
       "title": "填写 x-interceptor-guide / Enter the header name",
-      "image": "rules-07-header-name.png",
-      "seconds": 17.798133210999993
+      "image": "rules-07-header-name.png"
     },
     {
       "id": "08-header-value",
       "title": "填写 rules-demo / Enter the header value",
-      "image": "rules-08-header-value.png",
-      "seconds": 20.586995315999985
+      "image": "rules-08-header-value.png"
     },
     {
       "id": "09-enable",
       "title": "启用规则 / Enable the Rule",
-      "image": "rules-09-enable.png",
-      "seconds": 23.387761415999993
+      "image": "rules-09-enable.png"
     },
     {
       "id": "10-apply",
       "title": "应用规则 / Apply the Rule",
-      "image": "rules-10-apply.png",
-      "seconds": 26.195339088999987
+      "image": "rules-10-apply.png"
     },
     {
       "id": "11-hit",
       "title": "发送匹配请求 / Send a matching request",
-      "image": "rules-11-hit.png",
-      "seconds": 29.037101129999996
+      "image": "rules-11-hit.png"
     },
     {
       "id": "12-capture",
       "title": "在 Capture 核对实际结果 / Inspect the actual Capture result",
-      "image": "rules-12-capture.png",
-      "seconds": 33.69465153599999
+      "image": "rules-12-capture.png"
     },
     {
       "id": "13-nonmatching",
       "title": "核对非匹配请求不受影响 / Verify an unmatched request",
-      "image": "rules-13-nonmatching.png",
-      "seconds": 36.838980871999986
+      "image": "rules-13-nonmatching.png"
     },
     {
       "id": "14-disable",
       "title": "停用规则并 Apply / Disable and Apply",
-      "image": "rules-14-disable.png",
-      "seconds": 39.837291172
+      "image": "rules-14-disable.png"
     }
   ],
   "assets": [
     {
-      "file": "rules.mp4",
-      "bytes": 224847,
-      "sha256": "96368f34563dfac91703065d06a6d2fe17e400fd6d77effa868400acad8bb00b"
-    },
-    {
-      "file": "rules.vtt",
-      "bytes": 1077,
-      "sha256": "4226283f919692f9654cb19aaa15816fdd898b09a3a187e96e104baf3a046c06"
-    },
-    {
       "file": "rules-01-open.png",
       "bytes": 176795,
-      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-02-create.png",
       "bytes": 249983,
-      "sha256": "e3701ded4099552aa5c6ced2f6b61cc05025b8cad11fc935d7f3588ceb34c26c"
+      "sha256": "e3701ded4099552aa5c6ced2f6b61cc05025b8cad11fc935d7f3588ceb34c26c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-03-name.png",
       "bytes": 255455,
-      "sha256": "99bd00100de390032dd3d6464191b27bda57dcc594259800bb375961ae55f691"
+      "sha256": "99bd00100de390032dd3d6464191b27bda57dcc594259800bb375961ae55f691",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-04-host.png",
       "bytes": 245264,
-      "sha256": "bf7a7e654400706b68753c7b8ea98f0f7aabc060d9b9fe70233b0c40b5a190e3"
+      "sha256": "bf7a7e654400706b68753c7b8ea98f0f7aabc060d9b9fe70233b0c40b5a190e3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-05-path-condition.png",
       "bytes": 247705,
-      "sha256": "210eaa0c4d905df1c604f572a9f8f1c5ae71c08bb59b25254705c783a86459a4"
+      "sha256": "210eaa0c4d905df1c604f572a9f8f1c5ae71c08bb59b25254705c783a86459a4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-06-path.png",
       "bytes": 245200,
-      "sha256": "7feac1a83377756328acd5e5d3095fd75aa918f40c0fd51eda4313fdc3424a79"
+      "sha256": "7feac1a83377756328acd5e5d3095fd75aa918f40c0fd51eda4313fdc3424a79",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-07-header-name.png",
       "bytes": 255063,
-      "sha256": "e8932715a44190cc592b04435377eb89a3459eed3c1f8d10d050ae5b3f20ac14"
+      "sha256": "e8932715a44190cc592b04435377eb89a3459eed3c1f8d10d050ae5b3f20ac14",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-08-header-value.png",
       "bytes": 255415,
-      "sha256": "52c1088931485abf8d2b707ed3d05d99f482ea0f99c18c177f45b52e7791a11b"
+      "sha256": "52c1088931485abf8d2b707ed3d05d99f482ea0f99c18c177f45b52e7791a11b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-09-enable.png",
       "bytes": 256966,
-      "sha256": "38c0d2e9518cda493d0a5a65b87e356f732a924e41c0de698ed7ff54e9a57113"
+      "sha256": "38c0d2e9518cda493d0a5a65b87e356f732a924e41c0de698ed7ff54e9a57113",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-10-apply.png",
       "bytes": 252908,
-      "sha256": "fb3b27472a7f37dbaf005bde8b7add2ff0d507a849ef456959a561b28a6f183b"
+      "sha256": "fb3b27472a7f37dbaf005bde8b7add2ff0d507a849ef456959a561b28a6f183b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-11-hit.png",
       "bytes": 252732,
-      "sha256": "e7882c934bfad90084d5df6ab3c86937b980e7fd1674c8b3a0f69e4a07dd2e7a"
+      "sha256": "e7882c934bfad90084d5df6ab3c86937b980e7fd1674c8b3a0f69e4a07dd2e7a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-12-capture.png",
       "bytes": 364994,
-      "sha256": "32d8616bbc3be54b6bc85ac7cddfe7b45a4b8c108d564352fb223f3bea51de67"
+      "sha256": "32d8616bbc3be54b6bc85ac7cddfe7b45a4b8c108d564352fb223f3bea51de67",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-13-nonmatching.png",
       "bytes": 367680,
-      "sha256": "128ee3394bcc657ce0a28e7555e80ec82f599d980ad4807e481d5723c03996f2"
+      "sha256": "128ee3394bcc657ce0a28e7555e80ec82f599d980ad4807e481d5723c03996f2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-14-disable.png",
       "bytes": 251580,
-      "sha256": "c31b509e81baa28588512688c97535f763a6486827dfbd576aad6a1f1da9df43"
+      "sha256": "c31b509e81baa28588512688c97535f763a6486827dfbd576aad6a1f1da9df43",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

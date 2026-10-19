@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "path": "/guide/transfer-cancel/large-source",
     "responseBytes": "134217728",
@@ -18,109 +17,106 @@
     "cancellation": "Cancel clicked while the real archive job was running",
     "result": "No archive or partial file remains; source record retained until explicit Clear"
   },
-  "duration": 44.778874480999995,
-  "video": "transfer-cancel.mp4",
-  "captions": "transfer-cancel.vtt",
   "steps": [
     {
       "id": "01-source",
       "title": "检查已完成的大响应 / Inspect the completed large response",
-      "image": "transfer-cancel-01-source.png",
-      "seconds": 0.40903632199999995
+      "image": "transfer-cancel-01-source.png"
     },
     {
       "id": "02-export-menu",
       "title": "打开Export / Open Export",
-      "image": "transfer-cancel-02-export-menu.png",
-      "seconds": 3.320993606
+      "image": "transfer-cancel-02-export-menu.png"
     },
     {
       "id": "03-archive",
       "title": "选择Native Archive / Choose Native Archive",
-      "image": "transfer-cancel-03-archive.png",
-      "seconds": 6.2758287410000015
+      "image": "transfer-cancel-03-archive.png"
     },
     {
       "id": "04-save-dialog",
       "title": "选择guide-cancel.iarchive / Choose guide-cancel.iarchive",
-      "image": "transfer-cancel-04-save-dialog.png",
-      "seconds": 29.449982762
+      "image": "transfer-cancel-04-save-dialog.png"
     },
     {
       "id": "05-running",
       "title": "查看真实运行中的进度 / Inspect actual running progress",
-      "image": "transfer-cancel-05-running.png",
-      "seconds": 34.628095459
+      "image": "transfer-cancel-05-running.png"
     },
     {
       "id": "06-cancel",
       "title": "取消正在运行的归档 / Cancel the running archive",
-      "image": "transfer-cancel-06-cancel.png",
-      "seconds": 35.3943209
+      "image": "transfer-cancel-06-cancel.png"
     },
     {
       "id": "07-cleaned",
       "title": "等待取消清理完成 / Wait for cancellation cleanup",
-      "image": "transfer-cancel-07-cleaned.png",
-      "seconds": 38.772470132
+      "image": "transfer-cancel-07-cleaned.png"
     },
     {
       "id": "08-clear",
       "title": "清理完成后再Clear / Clear only after cleanup finishes",
-      "image": "transfer-cancel-08-clear.png",
-      "seconds": 41.726509028
+      "image": "transfer-cancel-08-clear.png"
     }
   ],
   "assets": [
     {
       "file": "transfer-cancel-01-source.png",
       "bytes": 548851,
-      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317"
+      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-02-export-menu.png",
       "bytes": 585752,
-      "sha256": "f7f7ae8fec6de890cd800ac14da1bf56376b92594f03e7ff7699da615d41173b"
+      "sha256": "f7f7ae8fec6de890cd800ac14da1bf56376b92594f03e7ff7699da615d41173b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-03-archive.png",
       "bytes": 471250,
-      "sha256": "64785af787180e2bcddc5d1cd359757895d302592ff04ee7108df07662ad2c52"
+      "sha256": "64785af787180e2bcddc5d1cd359757895d302592ff04ee7108df07662ad2c52",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-04-save-dialog.png",
       "bytes": 58192,
-      "sha256": "f181a9768614b51a24934f8e956aaec046db0c933f22bd24120f59a7a1289901"
+      "sha256": "f181a9768614b51a24934f8e956aaec046db0c933f22bd24120f59a7a1289901",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "transfer-cancel-05-running.png",
       "bytes": 448309,
-      "sha256": "78b74dd443bc79530b8014f5be408dc937b4db67bf5d08af65729ec6a85c6bd1"
+      "sha256": "78b74dd443bc79530b8014f5be408dc937b4db67bf5d08af65729ec6a85c6bd1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-06-cancel.png",
       "bytes": 548851,
-      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317"
+      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-07-cleaned.png",
       "bytes": 548851,
-      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317"
+      "sha256": "ea52cba5c571fcc6ab3e3e613e0bd308b3aaa8c088d2e535c6ffd1811b3c5317",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "transfer-cancel-08-clear.png",
       "bytes": 233616,
-      "sha256": "435545b0e34b909fbfbd8439c3893ff35eb2f1162b0512a9a3b3a6dd29e7a50d"
-    },
-    {
-      "file": "transfer-cancel.mp4",
-      "bytes": 402967,
-      "sha256": "634275ea50b2a42d9388eafac0d342851d00ee783f98e3e5031e58d5695af12e"
-    },
-    {
-      "file": "transfer-cancel.vtt",
-      "bytes": 708,
-      "sha256": "a3227763e4aab859cde301ef4b5218490f518c138b47af73f6496a59505e6217"
+      "sha256": "435545b0e34b909fbfbd8439c3893ff35eb2f1162b0512a9a3b3a6dd29e7a50d",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

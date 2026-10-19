@@ -175,10 +175,9 @@ export const english = {
     guideBody:
       'Read the Chinese or English draft by feature, with real step images and clearly stated limitations.',
     guideAction: 'Read the user guide',
-    video: 'See it in action.',
-    videoBody:
-      'Follow recorded product operations, matching step images and captions. Each walkthrough states its version and scope.',
-    videoAction: 'Watch walkthroughs',
+    steps: 'Follow the steps.',
+    stepsBody: 'Find real App step images by feature, with matching example values and results.',
+    stepsAction: 'View step images',
     access: 'The current quick start is in the private product repository.',
   },
   faq: {

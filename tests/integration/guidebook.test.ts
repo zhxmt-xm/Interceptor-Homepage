@@ -51,19 +51,21 @@ test('English guide renders translated chapters and keeps the current section wh
   await expect(page.locator('h1')).toHaveText('Capture: find and understand traffic');
 });
 
-test('recorded guide steps display real screenshots and a playable chapter video', async ({
+test('guide steps display original screenshots without video players or timestamps', async ({
   page,
 }) => {
   test.setTimeout(90_000);
   await page.goto('/guide/composer');
   const article = page.getByTestId('guide.article');
+  await expect(article).toBeVisible();
   const source = readFileSync(path.join(sourceDirectory, 'composer.md'), 'utf8');
-  const videoCount = [...source.matchAll(/<video\b/g)].length;
   const imagePaths = [...source.matchAll(/!\[[^\]]+\]\(([^)]+)\)/g)].map((match) => match[1]);
   const imageCount = imagePaths.length;
-  expect(videoCount).toBeGreaterThan(0);
   expect(imageCount).toBeGreaterThanOrEqual(10);
-  await expect(article.locator('video')).toHaveCount(videoCount);
+  await expect(article.locator('video, track, [data-guide-video]')).toHaveCount(0);
+  await expect(article.locator('a[href*=".mp4"], a[href*=".vtt"], a[href$="-video"]')).toHaveCount(
+    0,
+  );
   await expect(article.locator('img')).toHaveCount(imageCount);
   const expectedSizes = imagePaths.map((imagePath) => {
     const bytes = readFileSync(path.resolve(sourceDirectory, imagePath));
@@ -97,134 +99,75 @@ test('recorded guide steps display real screenshots and a playable chapter video
   }
   await expect(article).toContainText('x-interceptor-guide');
   await expect(article).toContainText('composer-demo');
-  for (const video of await article.locator('video').all()) {
-    await expect(video).toHaveAttribute('controls', '');
-    await video.scrollIntoViewIfNeeded();
-    await expect
-      .poll(() =>
-        video.evaluate(
-          (element: HTMLVideoElement) =>
-            element.readyState >= 1 &&
-            element.videoWidth === 1600 &&
-            element.videoHeight === 900 &&
-            Number.isFinite(element.duration) &&
-            element.duration > 0,
-        ),
-      )
-      .toBe(true);
-    await expect(video.locator('track')).toHaveCount(1);
-    await expect
-      .poll(() =>
-        video.evaluate((element: HTMLVideoElement) => {
-          const track = element.querySelector('track');
-          return (
-            track?.readyState === 2 &&
-            element.textTracks.length === 1 &&
-            (element.textTracks[0]?.cues?.length ?? 0) > 0
-          );
-        }),
-      )
-      .toBe(true);
-    await video.evaluate((element: HTMLVideoElement) => element.play());
-    await expect
-      .poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime))
-      .toBeGreaterThan(0);
-    await video.evaluate((element: HTMLVideoElement) => element.pause());
+});
+
+test('the homepage step entry reaches illustrated chapters without another document load', async ({
+  page,
+}) => {
+  for (const locale of ['zh', 'en']) {
+    const query = locale === 'en' ? '?lang=en' : '';
+    await page.goto('/');
+    if (locale === 'en') await toggleHeaderLanguage(page);
+    await page.keyboard.press('Escape');
+    const origin = await page.evaluate(() => performance.timeOrigin);
+    const entry = page.getByTestId('homepage.guideSteps');
+    await expect(entry).toHaveAttribute('href', `/guide${query}#walkthroughs`);
+    await entry.click();
+    await expect(page).toHaveURL(new RegExp(`/guide/?${query ? '\\?lang=en' : ''}#walkthroughs$`));
+    await expect(page.locator('#guide-anchor-walkthroughs')).toHaveCount(1);
+    await page
+      .getByTestId('guide.article')
+      .locator(`a[href="/guide/transfer${query}#walkthrough"]`)
+      .click();
+    await expect(page.locator('#guide-anchor-walkthrough')).toHaveCount(1);
+    const image = page.getByTestId('guide.article').locator('img').first();
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((element: HTMLImageElement) => element.decode());
+    expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
   }
 });
 
-test('the homepage video entry reaches real chapter recordings without another document load', async ({
-  page,
-}) => {
-  await page.goto('/');
-  const origin = await page.evaluate(() => performance.timeOrigin);
-  await page.getByTestId('homepage.guideVideos').click();
-  await expect(page).toHaveURL(/\/guide\/?#videos$/);
-  await expect(page.locator('#guide-anchor-videos')).toHaveCount(1);
-  await expect(page.locator('#guide-heading-实拍视频与步骤图')).toBeInViewport();
-  await page
-    .getByTestId('guide.article')
-    .locator('a[href="/guide/transfer#walkthrough-video"]')
-    .click();
-  const video = page
-    .locator('#guide-anchor-walkthrough-video')
-    .locator('xpath=following::video[1]');
-  await expect(video).toBeVisible();
-  expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
-  await expect
-    .poll(() => video.evaluate((element: HTMLVideoElement) => element.readyState))
-    .toBeGreaterThan(0);
-});
-
-test('all published chapter videos load their captions in both article languages', async ({
+test('all illustrated chapters expose PNG originals in both languages without video requests', async ({
   page,
 }) => {
   test.setTimeout(180_000);
-  let checkedVideos = 0;
+  const recordings: string[] = [];
+  page.on('request', (request) => {
+    if (/\.(mp4|vtt)$/.test(new URL(request.url()).pathname)) recordings.push(request.url());
+  });
+  let checkedImages = 0;
   for (const language of ['zh-CN', 'en']) {
     for (const chapter of chapters) {
       const source = readFileSync(path.resolve(`guidebook/${language}/${chapter.slug}.md`), 'utf8');
-      const expectedVideos = [...source.matchAll(/<video\b/g)].length;
-      if (expectedVideos === 0) continue;
+      const expectedImages = [...source.matchAll(/!\[[^\]]+\]\(([^)]+)\)/g)].length;
       await page.goto(`/guide/${chapter.slug}${language === 'en' ? '?lang=en' : ''}`);
       const article = page.getByTestId('guide.article');
       await expect(article).toHaveAttribute('lang', language);
-      const videos = article.locator('video');
-      await expect(videos).toHaveCount(expectedVideos);
-      for (const video of await videos.all()) {
-        await video.scrollIntoViewIfNeeded();
-        await expect(video.locator('track')).toHaveCount(1);
-        await expect
-          .poll(() =>
-            video.evaluate((element: HTMLVideoElement) => {
-              const track = element.querySelector('track');
-              return (
-                element.readyState >= 1 &&
-                element.duration > 0 &&
-                element.seekable.length > 0 &&
-                element.seekable.end(element.seekable.length - 1) >= element.duration - 0.052 &&
-                track?.readyState === 2 &&
-                (element.textTracks[0]?.cues?.length ?? 0) > 0
-              );
-            }),
-          )
-          .toBe(true);
-        const lastCaption = await video.evaluate((element: HTMLVideoElement) => {
-          const cues = element.textTracks[0]?.cues;
-          const cue = cues?.[cues.length - 1];
-          if (!cue) throw new Error('The chapter video has no final caption.');
-          return { start: cue.startTime, end: cue.endTime, duration: element.duration };
-        });
-        expect(lastCaption.start).toBeLessThan(lastCaption.duration);
-        expect(Math.abs(lastCaption.end - lastCaption.duration)).toBeLessThanOrEqual(
-          1 / 20 + 0.002,
-        );
-        await video.evaluate((element: HTMLVideoElement) => {
-          const cues = element.textTracks[0]?.cues;
-          const cue = cues?.[cues.length - 1];
-          if (!cue) throw new Error('The chapter video has no final caption.');
-          element.currentTime = cue.startTime + (element.duration - cue.startTime) / 2;
-        });
-        await expect
-          .poll(() =>
-            video.evaluate(
-              (element: HTMLVideoElement, start) =>
-                !element.seeking &&
-                element.currentTime > start &&
-                element.currentTime < element.duration,
-              lastCaption.start,
-            ),
-          )
-          .toBe(true);
-        expect(
-          await video.evaluate((element: HTMLVideoElement) => element.currentTime),
-        ).toBeGreaterThan(lastCaption.start);
-        checkedVideos += 1;
+      await expect(article.locator('video, track, [data-guide-video]')).toHaveCount(0);
+      await expect(article.locator('img')).toHaveCount(expectedImages);
+      const originals = await article.locator('img').evaluateAll((images) =>
+        images.map((image) => {
+          const anchor = image.parentElement;
+          return {
+            src: image.getAttribute('src'),
+            href: anchor?.getAttribute('href'),
+            tag: anchor?.tagName,
+            target: anchor?.getAttribute('target'),
+            rel: anchor?.getAttribute('rel'),
+            nested: anchor?.parentElement?.closest('a') !== null,
+          };
+        }),
+      );
+      for (const original of originals) {
+        expect(original).toMatchObject({ tag: 'A', target: '_blank', nested: false });
+        expect(original.href).toBe(original.src);
+        expect(original.rel).toContain('noopener');
       }
-      await expect(article.locator('track')).toHaveCount(expectedVideos);
+      checkedImages += originals.length;
     }
   }
-  expect(checkedVideos).toBeGreaterThan(0);
+  expect(checkedImages).toBeGreaterThan(0);
+  expect(recordings).toEqual([]);
 });
 
 test('failed reader downloads show an explicit error while site navigation remains available', async ({

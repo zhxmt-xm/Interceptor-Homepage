@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "url": "http://127.0.0.1:52315/guide/shortcuts/order",
     "blockName": "Guide quick block",
@@ -17,175 +16,178 @@
     "blockBehavior": "disabled draft; enable and Apply required",
     "breakpointBehavior": "created, enabled and applied immediately for request and response phases"
   },
-  "duration": 42.29567580299999,
-  "video": "capture-shortcuts.mp4",
-  "captions": "capture-shortcuts.vtt",
   "steps": [
     {
       "id": "01-source",
       "title": "选择实际历史请求 / Select the captured source request",
-      "image": "capture-shortcuts-01-source.png",
-      "seconds": 0.33308679299999494
+      "image": "capture-shortcuts-01-source.png"
     },
     {
       "id": "02-context",
       "title": "打开右键菜单 / Open the context menu",
-      "image": "capture-shortcuts-02-context.png",
-      "seconds": 3.344628236999997
+      "image": "capture-shortcuts-02-context.png"
     },
     {
       "id": "03-block-draft",
       "title": "Block 创建未启用草稿 / Block creates a disabled draft",
-      "image": "capture-shortcuts-03-block-draft.png",
-      "seconds": 6.294662748999981
+      "image": "capture-shortcuts-03-block-draft.png"
     },
     {
       "id": "04-name",
       "title": "命名 Guide quick block / Name the Block draft",
-      "image": "capture-shortcuts-04-name.png",
-      "seconds": 9.252470639999984
+      "image": "capture-shortcuts-04-name.png"
     },
     {
       "id": "05-enable",
       "title": "启用 Block / Enable Block",
-      "image": "capture-shortcuts-05-enable.png",
-      "seconds": 12.094715020000002
+      "image": "capture-shortcuts-05-enable.png"
     },
     {
       "id": "06-apply",
       "title": "Apply 后才生效 / Apply before taking effect",
-      "image": "capture-shortcuts-06-apply.png",
-      "seconds": 14.944924543
+      "image": "capture-shortcuts-06-apply.png"
     },
     {
       "id": "07-blocked",
       "title": "发送新请求验证阻断 / Verify a new request is blocked",
-      "image": "capture-shortcuts-07-blocked.png",
-      "seconds": 17.804436795999994
+      "image": "capture-shortcuts-07-blocked.png"
     },
     {
       "id": "08-disable",
       "title": "停用本轮 Block / Disable this Block Rule",
-      "image": "capture-shortcuts-08-disable.png",
-      "seconds": 20.794729634999996
+      "image": "capture-shortcuts-08-disable.png"
     },
     {
       "id": "09-disable-apply",
       "title": "Apply 停用状态 / Apply the disabled state",
-      "image": "capture-shortcuts-09-disable-apply.png",
-      "seconds": 23.744537735999998
+      "image": "capture-shortcuts-09-disable-apply.png"
     },
     {
       "id": "10-breakpoint-menu",
       "title": "打开真实 Breakpoint 子菜单 / Open the actual Breakpoint submenu",
-      "image": "capture-shortcuts-10-breakpoint-menu.png",
-      "seconds": 26.64525994399999
+      "image": "capture-shortcuts-10-breakpoint-menu.png"
     },
     {
       "id": "11-endpoint",
       "title": "选择 Endpoint 并立即 Apply / Select Endpoint and apply immediately",
-      "image": "capture-shortcuts-11-endpoint.png",
-      "seconds": 30.094406040000003
+      "image": "capture-shortcuts-11-endpoint.png"
     },
     {
       "id": "12-paused",
       "title": "发送新请求并观察等待 / Send again and inspect the wait",
-      "image": "capture-shortcuts-12-paused.png",
-      "seconds": 33.09456856699998
+      "image": "capture-shortcuts-12-paused.png"
     },
     {
       "id": "13-continue-request",
       "title": "请求阶段原样放行 / Continue the request phase",
-      "image": "capture-shortcuts-13-continue-request.png",
-      "seconds": 36.145448156
+      "image": "capture-shortcuts-13-continue-request.png"
     },
     {
       "id": "14-continue-response",
       "title": "响应阶段再次放行 / Continue the response phase separately",
-      "image": "capture-shortcuts-14-continue-response.png",
-      "seconds": 39.24866200899999
+      "image": "capture-shortcuts-14-continue-response.png"
     }
   ],
   "assets": [
     {
-      "file": "capture-shortcuts.mp4",
-      "bytes": 371674,
-      "sha256": "4e1b15ff8ed2c494e86b06467e8f5f620a30b4bd1417a1912f7d52ed808319ed"
-    },
-    {
-      "file": "capture-shortcuts.vtt",
-      "bytes": 1245,
-      "sha256": "dcfb9c2852edf67d5968f6fd3856fe4a90bcaadbdf1421c38c85b364b6616897"
-    },
-    {
       "file": "capture-shortcuts-01-source.png",
       "bytes": 354515,
-      "sha256": "1578bca1705b631b1c369af1c0b1442736fdc6fd7c4ede91aaf3c42893ca7547"
+      "sha256": "1578bca1705b631b1c369af1c0b1442736fdc6fd7c4ede91aaf3c42893ca7547",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-02-context.png",
       "bytes": 442333,
-      "sha256": "1359eab32f836cb2f70129985bda4de0930b2dd187f408fe9d95bd1c2c91d416"
+      "sha256": "1359eab32f836cb2f70129985bda4de0930b2dd187f408fe9d95bd1c2c91d416",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-03-block-draft.png",
       "bytes": 257120,
-      "sha256": "dbe717db3f84886a6cf88b4c05952c74f4ecc1d7c65d681f9177f6e14de97088"
+      "sha256": "dbe717db3f84886a6cf88b4c05952c74f4ecc1d7c65d681f9177f6e14de97088",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-04-name.png",
       "bytes": 248404,
-      "sha256": "2151dd10d52874186d2606089adb08391fac11fc4ada7a34c64a59aa802cda88"
+      "sha256": "2151dd10d52874186d2606089adb08391fac11fc4ada7a34c64a59aa802cda88",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-05-enable.png",
       "bytes": 248359,
-      "sha256": "fcc268898370dd4b01255c879fd1bef093b9a38c1b3681af146941c8b85597b1"
+      "sha256": "fcc268898370dd4b01255c879fd1bef093b9a38c1b3681af146941c8b85597b1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-06-apply.png",
       "bytes": 244502,
-      "sha256": "45bbbd4059b3cecd17d21f864c12ccbf81a29905cb8acb7479036999561ce9d8"
+      "sha256": "45bbbd4059b3cecd17d21f864c12ccbf81a29905cb8acb7479036999561ce9d8",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-07-blocked.png",
       "bytes": 367901,
-      "sha256": "33ac15c34c45167fc3f5154a3f63d5123ddf3444a7f63fe6a826aed372002025"
+      "sha256": "33ac15c34c45167fc3f5154a3f63d5123ddf3444a7f63fe6a826aed372002025",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-08-disable.png",
       "bytes": 246871,
-      "sha256": "26044b5929e86eff95d5b0b8584f3c5684d66ad36f824ee7528b69c113142a95"
+      "sha256": "26044b5929e86eff95d5b0b8584f3c5684d66ad36f824ee7528b69c113142a95",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-09-disable-apply.png",
       "bytes": 243499,
-      "sha256": "0920f0ab722c09f8cea1b3283f1f346e1082ddb39c9864409f971835cf669cf0"
+      "sha256": "0920f0ab722c09f8cea1b3283f1f346e1082ddb39c9864409f971835cf669cf0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-10-breakpoint-menu.png",
       "bytes": 493299,
-      "sha256": "68b2b082091a73273bb816493463b8dc41e2a12411e9511b14b8ae2b7f99062c"
+      "sha256": "68b2b082091a73273bb816493463b8dc41e2a12411e9511b14b8ae2b7f99062c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-11-endpoint.png",
       "bytes": 389547,
-      "sha256": "a686a2c3e721420045cb00fa7eb1e19b522ce3b89a396f02fc8e41c992867450"
+      "sha256": "a686a2c3e721420045cb00fa7eb1e19b522ce3b89a396f02fc8e41c992867450",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-12-paused.png",
       "bytes": 336129,
-      "sha256": "89d0967b5bec709ac0301e5ba99826aaec09dfcef4bdf5cf7c76af6e3f61dc70"
+      "sha256": "89d0967b5bec709ac0301e5ba99826aaec09dfcef4bdf5cf7c76af6e3f61dc70",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-13-continue-request.png",
       "bytes": 388457,
-      "sha256": "58b6e746d81357e6de8341538688e4cc5ef59bac4cbc4d5c8cc471d2dfe1601f"
+      "sha256": "58b6e746d81357e6de8341538688e4cc5ef59bac4cbc4d5c8cc471d2dfe1601f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-shortcuts-14-continue-response.png",
       "bytes": 383844,
-      "sha256": "c60cadb718bfbd0271a197da655af1def3a88c3bc1f25d5417e08f79b1fa7ab3"
+      "sha256": "c60cadb718bfbd0271a197da655af1def3a88c3bc1f25d5417e08f79b1fa7ab3",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

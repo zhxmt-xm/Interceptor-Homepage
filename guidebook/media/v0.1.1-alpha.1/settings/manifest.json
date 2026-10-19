@@ -5,193 +5,196 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "manualHost": "127.0.0.1",
     "manualPort": "7890",
     "pacUrl": "https://proxy.example.test/proxy.pac",
     "exampleApplied": "false"
   },
-  "duration": 43.456031677000006,
-  "video": "settings.mp4",
-  "captions": "settings.vtt",
   "steps": [
     {
       "id": "01-open",
       "title": "打开 Settings / Open Settings",
-      "image": "settings-01-open.png",
-      "seconds": 0.3878698769999901
+      "image": "settings-01-open.png"
     },
     {
       "id": "02-certificates",
       "title": "检查当前 CA 与信任 / Inspect the existing CA and trust",
-      "image": "settings-02-certificates.png",
-      "seconds": 3.254892215
+      "image": "settings-02-certificates.png"
     },
     {
       "id": "03-proxy",
       "title": "检查 System proxy / Inspect System proxy",
-      "image": "settings-03-proxy.png",
-      "seconds": 6.103937867999994
+      "image": "settings-03-proxy.png"
     },
     {
       "id": "04-upstream",
       "title": "查看当前上游路线 / Inspect the current upstream route",
-      "image": "settings-04-upstream.png",
-      "seconds": 8.95809371999999
+      "image": "settings-04-upstream.png"
     },
     {
       "id": "05-manual-draft",
       "title": "选择 Manual 草稿 / Choose a Manual draft",
-      "image": "settings-05-manual-draft.png",
-      "seconds": 11.854226372999998
+      "image": "settings-05-manual-draft.png"
     },
     {
       "id": "06-discard",
       "title": "Discard 不应用示例草稿 / Discard without applying the example",
-      "image": "settings-06-discard.png",
-      "seconds": 14.854979047999993
+      "image": "settings-06-discard.png"
     },
     {
       "id": "07-pac",
       "title": "查看 PAC 输入 / Inspect PAC input",
-      "image": "settings-07-pac.png",
-      "seconds": 17.703006366999993
+      "image": "settings-07-pac.png"
     },
     {
       "id": "08-discard-pac",
       "title": "放弃未运行的 PAC 示例 / Discard the non-running PAC example",
-      "image": "settings-08-discard-pac.png",
-      "seconds": 20.607505355
+      "image": "settings-08-discard-pac.png"
     },
     {
       "id": "09-passthrough",
       "title": "打开 TLS passthrough / Open TLS passthrough",
-      "image": "settings-09-passthrough.png",
-      "seconds": 23.45737002599999
+      "image": "settings-09-passthrough.png"
     },
     {
       "id": "10-privacy",
       "title": "检查导出隐私默认值 / Inspect export privacy defaults",
-      "image": "settings-10-privacy.png",
-      "seconds": 26.312974547000007
+      "image": "settings-10-privacy.png"
     },
     {
       "id": "11-storage",
       "title": "查看临时存储 / Inspect temporary storage",
-      "image": "settings-11-storage.png",
-      "seconds": 29.203824898000008
+      "image": "settings-11-storage.png"
     },
     {
       "id": "12-refresh",
       "title": "刷新用量 / Refresh usage",
-      "image": "settings-12-refresh.png",
-      "seconds": 32.058496138
+      "image": "settings-12-refresh.png"
     },
     {
       "id": "13-clear-confirm",
       "title": "查看清理确认 / Review Clear confirmation",
-      "image": "settings-13-clear-confirm.png",
-      "seconds": 34.90387751099998
+      "image": "settings-13-clear-confirm.png"
     },
     {
       "id": "14-cancel",
       "title": "取消清理 / Cancel clearing",
-      "image": "settings-14-cancel.png",
-      "seconds": 37.75329083199998
+      "image": "settings-14-cancel.png"
     },
     {
       "id": "15-updates",
       "title": "查看版本与更新状态 / Inspect version and update state",
-      "image": "settings-15-updates.png",
-      "seconds": 40.60357541199999
+      "image": "settings-15-updates.png"
     }
   ],
   "assets": [
     {
-      "file": "settings.mp4",
-      "bytes": 320430,
-      "sha256": "55ac82a81322c3b8712eafd99afe5923295bd6b9be0b4d66939946dd69234d00"
-    },
-    {
-      "file": "settings.vtt",
-      "bytes": 1252,
-      "sha256": "570fbabae799ba939224638faca61dac8b74e9b47b0d6ab02a4a191bdbd41687"
-    },
-    {
       "file": "settings-01-open.png",
       "bytes": 362710,
-      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-02-certificates.png",
       "bytes": 362374,
-      "sha256": "90d2d308e9938910395288773674d187dcd9314a72b0582c2b705d3bd7a8f356"
+      "sha256": "90d2d308e9938910395288773674d187dcd9314a72b0582c2b705d3bd7a8f356",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-03-proxy.png",
       "bytes": 344274,
-      "sha256": "9f138c45cbbdc652291d4fe513d9cf8bd63f1534e4121e2829e2911172ef7691"
+      "sha256": "9f138c45cbbdc652291d4fe513d9cf8bd63f1534e4121e2829e2911172ef7691",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-04-upstream.png",
       "bytes": 364259,
-      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-05-manual-draft.png",
       "bytes": 363994,
-      "sha256": "619c7bbc95fd31388e6c4ee2a234e92b43b87a00c8906b40845f93d45f6af751"
+      "sha256": "619c7bbc95fd31388e6c4ee2a234e92b43b87a00c8906b40845f93d45f6af751",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-06-discard.png",
       "bytes": 364259,
-      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-07-pac.png",
       "bytes": 361148,
-      "sha256": "b52005b8f804cc5e0c3f5e77ba991aa8dec895e203c43e89e578e97e711b9246"
+      "sha256": "b52005b8f804cc5e0c3f5e77ba991aa8dec895e203c43e89e578e97e711b9246",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-08-discard-pac.png",
       "bytes": 364259,
-      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-09-passthrough.png",
       "bytes": 288553,
-      "sha256": "616273716d3021f1841a98f2dc682dac1050680cdf3afab64e8e0bfa04b58457"
+      "sha256": "616273716d3021f1841a98f2dc682dac1050680cdf3afab64e8e0bfa04b58457",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-10-privacy.png",
       "bytes": 342921,
-      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b"
+      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-11-storage.png",
       "bytes": 289525,
-      "sha256": "bd8e68d9915cb7c96f3616f9732930b525b5f8d4b75c99dba6a23f373e958462"
+      "sha256": "bd8e68d9915cb7c96f3616f9732930b525b5f8d4b75c99dba6a23f373e958462",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-12-refresh.png",
       "bytes": 300504,
-      "sha256": "98fbeeecaac3c9b083a04d35d83b17c15132f275540436e01b71aeccb3e0d25f"
+      "sha256": "98fbeeecaac3c9b083a04d35d83b17c15132f275540436e01b71aeccb3e0d25f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-13-clear-confirm.png",
       "bytes": 290196,
-      "sha256": "4f002472559cf580f1c8e248409fc801a451c8ec65ad508c1570ae851191aa89"
+      "sha256": "4f002472559cf580f1c8e248409fc801a451c8ec65ad508c1570ae851191aa89",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-14-cancel.png",
       "bytes": 289470,
-      "sha256": "8b2e524672f7098baa4f523591858931976cba79f9331e2cae69b4a6680a29fc"
+      "sha256": "8b2e524672f7098baa4f523591858931976cba79f9331e2cae69b4a6680a29fc",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-15-updates.png",
       "bytes": 338068,
-      "sha256": "b4c722f366c5589d89c0388979609bdcedcfe2dd9134edf34bac24c44acb6a6f"
+      "sha256": "b4c722f366c5589d89c0388979609bdcedcfe2dd9134edf34bac24c44acb6a6f",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

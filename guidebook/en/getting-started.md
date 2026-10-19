@@ -1,6 +1,6 @@
 # Getting started: capture your first request
 
-> Draft for `v0.1.1-alpha.1`. Request inspection and saving accurately reuse the owning chapters' recordings. Installation, first authorization and exit recovery still need images; not all platforms or item9 are accepted.
+> Draft for `v0.1.1-alpha.1`. Request inspection and saving accurately reuse the owning chapters' walkthroughs. Installation, first authorization and exit recovery still need images; not all platforms or item9 are accepted.
 
 [Guide directory](../README.en.md) · [Continue to Capture](capture.md)
 
@@ -32,7 +32,7 @@ No model API key, Rules configuration or HTTPS decryption is needed. Proxy forwa
 
 3. On Windows, select an installer or ZIP actually attached to the release. Extract a ZIP completely; do not run a lone EXE removed from its directory.
 
-   **Image pending / blocked:** all current recordings are macOS; Windows installation/startup material is missing.
+   **Image pending / blocked:** all current step images are from macOS; Windows installation/startup material is missing.
 
 4. Read first-launch system prompts and authorize only the trusted Interceptor operation. Wait for startup preparation to finish.
 

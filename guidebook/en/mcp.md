@@ -8,11 +8,11 @@
 <a id="walkthrough"></a>
 ## Recorded walkthrough: actual product steps
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -21,170 +21,118 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>endpointChanged</code> | <code>false</code> |
 | <code>caller</code> | <code>official SDK local demonstration; not a VS Code or cloud-host compatibility claim</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp/mcp.mp4" poster="../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp/mcp.vtt" default>
-</video>
-
 <a id="walkthrough-01-settings"></a>
 ### 01 · Open Settings
-
-[Video 00:00](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=0.421) · [Back to the video](#walkthrough-video)
 
 ![01 · Open Settings](../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png)
 
 <a id="walkthrough-02-mcp"></a>
 ### 02 · Find MCP Server
 
-[Video 00:03](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=3.275) · [Back to the video](#walkthrough-video)
-
 ![02 · Find MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-02-mcp.png)
 
 <a id="walkthrough-03-enable"></a>
 ### 03 · Enable the local MCP Server
-
-[Video 00:06](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=6.417) · [Back to the video](#walkthrough-video)
 
 ![03 · Enable the local MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-03-enable.png)
 
 <a id="walkthrough-04-add-client"></a>
 ### 04 · Add a separate Client
 
-[Video 00:09](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=9.327) · [Back to the video](#walkthrough-video)
-
 ![04 · Add a separate Client](../media/v0.1.1-alpha.1/mcp/mcp-04-add-client.png)
 
 <a id="walkthrough-05-name"></a>
 ### 05 · Name the Client
-
-[Video 00:12](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=12.266) · [Back to the video](#walkthrough-video)
 
 ![05 · Name the Client](../media/v0.1.1-alpha.1/mcp/mcp-05-name.png)
 
 <a id="walkthrough-06-create"></a>
 ### 06 · Create the Client
 
-[Video 00:15](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=15.117) · [Back to the video](#walkthrough-video)
-
 ![06 · Create the Client](../media/v0.1.1-alpha.1/mcp/mcp-06-create.png)
 
 <a id="walkthrough-07-copy"></a>
 ### 07 · Copy configuration without displaying credentials
-
-[Video 00:18](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=18.067) · [Back to the video](#walkthrough-video)
 
 ![07 · Copy configuration without displaying credentials](../media/v0.1.1-alpha.1/mcp/mcp-07-copy.png)
 
 <a id="walkthrough-08-query"></a>
 ### 08 · Connect the demo client and query
 
-[Video 00:21](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=21.368) · [Back to the video](#walkthrough-video)
-
 ![08 · Connect the demo client and query](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
 
 <a id="walkthrough-09-ask"></a>
 ### 09 · Request an operation requiring approval
-
-[Video 00:24](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=24.367) · [Back to the video](#walkthrough-video)
 
 ![09 · Request an operation requiring approval](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
 
 <a id="walkthrough-10-deny"></a>
 ### 10 · Deny the operation
 
-[Video 00:27](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=27.278) · [Back to the video](#walkthrough-video)
-
 ![10 · Deny the operation](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
 
 <a id="walkthrough-11-ask-again"></a>
 ### 11 · Request again and review effects
-
-[Video 00:30](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=30.168) · [Back to the video](#walkthrough-video)
 
 ![11 · Request again and review effects](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
 
 <a id="walkthrough-12-allow"></a>
 ### 12 · Allow pausing Recording
 
-[Video 00:33](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=33.017) · [Back to the video](#walkthrough-video)
-
 ![12 · Allow pausing Recording](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
 
 <a id="walkthrough-13-auto"></a>
 ### 13 · Inspect Client Auto mode
-
-[Video 00:35](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=35.917) · [Back to the video](#walkthrough-video)
 
 ![13 · Inspect Client Auto mode](../media/v0.1.1-alpha.1/mcp/mcp-13-auto.png)
 
 <a id="walkthrough-14-ask-mode"></a>
 ### 14 · Restore Client Ask
 
-[Video 00:38](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=38.868) · [Back to the video](#walkthrough-video)
-
 ![14 · Restore Client Ask](../media/v0.1.1-alpha.1/mcp/mcp-14-ask-mode.png)
 
 <a id="walkthrough-14a-regenerate-dialog"></a>
 ### 15 · Review credential rotation
-
-[Video 00:41](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=41.716) · [Back to the video](#walkthrough-video)
 
 ![15 · Review credential rotation](../media/v0.1.1-alpha.1/mcp/mcp-14a-regenerate-dialog.png)
 
 <a id="walkthrough-14b-regenerate"></a>
 ### 16 · Rotate and verify old configuration is rejected
 
-[Video 00:44](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=44.618) · [Back to the video](#walkthrough-video)
-
 ![16 · Rotate and verify old configuration is rejected](../media/v0.1.1-alpha.1/mcp/mcp-14b-regenerate.png)
 
 <a id="walkthrough-14c-update-client"></a>
 ### 17 · Copy new configuration and reconnect
-
-[Video 00:47](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=47.568) · [Back to the video](#walkthrough-video)
 
 ![17 · Copy new configuration and reconnect](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
 
 <a id="walkthrough-15-revoke-dialog"></a>
 ### 18 · Review Client revocation
 
-[Video 00:50](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=50.666) · [Back to the video](#walkthrough-video)
-
 ![18 · Review Client revocation](../media/v0.1.1-alpha.1/mcp/mcp-15-revoke-dialog.png)
 
 <a id="walkthrough-16-revoke"></a>
 ### 19 · Revoke the demo Client
-
-[Video 00:53](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=53.568) · [Back to the video](#walkthrough-video)
 
 ![19 · Revoke the demo Client](../media/v0.1.1-alpha.1/mcp/mcp-16-revoke.png)
 
 <a id="walkthrough-17-disable"></a>
 ### 20 · Disable MCP Server
 
-[Video 00:56](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=56.468) · [Back to the video](#walkthrough-video)
-
 ![20 · Disable MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-17-disable.png)
 
 <a id="walkthrough-18-port-conflict"></a>
 ### 21 · Observe an endpoint conflict
-
-[Video 00:59](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=59.418) · [Back to the video](#walkthrough-video)
 
 ![21 · Observe an endpoint conflict](../media/v0.1.1-alpha.1/mcp/mcp-18-port-conflict.png)
 
 <a id="walkthrough-19-release-port"></a>
 ### 22 · Retry after ending the known port owner
 
-[Video 01:02](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=62.368) · [Back to the video](#walkthrough-video)
-
 ![22 · Retry after ending the known port owner](../media/v0.1.1-alpha.1/mcp/mcp-19-release-port.png)
 
 <a id="walkthrough-20-final-disable"></a>
 ### 23 · Finish by disabling the Server
-
-[Video 01:05](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=65.319) · [Back to the video](#walkthrough-video)
 
 ![23 · Finish by disabling the Server](../media/v0.1.1-alpha.1/mcp/mcp-20-final-disable.png)
 
@@ -349,7 +297,7 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 
 **Notes:** normal disable/enable/restart should not require creating a Client again. An explicit endpoint change does require host updates.
 
-**Actual branches in this release:** a manual enable attempt on an occupied port remains disabled and shows `EADDRINUSE`; end the known, owned conflicting process and retry. If MCP was previously saved as enabled and the port is occupied during App startup, it shows `endpoint-conflict` with Change endpoint. See the separate [runtime failure/retry recording](#walkthrough-video) and [restart recovery recording](#walkthrough-mcp-endpoint-video); do not assume their controls are identical.
+**Actual branches in this release:** a manual enable attempt on an occupied port remains disabled and shows `EADDRINUSE`; end the known, owned conflicting process and retry. If MCP was previously saved as enabled and the port is occupied during App startup, it shows `endpoint-conflict` with Change endpoint. See the separate [runtime failure/retry recording](#walkthrough) and [restart recovery recording](#walkthrough-mcp-endpoint); do not assume their controls are identical.
 
 <a id="credentials"></a>
 ## Rotate, revoke and disable
@@ -422,11 +370,11 @@ Read these as two separate paths: steps 1–4 are runtime manual Enable failure/
 <a id="walkthrough-mcp-endpoint"></a>
 ## Recorded walkthrough: recover the endpoint after restart
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -434,44 +382,28 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>newEndpoint</code> | <code>http://127.0.0.1:49835/mcp</code> |
 | <code>prerequisite</code> | <code>MCP was enabled before normal App restart; its saved port was occupied by an owned demo process</code> |
 
-<a id="walkthrough-mcp-endpoint-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4" poster="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-endpoint-01-settings"></a>
 ### 01 · Open Settings after restart
-
-[Video 00:00](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=0.414) · [Back to the video](#walkthrough-mcp-endpoint-video)
 
 ![01 · Open Settings after restart](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png)
 
 <a id="walkthrough-mcp-endpoint-02-conflict"></a>
 ### 02 · Inspect the saved endpoint conflict
 
-[Video 00:03](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=3.262) · [Back to the video](#walkthrough-mcp-endpoint-video)
-
 ![02 · Inspect the saved endpoint conflict](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-02-conflict.png)
 
 <a id="walkthrough-mcp-endpoint-03-change"></a>
 ### 03 · Explicitly change the endpoint
-
-[Video 00:06](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=6.461) · [Back to the video](#walkthrough-mcp-endpoint-video)
 
 ![03 · Explicitly change the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-03-change.png)
 
 <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>
 ### 04 · Inspect the address that hosts must update
 
-[Video 00:09](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=9.360) · [Back to the video](#walkthrough-mcp-endpoint-video)
-
 ![04 · Inspect the address that hosts must update](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-04-note-new-address.png)
 
 <a id="walkthrough-mcp-endpoint-05-disable"></a>
 ### 05 · Disable the demonstration Server
-
-[Video 00:12](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=12.261) · [Back to the video](#walkthrough-mcp-endpoint-video)
 
 ![05 · Disable the demonstration Server](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-05-disable.png)
 
@@ -482,11 +414,11 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-mcp-tool-lifecycle"></a>
 ## Cancelled approval, export and in-flight Client revocation
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -499,163 +431,113 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>inFlightUrl</code> | <code>http://127.0.0.1:57678/guide/mcp-tools/in-flight</code> |
 | <code>revocation</code> | <code>The owned Composer socket is cancelled and the old Client can no longer query</code> |
 
-<a id="walkthrough-mcp-tool-lifecycle-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-tool-lifecycle-01-client"></a>
 ### 01 · Inspect this actual SDK Client
-
-[Video 00:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=0.435) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![01 · Inspect this actual SDK Client](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a>
 ### 02 · Locate MCP permission for this pause Tool
 
-[Video 00:03](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=3.484) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![02 · Locate MCP permission for this pause Tool](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>
 ### 03 · Start an operation awaiting approval
-
-[Video 00:06](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=6.503) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![03 · Start an operation awaiting approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-03-pending-ask.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>
 ### 04 · Have the caller actually cancel the request
 
-[Video 00:09](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=9.516) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![04 · Have the caller actually cancel the request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-04-caller-abort.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a>
 ### 05 · Locate Diagnostics query and export permissions
-
-[Video 00:12](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=12.548) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![05 · Locate Diagnostics query and export permissions](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-05-diagnostics-permissions.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-06-recent"></a>
 ### 06 · Query Recent through the SDK without approval
 
-[Video 00:15](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=15.588) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![06 · Query Recent through the SDK without approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-06-recent.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-07-trace"></a>
 ### 07 · Query Trace using the returned traceId
-
-[Video 00:18](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=18.586) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![07 · Query Trace using the returned traceId](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-07-trace.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a>
 ### 08 · Request export and review actual arguments
 
-[Video 00:21](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=21.583) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![08 · Request export and review actual arguments](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-08-export-ask.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-09-deny"></a>
 ### 09 · Deny without opening a file window
-
-[Video 00:24](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=24.621) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![09 · Deny without opening a file window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-09-deny.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a>
 ### 10 · Request export again
 
-[Video 00:27](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=27.656) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![10 · Request export again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-10-export-again.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a>
 ### 11 · Allow still opens a real Save window
-
-[Video 00:40](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=40.864) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![11 · Allow still opens a real Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a>
 ### 12 · Actually cancel native Save
 
-[Video 00:44](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=44.187) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![12 · Actually cancel native Save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-12-native-cancel.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a>
 ### 13 · Request the export to save
-
-[Video 00:48](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=48.765) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![13 · Request the export to save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-13-export-save.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-14-save"></a>
 ### 14 · Save guide-mcp-diagnostics.jsonl
 
-[Video 01:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=60.872) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![14 · Save guide-mcp-diagnostics.jsonl](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-14-save.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a>
 ### 15 · Query the actual task and verify the file
-
-[Video 01:05](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=65.126) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![15 · Query the actual task and verify the file](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-15-job-completed.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>
 ### 16 · Clear search and return to Client controls
 
-[Video 01:08](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=68.087) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![16 · Clear search and return to Client controls](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-16-clear-search.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>
 ### 17 · Select Auto for this long-call example
-
-[Video 01:11](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=71.313) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![17 · Select Auto for this long-call example](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-17-auto.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a>
 ### 18 · Start an actual unfinished Composer request
 
-[Video 01:14](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=74.350) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![18 · Start an actual unfinished Composer request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-18-long-request.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a>
 ### 19 · Open revocation confirmation during the call
-
-[Video 01:17](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=77.425) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![19 · Open revocation confirmation during the call](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-19-revoke-dialog.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a>
 ### 20 · Revoke the Client and verify actual request cancellation
 
-[Video 01:20](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=80.504) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![20 · Revoke the Client and verify actual request cancellation](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-20-revoke.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a>
 ### 21 · Verify the old Client identity cannot query again
 
-[Video 01:23](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=83.599) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
-
 ![21 · Verify the old Client identity cannot query again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-21-old-identity.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
 ### 22 · Disable this run’s MCP Server
-
-[Video 01:26](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=86.575) · [Back to the video](#walkthrough-mcp-tool-lifecycle-video)
 
 ![22 · Disable this run’s MCP Server](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-22-stop.png)
 
@@ -666,11 +548,11 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-mcp-endpoint-reconnect"></a>
 ## Replace a conflicting endpoint and rediscover Tools
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images or video; copied configuration is used only in local test memory.
+> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -681,58 +563,38 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>identity</code> | <code>Endpoint changes; the same Client credential remains valid and is never shown</code> |
 | <code>evidenceGeneration</code> | <code>endpoint-reopened</code> |
 
-<a id="walkthrough-mcp-endpoint-reconnect-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4" poster="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-endpoint-reconnect-01-settings"></a>
 ### 01 · Open MCP settings after restart
-
-[Video 00:00](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=0.434) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![01 · Open MCP settings after restart](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-02-conflict"></a>
 ### 02 · Inspect the actual endpoint conflict
 
-[Video 00:03](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=3.768) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![02 · Inspect the actual endpoint conflict](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-02-conflict.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-03-change"></a>
 ### 03 · Explicitly change the endpoint
-
-[Video 00:06](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=6.798) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![03 · Explicitly change the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-03-change.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-04-copy-current"></a>
 ### 04 · Copy current configuration without showing credentials
 
-[Video 00:09](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=9.870) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![04 · Copy current configuration without showing credentials](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-05-reconnect"></a>
 ### 05 · Reconnect the local SDK using the new address
-
-[Video 00:13](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=13.258) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![05 · Reconnect the local SDK using the new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-05-reconnect.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-06-query-new-endpoint"></a>
 ### 06 · Execute an actual query at the new endpoint
 
-[Video 00:16](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=16.378) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![06 · Execute an actual query at the new endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-07-disable"></a>
 ### 07 · Disable the demo Server at its new address
-
-[Video 00:19](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=19.396) · [Back to the video](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![07 · Disable the demo Server at its new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-07-disable.png)
 

@@ -8,7 +8,7 @@
 - 写作目标为 `v0.1.1-alpha.1` / `e55f1ed1`。代码与契约不一致时以核对后的实际产品行为写作，差异在覆盖文档说明；不能直接把测试说明转成产品能力承诺。
 - 当前工作区已接入`/guide`与全部章节的本地阅读页面，入口按UI语言显示“使用指南”或“User Guide”，资源卡提供“阅读教程”。不再显示重复的“返回官网”控件。
 - 使用React Router的`BrowserRouter / Routes / Link`完成站内导航，不以普通跨页`a`或自行封装History API代替客户端路由；语言、主题与站点外壳在切换时保留，两种正文分别标记实际语言与初稿边界。
-- 先完成Homepage，再接App。已录范围使用真实发布App的步骤图、视频与字幕；未录分支仍明确标注，不能由部分素材推断全书完成。本轮没有创建App iframe、Preload或IPC，没有修改桌面App的运行依赖；公开上线与App接入仍未完成。
+- 先完成Homepage，再接App。已配图范围使用真实App步骤图，不再分发教程视频或字幕；未展示分支仍明确标注，不能由部分素材推断全书完成。本轮没有创建App iframe、Preload或IPC，没有修改桌面App的运行依赖；公开上线与App接入仍未完成。
 
 ### 中间进度提交边界
 
@@ -37,6 +37,8 @@
 
 ### 阅读流程契约
 
+Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引直接链接同章图文小节。正文不渲染播放器、字幕轨或时间跳转，不请求MP4/VTT；现有PNG字节、原图入口、步骤顺序和参考正文保持。原workflow截图只作为验证产物，采用为素材前独立审核，不自动写入官网。官网首页语言通过正式Header控件选择，不把仅用于教程路由的`lang`参数扩成首页新行为。
+
 1. 顶栏按当前语言显示“使用指南”或“User Guide”，直接进入`/guide`并保留站点UI语言，不再跳转资源区；具体窄屏布局跟随Header所属改动验收。首页学习资源中的教程卡片继续提供“阅读教程”入口。
 2. 目录按当前语言列出全部章节，每章进入`/guide/<chapter>`，显示对应中英Markdown正文而非复制的样章。
 3. 文内相对Markdown链接转换为网站路由，章节锚点在点击、直接打开和刷新后均可定位，并避让固定Header。
@@ -57,14 +59,12 @@
 
 ### 渲染与静态入口
 
-- [正文编译](../scripts/guide-content.ts)在Vite构建/开发服务端使用unified、remark/GFM和rehype完成Markdown解析、HTML清理、标题与目录生成。`hast-util-to-jsx-runtime`与React静态序列化也只在构建端运行；浏览器接收已净化的完整HTML及视频元数据，不在点击时复制HAST、解析Markdown或创建数千个React正文节点。显式锚点与自动标题仍使用不同命名空间。
-- `GuideArticle`一次写入构建期净化的HTML，只有视频通过React portal挂载`GuideVideo`。HTML不来自用户输入、URL参数或远程业务响应；样式名与带hash的媒体URL在模块内绑定，并进行属性转义。图片原尺寸、原图链接、表格键盘滚动及原样式均保留；不隐藏正文、不引入另一套History API。`GuidePage`统一处理正文及大纲的普通站内点击，交给React Router；修饰键、新窗口、语言与历史保持。中英正文随阅读器首次载入，切章保留外壳，页内hash保持HTML和视频实例。
-- 媒体地址由同一个Vite plugin生成单一清单，生产构建仍输出带内容hash的独立静态文件；开发环境不再为每张图片、视频和字幕分别import一个URL模块。生成的数据模块不携带无用的巨大内联sourcemap，Vite开发服务预热阅读器入口；Markdown与媒体变更仍会更新对应虚拟模块。
-- 显式视频锚点与`<video>`之间保留空行，使`<track>`留在同一个HTML块并成为播放器子节点。验收要检查每段视频的字幕轨与cue已加载，不能只核对文件存在或影片能播放。
-- 阅读器首次进入时可以加载代码与正文数据，但准备完成后，章节和语言切换不得再串行请求正文/脚本/样式，不得反复显示整页Loading。首页点击指南到目录完整绘制的本地目标为1000ms以内；开发环境也不能为每张图片、字幕或影片下载一个URL模块。图片保留原尺寸、懒加载并异步解码；视频距离可视区域600px以内才请求同源MP4、封面和字幕，不为切章下载整套媒体。
-- Cloudflare本地静态Assets对视频Range请求返回完整200；直接URL的原生`preload=auto`即使缓冲完整，部分视频仍不能seek。`GuideVideo`只在600px近视区下载该段同源MP4，将完整Blob交给原生播放器并使用`preload=metadata`，不在尚未播放时自动增加解码工作；切章取消未完成下载并释放object URL。保留原文件入口、原生控制条与字幕，不增加Worker、远程服务或付费存储，失败显式提示。验收同时核对请求、完整可seek区间及末cue，不只检查metadata；不改其他会话维护的响应头。
-- 章节标题和完整正文的首次可见提交按浏览器实际点击到两帧绘制测量，目标为本地生产产物300ms以内；切换保留章节外壳，页内锚点不重新解析整篇Markdown或重建播放器。不可只用Router地址已改变代替真实正文完成。
-- 正文仍来自现有Markdown，不维护第二份产品文案；首次阅读器资源失败明确提示重试，Header导航仍可用。保留原URL深链、图片原尺寸、中英位置锚点与字幕，不因性能修复删减内容或隐藏错误。
+- [正文编译](../scripts/guide-content.ts)在Vite构建/开发服务端使用unified、remark/GFM和rehype完成Markdown解析、HTML清理、标题与目录生成。`hast-util-to-jsx-runtime`与React静态序列化也只在构建端运行；浏览器接收已净化的完整HTML，不在点击时复制HAST、解析Markdown或创建数千个React正文节点。显式锚点与自动标题仍使用不同命名空间。
+- `GuideArticle`一次写入构建期净化的HTML，不再维护播放器、portal或视频状态。HTML不来自用户输入、URL参数或远程业务响应；样式名与带hash的图片URL在模块内绑定，并进行属性转义。图片原尺寸、原图链接、表格键盘滚动及原样式均保留；`GuidePage`统一处理正文及大纲的普通站内点击，交给React Router。中英正文随阅读器首次载入，切章保留外壳，页内hash保持HTML和图片节点。
+- 图片地址由同一个Vite plugin生成单一清单，仅收集PNG/WebP，生产构建输出带内容hash的独立静态文件；开发环境不为每张图片分别import一个URL模块。数据模块不携带巨大的内联sourcemap，Markdown与图片变更更新对应虚拟模块。
+- 阅读器首次进入时可以加载代码与正文数据，但准备完成后，章节和语言切换不得再串行请求正文/脚本/样式，不得反复显示整页Loading。首页点击指南到目录完整绘制的本地目标为1000ms以内；图片保留原尺寸、懒加载并异步解码，不为切章下载整套图片。
+- 章节标题和完整正文的首次可见提交按浏览器实际点击到两帧绘制测量，目标为本地生产产物300ms以内；页内锚点不重新解析整篇Markdown或替换当前图片节点。不可只用Router地址已改变代替真实正文完成。
+- 正文仍来自现有Markdown，不维护第二份文案；首次阅读器资源失败明确提示重试，Header导航仍可用。保留图文深链、原图及中英位置锚点；旧视频时间入口已删除，站内引用统一指向图文小节。
 - 初次访问和刷新使用构建时为已知路由生成的HTML入口，客户端仍是同一个SPA。Vite的`appType: mpa`仅用于禁用未知路径的全局HTML回退，不代表站内切换重新加载文档。
 - 服务端只为已知路由提供入口，未知资源保持404；Cloudflare继续使用静态资源，不增加业务Worker或付费服务。
 
@@ -78,19 +78,21 @@
 - 下文保留的CSP、23个样式hash与`DENY`记录对应各自历史产物；当前官网响应头以[部署约定](deployment.md#http-与索引)为准，不改写既有验收事实。
 - 实际 App 接入要另走对应的进程边界、E2E、打包及退出验证，不能拿本次 Markdown 检查或设计截图代替。
 
-## 真实素材与逐 feature 视频
+## 真实步骤图与素材来源
 
-每个操作步骤必须有对应的真实步骤图，不再只对关键节点配图。文字、截图和视频使用同一套示例名称与输入值；缺图的步骤保持待验收，不能用占位图片、设计预览、虚构时间戳或workflow trace冒充教程交付。
+唯一流程来源是Interceptor原业务workflow；截图是可选产物，正常回归不会写入Homepage。见[截图来源](#从原workflow取得步骤图)；不维护独立教程workflow、制作/导入工具、录屏器、编码器、字幕生成器或视频同步脚本。历史源码和验收记录保留各自commit/产物，不改写当时结果。
+
+每个用户步骤必须对应真实步骤图。文字与截图使用同一套示例名称和输入值；缺图的步骤保持待验收，不能用设计预览、占位图片或workflow trace冒充教程交付。
 
 - 每个操作步骤有稳定编号，正文紧邻放置对应截图；一段包含多个独立操作时先拆分，不用一张最终状态图代替全过程。
 - 规则名、集合/请求名、变量名、Header/Query字段、URL、正文值和文件名按同一演示数据填写，并在实际界面中逐项核对。
-- 视频按同一操作顺序录制，章节或时间戳指向这些步骤。不会一边讲`Guide request`、一边在图中显示不相关的`E2E request`。
+- 正文按实际操作顺序放图，章节和步骤锚点直接定位图文。不会一边讲`Guide request`、一边在图中显示不相关的`E2E request`。
 - 动态端口、生成ID、时间等确实不能固定的值，以该次真实录制为准；文字说明实际值与读者环境可能不同，不伪造或修改产品截图里的值。
 - 先在真实App执行并保存步骤图，再校正文案和翻译；中英文共用同一演示数据，App保持当前语言，不为截图临时切换。
 - 使用原生授权或文件选择的步骤，也要显示对应真实原生窗口；拿不到该画面就明确保留该步骤缺口。
-- 实际取得的演示小节紧邻操作放置步骤图，并提供本章视频、字幕和逐步时间戳；按原始录制清单核对所有图片/视频路径、输入值、版本和平台。完整功能说明中仍未配图的分支保留待验收，不因为增加一个入门演示就宣称整章完成。
-- 素材在`guidebook/media/<version>/<chapter>/`保存，发布清单仅含公开版本、示例值、步骤时间和文件摘要，不含本机路径或凭据。`scripts/sync-guidebook-walkthroughs.mjs`从已核对清单生成中英图文区块，只同步明确指定的章节，遇已有人工小节或摘要不符就报错；不抓取或上传外部数据，不替代人工审图。
-- 原生视频无麦克风，按具体App窗口隔离；普通窗口不包含的原生面板必须独立取景。视频与字幕仍是同源静态资源，不嵌入第三方播放器；教程媒体修复不改当前托管安全头设置，也不代表已完成App iframe接入。
+- 实际取得的小节紧邻操作放置图片，按原始清单核对文件、输入值、版本和平台。未配图分支保留待验收，不因一个入门演示就宣称整章完成。
+- 素材在`guidebook/media/<version>/<section>/`保存，公开清单包含步骤、图片尺寸/字节数/SHA-256及可公开的来源，不携带trace、profile、日志、完整私有metadata或本机源目录。已有图片转换为纯图文时保留原始字节和出处，不冒充新拍摄。
+- 原生PNG仅捕获本轮App或其拥有的文件面板，不截桌面、其他App或麦克风。取消文件窗口后拍回到App的状态，不取景尚未定位的个人目录；未支持的原生平台明确保留缺口。
 
 | 章节 | 必需的真实操作节点 |
 | --- | --- |
@@ -108,18 +110,42 @@
 | 排查 | 典型真实错误与恢复结果，不人为修改个人环境制造故障 |
 
 - 录制仅使用有权公开的自产数据，记录实际产品版本和平台，保持当前语言。
-- 每个 feature 的视频与正文锚点对应，按实际剪辑结果填写时间戳并双向链接。
+- 每个 feature 的步骤图与正文锚点对应；当前步骤及跨章引用直接定位图文，不维护时间轴。
 - 不录入 API Key、MCP配置凭据、CA私钥、个人流量或系统账号信息；截图也要检查这些边界。
-- 真实图片取得后再加入教程媒体目录。原始录屏、trace 和日志不随官网公开；成片存放先核对免费限制。
-- `144` 条契约的逐项映射和 `69` 个 Tool 的目录核对只能证明初稿有对应内容，不能替代功能点实际操作、图文视频一致性或两平台验收。
+- 真实图片取得并审核后再加入媒体目录，单文件仍核对静态托管限制。历史原始录屏、trace和日志留在私有验收目录，不随官网公开。
+- `144` 条契约的逐项映射和 `69` 个 Tool 的目录核对只能证明初稿有对应内容，不能替代功能点实际操作、图文一致性或两平台验收。
+
+## 从原workflow取得步骤图
+
+从Interceptor的`npm start → Test → E2E`选择“逐步截图”，再选择功能/workflow。结果自动保存在`apps/desktop/test-results/workflow-screenshots/<run>/<test>/step-screenshots/`，包含PNG和schema 1清单；没有独立Guidebook入口，不需要手写flag，也不会自动写入本仓库。
+
+- 普通模式与截图模式使用同一批业务流程和断言；截图目录与普通测试输出隔离，不被下一次普通运行清空。
+- 使用图片前检查测试结果、宿主恢复、每代App正常退出及原图/步骤内容。工程验收注释、内部故障注入、个人流量或凭据不能直接变成用户教程。
+- 本仓库继续维护现有Markdown、原图和图片尺寸索引，保留已有图文；不维护专用制作/导入命令或跨仓复制脚本。素材来源、实际版本、平台和隐私要求仍然适用，local build不冒充已发布Release，Windows Renderer图不冒充原生面板。
+- 内容变更后运行已有build与受影响Browser检查。现有编译器统一处理图片尺寸、懒加载、原图入口和导航，不新增一套阅读数据。
+- 当前只保留原92个业务workflow；所有65个教程副本、独立教程配置及持续录屏器已从Interceptor移除，没有改名保留第二套。必要差集回到原Composer/Rules/Capture/Agent/MCP/Settings/Diagnostics流程，参见[当前规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)。下文旧录像命令只记录历史，不是当前可运行入口；旧图片来源和实际验收结果不改写。
 
 ## 维护与验证
 
 正文更新后检查相对链接、锚点、完整目录、Tool名称/类型、代码块和UTF-8。纯内容未接入构建时不运行与之无关的App测试，也不增加“测试的测试”。
 
-阅读页面完成后，要从目录实际进入每章并验证深链和媒体；图文/视频取得实际版本操作与退出恢复证据后，才更新正式完成状态。英文、真实媒体、公开访问和App接入分别保留未完成范围。
+阅读页面完成后，要从目录实际进入每章并验证深链和媒体；图文取得实际版本操作与退出恢复证据后，才更新正式完成状态。跨平台/隔离场景、公开访问和App接入分别保留未完成范围。
+
+### 原workflow截图与纯图文验收
+
+- 原92个业务workflow保持原文件集合，65个教程副本与持续录屏设施已经移除；原流程的截图检查点不替代业务断言，普通模式不产生步骤图。实际窗口、PNG清单及App退出/宿主恢复由[测试侧验证汇总](../../Interceptor/apps/desktop/test-results/workflow-screenshots-20261019/verification-summary.json)记录，不代表全套workflow或Windows已复跑。
+- [Start入口验收](../../Interceptor/apps/desktop/test-results/start-screenshots-20261019/verification.json)通过真实TTY选择普通/逐步截图并运行原Composer workflow，另核对返回、取消、自动目录和普通运行后的文件保留；目标为既有签名macOS Release，不将直接CLI结果或该目标扩大为默认prepare/Windows通过。
+- [前置Red](../artifacts/item17-screenshot-guide-20261019/red-players/)确认旧正文仍有519个视频链接；更早一次`--grep`未选中测试不算产品Red。随后一次目标检查的英文首页失败来自误用教程语言query，改为真实Header语言操作，不改变官网首页语言规则。
+- [整站Browser](../artifacts/item17-screenshot-guide-20261019/full-report.json)65项通过，无失败、跳过或重试，覆盖两语言、浅深、宽窄、导航、锚点、原图、懒加载、错误提示、静态托管及原有1000ms/300ms性能门槛。MP4/VTT请求及播放器缺失是正式断言，不只靠源码搜索。
+- [素材审计](../artifacts/item17-screenshot-guide-20261019/media-audit.json)逐张核对原1736张PNG字节不变；移除70组视频/字幕共140个文件。71份图片清单、1743张PNG及构建产物均已核对，无视频/字幕文件。
+- 原`composer/body-formatting.workflow.ts`的7张PNG曾经逐张审图并通过当时的导入工具写入[中英共用素材](../guidebook/media/v0.1.1-alpha.1/composer-formatting-workflow/manifest.json)，两语言正文与尺寸索引同步，PNG与真实run的SHA-256相同。后续按用户“只保留原workflow”的要求删除该专用工具和命令；这条记录保留当时事实，不是当前操作入口，已有图文没有因此删除。
+- [严格布局数据](../artifacts/item17-screenshot-guide-20261019/layout-product/differences.json)对24个中英/浅深/宽窄场景、184个声明目标的几何、样式和文本比较为零差异。[比较范围](../artifacts/item17-screenshot-guide-20261019/geometry-scope.json)说明以明确的区域标题为画布原点，不用容差或跨页面测量偏移；这不是对全部像素或未声明元素的承诺。20个场景复用修改前数据；4个英文首页预览纠正语言驱动前，先核对原Resources结构及周围CSS只有获准文案绑定/入口变化，没有据差值改产品或设计。
+- [站内链接核对](../artifacts/item17-screenshot-guide-20261019/link-audit.json)实际打开30个中英页面，1090个章节/步骤链接无缺失目标或Renderer错误。对已通过Browser的同一`dist`执行Wrangler `deploy --dry-run`，未重建或发布；测试拥有的4176服务已退出并重新bind/close验证。
+- lint无错误；既有9.5MiB报告及本项约1MiB的内嵌原图说明超出Biome处理上限，未计作该工具检查通过。本项说明另以Browser核对宽窄屏、全部图片、展开状态和标注位置。构建的大chunk提示不在本项扩展为打包重构；正式上线和App iframe仍未验收，历史视频结果只说明当时产物，不覆盖本轮纯图文结果。
 
 ### 阅读入口与长章节性能验证
+
+以下为历史源码与产物的验证记录，包括已移除的视频能力。旧工具可在Homepage `6b6db73`与Interceptor `2489eab4`对应源码中查阅，旧命令不是当前制作入口。
 
 - [前置Red](../artifacts/item9-navigation-performance/red/)保留未访问章节依赖额外下载、阅读外壳被替换的真实失败；[开发入口Red](../artifacts/item9-navigation-performance/entry-red/)确认还存在742个独立媒体地址模块请求。后续采样发现等待`html`属性的Locator断言会生成整页accessibility snapshot，给长页增加额外开销；[调用栈证据](../artifacts/item9-navigation-performance/runner-profile/)保留，最终改为等待页面已记录的绘制标记，不放宽1000ms/300ms门槛，也不把旧测量直接用于计算加速倍率。
 - [开发入口检查](../artifacts/item9-navigation-performance/development-warmup-green/)通过：首次进入约495.6ms，脚本请求从765个降为25个，其中逐媒体地址模块请求为0。正文与媒体数据仍由真实Markdown及文件生成，没有删除章节、步骤或素材。
@@ -203,7 +229,7 @@ Capture筛选素材已换为本轮13步实录，中英正文对应缺图说明�
 - 先前[锁屏拒绝](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/agent-restart-private-view/)保留，不记为产品Red。用户解锁后已实际完成Agent安全重启取景与Composer专用Tool流程，见下节；没有绕过guard，也没有公开旧片含背景Capture流量的前段。
 - 仍需按实际用户场景补齐窗口控件和特定退出等待、Collection深字段重启与原生文件Tool、Composer其余响应边界，以及断点混合队列/持等待退出。普通目录操作、已录控制帧或内部并发穷举不重复拍摄。首次授权/隔离CA、Windows、WPAD、商业模型/外部Host和实际更新安装缺各自前提；App入口与公开部署仍按原约定暂停。整项不标完成、不提交未验范围。
 - Agent配置重测已在原`agent-management`实录的`02-edit`、`03-retest`、`04-save-edit`覆盖：Model ID变成`guide-two-edited`后Save禁用，重新Test后保存。中英排查章节原来的“未录制”提示已纠正，复用同一真实原图，不再把这项列入补录清单，也不把Model ID变化扩大为凭据或Base URL变化。
-- [Composer专用录制代码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-tools.workflow.ts)先经过Desktop typecheck和Playwright `--list`，解锁后再取得真实运行与媒体。MCP发送Deny/Allow、调用方201结果与当前UI响应分离、按真实revision替换并通知UI均由真实产品操作核对；参数与范围来自产品保存数据，不预造Collection。完整步骤与数据约定见[对应规格](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/composer.md)。
+- [Composer专用录制代码](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-tools.workflow.ts)先经过Desktop typecheck和Playwright `--list`，解锁后再取得真实运行与媒体。MCP发送Deny/Allow、调用方201结果与当前UI响应分离、按真实revision替换并通知UI均由真实产品操作核对；参数与范围来自产品保存数据，不预造Collection。完整步骤与数据约定见[对应规格](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/composer.md)。
   - 这条新workflow包含在Desktop的`tests/**/*.ts`类型检查范围内，另通过新文件空白检查。Root未配置Biome；误用同名npm包的命令不计格式检查通过。该命令新建的临时npx目录与空`.biome`目录已按创建时间确认并清理，依赖清单和项目配置没有变化，不为验收新增工具。
 
 以下两条已顺序运行通过，产物保留在`prepared-unlocked`。不要直接复跑覆盖这个目录；后续运行必须另取输出目录。`--max-failures=0`让独立流程继续执行，不把失败视为通过：
@@ -230,10 +256,10 @@ npm exec --workspace @interceptor/desktop playwright test -- \
 - 原有[Homepage离线报告](../commit-changes/202610141539_ui_homepage_initial-progress.html)仅更新`guidebook-final-reading-change`标记区块。写入前检查文件未被并发修改，标记外内容逐字节保持，`homepage-real-media-20261017`及既有item10区块完整保留；[离线检查](../artifacts/item9-20261016/final-report/acceptance-64.json)确认76张内嵌图、无折叠、对应红框与1600/390px排版正常。没有覆盖或借用item10另一次65项验证结论。
 - `agent-model-removal`是旧成功录制的12.050–19.302秒连续安全尾段，不是新的E2E执行。[原片摘要、剪辑范围和所有帧拼图](../artifacts/item9-20261016/model-removal-excerpt/)保留；逐帧均为Settings/Agent，三个PNG字节不改，原生操作与停顿不重建。字幕只换算相对时间；首步是片段开始时已可见的配置，不冒充打开Settings或重启操作。[8个中英/主题/尺寸阅读状态](../artifacts/item9-20261016/model-removal-excerpt/reader-acceptance.json)已实际播放末字幕。新完整重启片使用后来独立补录的来源，不是这个旧节选的父文件。
 - 生成器现在自动保留节选说明；“只演示单项权限、不是完整只读”的警告只适用于原`tool-permissions`基础片，不再错误套用到111步完整只读配置和其重启片。新流程没有为辅助代码新增unit/integration“测试的测试”。
-- item10完成独立截图并交回后，已通过类型检查的[窗口控件补录](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/application/guidebook-window-controls.workflow.ts)在[启动前再次遇到锁屏](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/window-controls-20261017/)，没有启动App。没有获得临时防休眠断言授权，因此不改系统设置、不绕过guard；其余已取得的实录结果仍有效。
-- [深层请求字段持久化流程](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-request-persistence.workflow.ts)也已准备并通过Desktop typecheck与`--list`，但没有实际运行。它用已通过UI建立的三级目录作为前提，不重复目录管理；第一代录完整代表字段并保存，第二代在Composer内回载、逐字段核对后只Send一次，再清理公开演示Auth。不能把这条代码准备增加到已验收影片或E2E数量中。
-- [Composer响应格式化边界](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-response-formatting.workflow.ts)已准备并通过Desktop typecheck与`--list`，补HTML/JavaScript自动格式化、XML原文保留、2MiB预览限制和文档视图恢复，尚未实际运行。仅用真实UI和自有HTTP响应，不造导入文件，不重复已有CSS手动Format。
-- [Collection文件Tool录制](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-file-tools.workflow.ts)已准备并通过Desktop typecheck与`--list`，覆盖Ask Export/Import、真实Save/Open取消、预览取消/追加及Auto仍须确认。所有导入均使用本流程先由产品Export生成的同一文件，确认后保留原节点并检查新身份，没有业务Store注入。尚未实际运行，因此当前64段/1641图计数不变。
+- item10完成独立截图并交回后，已通过类型检查的[窗口控件补录](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/application/guidebook-window-controls.workflow.ts)在[启动前再次遇到锁屏](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/window-controls-20261017/)，没有启动App。没有获得临时防休眠断言授权，因此不改系统设置、不绕过guard；其余已取得的实录结果仍有效。
+- [深层请求字段持久化流程](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-request-persistence.workflow.ts)也已准备并通过Desktop typecheck与`--list`，但没有实际运行。它用已通过UI建立的三级目录作为前提，不重复目录管理；第一代录完整代表字段并保存，第二代在Composer内回载、逐字段核对后只Send一次，再清理公开演示Auth。不能把这条代码准备增加到已验收影片或E2E数量中。
+- [Composer响应格式化边界](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-response-formatting.workflow.ts)已准备并通过Desktop typecheck与`--list`，补HTML/JavaScript自动格式化、XML原文保留、2MiB预览限制和文档视图恢复，尚未实际运行。仅用真实UI和自有HTTP响应，不造导入文件，不重复已有CSS手动Format。
+- [Collection文件Tool录制](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-file-tools.workflow.ts)已准备并通过Desktop typecheck与`--list`，覆盖Ask Export/Import、真实Save/Open取消、预览取消/追加及Auto仍须确认。所有导入均使用本流程先由产品Export生成的同一文件，确认后保留原节点并检查新身份，没有业务Store注入。尚未实际运行，因此当前64段/1641图计数不变。
 - 对下一批窗口/持久化流程执行了最多10分钟的只读等待：只有屏幕未锁定且8888空闲时才会交给原workflow guard。等待结束仍未满足条件，未启动App、未使用防休眠断言、未改变系统策略；不把等待或代码准备算作实录通过。
 
 ### 本机剩余用户流程的实际补录
@@ -270,17 +296,17 @@ npm exec --workspace @interceptor/desktop playwright test -- \
   - 组织与构建：按用户明确要求保存两个仓库全部当前进度，Homepage首次快照包含共享入口、依赖与lockfile，避免提交无法构建的孤立教程目录；本仓库保存设计候选。仍不发布教程npm包、不向App同步目录或压缩包、不增加私有registry认证，未部署网站或接入App。
   - 本次保存边界：用户授权保存item 9的中间进度，教程正文、公开素材、阅读器、验收工具、改动说明与剩余缺口一起保存。item 10的Header、Ant Design与平滑滚动已有独立提交，保留其`behavior: 'auto'`和生成CSP，不重复收录或回写；item 13只登记后续搜索需求，不提前实现。
   - 已确认方向：Homepage提供对应教程路由，完成后App使用无边框iframe内嵌，并提供浏览器打开按钮；嵌入模式去掉官网外壳、与App主题/语言衔接，保持滚动并明确加载失败。现在暂停App入口和预览实现；官网及App的具体UI仍须截图确认，不承诺离线阅读。官网只用免费Cloudflare，不要求购买域名或启用付费服务。
-  - 当前步骤：已核对alpha.1发布ZIP摘要，并使用该下载App完成可执行实录；[录制来源](../../Interceptor/apps/desktop/test-results/guidebook-release-20261015/release-source.json)保留。中英正文已接入对应图、视频、字幕与共同锚点，首页有真实视频索引。首页进入指南及大章节切换已改为Vite端编译正文、单一媒体地址清单、保留阅读外壳和按视区加载影片；阅读行为、逐图字幕、主题窄屏及最终Header的静态托管检查已取得适用结果，继续核对剩余图文视频缺口。实现位于[阅读器](../src/features/guide)与[正文编译](../scripts/guide-content.ts)，验证范围、初稿提示的设计文案差异和剩余缺口集中记录在[阅读约定](guidebook.md#阅读入口与长章节性能验证)，整项不标完成。[原生录制工具](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/fixtures/ui/guidebook-media.ts)仅为验收，不进入产品。
+  - 当前步骤：已核对alpha.1发布ZIP摘要，并使用该下载App完成可执行实录；[录制来源](../../Interceptor/apps/desktop/test-results/guidebook-release-20261015/release-source.json)保留。中英正文已接入对应图、视频、字幕与共同锚点，首页有真实视频索引。首页进入指南及大章节切换已改为Vite端编译正文、单一媒体地址清单、保留阅读外壳和按视区加载影片；阅读行为、逐图字幕、主题窄屏及最终Header的静态托管检查已取得适用结果，继续核对剩余图文视频缺口。实现位于[阅读器](../src/features/guide)与[正文编译](../scripts/guide-content.ts)，验证范围、初稿提示的设计文案差异和剩余缺口集中记录在[阅读约定](guidebook.md#阅读入口与长章节性能验证)，整项不标完成。[原生录制工具](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/fixtures/ui/guidebook-media.ts)仅为验收，不进入产品。
   - 素材边界：已录片段保持App语言和公开示例值；Agent为无Key本地演示模型，MCP为本地SDK调用方，不冒充商业模型或真实Host。原生文件面板已独立取景，选择演示目录后切列表视图，避免显示父目录文件；断点响应/File、队列批量、双向文本帧已取得[实机证据](../../Interceptor/apps/desktop/test-results/guidebook-media-20261015/breakpoints-verification.json)。普通窗口灰色遮罩不作为面板素材。
   - 录屏隐私约束：用户明确只允许App窗口及其相关原生面板，不录整个显示器、桌面或其他应用。录制器按本轮Main进程查找唯一窗口ID，使用单窗口过滤；原生Open/Save只取本轮App拥有的面板，选定公开演示目录后才取景。不得改用全屏、显示器或桌面区域录制作为回退。
   - 配图与环境边界：Collection的目录边界、目录内请求切换、排序、原生文件预览取消与删除已实录，并接入中英正文，不重跑该流程；[实际Collection与退出证据](../../Interceptor/apps/desktop/test-results/guidebook-media-20261015/collection-resumed)、[正文/全影片字幕核对](../artifacts/item9-20261015/collection-and-captions-green)保留。桌面解锁后已完成Agent安全重启取景与Composer专用Tool的[真实流程及正常退出](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/prepared-unlocked)；后续窗口补录又遇到锁屏，拒绝证据保持原样，不算产品Red。Windows、首次CA隔离环境、实际外部Host和真实服务凭据仍缺，不动日常CA。
   - 当前验证风险：[保存核对](guidebook.md#本次中间进度保存核对)保留本机长章绘制临界值和首页smooth采样的一次失败，以及不改代码、不放宽阈值的后续通过结果；时序波动原因未定位，不能宣称已经消除。该次保存没有重跑App录制；本轮适用的新证据单独记录，不把typecheck或网站Browser结果替代缺失的真实步骤。
   - 已发布行为限制：alpha.1删除Rules最后一条后保留dirty状态，但空树不提供Apply入口；[实际失败](../../Interceptor/apps/desktop/test-results/guidebook-media-20261015/gaps-repaired)保留，不能把删除持久化或相应步骤配图标完成。产品修复授权尚未取得，本item只如实说明该限制，继续录制其余已存在行为，不增加备用规则、隐藏API或修改发布包来绕过。
-  - 当前续做：[响应Header与正文证据](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/rules/guidebook-response-evidence.workflow.ts)、[TLS透传往返](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/settings/guidebook-tls-passthrough.workflow.ts)及[Capture搜索清空](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/guidebook-filters.workflow.ts)均取得真实发布App操作与正常退出恢复，素材及中英正文已同步。共用编码修正已通过真实录制，不再保留本轮锁屏阻塞；更新后的原图字节、字幕最后一步、深链、主题窄屏、原阅读门槛与同一份离线报告均已核对，见[补录与验收说明](guidebook.md#响应证据与tls透传补录)。不重录Collection、不把这些结果扩展为其他未录分支通过；未改产品或日常CA，整项仍待剩余图文视频与整体媒体验收。
+  - 当前续做：[响应Header与正文证据](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/rules/guidebook-response-evidence.workflow.ts)、[TLS透传往返](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/settings/guidebook-tls-passthrough.workflow.ts)及[Capture搜索清空](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/capture/guidebook-filters.workflow.ts)均取得真实发布App操作与正常退出恢复，素材及中英正文已同步。共用编码修正已通过真实录制，不再保留本轮锁屏阻塞；更新后的原图字节、字幕最后一步、深链、主题窄屏、原阅读门槛与同一份离线报告均已核对，见[补录与验收说明](guidebook.md#响应证据与tls透传补录)。不重录Collection、不把这些结果扩展为其他未录分支通过；未改产品或日常CA，整项仍待剩余图文视频与整体媒体验收。
   - 当前推进：已核对的Capture、Rules、断点、工作区/Composer、Settings/Diagnostics和Agent/MCP实录均已接入中英；目录漏链、旧缺图说明、示例边界和同一份离线报告已同步。[当前整书结果](guidebook.md#当前整书结果与恢复入口)记录全部媒体、站内导航、字幕末步、主题窄屏及退出来源的适用范围。未修补发布App、未录桌面或其他应用、不重跑已验收Collection；App入口、公开访问与未录分支不随本地阅读验证一并关项。
   - 当前阅读实现：Vite端净化并序列化完整HTML，浏览器一次解析，影片仍由React与原生播放器负责；近视区单段Blob解决静态服务器无Range时无法seek的问题，切章取消下载并释放URL。正文与大纲共享导航，布局/字体/滚动策略保持。计时组排除DOM快照采样竞争，保留原完整正文与绘制门槛、测量JSON和失败截图；功能用例继续保留trace。所有失败与已撤回的试验见上述阅读约定，不把工具采样成本或一次局部通过当作最终产品结论。
   - 当前状态与下一步：本机可执行的窗口控件、Collection完整代表字段跨重启与原生文件Tool、Composer响应格式化边界、HTTP/WS混合队列及持等待正常Close均已取得真实App结果并接入中英；新增后的整书媒体、字幕、导航、原性能门槛和同一份报告也已复验，见[当前结果](guidebook.md#本机剩余用户流程的实际补录)。下一步需要Windows/AppContainer/UAC、隔离首次CA、WPAD、外部Host/商业凭据及实际更新安装的对应环境；App入口/iframe仍按原约定暂停。本机结果不能替代这些缺口，不擅自缩范围关项或提交未验范围。
-    - [Composer专用流程](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-tools.workflow.ts)已实际核对发送的Deny/Allow、调用方返回与UI响应分离，以及按真实request ID/revision替换并通知UI；[规格和出处](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/composer.md)已更新，不再只是typecheck/注册状态。
+    - [Composer专用流程](https://github.com/zhxmt-xm/Interceptor/blob/2489eab476719e1a1f691e3d497f565ba4343394/apps/desktop/tests/e2e-workflow-tests/workflows/composer/guidebook-tools.workflow.ts)已实际核对发送的Deny/Allow、调用方返回与UI响应分离，以及按真实request ID/revision替换并通知UI；[规格和出处](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/composer.md)已更新，不再只是typecheck/注册状态。
     - Agent的Model ID修改、验证失效与重新Test/Save已有原生实录；中英排查章节的旧缺图提示已改为原图，不再安排重复录制。重启前后素材已统一为本轮安全取景来源，旧片背景流量不公开；原安全尾段节选仍明确标注独立出处，凭据变化不由这些无Key演示代替。
     - item10已交回真实App/8888窗口，其独立素材和报告区块完整保留。只读等待在桌面可用后已自动启动，不再留后台等待任务；没有使用防休眠断言或改锁屏策略。
     - 首次文件Tool失败时，guard正确保留尚未恢复的本轮App；已激活该App并真实取消其Save面板，让原正常Close继续，未强杀。所有本轮PID、8888与journal已释放，原失败metadata不改成passed；[独立恢复证据](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/next-batch-unlocked/composer-guidebook-file-to-cc199-mation-for-actual-MCP-Tools-macos-guidebook/manual-recovery.json)保留。

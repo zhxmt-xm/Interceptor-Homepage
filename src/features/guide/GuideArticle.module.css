@@ -134,7 +134,3 @@
   color: var(--text);
   background: var(--panel-2);
 }
-
-.videoSlot {
-  display: contents;
-}

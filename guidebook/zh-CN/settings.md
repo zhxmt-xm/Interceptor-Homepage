@@ -8,11 +8,11 @@
 <a id="walkthrough"></a>
 ## 逐步骤实操：真实产品录制
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；视频不证明这些示例地址可用，也没有重新生成或卸载日常CA。
+> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -21,114 +21,78 @@
 | <code>pacUrl</code> | <code>https://proxy.example.test/proxy.pac</code> |
 | <code>exampleApplied</code> | <code>false</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings/settings.mp4" poster="../media/v0.1.1-alpha.1/settings/settings-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings/settings.vtt" default>
-</video>
-
 <a id="walkthrough-01-open"></a>
 ### 01 · 打开 Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings/settings.mp4#t=0.388) · [返回本节视频](#walkthrough-video)
 
 ![01 · 打开 Settings](../media/v0.1.1-alpha.1/settings/settings-01-open.png)
 
 <a id="walkthrough-02-certificates"></a>
 ### 02 · 检查当前 CA 与信任
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings/settings.mp4#t=3.255) · [返回本节视频](#walkthrough-video)
-
 ![02 · 检查当前 CA 与信任](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
 
 <a id="walkthrough-03-proxy"></a>
 ### 03 · 检查 System proxy
-
-[视频 00:06](../media/v0.1.1-alpha.1/settings/settings.mp4#t=6.104) · [返回本节视频](#walkthrough-video)
 
 ![03 · 检查 System proxy](../media/v0.1.1-alpha.1/settings/settings-03-proxy.png)
 
 <a id="walkthrough-04-upstream"></a>
 ### 04 · 查看当前上游路线
 
-[视频 00:08](../media/v0.1.1-alpha.1/settings/settings.mp4#t=8.958) · [返回本节视频](#walkthrough-video)
-
 ![04 · 查看当前上游路线](../media/v0.1.1-alpha.1/settings/settings-04-upstream.png)
 
 <a id="walkthrough-05-manual-draft"></a>
 ### 05 · 选择 Manual 草稿
-
-[视频 00:11](../media/v0.1.1-alpha.1/settings/settings.mp4#t=11.854) · [返回本节视频](#walkthrough-video)
 
 ![05 · 选择 Manual 草稿](../media/v0.1.1-alpha.1/settings/settings-05-manual-draft.png)
 
 <a id="walkthrough-06-discard"></a>
 ### 06 · Discard 不应用示例草稿
 
-[视频 00:14](../media/v0.1.1-alpha.1/settings/settings.mp4#t=14.855) · [返回本节视频](#walkthrough-video)
-
 ![06 · Discard 不应用示例草稿](../media/v0.1.1-alpha.1/settings/settings-06-discard.png)
 
 <a id="walkthrough-07-pac"></a>
 ### 07 · 查看 PAC 输入
-
-[视频 00:17](../media/v0.1.1-alpha.1/settings/settings.mp4#t=17.703) · [返回本节视频](#walkthrough-video)
 
 ![07 · 查看 PAC 输入](../media/v0.1.1-alpha.1/settings/settings-07-pac.png)
 
 <a id="walkthrough-08-discard-pac"></a>
 ### 08 · 放弃未运行的 PAC 示例
 
-[视频 00:20](../media/v0.1.1-alpha.1/settings/settings.mp4#t=20.608) · [返回本节视频](#walkthrough-video)
-
 ![08 · 放弃未运行的 PAC 示例](../media/v0.1.1-alpha.1/settings/settings-08-discard-pac.png)
 
 <a id="walkthrough-09-passthrough"></a>
 ### 09 · 打开 TLS passthrough
-
-[视频 00:23](../media/v0.1.1-alpha.1/settings/settings.mp4#t=23.457) · [返回本节视频](#walkthrough-video)
 
 ![09 · 打开 TLS passthrough](../media/v0.1.1-alpha.1/settings/settings-09-passthrough.png)
 
 <a id="walkthrough-10-privacy"></a>
 ### 10 · 检查导出隐私默认值
 
-[视频 00:26](../media/v0.1.1-alpha.1/settings/settings.mp4#t=26.313) · [返回本节视频](#walkthrough-video)
-
 ![10 · 检查导出隐私默认值](../media/v0.1.1-alpha.1/settings/settings-10-privacy.png)
 
 <a id="walkthrough-11-storage"></a>
 ### 11 · 查看临时存储
-
-[视频 00:29](../media/v0.1.1-alpha.1/settings/settings.mp4#t=29.204) · [返回本节视频](#walkthrough-video)
 
 ![11 · 查看临时存储](../media/v0.1.1-alpha.1/settings/settings-11-storage.png)
 
 <a id="walkthrough-12-refresh"></a>
 ### 12 · 刷新用量
 
-[视频 00:32](../media/v0.1.1-alpha.1/settings/settings.mp4#t=32.058) · [返回本节视频](#walkthrough-video)
-
 ![12 · 刷新用量](../media/v0.1.1-alpha.1/settings/settings-12-refresh.png)
 
 <a id="walkthrough-13-clear-confirm"></a>
 ### 13 · 查看清理确认
-
-[视频 00:34](../media/v0.1.1-alpha.1/settings/settings.mp4#t=34.904) · [返回本节视频](#walkthrough-video)
 
 ![13 · 查看清理确认](../media/v0.1.1-alpha.1/settings/settings-13-clear-confirm.png)
 
 <a id="walkthrough-14-cancel"></a>
 ### 14 · 取消清理
 
-[视频 00:37](../media/v0.1.1-alpha.1/settings/settings.mp4#t=37.753) · [返回本节视频](#walkthrough-video)
-
 ![14 · 取消清理](../media/v0.1.1-alpha.1/settings/settings-14-cancel.png)
 
 <a id="walkthrough-15-updates"></a>
 ### 15 · 查看版本与更新状态
-
-[视频 00:40](../media/v0.1.1-alpha.1/settings/settings.mp4#t=40.604) · [返回本节视频](#walkthrough-video)
 
 ![15 · 查看版本与更新状态](../media/v0.1.1-alpha.1/settings/settings-15-updates.png)
 
@@ -243,7 +207,7 @@
 
    ![实际自有PAC Apply后的状态](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-19-apply-pac.png)
 
-   WPAD仍缺实际网络前提，不能用本地PAC影片代替发现流程。
+   WPAD仍缺实际网络前提，不能用本地PAC示例代替发现流程。
 
 7. 发新请求，检查客户端结果与实际目标；长连接按需要重新建立。
 
@@ -353,75 +317,75 @@
 
 本例使用自有 `https://localhost:63604/playground/tls/h1`；`63604` 是录制时的随机端口，不是产品固定端口。先按[准备步骤](#walkthrough-settings-tls-passthrough)确认已有受信任 CA，并仅为本轮自签名测试源站添加 `localhost` 例外、开启解密，取得第一条可见 HTTP 正文。不要把源站例外或演示地址照抄到不受控服务。
 
-1. 返回 Settings。[视频步骤](#walkthrough-settings-tls-passthrough-17-settings-passthrough)
+1. 返回 Settings。[对应步骤图](#walkthrough-settings-tls-passthrough-17-settings-passthrough)
 
    ![从 Capture 返回 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-17-settings-passthrough.png)
 
-2. 打开 TLS passthrough，检查当前名单。[视频步骤](#walkthrough-settings-tls-passthrough-18-passthrough)
+2. 打开 TLS passthrough，检查当前名单。[对应步骤图](#walkthrough-settings-tls-passthrough-18-passthrough)
 
    ![添加前的实际 TLS passthrough 名单](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-18-passthrough.png)
 
-3. 输入精确主机 `localhost`，不填写协议、端口或 Path。[视频步骤](#walkthrough-settings-tls-passthrough-19-host)
+3. 输入精确主机 `localhost`，不填写协议、端口或 Path。[对应步骤图](#walkthrough-settings-tls-passthrough-19-host)
 
    ![填写精确主机 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-19-host.png)
 
-4. 点击 Add，条目加入后即保存，不另找 Rules 的 Apply。[视频步骤](#walkthrough-settings-tls-passthrough-20-add)
+4. 点击 Add，条目加入后即保存，不另找 Rules 的 Apply。[对应步骤图](#walkthrough-settings-tls-passthrough-20-add)
 
    ![已保存的 localhost 透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-20-add.png)
 
-5. 返回 Capture，保持 `localhost` 搜索。[视频步骤](#walkthrough-settings-tls-passthrough-21-capture-passthrough)
+5. 返回 Capture，保持 `localhost` 搜索。[对应步骤图](#walkthrough-settings-tls-passthrough-21-capture-passthrough)
 
    ![保持同一主机筛选返回 Capture](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-21-capture-passthrough.png)
 
-6. 让客户端用新连接再次请求同一个 HTTPS 地址。[视频步骤](#walkthrough-settings-tls-passthrough-22-passthrough-request)
+6. 让客户端用新连接再次请求同一个 HTTPS 地址。[对应步骤图](#walkthrough-settings-tls-passthrough-22-passthrough-request)
 
    ![透传条目生效后的新 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-22-passthrough-request.png)
 
-7. 选择新增的 CONNECT，不继续查看前面的已解密 GET。[视频步骤](#walkthrough-settings-tls-passthrough-23-passthrough-select)
+7. 选择新增的 CONNECT，不继续查看前面的已解密 GET。[对应步骤图](#walkthrough-settings-tls-passthrough-23-passthrough-select)
 
    ![选中实际透传的新连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-23-passthrough-select.png)
 
-8. 查看 Tunnel：主机与端口仍对应本机源站，协议为 `TLS passthrough`，没有 HTTP 正文；客户端仍成功收到响应。[视频步骤](#walkthrough-settings-tls-passthrough-24-passthrough-tunnel)
+8. 查看 Tunnel：主机与端口仍对应本机源站，协议为 `TLS passthrough`，没有 HTTP 正文；客户端仍成功收到响应。[对应步骤图](#walkthrough-settings-tls-passthrough-24-passthrough-tunnel)
 
    ![全局 MITM 开启但该连接按名单透传](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
 
-9. 点击查看透传配置的入口，Settings 会定位并短暂高亮真实的 `localhost` 条目。[视频步骤](#walkthrough-settings-tls-passthrough-25-locate)
+9. 点击查看透传配置的入口，Settings 会定位并短暂高亮真实的 `localhost` 条目。[对应步骤图](#walkthrough-settings-tls-passthrough-25-locate)
 
    ![从 Tunnel 跳转并高亮实际名单项](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-25-locate.png)
 
-10. 删除本轮添加的 `localhost` 条目；删除立即保存。[视频步骤](#walkthrough-settings-tls-passthrough-26-remove)
+10. 删除本轮添加的 `localhost` 条目；删除立即保存。[对应步骤图](#walkthrough-settings-tls-passthrough-26-remove)
 
     ![已删除本轮透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-26-remove.png)
 
-11. 返回 Capture；旧的 Tunnel 不会因此变成 HTTP。[视频步骤](#walkthrough-settings-tls-passthrough-27-capture-restored)
+11. 返回 Capture；旧的 Tunnel 不会因此变成 HTTP。[对应步骤图](#walkthrough-settings-tls-passthrough-27-capture-restored)
 
     ![删除配置后旧 Tunnel 仍保留](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-27-capture-restored.png)
 
-12. 用新连接再次请求同一地址。[视频步骤](#walkthrough-settings-tls-passthrough-28-reconnect)
+12. 用新连接再次请求同一地址。[对应步骤图](#walkthrough-settings-tls-passthrough-28-reconnect)
 
     ![移除透传项后出现新的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-28-reconnect.png)
 
-13. 选择这条新 GET，核对同一主机与本次端口。[视频步骤](#walkthrough-settings-tls-passthrough-29-restored-select)
+13. 选择这条新 GET，核对同一主机与本次端口。[对应步骤图](#walkthrough-settings-tls-passthrough-29-restored-select)
 
     ![选择恢复解密后的新请求](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-29-restored-select.png)
 
-14. 打开 Response，读取 `{"mode":"https-h1","secure":true}`；这是新连接的正文，不是给旧 Tunnel 补上正文。[视频步骤](#walkthrough-settings-tls-passthrough-30-restored-body)
+14. 打开 Response，读取 `{"mode":"https-h1","secure":true}`；这是新连接的正文，不是给旧 Tunnel 补上正文。[对应步骤图](#walkthrough-settings-tls-passthrough-30-restored-body)
 
     ![删除透传项后实际恢复的 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-30-restored-body.png)
 
-15. 演示结束后返回 Settings。[视频步骤](#walkthrough-settings-tls-passthrough-31-cleanup-settings)
+15. 演示结束后返回 Settings。[对应步骤图](#walkthrough-settings-tls-passthrough-31-cleanup-settings)
 
     ![返回 Settings 清理本轮设置](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-31-cleanup-settings.png)
 
-16. 打开 Certificates，不执行 Generate、Uninstall 或 Delete。[视频步骤](#walkthrough-settings-tls-passthrough-32-cleanup-certificates)
+16. 打开 Certificates，不执行 Generate、Uninstall 或 Delete。[对应步骤图](#walkthrough-settings-tls-passthrough-32-cleanup-certificates)
 
     ![保持原 CA 进入 Certificates](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-32-cleanup-certificates.png)
 
-17. 关闭这次演示开启的 HTTPS 解密。[视频步骤](#walkthrough-settings-tls-passthrough-33-mitm-off)
+17. 关闭这次演示开启的 HTTPS 解密。[对应步骤图](#walkthrough-settings-tls-passthrough-33-mitm-off)
 
     ![关闭本轮解密但保留 CA 与信任](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-33-mitm-off.png)
 
-18. 移除本轮自有源站的 `localhost` 证书例外，不修改其他配置。[视频步骤](#walkthrough-settings-tls-passthrough-34-origin-remove)
+18. 移除本轮自有源站的 `localhost` 证书例外，不修改其他配置。[对应步骤图](#walkthrough-settings-tls-passthrough-34-origin-remove)
 
     ![本轮源站例外已移除](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-34-origin-remove.png)
 
@@ -663,11 +627,11 @@
 <a id="walkthrough-settings-storage-privacy"></a>
 ## 逐步骤实操：隐私默认值、存储取消与清理
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；视频不证明这些示例地址可用，也没有重新生成或卸载日常CA。
+> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -677,135 +641,93 @@
 | <code>privacyOverride</code> | <code>maskCookies true for one cancelled export; saved default remained false then restored true</code> |
 | <code>clearedData</code> | <code>only this workflow’s temporary records and bodies</code> |
 
-<a id="walkthrough-settings-storage-privacy-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4" poster="../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-01-record.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.vtt" default>
-</video>
-
 <a id="walkthrough-settings-storage-privacy-01-record"></a>
 ### 01 · 选择本轮临时记录
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=0.381) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![01 · 选择本轮临时记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-01-record.png)
 
 <a id="walkthrough-settings-storage-privacy-02-privacy"></a>
 ### 02 · 打开隐私默认值
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=3.734) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![02 · 打开隐私默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-02-privacy.png)
 
 <a id="walkthrough-settings-storage-privacy-03-cookie-default"></a>
 ### 03 · 临时更改 Cookie 默认值
-
-[视频 00:06](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=6.618) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![03 · 临时更改 Cookie 默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-03-cookie-default.png)
 
 <a id="walkthrough-settings-storage-privacy-04-new-export"></a>
 ### 04 · 打开新的 HAR 导出检查继承
 
-[视频 00:09](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=9.431) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![04 · 打开新的 HAR 导出检查继承](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-04-new-export.png)
 
 <a id="walkthrough-settings-storage-privacy-05-filter-scope"></a>
 ### 05 · 选择当前筛选范围
-
-[视频 00:12](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=12.782) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![05 · 选择当前筛选范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-05-filter-scope.png)
 
 <a id="walkthrough-settings-storage-privacy-06-all-scope"></a>
 ### 06 · 查看全部记录范围
 
-[视频 00:15](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=15.579) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![06 · 查看全部记录范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-06-all-scope.png)
 
 <a id="walkthrough-settings-storage-privacy-07-one-export-override"></a>
 ### 07 · 只覆盖本次 Cookie 遮罩
-
-[视频 00:18](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=18.364) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![07 · 只覆盖本次 Cookie 遮罩](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-07-one-export-override.png)
 
 <a id="walkthrough-settings-storage-privacy-08-cancel-export"></a>
 ### 08 · 取消本次导出
 
-[视频 00:21](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=21.177) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![08 · 取消本次导出](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-08-cancel-export.png)
 
 <a id="walkthrough-settings-storage-privacy-09-default-unchanged"></a>
 ### 09 · 确认单次覆盖没有改默认值
-
-[视频 00:23](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=23.983) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![09 · 确认单次覆盖没有改默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-09-default-unchanged.png)
 
 <a id="walkthrough-settings-storage-privacy-10-restore-privacy"></a>
 ### 10 · 恢复 Cookie 遮罩默认值
 
-[视频 00:26](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=26.874) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![10 · 恢复 Cookie 遮罩默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-10-restore-privacy.png)
 
 <a id="walkthrough-settings-storage-privacy-11-storage"></a>
 ### 11 · 查看实际存储用量
-
-[视频 00:29](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=29.684) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![11 · 查看实际存储用量](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-11-storage.png)
 
 <a id="walkthrough-settings-storage-privacy-12-refresh"></a>
 ### 12 · Refresh 只刷新统计
 
-[视频 00:32](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=32.552) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![12 · Refresh 只刷新统计](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-12-refresh.png)
 
 <a id="walkthrough-settings-storage-privacy-13-clear-dialog"></a>
 ### 13 · 检查 Clear 影响
-
-[视频 00:35](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=35.358) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![13 · 检查 Clear 影响](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-13-clear-dialog.png)
 
 <a id="walkthrough-settings-storage-privacy-14-cancel-clear"></a>
 ### 14 · 取消 Clear 不删除记录
 
-[视频 00:38](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=38.152) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![14 · 取消 Clear 不删除记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-14-cancel-clear.png)
 
 <a id="walkthrough-settings-storage-privacy-15-confirm-clear"></a>
 ### 15 · 确认清理本轮记录和正文
-
-[视频 00:40](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=40.955) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![15 · 确认清理本轮记录和正文](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-15-confirm-clear.png)
 
 <a id="walkthrough-settings-storage-privacy-16-empty-capture"></a>
 ### 16 · Capture 同步变空且仍暂停
 
-[视频 00:43](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=43.823) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![16 · Capture 同步变空且仍暂停](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-16-empty-capture.png)
 
 <a id="walkthrough-settings-storage-privacy-17-resume-after-clear"></a>
 ### 17 · Clear 后显式恢复录制
 
-[视频 00:46](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=46.684) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
-
 ![17 · Clear 后显式恢复录制](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-17-resume-after-clear.png)
 
 <a id="walkthrough-settings-storage-privacy-18-new-record"></a>
 ### 18 · Clear 后捕获新请求
-
-[视频 00:49](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy.mp4#t=49.547) · [返回本节视频](#walkthrough-settings-storage-privacy-video)
 
 ![18 · Clear 后捕获新请求](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-18-new-record.png)
 
@@ -816,11 +738,11 @@
 <a id="walkthrough-settings-proxy-routing"></a>
 ## 逐步骤实操：系统代理恢复与 Recording 的边界
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；视频不证明这些示例地址可用，也没有重新生成或卸载日常CA。
+> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -829,65 +751,43 @@
 | <code>purpose</code> | <code>System proxy routing and Recording are separate; Restore retains the listener</code> |
 | <code>authorizationScope</code> | <code>existing authorized helper; this is not first-time OS authorization footage</code> |
 
-<a id="walkthrough-settings-proxy-routing-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4" poster="../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-01-owned.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.vtt" default>
-</video>
-
 <a id="walkthrough-settings-proxy-routing-01-owned"></a>
 ### 01 · 查看系统代理接管状态
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=0.405) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
 
 ![01 · 查看系统代理接管状态](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-01-owned.png)
 
 <a id="walkthrough-settings-proxy-routing-02-restore"></a>
 ### 02 · Restore 恢复原路由
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=3.368) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
-
 ![02 · Restore 恢复原路由](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png)
 
 <a id="walkthrough-settings-proxy-routing-03-listener"></a>
 ### 03 · 确认监听器没有因此停止
-
-[视频 00:09](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=9.619) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
 
 ![03 · 确认监听器没有因此停止](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-03-listener.png)
 
 <a id="walkthrough-settings-proxy-routing-04-enable"></a>
 ### 04 · 通过 Settings 重新 Enable
 
-[视频 00:12](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=12.416) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
-
 ![04 · 通过 Settings 重新 Enable](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-04-enable.png)
 
 <a id="walkthrough-settings-proxy-routing-05-recording"></a>
 ### 05 · 返回 Capture 确认录制开启
-
-[视频 00:19](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=19.118) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
 
 ![05 · 返回 Capture 确认录制开启](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-05-recording.png)
 
 <a id="walkthrough-settings-proxy-routing-06-pause"></a>
 ### 06 · 暂停 Recording
 
-[视频 00:22](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=22.119) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
-
 ![06 · 暂停 Recording](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-06-pause.png)
 
 <a id="walkthrough-settings-proxy-routing-07-still-owned"></a>
 ### 07 · 暂停不等于 Restore
 
-[视频 00:24](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=24.970) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
-
 ![07 · 暂停不等于 Restore](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-07-still-owned.png)
 
 <a id="walkthrough-settings-proxy-routing-08-final-restore"></a>
 ### 08 · 结束演示前恢复原路由
-
-[视频 00:27](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing.mp4#t=27.870) · [返回本节视频](#walkthrough-settings-proxy-routing-video)
 
 ![08 · 结束演示前恢复原路由](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-08-final-restore.png)
 
@@ -898,10 +798,9 @@
 <a id="walkthrough-settings-tls-passthrough"></a>
 ## 逐步骤实操：TLS 透传与恢复解密
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -913,247 +812,173 @@
 | <code>passthrough</code> | <code>localhost (exact host; removed before reconnecting)</code> |
 | <code>certificateScope</code> | <code>existing trusted CA; no generation, install, uninstall or deletion</code> |
 
-<a id="walkthrough-settings-tls-passthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4" poster="../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-01-filter.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.vtt" default>
-</video>
-
 <a id="walkthrough-settings-tls-passthrough-01-filter"></a>
 ### 01 · 按 localhost 筛选
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=0.335) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![01 · 按 localhost 筛选](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-01-filter.png)
 
 <a id="walkthrough-settings-tls-passthrough-02-record"></a>
 ### 02 · 开启 Recording
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=3.185) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![02 · 开启 Recording](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-02-record.png)
 
 <a id="walkthrough-settings-tls-passthrough-03-opaque-request"></a>
 ### 03 · 建立未解密 TLS 连接
-
-[视频 00:05](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=5.979) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![03 · 建立未解密 TLS 连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png)
 
 <a id="walkthrough-settings-tls-passthrough-04-tunnel-select"></a>
 ### 04 · 选择 CONNECT 隧道
 
-[视频 00:08](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=8.883) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![04 · 选择 CONNECT 隧道](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png)
 
 <a id="walkthrough-settings-tls-passthrough-05-tunnel"></a>
 ### 05 · 查看 Tunnel 而非 HTTP 正文
-
-[视频 00:11](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=11.833) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![05 · 查看 Tunnel 而非 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
 
 <a id="walkthrough-settings-tls-passthrough-06-https-setup"></a>
 ### 06 · 从 Tunnel 打开 HTTPS Setup
 
-[视频 00:14](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=14.732) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![06 · 从 Tunnel 打开 HTTPS Setup](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-06-https-setup.png)
 
 <a id="walkthrough-settings-tls-passthrough-07-cancel-setup"></a>
 ### 07 · 取消且保持未解密
-
-[视频 00:17](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=17.889) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![07 · 取消且保持未解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-07-cancel-setup.png)
 
 <a id="walkthrough-settings-tls-passthrough-08-settings"></a>
 ### 08 · 打开 Settings
 
-[视频 00:20](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=20.882) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![08 · 打开 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-08-settings.png)
 
 <a id="walkthrough-settings-tls-passthrough-09-certificates"></a>
 ### 09 · 检查已有受信任 CA
-
-[视频 00:23](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=23.783) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![09 · 检查已有受信任 CA](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-09-certificates.png)
 
 <a id="walkthrough-settings-tls-passthrough-10-origin-host"></a>
 ### 10 · 填写自有源站 localhost
 
-[视频 00:26](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=26.683) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![10 · 填写自有源站 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-10-origin-host.png)
 
 <a id="walkthrough-settings-tls-passthrough-11-origin-add"></a>
 ### 11 · 仅添加本轮源站例外
-
-[视频 00:29](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=29.533) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![11 · 仅添加本轮源站例外](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-11-origin-add.png)
 
 <a id="walkthrough-settings-tls-passthrough-12-mitm-on"></a>
 ### 12 · 开启 HTTPS 解密
 
-[视频 00:32](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=32.485) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![12 · 开启 HTTPS 解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-12-mitm-on.png)
 
 <a id="walkthrough-settings-tls-passthrough-13-capture-decrypted"></a>
 ### 13 · 返回 Capture
-
-[视频 00:35](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=35.584) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![13 · 返回 Capture](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-13-capture-decrypted.png)
 
 <a id="walkthrough-settings-tls-passthrough-14-decrypted-request"></a>
 ### 14 · 用新连接请求 HTTPS
 
-[视频 00:38](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=38.482) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![14 · 用新连接请求 HTTPS](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-14-decrypted-request.png)
 
 <a id="walkthrough-settings-tls-passthrough-15-decrypted-select"></a>
 ### 15 · 选择解密后的 GET
-
-[视频 00:41](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=41.384) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![15 · 选择解密后的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-15-decrypted-select.png)
 
 <a id="walkthrough-settings-tls-passthrough-16-decrypted-body"></a>
 ### 16 · 读取真实 HTTPS 正文
 
-[视频 00:44](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=44.283) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![16 · 读取真实 HTTPS 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-16-decrypted-body.png)
 
 <a id="walkthrough-settings-tls-passthrough-17-settings-passthrough"></a>
 ### 17 · 返回 Settings
-
-[视频 00:47](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=47.434) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![17 · 返回 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-17-settings-passthrough.png)
 
 <a id="walkthrough-settings-tls-passthrough-18-passthrough"></a>
 ### 18 · 打开 TLS passthrough
 
-[视频 00:50](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=50.334) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![18 · 打开 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-18-passthrough.png)
 
 <a id="walkthrough-settings-tls-passthrough-19-host"></a>
 ### 19 · 填写精确主机 localhost
-
-[视频 00:53](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=53.233) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![19 · 填写精确主机 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-19-host.png)
 
 <a id="walkthrough-settings-tls-passthrough-20-add"></a>
 ### 20 · 添加并保存透传条目
 
-[视频 00:56](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=56.084) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![20 · 添加并保存透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-20-add.png)
 
 <a id="walkthrough-settings-tls-passthrough-21-capture-passthrough"></a>
 ### 21 · 返回 Capture 检查新连接
-
-[视频 00:59](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=59.034) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![21 · 返回 Capture 检查新连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-21-capture-passthrough.png)
 
 <a id="walkthrough-settings-tls-passthrough-22-passthrough-request"></a>
 ### 22 · 重新建立同一源站 HTTPS 连接
 
-[视频 01:02](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=62.034) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![22 · 重新建立同一源站 HTTPS 连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-22-passthrough-request.png)
 
 <a id="walkthrough-settings-tls-passthrough-23-passthrough-select"></a>
 ### 23 · 选择新增 CONNECT
-
-[视频 01:04](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=64.933) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![23 · 选择新增 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-23-passthrough-select.png)
 
 <a id="walkthrough-settings-tls-passthrough-24-passthrough-tunnel"></a>
 ### 24 · 核对命中 TLS passthrough
 
-[视频 01:07](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=67.830) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![24 · 核对命中 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
 
 <a id="walkthrough-settings-tls-passthrough-25-locate"></a>
 ### 25 · 从 Tunnel 定位实际名单条目
-
-[视频 01:10](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=70.732) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![25 · 从 Tunnel 定位实际名单条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-25-locate.png)
 
 <a id="walkthrough-settings-tls-passthrough-26-remove"></a>
 ### 26 · 删除本轮 localhost 透传项
 
-[视频 01:13](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=73.634) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![26 · 删除本轮 localhost 透传项](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-26-remove.png)
 
 <a id="walkthrough-settings-tls-passthrough-27-capture-restored"></a>
 ### 27 · 返回 Capture 检查恢复
-
-[视频 01:16](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=76.486) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![27 · 返回 Capture 检查恢复](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-27-capture-restored.png)
 
 <a id="walkthrough-settings-tls-passthrough-28-reconnect"></a>
 ### 28 · 再次用新连接请求 HTTPS
 
-[视频 01:19](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=79.434) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![28 · 再次用新连接请求 HTTPS](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-28-reconnect.png)
 
 <a id="walkthrough-settings-tls-passthrough-29-restored-select"></a>
 ### 29 · 选择恢复解密的 GET
-
-[视频 01:22](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=82.332) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![29 · 选择恢复解密的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-29-restored-select.png)
 
 <a id="walkthrough-settings-tls-passthrough-30-restored-body"></a>
 ### 30 · 核对 HTTP 正文恢复
 
-[视频 01:25](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=85.285) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![30 · 核对 HTTP 正文恢复](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-30-restored-body.png)
 
 <a id="walkthrough-settings-tls-passthrough-31-cleanup-settings"></a>
 ### 31 · 返回 Settings 清理本轮配置
-
-[视频 01:28](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=88.231) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![31 · 返回 Settings 清理本轮配置](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-31-cleanup-settings.png)
 
 <a id="walkthrough-settings-tls-passthrough-32-cleanup-certificates"></a>
 ### 32 · 打开 Certificates
 
-[视频 01:31](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=91.133) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![32 · 打开 Certificates](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-32-cleanup-certificates.png)
 
 <a id="walkthrough-settings-tls-passthrough-33-mitm-off"></a>
 ### 33 · 关闭本轮解密
 
-[视频 01:34](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=94.034) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
-
 ![33 · 关闭本轮解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-33-mitm-off.png)
 
 <a id="walkthrough-settings-tls-passthrough-34-origin-remove"></a>
 ### 34 · 移除自有源站例外
-
-[视频 01:37](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough.mp4#t=97.079) · [返回本节视频](#walkthrough-settings-tls-passthrough-video)
 
 ![34 · 移除自有源站例外](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-34-origin-remove.png)
 
@@ -1164,10 +989,9 @@
 <a id="walkthrough-settings-upstream"></a>
 ## 逐步骤实操：Manual、PAC、Direct与共享草稿
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1180,191 +1004,133 @@
 | <code>finalMode</code> | <code>system</code> |
 | <code>scope</code> | <code>Owned HTTP routes only; no WPAD, external credentials or system proxy preference writes</code> |
 
-<a id="walkthrough-settings-upstream-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4" poster="../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.vtt" default>
-</video>
-
 <a id="walkthrough-settings-upstream-01-settings"></a>
 ### 01 · 打开Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=0.458) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![01 · 打开Settings](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-01-settings.png)
 
 <a id="walkthrough-settings-upstream-02-upstream"></a>
 ### 02 · 打开Upstream proxy
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=3.424) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![02 · 打开Upstream proxy](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-02-upstream.png)
 
 <a id="walkthrough-settings-upstream-03-direct-draft"></a>
 ### 03 · 选择Direct草稿
-
-[视频 00:06](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=6.415) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![03 · 选择Direct草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-03-direct-draft.png)
 
 <a id="walkthrough-settings-upstream-04-discard"></a>
 ### 04 · Discard草稿不改路线
 
-[视频 00:09](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=9.361) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![04 · Discard草稿不改路线](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-04-discard.png)
 
 <a id="walkthrough-settings-upstream-05-manual"></a>
 ### 05 · 选择Manual
-
-[视频 00:12](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=12.310) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![05 · 选择Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-05-manual.png)
 
 <a id="walkthrough-settings-upstream-06-host"></a>
 ### 06 · 填写自有上游Host
 
-[视频 00:15](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=15.311) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![06 · 填写自有上游Host](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-06-host.png)
 
 <a id="walkthrough-settings-upstream-07-port"></a>
 ### 07 · 填写实际上游端口
-
-[视频 00:18](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=18.260) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![07 · 填写实际上游端口](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-07-port.png)
 
 <a id="walkthrough-settings-upstream-08-apply-manual"></a>
 ### 08 · Apply Manual
 
-[视频 00:21](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=21.206) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![08 · Apply Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-08-apply-manual.png)
 
 <a id="walkthrough-settings-upstream-09-manual-request"></a>
 ### 09 · 用真实转发核对Manual
-
-[视频 00:24](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=24.262) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![09 · 用真实转发核对Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-09-manual-request.png)
 
 <a id="walkthrough-settings-upstream-10-capture"></a>
 ### 10 · 返回Capture查看生效路线
 
-[视频 00:27](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=27.167) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![10 · 返回Capture查看生效路线](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-10-capture.png)
 
 <a id="walkthrough-settings-upstream-11-shortcut"></a>
 ### 11 · 打开底栏快捷浮层
-
-[视频 00:30](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=30.209) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![11 · 打开底栏快捷浮层](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-11-shortcut.png)
 
 <a id="walkthrough-settings-upstream-12-pac-draft"></a>
 ### 12 · 在浮层选择PAC草稿
 
-[视频 00:33](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=33.257) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![12 · 在浮层选择PAC草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-12-pac-draft.png)
 
 <a id="walkthrough-settings-upstream-13-pac-url"></a>
 ### 13 · 填写自有PAC地址
-
-[视频 00:36](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=36.250) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![13 · 填写自有PAC地址](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-13-pac-url.png)
 
 <a id="walkthrough-settings-upstream-14-cancel-draft"></a>
 ### 14 · Cancel放弃本次浮层草稿
 
-[视频 00:39](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=39.168) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![14 · Cancel放弃本次浮层草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-14-cancel-draft.png)
 
 <a id="walkthrough-settings-upstream-15-reopen"></a>
 ### 15 · 重开浮层核对仍为Manual
-
-[视频 00:42](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=42.410) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![15 · 重开浮层核对仍为Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-15-reopen.png)
 
 <a id="walkthrough-settings-upstream-16-pac-again"></a>
 ### 16 · 重新选择PAC
 
-[视频 00:45](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=45.409) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![16 · 重新选择PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-16-pac-again.png)
 
 <a id="walkthrough-settings-upstream-17-pac-url-again"></a>
 ### 17 · 再次填写本轮PAC
-
-[视频 00:48](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=48.369) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![17 · 再次填写本轮PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-17-pac-url-again.png)
 
 <a id="walkthrough-settings-upstream-18-open-settings"></a>
 ### 18 · 把同一草稿带到Settings
 
-[视频 00:51](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=51.411) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![18 · 把同一草稿带到Settings](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-18-open-settings.png)
 
 <a id="walkthrough-settings-upstream-19-apply-pac"></a>
 ### 19 · Apply PAC
-
-[视频 00:54](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=54.408) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![19 · Apply PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-19-apply-pac.png)
 
 <a id="walkthrough-settings-upstream-20-pac-proxy"></a>
 ### 20 · 核对PAC选择PROXY
 
-[视频 00:57](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=57.495) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![20 · 核对PAC选择PROXY](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-20-pac-proxy.png)
 
 <a id="walkthrough-settings-upstream-21-pac-direct"></a>
 ### 21 · 核对同一PAC选择DIRECT
-
-[视频 01:00](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=60.415) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![21 · 核对同一PAC选择DIRECT](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-21-pac-direct.png)
 
 <a id="walkthrough-settings-upstream-22-direct"></a>
 ### 22 · 显式选择Direct
 
-[视频 01:03](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=63.359) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![22 · 显式选择Direct](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-22-direct.png)
 
 <a id="walkthrough-settings-upstream-23-apply-direct"></a>
 ### 23 · Apply Direct
-
-[视频 01:06](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=66.309) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![23 · Apply Direct](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-23-apply-direct.png)
 
 <a id="walkthrough-settings-upstream-24-direct-request"></a>
 ### 24 · 核对Direct不经过上游
 
-[视频 01:09](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=69.309) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![24 · 核对Direct不经过上游](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-24-direct-request.png)
 
 <a id="walkthrough-settings-upstream-25-system"></a>
 ### 25 · 恢复System选择
 
-[视频 01:12](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=72.211) · [返回本节视频](#walkthrough-settings-upstream-video)
-
 ![25 · 恢复System选择](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-25-system.png)
 
 <a id="walkthrough-settings-upstream-26-apply-system"></a>
 ### 26 · Apply System
-
-[视频 01:15](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream.mp4#t=75.159) · [返回本节视频](#walkthrough-settings-upstream-video)
 
 ![26 · Apply System](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-26-apply-system.png)
 
@@ -1375,10 +1141,9 @@
 <a id="walkthrough-settings-privacy-export"></a>
 ## 逐步骤实操：隐私默认值、单次覆盖和实际HAR字段
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1394,177 +1159,123 @@
 | <code>safety</code> | <code>All authentication-like values are deliberately public loopback examples, not real credentials</code> |
 | <code>finalDefaults</code> | <code>Authorization, Cookie and warning enabled; existing files not rewritten</code> |
 
-<a id="walkthrough-settings-privacy-export-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4" poster="../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-01-privacy.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.vtt" default>
-</video>
-
 <a id="walkthrough-settings-privacy-export-01-privacy"></a>
 ### 01 · 查看三项Privacy默认值
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=0.481) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![01 · 查看三项Privacy默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-01-privacy.png)
 
 <a id="walkthrough-settings-privacy-export-02-auth-default"></a>
 ### 02 · 更改Authorization默认值
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=3.651) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![02 · 更改Authorization默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-02-auth-default.png)
 
 <a id="walkthrough-settings-privacy-export-03-cookie-default"></a>
 ### 03 · 更改Cookie默认值
-
-[视频 00:06](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=6.663) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![03 · 更改Cookie默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-03-cookie-default.png)
 
 <a id="walkthrough-settings-privacy-export-04-inherited-export"></a>
 ### 04 · 打开新HAR草稿核对继承
 
-[视频 00:09](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=9.676) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![04 · 打开新HAR草稿核对继承](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-04-inherited-export.png)
 
 <a id="walkthrough-settings-privacy-export-05-one-time-override"></a>
 ### 05 · 本次只遮罩Authorization
-
-[视频 00:13](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=13.782) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![05 · 本次只遮罩Authorization](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-05-one-time-override.png)
 
 <a id="walkthrough-settings-privacy-export-06-save-override"></a>
 ### 06 · 保存guide-auth-masked.har
 
-[视频 00:37](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=37.513) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![06 · 保存guide-auth-masked.har](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-06-save-override.png)
 
 <a id="walkthrough-settings-privacy-export-07-check-override"></a>
 ### 07 · 核对文件只遮罩指定字段
-
-[视频 00:42](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=42.649) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![07 · 核对文件只遮罩指定字段](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-07-check-override.png)
 
 <a id="walkthrough-settings-privacy-export-08-defaults-unchanged"></a>
 ### 08 · 核对单次覆盖没改全局默认值
 
-[视频 00:45](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=45.793) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![08 · 核对单次覆盖没改全局默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-08-defaults-unchanged.png)
 
 <a id="walkthrough-settings-privacy-export-09-warning-default"></a>
 ### 09 · 关闭未遮罩前的警示偏好
-
-[视频 00:48](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=48.918) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![09 · 关闭未遮罩前的警示偏好](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-09-warning-default.png)
 
 <a id="walkthrough-settings-privacy-export-10-unmasked-draft"></a>
 ### 10 · 查看新的公开数据导出草稿
 
-[视频 00:51](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=51.940) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![10 · 查看新的公开数据导出草稿](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-10-unmasked-draft.png)
 
 <a id="walkthrough-settings-privacy-export-11-save-public"></a>
 ### 11 · 只保存本轮公开测试值
-
-[视频 01:17](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=77.499) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![11 · 只保存本轮公开测试值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-11-save-public.png)
 
 <a id="walkthrough-settings-privacy-export-12-check-public"></a>
 ### 12 · 核对取消遮罩后文件的真实字段
 
-[视频 01:23](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=83.082) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![12 · 核对取消遮罩后文件的真实字段](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-12-check-public.png)
 
 <a id="walkthrough-settings-privacy-export-13-restore-privacy"></a>
 ### 13 · 返回Privacy恢复默认值
-
-[视频 01:26](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=86.210) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![13 · 返回Privacy恢复默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-13-restore-privacy.png)
 
 <a id="walkthrough-settings-privacy-export-14-restore-auth"></a>
 ### 14 · 恢复Authorization遮罩
 
-[视频 01:29](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=89.317) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![14 · 恢复Authorization遮罩](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-14-restore-auth.png)
 
 <a id="walkthrough-settings-privacy-export-15-restore-cookies"></a>
 ### 15 · 恢复Cookie遮罩
-
-[视频 01:32](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=92.332) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![15 · 恢复Cookie遮罩](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-15-restore-cookies.png)
 
 <a id="walkthrough-settings-privacy-export-16-restore-warning"></a>
 ### 16 · 恢复未遮罩警示
 
-[视频 01:35](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=95.339) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![16 · 恢复未遮罩警示](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-16-restore-warning.png)
 
 <a id="walkthrough-settings-privacy-export-17-redacted-draft"></a>
 ### 17 · 检查新草稿使用恢复后的默认值
-
-[视频 01:38](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=98.358) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![17 · 检查新草稿使用恢复后的默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-17-redacted-draft.png)
 
 <a id="walkthrough-settings-privacy-export-18-strip-bodies"></a>
 ### 18 · 本次移除请求与响应正文
 
-[视频 01:42](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=102.552) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![18 · 本次移除请求与响应正文](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-18-strip-bodies.png)
 
 <a id="walkthrough-settings-privacy-export-19-save-redacted"></a>
 ### 19 · 保存guide-redacted-no-body.har
-
-[视频 02:07](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=127.046) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![19 · 保存guide-redacted-no-body.har](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-19-save-redacted.png)
 
 <a id="walkthrough-settings-privacy-export-20-check-redacted"></a>
 ### 20 · 逐字段核对真正的文件内容
 
-[视频 02:12](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=132.676) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![20 · 逐字段核对真正的文件内容](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-20-check-redacted.png)
 
 <a id="walkthrough-settings-privacy-export-21-clear"></a>
 ### 21 · 清空本轮临时记录再检查导入
-
-[视频 02:15](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=135.727) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![21 · 清空本轮临时记录再检查导入](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-21-clear.png)
 
 <a id="walkthrough-settings-privacy-export-22-import"></a>
 ### 22 · 从产品选择刚导出的HAR
 
-[视频 02:18](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=138.763) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![22 · 从产品选择刚导出的HAR](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-22-import.png)
 
 <a id="walkthrough-settings-privacy-export-23-open-redacted"></a>
 ### 23 · 打开本轮去正文HAR
 
-[视频 02:37](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=157.575) · [返回本节视频](#walkthrough-settings-privacy-export-video)
-
 ![23 · 打开本轮去正文HAR](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-23-open-redacted.png)
 
 <a id="walkthrough-settings-privacy-export-24-imported"></a>
 ### 24 · 导入不会凭空恢复已移除正文
-
-[视频 02:43](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export.mp4#t=163.133) · [返回本节视频](#walkthrough-settings-privacy-export-video)
 
 ![24 · 导入不会凭空恢复已移除正文](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-24-imported.png)
 
@@ -1575,10 +1286,9 @@
 <a id="walkthrough-settings-update-check"></a>
 ## 实际检查更新与失败状态
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1589,37 +1299,23 @@
 | <code>installerOpened</code> | <code>false</code> |
 | <code>boundary</code> | <code>Only the actual Check action/result is recorded; download and native installation require their own conditions</code> |
 
-<a id="walkthrough-settings-update-check-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.mp4" poster="../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.vtt" default>
-</video>
-
 <a id="walkthrough-settings-update-check-01-settings"></a>
 ### 01 · 打开Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.mp4#t=0.511) · [返回本节视频](#walkthrough-settings-update-check-video)
 
 ![01 · 打开Settings](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-01-settings.png)
 
 <a id="walkthrough-settings-update-check-02-updates"></a>
 ### 02 · 进入Updates查看真实状态
 
-[视频 00:03](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.mp4#t=3.592) · [返回本节视频](#walkthrough-settings-update-check-video)
-
 ![02 · 进入Updates查看真实状态](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-02-updates.png)
 
 <a id="walkthrough-settings-update-check-03-check"></a>
 ### 03 · 真实点击Check
 
-[视频 00:06](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.mp4#t=6.632) · [返回本节视频](#walkthrough-settings-update-check-video)
-
 ![03 · 真实点击Check](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-03-check.png)
 
 <a id="walkthrough-settings-update-check-04-result"></a>
 ### 04 · 核对这次检查的实际终态
-
-[视频 00:09](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check.mp4#t=9.669) · [返回本节视频](#walkthrough-settings-update-check-video)
 
 ![04 · 核对这次检查的实际终态](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png)
 

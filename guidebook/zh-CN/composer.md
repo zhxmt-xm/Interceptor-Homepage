@@ -7,7 +7,7 @@
 <a id="walkthrough"></a>
 ## 逐步骤实操：发送请求并添加字段
 
-下面的图和视频来自已发布的 `v0.1.1-alpha.1`、macOS x64，App 保持中文。每张图对应下面的一个步骤，点击图片可以查看原尺寸。本次使用无凭据的本机演示服务；`54275` 是录制时分配的端口，服务不是公开地址，实际使用时换成你自己的测试接口端口。
+下面的图片来自已发布的 `v0.1.1-alpha.1`、macOS x64，App 保持中文。每张图对应下面的一个步骤，点击图片可以查看原尺寸。本次使用无凭据的本机演示服务；`54275` 是录制时分配的端口，服务不是公开地址，实际使用时换成你自己的测试接口端口。
 
 | 示例项 | 本次实际值 |
 | --- | --- |
@@ -16,73 +16,67 @@
 | Header 名称 / 值 | `x-interceptor-guide` / `composer-demo` |
 | 响应正文 | `{"request":"Guide request","message":"Hello Interceptor","status":"ready"}` |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer/composer.mp4" poster="../media/v0.1.1-alpha.1/composer/composer-04-send.png">
-<track kind="captions" srclang="zh-CN" label="步骤 / Steps" src="../media/v0.1.1-alpha.1/composer/composer.vtt" default>
-</video>
-
 ### C01 · 打开 Composer
 
-在侧栏点击请求构造器。右侧出现 Collection 与空工作区。[视频 00:00](../media/v0.1.1-alpha.1/composer/composer.mp4#t=0.367)
+在侧栏点击请求构造器。右侧出现 Collection 与空工作区。
 
 ![C01：打开真实 App 的 Composer，尚未新建请求](../media/v0.1.1-alpha.1/composer/composer-01-open.png)
 
 ### C02 · 新建请求
 
-点击 Collection 顶部的加号。本版本新条目默认叫 `Untitled`，这不是已经发送的历史请求。[视频 00:03](../media/v0.1.1-alpha.1/composer/composer.mp4#t=3.248)
+点击 Collection 顶部的加号。本版本新条目默认叫 `Untitled`，这不是已经发送的历史请求。
 
 ![C02：Collection 中新增 Untitled，请求编辑区已打开](../media/v0.1.1-alpha.1/composer/composer-02-new.png)
 
 ### C03 · 输入演示 URL
 
-填入 `http://127.0.0.1:54275/guide/composer`。方法为 `GET`，协议保持“自动”；先核对协议和端口，不填认证。[视频 00:06](../media/v0.1.1-alpha.1/composer/composer.mp4#t=6.148)
+填入 `http://127.0.0.1:54275/guide/composer`。方法为 `GET`，协议保持“自动”；先核对协议和端口，不填认证。
 
 ![C03：GET 和 http://127.0.0.1:54275/guide/composer 与文字一致](../media/v0.1.1-alpha.1/composer/composer-03-url.png)
 
 ### C04 · 点击发送
 
-等待响应区出现 `200` 和 JSON；其中 `message` 为 `Hello Interceptor`。响应直接显示在 Composer，不要求 Capture 新增记录。[视频 00:08](../media/v0.1.1-alpha.1/composer/composer.mp4#t=8.954)
+等待响应区出现 `200` 和 JSON；其中 `message` 为 `Hello Interceptor`。响应直接显示在 Composer，不要求 Capture 新增记录。
 
 ![C04：实际响应含 Guide request、Hello Interceptor 和 ready](../media/v0.1.1-alpha.1/composer/composer-04-send.png)
 
 ### C05 · 查看响应 Header
 
-点击下方响应区的“标头”。本例服务返回 `content-type: application/json; charset=utf-8` 和 `x-interceptor-guide: composer-demo`；其他演示服务可能返回不同附加头。[视频 00:11](../media/v0.1.1-alpha.1/composer/composer.mp4#t=11.999)
+点击下方响应区的“标头”。本例服务返回 `content-type: application/json; charset=utf-8` 和 `x-interceptor-guide: composer-demo`；其他演示服务可能返回不同附加头。
 
 ![C05：响应 Header 显示 JSON 类型与 composer-demo](../media/v0.1.1-alpha.1/composer/composer-05-headers.png)
 
 ### C06 · 添加 Query
 
-打开请求区“查询参数”，在新行填 `guide` 与 `composer-demo`，点击该行确认。标签计数变为 `1`。[视频 00:14](../media/v0.1.1-alpha.1/composer/composer.mp4#t=14.848)
+打开请求区“查询参数”，在新行填 `guide` 与 `composer-demo`，点击该行确认。标签计数变为 `1`。
 
 ![C06：已启用的 Query 行为 guide=composer-demo](../media/v0.1.1-alpha.1/composer/composer-06-query.png)
 
 ### C07 · 添加请求 Header
 
-打开请求区“标头”，填 `x-interceptor-guide` 与 `composer-demo` 并确认。这里是请求 Header，上一步观察的是响应 Header。[视频 00:17](../media/v0.1.1-alpha.1/composer/composer.mp4#t=17.799)
+打开请求区“标头”，填 `x-interceptor-guide` 与 `composer-demo` 并确认。这里是请求 Header，上一步观察的是响应 Header。
 
 ![C07：请求 Header 行与正文示例名称和值一致](../media/v0.1.1-alpha.1/composer/composer-07-header.png)
 
 ### C08 · 检查认证
 
-打开“认证”，本例保持“无”。不要把真实 Key 输入这个演示服务。[视频 00:20](../media/v0.1.1-alpha.1/composer/composer.mp4#t=20.748)
+打开“认证”，本例保持“无”。不要把真实 Key 输入这个演示服务。
 
 ![C08：本次演示不使用 Authorization](../media/v0.1.1-alpha.1/composer/composer-08-auth.png)
 
 ### C09 · 查看 Recent sends
 
-点击 URL 行右侧的时钟，检查刚才发送的 `GET`、地址和 `200` 结果。列表不是完整持久请求快照。[视频 00:23](../media/v0.1.1-alpha.1/composer/composer.mp4#t=23.599)
+点击 URL 行右侧的时钟，检查刚才发送的 `GET`、地址和 `200` 结果。列表不是完整持久请求快照。
 
 ![C09：Recent sends 中的请求与本次实际发送一致](../media/v0.1.1-alpha.1/composer/composer-09-history.png)
 
 ### C10 · 返回响应正文
 
-关闭历史浮层并选择下方“正文”。看到的仍是 C04 那次响应；添加 Query/Header 不会自动重发。[视频 00:26](../media/v0.1.1-alpha.1/composer/composer.mp4#t=26.460)
+关闭历史浮层并选择下方“正文”。看到的仍是 C04 那次响应；添加 Query/Header 不会自动重发。
 
 ![C10：返回原 JSON 响应，修改请求字段未触发额外 Send](../media/v0.1.1-alpha.1/composer/composer-10-body.png)
 
-[返回本节视频](#walkthrough-video)。下面是完整功能参考，未配步骤图的进阶分支仍待补齐，不算已验收。
+下面是完整功能参考，未配步骤图的进阶分支仍待补齐，不算已验收。
 
 ## 先区分 Composer 与 Capture
 
@@ -796,7 +790,7 @@ Recent sends 独立于 Collection，属于内存记录；不能依赖它跨启�
 
 6. 不符合预期时取消，不要为了完成教程继续导入。
 
-   取消分支使用上面目录管理示例导出的 `guide-collection-tree.json`，不是把 `guide-collection.json` 改名。选择该文件、进入预览后取消，原有两条请求保持不变，不追加第二份目录；见[取消分支视频](#walkthrough-composer-collection-10-cancel-preview)。
+   取消分支使用上面目录管理示例导出的 `guide-collection-tree.json`，不是把 `guide-collection.json` 改名。选择该文件、进入预览后取消，原有两条请求保持不变，不追加第二份目录；见[取消分支步骤图](#walkthrough-composer-collection-10-cancel-preview)。
 
    ![取消 Collection 导入后仍只有原来的两条演示请求](../media/v0.1.1-alpha.1/composer-collection/composer-collection-10-cancel-preview.png)
 
@@ -858,10 +852,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-editing"></a>
 ## 逐步骤实操：正文、认证控件与 Collection 文件
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -877,226 +870,158 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>exportedFile</code> | <code>guide-collection.json</code> |
 | <code>credentialsEntered</code> | <code>none</code> |
 
-<a id="walkthrough-composer-editing-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4" poster="../media/v0.1.1-alpha.1/composer-editing/composer-editing-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-editing/composer-editing.vtt" default>
-</video>
-
 <a id="walkthrough-composer-editing-01-open"></a>
 ### 01 · 打开 Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=0.330) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![01 · 打开 Composer](../media/v0.1.1-alpha.1/composer-editing/composer-editing-01-open.png)
 
 <a id="walkthrough-composer-editing-02-new"></a>
 ### 02 · 新建请求
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=3.186) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![02 · 新建请求](../media/v0.1.1-alpha.1/composer-editing/composer-editing-02-new.png)
 
 <a id="walkthrough-composer-editing-03-url"></a>
 ### 03 · 填写演示 URL
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=6.086) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![03 · 填写演示 URL](../media/v0.1.1-alpha.1/composer-editing/composer-editing-03-url.png)
 
 <a id="walkthrough-composer-editing-04-method"></a>
 ### 04 · 选择 POST
 
-[视频 00:08](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=8.939) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![04 · 选择 POST](../media/v0.1.1-alpha.1/composer-editing/composer-editing-04-method.png)
 
 <a id="walkthrough-composer-editing-05-json-header"></a>
 ### 05 · 填写 JSON Content-Type
-
-[视频 00:11](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=11.889) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![05 · 填写 JSON Content-Type](../media/v0.1.1-alpha.1/composer-editing/composer-editing-05-json-header.png)
 
 <a id="walkthrough-composer-editing-06-body"></a>
 ### 06 · 打开 Body
 
-[视频 00:14](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=14.837) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![06 · 打开 Body](../media/v0.1.1-alpha.1/composer-editing/composer-editing-06-body.png)
 
 <a id="walkthrough-composer-editing-07-json"></a>
 ### 07 · 选择 JSON
-
-[视频 00:17](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=17.688) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![07 · 选择 JSON](../media/v0.1.1-alpha.1/composer-editing/composer-editing-07-json.png)
 
 <a id="walkthrough-composer-editing-08-json-input"></a>
 ### 08 · 输入 Hello JSON
 
-[视频 00:20](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=20.788) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![08 · 输入 Hello JSON](../media/v0.1.1-alpha.1/composer-editing/composer-editing-08-json-input.png)
 
 <a id="walkthrough-composer-editing-09-json-send"></a>
 ### 09 · 发送并核对完整 JSON
-
-[视频 00:23](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=23.742) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![09 · 发送并核对完整 JSON](../media/v0.1.1-alpha.1/composer-editing/composer-editing-09-json-send.png)
 
 <a id="walkthrough-composer-editing-10-text"></a>
 ### 10 · 选择 Text
 
-[视频 00:26](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=26.587) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![10 · 选择 Text](../media/v0.1.1-alpha.1/composer-editing/composer-editing-10-text.png)
 
 <a id="walkthrough-composer-editing-11-text-header"></a>
 ### 11 · 设置 text/plain
-
-[视频 00:29](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=29.535) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![11 · 设置 text/plain](../media/v0.1.1-alpha.1/composer-editing/composer-editing-11-text-header.png)
 
 <a id="walkthrough-composer-editing-11a-text-url"></a>
 ### 12 · 使用独立文本测试地址
 
-[视频 00:32](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=32.387) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![12 · 使用独立文本测试地址](../media/v0.1.1-alpha.1/composer-editing/composer-editing-11a-text-url.png)
 
 <a id="walkthrough-composer-editing-12-text-send"></a>
 ### 13 · 发送并核对文本
-
-[视频 00:35](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=35.186) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![13 · 发送并核对文本](../media/v0.1.1-alpha.1/composer-editing/composer-editing-12-text-send.png)
 
 <a id="walkthrough-composer-editing-13-form"></a>
 ### 14 · 选择 Form
 
-[视频 00:38](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=38.037) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![14 · 选择 Form](../media/v0.1.1-alpha.1/composer-editing/composer-editing-13-form.png)
 
 <a id="walkthrough-composer-editing-14-form-name"></a>
 ### 15 · 添加 name=Interceptor
-
-[视频 00:40](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=40.936) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![15 · 添加 name=Interceptor](../media/v0.1.1-alpha.1/composer-editing/composer-editing-14-form-name.png)
 
 <a id="walkthrough-composer-editing-15-form-ready"></a>
 ### 16 · 添加 ready=true
 
-[视频 00:43](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=43.838) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![16 · 添加 ready=true](../media/v0.1.1-alpha.1/composer-editing/composer-editing-15-form-ready.png)
 
 <a id="walkthrough-composer-editing-16-form-header"></a>
 ### 17 · 设置表单 Content-Type
-
-[视频 00:46](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=46.788) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![17 · 设置表单 Content-Type](../media/v0.1.1-alpha.1/composer-editing/composer-editing-16-form-header.png)
 
 <a id="walkthrough-composer-editing-16a-form-url"></a>
 ### 18 · 使用独立表单测试地址
 
-[视频 00:49](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=49.636) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![18 · 使用独立表单测试地址](../media/v0.1.1-alpha.1/composer-editing/composer-editing-16a-form-url.png)
 
 <a id="walkthrough-composer-editing-17-form-send"></a>
 ### 19 · 发送并核对表单字节
-
-[视频 00:52](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=52.437) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![19 · 发送并核对表单字节](../media/v0.1.1-alpha.1/composer-editing/composer-editing-17-form-send.png)
 
 <a id="walkthrough-composer-editing-18-auth"></a>
 ### 20 · 打开 Auth
 
-[视频 00:55](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=55.286) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![20 · 打开 Auth](../media/v0.1.1-alpha.1/composer-editing/composer-editing-18-auth.png)
 
 <a id="walkthrough-composer-editing-19-bearer"></a>
 ### 21 · 查看 Bearer 输入位置，不填真实Key
-
-[视频 00:58](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=58.092) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![21 · 查看 Bearer 输入位置，不填真实Key](../media/v0.1.1-alpha.1/composer-editing/composer-editing-19-bearer.png)
 
 <a id="walkthrough-composer-editing-20-basic"></a>
 ### 22 · 查看 Basic 输入位置
 
-[视频 01:00](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=60.944) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![22 · 查看 Basic 输入位置](../media/v0.1.1-alpha.1/composer-editing/composer-editing-20-basic.png)
 
 <a id="walkthrough-composer-editing-21-none"></a>
 ### 23 · 恢复 None
-
-[视频 01:03](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=63.837) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![23 · 恢复 None](../media/v0.1.1-alpha.1/composer-editing/composer-editing-21-none.png)
 
 <a id="walkthrough-composer-editing-22-rename"></a>
 ### 24 · 重命名 Guide form request
 
-[视频 01:06](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=66.737) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![24 · 重命名 Guide form request](../media/v0.1.1-alpha.1/composer-editing/composer-editing-22-rename.png)
 
 <a id="walkthrough-composer-editing-23-folder"></a>
 ### 25 · 新建 Guide collection
-
-[视频 01:10](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=70.036) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![25 · 新建 Guide collection](../media/v0.1.1-alpha.1/composer-editing/composer-editing-23-folder.png)
 
 <a id="walkthrough-composer-editing-24-move"></a>
 ### 26 · 把请求移入目录
 
-[视频 01:12](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=72.937) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![26 · 把请求移入目录](../media/v0.1.1-alpha.1/composer-editing/composer-editing-24-move.png)
 
 <a id="walkthrough-composer-editing-25-export"></a>
 ### 27 · 导出 guide-collection.json
-
-[视频 01:35](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=95.507) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![27 · 导出 guide-collection.json](../media/v0.1.1-alpha.1/composer-editing/composer-editing-25-export.png)
 
 <a id="walkthrough-composer-editing-26-exported"></a>
 ### 28 · 核对实际导出内容
 
-[视频 01:40](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=100.377) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![28 · 核对实际导出内容](../media/v0.1.1-alpha.1/composer-editing/composer-editing-26-exported.png)
 
 <a id="walkthrough-composer-editing-27-import"></a>
 ### 29 · 选择同一个集合文件
-
-[视频 01:54](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=114.933) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![29 · 选择同一个集合文件](../media/v0.1.1-alpha.1/composer-editing/composer-editing-27-import.png)
 
 <a id="walkthrough-composer-editing-28-preview"></a>
 ### 30 · 检查导入预览
 
-[视频 01:59](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=119.982) · [返回本节视频](#walkthrough-composer-editing-video)
-
 ![30 · 检查导入预览](../media/v0.1.1-alpha.1/composer-editing/composer-editing-28-preview.png)
 
 <a id="walkthrough-composer-editing-29-confirm"></a>
 ### 31 · 确认追加而不覆盖
-
-[视频 02:02](../media/v0.1.1-alpha.1/composer-editing/composer-editing.mp4#t=122.788) · [返回本节视频](#walkthrough-composer-editing-video)
 
 ![31 · 确认追加而不覆盖](../media/v0.1.1-alpha.1/composer-editing/composer-editing-29-confirm.png)
 
@@ -1107,10 +1032,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-collection"></a>
 ## 逐步骤实操：目录层级、排序、取消和删除
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1125,121 +1049,83 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>fileName</code> | <code>guide-collection-tree.json</code> |
 | <code>requestsSent</code> | <code>0</code> |
 
-<a id="walkthrough-composer-collection-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4" poster="../media/v0.1.1-alpha.1/composer-collection/composer-collection-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-collection/composer-collection.vtt" default>
-</video>
-
 <a id="walkthrough-composer-collection-01-open"></a>
 ### 01 · 打开 Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=0.200) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![01 · 打开 Composer](../media/v0.1.1-alpha.1/composer-collection/composer-collection-01-open.png)
 
 <a id="walkthrough-composer-collection-02-folder-1"></a>
 ### 02 · 创建 Guide level 1
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=3.215) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![02 · 创建 Guide level 1](../media/v0.1.1-alpha.1/composer-collection/composer-collection-02-folder-1.png)
 
 <a id="walkthrough-composer-collection-02-folder-2"></a>
 ### 03 · 创建 Guide level 2
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=6.296) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![03 · 创建 Guide level 2](../media/v0.1.1-alpha.1/composer-collection/composer-collection-02-folder-2.png)
 
 <a id="walkthrough-composer-collection-02-folder-3"></a>
 ### 04 · 创建 Guide level 3
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=9.812) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![04 · 创建 Guide level 3](../media/v0.1.1-alpha.1/composer-collection/composer-collection-02-folder-3.png)
 
 <a id="walkthrough-composer-collection-03-depth-limit"></a>
 ### 05 · 检查第三级的子目录禁用
-
-[视频 00:13](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=13.393) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![05 · 检查第三级的子目录禁用](../media/v0.1.1-alpha.1/composer-collection/composer-collection-03-depth-limit.png)
 
 <a id="walkthrough-composer-collection-04-request-1"></a>
 ### 06 · 在目录中新建 Guide request 1
 
-[视频 00:16](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=16.383) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![06 · 在目录中新建 Guide request 1](../media/v0.1.1-alpha.1/composer-collection/composer-collection-04-request-1.png)
 
 <a id="walkthrough-composer-collection-04-request-2"></a>
 ### 07 · 在目录中新建 Guide request 2
-
-[视频 00:20](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=20.123) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![07 · 在目录中新建 Guide request 2](../media/v0.1.1-alpha.1/composer-collection/composer-collection-04-request-2.png)
 
 <a id="walkthrough-composer-collection-05-switch-1"></a>
 ### 08 · 切换并核对 request 1
 
-[视频 00:24](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=24.295) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![08 · 切换并核对 request 1](../media/v0.1.1-alpha.1/composer-collection/composer-collection-05-switch-1.png)
 
 <a id="walkthrough-composer-collection-05-switch-2"></a>
 ### 09 · 切换并核对 request 2
-
-[视频 00:27](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=27.220) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![09 · 切换并核对 request 2](../media/v0.1.1-alpha.1/composer-collection/composer-collection-05-switch-2.png)
 
 <a id="walkthrough-composer-collection-06-rename-folder"></a>
 ### 10 · 重命名 Guide saved requests
 
-[视频 00:30](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=30.223) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![10 · 重命名 Guide saved requests](../media/v0.1.1-alpha.1/composer-collection/composer-collection-06-rename-folder.png)
 
 <a id="walkthrough-composer-collection-07-reorder"></a>
 ### 11 · 调整同级请求顺序
-
-[视频 00:33](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=33.656) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![11 · 调整同级请求顺序](../media/v0.1.1-alpha.1/composer-collection/composer-collection-07-reorder.png)
 
 <a id="walkthrough-composer-collection-08-export"></a>
 ### 12 · 保存目录示例文件
 
-[视频 00:53](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=53.445) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![12 · 保存目录示例文件](../media/v0.1.1-alpha.1/composer-collection/composer-collection-08-export.png)
 
 <a id="walkthrough-composer-collection-09-open-import"></a>
 ### 13 · 选择同一导出文件
-
-[视频 01:09](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=69.361) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![13 · 选择同一导出文件](../media/v0.1.1-alpha.1/composer-collection/composer-collection-09-open-import.png)
 
 <a id="walkthrough-composer-collection-10-cancel-preview"></a>
 ### 14 · 取消导入不追加
 
-[视频 01:14](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=74.343) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![14 · 取消导入不追加](../media/v0.1.1-alpha.1/composer-collection/composer-collection-10-cancel-preview.png)
 
 <a id="walkthrough-composer-collection-11-delete-request"></a>
 ### 15 · 删除本轮 request 2
 
-[视频 01:17](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=77.555) · [返回本节视频](#walkthrough-composer-collection-video)
-
 ![15 · 删除本轮 request 2](../media/v0.1.1-alpha.1/composer-collection/composer-collection-11-delete-request.png)
 
 <a id="walkthrough-composer-collection-12-delete-folder"></a>
 ### 16 · 删除本轮目录及剩余演示请求
-
-[视频 01:20](../media/v0.1.1-alpha.1/composer-collection/composer-collection.mp4#t=80.856) · [返回本节视频](#walkthrough-composer-collection-video)
 
 ![16 · 删除本轮目录及剩余演示请求](../media/v0.1.1-alpha.1/composer-collection/composer-collection-12-delete-folder.png)
 
@@ -1250,10 +1136,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-fields"></a>
 ## 逐步骤实操：字段停用/删除、重发与历史恢复
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1265,121 +1150,83 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>json</code> | <code>{&quot;message&quot;:&quot;format-demo&quot;,&quot;count&quot;:2}</code> |
 | <code>historyRestores</code> | <code>method and URL only</code> |
 
-<a id="walkthrough-composer-fields-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4" poster="../media/v0.1.1-alpha.1/composer-fields/composer-fields-01-new.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-fields/composer-fields.vtt" default>
-</video>
-
 <a id="walkthrough-composer-fields-01-new"></a>
 ### 01 · 新建请求
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=0.425) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![01 · 新建请求](../media/v0.1.1-alpha.1/composer-fields/composer-fields-01-new.png)
 
 <a id="walkthrough-composer-fields-02-header"></a>
 ### 02 · 添加 x-guide-toggle=enabled
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=3.405) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![02 · 添加 x-guide-toggle=enabled](../media/v0.1.1-alpha.1/composer-fields/composer-fields-02-header.png)
 
 <a id="walkthrough-composer-fields-03-query"></a>
 ### 03 · 添加 guide=enabled
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=6.307) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![03 · 添加 guide=enabled](../media/v0.1.1-alpha.1/composer-fields/composer-fields-03-query.png)
 
 <a id="walkthrough-composer-fields-04-send-enabled"></a>
 ### 04 · 重发并核对两个字段
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=9.256) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![04 · 重发并核对两个字段](../media/v0.1.1-alpha.1/composer-fields/composer-fields-04-send-enabled.png)
 
 <a id="walkthrough-composer-fields-05-query-off"></a>
 ### 05 · 停用 Query 行
-
-[视频 00:12](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=12.259) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![05 · 停用 Query 行](../media/v0.1.1-alpha.1/composer-fields/composer-fields-05-query-off.png)
 
 <a id="walkthrough-composer-fields-06-header-off"></a>
 ### 06 · 停用 Header 行
 
-[视频 00:15](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=15.063) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![06 · 停用 Header 行](../media/v0.1.1-alpha.1/composer-fields/composer-fields-06-header-off.png)
 
 <a id="walkthrough-composer-fields-07-send-disabled"></a>
 ### 07 · 重发并确认字段未发送
-
-[视频 00:17](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=17.957) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![07 · 重发并确认字段未发送](../media/v0.1.1-alpha.1/composer-fields/composer-fields-07-send-disabled.png)
 
 <a id="walkthrough-composer-fields-08-header-delete"></a>
 ### 08 · 删除 Header 行
 
-[视频 00:20](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=20.857) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![08 · 删除 Header 行](../media/v0.1.1-alpha.1/composer-fields/composer-fields-08-header-delete.png)
 
 <a id="walkthrough-composer-fields-09-query-delete"></a>
 ### 09 · 删除 Query 行
-
-[视频 00:23](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=23.706) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![09 · 删除 Query 行](../media/v0.1.1-alpha.1/composer-fields/composer-fields-09-query-delete.png)
 
 <a id="walkthrough-composer-fields-10-json"></a>
 ### 10 · 选择 POST 与 JSON
 
-[视频 00:26](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=26.607) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![10 · 选择 POST 与 JSON](../media/v0.1.1-alpha.1/composer-fields/composer-fields-10-json.png)
 
 <a id="walkthrough-composer-fields-11-format"></a>
 ### 11 · Format JSON
-
-[视频 00:29](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=29.960) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![11 · Format JSON](../media/v0.1.1-alpha.1/composer-fields/composer-fields-11-format.png)
 
 <a id="walkthrough-composer-fields-12-send-json"></a>
 ### 12 · 发送并核对格式化后的 JSON
 
-[视频 00:32](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=32.806) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![12 · 发送并核对格式化后的 JSON](../media/v0.1.1-alpha.1/composer-fields/composer-fields-12-send-json.png)
 
 <a id="walkthrough-composer-fields-13-none"></a>
 ### 13 · 选择 Body None
-
-[视频 00:35](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=35.707) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![13 · 选择 Body None](../media/v0.1.1-alpha.1/composer-fields/composer-fields-13-none.png)
 
 <a id="walkthrough-composer-fields-14-send-none"></a>
 ### 14 · 发送空正文
 
-[视频 00:38](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=38.607) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![14 · 发送空正文](../media/v0.1.1-alpha.1/composer-fields/composer-fields-14-send-none.png)
 
 <a id="walkthrough-composer-fields-15-history"></a>
 ### 15 · 从 Recent sends 选择旧地址
 
-[视频 00:41](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=41.504) · [返回本节视频](#walkthrough-composer-fields-video)
-
 ![15 · 从 Recent sends 选择旧地址](../media/v0.1.1-alpha.1/composer-fields/composer-fields-15-history.png)
 
 <a id="walkthrough-composer-fields-16-check-restored"></a>
 ### 16 · 核对没有恢复已删除字段或正文
-
-[视频 00:44](../media/v0.1.1-alpha.1/composer-fields/composer-fields.mp4#t=44.457) · [返回本节视频](#walkthrough-composer-fields-video)
 
 ![16 · 核对没有恢复已删除字段或正文](../media/v0.1.1-alpha.1/composer-fields/composer-fields-16-check-restored.png)
 
@@ -1390,10 +1237,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-inspection"></a>
 ## 逐步骤实操：响应分组、正文查看器与分栏
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1412,282 +1258,198 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>cssResponseBytes</code> | <code>1048594</code> |
 | <code>cssPadding</code> | <code>ASCII spaces after the rule; above the 1 MiB automatic formatting threshold</code> |
 
-<a id="walkthrough-composer-inspection-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4" poster="../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.vtt" default>
-</video>
-
 <a id="walkthrough-composer-inspection-01-open"></a>
 ### 01 · 打开 Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=0.375) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![01 · 打开 Composer](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-01-open.png)
 
 <a id="walkthrough-composer-inspection-02-new"></a>
 ### 02 · 新建响应检查请求
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=3.296) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![02 · 新建响应检查请求](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-02-new.png)
 
 <a id="walkthrough-composer-inspection-03-url"></a>
 ### 03 · 填写响应检查地址
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=6.206) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![03 · 填写响应检查地址](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-03-url.png)
 
 <a id="walkthrough-composer-inspection-04-header-name"></a>
 ### 04 · 填写 x-guide-request
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=9.096) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![04 · 填写 x-guide-request](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-04-header-name.png)
 
 <a id="walkthrough-composer-inspection-05-header-value"></a>
 ### 05 · 填写 inspection-demo
-
-[视频 00:11](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=11.946) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![05 · 填写 inspection-demo](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-05-header-value.png)
 
 <a id="walkthrough-composer-inspection-06-add-header"></a>
 ### 06 · 添加请求 Header
 
-[视频 00:14](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=14.812) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![06 · 添加请求 Header](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-06-add-header.png)
 
 <a id="walkthrough-composer-inspection-07-send"></a>
 ### 07 · Send 并接收真实 JSON
-
-[视频 00:17](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=17.696) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![07 · Send 并接收真实 JSON](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-07-send.png)
 
 <a id="walkthrough-composer-inspection-08-headers"></a>
 ### 08 · 打开响应 Headers
 
-[视频 00:20](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=20.845) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![08 · 打开响应 Headers](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-08-headers.png)
 
 <a id="walkthrough-composer-inspection-09-response-collapse"></a>
 ### 09 · 折叠 Response Headers
-
-[视频 00:23](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=23.845) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![09 · 折叠 Response Headers](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-09-response-collapse.png)
 
 <a id="walkthrough-composer-inspection-10-request-collapse"></a>
 ### 10 · 折叠 Request Headers
 
-[视频 00:26](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=26.745) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![10 · 折叠 Request Headers](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-10-request-collapse.png)
 
 <a id="walkthrough-composer-inspection-11-response-expand"></a>
 ### 11 · 展开 Response Headers
-
-[视频 00:29](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=29.645) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![11 · 展开 Response Headers](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-11-response-expand.png)
 
 <a id="walkthrough-composer-inspection-12-request-expand"></a>
 ### 12 · 展开 Request Headers
 
-[视频 00:32](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=32.546) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![12 · 展开 Request Headers](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-12-request-expand.png)
 
 <a id="walkthrough-composer-inspection-13-cookies"></a>
 ### 13 · 打开响应 Cookies
-
-[视频 00:35](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=35.453) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![13 · 打开响应 Cookies](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-13-cookies.png)
 
 <a id="walkthrough-composer-inspection-14-cookies-collapse"></a>
 ### 14 · 折叠 Cookies 分组
 
-[视频 00:38](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=38.357) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![14 · 折叠 Cookies 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-14-cookies-collapse.png)
 
 <a id="walkthrough-composer-inspection-15-cookies-expand"></a>
 ### 15 · 展开 Cookies 分组
-
-[视频 00:41](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=41.250) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![15 · 展开 Cookies 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-15-cookies-expand.png)
 
 <a id="walkthrough-composer-inspection-16-timing"></a>
 ### 16 · 查看 Timing 与连接信息
 
-[视频 00:44](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=44.157) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![16 · 查看 Timing 与连接信息](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-16-timing.png)
 
 <a id="walkthrough-composer-inspection-17-timing-collapse"></a>
 ### 17 · 折叠 Timing 分组
-
-[视频 00:47](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=47.100) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![17 · 折叠 Timing 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-17-timing-collapse.png)
 
 <a id="walkthrough-composer-inspection-18-connection-collapse"></a>
 ### 18 · 折叠 Connection 分组
 
-[视频 00:50](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=50.004) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![18 · 折叠 Connection 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-18-connection-collapse.png)
 
 <a id="walkthrough-composer-inspection-19-timing-expand"></a>
 ### 19 · 展开 Timing 分组
-
-[视频 00:52](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=52.895) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![19 · 展开 Timing 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-19-timing-expand.png)
 
 <a id="walkthrough-composer-inspection-20-connection-expand"></a>
 ### 20 · 展开 Connection 分组
 
-[视频 00:55](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=55.795) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![20 · 展开 Connection 分组](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-20-connection-expand.png)
 
 <a id="walkthrough-composer-inspection-21-body"></a>
 ### 21 · 返回响应 Body
-
-[视频 00:58](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=58.695) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![21 · 返回响应 Body](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-21-body.png)
 
 <a id="walkthrough-composer-inspection-22-tree"></a>
 ### 22 · 切换 Tree
 
-[视频 01:01](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=61.595) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![22 · 切换 Tree](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-22-tree.png)
 
 <a id="walkthrough-composer-inspection-23-tree-collapse"></a>
 ### 23 · 折叠 JSON 根节点
-
-[视频 01:04](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=64.497) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![23 · 折叠 JSON 根节点](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-23-tree-collapse.png)
 
 <a id="walkthrough-composer-inspection-24-tree-expand"></a>
 ### 24 · 展开 JSON 根节点
 
-[视频 01:07](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=67.350) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![24 · 展开 JSON 根节点](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-24-tree-expand.png)
 
 <a id="walkthrough-composer-inspection-25-tree-menu"></a>
 ### 25 · 打开 message 的右键菜单
-
-[视频 01:10](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=70.198) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![25 · 打开 message 的右键菜单](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-25-tree-menu.png)
 
 <a id="walkthrough-composer-inspection-26-tree-copy-value"></a>
 ### 26 · 复制 message 的值
 
-[视频 01:13](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=73.096) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![26 · 复制 message 的值](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-26-tree-copy-value.png)
 
 <a id="walkthrough-composer-inspection-27-raw"></a>
 ### 27 · 切换 Raw
-
-[视频 01:15](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=75.995) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![27 · 切换 Raw](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-27-raw.png)
 
 <a id="walkthrough-composer-inspection-28-copy-raw"></a>
 ### 28 · 复制 Raw 原始文本
 
-[视频 01:18](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=78.907) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![28 · 复制 Raw 原始文本](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-28-copy-raw.png)
 
 <a id="walkthrough-composer-inspection-29-hex"></a>
 ### 29 · 切换 Hex 字节视图
-
-[视频 01:21](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=81.804) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![29 · 切换 Hex 字节视图](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-29-hex.png)
 
 <a id="walkthrough-composer-inspection-30-copy-hex"></a>
 ### 30 · 复制 Hex 并核对原始字节
 
-[视频 01:24](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=84.698) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![30 · 复制 Hex 并核对原始字节](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-30-copy-hex.png)
 
 <a id="walkthrough-composer-inspection-31-fullscreen"></a>
 ### 31 · 全屏查看响应 Hex
-
-[视频 01:27](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=87.595) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![31 · 全屏查看响应 Hex](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-31-fullscreen.png)
 
 <a id="walkthrough-composer-inspection-32-exit-fullscreen"></a>
 ### 32 · 退出正文全屏
 
-[视频 01:30](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=90.546) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![32 · 退出正文全屏](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-32-exit-fullscreen.png)
 
 <a id="walkthrough-composer-inspection-33-collection-drag"></a>
 ### 33 · 拖宽 Collection 分栏
-
-[视频 01:33](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=93.447) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![33 · 拖宽 Collection 分栏](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-33-collection-drag.png)
 
 <a id="walkthrough-composer-inspection-34-response-drag"></a>
 ### 34 · 向上拖动以增高响应区
 
-[视频 01:36](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=96.847) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![34 · 向上拖动以增高响应区](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-34-response-drag.png)
 
 <a id="walkthrough-composer-inspection-35-format-url"></a>
 ### 35 · 填写独立 CSS 地址
-
-[视频 01:40](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=100.248) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![35 · 填写独立 CSS 地址](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-35-format-url.png)
 
 <a id="walkthrough-composer-inspection-36-css-send"></a>
 ### 36 · 接收需要手动 Format 的 CSS
 
-[视频 01:43](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=103.096) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![36 · 接收需要手动 Format 的 CSS](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-36-css-send.png)
 
 <a id="walkthrough-composer-inspection-37-css-copy-before"></a>
 ### 37 · 复制并核对 Format 前的 CSS
-
-[视频 01:46](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=106.097) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![37 · 复制并核对 Format 前的 CSS](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-37-css-copy-before.png)
 
 <a id="walkthrough-composer-inspection-38-format"></a>
 ### 38 · 点击 Format 格式化响应
 
-[视频 01:49](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=109.146) · [返回本节视频](#walkthrough-composer-inspection-video)
-
 ![38 · 点击 Format 格式化响应](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-38-format.png)
 
 <a id="walkthrough-composer-inspection-39-css-copy-after"></a>
 ### 39 · 复制并核对格式化结果
-
-[视频 01:52](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection.mp4#t=112.397) · [返回本节视频](#walkthrough-composer-inspection-video)
 
 ![39 · 复制并核对格式化结果](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-39-css-copy-after.png)
 
@@ -1698,10 +1460,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-replay"></a>
 ## 逐步骤实操：重复 Query、Text 输入与历史重发
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1726,205 +1487,143 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>replayQueryValues</code> | <code>url, table, again, current, again</code> |
 | <code>historyRestores</code> | <code>method and previously composed URL only; enabled current Query rows append again</code> |
 
-<a id="walkthrough-composer-replay-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4" poster="../media/v0.1.1-alpha.1/composer-replay/composer-replay-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-replay/composer-replay.vtt" default>
-</video>
-
 <a id="walkthrough-composer-replay-01-open"></a>
 ### 01 · 打开 Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=0.424) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![01 · 打开 Composer](../media/v0.1.1-alpha.1/composer-replay/composer-replay-01-open.png)
 
 <a id="walkthrough-composer-replay-02-new"></a>
 ### 02 · 新建 Query 与重发请求
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=3.269) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![02 · 新建 Query 与重发请求](../media/v0.1.1-alpha.1/composer-replay/composer-replay-02-new.png)
 
 <a id="walkthrough-composer-replay-03-url"></a>
 ### 03 · 在 URL 中填写 guide=url
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=6.168) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![03 · 在 URL 中填写 guide=url](../media/v0.1.1-alpha.1/composer-replay/composer-replay-03-url.png)
 
 <a id="walkthrough-composer-replay-04-post"></a>
 ### 04 · 选择 POST
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=9.060) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![04 · 选择 POST](../media/v0.1.1-alpha.1/composer-replay/composer-replay-04-post.png)
 
 <a id="walkthrough-composer-replay-05-query"></a>
 ### 05 · 打开仍为空的 Query 表格
-
-[视频 00:11](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=11.958) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![05 · 打开仍为空的 Query 表格](../media/v0.1.1-alpha.1/composer-replay/composer-replay-05-query.png)
 
 <a id="walkthrough-composer-replay-06-query-name"></a>
 ### 06 · 填写 Query 名称 guide
 
-[视频 00:14](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=14.810) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![06 · 填写 Query 名称 guide](../media/v0.1.1-alpha.1/composer-replay/composer-replay-06-query-name.png)
 
 <a id="walkthrough-composer-replay-07-query-value"></a>
 ### 07 · 填写 Query 值 table
-
-[视频 00:17](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=17.659) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![07 · 填写 Query 值 table](../media/v0.1.1-alpha.1/composer-replay/composer-replay-07-query-value.png)
 
 <a id="walkthrough-composer-replay-08-add-query"></a>
 ### 08 · 添加 guide=table
 
-[视频 00:20](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=20.458) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![08 · 添加 guide=table](../media/v0.1.1-alpha.1/composer-replay/composer-replay-08-add-query.png)
 
 <a id="walkthrough-composer-replay-09-duplicate-name"></a>
 ### 09 · 再次填写同名 guide
-
-[视频 00:23](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=23.312) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![09 · 再次填写同名 guide](../media/v0.1.1-alpha.1/composer-replay/composer-replay-09-duplicate-name.png)
 
 <a id="walkthrough-composer-replay-10-duplicate-value"></a>
 ### 10 · 填写第二行值 again
 
-[视频 00:26](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=26.158) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![10 · 填写第二行值 again](../media/v0.1.1-alpha.1/composer-replay/composer-replay-10-duplicate-value.png)
 
 <a id="walkthrough-composer-replay-11-add-duplicate"></a>
 ### 11 · 添加第二条同名 Query
-
-[视频 00:28](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=28.958) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![11 · 添加第二条同名 Query](../media/v0.1.1-alpha.1/composer-replay/composer-replay-11-add-duplicate.png)
 
 <a id="walkthrough-composer-replay-12-send-query"></a>
 ### 12 · 发送并核对三个 guide 值
 
-[视频 00:31](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=31.808) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![12 · 发送并核对三个 guide 值](../media/v0.1.1-alpha.1/composer-replay/composer-replay-12-send-query.png)
 
 <a id="walkthrough-composer-replay-13-text-url"></a>
 ### 13 · 只修改主机与路径为文本地址
-
-[视频 00:34](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=34.908) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![13 · 只修改主机与路径为文本地址](../media/v0.1.1-alpha.1/composer-replay/composer-replay-13-text-url.png)
 
 <a id="walkthrough-composer-replay-14-put"></a>
 ### 14 · 将方法改为 PUT
 
-[视频 00:37](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=37.758) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![14 · 将方法改为 PUT](../media/v0.1.1-alpha.1/composer-replay/composer-replay-14-put.png)
 
 <a id="walkthrough-composer-replay-15-body"></a>
 ### 15 · 打开请求 Body
-
-[视频 00:40](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=40.613) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![15 · 打开请求 Body](../media/v0.1.1-alpha.1/composer-replay/composer-replay-15-body.png)
 
 <a id="walkthrough-composer-replay-16-text-mode"></a>
 ### 16 · 选择 Text，暂不输入
 
-[视频 00:43](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=43.458) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![16 · 选择 Text，暂不输入](../media/v0.1.1-alpha.1/composer-replay/composer-replay-16-text-mode.png)
 
 <a id="walkthrough-composer-replay-17-text-partial"></a>
 ### 17 · 输入中间态 Hello
-
-[视频 00:46](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=46.355) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![17 · 输入中间态 Hello](../media/v0.1.1-alpha.1/composer-replay/composer-replay-17-text-partial.png)
 
 <a id="walkthrough-composer-replay-18-text-complete"></a>
 ### 18 · 继续输入为 Hello text
 
-[视频 00:49](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=49.355) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![18 · 继续输入为 Hello text](../media/v0.1.1-alpha.1/composer-replay/composer-replay-18-text-complete.png)
 
 <a id="walkthrough-composer-replay-19-send-text"></a>
 ### 19 · 发送并核对 Hello text 字节
-
-[视频 00:52](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=52.204) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![19 · 发送并核对 Hello text 字节](../media/v0.1.1-alpha.1/composer-replay/composer-replay-19-send-text.png)
 
 <a id="walkthrough-composer-replay-20-query-again"></a>
 ### 20 · 回到 Query 表格
 
-[视频 00:55](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=55.152) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![20 · 回到 Query 表格](../media/v0.1.1-alpha.1/composer-replay/composer-replay-20-query-again.png)
 
 <a id="walkthrough-composer-replay-21-query-current"></a>
 ### 21 · 将 table 改为 current
-
-[视频 00:58](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=58.002) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![21 · 将 table 改为 current](../media/v0.1.1-alpha.1/composer-replay/composer-replay-21-query-current.png)
 
 <a id="walkthrough-composer-replay-22-body-again"></a>
 ### 22 · 回到当前 Text 正文
 
-[视频 01:00](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=60.849) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![22 · 回到当前 Text 正文](../media/v0.1.1-alpha.1/composer-replay/composer-replay-22-body-again.png)
 
 <a id="walkthrough-composer-replay-23-body-current"></a>
 ### 23 · 将正文改为 Hello replay
-
-[视频 01:03](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=63.656) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![23 · 将正文改为 Hello replay](../media/v0.1.1-alpha.1/composer-replay/composer-replay-23-body-current.png)
 
 <a id="walkthrough-composer-replay-24-history"></a>
 ### 24 · 打开 Recent sends 菜单
 
-[视频 01:06](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=66.596) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![24 · 打开 Recent sends 菜单](../media/v0.1.1-alpha.1/composer-replay/composer-replay-24-history.png)
 
 <a id="walkthrough-composer-replay-25-restore-old"></a>
 ### 25 · 选回旧 POST 地址
-
-[视频 01:09](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=69.448) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![25 · 选回旧 POST 地址](../media/v0.1.1-alpha.1/composer-replay/composer-replay-25-restore-old.png)
 
 <a id="walkthrough-composer-replay-26-current-query"></a>
 ### 26 · 检查 Query 仍为 current 与 again
 
-[视频 01:12](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=72.299) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![26 · 检查 Query 仍为 current 与 again](../media/v0.1.1-alpha.1/composer-replay/composer-replay-26-current-query.png)
 
 <a id="walkthrough-composer-replay-27-resend"></a>
 ### 27 · 再次 Send，核对追加的 Query 与当前正文
 
-[视频 01:15](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=75.166) · [返回本节视频](#walkthrough-composer-replay-video)
-
 ![27 · 再次 Send，核对追加的 Query 与当前正文](../media/v0.1.1-alpha.1/composer-replay/composer-replay-27-resend.png)
 
 <a id="walkthrough-composer-replay-28-confirm-body"></a>
 ### 28 · 查看重发后保留的 Text 正文
-
-[视频 01:18](../media/v0.1.1-alpha.1/composer-replay/composer-replay.mp4#t=78.037) · [返回本节视频](#walkthrough-composer-replay-video)
 
 ![28 · 查看重发后保留的 Text 正文](../media/v0.1.1-alpha.1/composer-replay/composer-replay-28-confirm-body.png)
 
@@ -1935,10 +1634,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-auth"></a>
 ## 逐步骤实操：自有公开认证示例与Authorization清理
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1950,205 +1648,143 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>responses</code> | <code>None 401; Basic 200; Bearer 200; None without explicit Header 401</code> |
 | <code>explicitHeader</code> | <code>Auth None leaves a user-added Authorization Header until its row is deleted</code> |
 
-<a id="walkthrough-composer-auth-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4" poster="../media/v0.1.1-alpha.1/composer-auth/composer-auth-01-composer.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-auth/composer-auth.vtt" default>
-</video>
-
 <a id="walkthrough-composer-auth-01-composer"></a>
 ### 01 · 打开Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=0.469) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![01 · 打开Composer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-01-composer.png)
 
 <a id="walkthrough-composer-auth-02-new"></a>
 ### 02 · 新建认证演示请求
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=3.426) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![02 · 新建认证演示请求](../media/v0.1.1-alpha.1/composer-auth/composer-auth-02-new.png)
 
 <a id="walkthrough-composer-auth-03-url"></a>
 ### 03 · 填写自有localhost服务地址
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=6.429) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![03 · 填写自有localhost服务地址](../media/v0.1.1-alpha.1/composer-auth/composer-auth-03-url.png)
 
 <a id="walkthrough-composer-auth-04-none"></a>
 ### 04 · 无认证发送得到401
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=9.432) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![04 · 无认证发送得到401](../media/v0.1.1-alpha.1/composer-auth/composer-auth-04-none.png)
 
 <a id="walkthrough-composer-auth-05-auth-tab"></a>
 ### 05 · 打开Auth
-
-[视频 00:12](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=12.826) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![05 · 打开Auth](../media/v0.1.1-alpha.1/composer-auth/composer-auth-05-auth-tab.png)
 
 <a id="walkthrough-composer-auth-06-basic"></a>
 ### 06 · 选择Basic
 
-[视频 00:15](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=15.775) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![06 · 选择Basic](../media/v0.1.1-alpha.1/composer-auth/composer-auth-06-basic.png)
 
 <a id="walkthrough-composer-auth-07-username"></a>
 ### 07 · 填写公开演示用户名
-
-[视频 00:18](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=18.888) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![07 · 填写公开演示用户名](../media/v0.1.1-alpha.1/composer-auth/composer-auth-07-username.png)
 
 <a id="walkthrough-composer-auth-08-password"></a>
 ### 08 · 填写仅本机有效的演示密码
 
-[视频 00:21](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=21.835) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![08 · 填写仅本机有效的演示密码](../media/v0.1.1-alpha.1/composer-auth/composer-auth-08-password.png)
 
 <a id="walkthrough-composer-auth-09-basic-result"></a>
 ### 09 · 发送Basic并核对200
-
-[视频 00:24](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=24.775) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![09 · 发送Basic并核对200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-09-basic-result.png)
 
 <a id="walkthrough-composer-auth-10-bearer"></a>
 ### 10 · 切换到Bearer
 
-[视频 00:27](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=27.930) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![10 · 切换到Bearer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-10-bearer.png)
 
 <a id="walkthrough-composer-auth-11-token"></a>
 ### 11 · 填写公开演示token
-
-[视频 00:30](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=30.975) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![11 · 填写公开演示token](../media/v0.1.1-alpha.1/composer-auth/composer-auth-11-token.png)
 
 <a id="walkthrough-composer-auth-12-bearer-result"></a>
 ### 12 · 发送Bearer并核对200
 
-[视频 00:33](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=33.929) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![12 · 发送Bearer并核对200](../media/v0.1.1-alpha.1/composer-auth/composer-auth-12-bearer-result.png)
 
 <a id="walkthrough-composer-auth-13-none-again"></a>
 ### 13 · 切回None
-
-[视频 00:37](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=37.018) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![13 · 切回None](../media/v0.1.1-alpha.1/composer-auth/composer-auth-13-none-again.png)
 
 <a id="walkthrough-composer-auth-14-none-result"></a>
 ### 14 · 核对自动Authorization已移除
 
-[视频 00:40](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=40.018) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![14 · 核对自动Authorization已移除](../media/v0.1.1-alpha.1/composer-auth/composer-auth-14-none-result.png)
 
 <a id="walkthrough-composer-auth-15-headers"></a>
 ### 15 · 打开Headers添加显式字段
-
-[视频 00:43](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=43.226) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![15 · 打开Headers添加显式字段](../media/v0.1.1-alpha.1/composer-auth/composer-auth-15-headers.png)
 
 <a id="walkthrough-composer-auth-16-explicit-name"></a>
 ### 16 · 填写Authorization名称
 
-[视频 00:46](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=46.137) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![16 · 填写Authorization名称](../media/v0.1.1-alpha.1/composer-auth/composer-auth-16-explicit-name.png)
 
 <a id="walkthrough-composer-auth-17-explicit-value"></a>
 ### 17 · 填写同一公开Bearer值
-
-[视频 00:49](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=49.026) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![17 · 填写同一公开Bearer值](../media/v0.1.1-alpha.1/composer-auth/composer-auth-17-explicit-value.png)
 
 <a id="walkthrough-composer-auth-18-add-header"></a>
 ### 18 · 添加这条显式Header
 
-[视频 00:51](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=51.977) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![18 · 添加这条显式Header](../media/v0.1.1-alpha.1/composer-auth/composer-auth-18-add-header.png)
 
 <a id="walkthrough-composer-auth-19-none-keeps-header"></a>
 ### 19 · None不删除显式Authorization
-
-[视频 00:54](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=54.927) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![19 · None不删除显式Authorization](../media/v0.1.1-alpha.1/composer-auth/composer-auth-19-none-keeps-header.png)
 
 <a id="walkthrough-composer-auth-20-delete-header"></a>
 ### 20 · 删除自己的显式Authorization行
 
-[视频 00:58](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=58.032) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![20 · 删除自己的显式Authorization行](../media/v0.1.1-alpha.1/composer-auth/composer-auth-20-delete-header.png)
 
 <a id="walkthrough-composer-auth-21-header-removed"></a>
 ### 21 · 核对请求不再带认证字段
-
-[视频 01:01](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=61.033) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![21 · 核对请求不再带认证字段](../media/v0.1.1-alpha.1/composer-auth/composer-auth-21-header-removed.png)
 
 <a id="walkthrough-composer-auth-22-clear-basic-type"></a>
 ### 22 · 返回Basic清理演示输入
 
-[视频 01:04](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=64.119) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![22 · 返回Basic清理演示输入](../media/v0.1.1-alpha.1/composer-auth/composer-auth-22-clear-basic-type.png)
 
 <a id="walkthrough-composer-auth-23-clear-username"></a>
 ### 23 · 清空演示用户名
-
-[视频 01:07](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=67.227) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![23 · 清空演示用户名](../media/v0.1.1-alpha.1/composer-auth/composer-auth-23-clear-username.png)
 
 <a id="walkthrough-composer-auth-24-clear-password"></a>
 ### 24 · 清空演示密码
 
-[视频 01:10](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=70.176) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![24 · 清空演示密码](../media/v0.1.1-alpha.1/composer-auth/composer-auth-24-clear-password.png)
 
 <a id="walkthrough-composer-auth-25-clear-bearer-type"></a>
 ### 25 · 返回Bearer
-
-[视频 01:13](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=73.127) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![25 · 返回Bearer](../media/v0.1.1-alpha.1/composer-auth/composer-auth-25-clear-bearer-type.png)
 
 <a id="walkthrough-composer-auth-26-clear-token"></a>
 ### 26 · 清空演示token
 
-[视频 01:16](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=76.133) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![26 · 清空演示token](../media/v0.1.1-alpha.1/composer-auth/composer-auth-26-clear-token.png)
 
 <a id="walkthrough-composer-auth-27-finish-none"></a>
 ### 27 · 最终保持None
 
-[视频 01:19](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=79.077) · [返回本节视频](#walkthrough-composer-auth-video)
-
 ![27 · 最终保持None](../media/v0.1.1-alpha.1/composer-auth/composer-auth-27-finish-none.png)
 
 <a id="walkthrough-composer-auth-28-no-capture"></a>
 ### 28 · 确认Composer没有写入Capture
-
-[视频 01:22](../media/v0.1.1-alpha.1/composer-auth/composer-auth.mp4#t=82.074) · [返回本节视频](#walkthrough-composer-auth-video)
 
 ![28 · 确认Composer没有写入Capture](../media/v0.1.1-alpha.1/composer-auth/composer-auth-28-no-capture.png)
 
@@ -2159,10 +1795,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-tools"></a>
 ## 逐步骤实操：MCP发送审批与Collection读取替换
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -2185,163 +1820,113 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>finalRevision</code> | <code>5</code> |
 | <code>uiBoundary</code> | <code>Tool sending returns to its caller; Collection replacement notifies the mounted Composer UI</code> |
 
-<a id="walkthrough-composer-tools-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4" poster="../media/v0.1.1-alpha.1/composer-tools/composer-tools-01-ask-client.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-tools/composer-tools.vtt" default>
-</video>
-
 <a id="walkthrough-composer-tools-01-ask-client"></a>
 ### 01 · 检查本次Client的Ask模式
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=0.205) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![01 · 检查本次Client的Ask模式](../media/v0.1.1-alpha.1/composer-tools/composer-tools-01-ask-client.png)
 
 <a id="walkthrough-composer-tools-02-composer"></a>
 ### 02 · 打开Composer
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=3.441) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![02 · 打开Composer](../media/v0.1.1-alpha.1/composer-tools/composer-tools-02-composer.png)
 
 <a id="walkthrough-composer-tools-03-create"></a>
 ### 03 · 新建本次Collection请求
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=6.545) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![03 · 新建本次Collection请求](../media/v0.1.1-alpha.1/composer-tools/composer-tools-03-create.png)
 
 <a id="walkthrough-composer-tools-04-rename-menu"></a>
 ### 04 · 打开请求的重命名入口
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=9.697) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![04 · 打开请求的重命名入口](../media/v0.1.1-alpha.1/composer-tools/composer-tools-04-rename-menu.png)
 
 <a id="walkthrough-composer-tools-05-name"></a>
 ### 05 · 保存名称Guide UI request
-
-[视频 00:13](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=13.182) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![05 · 保存名称Guide UI request](../media/v0.1.1-alpha.1/composer-tools/composer-tools-05-name.png)
 
 <a id="walkthrough-composer-tools-06-url"></a>
 ### 06 · 填写本次自有UI请求地址
 
-[视频 00:16](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=16.275) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![06 · 填写本次自有UI请求地址](../media/v0.1.1-alpha.1/composer-tools/composer-tools-06-url.png)
 
 <a id="walkthrough-composer-tools-07-header"></a>
 ### 07 · 添加公开示例Header
-
-[视频 00:19](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=19.336) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![07 · 添加公开示例Header](../media/v0.1.1-alpha.1/composer-tools/composer-tools-07-header.png)
 
 <a id="walkthrough-composer-tools-08-ui-send"></a>
 ### 08 · 通过UI Send读取guide-ui-response
 
-[视频 00:22](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=22.574) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![08 · 通过UI Send读取guide-ui-response](../media/v0.1.1-alpha.1/composer-tools/composer-tools-08-ui-send.png)
 
 <a id="walkthrough-composer-tools-09-saved"></a>
 ### 09 · 等待Collection实际保存
-
-[视频 00:25](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=25.934) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![09 · 等待Collection实际保存](../media/v0.1.1-alpha.1/composer-tools/composer-tools-09-saved.png)
 
 <a id="walkthrough-composer-tools-10-query"></a>
 ### 10 · 只读获取实际保存的Collection
 
-[视频 00:28](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=28.992) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![10 · 只读获取实际保存的Collection](../media/v0.1.1-alpha.1/composer-tools/composer-tools-10-query.png)
 
 <a id="walkthrough-composer-tools-11-send-ask"></a>
 ### 11 · 检查Composer发送的实际审批
-
-[视频 00:32](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=32.061) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![11 · 检查Composer发送的实际审批](../media/v0.1.1-alpha.1/composer-tools/composer-tools-11-send-ask.png)
 
 <a id="walkthrough-composer-tools-12-send-deny"></a>
 ### 12 · Deny不发送网络请求
 
-[视频 00:35](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=35.179) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![12 · Deny不发送网络请求](../media/v0.1.1-alpha.1/composer-tools/composer-tools-12-send-deny.png)
 
 <a id="walkthrough-composer-tools-13-send-again"></a>
 ### 13 · 重新请求同一个明确目标
-
-[视频 00:38](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=38.306) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![13 · 重新请求同一个明确目标](../media/v0.1.1-alpha.1/composer-tools/composer-tools-13-send-again.png)
 
 <a id="walkthrough-composer-tools-14-send-allow"></a>
 ### 14 · Allow后核对真实POST与201结果
 
-[视频 00:41](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=41.907) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![14 · Allow后核对真实POST与201结果](../media/v0.1.1-alpha.1/composer-tools/composer-tools-14-send-allow.png)
 
 <a id="walkthrough-composer-tools-15-ui-response-kept"></a>
 ### 15 · Tool结果不替换当前UI响应
-
-[视频 00:45](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=45.021) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![15 · Tool结果不替换当前UI响应](../media/v0.1.1-alpha.1/composer-tools/composer-tools-15-ui-response-kept.png)
 
 <a id="walkthrough-composer-tools-16-replace-ask"></a>
 ### 16 · 检查Collection替换的实际范围
 
-[视频 00:48](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=48.075) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![16 · 检查Collection替换的实际范围](../media/v0.1.1-alpha.1/composer-tools/composer-tools-16-replace-ask.png)
 
 <a id="walkthrough-composer-tools-17-replace-deny"></a>
 ### 17 · Deny保留原Collection
-
-[视频 00:51](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=51.130) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![17 · Deny保留原Collection](../media/v0.1.1-alpha.1/composer-tools/composer-tools-17-replace-deny.png)
 
 <a id="walkthrough-composer-tools-18-replace-again"></a>
 ### 18 · 用同一已读取版本重新请求
 
-[视频 00:54](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=54.223) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![18 · 用同一已读取版本重新请求](../media/v0.1.1-alpha.1/composer-tools/composer-tools-18-replace-again.png)
 
 <a id="walkthrough-composer-tools-19-replace-allow"></a>
 ### 19 · Allow后查看当前UI自动同步
-
-[视频 00:57](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=57.281) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![19 · Allow后查看当前UI自动同步](../media/v0.1.1-alpha.1/composer-tools/composer-tools-19-replace-allow.png)
 
 <a id="walkthrough-composer-tools-20-query-latest"></a>
 ### 20 · 重新读取最终保存版本
 
-[视频 01:00](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=60.467) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![20 · 重新读取最终保存版本](../media/v0.1.1-alpha.1/composer-tools/composer-tools-20-query-latest.png)
 
 <a id="walkthrough-composer-tools-21-mcp-settings"></a>
 ### 21 · 回到本次MCP设置
 
-[视频 01:03](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=63.511) · [返回本节视频](#walkthrough-composer-tools-video)
-
 ![21 · 回到本次MCP设置](../media/v0.1.1-alpha.1/composer-tools/composer-tools-21-mcp-settings.png)
 
 <a id="walkthrough-composer-tools-22-disable"></a>
 ### 22 · 关闭演示Client连接与Server
-
-[视频 01:07](../media/v0.1.1-alpha.1/composer-tools/composer-tools.mp4#t=67.092) · [返回本节视频](#walkthrough-composer-tools-video)
 
 ![22 · 关闭演示Client连接与Server](../media/v0.1.1-alpha.1/composer-tools/composer-tools-22-disable.png)
 
@@ -2352,10 +1937,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-file-tools"></a>
 ## 逐步骤实操：Collection原生文件Tool与确认边界
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -2371,212 +1955,148 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>importSemantics</code> | <code>Cancel does not write; confirmation appends with fresh request identities; Auto still confirms</code> |
 | <code>networkRequests</code> | <code>0; file Tools do not Send</code> |
 
-<a id="walkthrough-composer-file-tools-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4" poster="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-01-request.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.vtt" default>
-</video>
-
 <a id="walkthrough-composer-file-tools-01-request"></a>
 ### 01 · 创建并命名本轮请求
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=0.452) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![01 · 创建并命名本轮请求](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-01-request.png)
 
 <a id="walkthrough-composer-file-tools-02-url"></a>
 ### 02 · 填写本轮公开测试地址
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=3.976) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![02 · 填写本轮公开测试地址](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-02-url.png)
 
 <a id="walkthrough-composer-file-tools-03-header"></a>
 ### 03 · 保存公开Header但不Send
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=6.995) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![03 · 保存公开Header但不Send](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-03-header.png)
 
 <a id="walkthrough-composer-file-tools-04-export-ask"></a>
 ### 04 · 检查Collection Export审批
 
-[视频 00:10](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=10.888) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![04 · 检查Collection Export审批](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-04-export-ask.png)
 
 <a id="walkthrough-composer-file-tools-05-export-deny"></a>
 ### 05 · Deny不写出文件
-
-[视频 00:13](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=13.890) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![05 · Deny不写出文件](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-05-export-deny.png)
 
 <a id="walkthrough-composer-file-tools-06-export-cancel-ask"></a>
 ### 06 · 再次请求Export并Allow
 
-[视频 00:16](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=16.916) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![06 · 再次请求Export并Allow](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-06-export-cancel-ask.png)
 
 <a id="walkthrough-composer-file-tools-07-save-cancel-panel"></a>
 ### 07 · 在自有目录查看Save面板
-
-[视频 00:30](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=30.071) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![07 · 在自有目录查看Save面板](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-07-save-cancel-panel.png)
 
 <a id="walkthrough-composer-file-tools-08-save-cancelled"></a>
 ### 08 · 取消原生Save后没有导出
 
-[视频 00:35](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=35.435) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![08 · 取消原生Save后没有导出](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-08-save-cancelled.png)
 
 <a id="walkthrough-composer-file-tools-09-export-save-ask"></a>
 ### 09 · 请求真正保存的Export
-
-[视频 00:38](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=38.445) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![09 · 请求真正保存的Export](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-09-export-save-ask.png)
 
 <a id="walkthrough-composer-file-tools-10-save-file"></a>
 ### 10 · 保存guide-tool-collection.json
 
-[视频 00:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=50.804) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![10 · 保存guide-tool-collection.json](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-10-save-file.png)
 
 <a id="walkthrough-composer-file-tools-11-export-result"></a>
 ### 11 · 检查产品实际导出的文件
-
-[视频 00:55](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=55.068) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![11 · 检查产品实际导出的文件](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-11-export-result.png)
 
 <a id="walkthrough-composer-file-tools-12-import-deny-ask"></a>
 ### 12 · 检查Import自己的审批
 
-[视频 00:58](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=58.042) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![12 · 检查Import自己的审批](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-12-import-deny-ask.png)
 
 <a id="walkthrough-composer-file-tools-13-import-denied"></a>
 ### 13 · Deny不导入Collection
-
-[视频 01:01](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=61.038) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![13 · Deny不导入Collection](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-13-import-denied.png)
 
 <a id="walkthrough-composer-file-tools-14-open-cancel-ask"></a>
 ### 14 · Allow后仍需要Open面板
 
-[视频 01:04](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=64.101) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![14 · Allow后仍需要Open面板](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-14-open-cancel-ask.png)
 
 <a id="walkthrough-composer-file-tools-15-open-cancel-panel"></a>
 ### 15 · 只选择本流程导出的文件
-
-[视频 01:20](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=80.346) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![15 · 只选择本流程导出的文件](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-15-open-cancel-panel.png)
 
 <a id="walkthrough-composer-file-tools-16-open-cancelled"></a>
 ### 16 · 取消Open保留原集合
 
-[视频 01:26](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=86.971) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![16 · 取消Open保留原集合](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-16-open-cancelled.png)
 
 <a id="walkthrough-composer-file-tools-cancel-preview-ask"></a>
 ### 17 · 再次检查Import审批
-
-[视频 01:29](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=89.964) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![17 · 再次检查Import审批](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-ask.png)
 
 <a id="walkthrough-composer-file-tools-cancel-preview-open"></a>
 ### 18 · 打开同一份产品文件
 
-[视频 01:45](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=105.739) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![18 · 打开同一份产品文件](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-open.png)
 
 <a id="walkthrough-composer-file-tools-cancel-preview-preview"></a>
 ### 19 · 读取真实导入预览
-
-[视频 01:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=110.750) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![19 · 读取真实导入预览](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-preview.png)
 
 <a id="walkthrough-composer-file-tools-cancel-preview-decision"></a>
 ### 20 · 取消预览不修改集合
 
-[视频 01:53](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=113.767) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![20 · 取消预览不修改集合](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-cancel-preview-decision.png)
 
 <a id="walkthrough-composer-file-tools-confirm-preview-ask"></a>
 ### 21 · 再次检查Import审批
-
-[视频 01:56](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=116.847) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![21 · 再次检查Import审批](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-ask.png)
 
 <a id="walkthrough-composer-file-tools-confirm-preview-open"></a>
 ### 22 · 打开同一份产品文件
 
-[视频 02:12](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=132.906) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![22 · 打开同一份产品文件](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-open.png)
 
 <a id="walkthrough-composer-file-tools-confirm-preview-preview"></a>
 ### 23 · 读取真实导入预览
-
-[视频 02:18](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=138.048) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![23 · 读取真实导入预览](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-preview.png)
 
 <a id="walkthrough-composer-file-tools-confirm-preview-decision"></a>
 ### 24 · 确认追加而不覆盖原请求
 
-[视频 02:21](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=141.061) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![24 · 确认追加而不覆盖原请求](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-confirm-preview-decision.png)
 
 <a id="walkthrough-composer-file-tools-auto-mode"></a>
 ### 25 · 为本轮重复导入选择Auto
-
-[视频 02:24](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=144.144) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![25 · 为本轮重复导入选择Auto](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-mode.png)
 
 <a id="walkthrough-composer-file-tools-auto-open"></a>
 ### 26 · Auto仍使用真实Open
 
-[视频 02:39](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=159.266) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![26 · Auto仍使用真实Open](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-open.png)
 
 <a id="walkthrough-composer-file-tools-auto-preview"></a>
 ### 27 · Auto仍等待产品预览确认
-
-[视频 02:44](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=164.354) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![27 · Auto仍等待产品预览确认](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-preview.png)
 
 <a id="walkthrough-composer-file-tools-auto-confirm"></a>
 ### 28 · 确认第二次追加并检查独立身份
 
-[视频 02:47](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=167.446) · [返回本节视频](#walkthrough-composer-file-tools-video)
-
 ![28 · 确认第二次追加并检查独立身份](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-auto-confirm.png)
 
 <a id="walkthrough-composer-file-tools-stop-server"></a>
 ### 29 · 关闭本轮MCP Server
-
-[视频 02:50](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools.mp4#t=170.529) · [返回本节视频](#walkthrough-composer-file-tools-video)
 
 ![29 · 关闭本轮MCP Server](../media/v0.1.1-alpha.1/composer-file-tools/composer-file-tools-stop-server.png)
 
@@ -2587,10 +2107,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-persistence-save"></a>
 ## 逐步骤实操：保存深层目录中的完整请求字段
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -2608,93 +2127,63 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>sentBeforeClose</code> | <code>0</code> |
 | <code>closeImage</code> | <code>Saved state before actual Close; shutdown is independently verified by the driver</code> |
 
-<a id="walkthrough-composer-persistence-save-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4" poster="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-01-new-request.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.vtt" default>
-</video>
-
 <a id="walkthrough-composer-persistence-save-01-new-request"></a>
 ### 01 · 在第三级目录新建请求
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=0.362) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![01 · 在第三级目录新建请求](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-01-new-request.png)
 
 <a id="walkthrough-composer-persistence-save-02-name"></a>
 ### 02 · 命名Guide persisted fields
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=3.925) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![02 · 命名Guide persisted fields](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-02-name.png)
 
 <a id="walkthrough-composer-persistence-save-03-url"></a>
 ### 03 · 填写带Query的自有地址
-
-[视频 00:07](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=7.485) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![03 · 填写带Query的自有地址](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-03-url.png)
 
 <a id="walkthrough-composer-persistence-save-04-method"></a>
 ### 04 · 选择POST
 
-[视频 00:10](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=10.503) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![04 · 选择POST](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-04-method.png)
 
 <a id="walkthrough-composer-persistence-save-05-protocol"></a>
 ### 05 · 固定HTTP/1.1
-
-[视频 00:13](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=13.595) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![05 · 固定HTTP/1.1](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-05-protocol.png)
 
 <a id="walkthrough-composer-persistence-save-06-header-x-guide-persist"></a>
 ### 06 · 添加Header x-guide-persist
 
-[视频 00:16](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=16.635) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![06 · 添加Header x-guide-persist](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-persist.png)
 
 <a id="walkthrough-composer-persistence-save-06-header-x-guide-disabled"></a>
 ### 07 · 添加Header x-guide-disabled
-
-[视频 00:19](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=19.741) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![07 · 添加Header x-guide-disabled](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-06-header-x-guide-disabled.png)
 
 <a id="walkthrough-composer-persistence-save-07-disable-header"></a>
 ### 08 · 停用但保留第二个Header
 
-[视频 00:22](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=22.849) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![08 · 停用但保留第二个Header](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-07-disable-header.png)
 
 <a id="walkthrough-composer-persistence-save-08-query"></a>
 ### 09 · 添加scope=retained
-
-[视频 00:25](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=25.898) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![09 · 添加scope=retained](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-08-query.png)
 
 <a id="walkthrough-composer-persistence-save-09-json"></a>
 ### 10 · 保存本次JSON正文
 
-[视频 00:29](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=29.111) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![10 · 保存本次JSON正文](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-09-json.png)
 
 <a id="walkthrough-composer-persistence-save-10-auth"></a>
 ### 11 · 保存公开演示Bearer字段
 
-[视频 00:32](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=32.658) · [返回本节视频](#walkthrough-composer-persistence-save-video)
-
 ![11 · 保存公开演示Bearer字段](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-10-auth.png)
 
 <a id="walkthrough-composer-persistence-save-11-saved"></a>
 ### 12 · 确认真正保存且尚未Send
-
-[视频 00:35](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save.mp4#t=35.841) · [返回本节视频](#walkthrough-composer-persistence-save-video)
 
 ![12 · 确认真正保存且尚未Send](../media/v0.1.1-alpha.1/composer-persistence-save/composer-persistence-save-11-saved.png)
 
@@ -2705,10 +2194,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-persistence-restart"></a>
 ## 逐步骤实操：真实重启后核对字段并发送
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -2725,86 +2213,58 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>sentAfterRestart</code> | <code>One explicit UI Send; no automatic replay</code> |
 | <code>evidenceGeneration</code> | <code>composer-reopened</code> |
 
-<a id="walkthrough-composer-persistence-restart-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4" poster="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-1.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.vtt" default>
-</video>
-
 <a id="walkthrough-composer-persistence-restart-01-folder-1"></a>
 ### 01 · 检查保留的第1级目录
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=0.406) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![01 · 检查保留的第1级目录](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-1.png)
 
 <a id="walkthrough-composer-persistence-restart-01-folder-2"></a>
 ### 02 · 检查保留的第2级目录
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=3.397) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
-
 ![02 · 检查保留的第2级目录](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-2.png)
 
 <a id="walkthrough-composer-persistence-restart-01-folder-3"></a>
 ### 03 · 检查保留的第3级目录
-
-[视频 00:06](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=6.450) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![03 · 检查保留的第3级目录](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-01-folder-3.png)
 
 <a id="walkthrough-composer-persistence-restart-02-select"></a>
 ### 04 · 打开同一个保存请求
 
-[视频 00:09](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=9.495) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
-
 ![04 · 打开同一个保存请求](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-02-select.png)
 
 <a id="walkthrough-composer-persistence-restart-03-headers"></a>
 ### 05 · 核对Header值与启停状态
-
-[视频 00:12](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=12.595) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![05 · 核对Header值与启停状态](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-03-headers.png)
 
 <a id="walkthrough-composer-persistence-restart-04-query"></a>
 ### 06 · 核对未重填的Query行
 
-[视频 00:15](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=15.642) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
-
 ![06 · 核对未重填的Query行](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-04-query.png)
 
 <a id="walkthrough-composer-persistence-restart-05-body"></a>
 ### 07 · 核对实际回载的JSON正文
-
-[视频 00:18](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=18.663) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![07 · 核对实际回载的JSON正文](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-05-body.png)
 
 <a id="walkthrough-composer-persistence-restart-06-auth"></a>
 ### 08 · 核对实际回载的公开Auth字段
 
-[视频 00:21](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=21.886) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
-
 ![08 · 核对实际回载的公开Auth字段](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-06-auth.png)
 
 <a id="walkthrough-composer-persistence-restart-07-send"></a>
 ### 09 · 仅在重启后Send一次核对实际字节
-
-[视频 00:24](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=24.930) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![09 · 仅在重启后Send一次核对实际字节](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-07-send.png)
 
 <a id="walkthrough-composer-persistence-restart-08-clear-auth"></a>
 ### 10 · 清空演示Auth值
 
-[视频 00:27](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=27.995) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
-
 ![10 · 清空演示Auth值](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-08-clear-auth.png)
 
 <a id="walkthrough-composer-persistence-restart-09-none"></a>
 ### 11 · 恢复Auth None并等待保存
-
-[视频 00:31](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart.mp4#t=31.060) · [返回本节视频](#walkthrough-composer-persistence-restart-video)
 
 ![11 · 恢复Auth None并等待保存](../media/v0.1.1-alpha.1/composer-persistence-restart/composer-persistence-restart-09-none.png)
 
@@ -2815,10 +2275,9 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 <a id="walkthrough-composer-response-formatting"></a>
 ## 逐步骤实操：自动格式化、错误原文与2MiB预览
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -2831,165 +2290,161 @@ Collection的文件Tool另见[原生往返实录](#walkthrough-composer-file-too
 | <code>largeJsonMarker</code> | <code>guide-large-response</code> |
 | <code>scope</code> | <code>HTML/JavaScript auto formatting, XML failure preservation, oversized preview and response-scoped view restoration</code> |
 
-<a id="walkthrough-composer-response-formatting-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4" poster="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-01-new.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.vtt" default>
-</video>
-
 <a id="walkthrough-composer-response-formatting-html-01-new"></a>
 ### 01 · 新建Guide HTML response
-
-[视频 00:00](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=0.508) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![01 · 新建Guide HTML response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-01-new.png)
 
 <a id="walkthrough-composer-response-formatting-html-02-name"></a>
 ### 02 · 命名Guide HTML response
 
-[视频 00:03](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=3.585) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![02 · 命名Guide HTML response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-02-name.png)
 
 <a id="walkthrough-composer-response-formatting-html-03-url"></a>
 ### 03 · 填写html实际地址
-
-[视频 00:07](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=7.082) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![03 · 填写html实际地址](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-03-url.png)
 
 <a id="walkthrough-composer-response-formatting-html-04-send"></a>
 ### 04 · 发送并读取html响应
 
-[视频 00:10](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=10.086) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![04 · 发送并读取html响应](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-04-send.png)
 
 <a id="walkthrough-composer-response-formatting-html-06-copy"></a>
 ### 05 · Copy核对html的实际显示
-
-[视频 00:13](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=13.459) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![05 · Copy核对html的实际显示](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-html-06-copy.png)
 
 <a id="walkthrough-composer-response-formatting-javascript-01-new"></a>
 ### 06 · 新建Guide JavaScript response
 
-[视频 00:16](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=16.590) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![06 · 新建Guide JavaScript response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-01-new.png)
 
 <a id="walkthrough-composer-response-formatting-javascript-02-name"></a>
 ### 07 · 命名Guide JavaScript response
-
-[视频 00:19](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=19.665) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![07 · 命名Guide JavaScript response](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-02-name.png)
 
 <a id="walkthrough-composer-response-formatting-javascript-03-url"></a>
 ### 08 · 填写javascript实际地址
 
-[视频 00:23](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=23.081) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![08 · 填写javascript实际地址](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-03-url.png)
 
 <a id="walkthrough-composer-response-formatting-javascript-04-send"></a>
 ### 09 · 发送并读取javascript响应
-
-[视频 00:26](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=26.080) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![09 · 发送并读取javascript响应](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-04-send.png)
 
 <a id="walkthrough-composer-response-formatting-javascript-06-copy"></a>
 ### 10 · Copy核对javascript的实际显示
 
-[视频 00:30](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=30.629) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![10 · Copy核对javascript的实际显示](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-javascript-06-copy.png)
 
 <a id="walkthrough-composer-response-formatting-xml-01-new"></a>
 ### 11 · 新建Guide XML source
-
-[视频 00:33](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=33.726) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![11 · 新建Guide XML source](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-01-new.png)
 
 <a id="walkthrough-composer-response-formatting-xml-02-name"></a>
 ### 12 · 命名Guide XML source
 
-[视频 00:36](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=36.782) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![12 · 命名Guide XML source](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-02-name.png)
 
 <a id="walkthrough-composer-response-formatting-xml-03-url"></a>
 ### 13 · 填写xml实际地址
-
-[视频 00:40](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=40.215) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![13 · 填写xml实际地址](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-03-url.png)
 
 <a id="walkthrough-composer-response-formatting-xml-04-send"></a>
 ### 14 · 发送并读取xml响应
 
-[视频 00:43](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=43.214) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![14 · 发送并读取xml响应](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-04-send.png)
 
 <a id="walkthrough-composer-response-formatting-xml-05-format"></a>
 ### 15 · 尝试Format并保留无效XML原文
-
-[视频 00:46](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=46.288) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![15 · 尝试Format并保留无效XML原文](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-05-format.png)
 
 <a id="walkthrough-composer-response-formatting-xml-06-copy"></a>
 ### 16 · Copy核对xml的实际显示
 
-[视频 00:49](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=49.330) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![16 · Copy核对xml的实际显示](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-xml-06-copy.png)
 
 <a id="walkthrough-composer-response-formatting-large-01-new"></a>
 ### 17 · 新建Guide large JSON
-
-[视频 00:52](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=52.349) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![17 · 新建Guide large JSON](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-01-new.png)
 
 <a id="walkthrough-composer-response-formatting-large-02-name"></a>
 ### 18 · 命名Guide large JSON
 
-[视频 00:55](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=55.390) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![18 · 命名Guide large JSON](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-02-name.png)
 
 <a id="walkthrough-composer-response-formatting-large-03-url"></a>
 ### 19 · 填写large实际地址
-
-[视频 00:58](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=58.806) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![19 · 填写large实际地址](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-03-url.png)
 
 <a id="walkthrough-composer-response-formatting-large-04-send"></a>
 ### 20 · 发送并读取large响应
 
-[视频 01:01](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=61.798) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![20 · 发送并读取large响应](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-04-send.png)
 
 <a id="walkthrough-composer-response-formatting-large-06-copy"></a>
 ### 21 · Copy核对large的实际显示
-
-[视频 01:04](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=64.951) · [返回本节视频](#walkthrough-composer-response-formatting-video)
 
 ![21 · Copy核对large的实际显示](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-large-06-copy.png)
 
 <a id="walkthrough-composer-response-formatting-restore-html"></a>
 ### 22 · 切回HTML保留原格式化视图
 
-[视频 01:08](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting.mp4#t=68.065) · [返回本节视频](#walkthrough-composer-response-formatting-video)
-
 ![22 · 切回HTML保留原格式化视图](../media/v0.1.1-alpha.1/composer-response-formatting/composer-response-formatting-restore-html.png)
 
 下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
 <!-- recorded-walkthrough:composer-response-formatting:end -->
+
+<!-- workflow-screenshots:composer-formatting-workflow:start -->
+<a id="walkthrough-composer-formatting-workflow"></a>
+
+## 实操补充：响应格式化与预览边界
+
+以下步骤图来自实际 App <code>0.1.1-alpha.1</code>（macOS x64）中的同一轮操作。截图保留当时的 App 语言与主题；点击图片可查看原尺寸。
+
+本机地址、端口和生成 ID 来自这次实际操作，使用时替换为自己的已授权环境。未展示的平台和分支仍待验收。
+
+<a id="walkthrough-composer-formatting-workflow-step-001"></a>
+### 01 · 01 · HTML自动格式化
+
+![01 · HTML自动格式化](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-001.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-002"></a>
+### 02 · 02 · JavaScript自动格式化
+
+![02 · JavaScript自动格式化](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-002.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-003"></a>
+### 03 · 03 · 查看超过自动阈值的CSS原文
+
+![03 · 查看超过自动阈值的CSS原文](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-003.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-004"></a>
+### 04 · 04 · 手动Format CSS
+
+![04 · 手动Format CSS](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-004.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-005"></a>
+### 05 · 05 · 格式化失败保留XML原文
+
+![05 · 格式化失败保留XML原文](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-005.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-006"></a>
+### 06 · 06 · 切回文档保持格式化视图
+
+![06 · 切回文档保持格式化视图](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-006.png)
+
+<a id="walkthrough-composer-formatting-workflow-step-007"></a>
+### 07 · 07 · 检查2MiB预览与禁用Format
+
+![07 · 检查2MiB预览与禁用Format](../media/v0.1.1-alpha.1/composer-formatting-workflow/step-007.png)
+
+<!-- workflow-screenshots:composer-formatting-workflow:end -->

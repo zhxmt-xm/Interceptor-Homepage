@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "ruleName": "Guide response controls",
     "host": "127.0.0.1",
@@ -24,769 +23,826 @@
     "bodyReplacement": "{\"message\":\"guide-encoded-body\"}",
     "encodingBoundary": "Header-only keeps original bytes; explicit Body replacement is encoded using the final Headers"
   },
-  "duration": 213.39884318399996,
-  "video": "rules-response-controls.mp4",
-  "captions": "rules-response-controls.vtt",
   "steps": [
     {
       "id": "01-rules",
       "title": "打开Rules / Open Rules",
-      "image": "rules-response-controls-01-rules.png",
-      "seconds": 0.36557330199997523
+      "image": "rules-response-controls-01-rules.png"
     },
     {
       "id": "02-create",
       "title": "创建Guide response controls / Create Guide response controls",
-      "image": "rules-response-controls-02-create.png",
-      "seconds": 3.354141813999973
+      "image": "rules-response-controls-02-create.png"
     },
     {
       "id": "03-host",
       "title": "限定127.0.0.1 / Restrict to 127.0.0.1",
-      "image": "rules-response-controls-03-host.png",
-      "seconds": 6.4662856269999756
+      "image": "rules-response-controls-03-host.png"
     },
     {
       "id": "04-path-condition",
       "title": "添加Path / Add Path",
-      "image": "rules-response-controls-04-path-condition.png",
-      "seconds": 9.406847448999994
+      "image": "rules-response-controls-04-path-condition.png"
     },
     {
       "id": "05-path",
       "title": "限定本轮动作路径 / Restrict this run’s action paths",
-      "image": "rules-response-controls-05-path.png",
-      "seconds": 12.764979229999968
+      "image": "rules-response-controls-05-path.png"
     },
     {
       "id": "synthetic-remove",
       "title": "移除前一个动作 / Remove the previous action",
-      "image": "rules-response-controls-synthetic-remove.png",
-      "seconds": 15.759254385000007
+      "image": "rules-response-controls-synthetic-remove.png"
     },
     {
       "id": "synthetic-add",
       "title": "添加本次动作 / Add this action",
-      "image": "rules-response-controls-synthetic-add.png",
-      "seconds": 18.75661013700001
+      "image": "rules-response-controls-synthetic-add.png"
     },
     {
       "id": "synthetic-status",
       "title": "设置503模拟状态 / Set mock status 503",
-      "image": "rules-response-controls-synthetic-status.png",
-      "seconds": 22.053521792000016
+      "image": "rules-response-controls-synthetic-status.png"
     },
     {
       "id": "synthetic-add-type",
       "title": "为模拟响应添加Header / Add a Header to the synthetic response",
-      "image": "rules-response-controls-synthetic-add-type.png",
-      "seconds": 25.003065825999975
+      "image": "rules-response-controls-synthetic-add-type.png"
     },
     {
       "id": "synthetic-type-name",
       "title": "填写content-type / Enter content-type",
-      "image": "rules-response-controls-synthetic-type-name.png",
-      "seconds": 27.95278563899998
+      "image": "rules-response-controls-synthetic-type-name.png"
     },
     {
       "id": "synthetic-type-value",
       "title": "填写application/json / Enter application/json",
-      "image": "rules-response-controls-synthetic-type-value.png",
-      "seconds": 30.905067846999998
+      "image": "rules-response-controls-synthetic-type-value.png"
     },
     {
       "id": "synthetic-add-extra",
       "title": "添加第二个模拟Header / Add the second synthetic Header",
-      "image": "rules-response-controls-synthetic-add-extra.png",
-      "seconds": 33.90448542899996
+      "image": "rules-response-controls-synthetic-add-extra.png"
     },
     {
       "id": "synthetic-extra-name",
       "title": "填写x-guide-maintenance / Enter x-guide-maintenance",
-      "image": "rules-response-controls-synthetic-extra-name.png",
-      "seconds": 36.904243754999975
+      "image": "rules-response-controls-synthetic-extra-name.png"
     },
     {
       "id": "synthetic-extra-value",
       "title": "填写planned / Enter planned",
-      "image": "rules-response-controls-synthetic-extra-value.png",
-      "seconds": 39.85548348799997
+      "image": "rules-response-controls-synthetic-extra-value.png"
     },
     {
       "id": "synthetic-body",
       "title": "填写模拟JSON正文 / Enter the synthetic JSON body",
-      "image": "rules-response-controls-synthetic-body.png",
-      "seconds": 42.796455274999985
+      "image": "rules-response-controls-synthetic-body.png"
     },
     {
       "id": "synthetic-enable",
       "title": "启用当前动作 / Enable the current action",
-      "image": "rules-response-controls-synthetic-enable.png",
-      "seconds": 45.75916718399999
+      "image": "rules-response-controls-synthetic-enable.png"
     },
     {
       "id": "synthetic-apply",
       "title": "Apply当前动作 / Apply the current action",
-      "image": "rules-response-controls-synthetic-apply.png",
-      "seconds": 48.756752458
+      "image": "rules-response-controls-synthetic-apply.png"
     },
     {
       "id": "synthetic-result",
       "title": "核对503、Header与模拟正文 / Verify status 503, Headers and the mock body",
-      "image": "rules-response-controls-synthetic-result.png",
-      "seconds": 51.762256618000016
+      "image": "rules-response-controls-synthetic-result.png"
     },
     {
       "id": "synthetic-back",
       "title": "返回同一规则 / Return to the same Rule",
-      "image": "rules-response-controls-synthetic-back.png",
-      "seconds": 55.55629355599996
+      "image": "rules-response-controls-synthetic-back.png"
     },
     {
       "id": "synthetic-disable",
       "title": "停用这条规则 / Disable this Rule",
-      "image": "rules-response-controls-synthetic-disable.png",
-      "seconds": 58.71358124900001
+      "image": "rules-response-controls-synthetic-disable.png"
     },
     {
       "id": "synthetic-apply-off",
       "title": "Apply停用状态 / Apply the disabled state",
-      "image": "rules-response-controls-synthetic-apply-off.png",
-      "seconds": 61.708675097
+      "image": "rules-response-controls-synthetic-apply-off.png"
     },
     {
       "id": "synthetic-restored",
       "title": "发送新请求核对源站恢复 / Verify origin recovery with a new request",
-      "image": "rules-response-controls-synthetic-restored.png",
-      "seconds": 64.70834333099998
+      "image": "rules-response-controls-synthetic-restored.png"
     },
     {
       "id": "synthetic-edit-next",
       "title": "返回Rules继续编辑 / Return to Rules to continue editing",
-      "image": "rules-response-controls-synthetic-edit-next.png",
-      "seconds": 67.95646784799997
+      "image": "rules-response-controls-synthetic-edit-next.png"
     },
     {
       "id": "delay-remove",
       "title": "移除前一个动作 / Remove the previous action",
-      "image": "rules-response-controls-delay-remove.png",
-      "seconds": 70.95560228699996
+      "image": "rules-response-controls-delay-remove.png"
     },
     {
       "id": "delay-add",
       "title": "添加本次动作 / Add this action",
-      "image": "rules-response-controls-delay-add.png",
-      "seconds": 73.90578941200002
+      "image": "rules-response-controls-delay-add.png"
     },
     {
       "id": "delay-value",
       "title": "设置2000ms延迟 / Set a 2000ms delay",
-      "image": "rules-response-controls-delay-value.png",
-      "seconds": 77.26458058899999
+      "image": "rules-response-controls-delay-value.png"
     },
     {
       "id": "delay-enable",
       "title": "启用当前动作 / Enable the current action",
-      "image": "rules-response-controls-delay-enable.png",
-      "seconds": 80.20694509600001
+      "image": "rules-response-controls-delay-enable.png"
     },
     {
       "id": "delay-apply",
       "title": "Apply当前动作 / Apply the current action",
-      "image": "rules-response-controls-delay-apply.png",
-      "seconds": 83.20586068999997
+      "image": "rules-response-controls-delay-apply.png"
     },
     {
       "id": "delay-result",
       "title": "核对实际等待后仍到达源站 / Verify the real wait still reaches the origin",
-      "image": "rules-response-controls-delay-result.png",
-      "seconds": 86.25835708199997
+      "image": "rules-response-controls-delay-result.png"
     },
     {
       "id": "delay-back",
       "title": "返回同一规则 / Return to the same Rule",
-      "image": "rules-response-controls-delay-back.png",
-      "seconds": 91.61899908199996
+      "image": "rules-response-controls-delay-back.png"
     },
     {
       "id": "delay-disable",
       "title": "停用这条规则 / Disable this Rule",
-      "image": "rules-response-controls-delay-disable.png",
-      "seconds": 94.66638724499997
+      "image": "rules-response-controls-delay-disable.png"
     },
     {
       "id": "delay-apply-off",
       "title": "Apply停用状态 / Apply the disabled state",
-      "image": "rules-response-controls-delay-apply-off.png",
-      "seconds": 97.59331876699996
+      "image": "rules-response-controls-delay-apply-off.png"
     },
     {
       "id": "delay-restored",
       "title": "发送新请求核对源站恢复 / Verify origin recovery with a new request",
-      "image": "rules-response-controls-delay-restored.png",
-      "seconds": 100.56632714499996
+      "image": "rules-response-controls-delay-restored.png"
     },
     {
       "id": "delay-edit-next",
       "title": "返回Rules继续编辑 / Return to Rules to continue editing",
-      "image": "rules-response-controls-delay-edit-next.png",
-      "seconds": 103.864894267
+      "image": "rules-response-controls-delay-edit-next.png"
     },
     {
       "id": "block-remove",
       "title": "移除前一个动作 / Remove the previous action",
-      "image": "rules-response-controls-block-remove.png",
-      "seconds": 106.85784557299999
+      "image": "rules-response-controls-block-remove.png"
     },
     {
       "id": "block-add",
       "title": "添加本次动作 / Add this action",
-      "image": "rules-response-controls-block-add.png",
-      "seconds": 109.803852476
+      "image": "rules-response-controls-block-add.png"
     },
     {
       "id": "block-reset",
       "title": "选择reset模式 / Select reset mode",
-      "image": "rules-response-controls-block-reset.png",
-      "seconds": 113.20532824899999
+      "image": "rules-response-controls-block-reset.png"
     },
     {
       "id": "block-enable",
       "title": "启用当前动作 / Enable the current action",
-      "image": "rules-response-controls-block-enable.png",
-      "seconds": 116.25294629799997
+      "image": "rules-response-controls-block-enable.png"
     },
     {
       "id": "block-apply",
       "title": "Apply当前动作 / Apply the current action",
-      "image": "rules-response-controls-block-apply.png",
-      "seconds": 119.20640628899997
+      "image": "rules-response-controls-block-apply.png"
     },
     {
       "id": "block-reset-result",
       "title": "核对reset阻断 / Verify reset blocking",
-      "image": "rules-response-controls-block-reset-result.png",
-      "seconds": 122.206540114
+      "image": "rules-response-controls-block-reset-result.png"
     },
     {
       "id": "block-edit-close",
       "title": "返回规则切换阻断方式 / Return to the Rule to change blocking mode",
-      "image": "rules-response-controls-block-edit-close.png",
-      "seconds": 125.95677021899996
+      "image": "rules-response-controls-block-edit-close.png"
     },
     {
       "id": "block-close",
       "title": "选择close模式 / Select close mode",
-      "image": "rules-response-controls-block-close.png",
-      "seconds": 128.95813715399996
+      "image": "rules-response-controls-block-close.png"
     },
     {
       "id": "block-apply-close",
       "title": "Apply close模式 / Apply close mode",
-      "image": "rules-response-controls-block-apply-close.png",
-      "seconds": 132.00542067599997
+      "image": "rules-response-controls-block-apply-close.png"
     },
     {
       "id": "block-close-result",
       "title": "核对close阻断 / Verify close blocking",
-      "image": "rules-response-controls-block-close-result.png",
-      "seconds": 134.96231218699998
+      "image": "rules-response-controls-block-close-result.png"
     },
     {
       "id": "block-back",
       "title": "返回同一规则 / Return to the same Rule",
-      "image": "rules-response-controls-block-back.png",
-      "seconds": 138.65449128699998
+      "image": "rules-response-controls-block-back.png"
     },
     {
       "id": "block-disable",
       "title": "停用这条规则 / Disable this Rule",
-      "image": "rules-response-controls-block-disable.png",
-      "seconds": 141.804955468
+      "image": "rules-response-controls-block-disable.png"
     },
     {
       "id": "block-apply-off",
       "title": "Apply停用状态 / Apply the disabled state",
-      "image": "rules-response-controls-block-apply-off.png",
-      "seconds": 144.80692450599997
+      "image": "rules-response-controls-block-apply-off.png"
     },
     {
       "id": "block-restored",
       "title": "发送新请求核对源站恢复 / Verify origin recovery with a new request",
-      "image": "rules-response-controls-block-restored.png",
-      "seconds": 147.75289429499998
+      "image": "rules-response-controls-block-restored.png"
     },
     {
       "id": "block-edit-next",
       "title": "返回Rules继续编辑 / Return to Rules to continue editing",
-      "image": "rules-response-controls-block-edit-next.png",
-      "seconds": 150.95679185
+      "image": "rules-response-controls-block-edit-next.png"
     },
     {
       "id": "encoding-remove",
       "title": "移除前一个动作 / Remove the previous action",
-      "image": "rules-response-controls-encoding-remove.png",
-      "seconds": 153.95735227100002
+      "image": "rules-response-controls-encoding-remove.png"
     },
     {
       "id": "encoding-add",
       "title": "添加本次动作 / Add this action",
-      "image": "rules-response-controls-encoding-add.png",
-      "seconds": 156.91211485699998
+      "image": "rules-response-controls-encoding-add.png"
     },
     {
       "id": "encoding-phase",
       "title": "Header选择Response / Select Response for the Header",
-      "image": "rules-response-controls-encoding-phase.png",
-      "seconds": 160.154843127
+      "image": "rules-response-controls-encoding-phase.png"
     },
     {
       "id": "encoding-name",
       "title": "填写content-encoding / Enter content-encoding",
-      "image": "rules-response-controls-encoding-name.png",
-      "seconds": 163.44921864499997
+      "image": "rules-response-controls-encoding-name.png"
     },
     {
       "id": "encoding-value",
       "title": "填写gzip / Enter gzip",
-      "image": "rules-response-controls-encoding-value.png",
-      "seconds": 166.368012301
+      "image": "rules-response-controls-encoding-value.png"
     },
     {
       "id": "encoding-enable",
       "title": "启用当前动作 / Enable the current action",
-      "image": "rules-response-controls-encoding-enable.png",
-      "seconds": 169.30576380099998
+      "image": "rules-response-controls-encoding-enable.png"
     },
     {
       "id": "encoding-apply",
       "title": "Apply当前动作 / Apply the current action",
-      "image": "rules-response-controls-encoding-apply.png",
-      "seconds": 172.30607510699997
+      "image": "rules-response-controls-encoding-apply.png"
     },
     {
       "id": "encoding-header-only",
       "title": "只改Header不会压缩原文 / Header-only editing does not compress the original body",
-      "image": "rules-response-controls-encoding-header-only.png",
-      "seconds": 175.25232182
+      "image": "rules-response-controls-encoding-header-only.png"
     },
     {
       "id": "encoding-edit-body",
       "title": "返回规则添加明确Body替换 / Return to add an explicit Body replacement",
-      "image": "rules-response-controls-encoding-edit-body.png",
-      "seconds": 178.699563047
+      "image": "rules-response-controls-encoding-edit-body.png"
     },
     {
       "id": "encoding-add-body",
       "title": "添加Body动作 / Add the Body action",
-      "image": "rules-response-controls-encoding-add-body.png",
-      "seconds": 181.76470797199997
+      "image": "rules-response-controls-encoding-add-body.png"
     },
     {
       "id": "encoding-body-phase",
       "title": "Body选择Response / Select Response for Body",
-      "image": "rules-response-controls-encoding-body-phase.png",
-      "seconds": 185.104937104
+      "image": "rules-response-controls-encoding-body-phase.png"
     },
     {
       "id": "encoding-body",
       "title": "填写guide-encoded-body / Enter guide-encoded-body",
-      "image": "rules-response-controls-encoding-body.png",
-      "seconds": 188.406207808
+      "image": "rules-response-controls-encoding-body.png"
     },
     {
       "id": "encoding-apply-body",
       "title": "Apply Header与Body / Apply Header and Body",
-      "image": "rules-response-controls-encoding-apply-body.png",
-      "seconds": 191.34699219799998
+      "image": "rules-response-controls-encoding-apply-body.png"
     },
     {
       "id": "encoding-body-result",
       "title": "核对gzip线上字节与可读正文 / Verify gzipped wire bytes and the readable body",
-      "image": "rules-response-controls-encoding-body-result.png",
-      "seconds": 194.35724554399997
+      "image": "rules-response-controls-encoding-body-result.png"
     },
     {
       "id": "encoding-back",
       "title": "返回同一规则 / Return to the same Rule",
-      "image": "rules-response-controls-encoding-back.png",
-      "seconds": 198.00557625099995
+      "image": "rules-response-controls-encoding-back.png"
     },
     {
       "id": "encoding-disable",
       "title": "停用这条规则 / Disable this Rule",
-      "image": "rules-response-controls-encoding-disable.png",
-      "seconds": 201.07048424399997
+      "image": "rules-response-controls-encoding-disable.png"
     },
     {
       "id": "encoding-apply-off",
       "title": "Apply停用状态 / Apply the disabled state",
-      "image": "rules-response-controls-encoding-apply-off.png",
-      "seconds": 204.05510186099997
+      "image": "rules-response-controls-encoding-apply-off.png"
     },
     {
       "id": "encoding-restored",
       "title": "发送新请求核对源站恢复 / Verify origin recovery with a new request",
-      "image": "rules-response-controls-encoding-restored.png",
-      "seconds": 207.11108308
+      "image": "rules-response-controls-encoding-restored.png"
     },
     {
       "id": "encoding-edit-next",
       "title": "返回Rules继续编辑 / Return to Rules to continue editing",
-      "image": "rules-response-controls-encoding-edit-next.png",
-      "seconds": 210.45238603099997
+      "image": "rules-response-controls-encoding-edit-next.png"
     }
   ],
   "assets": [
     {
       "file": "rules-response-controls-01-rules.png",
       "bytes": 176795,
-      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd"
+      "sha256": "3e6a08111afd6a860961f04b849100a9452e675b775a69a2042d726f5a4756dd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-02-create.png",
       "bytes": 258864,
-      "sha256": "4c80788f61767999740ad3e161644597374c1152e0c826da4c6389a5dc98788a"
+      "sha256": "4c80788f61767999740ad3e161644597374c1152e0c826da4c6389a5dc98788a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-03-host.png",
       "bytes": 248234,
-      "sha256": "460791e22e592079dab17ecb6a9240c692f545c92f28469cb446c53e9d9c3d1a"
+      "sha256": "460791e22e592079dab17ecb6a9240c692f545c92f28469cb446c53e9d9c3d1a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-04-path-condition.png",
       "bytes": 250081,
-      "sha256": "fea96694ae7f34b91f9ef2cd87ad618a8b38c99c544c33a058c1730c65ed69f2"
+      "sha256": "fea96694ae7f34b91f9ef2cd87ad618a8b38c99c544c33a058c1730c65ed69f2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-05-path.png",
       "bytes": 251258,
-      "sha256": "7ef3e578d1547544326c3bcfa1be26ae7ac4c72f099f5606f1239ae555535c72"
+      "sha256": "7ef3e578d1547544326c3bcfa1be26ae7ac4c72f099f5606f1239ae555535c72",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-remove.png",
       "bytes": 232403,
-      "sha256": "df572d9622f0354d2c0256b2b11be2496d9ac13984821ffe398102bbeef86d18"
+      "sha256": "df572d9622f0354d2c0256b2b11be2496d9ac13984821ffe398102bbeef86d18",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-add.png",
       "bytes": 266734,
-      "sha256": "9ca64ba94021f227b5eb04d2cf458762a443dd5329b5951f372a1fdcd760d0db"
+      "sha256": "9ca64ba94021f227b5eb04d2cf458762a443dd5329b5951f372a1fdcd760d0db",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-status.png",
       "bytes": 267175,
-      "sha256": "91c9f8b3baa5eb09ec20cbb11af176293b8e504f1a6ca0ac9a8fc5663ace605b"
+      "sha256": "91c9f8b3baa5eb09ec20cbb11af176293b8e504f1a6ca0ac9a8fc5663ace605b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-add-type.png",
       "bytes": 272690,
-      "sha256": "4d1330585f9881608cbd618e4d387462ffdb802503d0db617dbb21f262993add"
+      "sha256": "4d1330585f9881608cbd618e4d387462ffdb802503d0db617dbb21f262993add",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-type-name.png",
       "bytes": 273366,
-      "sha256": "e0d248468612ea244704839d81a05b9ca257b9ab279557e2f5500826c1fb4e35"
+      "sha256": "e0d248468612ea244704839d81a05b9ca257b9ab279557e2f5500826c1fb4e35",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-type-value.png",
       "bytes": 275417,
-      "sha256": "75249c87fd0e35d12dfeafea2d062f65fb8640d4cbe267f08f2623706b5369d0"
+      "sha256": "75249c87fd0e35d12dfeafea2d062f65fb8640d4cbe267f08f2623706b5369d0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-add-extra.png",
       "bytes": 282282,
-      "sha256": "92ad07a45cb99877eed5abadd5cdc5222d9cdcc419c302618ebf3fde898f3da4"
+      "sha256": "92ad07a45cb99877eed5abadd5cdc5222d9cdcc419c302618ebf3fde898f3da4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-extra-name.png",
       "bytes": 285338,
-      "sha256": "1e59c1a97067c0a59262364de2b796fbbaf5288de8ed4a5964b0f5de7dbe653f"
+      "sha256": "1e59c1a97067c0a59262364de2b796fbbaf5288de8ed4a5964b0f5de7dbe653f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-extra-value.png",
       "bytes": 285620,
-      "sha256": "608f548b4ad365e2dd4299e8acffaf8bf1a2f75371c877ba3796992541ed3c4d"
+      "sha256": "608f548b4ad365e2dd4299e8acffaf8bf1a2f75371c877ba3796992541ed3c4d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-body.png",
       "bytes": 290784,
-      "sha256": "c1a9a5f5eb1f6edecd92f404b09278411198ab24dc9386dbab09334697302153"
+      "sha256": "c1a9a5f5eb1f6edecd92f404b09278411198ab24dc9386dbab09334697302153",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-enable.png",
       "bytes": 291861,
-      "sha256": "b820a454832d7a15fd850d0d9956342915bd1a43b249ff30346ea322a3455e14"
+      "sha256": "b820a454832d7a15fd850d0d9956342915bd1a43b249ff30346ea322a3455e14",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-apply.png",
       "bytes": 287850,
-      "sha256": "3dc8ca93449affeef1ce6d0e7e7cd6f2e9e0e7cf734d3a51bad21999a4ba89d2"
+      "sha256": "3dc8ca93449affeef1ce6d0e7e7cd6f2e9e0e7cf734d3a51bad21999a4ba89d2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-result.png",
       "bytes": 367031,
-      "sha256": "4308cff9527eb5029cb8006d15e7890dba1052185952d572e1e331dacd0ec823"
+      "sha256": "4308cff9527eb5029cb8006d15e7890dba1052185952d572e1e331dacd0ec823",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-back.png",
       "bytes": 287737,
-      "sha256": "1048878154d430fe434a3c435ed4fa9e16c5cc028eadd00e07a07ca5acf69553"
+      "sha256": "1048878154d430fe434a3c435ed4fa9e16c5cc028eadd00e07a07ca5acf69553",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-disable.png",
       "bytes": 290500,
-      "sha256": "a7e708530f074d808ad792f21a1c1e29f31642d1c7f05510cf8fd589dd820a9a"
+      "sha256": "a7e708530f074d808ad792f21a1c1e29f31642d1c7f05510cf8fd589dd820a9a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-apply-off.png",
       "bytes": 286952,
-      "sha256": "09c75dab5dacee8d7d9a2ba9e9248a9ed8af6c3bd458432fe60902250398ddf8"
+      "sha256": "09c75dab5dacee8d7d9a2ba9e9248a9ed8af6c3bd458432fe60902250398ddf8",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-restored.png",
       "bytes": 398055,
-      "sha256": "0b1a44712ae801fe56bd29d4192e7f870bf4c8c21226c8bf8c9946e7d8047776"
+      "sha256": "0b1a44712ae801fe56bd29d4192e7f870bf4c8c21226c8bf8c9946e7d8047776",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-synthetic-edit-next.png",
       "bytes": 286385,
-      "sha256": "06e5e9f7843bff29e2aac17e49faa53b772ce4331ad4aab0657b3b6fa48185b9"
+      "sha256": "06e5e9f7843bff29e2aac17e49faa53b772ce4331ad4aab0657b3b6fa48185b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-remove.png",
       "bytes": 232260,
-      "sha256": "9bb428437526d7b96c6d4c45d0006a1e9fbae5044b48b04a699eaca803d9ae23"
+      "sha256": "9bb428437526d7b96c6d4c45d0006a1e9fbae5044b48b04a699eaca803d9ae23",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-add.png",
       "bytes": 259151,
-      "sha256": "f933d0702ada10d39346f2ed68a2d7c3007712d048cf333e55d6976fcd09c338"
+      "sha256": "f933d0702ada10d39346f2ed68a2d7c3007712d048cf333e55d6976fcd09c338",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-value.png",
       "bytes": 259923,
-      "sha256": "c71ead27c1403db4a94bdd3e2604f7fa4b511c6f3d1b6b811e2c3c08d3f217ff"
+      "sha256": "c71ead27c1403db4a94bdd3e2604f7fa4b511c6f3d1b6b811e2c3c08d3f217ff",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-enable.png",
       "bytes": 260940,
-      "sha256": "01ad5b3cec4c8e3d341488898082f4f95bda07afaeea6d07cad80be6c3ee6586"
+      "sha256": "01ad5b3cec4c8e3d341488898082f4f95bda07afaeea6d07cad80be6c3ee6586",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-apply.png",
       "bytes": 257343,
-      "sha256": "9a7baf7df0f7adfb736ac4cdf2c6db9deef07b88548e25ab5d0f20931e491c06"
+      "sha256": "9a7baf7df0f7adfb736ac4cdf2c6db9deef07b88548e25ab5d0f20931e491c06",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-result.png",
       "bytes": 328884,
-      "sha256": "2d047ef35c8ed806498f26b7d489eb15cd2ebb06abd94135ffc7a103a1c4a22d"
+      "sha256": "2d047ef35c8ed806498f26b7d489eb15cd2ebb06abd94135ffc7a103a1c4a22d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-back.png",
       "bytes": 257491,
-      "sha256": "90870a78645753d8087c676f1b6b0b7d3eef029f7195321ec62ef47cddac332a"
+      "sha256": "90870a78645753d8087c676f1b6b0b7d3eef029f7195321ec62ef47cddac332a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-disable.png",
       "bytes": 259724,
-      "sha256": "e124e7f5609d10bb88321eb19dd77ed8ef9e90e409b3f65b98d7e8ad488f5b14"
+      "sha256": "e124e7f5609d10bb88321eb19dd77ed8ef9e90e409b3f65b98d7e8ad488f5b14",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-apply-off.png",
       "bytes": 255665,
-      "sha256": "17eb62d1a87da534d86efc09e92693de1e103d019595cfb5e196b508c19b7413"
+      "sha256": "17eb62d1a87da534d86efc09e92693de1e103d019595cfb5e196b508c19b7413",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-restored.png",
       "bytes": 431082,
-      "sha256": "41afb49eac08fc8f79103453e519bb6f44b6dd403351be60a686ca8bb2219535"
+      "sha256": "41afb49eac08fc8f79103453e519bb6f44b6dd403351be60a686ca8bb2219535",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-delay-edit-next.png",
       "bytes": 255301,
-      "sha256": "6d76dc29125a7da6cb722ba41dafe8be09ff53c0d6a3f519a57c69437bc24e5d"
+      "sha256": "6d76dc29125a7da6cb722ba41dafe8be09ff53c0d6a3f519a57c69437bc24e5d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-remove.png",
       "bytes": 232391,
-      "sha256": "3816b9d1b6ec483242282920872474f7d3965bec7dcea114011ae3036e5cba28"
+      "sha256": "3816b9d1b6ec483242282920872474f7d3965bec7dcea114011ae3036e5cba28",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-add.png",
       "bytes": 254101,
-      "sha256": "d278f9ab50cc4e16a4829d135801263fd51794b1df0ecf45bbcc4e7fe46ff469"
+      "sha256": "d278f9ab50cc4e16a4829d135801263fd51794b1df0ecf45bbcc4e7fe46ff469",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-reset.png",
       "bytes": 254811,
-      "sha256": "e368e446c8f39a81b16303e3025e592f10abd2d24f3f5d1f3ce8143b7952eadf"
+      "sha256": "e368e446c8f39a81b16303e3025e592f10abd2d24f3f5d1f3ce8143b7952eadf",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-enable.png",
       "bytes": 255744,
-      "sha256": "9c2e6ba12074e724044df05cf1b7d87518114484910925f8bd463db408db504a"
+      "sha256": "9c2e6ba12074e724044df05cf1b7d87518114484910925f8bd463db408db504a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-apply.png",
       "bytes": 252219,
-      "sha256": "50384e8d16cf467c7863f479c8dfc3543b3861a0813d7a48b75b3ee24eb15570"
+      "sha256": "50384e8d16cf467c7863f479c8dfc3543b3861a0813d7a48b75b3ee24eb15570",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-reset-result.png",
       "bytes": 409254,
-      "sha256": "6a28520499bf52eb16f4fed607f699e6462c1535247394dfb5b4cea3ab3e563d"
+      "sha256": "6a28520499bf52eb16f4fed607f699e6462c1535247394dfb5b4cea3ab3e563d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-edit-close.png",
       "bytes": 252132,
-      "sha256": "b95f8f1e28e3cb20be4f01b65220ae7a383683f6d2e9b6647895a58c8c6692d3"
+      "sha256": "b95f8f1e28e3cb20be4f01b65220ae7a383683f6d2e9b6647895a58c8c6692d3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-close.png",
       "bytes": 256697,
-      "sha256": "015aea5aae89a137816367624fc068a6ceba90b92206a5fe090601a7d7e84e1d"
+      "sha256": "015aea5aae89a137816367624fc068a6ceba90b92206a5fe090601a7d7e84e1d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-apply-close.png",
       "bytes": 252507,
-      "sha256": "6f6224c21732f8e9f072155006d266e79f0a867dfe351ce9c3b3a9a208c95a37"
+      "sha256": "6f6224c21732f8e9f072155006d266e79f0a867dfe351ce9c3b3a9a208c95a37",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-close-result.png",
       "bytes": 421034,
-      "sha256": "d0cbe01fbc6d3ff8b0841fc117c7bcd74bb9db3a225204c0c9bd5516860fb497"
+      "sha256": "d0cbe01fbc6d3ff8b0841fc117c7bcd74bb9db3a225204c0c9bd5516860fb497",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-back.png",
       "bytes": 252345,
-      "sha256": "9cf799aba4830c9cd36189daaedeab7a95431a3fcb1962363949c2a0b8b30063"
+      "sha256": "9cf799aba4830c9cd36189daaedeab7a95431a3fcb1962363949c2a0b8b30063",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-disable.png",
       "bytes": 254427,
-      "sha256": "354996608e7665d19a8542df9b820a1f3c1c709ca4de3f41b1a83ebbff74f177"
+      "sha256": "354996608e7665d19a8542df9b820a1f3c1c709ca4de3f41b1a83ebbff74f177",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-apply-off.png",
       "bytes": 250516,
-      "sha256": "6d16b8e594ea6f3420c1a5e4d8a2f2ccf86dd929a0e809b93f4d65914472f957"
+      "sha256": "6d16b8e594ea6f3420c1a5e4d8a2f2ccf86dd929a0e809b93f4d65914472f957",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-restored.png",
       "bytes": 471117,
-      "sha256": "9806a39de2eb404f150ebec0679cc7d97cc08728bb73f176ab23128a3a5add3b"
+      "sha256": "9806a39de2eb404f150ebec0679cc7d97cc08728bb73f176ab23128a3a5add3b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-block-edit-next.png",
       "bytes": 250134,
-      "sha256": "b4fc15bd209cc54335544a58c920c7ba3b022c313aecd8d76a440a8644b19603"
+      "sha256": "b4fc15bd209cc54335544a58c920c7ba3b022c313aecd8d76a440a8644b19603",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-remove.png",
       "bytes": 232254,
-      "sha256": "5c1869c1e71c37df09c321c8a1d5d2cc9326a10fbb79238810bab912d498eea7"
+      "sha256": "5c1869c1e71c37df09c321c8a1d5d2cc9326a10fbb79238810bab912d498eea7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-add.png",
       "bytes": 251046,
-      "sha256": "b283a01a07311b03498f2b75ef5b634c7517fc0b5497c86086ae671b32defd7b"
+      "sha256": "b283a01a07311b03498f2b75ef5b634c7517fc0b5497c86086ae671b32defd7b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-phase.png",
       "bytes": 251827,
-      "sha256": "fc8acaa3eb8a02708bdbdecc5cbabc86092716118a8366fd03119c01b653be24"
+      "sha256": "fc8acaa3eb8a02708bdbdecc5cbabc86092716118a8366fd03119c01b653be24",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-name.png",
       "bytes": 259319,
-      "sha256": "d91c224131c70cf8796c425a61b377359ffa0bbe7ba2b3c39d25664216325b55"
+      "sha256": "d91c224131c70cf8796c425a61b377359ffa0bbe7ba2b3c39d25664216325b55",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-value.png",
       "bytes": 258445,
-      "sha256": "4ed37014d4dedd8867cd4989ab89bd4bb6bcef20ee3d9e81da31f78a11092fac"
+      "sha256": "4ed37014d4dedd8867cd4989ab89bd4bb6bcef20ee3d9e81da31f78a11092fac",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-enable.png",
       "bytes": 260129,
-      "sha256": "abe347ea5277203a2891b74d2dab91367660c06a3361df3511dfbafc253563f6"
+      "sha256": "abe347ea5277203a2891b74d2dab91367660c06a3361df3511dfbafc253563f6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-apply.png",
       "bytes": 256683,
-      "sha256": "0b94756655df60aa928914f85e796bd12998ba799f486e23cea7cd454f5f9b5c"
+      "sha256": "0b94756655df60aa928914f85e796bd12998ba799f486e23cea7cd454f5f9b5c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-header-only.png",
       "bytes": 408330,
-      "sha256": "0561a0926bee34cde8e5e1b85a841c4a9b1fa7d315e5d48200afe9ca6541db4b"
+      "sha256": "0561a0926bee34cde8e5e1b85a841c4a9b1fa7d315e5d48200afe9ca6541db4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-edit-body.png",
       "bytes": 256735,
-      "sha256": "12d7c1b4238099a8c1c2232c18680b1c80a59bb52589af02e835ee4f8ab4238c"
+      "sha256": "12d7c1b4238099a8c1c2232c18680b1c80a59bb52589af02e835ee4f8ab4238c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-add-body.png",
       "bytes": 274657,
-      "sha256": "c9ce4e2806cc48a8f226060fead02fe1443691189c5a506cb4ea48e79f02d0cc"
+      "sha256": "c9ce4e2806cc48a8f226060fead02fe1443691189c5a506cb4ea48e79f02d0cc",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-body-phase.png",
       "bytes": 275660,
-      "sha256": "c3fe9d989dfc137e20dc5ade936e63c202adbc87633726a49f6bf0579e087700"
+      "sha256": "c3fe9d989dfc137e20dc5ade936e63c202adbc87633726a49f6bf0579e087700",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-body.png",
       "bytes": 283653,
-      "sha256": "b2ffc4790a2192aa2a95206222dc6100fb7bfb394671e1af73123062692c4027"
+      "sha256": "b2ffc4790a2192aa2a95206222dc6100fb7bfb394671e1af73123062692c4027",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-apply-body.png",
       "bytes": 279960,
-      "sha256": "e48dba705dce4d6d65b8e236e7589229631674db8c24da0361423c3d6460383b"
+      "sha256": "e48dba705dce4d6d65b8e236e7589229631674db8c24da0361423c3d6460383b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-body-result.png",
       "bytes": 439652,
-      "sha256": "1ad2ddf218a40b5220ce00f244f0676e650e5554e727ca772652c2e1834f76d6"
+      "sha256": "1ad2ddf218a40b5220ce00f244f0676e650e5554e727ca772652c2e1834f76d6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-back.png",
       "bytes": 279930,
-      "sha256": "8f24cd338fe8e3a2062c79e6fa24a41c137d30f5b9d32360c2da93ec87294d23"
+      "sha256": "8f24cd338fe8e3a2062c79e6fa24a41c137d30f5b9d32360c2da93ec87294d23",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-disable.png",
       "bytes": 281904,
-      "sha256": "15112d81e91848f4fe89d1eee81160abd3abcdf515885a9bbee2727fca98c659"
+      "sha256": "15112d81e91848f4fe89d1eee81160abd3abcdf515885a9bbee2727fca98c659",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-apply-off.png",
       "bytes": 278479,
-      "sha256": "5a0fd420b18bd44612b0995a3b95d2a2bca37d7d1cba80bf3d50a76e7a611931"
+      "sha256": "5a0fd420b18bd44612b0995a3b95d2a2bca37d7d1cba80bf3d50a76e7a611931",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-restored.png",
       "bytes": 519702,
-      "sha256": "ce7b28b36da45a5cfd68a99fd3cd44169d4718633deef4af29c206ffe502bc89"
+      "sha256": "ce7b28b36da45a5cfd68a99fd3cd44169d4718633deef4af29c206ffe502bc89",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-response-controls-encoding-edit-next.png",
       "bytes": 278053,
-      "sha256": "9731016cd949eb686b621df6065456588a0e2639171683b31a20a4384335ef9d"
-    },
-    {
-      "file": "rules-response-controls.mp4",
-      "bytes": 1590917,
-      "sha256": "122a14e638f1a5de8d36a1484b37e4154ffba62666096160e79a6731ed7f29c1"
-    },
-    {
-      "file": "rules-response-controls.vtt",
-      "bytes": 5763,
-      "sha256": "3c4db69dd5ba83354d212cd414f07e8abbc4868b3132cd3a9dfa5898ef063a2f"
+      "sha256": "9731016cd949eb686b621df6065456588a0e2639171683b31a20a4384335ef9d",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

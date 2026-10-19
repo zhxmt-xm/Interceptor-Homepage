@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "folders": "Guide persistence 1 > Guide persistence 2 > Guide persistence 3",
     "requestName": "Guide persisted fields",
@@ -24,142 +23,142 @@
     "sentAfterRestart": "One explicit UI Send; no automatic replay",
     "evidenceGeneration": "composer-reopened"
   },
-  "duration": 34.978240565,
-  "video": "composer-persistence-restart.mp4",
-  "captions": "composer-persistence-restart.vtt",
   "steps": [
     {
       "id": "01-folder-1",
       "title": "检查保留的第1级目录 / Inspect retained folder level 1",
-      "image": "composer-persistence-restart-01-folder-1.png",
-      "seconds": 0.40593149200000334
+      "image": "composer-persistence-restart-01-folder-1.png"
     },
     {
       "id": "01-folder-2",
       "title": "检查保留的第2级目录 / Inspect retained folder level 2",
-      "image": "composer-persistence-restart-01-folder-2.png",
-      "seconds": 3.397321891
+      "image": "composer-persistence-restart-01-folder-2.png"
     },
     {
       "id": "01-folder-3",
       "title": "检查保留的第3级目录 / Inspect retained folder level 3",
-      "image": "composer-persistence-restart-01-folder-3.png",
-      "seconds": 6.449564545000001
+      "image": "composer-persistence-restart-01-folder-3.png"
     },
     {
       "id": "02-select",
       "title": "打开同一个保存请求 / Open the same saved request",
-      "image": "composer-persistence-restart-02-select.png",
-      "seconds": 9.495480299000002
+      "image": "composer-persistence-restart-02-select.png"
     },
     {
       "id": "03-headers",
       "title": "核对Header值与启停状态 / Verify Header values and enabled states",
-      "image": "composer-persistence-restart-03-headers.png",
-      "seconds": 12.595305223000002
+      "image": "composer-persistence-restart-03-headers.png"
     },
     {
       "id": "04-query",
       "title": "核对未重填的Query行 / Verify the Query row without refilling it",
-      "image": "composer-persistence-restart-04-query.png",
-      "seconds": 15.641674192000005
+      "image": "composer-persistence-restart-04-query.png"
     },
     {
       "id": "05-body",
       "title": "核对实际回载的JSON正文 / Verify the actually restored JSON body",
-      "image": "composer-persistence-restart-05-body.png",
-      "seconds": 18.663292679999998
+      "image": "composer-persistence-restart-05-body.png"
     },
     {
       "id": "06-auth",
       "title": "核对实际回载的公开Auth字段 / Verify the restored public Auth field",
-      "image": "composer-persistence-restart-06-auth.png",
-      "seconds": 21.885561310999996
+      "image": "composer-persistence-restart-06-auth.png"
     },
     {
       "id": "07-send",
       "title": "仅在重启后Send一次核对实际字节 / Send once after restart and verify actual bytes",
-      "image": "composer-persistence-restart-07-send.png",
-      "seconds": 24.929735216
+      "image": "composer-persistence-restart-07-send.png"
     },
     {
       "id": "08-clear-auth",
       "title": "清空演示Auth值 / Clear the demonstration Auth value",
-      "image": "composer-persistence-restart-08-clear-auth.png",
-      "seconds": 27.994835712
+      "image": "composer-persistence-restart-08-clear-auth.png"
     },
     {
       "id": "09-none",
       "title": "恢复Auth None并等待保存 / Restore Auth None and wait for saving",
-      "image": "composer-persistence-restart-09-none.png",
-      "seconds": 31.060260152
+      "image": "composer-persistence-restart-09-none.png"
     }
   ],
   "assets": [
     {
       "file": "composer-persistence-restart-01-folder-1.png",
       "bytes": 185540,
-      "sha256": "d5fd8eae884d0f27fa060646bcc98614476ea2c0ae840b24e0ddadeb4aff3b29"
+      "sha256": "d5fd8eae884d0f27fa060646bcc98614476ea2c0ae840b24e0ddadeb4aff3b29",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-01-folder-2.png",
       "bytes": 192993,
-      "sha256": "e83c12ca0c46459ffab795843c9b5a2bbee5c3b10ddf164cd0d7ca5be1edc0c1"
+      "sha256": "e83c12ca0c46459ffab795843c9b5a2bbee5c3b10ddf164cd0d7ca5be1edc0c1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-01-folder-3.png",
       "bytes": 200988,
-      "sha256": "86c47cd8232439887a8b87dcb46614b8fe5587c7710d5c17a4be0733c48af6c2"
+      "sha256": "86c47cd8232439887a8b87dcb46614b8fe5587c7710d5c17a4be0733c48af6c2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-02-select.png",
       "bytes": 264673,
-      "sha256": "61177d1a19aa04e2bf3c01eeecb0d2436178e2de1d6d7865d969f6ff88f3c21a"
+      "sha256": "61177d1a19aa04e2bf3c01eeecb0d2436178e2de1d6d7865d969f6ff88f3c21a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-03-headers.png",
       "bytes": 264673,
-      "sha256": "61177d1a19aa04e2bf3c01eeecb0d2436178e2de1d6d7865d969f6ff88f3c21a"
+      "sha256": "61177d1a19aa04e2bf3c01eeecb0d2436178e2de1d6d7865d969f6ff88f3c21a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-04-query.png",
       "bytes": 255009,
-      "sha256": "5882a055c127d7089fe0e377dd1ada8d1f7ece622637c8debbbae8495f5a6f64"
+      "sha256": "5882a055c127d7089fe0e377dd1ada8d1f7ece622637c8debbbae8495f5a6f64",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-05-body.png",
       "bytes": 270764,
-      "sha256": "94fc9f6cf505cf3dcd2ed3e5ee05f4afd00ad451da06617f65c050577c64128b"
+      "sha256": "94fc9f6cf505cf3dcd2ed3e5ee05f4afd00ad451da06617f65c050577c64128b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-06-auth.png",
       "bytes": 262056,
-      "sha256": "cb0294f8592527669eaed91729a4911a5aa6c564f82251c2653a7ad0b4bbf541"
+      "sha256": "cb0294f8592527669eaed91729a4911a5aa6c564f82251c2653a7ad0b4bbf541",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-07-send.png",
       "bytes": 322067,
-      "sha256": "177f905cd08bb9abcf2ef42c2fa4f77bbca5cf7f5dd05ce9260f4b8cdcfcd675"
+      "sha256": "177f905cd08bb9abcf2ef42c2fa4f77bbca5cf7f5dd05ce9260f4b8cdcfcd675",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-08-clear-auth.png",
       "bytes": 314435,
-      "sha256": "fae09194b5982d0871973c51d4f7e73cd60dca48794fa78546c9c40ec6393af6"
+      "sha256": "fae09194b5982d0871973c51d4f7e73cd60dca48794fa78546c9c40ec6393af6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-persistence-restart-09-none.png",
       "bytes": 314892,
-      "sha256": "f266cfb5f9d1bef8c005a5ec15635d486acc0ad4992c9b324c343e0a9c80a9d7"
-    },
-    {
-      "file": "composer-persistence-restart.mp4",
-      "bytes": 147308,
-      "sha256": "ca8d158189dc8f90550be88efb9238c9a43dae122d6738010f6e0bff842f54b2"
-    },
-    {
-      "file": "composer-persistence-restart.vtt",
-      "bytes": 1136,
-      "sha256": "f551b8971a78757b664965a0118e2450de70e914f5a41b75d2d43d57cc312933"
+      "sha256": "f266cfb5f9d1bef8c005a5ec15635d486acc0ad4992c9b324c343e0a9c80a9d7",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

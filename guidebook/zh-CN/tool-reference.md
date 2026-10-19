@@ -129,7 +129,7 @@
 
 1. 找到对应业务章节，先理解操作后果。
 
-   下方基础例使用代理状态查询和暂停录制；[完整权限实录](tool-permissions.md#walkthrough-tool-permissions-readonly)逐项检查整个catalog并验证禁用动作确实被拒绝。本表是入口速查，不声称每个Tool的全部参数组合都已拍成独立影片。
+   下方基础例使用代理状态查询和暂停录制；[完整权限实录](tool-permissions.md#walkthrough-tool-permissions-readonly)逐项检查整个catalog并验证禁用动作确实被拒绝。本表是入口速查，不声称每个Tool的全部参数组合都已配有独立步骤图。
 
 2. 在 Settings 的 Tool capabilities 搜索 `capture_get_proxy_status`，检查目标入口的权限，再关闭无关项。
 

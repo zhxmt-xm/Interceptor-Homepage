@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "workspace": "Settings > Privacy",
     "initialSize": "1600x900",
@@ -18,76 +17,70 @@
     "restoreBoundary": "Test-side accessibility restores the same owned window for continued verification; no Dock interaction is claimed",
     "recordingScope": "Only the App window; no display, desktop or other application capture"
   },
-  "duration": 20.114015568000003,
-  "video": "workspace-window-controls.mp4",
-  "captions": "workspace-window-controls.vtt",
   "steps": [
     {
       "id": "01-normal",
       "title": "查看当前正常窗口 / Inspect the current normal window",
-      "image": "workspace-window-controls-01-normal.png",
-      "seconds": 0.4358020580000011
+      "image": "workspace-window-controls-01-normal.png"
     },
     {
       "id": "02-maximize",
       "title": "点击最大化 / Click Maximize",
-      "image": "workspace-window-controls-02-maximize.png",
-      "seconds": 3.6892471189999996
+      "image": "workspace-window-controls-02-maximize.png"
     },
     {
       "id": "03-restore",
       "title": "再次点击恢复原窗口 / Click again to restore the window",
-      "image": "workspace-window-controls-03-restore.png",
-      "seconds": 7.591833056000001
+      "image": "workspace-window-controls-03-restore.png"
     },
     {
       "id": "04-minimize-control",
       "title": "查看最小化按钮，随后实际点击 / Inspect Minimize before actually clicking it",
-      "image": "workspace-window-controls-04-minimize-control.png",
-      "seconds": 11.531401452
+      "image": "workspace-window-controls-04-minimize-control.png"
     },
     {
       "id": "05-returned-window",
       "title": "恢复后检查同一窗口（不录Dock） / Inspect the returned window without recording the Dock",
-      "image": "workspace-window-controls-05-returned-window.png",
-      "seconds": 16.892943620999997
+      "image": "workspace-window-controls-05-returned-window.png"
     }
   ],
   "assets": [
     {
       "file": "workspace-window-controls-01-normal.png",
       "bytes": 340183,
-      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f"
+      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-window-controls-02-maximize.png",
       "bytes": 368903,
-      "sha256": "ce36f3fa305e6db7cc12fd5829cd2f9d786436ff008509de72196d45289d8bff"
+      "sha256": "ce36f3fa305e6db7cc12fd5829cd2f9d786436ff008509de72196d45289d8bff",
+      "width": 3584,
+      "height": 2052
     },
     {
       "file": "workspace-window-controls-03-restore.png",
       "bytes": 340201,
-      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb"
+      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-window-controls-04-minimize-control.png",
       "bytes": 340201,
-      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb"
+      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-window-controls-05-returned-window.png",
       "bytes": 340201,
-      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb"
-    },
-    {
-      "file": "workspace-window-controls.mp4",
-      "bytes": 143376,
-      "sha256": "b0d811552dacdd7ac3d041f1568a6584c01cb08df4227808dc3fb530d22287bb"
-    },
-    {
-      "file": "workspace-window-controls.vtt",
-      "bytes": 521,
-      "sha256": "0095e8a48dcc2e8ac5887cf2b2962970b4ff66225850abc85c47d3ba8f0fc3a5"
+      "sha256": "acf3d5280e81ba3e5f24b78d56238a6e546f8c57cdaba14ec3b588c8705b99bb",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

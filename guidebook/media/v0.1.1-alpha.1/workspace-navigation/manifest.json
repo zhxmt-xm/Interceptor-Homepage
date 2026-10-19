@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "savedSection": "Privacy",
     "configureTarget": "Settings / Agent",
@@ -21,318 +20,334 @@
     "languageChanged": "false",
     "requestPath": "/guide/navigation/ready"
   },
-  "duration": 81.121680648,
-  "video": "workspace-navigation.mp4",
-  "captions": "workspace-navigation.vtt",
   "steps": [
     {
       "id": "01-settings",
       "title": "打开Settings / Open Settings",
-      "image": "workspace-navigation-01-settings.png",
-      "seconds": 0.485968409000001
+      "image": "workspace-navigation-01-settings.png"
     },
     {
       "id": "02-privacy",
       "title": "进入Privacy分组 / Open the Privacy section",
-      "image": "workspace-navigation-02-privacy.png",
-      "seconds": 3.411332484999999
+      "image": "workspace-navigation-02-privacy.png"
     },
     {
       "id": "03-composer",
       "title": "离开Settings进入Composer / Leave Settings for Composer",
-      "image": "workspace-navigation-03-composer.png",
-      "seconds": 6.342751510000002
+      "image": "workspace-navigation-03-composer.png"
     },
     {
       "id": "04-return-settings",
       "title": "返回Settings保留Privacy / Return to Settings with Privacy retained",
-      "image": "workspace-navigation-04-return-settings.png",
-      "seconds": 9.248737456999999
+      "image": "workspace-navigation-04-return-settings.png"
     },
     {
       "id": "05-diagnostics",
       "title": "切到Diagnostics / Switch to Diagnostics",
-      "image": "workspace-navigation-05-diagnostics.png",
-      "seconds": 12.168998876000002
+      "image": "workspace-navigation-05-diagnostics.png"
     },
     {
       "id": "06-retained-again",
       "title": "再次返回仍是Privacy / Return again to the retained Privacy section",
-      "image": "workspace-navigation-06-retained-again.png",
-      "seconds": 15.151123100000001
+      "image": "workspace-navigation-06-retained-again.png"
     },
     {
       "id": "07-capture",
       "title": "返回Capture / Return to Capture",
-      "image": "workspace-navigation-07-capture.png",
-      "seconds": 18.10032178
+      "image": "workspace-navigation-07-capture.png"
     },
     {
       "id": "08-agent-empty",
       "title": "打开未配置的Agent面板 / Open the unconfigured Agent panel",
-      "image": "workspace-navigation-08-agent-empty.png",
-      "seconds": 21.015944035000004
+      "image": "workspace-navigation-08-agent-empty.png"
     },
     {
       "id": "09-configure-link",
       "title": "从空态进入Agent设置 / Follow Configure from the empty state",
-      "image": "workspace-navigation-09-configure-link.png",
-      "seconds": 23.93535307
+      "image": "workspace-navigation-09-configure-link.png"
     },
     {
       "id": "10-agent-open",
       "title": "返回Capture并保持Agent打开 / Return to Capture with Agent open",
-      "image": "workspace-navigation-10-agent-open.png",
-      "seconds": 27.086986665
+      "image": "workspace-navigation-10-agent-open.png"
     },
     {
       "id": "11-rules",
       "title": "打开rules仍保留Agent / Open rules while retaining Agent",
-      "image": "workspace-navigation-11-rules.png",
-      "seconds": 30.076253793
+      "image": "workspace-navigation-11-rules.png"
     },
     {
       "id": "11-composer",
       "title": "打开composer仍保留Agent / Open composer while retaining Agent",
-      "image": "workspace-navigation-11-composer.png",
-      "seconds": 33.005524621000006
+      "image": "workspace-navigation-11-composer.png"
     },
     {
       "id": "11-diagnostics",
       "title": "打开diagnostics仍保留Agent / Open diagnostics while retaining Agent",
-      "image": "workspace-navigation-11-diagnostics.png",
-      "seconds": 35.926884687
+      "image": "workspace-navigation-11-diagnostics.png"
     },
     {
       "id": "12-header-close",
       "title": "用Header入口关闭Agent / Close Agent with the Header control",
-      "image": "workspace-navigation-12-header-close.png",
-      "seconds": 38.937932788000005
+      "image": "workspace-navigation-12-header-close.png"
     },
     {
       "id": "13-header-open",
       "title": "用Header入口重新打开 / Reopen with the Header control",
-      "image": "workspace-navigation-13-header-open.png",
-      "seconds": 41.903299733000004
+      "image": "workspace-navigation-13-header-open.png"
     },
     {
       "id": "14-panel-close",
       "title": "用面板自己的关闭按钮 / Use the panel’s own close button",
-      "image": "workspace-navigation-14-panel-close.png",
-      "seconds": 44.90118484400001
+      "image": "workspace-navigation-14-panel-close.png"
     },
     {
       "id": "15-theme-menu",
       "title": "只打开Theme菜单检查选择 / Open Theme without changing the selection",
-      "image": "workspace-navigation-15-theme-menu.png",
-      "seconds": 47.866347919000006
+      "image": "workspace-navigation-15-theme-menu.png"
     },
     {
       "id": "16-dismiss-theme",
       "title": "Escape关闭且主题不变 / Dismiss with Escape and retain the theme",
-      "image": "workspace-navigation-16-dismiss-theme.png",
-      "seconds": 50.94102806299999
+      "image": "workspace-navigation-16-dismiss-theme.png"
     },
     {
       "id": "17-resize",
       "title": "缩小实际App窗口 / Resize the actual App window smaller",
-      "image": "workspace-navigation-17-resize.png",
-      "seconds": 54.219431617
+      "image": "workspace-navigation-17-resize.png"
     },
     {
       "id": "18-restore-size",
       "title": "恢复原窗口尺寸 / Restore the original window size",
-      "image": "workspace-navigation-18-restore-size.png",
-      "seconds": 57.422284094000005
+      "image": "workspace-navigation-18-restore-size.png"
     },
     {
       "id": "19-capture",
       "title": "返回Capture查看快捷入口 / Return to Capture for its shortcut",
-      "image": "workspace-navigation-19-capture.png",
-      "seconds": 60.605258206
+      "image": "workspace-navigation-19-capture.png"
     },
     {
       "id": "20-upstream-shortcut",
       "title": "打开底栏上游快捷浮层 / Open the statusbar Upstream shortcut",
-      "image": "workspace-navigation-20-upstream-shortcut.png",
-      "seconds": 63.54490269
+      "image": "workspace-navigation-20-upstream-shortcut.png"
     },
     {
       "id": "21-upstream-link",
       "title": "从浮层直达Upstream设置 / Open Upstream settings from the popover",
-      "image": "workspace-navigation-21-upstream-link.png",
-      "seconds": 66.50479136
+      "image": "workspace-navigation-21-upstream-link.png"
     },
     {
       "id": "22-leave-deeplink",
       "title": "离开深链目标 / Leave the deep-link destination",
-      "image": "workspace-navigation-22-leave-deeplink.png",
-      "seconds": 69.45449446299999
+      "image": "workspace-navigation-22-leave-deeplink.png"
     },
     {
       "id": "23-retained-deeplink",
       "title": "返回Settings保留新的Upstream位置 / Return to Settings with Upstream retained",
-      "image": "workspace-navigation-23-retained-deeplink.png",
-      "seconds": 72.368221756
+      "image": "workspace-navigation-23-retained-deeplink.png"
     },
     {
       "id": "24-recording",
       "title": "回到Capture确认Recording / Return to Capture and confirm Recording",
-      "image": "workspace-navigation-24-recording.png",
-      "seconds": 75.333080446
+      "image": "workspace-navigation-24-recording.png"
     },
     {
       "id": "25-request",
       "title": "验证导航后的请求 / Verify a request after navigation",
-      "image": "workspace-navigation-25-request.png",
-      "seconds": 78.273404146
+      "image": "workspace-navigation-25-request.png"
     }
   ],
   "assets": [
     {
       "file": "workspace-navigation-01-settings.png",
       "bytes": 362710,
-      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-02-privacy.png",
       "bytes": 342921,
-      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b"
+      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-03-composer.png",
       "bytes": 176130,
-      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-04-return-settings.png",
       "bytes": 343220,
-      "sha256": "3ae976eba10ec41bf5362acb42f254b8d3d2cc09d347c9b0356a4d73ed15328c"
+      "sha256": "3ae976eba10ec41bf5362acb42f254b8d3d2cc09d347c9b0356a4d73ed15328c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-05-diagnostics.png",
       "bytes": 380065,
-      "sha256": "42f504c8d193bd1807d42ec0a4a9d676468d04e72570f64d5ab6ad49c6bc5b10"
+      "sha256": "42f504c8d193bd1807d42ec0a4a9d676468d04e72570f64d5ab6ad49c6bc5b10",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-06-retained-again.png",
       "bytes": 343220,
-      "sha256": "3ae976eba10ec41bf5362acb42f254b8d3d2cc09d347c9b0356a4d73ed15328c"
+      "sha256": "3ae976eba10ec41bf5362acb42f254b8d3d2cc09d347c9b0356a4d73ed15328c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-07-capture.png",
       "bytes": 221342,
-      "sha256": "339e453152223ee863a31d5367d78d17a5cdae52456efb9d4d8c690bb9168768"
+      "sha256": "339e453152223ee863a31d5367d78d17a5cdae52456efb9d4d8c690bb9168768",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-08-agent-empty.png",
       "bytes": 274032,
-      "sha256": "d68c272ac94804a3b922f45e60e8e4ce84778f3e34332dfa9023e76b014e3025"
+      "sha256": "d68c272ac94804a3b922f45e60e8e4ce84778f3e34332dfa9023e76b014e3025",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-09-configure-link.png",
       "bytes": 465353,
-      "sha256": "e62ec35e568f2dcd0b725ac99f02d8af71c3af38f6b2d0c740055aa4740d63e0"
+      "sha256": "e62ec35e568f2dcd0b725ac99f02d8af71c3af38f6b2d0c740055aa4740d63e0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-10-agent-open.png",
       "bytes": 257313,
-      "sha256": "5b5671f2bdde333fd3d57e031423b4910ab5c8f60b652fa9f6614c2e1890558a"
+      "sha256": "5b5671f2bdde333fd3d57e031423b4910ab5c8f60b652fa9f6614c2e1890558a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-11-rules.png",
       "bytes": 212461,
-      "sha256": "2556d8c0c54b9102d121ab5ad86747c519109d74b9cd5c7b929252ee30e77ba2"
+      "sha256": "2556d8c0c54b9102d121ab5ad86747c519109d74b9cd5c7b929252ee30e77ba2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-11-composer.png",
       "bytes": 211064,
-      "sha256": "0eceb9556da838ff016044fa978fab82037ae450c8d08dee316958b0093cd9c2"
+      "sha256": "0eceb9556da838ff016044fa978fab82037ae450c8d08dee316958b0093cd9c2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-11-diagnostics.png",
       "bytes": 406348,
-      "sha256": "0d77d00e5261ae91d32c2ac2e529efd495fd433bee861f3de79a59d48031b854"
+      "sha256": "0d77d00e5261ae91d32c2ac2e529efd495fd433bee861f3de79a59d48031b854",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-12-header-close.png",
       "bytes": 397226,
-      "sha256": "b1f5d5db3e5507129f2e35623d02ddd0fb89bddcb5aabcff10d792d33dbce8ba"
+      "sha256": "b1f5d5db3e5507129f2e35623d02ddd0fb89bddcb5aabcff10d792d33dbce8ba",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-13-header-open.png",
       "bytes": 422670,
-      "sha256": "761d894f5fad1949617e74c37337f2584f0de243f8eb6da16c893a6d7a833809"
+      "sha256": "761d894f5fad1949617e74c37337f2584f0de243f8eb6da16c893a6d7a833809",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-14-panel-close.png",
       "bytes": 381065,
-      "sha256": "cca6e80ac9c5585f9d165c90a8ad2bd904cde055099c13a781b87c50c4299f77"
+      "sha256": "cca6e80ac9c5585f9d165c90a8ad2bd904cde055099c13a781b87c50c4299f77",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-15-theme-menu.png",
       "bytes": 404028,
-      "sha256": "7f6b3bc1939d1fcb3e1783c50e34e9dc40484b27e9a1c8d3e3b9736aae42f5fb"
+      "sha256": "7f6b3bc1939d1fcb3e1783c50e34e9dc40484b27e9a1c8d3e3b9736aae42f5fb",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-16-dismiss-theme.png",
       "bytes": 382793,
-      "sha256": "cc075fea9ec599bf380c2ccda38cefa71e840afbb0fda954604fe9ab5f9c8105"
+      "sha256": "cc075fea9ec599bf380c2ccda38cefa71e840afbb0fda954604fe9ab5f9c8105",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-17-resize.png",
       "bytes": 318955,
-      "sha256": "52de50e6c223899ab84264d06889bfad6ddcef0681967cfb407b91ac556000d6"
+      "sha256": "52de50e6c223899ab84264d06889bfad6ddcef0681967cfb407b91ac556000d6",
+      "width": 2560,
+      "height": 1600
     },
     {
       "file": "workspace-navigation-18-restore-size.png",
       "bytes": 382646,
-      "sha256": "256fa7356f6c98cb7298346cd282c1253c5ff4db24ff2e5a3581db2ac8421794"
+      "sha256": "256fa7356f6c98cb7298346cd282c1253c5ff4db24ff2e5a3581db2ac8421794",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-19-capture.png",
       "bytes": 224375,
-      "sha256": "9e45715cdf25259376f1d2c99ef2b2f32a105cb6873c1c0c3f4750b869e74d34"
+      "sha256": "9e45715cdf25259376f1d2c99ef2b2f32a105cb6873c1c0c3f4750b869e74d34",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-20-upstream-shortcut.png",
       "bytes": 365596,
-      "sha256": "95676d27ff0c426a0cceb7fdbdbf18539ca022c81c6a919d9bbf5981cd6efa92"
+      "sha256": "95676d27ff0c426a0cceb7fdbdbf18539ca022c81c6a919d9bbf5981cd6efa92",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-21-upstream-link.png",
       "bytes": 364259,
-      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d"
+      "sha256": "ae17cc0be667491afa16c5a56ac94f2132adcf87104dfc94bc50e4e77e0e9e6d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-22-leave-deeplink.png",
       "bytes": 176130,
-      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-23-retained-deeplink.png",
       "bytes": 364556,
-      "sha256": "f79228cea2affccdb0af14f637a5d977e3dc7dc6f01a887b8317d834a0922a42"
+      "sha256": "f79228cea2affccdb0af14f637a5d977e3dc7dc6f01a887b8317d834a0922a42",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-24-recording.png",
       "bytes": 224375,
-      "sha256": "9e45715cdf25259376f1d2c99ef2b2f32a105cb6873c1c0c3f4750b869e74d34"
+      "sha256": "9e45715cdf25259376f1d2c99ef2b2f32a105cb6873c1c0c3f4750b869e74d34",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-navigation-25-request.png",
       "bytes": 232511,
-      "sha256": "0bbd16223a055d17333ab90f7220018ae3c952ae7270763a69d6df189273e7a5"
-    },
-    {
-      "file": "workspace-navigation.mp4",
-      "bytes": 708485,
-      "sha256": "686c59ddcbaf20393ea55935104083c4eaf11d20a280db9e6a4dab9821591561"
-    },
-    {
-      "file": "workspace-navigation.vtt",
-      "bytes": 2618,
-      "sha256": "e5517dfd7593993f8902ef94c4de3fb88756cee3fb6ff0774f087c24c203b360"
+      "sha256": "0bbd16223a055d17333ab90f7220018ae3c952ae7270763a69d6df189273e7a5",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

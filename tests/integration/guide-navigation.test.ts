@@ -48,43 +48,42 @@ test('opening the guide from home does not download a module for each media file
     contentType: 'application/json',
   });
   expect(
-    scripts.filter((url) =>
-      /\/guidebook\/media\/.+\.(png|webp|mp4|vtt)$/.test(new URL(url).pathname),
-    ),
+    scripts.filter((url) => /\/guidebook\/media\/.+\.(png|webp)$/.test(new URL(url).pathname)),
   ).toEqual([]);
   expect(durationMs).toBeLessThan(1_000);
 });
 
-test('offscreen recordings do not compete with the chapter text for loading', async ({ page }) => {
-  const recordings: string[] = [];
+test('offscreen step images load lazily without changing their reserved dimensions', async ({
+  page,
+}) => {
+  const requests: string[] = [];
   page.on('request', (request) => {
-    if (new URL(request.url()).pathname.endsWith('.mp4')) recordings.push(request.url());
+    if (request.resourceType() === 'image') requests.push(request.url());
   });
   await page.goto('/guide/rules');
   const article = page.getByTestId('guide.article');
   await expect(article).toBeVisible();
-  const videos = article.locator('video');
-  const video = videos.last();
+  const images = article.locator('img');
+  const image = images.last();
   expect(
-    await video.evaluate((element) => element.getBoundingClientRect().top > innerHeight * 2),
+    await image.evaluate((element) => element.getBoundingClientRect().top > innerHeight * 2),
   ).toBe(true);
-  await expect(video).not.toHaveAttribute('src');
-  expect(recordings.length).toBeLessThan(await videos.count());
-  const initialSize = await video.evaluate((element) => {
+  await expect(image).toHaveAttribute('loading', 'lazy');
+  const source = await image.evaluate((element: HTMLImageElement) => element.src);
+  expect(requests).not.toContain(source);
+  const initialSize = await image.evaluate((element) => {
     const { width, height } = element.getBoundingClientRect();
     return { width, height };
   });
-  await video.scrollIntoViewIfNeeded();
-  await expect
-    .poll(() => video.evaluate((element: HTMLVideoElement) => element.readyState))
-    .toBeGreaterThan(0);
+  await image.scrollIntoViewIfNeeded();
+  await image.evaluate((element: HTMLImageElement) => element.decode());
   expect(
-    await video.evaluate((element) => {
+    await image.evaluate((element) => {
       const { width, height } = element.getBoundingClientRect();
       return { width, height };
     }),
   ).toEqual(initialSize);
-  expect(recordings.length).toBeGreaterThan(0);
+  expect(requests).toContain(source);
 });
 
 test('ready reader switches unseen chapters without fetching code, text or styles again', async ({
@@ -96,10 +95,7 @@ test('ready reader switches unseen chapters without fetching code, text or style
   const blockingRequests: string[] = [];
   await page.route('**/*', (route) => {
     if (
-      ['script', 'stylesheet', 'fetch', 'xhr', 'document'].includes(
-        route.request().resourceType(),
-      ) &&
-      !new URL(route.request().url()).pathname.endsWith('.mp4')
+      ['script', 'stylesheet', 'fetch', 'xhr', 'document'].includes(route.request().resourceType())
     ) {
       blockingRequests.push(route.request().url());
       return route.abort('failed');
@@ -187,19 +183,16 @@ test('chapter and section navigation stay responsive and retain the reader shell
   const outline = page.getByTestId('guide.outline').locator('a').nth(1);
   const article = await page.getByTestId('guide.article').elementHandle();
   if (!article) throw new Error('Reader article is missing.');
-  const firstVideo = page.getByTestId('guide.article').locator('video').first();
-  await firstVideo.scrollIntoViewIfNeeded();
-  await expect
-    .poll(() => firstVideo.evaluate((element: HTMLVideoElement) => element.readyState))
-    .toBeGreaterThan(0);
-  await firstVideo.evaluate((element: HTMLVideoElement) => {
-    element.currentTime = 1;
-  });
-  const video = await firstVideo.elementHandle();
+  const firstImage = page.getByTestId('guide.article').locator('img').first();
+  await firstImage.scrollIntoViewIfNeeded();
+  await firstImage.evaluate((element: HTMLImageElement) => element.decode());
+  const image = await firstImage.elementHandle();
+  if (!image) throw new Error('Reader step image is missing.');
+  const source = await firstImage.getAttribute('src');
   await outline.click();
   expect(await article.evaluate((node) => node.isConnected)).toBe(true);
-  if (video) expect(await video.evaluate((node) => node.isConnected)).toBe(true);
-  expect(await firstVideo.evaluate((element: HTMLVideoElement) => element.currentTime)).toBe(1);
+  expect(await image.evaluate((node) => node.isConnected)).toBe(true);
+  expect(await firstImage.getAttribute('src')).toBe(source);
   await testInfo.attach('navigation-measurements', {
     body: Buffer.from(JSON.stringify(measurements, null, 2)),
     contentType: 'application/json',

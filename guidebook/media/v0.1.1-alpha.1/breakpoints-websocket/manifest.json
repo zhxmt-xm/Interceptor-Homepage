@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App and owned file-panel windows; no microphone",
   "example": {
     "path": "/guide/websocket/text",
     "original": "{\"type\":\"chat\",\"message\":\"hello-original\"}",
@@ -25,340 +24,358 @@
     "directions": "client-to-server, server-to-client",
     "frames": "message"
   },
-  "duration": 84.24661764899999,
-  "video": "breakpoints-websocket.mp4",
-  "captions": "breakpoints-websocket.vtt",
   "steps": [
     {
       "id": "01-connect",
       "title": "建立文本示例连接 / Connect the text example client",
-      "image": "breakpoints-websocket-01-connect.png",
-      "seconds": 0.40426284200000007
+      "image": "breakpoints-websocket-01-connect.png"
     },
     {
       "id": "02-select-connection",
       "title": "选中 WebSocket 连接 / Select the WebSocket connection",
-      "image": "breakpoints-websocket-02-select-connection.png",
-      "seconds": 3.2476663689999987
+      "image": "breakpoints-websocket-02-select-connection.png"
     },
     {
       "id": "03-messages",
       "title": "打开 Messages / Open Messages",
-      "image": "breakpoints-websocket-03-messages.png",
-      "seconds": 6.248298618000001
+      "image": "breakpoints-websocket-03-messages.png"
     },
     {
       "id": "04-sent-setup",
       "title": "打开连接断点设置 / Open connection breakpoint settings",
-      "image": "breakpoints-websocket-04-sent-setup.png",
-      "seconds": 9.096390271
+      "image": "breakpoints-websocket-04-sent-setup.png"
     },
     {
       "id": "05-sent-direction",
       "title": "选择 Sent，仅暂停发送消息 / Choose Sent messages",
-      "image": "breakpoints-websocket-05-sent-direction.png",
-      "seconds": 11.997509693
+      "image": "breakpoints-websocket-05-sent-direction.png"
     },
     {
       "id": "06-enable-sent",
       "title": "启用 Sent 文本断点 / Enable Sent message breakpoints",
-      "image": "breakpoints-websocket-06-enable-sent.png",
-      "seconds": 14.897049574
+      "image": "breakpoints-websocket-06-enable-sent.png"
     },
     {
       "id": "07-sent-original",
       "title": "发送 hello-original 并暂停 / Pause hello-original",
-      "image": "breakpoints-websocket-07-sent-original.png",
-      "seconds": 17.747318787
+      "image": "breakpoints-websocket-07-sent-original.png"
     },
     {
       "id": "08-sent-unmodified",
       "title": "Continue unmodified 原样发送 / Continue the sent text unmodified",
-      "image": "breakpoints-websocket-08-sent-unmodified.png",
-      "seconds": 20.84690697
+      "image": "breakpoints-websocket-08-sent-unmodified.png"
     },
     {
       "id": "09-sent-edit-target",
       "title": "发送 edit-this 并暂停 / Pause edit-this",
-      "image": "breakpoints-websocket-09-sent-edit-target.png",
-      "seconds": 23.696635285
+      "image": "breakpoints-websocket-09-sent-edit-target.png"
     },
     {
       "id": "10-sent-text",
       "title": "选择发送帧的 Text / Choose Text for the sent frame",
-      "image": "breakpoints-websocket-10-sent-text.png",
-      "seconds": 26.658686370999998
+      "image": "breakpoints-websocket-10-sent-text.png"
     },
     {
       "id": "11-sent-edit",
       "title": "输入 edited-by-guide / Enter edited-by-guide",
-      "image": "breakpoints-websocket-11-sent-edit.png",
-      "seconds": 29.547035235
+      "image": "breakpoints-websocket-11-sent-edit.png"
     },
     {
       "id": "12-sent-forward",
       "title": "Forward edited，核对源站和echo / Forward the edited text and verify its echo",
-      "image": "breakpoints-websocket-12-sent-forward.png",
-      "seconds": 32.398486373000004
+      "image": "breakpoints-websocket-12-sent-forward.png"
     },
     {
       "id": "13-sent-drop-target",
       "title": "发送 do-not-forward 并暂停 / Pause do-not-forward",
-      "image": "breakpoints-websocket-13-sent-drop-target.png",
-      "seconds": 35.298614864
+      "image": "breakpoints-websocket-13-sent-drop-target.png"
     },
     {
       "id": "14-sent-drop",
       "title": "Drop 发送帧 / Drop the sent frame",
-      "image": "breakpoints-websocket-14-sent-drop.png",
-      "seconds": 38.246359643999995
+      "image": "breakpoints-websocket-14-sent-drop.png"
     },
     {
       "id": "15-disable-sent",
       "title": "停用 Sent 设置 / Disable the Sent configuration",
-      "image": "breakpoints-websocket-15-disable-sent.png",
-      "seconds": 41.108788868000005
+      "image": "breakpoints-websocket-15-disable-sent.png"
     },
     {
       "id": "16-received-setup",
       "title": "重新打开连接设置 / Reopen connection settings",
-      "image": "breakpoints-websocket-16-received-setup.png",
-      "seconds": 43.94642782300001
+      "image": "breakpoints-websocket-16-received-setup.png"
     },
     {
       "id": "17-received-direction",
       "title": "选择 Received / Choose Received messages",
-      "image": "breakpoints-websocket-17-received-direction.png",
-      "seconds": 46.807495016000004
+      "image": "breakpoints-websocket-17-received-direction.png"
     },
     {
       "id": "18-enable-received",
       "title": "启用 Received 文本断点 / Enable Received message breakpoints",
-      "image": "breakpoints-websocket-18-enable-received.png",
-      "seconds": 49.697782011
+      "image": "breakpoints-websocket-18-enable-received.png"
     },
     {
       "id": "19-received-original",
       "title": "源站发送 server-original / Pause server-original from the origin",
-      "image": "breakpoints-websocket-19-received-original.png",
-      "seconds": 52.547694404
+      "image": "breakpoints-websocket-19-received-original.png"
     },
     {
       "id": "20-received-unmodified",
       "title": "Continue unmodified 原样接收 / Continue the received text unmodified",
-      "image": "breakpoints-websocket-20-received-unmodified.png",
-      "seconds": 55.495480522
+      "image": "breakpoints-websocket-20-received-unmodified.png"
     },
     {
       "id": "21-received-edit-target",
       "title": "源站发送 server-edit-this / Pause server-edit-this",
-      "image": "breakpoints-websocket-21-received-edit-target.png",
-      "seconds": 58.34749699099999
+      "image": "breakpoints-websocket-21-received-edit-target.png"
     },
     {
       "id": "22-received-text",
       "title": "选择接收帧的 Text / Choose Text for the received frame",
-      "image": "breakpoints-websocket-22-received-text.png",
-      "seconds": 61.399954654
+      "image": "breakpoints-websocket-22-received-text.png"
     },
     {
       "id": "23-received-edit",
       "title": "输入 server-edited-by-guide / Enter server-edited-by-guide",
-      "image": "breakpoints-websocket-23-received-edit.png",
-      "seconds": 64.24975972799999
+      "image": "breakpoints-websocket-23-received-edit.png"
     },
     {
       "id": "24-received-forward",
       "title": "Forward edited，客户端收到替换文本 / Forward the replacement to the client",
-      "image": "breakpoints-websocket-24-received-forward.png",
-      "seconds": 67.09782917499999
+      "image": "breakpoints-websocket-24-received-forward.png"
     },
     {
       "id": "25-received-drop-target",
       "title": "源站发送 server-do-not-forward / Pause server-do-not-forward",
-      "image": "breakpoints-websocket-25-received-drop-target.png",
-      "seconds": 69.947512576
+      "image": "breakpoints-websocket-25-received-drop-target.png"
     },
     {
       "id": "26-received-drop",
       "title": "Drop 接收帧 / Drop the received frame",
-      "image": "breakpoints-websocket-26-received-drop.png",
-      "seconds": 72.89720207
+      "image": "breakpoints-websocket-26-received-drop.png"
     },
     {
       "id": "27-disable-received",
       "title": "关闭连接断点 / Disable connection breakpoints",
-      "image": "breakpoints-websocket-27-disable-received.png",
-      "seconds": 75.746452127
+      "image": "breakpoints-websocket-27-disable-received.png"
     },
     {
       "id": "28-after-disabled",
       "title": "核对关闭后正常echo / Verify normal echo after disabling",
-      "image": "breakpoints-websocket-28-after-disabled.png",
-      "seconds": 78.596162327
+      "image": "breakpoints-websocket-28-after-disabled.png"
     },
     {
       "id": "29-close-client",
       "title": "正常关闭示例连接 / Close the example connection normally",
-      "image": "breakpoints-websocket-29-close-client.png",
-      "seconds": 81.35688480499999
+      "image": "breakpoints-websocket-29-close-client.png"
     }
   ],
   "assets": [
     {
-      "file": "breakpoints-websocket.mp4",
-      "bytes": 548502,
-      "sha256": "48f9a5210b1ee52b9191d1c511ce9b603e82bcb68ccfa2f7b065a9678a7f9f3c"
-    },
-    {
-      "file": "breakpoints-websocket.vtt",
-      "bytes": 2668,
-      "sha256": "32b7865cac922e77813ddf84d071bd31fd2c2038cfd589878e5f92bf94d73959"
-    },
-    {
       "file": "breakpoints-websocket-01-connect.png",
       "bytes": 231974,
-      "sha256": "4485874e2b35fa2b7b0b7434b2ed3a4d237bb4cd0f1e01e73dcdff1acceba1d4"
+      "sha256": "4485874e2b35fa2b7b0b7434b2ed3a4d237bb4cd0f1e01e73dcdff1acceba1d4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-02-select-connection.png",
       "bytes": 347713,
-      "sha256": "fe14a113cd839700c872e4f048bf569d9c514208bb0b36d99553c95f447ed04b"
+      "sha256": "fe14a113cd839700c872e4f048bf569d9c514208bb0b36d99553c95f447ed04b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-03-messages.png",
       "bytes": 283907,
-      "sha256": "380fe1cac77dde64ba2befa68e7abfb3ca1e38cc9ee3c2d2e7b8aec5e826da99"
+      "sha256": "380fe1cac77dde64ba2befa68e7abfb3ca1e38cc9ee3c2d2e7b8aec5e826da99",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-04-sent-setup.png",
       "bytes": 346433,
-      "sha256": "db7539d7cf9e178f89beb388a72d0769e4d3b17ae188f89c361633ca36ac8cfc"
+      "sha256": "db7539d7cf9e178f89beb388a72d0769e4d3b17ae188f89c361633ca36ac8cfc",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-05-sent-direction.png",
       "bytes": 345930,
-      "sha256": "2afd4266a7d0e39660399bda9f34cf53be13a139cb3c8c55543db04c2d1f4d3b"
+      "sha256": "2afd4266a7d0e39660399bda9f34cf53be13a139cb3c8c55543db04c2d1f4d3b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-06-enable-sent.png",
       "bytes": 280617,
-      "sha256": "f1a40b268d2655a18df740472b0bc91d3a778c06d0988eaa6d6494c5c68ced4b"
+      "sha256": "f1a40b268d2655a18df740472b0bc91d3a778c06d0988eaa6d6494c5c68ced4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-07-sent-original.png",
       "bytes": 337531,
-      "sha256": "7f85a01e14723e0bfcf5303c65720035517e85d9408df0242209478dde3f84f2"
+      "sha256": "7f85a01e14723e0bfcf5303c65720035517e85d9408df0242209478dde3f84f2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-08-sent-unmodified.png",
       "bytes": 293829,
-      "sha256": "7d72003feffc26054c11030e8f4436f3347dfae4bde77daaca137c094df07a4c"
+      "sha256": "7d72003feffc26054c11030e8f4436f3347dfae4bde77daaca137c094df07a4c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-09-sent-edit-target.png",
       "bytes": 357926,
-      "sha256": "386a830e16b058faa59c230019d152d94c8558b0b74bc8327c73935e969d866e"
+      "sha256": "386a830e16b058faa59c230019d152d94c8558b0b74bc8327c73935e969d866e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-10-sent-text.png",
       "bytes": 361022,
-      "sha256": "6f3c61b94e48124225055c6b19680bc432009266d2ad848e0afb113142616430"
+      "sha256": "6f3c61b94e48124225055c6b19680bc432009266d2ad848e0afb113142616430",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-11-sent-edit.png",
       "bytes": 362207,
-      "sha256": "d7757e43f349f32bffbb1be8f030a287e7a63bab5691d8b65233fb77fc9fe74d"
+      "sha256": "d7757e43f349f32bffbb1be8f030a287e7a63bab5691d8b65233fb77fc9fe74d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-12-sent-forward.png",
       "bytes": 316145,
-      "sha256": "90c05253a6d9de6a6e589452cd2d4a127aefb42cbb9dfde1b751640d51d55216"
+      "sha256": "90c05253a6d9de6a6e589452cd2d4a127aefb42cbb9dfde1b751640d51d55216",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-13-sent-drop-target.png",
       "bytes": 360366,
-      "sha256": "934709cfda42cb413e74a43061fce66b9d3522f6beae30df6bc5f6ab4ffe8239"
+      "sha256": "934709cfda42cb413e74a43061fce66b9d3522f6beae30df6bc5f6ab4ffe8239",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-14-sent-drop.png",
       "bytes": 326147,
-      "sha256": "64899e253278c16bd063b38afb8db89a6004977dc730c75d2f74f78a8689088a"
+      "sha256": "64899e253278c16bd063b38afb8db89a6004977dc730c75d2f74f78a8689088a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-15-disable-sent.png",
       "bytes": 330039,
-      "sha256": "9bcde7dc729883f2846ab751089bc1c33d022e203a9fe92c35d3f40684fcef3b"
+      "sha256": "9bcde7dc729883f2846ab751089bc1c33d022e203a9fe92c35d3f40684fcef3b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-16-received-setup.png",
       "bytes": 350577,
-      "sha256": "53bbcb651ead0d49bf8ef2008f718c3c709c05beb7e15a4678c22b24bc0f7c38"
+      "sha256": "53bbcb651ead0d49bf8ef2008f718c3c709c05beb7e15a4678c22b24bc0f7c38",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-17-received-direction.png",
       "bytes": 350320,
-      "sha256": "e4adb611e0ccebf6dc04be1ef3ebdd245b5b9ed626a7f3acd09cc821ed66b649"
+      "sha256": "e4adb611e0ccebf6dc04be1ef3ebdd245b5b9ed626a7f3acd09cc821ed66b649",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-18-enable-received.png",
       "bytes": 326246,
-      "sha256": "e6e690962c130c8872086b86046449b2d8d4faf7cf9f27a563610a9e865b3001"
+      "sha256": "e6e690962c130c8872086b86046449b2d8d4faf7cf9f27a563610a9e865b3001",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-19-received-original.png",
       "bytes": 359617,
-      "sha256": "ffd4b14ad050049e58138330dae0144166a059da492ebd056255b26efcd95a45"
+      "sha256": "ffd4b14ad050049e58138330dae0144166a059da492ebd056255b26efcd95a45",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-20-received-unmodified.png",
       "bytes": 338120,
-      "sha256": "bffd275447be97870dfe2b5fa5d944306faabf656e67ff7b8229f0107d2374c4"
+      "sha256": "bffd275447be97870dfe2b5fa5d944306faabf656e67ff7b8229f0107d2374c4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-21-received-edit-target.png",
       "bytes": 358918,
-      "sha256": "8cd69fd14c9cec958bc34d581f3df8b4c52948337049324c1990e1bb5ee2d3ce"
+      "sha256": "8cd69fd14c9cec958bc34d581f3df8b4c52948337049324c1990e1bb5ee2d3ce",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-22-received-text.png",
       "bytes": 363668,
-      "sha256": "7c66f8121e5a135cf5fbf16af13d4156f7f22fa0b3478e6a1239adcc0d45d148"
+      "sha256": "7c66f8121e5a135cf5fbf16af13d4156f7f22fa0b3478e6a1239adcc0d45d148",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-23-received-edit.png",
       "bytes": 365340,
-      "sha256": "bc280070045ab01d5e66b5842258df60867ebf16284b694878bac67e2c1db615"
+      "sha256": "bc280070045ab01d5e66b5842258df60867ebf16284b694878bac67e2c1db615",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-24-received-forward.png",
       "bytes": 349461,
-      "sha256": "f6a9bf8626962c7c1871fcddc843b4c6f0bd4c7682ac3996e3fcaf97af485a99"
+      "sha256": "f6a9bf8626962c7c1871fcddc843b4c6f0bd4c7682ac3996e3fcaf97af485a99",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-25-received-drop-target.png",
       "bytes": 362369,
-      "sha256": "e1b01606cfd8586840d71094041ba2a2a7d2aba96d58d4de213c9bba4f5f7320"
+      "sha256": "e1b01606cfd8586840d71094041ba2a2a7d2aba96d58d4de213c9bba4f5f7320",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-26-received-drop.png",
       "bytes": 361488,
-      "sha256": "ee570f7eb7507a68f4face8147665d1b5e3ab765109a29797de9a4b258756619"
+      "sha256": "ee570f7eb7507a68f4face8147665d1b5e3ab765109a29797de9a4b258756619",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-27-disable-received.png",
       "bytes": 364940,
-      "sha256": "628040ee4716c688937c5e1b747e334ae5fde6a54e6cd8614ac3c05fa0a79b5b"
+      "sha256": "628040ee4716c688937c5e1b747e334ae5fde6a54e6cd8614ac3c05fa0a79b5b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-28-after-disabled.png",
       "bytes": 386983,
-      "sha256": "d98f9d04d1f370d3476eb4686392b71d3dbf991dcb832b2bebb30158269e9da7"
+      "sha256": "d98f9d04d1f370d3476eb4686392b71d3dbf991dcb832b2bebb30158269e9da7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-websocket-29-close-client.png",
       "bytes": 387455,
-      "sha256": "2328ecf19d701acb01f915ac95976c401dadce40ced4e4708335207a0d1630bf"
+      "sha256": "2328ecf19d701acb01f915ac95976c401dadce40ced4e4708335207a0d1630bf",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

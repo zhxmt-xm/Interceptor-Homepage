@@ -93,7 +93,7 @@ Recording 已开启。以下图文准确复用 Capture 的 `http://127.0.0.1:583
 
    ![本次实际搜索值 /guide/capture](../media/v0.1.1-alpha.1/capture/capture-01-filter.png)
 
-2. 在终端通过显式代理请求同一地址。以下命令是读者复现该 GET 的方式，不表示录像中展示了终端输入。
+2. 在终端通过显式代理请求同一地址。以下命令是读者复现该 GET 的方式，不表示步骤图中展示了终端输入。
 
    macOS：
 

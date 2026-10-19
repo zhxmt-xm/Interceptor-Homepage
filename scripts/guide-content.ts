@@ -22,7 +22,7 @@ import {
   guideHref,
 } from '../src/content/guidebook.ts';
 import type { Locale } from '../src/content/types.ts';
-import type { GuideDocument, GuideHeading } from '../src/features/guide/interfaces.ts';
+import type { GuideHeading } from '../src/features/guide/interfaces.ts';
 
 const dimensionsByFile: Record<string, number[]> = imageDimensions;
 
@@ -41,12 +41,6 @@ const processor = unified()
   .use(rehypeSanitize, {
     ...defaultSchema,
     clobberPrefix: 'guide-anchor-',
-    tagNames: [...(defaultSchema.tagNames ?? []), 'video', 'track'],
-    attributes: {
-      ...defaultSchema.attributes,
-      video: ['src', 'poster', 'controls', 'preload', 'playsInline', 'lang', 'title'],
-      track: ['src', 'kind', 'srcLang', 'label', 'default'],
-    },
   })
   .use(rehypeSlug, { prefix: 'guide-heading-' });
 
@@ -119,7 +113,7 @@ function compile(source: string, page: GuidePageId, locale: Locale) {
 
 async function readMediaFiles(root: string): Promise<string[]> {
   return (await readdir(path.join(root, 'guidebook', 'media'), { recursive: true }))
-    .filter((file) => /\.(png|webp|mp4|vtt)$/.test(file))
+    .filter((file) => /\.(png|webp)$/.test(file))
     .sort();
 }
 
@@ -134,7 +128,6 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
     return token;
   };
   const style = (name: string): string[] => [reference(`styles.${name}`)];
-  const videos: GuideDocument['videos'][number][] = [];
   const sourceUrl = `https://guidebook.invalid/guidebook/${
     page === 'overview'
       ? locale === 'en'
@@ -179,10 +172,7 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
   };
   const transform = (node: Element): Element => {
     const properties = { ...node.properties };
-    for (const name of ['src', 'poster']) {
-      const value = properties[name];
-      if (typeof value === 'string') properties[name] = media(value);
-    }
+    if (typeof properties.src === 'string') properties.src = media(properties.src);
     let tagName = node.tagName;
     if (tagName === 'a') {
       properties.className = style(properties.href ? 'link' : 'anchor');
@@ -198,37 +188,6 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
     const children = node.children.map((child) =>
       child.type === 'element' ? transform(child) : child,
     );
-    if (tagName === 'video') {
-      if (typeof properties.src !== 'string') throw new Error('Guide video has no source.');
-      const attributes = {
-        src: properties.src,
-        poster: typeof properties.poster === 'string' ? properties.poster : undefined,
-        lang: typeof properties.lang === 'string' ? properties.lang : undefined,
-        title: typeof properties.title === 'string' ? properties.title : undefined,
-      };
-      const tracks = children.flatMap((child) => {
-        if (child.type !== 'element' || child.tagName !== 'track') return [];
-        if (typeof child.properties.src !== 'string')
-          throw new Error('Guide video track has no source.');
-        return [
-          {
-            src: child.properties.src,
-            srcLang:
-              typeof child.properties.srcLang === 'string' ? child.properties.srcLang : undefined,
-            kind: typeof child.properties.kind === 'string' ? child.properties.kind : undefined,
-            label: typeof child.properties.label === 'string' ? child.properties.label : undefined,
-            default: Boolean(child.properties.default),
-          },
-        ];
-      });
-      const index = videos.push({ attributes, tracks }) - 1;
-      return {
-        type: 'element',
-        tagName: 'div',
-        properties: { className: style('videoSlot'), 'data-guide-video': index },
-        children: [],
-      };
-    }
     if (tagName === 'img') {
       const original = node.properties.src;
       if (typeof original !== 'string') throw new Error('Guide step image has no source.');
@@ -287,15 +246,7 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
       return expression === undefined ? JSON.stringify(part) : `escapeAttribute(${expression})`;
     })
     .join(',');
-  const videoSource = JSON.stringify(videos).replace(
-    new RegExp(`"(${prefix}\\d+__)"`, 'g'),
-    (_match, token: string) => {
-      const expression = references.get(token);
-      if (expression === undefined) throw new Error('Unknown guidebook media reference.');
-      return expression;
-    },
-  );
-  return `html:[${htmlSource}].join(""),videos:${videoSource}`;
+  return `html:[${htmlSource}].join("")`;
 }
 
 /** Compile trusted source Markdown and sanitize HTML before it reaches the reader. */

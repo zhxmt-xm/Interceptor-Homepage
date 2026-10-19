@@ -8,11 +8,11 @@
 <a id="walkthrough"></a>
 ## 逐步骤实操：真实产品录制
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文或视频，Copy后的配置只在本机测试内存中使用。
+> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文，Copy后的配置只在本机测试内存中使用。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -21,170 +21,118 @@
 | <code>endpointChanged</code> | <code>false</code> |
 | <code>caller</code> | <code>official SDK local demonstration; not a VS Code or cloud-host compatibility claim</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/mcp/mcp.mp4" poster="../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp/mcp.vtt" default>
-</video>
-
 <a id="walkthrough-01-settings"></a>
 ### 01 · 打开 Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=0.421) · [返回本节视频](#walkthrough-video)
 
 ![01 · 打开 Settings](../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png)
 
 <a id="walkthrough-02-mcp"></a>
 ### 02 · 找到 MCP Server
 
-[视频 00:03](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=3.275) · [返回本节视频](#walkthrough-video)
-
 ![02 · 找到 MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-02-mcp.png)
 
 <a id="walkthrough-03-enable"></a>
 ### 03 · 开启本机 MCP Server
-
-[视频 00:06](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=6.417) · [返回本节视频](#walkthrough-video)
 
 ![03 · 开启本机 MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-03-enable.png)
 
 <a id="walkthrough-04-add-client"></a>
 ### 04 · 添加独立 Client
 
-[视频 00:09](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=9.327) · [返回本节视频](#walkthrough-video)
-
 ![04 · 添加独立 Client](../media/v0.1.1-alpha.1/mcp/mcp-04-add-client.png)
 
 <a id="walkthrough-05-name"></a>
 ### 05 · 输入 Guide local client
-
-[视频 00:12](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=12.266) · [返回本节视频](#walkthrough-video)
 
 ![05 · 输入 Guide local client](../media/v0.1.1-alpha.1/mcp/mcp-05-name.png)
 
 <a id="walkthrough-06-create"></a>
 ### 06 · 创建 Client
 
-[视频 00:15](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=15.117) · [返回本节视频](#walkthrough-video)
-
 ![06 · 创建 Client](../media/v0.1.1-alpha.1/mcp/mcp-06-create.png)
 
 <a id="walkthrough-07-copy"></a>
 ### 07 · 复制配置，不展示凭据
-
-[视频 00:18](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=18.067) · [返回本节视频](#walkthrough-video)
 
 ![07 · 复制配置，不展示凭据](../media/v0.1.1-alpha.1/mcp/mcp-07-copy.png)
 
 <a id="walkthrough-08-query"></a>
 ### 08 · 演示客户端连接并查询
 
-[视频 00:21](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=21.368) · [返回本节视频](#walkthrough-video)
-
 ![08 · 演示客户端连接并查询](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
 
 <a id="walkthrough-09-ask"></a>
 ### 09 · 发起需要审批的操作
-
-[视频 00:24](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=24.367) · [返回本节视频](#walkthrough-video)
 
 ![09 · 发起需要审批的操作](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
 
 <a id="walkthrough-10-deny"></a>
 ### 10 · 拒绝一次操作
 
-[视频 00:27](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=27.278) · [返回本节视频](#walkthrough-video)
-
 ![10 · 拒绝一次操作](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
 
 <a id="walkthrough-11-ask-again"></a>
 ### 11 · 再次请求并检查影响
-
-[视频 00:30](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=30.168) · [返回本节视频](#walkthrough-video)
 
 ![11 · 再次请求并检查影响](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
 
 <a id="walkthrough-12-allow"></a>
 ### 12 · 允许暂停录制
 
-[视频 00:33](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=33.017) · [返回本节视频](#walkthrough-video)
-
 ![12 · 允许暂停录制](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
 
 <a id="walkthrough-13-auto"></a>
 ### 13 · 查看 Client 的 Auto 模式
-
-[视频 00:35](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=35.917) · [返回本节视频](#walkthrough-video)
 
 ![13 · 查看 Client 的 Auto 模式](../media/v0.1.1-alpha.1/mcp/mcp-13-auto.png)
 
 <a id="walkthrough-14-ask-mode"></a>
 ### 14 · 恢复 Client 的 Ask
 
-[视频 00:38](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=38.868) · [返回本节视频](#walkthrough-video)
-
 ![14 · 恢复 Client 的 Ask](../media/v0.1.1-alpha.1/mcp/mcp-14-ask-mode.png)
 
 <a id="walkthrough-14a-regenerate-dialog"></a>
 ### 15 · 检查轮换凭据确认
-
-[视频 00:41](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=41.716) · [返回本节视频](#walkthrough-video)
 
 ![15 · 检查轮换凭据确认](../media/v0.1.1-alpha.1/mcp/mcp-14a-regenerate-dialog.png)
 
 <a id="walkthrough-14b-regenerate"></a>
 ### 16 · 轮换凭据并验证旧配置失效
 
-[视频 00:44](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=44.618) · [返回本节视频](#walkthrough-video)
-
 ![16 · 轮换凭据并验证旧配置失效](../media/v0.1.1-alpha.1/mcp/mcp-14b-regenerate.png)
 
 <a id="walkthrough-14c-update-client"></a>
 ### 17 · 复制新配置并重新连接
-
-[视频 00:47](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=47.568) · [返回本节视频](#walkthrough-video)
 
 ![17 · 复制新配置并重新连接](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
 
 <a id="walkthrough-15-revoke-dialog"></a>
 ### 18 · 查看撤销 Client 的确认
 
-[视频 00:50](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=50.666) · [返回本节视频](#walkthrough-video)
-
 ![18 · 查看撤销 Client 的确认](../media/v0.1.1-alpha.1/mcp/mcp-15-revoke-dialog.png)
 
 <a id="walkthrough-16-revoke"></a>
 ### 19 · 撤销演示 Client
-
-[视频 00:53](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=53.568) · [返回本节视频](#walkthrough-video)
 
 ![19 · 撤销演示 Client](../media/v0.1.1-alpha.1/mcp/mcp-16-revoke.png)
 
 <a id="walkthrough-17-disable"></a>
 ### 20 · 关闭 MCP Server
 
-[视频 00:56](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=56.468) · [返回本节视频](#walkthrough-video)
-
 ![20 · 关闭 MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-17-disable.png)
 
 <a id="walkthrough-18-port-conflict"></a>
 ### 21 · 观察端口冲突提示
-
-[视频 00:59](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=59.418) · [返回本节视频](#walkthrough-video)
 
 ![21 · 观察端口冲突提示](../media/v0.1.1-alpha.1/mcp/mcp-18-port-conflict.png)
 
 <a id="walkthrough-19-release-port"></a>
 ### 22 · 结束已知占用后重试
 
-[视频 01:02](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=62.368) · [返回本节视频](#walkthrough-video)
-
 ![22 · 结束已知占用后重试](../media/v0.1.1-alpha.1/mcp/mcp-19-release-port.png)
 
 <a id="walkthrough-20-final-disable"></a>
 ### 23 · 结束演示并关闭 Server
-
-[视频 01:05](../media/v0.1.1-alpha.1/mcp/mcp.mp4#t=65.319) · [返回本节视频](#walkthrough-video)
 
 ![23 · 结束演示并关闭 Server](../media/v0.1.1-alpha.1/mcp/mcp-20-final-disable.png)
 
@@ -309,7 +257,7 @@
 
 2. 核对占用者是旧 App 还是自己管理的已知服务，不盲目结束未知进程。
 
-   录制中的占用者是本次主动启动的自有服务，因此可确认身份。教程只录App，不录其他进程管理器；遇到未知占用者时先自行确认，不照着视频结束陌生进程。
+   录制中的占用者是本次主动启动的自有服务，因此可确认身份。教程只录App，不录其他进程管理器；遇到未知占用者时先自行确认，不照着示例结束陌生进程。
 
 3. 结束确认属于自己的占用后重试 Enable，不要求换 endpoint。图中是释放端口后的 App 重试结果，终止占用程序本身仍待配图。
 
@@ -355,7 +303,7 @@
 
 **关键说明**：正常关闭、开启或重启不应要求每次重新创建 Client；但主动更换 endpoint 后，旧地址仍需手动更新。
 
-**该版本的实际分支**：如果在页面中手动开启一个被占用的端口，App保持关闭并显示`EADDRINUSE`；结束明确属于自己的占用程序后可以重试。若上次保存为开启，App重启时发现原端口被占用，才会显示`endpoint-conflict`及更换入口。两种实录分别见[运行期错误与重试](#walkthrough-video)和[重启恢复](#walkthrough-mcp-endpoint-video)，不把其中一个画面套用到另一种情况。
+**该版本的实际分支**：如果在页面中手动开启一个被占用的端口，App保持关闭并显示`EADDRINUSE`；结束明确属于自己的占用程序后可以重试。若上次保存为开启，App重启时发现原端口被占用，才会显示`endpoint-conflict`及更换入口。两种实录分别见[运行期错误与重试](#walkthrough)和[重启恢复](#walkthrough-mcp-endpoint)，不把其中一个画面套用到另一种情况。
 
 <a id="credentials"></a>
 ## 轮换凭据、撤销客户端和关闭服务
@@ -430,11 +378,11 @@
 <a id="walkthrough-mcp-endpoint"></a>
 ## 逐步骤实操：重启后的 endpoint 冲突恢复
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文或视频，Copy后的配置只在本机测试内存中使用。
+> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文，Copy后的配置只在本机测试内存中使用。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -442,44 +390,28 @@
 | <code>newEndpoint</code> | <code>http://127.0.0.1:49835/mcp</code> |
 | <code>prerequisite</code> | <code>MCP was enabled before normal App restart; its saved port was occupied by an owned demo process</code> |
 
-<a id="walkthrough-mcp-endpoint-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4" poster="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-endpoint-01-settings"></a>
 ### 01 · 重启后打开 Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=0.414) · [返回本节视频](#walkthrough-mcp-endpoint-video)
 
 ![01 · 重启后打开 Settings](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png)
 
 <a id="walkthrough-mcp-endpoint-02-conflict"></a>
 ### 02 · 检查已保存 endpoint 冲突
 
-[视频 00:03](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=3.262) · [返回本节视频](#walkthrough-mcp-endpoint-video)
-
 ![02 · 检查已保存 endpoint 冲突](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-02-conflict.png)
 
 <a id="walkthrough-mcp-endpoint-03-change"></a>
 ### 03 · 显式更换 endpoint
-
-[视频 00:06](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=6.461) · [返回本节视频](#walkthrough-mcp-endpoint-video)
 
 ![03 · 显式更换 endpoint](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-03-change.png)
 
 <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>
 ### 04 · 核对需要更新的地址
 
-[视频 00:09](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=9.360) · [返回本节视频](#walkthrough-mcp-endpoint-video)
-
 ![04 · 核对需要更新的地址](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-04-note-new-address.png)
 
 <a id="walkthrough-mcp-endpoint-05-disable"></a>
 ### 05 · 关闭演示 Server
-
-[视频 00:12](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint.mp4#t=12.261) · [返回本节视频](#walkthrough-mcp-endpoint-video)
 
 ![05 · 关闭演示 Server](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-05-disable.png)
 
@@ -490,11 +422,11 @@
 <a id="walkthrough-mcp-tool-lifecycle"></a>
 ## 取消审批、导出与运行中撤销Client
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文或视频，Copy后的配置只在本机测试内存中使用。
+> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文，Copy后的配置只在本机测试内存中使用。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -507,163 +439,113 @@
 | <code>inFlightUrl</code> | <code>http://127.0.0.1:57678/guide/mcp-tools/in-flight</code> |
 | <code>revocation</code> | <code>The owned Composer socket is cancelled and the old Client can no longer query</code> |
 
-<a id="walkthrough-mcp-tool-lifecycle-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-tool-lifecycle-01-client"></a>
 ### 01 · 查看本次真实SDK Client
-
-[视频 00:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=0.435) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![01 · 查看本次真实SDK Client](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a>
 ### 02 · 定位本次暂停Tool的MCP权限
 
-[视频 00:03](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=3.484) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![02 · 定位本次暂停Tool的MCP权限](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>
 ### 03 · 发起一个尚待审批的操作
-
-[视频 00:06](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=6.503) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![03 · 发起一个尚待审批的操作](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-03-pending-ask.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>
 ### 04 · 调用方真实取消该请求
 
-[视频 00:09](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=9.516) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![04 · 调用方真实取消该请求](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-04-caller-abort.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a>
 ### 05 · 定位Diagnostics查询与导出权限
-
-[视频 00:12](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=12.548) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![05 · 定位Diagnostics查询与导出权限](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-05-diagnostics-permissions.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-06-recent"></a>
 ### 06 · SDK实际查询Recent且不出现审批
 
-[视频 00:15](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=15.588) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![06 · SDK实际查询Recent且不出现审批](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-06-recent.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-07-trace"></a>
 ### 07 · 用返回的traceId查询Trace
-
-[视频 00:18](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=18.586) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![07 · 用返回的traceId查询Trace](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-07-trace.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a>
 ### 08 · 请求导出并检查实际参数
 
-[视频 00:21](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=21.583) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![08 · 请求导出并检查实际参数](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-08-export-ask.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-09-deny"></a>
 ### 09 · Deny不打开文件窗口
-
-[视频 00:24](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=24.621) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![09 · Deny不打开文件窗口](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-09-deny.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a>
 ### 10 · 再次请求导出
 
-[视频 00:27](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=27.656) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![10 · 再次请求导出](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-10-export-again.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a>
 ### 11 · Allow后仍有真正的Save窗口
-
-[视频 00:40](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=40.864) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![11 · Allow后仍有真正的Save窗口](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a>
 ### 12 · 真实取消原生Save
 
-[视频 00:44](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=44.187) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![12 · 真实取消原生Save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-12-native-cancel.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a>
 ### 13 · 重新请求需要保存的导出
-
-[视频 00:48](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=48.765) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![13 · 重新请求需要保存的导出](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-13-export-save.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-14-save"></a>
 ### 14 · 保存guide-mcp-diagnostics.jsonl
 
-[视频 01:00](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=60.872) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![14 · 保存guide-mcp-diagnostics.jsonl](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-14-save.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a>
 ### 15 · 查询真实任务并核对文件
-
-[视频 01:05](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=65.126) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![15 · 查询真实任务并核对文件](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-15-job-completed.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>
 ### 16 · 清空搜索返回Client控制
 
-[视频 01:08](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=68.087) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![16 · 清空搜索返回Client控制](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-16-clear-search.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>
 ### 17 · 本次长调用选择Auto
-
-[视频 01:11](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=71.313) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![17 · 本次长调用选择Auto](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-17-auto.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a>
 ### 18 · 发起真实未完成的Composer请求
 
-[视频 01:14](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=74.350) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![18 · 发起真实未完成的Composer请求](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-18-long-request.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a>
 ### 19 · 在途调用期间打开撤销确认
-
-[视频 01:17](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=77.425) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![19 · 在途调用期间打开撤销确认](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-19-revoke-dialog.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a>
 ### 20 · 撤销Client并核对真实请求取消
 
-[视频 01:20](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=80.504) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![20 · 撤销Client并核对真实请求取消](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-20-revoke.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a>
 ### 21 · 旧Client身份不能再查询
 
-[视频 01:23](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=83.599) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
-
 ![21 · 旧Client身份不能再查询](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-21-old-identity.png)
 
 <a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
 ### 22 · 关闭本轮MCP Server
-
-[视频 01:26](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle.mp4#t=86.575) · [返回本节视频](#walkthrough-mcp-tool-lifecycle-video)
 
 ![22 · 关闭本轮MCP Server](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-22-stop.png)
 
@@ -674,11 +556,11 @@
 <a id="walkthrough-mcp-endpoint-reconnect"></a>
 ## 更换冲突地址并重新发现Tool
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
-> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文或视频，Copy后的配置只在本机测试内存中使用。
+> 调用方是官方SDK构建的本地演示Client，不是VS Code或云端Host兼容性演示。凭据未进入图文，Copy后的配置只在本机测试内存中使用。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -689,58 +571,38 @@
 | <code>identity</code> | <code>Endpoint changes; the same Client credential remains valid and is never shown</code> |
 | <code>evidenceGeneration</code> | <code>endpoint-reopened</code> |
 
-<a id="walkthrough-mcp-endpoint-reconnect-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4" poster="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.vtt" default>
-</video>
-
 <a id="walkthrough-mcp-endpoint-reconnect-01-settings"></a>
 ### 01 · 重启后打开MCP设置
-
-[视频 00:00](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=0.434) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![01 · 重启后打开MCP设置](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-02-conflict"></a>
 ### 02 · 核对真实endpoint冲突
 
-[视频 00:03](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=3.768) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![02 · 核对真实endpoint冲突](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-02-conflict.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-03-change"></a>
 ### 03 · 显式Change endpoint
-
-[视频 00:06](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=6.798) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![03 · 显式Change endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-03-change.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-04-copy-current"></a>
 ### 04 · 复制当前配置，不展示凭据
 
-[视频 00:09](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=9.870) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![04 · 复制当前配置，不展示凭据](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-05-reconnect"></a>
 ### 05 · 让本地SDK使用新地址重新连接
-
-[视频 00:13](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=13.258) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![05 · 让本地SDK使用新地址重新连接](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-05-reconnect.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-06-query-new-endpoint"></a>
 ### 06 · 在新endpoint执行真实查询
 
-[视频 00:16](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=16.378) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
-
 ![06 · 在新endpoint执行真实查询](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
 
 <a id="walkthrough-mcp-endpoint-reconnect-07-disable"></a>
 ### 07 · 关闭新地址上的演示Server
-
-[视频 00:19](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect.mp4#t=19.396) · [返回本节视频](#walkthrough-mcp-endpoint-reconnect-video)
 
 ![07 · 关闭新地址上的演示Server](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-07-disable.png)
 

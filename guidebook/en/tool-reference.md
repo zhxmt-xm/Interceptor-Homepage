@@ -130,7 +130,7 @@ Ordinary queries do not expose arbitrary native paths, private keys or complete 
 
 1. Read the owning chapter and understand its effects.
 
-   The basic example below queries proxy status and pauses Recording. The [complete permissions recording](tool-permissions.md#walkthrough-tool-permissions-readonly) inspects the whole catalog and verifies actual rejection of disabled actions. This is an entry-point reference, not a claim that every argument combination has a separate video.
+   The basic example below queries proxy status and pauses Recording. The [complete permissions walkthrough](tool-permissions.md#walkthrough-tool-permissions-readonly) inspects the whole catalog and verifies actual rejection of disabled actions. This is an entry-point reference, not a claim that every argument combination has its own step images.
 
 2. Search `capture_get_proxy_status` in Settings Tool capabilities, inspect the chosen entry point and disable unrelated abilities.
 

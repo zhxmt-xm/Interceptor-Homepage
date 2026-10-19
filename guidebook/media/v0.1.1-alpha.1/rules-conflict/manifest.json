@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "path": "/guide/rules-conflict",
     "header": "x-guide-conflict",
@@ -20,296 +19,310 @@
     "writer": "Official SDK on localhost, named Guide rules writer; not a commercial Host",
     "conflict": "Local draft is retained; Reload deliberately discards it before editing the latest revision"
   },
-  "duration": 76.482421223,
-  "video": "rules-conflict.mp4",
-  "captions": "rules-conflict.vtt",
   "steps": [
     {
       "id": "01-rules",
       "title": "打开Rules / Open Rules",
-      "image": "rules-conflict-01-rules.png",
-      "seconds": 0.10860019800000009
+      "image": "rules-conflict-01-rules.png"
     },
     {
       "id": "02-create",
       "title": "创建初始规则 / Create the initial Rule",
-      "image": "rules-conflict-02-create.png",
-      "seconds": 3.188855058000001
+      "image": "rules-conflict-02-create.png"
     },
     {
       "id": "03-name",
       "title": "命名Guide initial / Name it Guide initial",
-      "image": "rules-conflict-03-name.png",
-      "seconds": 6.256054770999999
+      "image": "rules-conflict-03-name.png"
     },
     {
       "id": "04-host",
       "title": "限定127.0.0.1 / Restrict to 127.0.0.1",
-      "image": "rules-conflict-04-host.png",
-      "seconds": 9.245772803
+      "image": "rules-conflict-04-host.png"
     },
     {
       "id": "05-add-path",
       "title": "添加Path条件 / Add a Path condition",
-      "image": "rules-conflict-05-add-path.png",
-      "seconds": 12.248924060999999
+      "image": "rules-conflict-05-add-path.png"
     },
     {
       "id": "06-path",
       "title": "限定冲突演示路径 / Restrict the conflict example paths",
-      "image": "rules-conflict-06-path.png",
-      "seconds": 15.604432501
+      "image": "rules-conflict-06-path.png"
     },
     {
       "id": "07-header",
       "title": "填写x-guide-conflict / Enter x-guide-conflict",
-      "image": "rules-conflict-07-header.png",
-      "seconds": 18.616711992
+      "image": "rules-conflict-07-header.png"
     },
     {
       "id": "08-value",
       "title": "填写initial / Enter initial",
-      "image": "rules-conflict-08-value.png",
-      "seconds": 21.620364912
+      "image": "rules-conflict-08-value.png"
     },
     {
       "id": "09-enable",
       "title": "启用初始规则 / Enable the initial Rule",
-      "image": "rules-conflict-09-enable.png",
-      "seconds": 24.622706672999996
+      "image": "rules-conflict-09-enable.png"
     },
     {
       "id": "10-apply",
       "title": "Apply初始版本 / Apply the initial revision",
-      "image": "rules-conflict-10-apply.png",
-      "seconds": 27.643936178
+      "image": "rules-conflict-10-apply.png"
     },
     {
       "id": "11-local-name",
       "title": "留下本地名称草稿 / Leave a local name draft",
-      "image": "rules-conflict-11-local-name.png",
-      "seconds": 30.715898032000002
+      "image": "rules-conflict-11-local-name.png"
     },
     {
       "id": "12-local-value",
       "title": "留下未Apply的local值 / Leave an unapplied local value",
-      "image": "rules-conflict-12-local-value.png",
-      "seconds": 33.723806499
+      "image": "rules-conflict-12-local-value.png"
     },
     {
       "id": "13-second-writer",
       "title": "检查第二写入者的实际Ask审批 / Inspect the second writer’s actual Ask approval",
-      "image": "rules-conflict-13-second-writer.png",
-      "seconds": 36.742220726999996
+      "image": "rules-conflict-13-second-writer.png"
     },
     {
       "id": "14-allow",
       "title": "允许第二写入者保存remote / Allow the second writer to save remote",
-      "image": "rules-conflict-14-allow.png",
-      "seconds": 39.84522629799999
+      "image": "rules-conflict-14-allow.png"
     },
     {
       "id": "15-draft-retained",
       "title": "核对本地草稿没有被静默覆盖 / Verify the local draft was not silently overwritten",
-      "image": "rules-conflict-15-draft-retained.png",
-      "seconds": 42.901823764
+      "image": "rules-conflict-15-draft-retained.png"
     },
     {
       "id": "16-core-remote",
       "title": "核对新请求实际使用remote / Verify new traffic actually uses remote",
-      "image": "rules-conflict-16-core-remote.png",
-      "seconds": 45.898178736
+      "image": "rules-conflict-16-core-remote.png"
     },
     {
       "id": "17-reload",
       "title": "明确Reload放弃本地草稿 / Explicitly Reload and discard the local draft",
-      "image": "rules-conflict-17-reload.png",
-      "seconds": 48.894285873
+      "image": "rules-conflict-17-reload.png"
     },
     {
       "id": "18-merged-name",
       "title": "基于新版本填写Guide merged / Enter Guide merged based on the new revision",
-      "image": "rules-conflict-18-merged-name.png",
-      "seconds": 51.96919371999999
+      "image": "rules-conflict-18-merged-name.png"
     },
     {
       "id": "19-merged-value",
       "title": "填写merged值 / Enter the merged value",
-      "image": "rules-conflict-19-merged-value.png",
-      "seconds": 54.991606782999995
+      "image": "rules-conflict-19-merged-value.png"
     },
     {
       "id": "20-apply-merged",
       "title": "Apply新的编辑 / Apply the new edits",
-      "image": "rules-conflict-20-apply-merged.png",
-      "seconds": 57.995673880999995
+      "image": "rules-conflict-20-apply-merged.png"
     },
     {
       "id": "21-merged-request",
       "title": "核对新请求使用merged / Verify a new request uses merged",
-      "image": "rules-conflict-21-merged-request.png",
-      "seconds": 61.06444035599999
+      "image": "rules-conflict-21-merged-request.png"
     },
     {
       "id": "22-disable",
       "title": "停用演示规则 / Disable the example Rule",
-      "image": "rules-conflict-22-disable.png",
-      "seconds": 64.044159636
+      "image": "rules-conflict-22-disable.png"
     },
     {
       "id": "23-apply-disabled",
       "title": "Apply停用状态 / Apply the disabled state",
-      "image": "rules-conflict-23-apply-disabled.png",
-      "seconds": 67.071422435
+      "image": "rules-conflict-23-apply-disabled.png"
     },
     {
       "id": "24-mcp-settings",
       "title": "返回MCP设置收尾 / Return to MCP settings for cleanup",
-      "image": "rules-conflict-24-mcp-settings.png",
-      "seconds": 70.107328763
+      "image": "rules-conflict-24-mcp-settings.png"
     },
     {
       "id": "25-stop-server",
       "title": "关闭本轮MCP Server / Stop this run’s MCP Server",
-      "image": "rules-conflict-25-stop-server.png",
-      "seconds": 73.437952888
+      "image": "rules-conflict-25-stop-server.png"
     }
   ],
   "assets": [
     {
       "file": "rules-conflict-01-rules.png",
       "bytes": 174057,
-      "sha256": "101840fe331789393484f6cc6e26040392c6537e34b8a98b3f110e16f10062e4"
+      "sha256": "101840fe331789393484f6cc6e26040392c6537e34b8a98b3f110e16f10062e4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-02-create.png",
       "bytes": 247245,
-      "sha256": "6827f36da458811bf4b1a040d3682d7b0c16c6cf0edc819f1fd5ef2c0548bdce"
+      "sha256": "6827f36da458811bf4b1a040d3682d7b0c16c6cf0edc819f1fd5ef2c0548bdce",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-03-name.png",
       "bytes": 249604,
-      "sha256": "c4a79310fdb482c4f004cb892b167d65d54a96a63954e51aaecb6bd855835285"
+      "sha256": "c4a79310fdb482c4f004cb892b167d65d54a96a63954e51aaecb6bd855835285",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-04-host.png",
       "bytes": 239211,
-      "sha256": "fca065e3cc6622d435a23a24e221b02b30c55df097982f16dfe1d89b03cecf4a"
+      "sha256": "fca065e3cc6622d435a23a24e221b02b30c55df097982f16dfe1d89b03cecf4a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-05-add-path.png",
       "bytes": 242286,
-      "sha256": "cd2c79ad2ce5deeb210fb0acf367df96401d264604cbed38ce013cf416686067"
+      "sha256": "cd2c79ad2ce5deeb210fb0acf367df96401d264604cbed38ce013cf416686067",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-06-path.png",
       "bytes": 240387,
-      "sha256": "1fe47c5b2b6e4b70184461c983ff888a27aa2ab8b089fed583ced7bdd2eb2f09"
+      "sha256": "1fe47c5b2b6e4b70184461c983ff888a27aa2ab8b089fed583ced7bdd2eb2f09",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-07-header.png",
       "bytes": 249136,
-      "sha256": "bba9acbc8e0e0e8ddb206f6490fd511367859792d122a2ac95d917737c1fe3a6"
+      "sha256": "bba9acbc8e0e0e8ddb206f6490fd511367859792d122a2ac95d917737c1fe3a6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-08-value.png",
       "bytes": 248761,
-      "sha256": "277cfcebd97e621f14078815b17ec0ea012c8bfa7f0e99fb75402c90d7ab8e1a"
+      "sha256": "277cfcebd97e621f14078815b17ec0ea012c8bfa7f0e99fb75402c90d7ab8e1a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-09-enable.png",
       "bytes": 249949,
-      "sha256": "48c8a3f1fd89956bc687bd8a9e65dba6e3058bdc13ea2754f4de17bfac0323ef"
+      "sha256": "48c8a3f1fd89956bc687bd8a9e65dba6e3058bdc13ea2754f4de17bfac0323ef",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-10-apply.png",
       "bytes": 245927,
-      "sha256": "64e14c8b6e0b782ad4c27827f4bb4179268d2bddfe93e451f2c585ee6db5b709"
+      "sha256": "64e14c8b6e0b782ad4c27827f4bb4179268d2bddfe93e451f2c585ee6db5b709",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-11-local-name.png",
       "bytes": 254566,
-      "sha256": "cb8bbaf668514e37fc95717137686dd98e4ecfae2ff856cd588962fdafc34e63"
+      "sha256": "cb8bbaf668514e37fc95717137686dd98e4ecfae2ff856cd588962fdafc34e63",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-12-local-value.png",
       "bytes": 252894,
-      "sha256": "ee0534173be010671764b5f8c130abdc9bf206f5b2d76ed9b800c32b8f273f5f"
+      "sha256": "ee0534173be010671764b5f8c130abdc9bf206f5b2d76ed9b800c32b8f273f5f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-13-second-writer.png",
       "bytes": 351742,
-      "sha256": "69185b05fe1d91f84dc7b497f8b21fe9438619bf340802d22f1740aa7504728f"
+      "sha256": "69185b05fe1d91f84dc7b497f8b21fe9438619bf340802d22f1740aa7504728f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-14-allow.png",
       "bytes": 256641,
-      "sha256": "4de16658154621bb952b0f13feb396f74c6d32d38ec4e7afb6ebf09d484296ce"
+      "sha256": "4de16658154621bb952b0f13feb396f74c6d32d38ec4e7afb6ebf09d484296ce",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-15-draft-retained.png",
       "bytes": 256641,
-      "sha256": "4de16658154621bb952b0f13feb396f74c6d32d38ec4e7afb6ebf09d484296ce"
+      "sha256": "4de16658154621bb952b0f13feb396f74c6d32d38ec4e7afb6ebf09d484296ce",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-16-core-remote.png",
       "bytes": 256526,
-      "sha256": "cbaa9fa5c0449c00964307701b9fe11dc0f7a9ebde5afc0446d76dce92339dd7"
+      "sha256": "cbaa9fa5c0449c00964307701b9fe11dc0f7a9ebde5afc0446d76dce92339dd7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-17-reload.png",
       "bytes": 247745,
-      "sha256": "15e4b9521a8ea6a451f82d5a1caa6c808514967b09445a434e5d8f337aa7335f"
+      "sha256": "15e4b9521a8ea6a451f82d5a1caa6c808514967b09445a434e5d8f337aa7335f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-18-merged-name.png",
       "bytes": 254433,
-      "sha256": "432f7cb24b0c39ffb32e3d3eb54e9dac41c1bfbe5189771f5d9942d31f303e29"
+      "sha256": "432f7cb24b0c39ffb32e3d3eb54e9dac41c1bfbe5189771f5d9942d31f303e29",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-19-merged-value.png",
       "bytes": 252600,
-      "sha256": "02a96bb705cb6fdd7d2157ae9910cd05a07796c33594a2be56197119eeb535a2"
+      "sha256": "02a96bb705cb6fdd7d2157ae9910cd05a07796c33594a2be56197119eeb535a2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-20-apply-merged.png",
       "bytes": 248425,
-      "sha256": "fc5c60593e5c0f6cd15545446089a7c7734c23363e41e0920b75290a884f264d"
+      "sha256": "fc5c60593e5c0f6cd15545446089a7c7734c23363e41e0920b75290a884f264d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-21-merged-request.png",
       "bytes": 248649,
-      "sha256": "63262348cf8c6cc7156be238fef2e483d88069a527d587e8a870bd634002db1a"
+      "sha256": "63262348cf8c6cc7156be238fef2e483d88069a527d587e8a870bd634002db1a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-22-disable.png",
       "bytes": 250836,
-      "sha256": "f93c38430f5072c7e9ea1f636ce8e0928917c2246253855d93317bbbe542579e"
+      "sha256": "f93c38430f5072c7e9ea1f636ce8e0928917c2246253855d93317bbbe542579e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-23-apply-disabled.png",
       "bytes": 247048,
-      "sha256": "63a315a29c2ec67fbe66f3b97a68cc78e9a2c76476a8b611f4a381ca641f7637"
+      "sha256": "63a315a29c2ec67fbe66f3b97a68cc78e9a2c76476a8b611f4a381ca641f7637",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-24-mcp-settings.png",
       "bytes": 433171,
-      "sha256": "1ab489612daf2dd714bd236d6359872086a80701c55db9b4cdd252876ad30d89"
+      "sha256": "1ab489612daf2dd714bd236d6359872086a80701c55db9b4cdd252876ad30d89",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "rules-conflict-25-stop-server.png",
       "bytes": 433383,
-      "sha256": "dfdcbff791d1464c7ba2cd2a463cb0613e31c953250f15aa34dd5fdc43c5585d"
-    },
-    {
-      "file": "rules-conflict.mp4",
-      "bytes": 375802,
-      "sha256": "e1b08c1adfb0623ea001efb518dcb4775861a545778bced462fe13b1b228e208"
-    },
-    {
-      "file": "rules-conflict.vtt",
-      "bytes": 2231,
-      "sha256": "c73fa8c1c337aa604e3b5792f93f305acaec02e02cc0cd60da4a28be9dda6fd0"
+      "sha256": "dfdcbff791d1464c7ba2cd2a463cb0613e31c953250f15aa34dd5fdc43c5585d",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

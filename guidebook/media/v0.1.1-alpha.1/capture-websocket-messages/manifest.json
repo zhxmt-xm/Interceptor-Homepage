@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "protocol": "websocket",
     "filter": "/guide/messages/websocket",
@@ -24,296 +23,310 @@
     "pagedEncoding": "WebSocket text",
     "tlsScope": "plain WebSocket; no CA changes"
   },
-  "duration": 78.420194163,
-  "video": "capture-websocket-messages.mp4",
-  "captions": "capture-websocket-messages.vtt",
   "steps": [
     {
       "id": "01-filter",
       "title": "限定本轮消息路径 / Scope this run’s message paths",
-      "image": "capture-websocket-messages-01-filter.png",
-      "seconds": 0.291846204999998
+      "image": "capture-websocket-messages-01-filter.png"
     },
     {
       "id": "02-record",
       "title": "开启 Recording / Start Recording",
-      "image": "capture-websocket-messages-02-record.png",
-      "seconds": 3.4251162269999984
+      "image": "capture-websocket-messages-02-record.png"
     },
     {
       "id": "03-messages",
       "title": "发送六条公开消息 / Send six public messages",
-      "image": "capture-websocket-messages-03-messages.png",
-      "seconds": 6.510321240999998
+      "image": "capture-websocket-messages-03-messages.png"
     },
     {
       "id": "04-select",
       "title": "选择本轮连接 / Select this run’s connection",
-      "image": "capture-websocket-messages-04-select.png",
-      "seconds": 9.707804849
+      "image": "capture-websocket-messages-04-select.png"
     },
     {
       "id": "05-tab",
       "title": "打开消息页 / Open the messages tab",
-      "image": "capture-websocket-messages-05-tab.png",
-      "seconds": 12.998936632999998
+      "image": "capture-websocket-messages-05-tab.png"
     },
     {
       "id": "06-direction",
       "title": "选择 Sent 消息 / Select sent messages",
-      "image": "capture-websocket-messages-06-direction.png",
-      "seconds": 16.154134688000003
+      "image": "capture-websocket-messages-06-direction.png"
     },
     {
       "id": "07-short",
       "title": "展开 guide-short / Expand guide-short",
-      "image": "capture-websocket-messages-07-short.png",
-      "seconds": 19.329020203999995
+      "image": "capture-websocket-messages-07-short.png"
     },
     {
       "id": "08-short-raw",
       "title": "选择 Raw 查看原文 / Select Raw to inspect the text",
-      "image": "capture-websocket-messages-08-short-raw.png",
-      "seconds": 22.700248992
+      "image": "capture-websocket-messages-08-short-raw.png"
     },
     {
       "id": "09-copy-short",
       "title": "复制当前短消息正文 / Copy the current short message body",
-      "image": "capture-websocket-messages-09-copy-short.png",
-      "seconds": 25.785979483
+      "image": "capture-websocket-messages-09-copy-short.png"
     },
     {
       "id": "10-collapse-short",
       "title": "收起短消息 / Collapse the short message",
-      "image": "capture-websocket-messages-10-collapse-short.png",
-      "seconds": 28.824306135000004
+      "image": "capture-websocket-messages-10-collapse-short.png"
     },
     {
       "id": "11-long",
       "title": "展开 guide-long / Expand guide-long",
-      "image": "capture-websocket-messages-11-long.png",
-      "seconds": 31.823696164999998
+      "image": "capture-websocket-messages-11-long.png"
     },
     {
       "id": "12-resize",
       "title": "拖动正文右下角缩小高度 / Drag the body corner to reduce its height",
-      "image": "capture-websocket-messages-12-resize.png",
-      "seconds": 35.029803052999995
+      "image": "capture-websocket-messages-12-resize.png"
     },
     {
       "id": "13-wheel",
       "title": "在长消息中滚动 / Scroll inside the long message",
-      "image": "capture-websocket-messages-13-wheel.png",
-      "seconds": 38.318517836999995
+      "image": "capture-websocket-messages-13-wheel.png"
     },
     {
       "id": "14-keyboard-end",
       "title": "用键盘到达消息末尾 / Reach the message end with the keyboard",
-      "image": "capture-websocket-messages-14-keyboard-end.png",
-      "seconds": 41.375153083
+      "image": "capture-websocket-messages-14-keyboard-end.png"
     },
     {
       "id": "15-scroll-out",
       "title": "到底后继续滚动消息列表 / Continue scrolling the list at the body boundary",
-      "image": "capture-websocket-messages-15-scroll-out.png",
-      "seconds": 44.359938446
+      "image": "capture-websocket-messages-15-scroll-out.png"
     },
     {
       "id": "16-copy-long",
       "title": "复制完整长消息正文 / Copy the complete long message body",
-      "image": "capture-websocket-messages-16-copy-long.png",
-      "seconds": 47.376840318
+      "image": "capture-websocket-messages-16-copy-long.png"
     },
     {
       "id": "17-payload-copy",
       "title": "复制 binary 消息的原始 Hex / Copy the binary message as original Hex",
-      "image": "capture-websocket-messages-17-payload-copy.png",
-      "seconds": 50.388733938
+      "image": "capture-websocket-messages-17-payload-copy.png"
     },
     {
       "id": "18-fullscreen",
       "title": "全屏查看这条消息 / View this message fullscreen",
-      "image": "capture-websocket-messages-18-fullscreen.png",
-      "seconds": 53.427536567999994
+      "image": "capture-websocket-messages-18-fullscreen.png"
     },
     {
       "id": "19-return",
       "title": "Escape 返回同一消息 / Return to the same message with Escape",
-      "image": "capture-websocket-messages-19-return.png",
-      "seconds": 56.62701243
+      "image": "capture-websocket-messages-19-return.png"
     },
     {
       "id": "20-paged-input",
       "title": "在新连接发送205条消息 / Send 205 messages on a new connection",
-      "image": "capture-websocket-messages-20-paged-input.png",
-      "seconds": 59.710661034999994
+      "image": "capture-websocket-messages-20-paged-input.png"
     },
     {
       "id": "21-paged-select",
       "title": "选择新的 pages 连接 / Select the new pages connection",
-      "image": "capture-websocket-messages-21-paged-select.png",
-      "seconds": 62.91616360300001
+      "image": "capture-websocket-messages-21-paged-select.png"
     },
     {
       "id": "22-paged-tab",
       "title": "打开新连接的消息 / Open messages for the new connection",
-      "image": "capture-websocket-messages-22-paged-tab.png",
-      "seconds": 65.928826424
+      "image": "capture-websocket-messages-22-paged-tab.png"
     },
     {
       "id": "23-load-pages",
       "title": "滚动加载后续消息页 / Scroll to load subsequent message pages",
-      "image": "capture-websocket-messages-23-load-pages.png",
-      "seconds": 68.91696033100001
+      "image": "capture-websocket-messages-23-load-pages.png"
     },
     {
       "id": "24-last-message",
       "title": "展开第205条消息 / Expand message 205",
-      "image": "capture-websocket-messages-24-last-message.png",
-      "seconds": 72.38022083400001
+      "image": "capture-websocket-messages-24-last-message.png"
     },
     {
       "id": "25-copy-last",
       "title": "复制最后一条并核对 index 204 / Copy the last message and verify index 204",
-      "image": "capture-websocket-messages-25-copy-last.png",
-      "seconds": 75.491976736
+      "image": "capture-websocket-messages-25-copy-last.png"
     }
   ],
   "assets": [
     {
       "file": "capture-websocket-messages-01-filter.png",
       "bytes": 227867,
-      "sha256": "5d8d118f248cfc7b98cb4ac256d25970ddac9ca34b6476e533783688761f9e17"
+      "sha256": "5d8d118f248cfc7b98cb4ac256d25970ddac9ca34b6476e533783688761f9e17",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-02-record.png",
       "bytes": 230631,
-      "sha256": "d1e75c4922038c3172f941a91ed0a223428ed049c9d6397dc2760098bdb027ad"
+      "sha256": "d1e75c4922038c3172f941a91ed0a223428ed049c9d6397dc2760098bdb027ad",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-03-messages.png",
       "bytes": 239077,
-      "sha256": "d7dc5d8c6b1ef97d061a7737e5f7a7cdd25042212832da963ba9c950fec15de9"
+      "sha256": "d7dc5d8c6b1ef97d061a7737e5f7a7cdd25042212832da963ba9c950fec15de9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-04-select.png",
       "bytes": 352226,
-      "sha256": "abf940801ce7f3fcdfc90dbcfc5882d07426911759194df63b9d52b6068c6c8b"
+      "sha256": "abf940801ce7f3fcdfc90dbcfc5882d07426911759194df63b9d52b6068c6c8b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-05-tab.png",
       "bytes": 407255,
-      "sha256": "250c99de9fa6e3930832c0bca46d4e4ad3435f5a4033e3d3e56f360fd0043a21"
+      "sha256": "250c99de9fa6e3930832c0bca46d4e4ad3435f5a4033e3d3e56f360fd0043a21",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-06-direction.png",
       "bytes": 345277,
-      "sha256": "a3ecd711ef4316f33fe63e03ecc7ff6565bc62a568cb359006d463e01f8d2af8"
+      "sha256": "a3ecd711ef4316f33fe63e03ecc7ff6565bc62a568cb359006d463e01f8d2af8",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-07-short.png",
       "bytes": 376471,
-      "sha256": "4fd14efcf7ca42ffff6a2f49bb70313d04bbe54bfb7ff8413465b719726ed640"
+      "sha256": "4fd14efcf7ca42ffff6a2f49bb70313d04bbe54bfb7ff8413465b719726ed640",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-08-short-raw.png",
       "bytes": 375008,
-      "sha256": "791c7f9510049737a9a384982e1be6baadbfa9d6216f6a03147b439406bcb548"
+      "sha256": "791c7f9510049737a9a384982e1be6baadbfa9d6216f6a03147b439406bcb548",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-09-copy-short.png",
       "bytes": 401340,
-      "sha256": "3206fe95b00fdb690764d250b3a65c97fba1cbd4f1512ae1a526bc7937d4619a"
+      "sha256": "3206fe95b00fdb690764d250b3a65c97fba1cbd4f1512ae1a526bc7937d4619a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-10-collapse-short.png",
       "bytes": 345094,
-      "sha256": "b0595fb08430eef3c5b69e0b12bd9906c13a27adfdeed9c8a960925b38cc938c"
+      "sha256": "b0595fb08430eef3c5b69e0b12bd9906c13a27adfdeed9c8a960925b38cc938c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-11-long.png",
       "bytes": 381750,
-      "sha256": "33888cac704d161d107f84ad6dc47fba313c6c91a4a8099579ec4f74cf936f54"
+      "sha256": "33888cac704d161d107f84ad6dc47fba313c6c91a4a8099579ec4f74cf936f54",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-12-resize.png",
       "bytes": 384625,
-      "sha256": "431c1db757f4cefee179eb1a6b9c63fb6dff9ab85baa86894b328a9f7c0803fe"
+      "sha256": "431c1db757f4cefee179eb1a6b9c63fb6dff9ab85baa86894b328a9f7c0803fe",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-13-wheel.png",
       "bytes": 384467,
-      "sha256": "43564652fed696b7cfba53c63994ff91f16b66c3558986fb503525c7c1c2c436"
+      "sha256": "43564652fed696b7cfba53c63994ff91f16b66c3558986fb503525c7c1c2c436",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-14-keyboard-end.png",
       "bytes": 381225,
-      "sha256": "de8b473fed52934548b123f0bb371aa3e0991739824012c9488afe7e9a27b742"
+      "sha256": "de8b473fed52934548b123f0bb371aa3e0991739824012c9488afe7e9a27b742",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-15-scroll-out.png",
       "bytes": 375380,
-      "sha256": "4380eb10c98186e5b1d6cdac4d8fd6af6593131a3232459752fb5c1dc5ee3df0"
+      "sha256": "4380eb10c98186e5b1d6cdac4d8fd6af6593131a3232459752fb5c1dc5ee3df0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-16-copy-long.png",
       "bytes": 403301,
-      "sha256": "13238c67b21b4aa61d211bc9d439e44b706c1ca26f781682b4d626720f5d0693"
+      "sha256": "13238c67b21b4aa61d211bc9d439e44b706c1ca26f781682b4d626720f5d0693",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-17-payload-copy.png",
       "bytes": 398302,
-      "sha256": "54573f28181d8e8692a4451d4267f8916e147af9beda583ffd0a6fc3e1f64d82"
+      "sha256": "54573f28181d8e8692a4451d4267f8916e147af9beda583ffd0a6fc3e1f64d82",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-18-fullscreen.png",
       "bytes": 357921,
-      "sha256": "c89c5b35caee363fd21da3a28aa3c0fa1dae4829cf16997d70a1a1180b7d39f7"
+      "sha256": "c89c5b35caee363fd21da3a28aa3c0fa1dae4829cf16997d70a1a1180b7d39f7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-19-return.png",
       "bytes": 382047,
-      "sha256": "986667bda7440da7cc8cf44e454dbacdfb35d973e90b480d63793131f18836e2"
+      "sha256": "986667bda7440da7cc8cf44e454dbacdfb35d973e90b480d63793131f18836e2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-20-paged-input.png",
       "bytes": 396366,
-      "sha256": "46f5128ec1936b1cb9aa76e3b07154fbc306ae9d4e837b3fbaab38ddfb3b7bf6"
+      "sha256": "46f5128ec1936b1cb9aa76e3b07154fbc306ae9d4e837b3fbaab38ddfb3b7bf6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-21-paged-select.png",
       "bytes": 464809,
-      "sha256": "996c47c523ea6b7cdefd79efa52392d9de5c0bc5d9b2cd48d77ce4b501229278"
+      "sha256": "996c47c523ea6b7cdefd79efa52392d9de5c0bc5d9b2cd48d77ce4b501229278",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-22-paged-tab.png",
       "bytes": 465509,
-      "sha256": "c5ce09f69b573224142881124313948eca18acf31ade10a7cab0a23ff32f37e7"
+      "sha256": "c5ce09f69b573224142881124313948eca18acf31ade10a7cab0a23ff32f37e7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-23-load-pages.png",
       "bytes": 467958,
-      "sha256": "61d87de433b68939bcf49836f598fd83cb48746fac72f91f643cd88cdbbdd1b9"
+      "sha256": "61d87de433b68939bcf49836f598fd83cb48746fac72f91f643cd88cdbbdd1b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-24-last-message.png",
       "bytes": 468334,
-      "sha256": "ba8a4ea4a0f6e393cee6a66ae5faf6f1dda70c72e67cbcee847057f7ba43f644"
+      "sha256": "ba8a4ea4a0f6e393cee6a66ae5faf6f1dda70c72e67cbcee847057f7ba43f644",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-websocket-messages-25-copy-last.png",
       "bytes": 467975,
-      "sha256": "cdc70f3f779bf7de4769b1677d36dec138e19894026e0542cda5e6f81794b771"
-    },
-    {
-      "file": "capture-websocket-messages.mp4",
-      "bytes": 663520,
-      "sha256": "6a610bebc5af116956a0d27c459fe7be8cf99d2d64d0d74a27ea990ebbf43003"
-    },
-    {
-      "file": "capture-websocket-messages.vtt",
-      "bytes": 2319,
-      "sha256": "09b21da30e9ecd5b5570d4737b7d8cccb5ce36622abeed09144bb06f662ed87e"
+      "sha256": "cdc70f3f779bf7de4769b1677d36dec138e19894026e0542cda5e6f81794b771",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

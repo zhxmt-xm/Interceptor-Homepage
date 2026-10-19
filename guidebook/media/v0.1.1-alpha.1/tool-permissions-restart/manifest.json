@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "client": "Guide readonly client",
     "disabledChanges": "capture_start_recording, capture_stop_recording, capture_clear, capture_cancel_transfer_job, capture_export_body, capture_export_har, capture_import_har, capture_export_archive, capture_import_archive, rules_replace_tree, rules_export, rules_import, composer_send_request, composer_probe_connection, composer_replace_collection, composer_export_collection, composer_import_collection, breakpoints_enable_http, breakpoints_disable_http, breakpoints_enable_websocket, breakpoints_disable_websocket, breakpoints_continue, breakpoints_forward_edited, breakpoints_drop, breakpoints_continue_queue, breakpoints_drop_queue, breakpoints_continue_rule, diagnostics_export, settings_generate_certificate, settings_install_certificate, settings_uninstall_certificate, settings_delete_certificate, settings_reveal_certificate, settings_view_certificate, settings_open_certificate_manager, settings_enable_app_container, settings_disable_app_container, settings_enable_all_app_containers, settings_disable_all_app_containers, settings_enable_system_proxy, settings_restore_system_proxy, settings_replace_tls_insecure_hosts, settings_replace_tls_passthrough, settings_enable_https_decryption, settings_disable_https_decryption, settings_set_language, settings_set_theme, settings_set_export_privacy_defaults",
@@ -17,76 +16,70 @@
     "persisted": "Every change Tool remains disabled for both Agent and MCP after actual App restart",
     "evidenceGeneration": "readonly-reopened"
   },
-  "duration": 17.067919721000013,
-  "video": "tool-permissions-restart.mp4",
-  "captions": "tool-permissions-restart.vtt",
   "steps": [
     {
       "id": "01-saved-permissions",
       "title": "读取重启后的实际双列权限 / Read the actual two-column permissions after restart",
-      "image": "tool-permissions-restart-01-saved-permissions.png",
-      "seconds": 0.4723833420000155
+      "image": "tool-permissions-restart-01-saved-permissions.png"
     },
     {
       "id": "02-query-only",
       "title": "新连接仍只发现query / Verify a new connection still discovers queries only",
-      "image": "tool-permissions-restart-02-query-only.png",
-      "seconds": 4.991308281000005
+      "image": "tool-permissions-restart-02-query-only.png"
     },
     {
       "id": "03-query-enabled",
       "title": "已保留的只读查询仍可用 / Verify retained read-only queries still work",
-      "image": "tool-permissions-restart-03-query-enabled.png",
-      "seconds": 7.973141113999998
+      "image": "tool-permissions-restart-03-query-enabled.png"
     },
     {
       "id": "04-clear-search",
       "title": "清空搜索保留完整只读状态 / Clear search while retaining the complete read-only state",
-      "image": "tool-permissions-restart-04-clear-search.png",
-      "seconds": 10.986135658000014
+      "image": "tool-permissions-restart-04-clear-search.png"
     },
     {
       "id": "05-stop-server",
       "title": "关闭本轮Server而不恢复change授权 / Stop the Server without re-enabling changes",
-      "image": "tool-permissions-restart-05-stop-server.png",
-      "seconds": 14.046519368000038
+      "image": "tool-permissions-restart-05-stop-server.png"
     }
   ],
   "assets": [
     {
       "file": "tool-permissions-restart-01-saved-permissions.png",
       "bytes": 389720,
-      "sha256": "a48caab263aa6127802ad89b74af2719ff5b4df7eedfea89b5a3ba29540d5aa2"
+      "sha256": "a48caab263aa6127802ad89b74af2719ff5b4df7eedfea89b5a3ba29540d5aa2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-restart-02-query-only.png",
       "bytes": 389720,
-      "sha256": "a48caab263aa6127802ad89b74af2719ff5b4df7eedfea89b5a3ba29540d5aa2"
+      "sha256": "a48caab263aa6127802ad89b74af2719ff5b4df7eedfea89b5a3ba29540d5aa2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-restart-03-query-enabled.png",
       "bytes": 394528,
-      "sha256": "fa17c6059b355530d24e0bc5a37d5e7d59099e8cc4334ab5d6c1b9692e8c96c2"
+      "sha256": "fa17c6059b355530d24e0bc5a37d5e7d59099e8cc4334ab5d6c1b9692e8c96c2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-restart-04-clear-search.png",
       "bytes": 447151,
-      "sha256": "bab17f76fd20537d564b01492f2f80d8e4ae7f26a4f7d523e06c81df4e9a3ba1"
+      "sha256": "bab17f76fd20537d564b01492f2f80d8e4ae7f26a4f7d523e06c81df4e9a3ba1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-restart-05-stop-server.png",
       "bytes": 446638,
-      "sha256": "636c3c61cb858438552b1a16ae6e448d41c1f9693e3cba790b59e0e53db499b3"
-    },
-    {
-      "file": "tool-permissions-restart.mp4",
-      "bytes": 132424,
-      "sha256": "e298050cfc16516dbeb94ad5ffe21713c9706a4f8b6426bfb23ec0b2bd9daf1f"
-    },
-    {
-      "file": "tool-permissions-restart.vtt",
-      "bytes": 613,
-      "sha256": "8704010f55e9371bf1ab89c72bba8dc8dda5842ef6aa5604709adebb29952e9e"
+      "sha256": "636c3c61cb858438552b1a16ae6e448d41c1f9693e3cba790b59e0e53db499b3",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

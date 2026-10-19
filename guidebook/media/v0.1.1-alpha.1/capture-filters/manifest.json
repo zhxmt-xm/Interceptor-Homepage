@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "search": "/guide/filters",
     "methods": "GET + POST",
@@ -22,164 +21,166 @@
     "finalRecords": "4",
     "finalSearch": "(empty; cleared through the search control, not Capture Clear)"
   },
-  "duration": 37.652622273999995,
-  "video": "capture-filters.mp4",
-  "captions": "capture-filters.vtt",
   "steps": [
     {
       "id": "01-records",
       "title": "查看四条演示请求 / Inspect four example requests",
-      "image": "capture-filters-01-records.png",
-      "seconds": 0.3253669430000009
+      "image": "capture-filters-01-records.png"
     },
     {
       "id": "02-methods",
       "title": "展开 Method / Expand Method",
-      "image": "capture-filters-02-methods.png",
-      "seconds": 3.1493397000000005
+      "image": "capture-filters-02-methods.png"
     },
     {
       "id": "03-get",
       "title": "只选 GET / Select GET",
-      "image": "capture-filters-03-get.png",
-      "seconds": 6.002321020999999
+      "image": "capture-filters-03-get.png"
     },
     {
       "id": "04-get-post",
       "title": "同组再选 POST / Also select POST in the same group",
-      "image": "capture-filters-04-get-post.png",
-      "seconds": 8.856914960000001
+      "image": "capture-filters-04-get-post.png"
     },
     {
       "id": "05-status",
       "title": "展开 Status / Expand Status",
-      "image": "capture-filters-05-status.png",
-      "seconds": 11.750206236000002
+      "image": "capture-filters-05-status.png"
     },
     {
       "id": "06-and-status",
       "title": "再选 200，跨组 AND / Select 200 for an AND across groups",
-      "image": "capture-filters-06-and-status.png",
-      "seconds": 14.600705669
+      "image": "capture-filters-06-and-status.png"
     },
     {
       "id": "07-search",
       "title": "叠加 post-ok 搜索 / Add a post-ok search",
-      "image": "capture-filters-07-search.png",
-      "seconds": 17.501377809
+      "image": "capture-filters-07-search.png"
     },
     {
       "id": "08-search-back",
       "title": "恢复演示搜索范围 / Restore the example search scope",
-      "image": "capture-filters-08-search-back.png",
-      "seconds": 20.399231592
+      "image": "capture-filters-08-search-back.png"
     },
     {
       "id": "09-remove-status",
       "title": "取消 Status 条件 / Remove Status selection",
-      "image": "capture-filters-09-remove-status.png",
-      "seconds": 23.251046127
+      "image": "capture-filters-09-remove-status.png"
     },
     {
       "id": "10-remove-post",
       "title": "取消 POST / Remove POST selection",
-      "image": "capture-filters-10-remove-post.png",
-      "seconds": 26.099993154
+      "image": "capture-filters-10-remove-post.png"
     },
     {
       "id": "11-remove-get",
       "title": "取消 GET，保留原记录 / Remove GET without deleting records",
-      "image": "capture-filters-11-remove-get.png",
-      "seconds": 28.959606283999996
+      "image": "capture-filters-11-remove-get.png"
     },
     {
       "id": "12-collapse",
       "title": "只折叠组标题 / Collapse only the group",
-      "image": "capture-filters-12-collapse.png",
-      "seconds": 31.850494711000003
+      "image": "capture-filters-12-collapse.png"
     },
     {
       "id": "13-clear-search",
       "title": "清空搜索但不删除请求 / Clear search without deleting requests",
-      "image": "capture-filters-13-clear-search.png",
-      "seconds": 34.751234484
+      "image": "capture-filters-13-clear-search.png"
     }
   ],
   "assets": [
     {
       "file": "capture-filters-01-records.png",
       "bytes": 274411,
-      "sha256": "3a160dcff4bca1bf42dc52aab18e6a308705050cc46234388cb0deacf53b8e07"
+      "sha256": "3a160dcff4bca1bf42dc52aab18e6a308705050cc46234388cb0deacf53b8e07",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-02-methods.png",
       "bytes": 283445,
-      "sha256": "f1fee9efb4afd4ea827939be4e087b2c37ea13ea0f16f1590852e083dbd4f928"
+      "sha256": "f1fee9efb4afd4ea827939be4e087b2c37ea13ea0f16f1590852e083dbd4f928",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-03-get.png",
       "bytes": 251954,
-      "sha256": "bce0b3ba885cf41c149b3164772ec35b1bd5871a94875f1a7a0da7898ebf4646"
+      "sha256": "bce0b3ba885cf41c149b3164772ec35b1bd5871a94875f1a7a0da7898ebf4646",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-04-get-post.png",
       "bytes": 268159,
-      "sha256": "877a88b532eaa8541178dea36fcfa3d1628a9e6d1d2feb925ec4aadd83eed0b6"
+      "sha256": "877a88b532eaa8541178dea36fcfa3d1628a9e6d1d2feb925ec4aadd83eed0b6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-05-status.png",
       "bytes": 278724,
-      "sha256": "00d1ca60b0820835e9858b1ddb9ca1efce846559cdf6cc3c1c6583d29df81c20"
+      "sha256": "00d1ca60b0820835e9858b1ddb9ca1efce846559cdf6cc3c1c6583d29df81c20",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-06-and-status.png",
       "bytes": 263536,
-      "sha256": "6327e78d31b20b83cd895e8ee2e4c9d8ad023dce4c83ebd255147e320c5f6133"
+      "sha256": "6327e78d31b20b83cd895e8ee2e4c9d8ad023dce4c83ebd255147e320c5f6133",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-07-search.png",
       "bytes": 250794,
-      "sha256": "896f4e639ab19293ad656fb076c34f0d095b4788169c5f9e72e7b69f781ab3b3"
+      "sha256": "896f4e639ab19293ad656fb076c34f0d095b4788169c5f9e72e7b69f781ab3b3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-08-search-back.png",
       "bytes": 263521,
-      "sha256": "40da5ea0a6b6ee2e89b6186e7ef1d28d42ba4bc5a27f7ed42accb4fef7cda75c"
+      "sha256": "40da5ea0a6b6ee2e89b6186e7ef1d28d42ba4bc5a27f7ed42accb4fef7cda75c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-09-remove-status.png",
       "bytes": 278765,
-      "sha256": "09886682cc2c8f8d61f8f553faf010e71e74ca4326360d93a09fa6ea78f32ece"
+      "sha256": "09886682cc2c8f8d61f8f553faf010e71e74ca4326360d93a09fa6ea78f32ece",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-10-remove-post.png",
       "bytes": 262573,
-      "sha256": "3b22772c088b440f05a336858a5f04db64e26ea9961bd33a997f21ac1a39d2d6"
+      "sha256": "3b22772c088b440f05a336858a5f04db64e26ea9961bd33a997f21ac1a39d2d6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-11-remove-get.png",
       "bytes": 292080,
-      "sha256": "34ba3329167ffa2e8f696a07157cbdfe20b28f61c9f3294d9defe9c2f68a4cdb"
+      "sha256": "34ba3329167ffa2e8f696a07157cbdfe20b28f61c9f3294d9defe9c2f68a4cdb",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-12-collapse.png",
       "bytes": 284711,
-      "sha256": "d20f4cb30281a79a0c42b0a38b012c9f7c8486c940a32f439902ec0faef81e71"
+      "sha256": "d20f4cb30281a79a0c42b0a38b012c9f7c8486c940a32f439902ec0faef81e71",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-filters-13-clear-search.png",
       "bytes": 283280,
-      "sha256": "4178442562eac902c4539af50959aacf98a77268316432ce79a7dfd4c6d80fce"
-    },
-    {
-      "file": "capture-filters.mp4",
-      "bytes": 181431,
-      "sha256": "ff10bb139e6574d0b6d036a65668ea8d0cc6f1b64f63fe762de96d0d40074bf4"
-    },
-    {
-      "file": "capture-filters.vtt",
-      "bytes": 1070,
-      "sha256": "14a575c3fc80951ded59d0804158c9622fb3220c0c1cb7e9814624b81e3cdc85"
+      "sha256": "4178442562eac902c4539af50959aacf98a77268316432ce79a7dfd4c6d80fce",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

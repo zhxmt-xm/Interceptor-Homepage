@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "requestName": "Guide retained request",
     "url": "http://127.0.0.1:63009/guide/restart/request",
@@ -17,76 +16,70 @@
     "temporary": "Capture records",
     "appLanguage": "zh-CN"
   },
-  "duration": 14.904401006,
-  "video": "workspace-restart.mp4",
-  "captions": "workspace-restart.vtt",
   "steps": [
     {
       "id": "01-collection",
       "title": "重开后找到已保存请求 / Find the saved request after reopening",
-      "image": "workspace-restart-01-collection.png",
-      "seconds": 0.3651355550000007
+      "image": "workspace-restart-01-collection.png"
     },
     {
       "id": "02-privacy",
       "title": "确认偏好持久化 / Verify the persisted preference",
-      "image": "workspace-restart-02-privacy.png",
-      "seconds": 3.3948009019999956
+      "image": "workspace-restart-02-privacy.png"
     },
     {
       "id": "03-restore-privacy",
       "title": "恢复遮罩默认值 / Restore the masking default",
-      "image": "workspace-restart-03-restore-privacy.png",
-      "seconds": 6.304656209000001
+      "image": "workspace-restart-03-restore-privacy.png"
     },
     {
       "id": "04-temporary-capture",
       "title": "确认旧 Capture 不会保留 / Verify old Capture records are temporary",
-      "image": "workspace-restart-04-temporary-capture.png",
-      "seconds": 9.146401266999995
+      "image": "workspace-restart-04-temporary-capture.png"
     },
     {
       "id": "05-language",
       "title": "确认语言没有被录制修改 / Confirm recording did not change language",
-      "image": "workspace-restart-05-language.png",
-      "seconds": 12.102638078000004
+      "image": "workspace-restart-05-language.png"
     }
   ],
   "assets": [
     {
-      "file": "workspace-restart.mp4",
-      "bytes": 96821,
-      "sha256": "83d9a5cd1162e943b1b35370a19db11d57cbd634b4f313d42cb9eda6c4d9f971"
-    },
-    {
-      "file": "workspace-restart.vtt",
-      "bytes": 504,
-      "sha256": "9019097592ddfc6169ee023782481e1a406fd72c585620130f3918ffe67286b0"
-    },
-    {
       "file": "workspace-restart-01-collection.png",
       "bytes": 228105,
-      "sha256": "77a9011b4983adbce167cd9ba032ba5de7547cc5d645382704041d2e22424f04"
+      "sha256": "77a9011b4983adbce167cd9ba032ba5de7547cc5d645382704041d2e22424f04",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-restart-02-privacy.png",
       "bytes": 342449,
-      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577"
+      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-restart-03-restore-privacy.png",
       "bytes": 342921,
-      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b"
+      "sha256": "8f109b8e25d6f69f999359286bfa4c862421e3c2ae08065b601a0b166166fa4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-restart-04-temporary-capture.png",
       "bytes": 223504,
-      "sha256": "1b2c5f21e4f978a3f609d60dacdcf2cc3015ab8dd9e5524e8924a8b64a39c2b9"
+      "sha256": "1b2c5f21e4f978a3f609d60dacdcf2cc3015ab8dd9e5524e8924a8b64a39c2b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-restart-05-language.png",
       "bytes": 223522,
-      "sha256": "28468baef7a344ad7fbe03cba23434ed05e47ec8f5d5215e70ed309a24c859c0"
+      "sha256": "28468baef7a344ad7fbe03cba23434ed05e47ec8f5d5215e70ed309a24c859c0",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

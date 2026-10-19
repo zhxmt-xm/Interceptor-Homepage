@@ -9,94 +9,88 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "requestName": "Guide retained request",
     "url": "http://127.0.0.1:63009/guide/restart/request",
     "maskCookies": "false",
     "closeImage": "before the actual Close action; shutdown is verified by the driver"
   },
-  "duration": 19.127522582,
-  "video": "workspace-close.mp4",
-  "captions": "workspace-close.vtt",
   "steps": [
     {
       "id": "01-composer",
       "title": "打开 Composer / Open Composer",
-      "image": "workspace-close-01-composer.png",
-      "seconds": 0.34565397400000075
+      "image": "workspace-close-01-composer.png"
     },
     {
       "id": "02-url",
       "title": "保存演示 URL / Save the example URL",
-      "image": "workspace-close-02-url.png",
-      "seconds": 3.329026381
+      "image": "workspace-close-02-url.png"
     },
     {
       "id": "03-name",
       "title": "命名 Guide retained request / Name the retained request",
-      "image": "workspace-close-03-name.png",
-      "seconds": 6.1767088
+      "image": "workspace-close-03-name.png"
     },
     {
       "id": "04-privacy",
       "title": "设置本profile导出偏好 / Set this profile’s export preference",
-      "image": "workspace-close-04-privacy.png",
-      "seconds": 10.276560976
+      "image": "workspace-close-04-privacy.png"
     },
     {
       "id": "05-capture",
       "title": "产生临时 Capture 记录 / Produce a temporary Capture record",
-      "image": "workspace-close-05-capture.png",
-      "seconds": 13.284045653000002
+      "image": "workspace-close-05-capture.png"
     },
     {
       "id": "06-before-close",
       "title": "确认保存后正常关闭 / Save first, then close normally",
-      "image": "workspace-close-06-before-close.png",
-      "seconds": 16.276479486
+      "image": "workspace-close-06-before-close.png"
     }
   ],
   "assets": [
     {
-      "file": "workspace-close.mp4",
-      "bytes": 108878,
-      "sha256": "99e23537200db257e751465c9b490cb9aa80d6875c2d02f2652097383e56bf24"
-    },
-    {
-      "file": "workspace-close.vtt",
-      "bytes": 532,
-      "sha256": "49f0ccd6f5637864813a9bf4e1395c75502101b7f81b9da8e80ffe7e2a12b6ef"
-    },
-    {
       "file": "workspace-close-01-composer.png",
       "bytes": 230855,
-      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a"
+      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-close-02-url.png",
       "bytes": 239597,
-      "sha256": "9ae150e1694d9e2bb01f1ac54f42932ab6ce5039e1d6592a5e5cecb303ee8c44"
+      "sha256": "9ae150e1694d9e2bb01f1ac54f42932ab6ce5039e1d6592a5e5cecb303ee8c44",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-close-03-name.png",
       "bytes": 228100,
-      "sha256": "ab3a3d4e7c04cb2dcf7683b1fed7dcc67cd9b66948e10accc6f64fb2d58e0234"
+      "sha256": "ab3a3d4e7c04cb2dcf7683b1fed7dcc67cd9b66948e10accc6f64fb2d58e0234",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-close-04-privacy.png",
       "bytes": 342449,
-      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577"
+      "sha256": "ba0ce729540c0ab894f59095c240f950191bc91c41f71e681471eeb0e3e15577",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-close-05-capture.png",
       "bytes": 231695,
-      "sha256": "9e0a40552bcff04ae8731d2bca788b26f7d39f96342e29f324002c1ca773f247"
+      "sha256": "9e0a40552bcff04ae8731d2bca788b26f7d39f96342e29f324002c1ca773f247",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "workspace-close-06-before-close.png",
       "bytes": 231695,
-      "sha256": "9e0a40552bcff04ae8731d2bca788b26f7d39f96342e29f324002c1ca773f247"
+      "sha256": "9e0a40552bcff04ae8731d2bca788b26f7d39f96342e29f324002c1ca773f247",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

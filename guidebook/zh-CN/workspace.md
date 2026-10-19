@@ -8,10 +8,9 @@
 <a id="walkthrough"></a>
 ## 逐步骤实操：真实产品录制
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -19,107 +18,73 @@
 | <code>appLanguage</code> | <code>zh-CN</code> |
 | <code>languageChanged</code> | <code>false</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/workspace/workspace.mp4" poster="../media/v0.1.1-alpha.1/workspace/workspace-01-sidebar.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace/workspace.vtt" default>
-</video>
-
 <a id="walkthrough-01-sidebar"></a>
 ### 01 · 展开侧栏名称
-
-[视频 00:00](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=0.396) · [返回本节视频](#walkthrough-video)
 
 ![01 · 展开侧栏名称](../media/v0.1.1-alpha.1/workspace/workspace-01-sidebar.png)
 
 <a id="walkthrough-02-capture"></a>
 ### 02 · 进入 Capture
 
-[视频 00:03](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=3.229) · [返回本节视频](#walkthrough-video)
-
 ![02 · 进入 Capture](../media/v0.1.1-alpha.1/workspace/workspace-02-capture.png)
 
 <a id="walkthrough-03-rules"></a>
 ### 03 · 进入 Rules
-
-[视频 00:06](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=6.078) · [返回本节视频](#walkthrough-video)
 
 ![03 · 进入 Rules](../media/v0.1.1-alpha.1/workspace/workspace-03-rules.png)
 
 <a id="walkthrough-04-composer"></a>
 ### 04 · 进入 Composer
 
-[视频 00:08](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=8.929) · [返回本节视频](#walkthrough-video)
-
 ![04 · 进入 Composer](../media/v0.1.1-alpha.1/workspace/workspace-04-composer.png)
 
 <a id="walkthrough-05-diagnostics"></a>
 ### 05 · 进入 Diagnostics
-
-[视频 00:11](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=11.778) · [返回本节视频](#walkthrough-video)
 
 ![05 · 进入 Diagnostics](../media/v0.1.1-alpha.1/workspace/workspace-05-diagnostics.png)
 
 <a id="walkthrough-06-settings"></a>
 ### 06 · 进入 Settings
 
-[视频 00:14](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=14.678) · [返回本节视频](#walkthrough-video)
-
 ![06 · 进入 Settings](../media/v0.1.1-alpha.1/workspace/workspace-06-settings.png)
 
 <a id="walkthrough-07-theme-warm"></a>
 ### 07 · 选择 warm 主题
-
-[视频 00:17](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=17.578) · [返回本节视频](#walkthrough-video)
 
 ![07 · 选择 warm 主题](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-warm.png)
 
 <a id="walkthrough-07-theme-light"></a>
 ### 08 · 选择 light 主题
 
-[视频 00:20](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=20.828) · [返回本节视频](#walkthrough-video)
-
 ![08 · 选择 light 主题](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-light.png)
 
 <a id="walkthrough-07-theme-ember"></a>
 ### 09 · 选择 ember 主题
-
-[视频 00:24](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=24.078) · [返回本节视频](#walkthrough-video)
 
 ![09 · 选择 ember 主题](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-ember.png)
 
 <a id="walkthrough-07-theme-dark"></a>
 ### 10 · 选择 dark 主题
 
-[视频 00:27](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=27.378) · [返回本节视频](#walkthrough-video)
-
 ![10 · 选择 dark 主题](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-dark.png)
 
 <a id="walkthrough-08-restore-theme"></a>
 ### 11 · 恢复原主题
-
-[视频 00:30](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=30.578) · [返回本节视频](#walkthrough-video)
 
 ![11 · 恢复原主题](../media/v0.1.1-alpha.1/workspace/workspace-08-restore-theme.png)
 
 <a id="walkthrough-09-language-menu"></a>
 ### 12 · 查看语言菜单，不切换
 
-[视频 00:33](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=33.829) · [返回本节视频](#walkthrough-video)
-
 ![12 · 查看语言菜单，不切换](../media/v0.1.1-alpha.1/workspace/workspace-09-language-menu.png)
 
 <a id="walkthrough-10-agent-panel"></a>
 ### 13 · 打开可选 Agent 面板
 
-[视频 00:36](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=36.792) · [返回本节视频](#walkthrough-video)
-
 ![13 · 打开可选 Agent 面板](../media/v0.1.1-alpha.1/workspace/workspace-10-agent-panel.png)
 
 <a id="walkthrough-11-close-panel"></a>
 ### 14 · 关闭面板但不退出 App
-
-[视频 00:39](../media/v0.1.1-alpha.1/workspace/workspace.mp4#t=39.678) · [返回本节视频](#walkthrough-video)
 
 ![14 · 关闭面板但不退出 App](../media/v0.1.1-alpha.1/workspace/workspace-11-close-panel.png)
 
@@ -201,7 +166,7 @@
 
    ![恢复该窗口原来的尺寸](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
 
-   这两个连续步骤只证明尺寸调整。另见[窗口控件实录](#walkthrough-workspace-window-controls)：真实点击最大化和还原，并按原生窗口与屏幕可用范围核对；随后真实点击最小化。最小化按钮图拍于点击之前，状态由原生窗口读取核对；测试侧只恢复同一窗口以继续检查，不冒充Dock操作录像。
+   这两个连续步骤只证明尺寸调整。另见[窗口控件实录](#walkthrough-workspace-window-controls)：真实点击最大化和还原，并按原生窗口与屏幕可用范围核对；随后真实点击最小化。最小化按钮图拍于点击之前，状态由原生窗口读取核对；测试侧只恢复同一窗口以继续检查，不冒充Dock操作影像。
 
 4. 使用滚轮、触控板或键盘阅读溢出内容；正文内部滚到边界后继续滚动外层。
 
@@ -347,7 +312,7 @@
 
    ![实际 Close 前的已保存状态](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
-   正常Close与退出恢复由录像外的真实操作和状态证据核对，不把关闭前图片当作进程退出图。忙状态拒绝等不同退出分支仍待实际场景，不能为补图录入桌面或进程管理器。
+   正常Close与退出恢复由图片之外的真实操作和状态证据核对，不把关闭前图片当作进程退出图。忙状态拒绝等不同退出分支仍待实际场景，不能为补图录入桌面或进程管理器。
 
 7. 重新启动同一 profile，在新一代 App 的 Collection 找到 `Guide retained request`，核对保存的 URL。
 
@@ -369,7 +334,7 @@
 
     ![重启后实际保持原语言](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
 
-**范围说明**：本段核对Collection名称/URL、Privacy与临时Capture。完整代表性请求的三级目录、method/protocol、Header值和启停、Query、JSON及公开Auth字段另有[保存](composer.md#walkthrough-composer-persistence-save)与[真实重启](composer.md#walkthrough-composer-persistence-restart)配对实录，重启不重填字段、不自动Send。Agent历史另见[会话重启](agent.md#walkthrough-agent-session-restart)；不把一段录像当作所有偏好或所有Body/Auth组合的穷举。
+**范围说明**：本段核对Collection名称/URL、Privacy与临时Capture。完整代表性请求的三级目录、method/protocol、Header值和启停、Query、JSON及公开Auth字段另有[保存](composer.md#walkthrough-composer-persistence-save)与[真实重启](composer.md#walkthrough-composer-persistence-restart)配对实录，重启不重填字段、不自动Send。Agent历史另见[会话重启](agent.md#walkthrough-agent-session-restart)；不把一组步骤图当作所有偏好或所有Body/Auth组合的穷举。
 
 **操作建议**：退出前先完成导出、Apply 或正在进行的保存；不要仅凭屏幕还显示着数据就判断已经持久化。
 
@@ -412,10 +377,9 @@
 <a id="walkthrough-workspace-close"></a>
 ## 逐步骤实操：保存与正常关闭
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -424,51 +388,33 @@
 | <code>maskCookies</code> | <code>false</code> |
 | <code>closeImage</code> | <code>before the actual Close action; shutdown is verified by the driver</code> |
 
-<a id="walkthrough-workspace-close-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4" poster="../media/v0.1.1-alpha.1/workspace-close/workspace-close-01-composer.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-close/workspace-close.vtt" default>
-</video>
-
 <a id="walkthrough-workspace-close-01-composer"></a>
 ### 01 · 打开 Composer
-
-[视频 00:00](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=0.346) · [返回本节视频](#walkthrough-workspace-close-video)
 
 ![01 · 打开 Composer](../media/v0.1.1-alpha.1/workspace-close/workspace-close-01-composer.png)
 
 <a id="walkthrough-workspace-close-02-url"></a>
 ### 02 · 保存演示 URL
 
-[视频 00:03](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=3.329) · [返回本节视频](#walkthrough-workspace-close-video)
-
 ![02 · 保存演示 URL](../media/v0.1.1-alpha.1/workspace-close/workspace-close-02-url.png)
 
 <a id="walkthrough-workspace-close-03-name"></a>
 ### 03 · 命名 Guide retained request
-
-[视频 00:06](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=6.177) · [返回本节视频](#walkthrough-workspace-close-video)
 
 ![03 · 命名 Guide retained request](../media/v0.1.1-alpha.1/workspace-close/workspace-close-03-name.png)
 
 <a id="walkthrough-workspace-close-04-privacy"></a>
 ### 04 · 设置本profile导出偏好
 
-[视频 00:10](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=10.277) · [返回本节视频](#walkthrough-workspace-close-video)
-
 ![04 · 设置本profile导出偏好](../media/v0.1.1-alpha.1/workspace-close/workspace-close-04-privacy.png)
 
 <a id="walkthrough-workspace-close-05-capture"></a>
 ### 05 · 产生临时 Capture 记录
 
-[视频 00:13](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=13.284) · [返回本节视频](#walkthrough-workspace-close-video)
-
 ![05 · 产生临时 Capture 记录](../media/v0.1.1-alpha.1/workspace-close/workspace-close-05-capture.png)
 
 <a id="walkthrough-workspace-close-06-before-close"></a>
 ### 06 · 确认保存后正常关闭
-
-[视频 00:16](../media/v0.1.1-alpha.1/workspace-close/workspace-close.mp4#t=16.276) · [返回本节视频](#walkthrough-workspace-close-video)
 
 ![06 · 确认保存后正常关闭](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
 
@@ -479,10 +425,9 @@
 <a id="walkthrough-workspace-restart"></a>
 ## 逐步骤实操：重开后的持久与临时数据
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -492,44 +437,28 @@
 | <code>temporary</code> | <code>Capture records</code> |
 | <code>appLanguage</code> | <code>zh-CN</code> |
 
-<a id="walkthrough-workspace-restart-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4" poster="../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.vtt" default>
-</video>
-
 <a id="walkthrough-workspace-restart-01-collection"></a>
 ### 01 · 重开后找到已保存请求
-
-[视频 00:00](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4#t=0.365) · [返回本节视频](#walkthrough-workspace-restart-video)
 
 ![01 · 重开后找到已保存请求](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png)
 
 <a id="walkthrough-workspace-restart-02-privacy"></a>
 ### 02 · 确认偏好持久化
 
-[视频 00:03](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4#t=3.395) · [返回本节视频](#walkthrough-workspace-restart-video)
-
 ![02 · 确认偏好持久化](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-02-privacy.png)
 
 <a id="walkthrough-workspace-restart-03-restore-privacy"></a>
 ### 03 · 恢复遮罩默认值
-
-[视频 00:06](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4#t=6.305) · [返回本节视频](#walkthrough-workspace-restart-video)
 
 ![03 · 恢复遮罩默认值](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-03-restore-privacy.png)
 
 <a id="walkthrough-workspace-restart-04-temporary-capture"></a>
 ### 04 · 确认旧 Capture 不会保留
 
-[视频 00:09](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4#t=9.146) · [返回本节视频](#walkthrough-workspace-restart-video)
-
 ![04 · 确认旧 Capture 不会保留](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-04-temporary-capture.png)
 
 <a id="walkthrough-workspace-restart-05-language"></a>
 ### 05 · 确认语言没有被录制修改
-
-[视频 00:12](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart.mp4#t=12.103) · [返回本节视频](#walkthrough-workspace-restart-video)
 
 ![05 · 确认语言没有被录制修改](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
 
@@ -540,10 +469,9 @@
 <a id="walkthrough-workspace-navigation"></a>
 ## 逐步骤实操：设置保留、Agent深链、面板保持与窗口缩放
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -557,198 +485,138 @@
 | <code>languageChanged</code> | <code>false</code> |
 | <code>requestPath</code> | <code>/guide/navigation/ready</code> |
 
-<a id="walkthrough-workspace-navigation-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4" poster="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.vtt" default>
-</video>
-
 <a id="walkthrough-workspace-navigation-01-settings"></a>
 ### 01 · 打开Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=0.486) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![01 · 打开Settings](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png)
 
 <a id="walkthrough-workspace-navigation-02-privacy"></a>
 ### 02 · 进入Privacy分组
 
-[视频 00:03](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=3.411) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![02 · 进入Privacy分组](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-02-privacy.png)
 
 <a id="walkthrough-workspace-navigation-03-composer"></a>
 ### 03 · 离开Settings进入Composer
-
-[视频 00:06](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=6.343) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![03 · 离开Settings进入Composer](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-03-composer.png)
 
 <a id="walkthrough-workspace-navigation-04-return-settings"></a>
 ### 04 · 返回Settings保留Privacy
 
-[视频 00:09](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=9.249) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![04 · 返回Settings保留Privacy](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png)
 
 <a id="walkthrough-workspace-navigation-05-diagnostics"></a>
 ### 05 · 切到Diagnostics
-
-[视频 00:12](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=12.169) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![05 · 切到Diagnostics](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-05-diagnostics.png)
 
 <a id="walkthrough-workspace-navigation-06-retained-again"></a>
 ### 06 · 再次返回仍是Privacy
 
-[视频 00:15](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=15.151) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![06 · 再次返回仍是Privacy](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-06-retained-again.png)
 
 <a id="walkthrough-workspace-navigation-07-capture"></a>
 ### 07 · 返回Capture
-
-[视频 00:18](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=18.100) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![07 · 返回Capture](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-07-capture.png)
 
 <a id="walkthrough-workspace-navigation-08-agent-empty"></a>
 ### 08 · 打开未配置的Agent面板
 
-[视频 00:21](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=21.016) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![08 · 打开未配置的Agent面板](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-08-agent-empty.png)
 
 <a id="walkthrough-workspace-navigation-09-configure-link"></a>
 ### 09 · 从空态进入Agent设置
-
-[视频 00:23](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=23.935) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![09 · 从空态进入Agent设置](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png)
 
 <a id="walkthrough-workspace-navigation-10-agent-open"></a>
 ### 10 · 返回Capture并保持Agent打开
 
-[视频 00:27](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=27.087) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![10 · 返回Capture并保持Agent打开](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-10-agent-open.png)
 
 <a id="walkthrough-workspace-navigation-11-rules"></a>
 ### 11 · 打开rules仍保留Agent
-
-[视频 00:30](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=30.076) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![11 · 打开rules仍保留Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png)
 
 <a id="walkthrough-workspace-navigation-11-composer"></a>
 ### 12 · 打开composer仍保留Agent
 
-[视频 00:33](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=33.006) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![12 · 打开composer仍保留Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png)
 
 <a id="walkthrough-workspace-navigation-11-diagnostics"></a>
 ### 13 · 打开diagnostics仍保留Agent
-
-[视频 00:35](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=35.927) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![13 · 打开diagnostics仍保留Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-diagnostics.png)
 
 <a id="walkthrough-workspace-navigation-12-header-close"></a>
 ### 14 · 用Header入口关闭Agent
 
-[视频 00:38](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=38.938) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![14 · 用Header入口关闭Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png)
 
 <a id="walkthrough-workspace-navigation-13-header-open"></a>
 ### 15 · 用Header入口重新打开
-
-[视频 00:41](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=41.903) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![15 · 用Header入口重新打开](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-13-header-open.png)
 
 <a id="walkthrough-workspace-navigation-14-panel-close"></a>
 ### 16 · 用面板自己的关闭按钮
 
-[视频 00:44](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=44.901) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![16 · 用面板自己的关闭按钮](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png)
 
 <a id="walkthrough-workspace-navigation-15-theme-menu"></a>
 ### 17 · 只打开Theme菜单检查选择
-
-[视频 00:47](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=47.866) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![17 · 只打开Theme菜单检查选择](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png)
 
 <a id="walkthrough-workspace-navigation-16-dismiss-theme"></a>
 ### 18 · Escape关闭且主题不变
 
-[视频 00:50](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=50.941) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![18 · Escape关闭且主题不变](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-16-dismiss-theme.png)
 
 <a id="walkthrough-workspace-navigation-17-resize"></a>
 ### 19 · 缩小实际App窗口
-
-[视频 00:54](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=54.219) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![19 · 缩小实际App窗口](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png)
 
 <a id="walkthrough-workspace-navigation-18-restore-size"></a>
 ### 20 · 恢复原窗口尺寸
 
-[视频 00:57](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=57.422) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![20 · 恢复原窗口尺寸](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
 
 <a id="walkthrough-workspace-navigation-19-capture"></a>
 ### 21 · 返回Capture查看快捷入口
-
-[视频 01:00](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=60.605) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![21 · 返回Capture查看快捷入口](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-19-capture.png)
 
 <a id="walkthrough-workspace-navigation-20-upstream-shortcut"></a>
 ### 22 · 打开底栏上游快捷浮层
 
-[视频 01:03](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=63.545) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![22 · 打开底栏上游快捷浮层](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-20-upstream-shortcut.png)
 
 <a id="walkthrough-workspace-navigation-21-upstream-link"></a>
 ### 23 · 从浮层直达Upstream设置
-
-[视频 01:06](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=66.505) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![23 · 从浮层直达Upstream设置](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png)
 
 <a id="walkthrough-workspace-navigation-22-leave-deeplink"></a>
 ### 24 · 离开深链目标
 
-[视频 01:09](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=69.454) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![24 · 离开深链目标](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-22-leave-deeplink.png)
 
 <a id="walkthrough-workspace-navigation-23-retained-deeplink"></a>
 ### 25 · 返回Settings保留新的Upstream位置
-
-[视频 01:12](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=72.368) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![25 · 返回Settings保留新的Upstream位置](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-23-retained-deeplink.png)
 
 <a id="walkthrough-workspace-navigation-24-recording"></a>
 ### 26 · 回到Capture确认Recording
 
-[视频 01:15](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=75.333) · [返回本节视频](#walkthrough-workspace-navigation-video)
-
 ![26 · 回到Capture确认Recording](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-24-recording.png)
 
 <a id="walkthrough-workspace-navigation-25-request"></a>
 ### 27 · 验证导航后的请求
-
-[视频 01:18](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation.mp4#t=78.273) · [返回本节视频](#walkthrough-workspace-navigation-video)
 
 ![27 · 验证导航后的请求](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-25-request.png)
 
@@ -759,10 +627,9 @@
 <a id="walkthrough-workspace-window-controls"></a>
 ## 逐步骤实操：原生窗口最大化、还原与最小化
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -773,44 +640,28 @@
 | <code>restoreBoundary</code> | <code>Test-side accessibility restores the same owned window for continued verification; no Dock interaction is claimed</code> |
 | <code>recordingScope</code> | <code>Only the App window; no display, desktop or other application capture</code> |
 
-<a id="walkthrough-workspace-window-controls-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4" poster="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.vtt" default>
-</video>
-
 <a id="walkthrough-workspace-window-controls-01-normal"></a>
 ### 01 · 查看当前正常窗口
-
-[视频 00:00](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=0.436) · [返回本节视频](#walkthrough-workspace-window-controls-video)
 
 ![01 · 查看当前正常窗口](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png)
 
 <a id="walkthrough-workspace-window-controls-02-maximize"></a>
 ### 02 · 点击最大化
 
-[视频 00:03](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=3.689) · [返回本节视频](#walkthrough-workspace-window-controls-video)
-
 ![02 · 点击最大化](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-02-maximize.png)
 
 <a id="walkthrough-workspace-window-controls-03-restore"></a>
 ### 03 · 再次点击恢复原窗口
-
-[视频 00:07](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=7.592) · [返回本节视频](#walkthrough-workspace-window-controls-video)
 
 ![03 · 再次点击恢复原窗口](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-03-restore.png)
 
 <a id="walkthrough-workspace-window-controls-04-minimize-control"></a>
 ### 04 · 查看最小化按钮，随后实际点击
 
-[视频 00:11](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=11.531) · [返回本节视频](#walkthrough-workspace-window-controls-video)
-
 ![04 · 查看最小化按钮，随后实际点击](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-04-minimize-control.png)
 
 <a id="walkthrough-workspace-window-controls-05-returned-window"></a>
 ### 05 · 恢复后检查同一窗口（不录Dock）
-
-[视频 00:16](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls.mp4#t=16.893) · [返回本节视频](#walkthrough-workspace-window-controls-video)
 
 ![05 · 恢复后检查同一窗口（不录Dock）](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-05-returned-window.png)
 

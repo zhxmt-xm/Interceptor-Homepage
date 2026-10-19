@@ -31,7 +31,7 @@ Images reuse actual operations from the owning chapters to locate checks. A heal
 
 5. On Windows, inspect [AppContainer access](settings.md#app-containers) where applicable. Other network stacks may bypass WinINet.
 
-   **Image pending / blocked:** a Windows AppContainer environment is needed; existing recordings are macOS.
+   **Image pending / blocked:** a Windows AppContainer environment is needed; existing step images are from macOS.
 
 6. For a Composer request, inspect Composer's response. Absence from Capture is its direct-send boundary, not a Recording fault. This is Composer's `/guide/composer`, not orders above.
 
@@ -142,7 +142,7 @@ A hit count and a concrete effect are different. Check [actual results](rules.md
 
 5. Requery after client disconnection rather than repeatedly submitting an old ID.
 
-   The [manager recording](breakpoints.md#walkthrough-breakpoints-manager) includes a real caller cancellation and removal of the waiting item. Do not submit old content after an item disappears; the video does not force reuse of a stale ID through an internal API.
+   The [manager recording](breakpoints.md#walkthrough-breakpoints-manager) includes a real caller cancellation and removal of the waiting item. Do not submit old content after an item disappears; the walkthrough does not force reuse of a stale ID through an internal API.
 
 There is no fixed automatic continuation timeout. Disabling matching is not proof that all existing waits have been resolved.
 
@@ -198,7 +198,7 @@ Captured bytes, previews and network completion differ: [body views](capture.md#
 
 2. Look for a waiting or cancelled native dialog.
 
-   This is the real Save panel for `guide-recording.har`. [Agent JSONL Save cancellation](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel) and [MCP Save cancellation](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel) have separate recordings with their own filenames and operations.
+   This is the real Save panel for `guide-recording.har`. [Agent JSONL Save cancellation](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel) and [MCP Save cancellation](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel) have separate step images with their own filenames and operations.
 
    ![Actual native save panel still needing a user decision](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
 

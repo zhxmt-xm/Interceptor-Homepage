@@ -8,9 +8,9 @@
 <a id="walkthrough"></a>
 ## 逐步骤实操：真实产品录制
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 > 这里只演示单项权限的独立开关，不等于已经把整个入口配置为只读；没有实际执行Clear。
 
@@ -20,65 +20,43 @@
 | <code>queryTool</code> | <code>capture_get_proxy_status</code> |
 | <code>operationExecuted</code> | <code>none</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4" poster="../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.vtt" default>
-</video>
-
 <a id="walkthrough-01-settings"></a>
 ### 01 · 打开 Settings
-
-[视频 00:00](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=0.368) · [返回本节视频](#walkthrough-video)
 
 ![01 · 打开 Settings](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-01-settings.png)
 
 <a id="walkthrough-02-agent"></a>
 ### 02 · 打开 Tool capabilities
 
-[视频 00:03](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=3.252) · [返回本节视频](#walkthrough-video)
-
 ![02 · 打开 Tool capabilities](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-02-agent.png)
 
 <a id="walkthrough-03-search"></a>
 ### 03 · 查找 capture_clear
-
-[视频 00:06](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=6.453) · [返回本节视频](#walkthrough-video)
 
 ![03 · 查找 capture_clear](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-03-search.png)
 
 <a id="walkthrough-04-disable-agent"></a>
 ### 04 · 只关闭 Agent 清理权限
 
-[视频 00:09](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=9.302) · [返回本节视频](#walkthrough-video)
-
 ![04 · 只关闭 Agent 清理权限](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-04-disable-agent.png)
 
 <a id="walkthrough-05-disable-mcp"></a>
 ### 05 · 再关闭 MCP 清理权限
-
-[视频 00:12](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=12.203) · [返回本节视频](#walkthrough-video)
 
 ![05 · 再关闭 MCP 清理权限](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-05-disable-mcp.png)
 
 <a id="walkthrough-06-restore-agent"></a>
 ### 06 · 显式恢复 Agent 权限
 
-[视频 00:15](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=15.102) · [返回本节视频](#walkthrough-video)
-
 ![06 · 显式恢复 Agent 权限](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-06-restore-agent.png)
 
 <a id="walkthrough-07-restore-mcp"></a>
 ### 07 · 显式恢复 MCP 权限
 
-[视频 00:18](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=18.002) · [返回本节视频](#walkthrough-video)
-
 ![07 · 显式恢复 MCP 权限](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-07-restore-mcp.png)
 
 <a id="walkthrough-08-query"></a>
 ### 08 · 查找只读查询 Tool
-
-[视频 00:20](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions.mp4#t=20.856) · [返回本节视频](#walkthrough-video)
 
 ![08 · 查找只读查询 Tool](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
 
@@ -265,10 +243,9 @@
 <a id="walkthrough-tool-permissions-readonly"></a>
 ## 完整只读配置与真实拒绝调用
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -280,786 +257,558 @@
 | <code>disabledChanges</code> | <code>capture_start_recording, capture_stop_recording, capture_clear, capture_cancel_transfer_job, capture_export_body, capture_export_har, capture_import_har, capture_export_archive, capture_import_archive, rules_replace_tree, rules_export, rules_import, composer_send_request, composer_probe_connection, composer_replace_collection, composer_export_collection, composer_import_collection, breakpoints_enable_http, breakpoints_disable_http, breakpoints_enable_websocket, breakpoints_disable_websocket, breakpoints_continue, breakpoints_forward_edited, breakpoints_drop, breakpoints_continue_queue, breakpoints_drop_queue, breakpoints_continue_rule, diagnostics_export, settings_generate_certificate, settings_install_certificate, settings_uninstall_certificate, settings_delete_certificate, settings_reveal_certificate, settings_view_certificate, settings_open_certificate_manager, settings_enable_app_container, settings_disable_app_container, settings_enable_all_app_containers, settings_disable_all_app_containers, settings_enable_system_proxy, settings_restore_system_proxy, settings_replace_tls_insecure_hosts, settings_replace_tls_passthrough, settings_enable_https_decryption, settings_disable_https_decryption, settings_set_language, settings_set_theme, settings_set_export_privacy_defaults</code> |
 | <code>closeImage</code> | <code>Before actual Close; real shutdown is separately verified</code> |
 
-<a id="walkthrough-tool-permissions-readonly-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4" poster="../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-01-search.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.vtt" default>
-</video>
-
 <a id="walkthrough-tool-permissions-readonly-01-search"></a>
 ### 01 · 查找capture_clear
-
-[视频 00:00](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=0.362) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![01 · 查找capture_clear](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-01-search.png)
 
 <a id="walkthrough-tool-permissions-readonly-02-disable-agent-clear"></a>
 ### 02 · 关闭Agent清理权限
 
-[视频 00:03](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=3.364) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![02 · 关闭Agent清理权限](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-02-disable-agent-clear.png)
 
 <a id="walkthrough-tool-permissions-readonly-03-disable-mcp-clear"></a>
 ### 03 · 独立关闭MCP清理权限
-
-[视频 00:06](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=6.421) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![03 · 独立关闭MCP清理权限](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-03-disable-mcp-clear.png)
 
 <a id="walkthrough-tool-permissions-readonly-04-mcp-rejection"></a>
 ### 04 · 核对真实MCP调用被拒绝
 
-[视频 00:09](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=9.475) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![04 · 核对真实MCP调用被拒绝](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-04-mcp-rejection.png)
 
 <a id="walkthrough-tool-permissions-readonly-05-agent"></a>
 ### 05 · 打开本地演示Agent
-
-[视频 00:12](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=12.522) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![05 · 打开本地演示Agent](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-05-agent.png)
 
 <a id="walkthrough-tool-permissions-readonly-06-agent-rejection"></a>
 ### 06 · 核对Agent也不能执行禁用动作
 
-[视频 00:15](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=15.641) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![06 · 核对Agent也不能执行禁用动作](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-06-agent-rejection.png)
 
 <a id="walkthrough-tool-permissions-readonly-07-retained-record"></a>
 ### 07 · 实际记录仍保留
-
-[视频 00:18](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=18.788) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![07 · 实际记录仍保留](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-07-retained-record.png)
 
 <a id="walkthrough-tool-permissions-readonly-08-close-agent"></a>
 ### 08 · 关闭面板返回授权表
 
-[视频 00:21](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=21.872) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![08 · 关闭面板返回授权表](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-08-close-agent.png)
 
 <a id="walkthrough-tool-permissions-readonly-09-clear-search"></a>
 ### 09 · 清空搜索显示全部分组
-
-[视频 00:25](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=25.253) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![09 · 清空搜索显示全部分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-09-clear-search.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_start_recording"></a>
 ### 10 · 关闭agent的capture_start_recording
 
-[视频 00:28](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=28.310) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![10 · 关闭agent的capture_start_recording](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_start_recording.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_start_recording"></a>
 ### 11 · 关闭mcp的capture_start_recording
-
-[视频 00:31](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=31.537) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![11 · 关闭mcp的capture_start_recording](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_start_recording.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_stop_recording"></a>
 ### 12 · 关闭agent的capture_stop_recording
 
-[视频 00:35](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=35.313) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![12 · 关闭agent的capture_stop_recording](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_stop_recording.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_stop_recording"></a>
 ### 13 · 关闭mcp的capture_stop_recording
-
-[视频 00:38](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=38.618) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![13 · 关闭mcp的capture_stop_recording](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_stop_recording.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_cancel_transfer_job"></a>
 ### 14 · 关闭agent的capture_cancel_transfer_job
 
-[视频 00:41](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=41.919) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![14 · 关闭agent的capture_cancel_transfer_job](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_cancel_transfer_job.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_cancel_transfer_job"></a>
 ### 15 · 关闭mcp的capture_cancel_transfer_job
-
-[视频 00:45](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=45.197) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![15 · 关闭mcp的capture_cancel_transfer_job](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_cancel_transfer_job.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_export_body"></a>
 ### 16 · 关闭agent的capture_export_body
 
-[视频 00:48](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=48.424) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![16 · 关闭agent的capture_export_body](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_body.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_export_body"></a>
 ### 17 · 关闭mcp的capture_export_body
-
-[视频 00:51](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=51.646) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![17 · 关闭mcp的capture_export_body](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_body.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_export_har"></a>
 ### 18 · 关闭agent的capture_export_har
 
-[视频 00:54](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=54.921) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![18 · 关闭agent的capture_export_har](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_har.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_export_har"></a>
 ### 19 · 关闭mcp的capture_export_har
-
-[视频 00:58](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=58.179) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![19 · 关闭mcp的capture_export_har](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_har.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_import_har"></a>
 ### 20 · 关闭agent的capture_import_har
 
-[视频 01:01](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=61.429) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![20 · 关闭agent的capture_import_har](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_import_har.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_import_har"></a>
 ### 21 · 关闭mcp的capture_import_har
-
-[视频 01:04](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=64.611) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![21 · 关闭mcp的capture_import_har](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_import_har.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_export_archive"></a>
 ### 22 · 关闭agent的capture_export_archive
 
-[视频 01:07](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=67.855) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![22 · 关闭agent的capture_export_archive](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_export_archive.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_export_archive"></a>
 ### 23 · 关闭mcp的capture_export_archive
-
-[视频 01:11](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=71.118) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![23 · 关闭mcp的capture_export_archive](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_export_archive.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-capture_import_archive"></a>
 ### 24 · 关闭agent的capture_import_archive
 
-[视频 01:14](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=74.323) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![24 · 关闭agent的capture_import_archive](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-capture_import_archive.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-capture_import_archive"></a>
 ### 25 · 关闭mcp的capture_import_archive
-
-[视频 01:17](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=77.541) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![25 · 关闭mcp的capture_import_archive](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-capture_import_archive.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-rules_replace_tree"></a>
 ### 26 · 关闭agent的rules_replace_tree
 
-[视频 01:20](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=80.851) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![26 · 关闭agent的rules_replace_tree](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_replace_tree.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-rules_replace_tree"></a>
 ### 27 · 关闭mcp的rules_replace_tree
-
-[视频 01:24](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=84.139) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![27 · 关闭mcp的rules_replace_tree](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_replace_tree.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-rules_export"></a>
 ### 28 · 关闭agent的rules_export
 
-[视频 01:27](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=87.362) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![28 · 关闭agent的rules_export](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_export.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-rules_export"></a>
 ### 29 · 关闭mcp的rules_export
-
-[视频 01:30](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=90.545) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![29 · 关闭mcp的rules_export](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_export.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-rules_import"></a>
 ### 30 · 关闭agent的rules_import
 
-[视频 01:33](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=93.722) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![30 · 关闭agent的rules_import](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-rules_import.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-rules_import"></a>
 ### 31 · 关闭mcp的rules_import
-
-[视频 01:36](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=96.917) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![31 · 关闭mcp的rules_import](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-rules_import.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-composer_send_request"></a>
 ### 32 · 关闭agent的composer_send_request
 
-[视频 01:40](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=100.674) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![32 · 关闭agent的composer_send_request](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_send_request.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-composer_send_request"></a>
 ### 33 · 关闭mcp的composer_send_request
-
-[视频 01:43](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=103.890) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![33 · 关闭mcp的composer_send_request](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_send_request.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-composer_probe_connection"></a>
 ### 34 · 关闭agent的composer_probe_connection
 
-[视频 01:47](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=107.173) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![34 · 关闭agent的composer_probe_connection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_probe_connection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-composer_probe_connection"></a>
 ### 35 · 关闭mcp的composer_probe_connection
-
-[视频 01:50](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=110.419) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![35 · 关闭mcp的composer_probe_connection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_probe_connection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-composer_replace_collection"></a>
 ### 36 · 关闭agent的composer_replace_collection
 
-[视频 01:53](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=113.639) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![36 · 关闭agent的composer_replace_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_replace_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-composer_replace_collection"></a>
 ### 37 · 关闭mcp的composer_replace_collection
-
-[视频 01:56](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=116.893) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![37 · 关闭mcp的composer_replace_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_replace_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-composer_export_collection"></a>
 ### 38 · 关闭agent的composer_export_collection
 
-[视频 02:00](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=120.149) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![38 · 关闭agent的composer_export_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_export_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-composer_export_collection"></a>
 ### 39 · 关闭mcp的composer_export_collection
-
-[视频 02:03](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=123.390) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![39 · 关闭mcp的composer_export_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_export_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-composer_import_collection"></a>
 ### 40 · 关闭agent的composer_import_collection
 
-[视频 02:06](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=126.597) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![40 · 关闭agent的composer_import_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-composer_import_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-composer_import_collection"></a>
 ### 41 · 关闭mcp的composer_import_collection
-
-[视频 02:09](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=129.812) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![41 · 关闭mcp的composer_import_collection](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-composer_import_collection.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_enable_http"></a>
 ### 42 · 关闭agent的breakpoints_enable_http
 
-[视频 02:13](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=133.033) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![42 · 关闭agent的breakpoints_enable_http](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_enable_http.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_enable_http"></a>
 ### 43 · 关闭mcp的breakpoints_enable_http
-
-[视频 02:16](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=136.265) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![43 · 关闭mcp的breakpoints_enable_http](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_enable_http.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_disable_http"></a>
 ### 44 · 关闭agent的breakpoints_disable_http
 
-[视频 02:19](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=139.479) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![44 · 关闭agent的breakpoints_disable_http](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_disable_http.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_disable_http"></a>
 ### 45 · 关闭mcp的breakpoints_disable_http
-
-[视频 02:22](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=142.687) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![45 · 关闭mcp的breakpoints_disable_http](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_disable_http.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_enable_websocket"></a>
 ### 46 · 关闭agent的breakpoints_enable_websocket
 
-[视频 02:25](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=145.867) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![46 · 关闭agent的breakpoints_enable_websocket](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_enable_websocket.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_enable_websocket"></a>
 ### 47 · 关闭mcp的breakpoints_enable_websocket
-
-[视频 02:29](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=149.056) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![47 · 关闭mcp的breakpoints_enable_websocket](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_enable_websocket.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_disable_websocket"></a>
 ### 48 · 关闭agent的breakpoints_disable_websocket
 
-[视频 02:32](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=152.292) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![48 · 关闭agent的breakpoints_disable_websocket](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_disable_websocket.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_disable_websocket"></a>
 ### 49 · 关闭mcp的breakpoints_disable_websocket
-
-[视频 02:35](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=155.504) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![49 · 关闭mcp的breakpoints_disable_websocket](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_disable_websocket.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_continue"></a>
 ### 50 · 关闭agent的breakpoints_continue
 
-[视频 02:38](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=158.699) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![50 · 关闭agent的breakpoints_continue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_continue"></a>
 ### 51 · 关闭mcp的breakpoints_continue
-
-[视频 02:41](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=161.931) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![51 · 关闭mcp的breakpoints_continue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_forward_edited"></a>
 ### 52 · 关闭agent的breakpoints_forward_edited
 
-[视频 02:45](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=165.144) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![52 · 关闭agent的breakpoints_forward_edited](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_forward_edited.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_forward_edited"></a>
 ### 53 · 关闭mcp的breakpoints_forward_edited
-
-[视频 02:48](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=168.371) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![53 · 关闭mcp的breakpoints_forward_edited](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_forward_edited.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_drop"></a>
 ### 54 · 关闭agent的breakpoints_drop
 
-[视频 02:51](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=171.571) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![54 · 关闭agent的breakpoints_drop](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_drop.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_drop"></a>
 ### 55 · 关闭mcp的breakpoints_drop
-
-[视频 02:54](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=174.763) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![55 · 关闭mcp的breakpoints_drop](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_drop.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_continue_queue"></a>
 ### 56 · 关闭agent的breakpoints_continue_queue
 
-[视频 02:57](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=177.932) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![56 · 关闭agent的breakpoints_continue_queue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue_queue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_continue_queue"></a>
 ### 57 · 关闭mcp的breakpoints_continue_queue
-
-[视频 03:01](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=181.115) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![57 · 关闭mcp的breakpoints_continue_queue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue_queue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_drop_queue"></a>
 ### 58 · 关闭agent的breakpoints_drop_queue
 
-[视频 03:04](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=184.323) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![58 · 关闭agent的breakpoints_drop_queue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_drop_queue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_drop_queue"></a>
 ### 59 · 关闭mcp的breakpoints_drop_queue
-
-[视频 03:07](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=187.550) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![59 · 关闭mcp的breakpoints_drop_queue](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_drop_queue.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-breakpoints_continue_rule"></a>
 ### 60 · 关闭agent的breakpoints_continue_rule
 
-[视频 03:10](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=190.768) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![60 · 关闭agent的breakpoints_continue_rule](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-breakpoints_continue_rule.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-breakpoints_continue_rule"></a>
 ### 61 · 关闭mcp的breakpoints_continue_rule
-
-[视频 03:13](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=193.975) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![61 · 关闭mcp的breakpoints_continue_rule](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-breakpoints_continue_rule.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-diagnostics_export"></a>
 ### 62 · 关闭agent的diagnostics_export
 
-[视频 03:17](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=197.204) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![62 · 关闭agent的diagnostics_export](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-diagnostics_export.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-diagnostics_export"></a>
 ### 63 · 关闭mcp的diagnostics_export
-
-[视频 03:20](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=200.417) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![63 · 关闭mcp的diagnostics_export](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-diagnostics_export.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_generate_certificate"></a>
 ### 64 · 关闭agent的settings_generate_certificate
 
-[视频 03:23](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=203.628) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![64 · 关闭agent的settings_generate_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_generate_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_generate_certificate"></a>
 ### 65 · 关闭mcp的settings_generate_certificate
-
-[视频 03:26](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=206.846) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![65 · 关闭mcp的settings_generate_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_generate_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_install_certificate"></a>
 ### 66 · 关闭agent的settings_install_certificate
 
-[视频 03:30](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=210.044) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![66 · 关闭agent的settings_install_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_install_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_install_certificate"></a>
 ### 67 · 关闭mcp的settings_install_certificate
-
-[视频 03:33](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=213.284) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![67 · 关闭mcp的settings_install_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_install_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_uninstall_certificate"></a>
 ### 68 · 关闭agent的settings_uninstall_certificate
 
-[视频 03:36](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=216.498) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![68 · 关闭agent的settings_uninstall_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_uninstall_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_uninstall_certificate"></a>
 ### 69 · 关闭mcp的settings_uninstall_certificate
-
-[视频 03:39](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=219.707) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![69 · 关闭mcp的settings_uninstall_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_uninstall_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_delete_certificate"></a>
 ### 70 · 关闭agent的settings_delete_certificate
 
-[视频 03:42](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=222.903) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![70 · 关闭agent的settings_delete_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_delete_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_delete_certificate"></a>
 ### 71 · 关闭mcp的settings_delete_certificate
-
-[视频 03:46](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=226.125) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![71 · 关闭mcp的settings_delete_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_delete_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_reveal_certificate"></a>
 ### 72 · 关闭agent的settings_reveal_certificate
 
-[视频 03:49](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=229.352) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![72 · 关闭agent的settings_reveal_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_reveal_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_reveal_certificate"></a>
 ### 73 · 关闭mcp的settings_reveal_certificate
-
-[视频 03:52](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=232.570) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![73 · 关闭mcp的settings_reveal_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_reveal_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_view_certificate"></a>
 ### 74 · 关闭agent的settings_view_certificate
 
-[视频 03:55](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=235.782) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![74 · 关闭agent的settings_view_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_view_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_view_certificate"></a>
 ### 75 · 关闭mcp的settings_view_certificate
-
-[视频 03:59](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=239.014) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![75 · 关闭mcp的settings_view_certificate](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_view_certificate.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_open_certificate_manager"></a>
 ### 76 · 关闭agent的settings_open_certificate_manager
 
-[视频 04:02](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=242.230) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![76 · 关闭agent的settings_open_certificate_manager](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_open_certificate_manager.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_open_certificate_manager"></a>
 ### 77 · 关闭mcp的settings_open_certificate_manager
-
-[视频 04:05](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=245.454) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![77 · 关闭mcp的settings_open_certificate_manager](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_open_certificate_manager.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_enable_app_container"></a>
 ### 78 · 关闭agent的settings_enable_app_container
 
-[视频 04:08](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=248.685) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![78 · 关闭agent的settings_enable_app_container](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_app_container.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_enable_app_container"></a>
 ### 79 · 关闭mcp的settings_enable_app_container
-
-[视频 04:11](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=251.904) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![79 · 关闭mcp的settings_enable_app_container](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_app_container.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_disable_app_container"></a>
 ### 80 · 关闭agent的settings_disable_app_container
 
-[视频 04:15](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=255.138) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![80 · 关闭agent的settings_disable_app_container](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_app_container.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_disable_app_container"></a>
 ### 81 · 关闭mcp的settings_disable_app_container
-
-[视频 04:18](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=258.397) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![81 · 关闭mcp的settings_disable_app_container](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_app_container.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_enable_all_app_containers"></a>
 ### 82 · 关闭agent的settings_enable_all_app_containers
 
-[视频 04:21](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=261.598) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![82 · 关闭agent的settings_enable_all_app_containers](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_all_app_containers.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_enable_all_app_containers"></a>
 ### 83 · 关闭mcp的settings_enable_all_app_containers
-
-[视频 04:24](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=264.769) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![83 · 关闭mcp的settings_enable_all_app_containers](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_all_app_containers.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_disable_all_app_containers"></a>
 ### 84 · 关闭agent的settings_disable_all_app_containers
 
-[视频 04:27](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=267.999) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![84 · 关闭agent的settings_disable_all_app_containers](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_all_app_containers.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_disable_all_app_containers"></a>
 ### 85 · 关闭mcp的settings_disable_all_app_containers
-
-[视频 04:31](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=271.203) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![85 · 关闭mcp的settings_disable_all_app_containers](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_all_app_containers.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_enable_system_proxy"></a>
 ### 86 · 关闭agent的settings_enable_system_proxy
 
-[视频 04:34](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=274.428) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![86 · 关闭agent的settings_enable_system_proxy](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_system_proxy.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_enable_system_proxy"></a>
 ### 87 · 关闭mcp的settings_enable_system_proxy
-
-[视频 04:37](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=277.622) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![87 · 关闭mcp的settings_enable_system_proxy](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_system_proxy.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_restore_system_proxy"></a>
 ### 88 · 关闭agent的settings_restore_system_proxy
 
-[视频 04:40](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=280.847) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![88 · 关闭agent的settings_restore_system_proxy](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_restore_system_proxy.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_restore_system_proxy"></a>
 ### 89 · 关闭mcp的settings_restore_system_proxy
-
-[视频 04:44](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=284.025) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![89 · 关闭mcp的settings_restore_system_proxy](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_restore_system_proxy.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_replace_tls_insecure_hosts"></a>
 ### 90 · 关闭agent的settings_replace_tls_insecure_hosts
 
-[视频 04:47](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=287.204) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![90 · 关闭agent的settings_replace_tls_insecure_hosts](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_replace_tls_insecure_hosts.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_replace_tls_insecure_hosts"></a>
 ### 91 · 关闭mcp的settings_replace_tls_insecure_hosts
-
-[视频 04:50](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=290.435) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![91 · 关闭mcp的settings_replace_tls_insecure_hosts](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_replace_tls_insecure_hosts.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_replace_tls_passthrough"></a>
 ### 92 · 关闭agent的settings_replace_tls_passthrough
 
-[视频 04:53](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=293.698) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![92 · 关闭agent的settings_replace_tls_passthrough](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_replace_tls_passthrough.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_replace_tls_passthrough"></a>
 ### 93 · 关闭mcp的settings_replace_tls_passthrough
-
-[视频 04:56](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=296.907) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![93 · 关闭mcp的settings_replace_tls_passthrough](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_replace_tls_passthrough.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_enable_https_decryption"></a>
 ### 94 · 关闭agent的settings_enable_https_decryption
 
-[视频 05:00](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=300.115) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![94 · 关闭agent的settings_enable_https_decryption](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_enable_https_decryption.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_enable_https_decryption"></a>
 ### 95 · 关闭mcp的settings_enable_https_decryption
-
-[视频 05:03](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=303.336) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![95 · 关闭mcp的settings_enable_https_decryption](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_enable_https_decryption.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_disable_https_decryption"></a>
 ### 96 · 关闭agent的settings_disable_https_decryption
 
-[视频 05:06](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=306.543) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![96 · 关闭agent的settings_disable_https_decryption](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_disable_https_decryption.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_disable_https_decryption"></a>
 ### 97 · 关闭mcp的settings_disable_https_decryption
-
-[视频 05:09](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=309.756) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![97 · 关闭mcp的settings_disable_https_decryption](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_disable_https_decryption.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_set_language"></a>
 ### 98 · 关闭agent的settings_set_language
 
-[视频 05:12](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=312.976) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![98 · 关闭agent的settings_set_language](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_language.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_set_language"></a>
 ### 99 · 关闭mcp的settings_set_language
-
-[视频 05:16](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=316.166) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![99 · 关闭mcp的settings_set_language](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_language.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_set_theme"></a>
 ### 100 · 关闭agent的settings_set_theme
 
-[视频 05:19](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=319.393) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![100 · 关闭agent的settings_set_theme](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_theme.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_set_theme"></a>
 ### 101 · 关闭mcp的settings_set_theme
-
-[视频 05:22](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=322.596) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![101 · 关闭mcp的settings_set_theme](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_theme.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-agent-settings_set_export_privacy_defaults"></a>
 ### 102 · 关闭agent的settings_set_export_privacy_defaults
 
-[视频 05:25](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=325.815) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![102 · 关闭agent的settings_set_export_privacy_defaults](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-agent-settings_set_export_privacy_defaults.png)
 
 <a id="walkthrough-tool-permissions-readonly-disable-mcp-settings_set_export_privacy_defaults"></a>
 ### 103 · 关闭mcp的settings_set_export_privacy_defaults
-
-[视频 05:29](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=329.024) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![103 · 关闭mcp的settings_set_export_privacy_defaults](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-disable-mcp-settings_set_export_privacy_defaults.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-capture"></a>
 ### 104 · 滚动复核capture分组
 
-[视频 05:32](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=332.257) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![104 · 滚动复核capture分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-capture.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-rules"></a>
 ### 105 · 滚动复核rules分组
-
-[视频 05:35](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=335.284) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![105 · 滚动复核rules分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-rules.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-composer"></a>
 ### 106 · 滚动复核composer分组
 
-[视频 05:38](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=338.339) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![106 · 滚动复核composer分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-composer.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-breakpoints"></a>
 ### 107 · 滚动复核breakpoints分组
-
-[视频 05:41](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=341.352) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![107 · 滚动复核breakpoints分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-breakpoints.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-diagnostics"></a>
 ### 108 · 滚动复核diagnostics分组
 
-[视频 05:44](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=344.364) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![108 · 滚动复核diagnostics分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-diagnostics.png)
 
 <a id="walkthrough-tool-permissions-readonly-review-settings"></a>
 ### 109 · 滚动复核settings分组
-
-[视频 05:47](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=347.380) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![109 · 滚动复核settings分组](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-review-settings.png)
 
 <a id="walkthrough-tool-permissions-readonly-10-readonly-list"></a>
 ### 110 · 核对MCP只发现query
 
-[视频 05:50](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=350.398) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
-
 ![110 · 核对MCP只发现query](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-10-readonly-list.png)
 
 <a id="walkthrough-tool-permissions-readonly-11-before-close"></a>
 ### 111 · 保留完整只读配置后正常关闭
-
-[视频 05:54](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly.mp4#t=354.039) · [返回本节视频](#walkthrough-tool-permissions-readonly-video)
 
 ![111 · 保留完整只读配置后正常关闭](../media/v0.1.1-alpha.1/tool-permissions-readonly/tool-permissions-readonly-11-before-close.png)
 
@@ -1070,10 +819,9 @@
 <a id="walkthrough-tool-permissions-restart"></a>
 ## 重启后的完整只读权限
 
-以下图片和视频来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
+以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
 
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本段录像中的进阶分支仍待逐步配图与验收。
-
+本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
 
 | 示例字段 | 录制中的实际值 |
 | --- | --- |
@@ -1083,44 +831,28 @@
 | <code>persisted</code> | <code>Every change Tool remains disabled for both Agent and MCP after actual App restart</code> |
 | <code>evidenceGeneration</code> | <code>readonly-reopened</code> |
 
-<a id="walkthrough-tool-permissions-restart-video"></a>
-
-<video controls preload="metadata" playsinline lang="zh-CN" src="../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4" poster="../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-01-saved-permissions.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.vtt" default>
-</video>
-
 <a id="walkthrough-tool-permissions-restart-01-saved-permissions"></a>
 ### 01 · 读取重启后的实际双列权限
-
-[视频 00:00](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4#t=0.472) · [返回本节视频](#walkthrough-tool-permissions-restart-video)
 
 ![01 · 读取重启后的实际双列权限](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-01-saved-permissions.png)
 
 <a id="walkthrough-tool-permissions-restart-02-query-only"></a>
 ### 02 · 新连接仍只发现query
 
-[视频 00:04](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4#t=4.991) · [返回本节视频](#walkthrough-tool-permissions-restart-video)
-
 ![02 · 新连接仍只发现query](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-02-query-only.png)
 
 <a id="walkthrough-tool-permissions-restart-03-query-enabled"></a>
 ### 03 · 已保留的只读查询仍可用
-
-[视频 00:07](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4#t=7.973) · [返回本节视频](#walkthrough-tool-permissions-restart-video)
 
 ![03 · 已保留的只读查询仍可用](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-03-query-enabled.png)
 
 <a id="walkthrough-tool-permissions-restart-04-clear-search"></a>
 ### 04 · 清空搜索保留完整只读状态
 
-[视频 00:10](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4#t=10.986) · [返回本节视频](#walkthrough-tool-permissions-restart-video)
-
 ![04 · 清空搜索保留完整只读状态](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-04-clear-search.png)
 
 <a id="walkthrough-tool-permissions-restart-05-stop-server"></a>
 ### 05 · 关闭本轮Server而不恢复change授权
-
-[视频 00:14](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart.mp4#t=14.047) · [返回本节视频](#walkthrough-tool-permissions-restart-video)
 
 ![05 · 关闭本轮Server而不恢复change授权](../media/v0.1.1-alpha.1/tool-permissions-restart/tool-permissions-restart-05-stop-server.png)
 

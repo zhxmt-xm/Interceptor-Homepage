@@ -8,11 +8,11 @@
 <a id="walkthrough"></a>
 ## Recorded walkthrough: actual product steps
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -26,184 +26,128 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>answer</code> | <code>Demo response: Pause stops recording new requests. Clear removes captured records. Neither restores the system proxy.</code> |
 | <code>modelKind</code> | <code>deterministic local demonstration, not a commercial model acceptance</code> |
 
-<a id="walkthrough-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent/agent.mp4" poster="../media/v0.1.1-alpha.1/agent/agent-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent/agent.vtt" default>
-</video>
-
 <a id="walkthrough-01-settings"></a>
 ### 01 · Open Settings
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent/agent.mp4#t=0.961) · [Back to the video](#walkthrough-video)
 
 ![01 · Open Settings](../media/v0.1.1-alpha.1/agent/agent-01-settings.png)
 
 <a id="walkthrough-02-agent-settings"></a>
 ### 02 · Open Agent settings
 
-[Video 00:03](../media/v0.1.1-alpha.1/agent/agent.mp4#t=3.884) · [Back to the video](#walkthrough-video)
-
 ![02 · Open Agent settings](../media/v0.1.1-alpha.1/agent/agent-02-agent-settings.png)
 
 <a id="walkthrough-03-add"></a>
 ### 03 · Add a model
-
-[Video 00:06](../media/v0.1.1-alpha.1/agent/agent.mp4#t=6.984) · [Back to the video](#walkthrough-video)
 
 ![03 · Add a model](../media/v0.1.1-alpha.1/agent/agent-03-add.png)
 
 <a id="walkthrough-04-custom"></a>
 ### 04 · Choose Custom
 
-[Video 00:09](../media/v0.1.1-alpha.1/agent/agent.mp4#t=9.883) · [Back to the video](#walkthrough-video)
-
 ![04 · Choose Custom](../media/v0.1.1-alpha.1/agent/agent-04-custom.png)
 
 <a id="walkthrough-05-name"></a>
 ### 05 · Name the profile
-
-[Video 00:12](../media/v0.1.1-alpha.1/agent/agent.mp4#t=12.839) · [Back to the video](#walkthrough-video)
 
 ![05 · Name the profile](../media/v0.1.1-alpha.1/agent/agent-05-name.png)
 
 <a id="walkthrough-06-endpoint"></a>
 ### 06 · Enter the local demo URL
 
-[Video 00:15](../media/v0.1.1-alpha.1/agent/agent.mp4#t=15.692) · [Back to the video](#walkthrough-video)
-
 ![06 · Enter the local demo URL](../media/v0.1.1-alpha.1/agent/agent-06-endpoint.png)
 
 <a id="walkthrough-07-model"></a>
 ### 07 · Enter the model ID
-
-[Video 00:18](../media/v0.1.1-alpha.1/agent/agent.mp4#t=18.583) · [Back to the video](#walkthrough-video)
 
 ![07 · Enter the model ID](../media/v0.1.1-alpha.1/agent/agent-07-model.png)
 
 <a id="walkthrough-08-context"></a>
 ### 08 · Set the context window
 
-[Video 00:21](../media/v0.1.1-alpha.1/agent/agent.mp4#t=21.434) · [Back to the video](#walkthrough-video)
-
 ![08 · Set the context window](../media/v0.1.1-alpha.1/agent/agent-08-context.png)
 
 <a id="walkthrough-09-output"></a>
 ### 09 · Set maximum output
-
-[Video 00:24](../media/v0.1.1-alpha.1/agent/agent.mp4#t=24.285) · [Back to the video](#walkthrough-video)
 
 ![09 · Set maximum output](../media/v0.1.1-alpha.1/agent/agent-09-output.png)
 
 <a id="walkthrough-10-test"></a>
 ### 10 · Test the actual connection
 
-[Video 00:27](../media/v0.1.1-alpha.1/agent/agent.mp4#t=27.184) · [Back to the video](#walkthrough-video)
-
 ![10 · Test the actual connection](../media/v0.1.1-alpha.1/agent/agent-10-test.png)
 
 <a id="walkthrough-11-save"></a>
 ### 11 · Save the verified model
-
-[Video 00:30](../media/v0.1.1-alpha.1/agent/agent.mp4#t=30.192) · [Back to the video](#walkthrough-video)
 
 ![11 · Save the verified model](../media/v0.1.1-alpha.1/agent/agent-11-save.png)
 
 <a id="walkthrough-12-panel"></a>
 ### 12 · Open the Agent panel
 
-[Video 00:33](../media/v0.1.1-alpha.1/agent/agent.mp4#t=33.232) · [Back to the video](#walkthrough-video)
-
 ![12 · Open the Agent panel](../media/v0.1.1-alpha.1/agent/agent-12-panel.png)
 
 <a id="walkthrough-13-chat"></a>
 ### 13 · Create a Chat
-
-[Video 00:36](../media/v0.1.1-alpha.1/agent/agent.mp4#t=36.185) · [Back to the video](#walkthrough-video)
 
 ![13 · Create a Chat](../media/v0.1.1-alpha.1/agent/agent-13-chat.png)
 
 <a id="walkthrough-14-prompt"></a>
 ### 14 · Enter a scoped question
 
-[Video 00:39](../media/v0.1.1-alpha.1/agent/agent.mp4#t=39.134) · [Back to the video](#walkthrough-video)
-
 ![14 · Enter a scoped question](../media/v0.1.1-alpha.1/agent/agent-14-prompt.png)
 
 <a id="walkthrough-15-send"></a>
 ### 15 · Send and read the demo response
-
-[Video 00:41](../media/v0.1.1-alpha.1/agent/agent.mp4#t=41.983) · [Back to the video](#walkthrough-video)
 
 ![15 · Send and read the demo response](../media/v0.1.1-alpha.1/agent/agent-15-send.png)
 
 <a id="walkthrough-16-context"></a>
 ### 16 · Inspect context usage
 
-[Video 00:44](../media/v0.1.1-alpha.1/agent/agent.mp4#t=44.982) · [Back to the video](#walkthrough-video)
-
 ![16 · Inspect context usage](../media/v0.1.1-alpha.1/agent/agent-16-context.png)
 
 <a id="walkthrough-17-auto"></a>
 ### 17 · Inspect Auto mode
-
-[Video 00:47](../media/v0.1.1-alpha.1/agent/agent.mp4#t=47.901) · [Back to the video](#walkthrough-video)
 
 ![17 · Inspect Auto mode](../media/v0.1.1-alpha.1/agent/agent-17-auto.png)
 
 <a id="walkthrough-18-ask"></a>
 ### 18 · Restore Ask
 
-[Video 00:50](../media/v0.1.1-alpha.1/agent/agent.mp4#t=50.833) · [Back to the video](#walkthrough-video)
-
 ![18 · Restore Ask](../media/v0.1.1-alpha.1/agent/agent-18-ask.png)
 
 <a id="walkthrough-18a-tool-question"></a>
 ### 19 · Request a Tool requiring approval
-
-[Video 00:53](../media/v0.1.1-alpha.1/agent/agent.mp4#t=53.733) · [Back to the video](#walkthrough-video)
 
 ![19 · Request a Tool requiring approval](../media/v0.1.1-alpha.1/agent/agent-18a-tool-question.png)
 
 <a id="walkthrough-18b-deny"></a>
 ### 20 · Deny one Tool call
 
-[Video 00:56](../media/v0.1.1-alpha.1/agent/agent.mp4#t=56.735) · [Back to the video](#walkthrough-video)
-
 ![20 · Deny one Tool call](../media/v0.1.1-alpha.1/agent/agent-18b-deny.png)
 
 <a id="walkthrough-18c-tool-again"></a>
 ### 21 · Request again and review the target
-
-[Video 00:59](../media/v0.1.1-alpha.1/agent/agent.mp4#t=59.735) · [Back to the video](#walkthrough-video)
 
 ![21 · Request again and review the target](../media/v0.1.1-alpha.1/agent/agent-18c-tool-again.png)
 
 <a id="walkthrough-18d-allow"></a>
 ### 22 · Allow actual Recording pause
 
-[Video 01:02](../media/v0.1.1-alpha.1/agent/agent.mp4#t=62.833) · [Back to the video](#walkthrough-video)
-
 ![22 · Allow actual Recording pause](../media/v0.1.1-alpha.1/agent/agent-18d-allow.png)
 
 <a id="walkthrough-19-stream"></a>
 ### 23 · Start a stoppable demonstration
-
-[Video 01:05](../media/v0.1.1-alpha.1/agent/agent.mp4#t=65.834) · [Back to the video](#walkthrough-video)
 
 ![23 · Start a stoppable demonstration](../media/v0.1.1-alpha.1/agent/agent-19-stream.png)
 
 <a id="walkthrough-20-stop"></a>
 ### 24 · Stop while retaining history
 
-[Video 01:08](../media/v0.1.1-alpha.1/agent/agent.mp4#t=68.833) · [Back to the video](#walkthrough-video)
-
 ![24 · Stop while retaining history](../media/v0.1.1-alpha.1/agent/agent-20-stop.png)
 
 <a id="walkthrough-21-retry"></a>
 ### 25 · Retry as a new attempt
-
-[Video 01:11](../media/v0.1.1-alpha.1/agent/agent.mp4#t=71.786) · [Back to the video](#walkthrough-video)
 
 ![25 · Retry as a new attempt](../media/v0.1.1-alpha.1/agent/agent-21-retry.png)
 
@@ -342,7 +286,7 @@ This section uses the two key-free profiles created and tested in the [managemen
 
 12. Removing the final model requires configuration again before model calls can continue.
 
-    This separate example uses `Guide session demo`, not `Guide model two` above. The [final-model removal excerpt](#walkthrough-agent-model-removal) retains the safe Settings ending of the earlier source recording. A later [complete restart clip](#walkthrough-agent-session-restart) has its own source; their timestamps are not mixed.
+    This separate example uses `Guide session demo`, not `Guide model two` above. The [final-model removal steps](#walkthrough-agent-model-removal) retains the safe Settings ending of the earlier source recording. A later [complete restart walkthrough](#walkthrough-agent-session-restart) has its own source; their images are not mixed.
 
     ![Reviewing confirmation for the only remaining model](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
 
@@ -566,11 +510,11 @@ This continues `agent-management`, not the earlier single `Guide local demo` Cha
 <a id="walkthrough-agent-management"></a>
 ## Recorded walkthrough: models, Chats and capability enforcement
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -585,233 +529,163 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>tool</code> | <code>capture_stop_recording</code> |
 | <code>credentials</code> | <code>none</code> |
 
-<a id="walkthrough-agent-management-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent-management/agent-management.mp4" poster="../media/v0.1.1-alpha.1/agent-management/agent-management-01-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-management/agent-management.vtt" default>
-</video>
-
 <a id="walkthrough-agent-management-01-settings"></a>
 ### 01 · Open Agent settings
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=0.324) · [Back to the video](#walkthrough-agent-management-video)
 
 ![01 · Open Agent settings](../media/v0.1.1-alpha.1/agent-management/agent-management-01-settings.png)
 
 <a id="walkthrough-agent-management-guide-one-01-dialog"></a>
 ### 02 · Add Guide model one
 
-[Video 00:03](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=3.693) · [Back to the video](#walkthrough-agent-management-video)
-
 ![02 · Add Guide model one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-01-dialog.png)
 
 <a id="walkthrough-agent-management-guide-one-02-name"></a>
 ### 03 · Enter Guide model one
-
-[Video 00:07](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=7.131) · [Back to the video](#walkthrough-agent-management-video)
 
 ![03 · Enter Guide model one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-02-name.png)
 
 <a id="walkthrough-agent-management-guide-one-03-endpoint"></a>
 ### 04 · Enter the local demo endpoint
 
-[Video 00:09](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=9.986) · [Back to the video](#walkthrough-agent-management-video)
-
 ![04 · Enter the local demo endpoint](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-03-endpoint.png)
 
 <a id="walkthrough-agent-management-guide-one-04-model"></a>
 ### 05 · Enter guide-one
-
-[Video 00:12](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=12.839) · [Back to the video](#walkthrough-agent-management-video)
 
 ![05 · Enter guide-one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-04-model.png)
 
 <a id="walkthrough-agent-management-guide-one-05-test"></a>
 ### 06 · Test the connection
 
-[Video 00:15](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=15.781) · [Back to the video](#walkthrough-agent-management-video)
-
 ![06 · Test the connection](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-05-test.png)
 
 <a id="walkthrough-agent-management-guide-one-06-save"></a>
 ### 07 · Save verified configuration
-
-[Video 00:18](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=18.730) · [Back to the video](#walkthrough-agent-management-video)
 
 ![07 · Save verified configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-06-save.png)
 
 <a id="walkthrough-agent-management-guide-two-01-dialog"></a>
 ### 08 · Add Guide model two
 
-[Video 00:21](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=21.746) · [Back to the video](#walkthrough-agent-management-video)
-
 ![08 · Add Guide model two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-01-dialog.png)
 
 <a id="walkthrough-agent-management-guide-two-02-name"></a>
 ### 09 · Enter Guide model two
-
-[Video 00:25](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=25.032) · [Back to the video](#walkthrough-agent-management-video)
 
 ![09 · Enter Guide model two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-02-name.png)
 
 <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>
 ### 10 · Enter the local demo endpoint
 
-[Video 00:27](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=27.890) · [Back to the video](#walkthrough-agent-management-video)
-
 ![10 · Enter the local demo endpoint](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-03-endpoint.png)
 
 <a id="walkthrough-agent-management-guide-two-04-model"></a>
 ### 11 · Enter guide-two
-
-[Video 00:30](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=30.793) · [Back to the video](#walkthrough-agent-management-video)
 
 ![11 · Enter guide-two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-04-model.png)
 
 <a id="walkthrough-agent-management-guide-two-05-test"></a>
 ### 12 · Test the connection
 
-[Video 00:33](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=33.781) · [Back to the video](#walkthrough-agent-management-video)
-
 ![12 · Test the connection](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-05-test.png)
 
 <a id="walkthrough-agent-management-guide-two-06-save"></a>
 ### 13 · Save verified configuration
-
-[Video 00:36](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=36.781) · [Back to the video](#walkthrough-agent-management-video)
 
 ![13 · Save verified configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-06-save.png)
 
 <a id="walkthrough-agent-management-02-edit"></a>
 ### 14 · Edit the second Model ID
 
-[Video 00:39](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=39.812) · [Back to the video](#walkthrough-agent-management-video)
-
 ![14 · Edit the second Model ID](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
 
 <a id="walkthrough-agent-management-03-retest"></a>
 ### 15 · Retest changed configuration
-
-[Video 00:42](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=42.789) · [Back to the video](#walkthrough-agent-management-video)
 
 ![15 · Retest changed configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
 
 <a id="walkthrough-agent-management-04-save-edit"></a>
 ### 16 · Save the edit
 
-[Video 00:45](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=45.782) · [Back to the video](#walkthrough-agent-management-video)
-
 ![16 · Save the edit](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
 
 <a id="walkthrough-agent-management-05-first-chat"></a>
 ### 17 · Create a Chat with the first default
-
-[Video 00:48](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=48.832) · [Back to the video](#walkthrough-agent-management-video)
 
 ![17 · Create a Chat with the first default](../media/v0.1.1-alpha.1/agent-management/agent-management-05-first-chat.png)
 
 <a id="walkthrough-agent-management-06-chat-name"></a>
 ### 18 · Rename Guide chat one
 
-[Video 00:51](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=51.931) · [Back to the video](#walkthrough-agent-management-video)
-
 ![18 · Rename Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-06-chat-name.png)
 
 <a id="walkthrough-agent-management-07-default"></a>
 ### 19 · Make the second model the default
-
-[Video 00:55](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=55.089) · [Back to the video](#walkthrough-agent-management-video)
 
 ![19 · Make the second model the default](../media/v0.1.1-alpha.1/agent-management/agent-management-07-default.png)
 
 <a id="walkthrough-agent-management-08-current-model"></a>
 ### 20 · Change only the current Chat model
 
-[Video 00:58](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=58.131) · [Back to the video](#walkthrough-agent-management-video)
-
 ![20 · Change only the current Chat model](../media/v0.1.1-alpha.1/agent-management/agent-management-08-current-model.png)
 
 <a id="walkthrough-agent-management-09-new-chat"></a>
 ### 21 · Create a second Chat
-
-[Video 01:01](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=61.437) · [Back to the video](#walkthrough-agent-management-video)
 
 ![21 · Create a second Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-09-new-chat.png)
 
 <a id="walkthrough-agent-management-10-second-name"></a>
 ### 22 · Rename Guide chat two
 
-[Video 01:04](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=64.331) · [Back to the video](#walkthrough-agent-management-video)
-
 ![22 · Rename Guide chat two](../media/v0.1.1-alpha.1/agent-management/agent-management-10-second-name.png)
 
 <a id="walkthrough-agent-management-11-switch-chat"></a>
 ### 23 · Return to Guide chat one
-
-[Video 01:07](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=67.587) · [Back to the video](#walkthrough-agent-management-video)
 
 ![23 · Return to Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-11-switch-chat.png)
 
 <a id="walkthrough-agent-management-12-delete-dialog"></a>
 ### 24 · Review Chat deletion
 
-[Video 01:10](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=70.535) · [Back to the video](#walkthrough-agent-management-video)
-
 ![24 · Review Chat deletion](../media/v0.1.1-alpha.1/agent-management/agent-management-12-delete-dialog.png)
 
 <a id="walkthrough-agent-management-13-cancel-delete"></a>
 ### 25 · Cancel deletion
-
-[Video 01:13](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=73.531) · [Back to the video](#walkthrough-agent-management-video)
 
 ![25 · Cancel deletion](../media/v0.1.1-alpha.1/agent-management/agent-management-13-cancel-delete.png)
 
 <a id="walkthrough-agent-management-14-disable-tool"></a>
 ### 26 · Disable the Agent stop-recording Tool
 
-[Video 01:16](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=76.431) · [Back to the video](#walkthrough-agent-management-video)
-
 ![26 · Disable the Agent stop-recording Tool](../media/v0.1.1-alpha.1/agent-management/agent-management-14-disable-tool.png)
 
 <a id="walkthrough-agent-management-15-enforcement"></a>
 ### 27 · Verify a disabled Tool cannot execute
-
-[Video 01:19](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=79.386) · [Back to the video](#walkthrough-agent-management-video)
 
 ![27 · Verify a disabled Tool cannot execute](../media/v0.1.1-alpha.1/agent-management/agent-management-15-enforcement.png)
 
 <a id="walkthrough-agent-management-16-restore-tool"></a>
 ### 28 · Restore the original capability
 
-[Video 01:22](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=82.431) · [Back to the video](#walkthrough-agent-management-video)
-
 ![28 · Restore the original capability](../media/v0.1.1-alpha.1/agent-management/agent-management-16-restore-tool.png)
 
 <a id="walkthrough-agent-management-17-remove-model-dialog"></a>
 ### 29 · Review removing an unused Provider
-
-[Video 01:25](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=85.331) · [Back to the video](#walkthrough-agent-management-video)
 
 ![29 · Review removing an unused Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-17-remove-model-dialog.png)
 
 <a id="walkthrough-agent-management-18-remove-model"></a>
 ### 30 · Remove the first demo Provider
 
-[Video 01:28](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=88.231) · [Back to the video](#walkthrough-agent-management-video)
-
 ![30 · Remove the first demo Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-18-remove-model.png)
 
 <a id="walkthrough-agent-management-19-delete-chat-dialog"></a>
 ### 31 · Review deleting the demo Chat
 
-[Video 01:31](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=91.179) · [Back to the video](#walkthrough-agent-management-video)
-
 ![31 · Review deleting the demo Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-19-delete-chat-dialog.png)
 
 <a id="walkthrough-agent-management-20-delete-chat"></a>
 ### 32 · Delete Guide chat one
-
-[Video 01:34](../media/v0.1.1-alpha.1/agent-management/agent-management.mp4#t=94.131) · [Back to the video](#walkthrough-agent-management-video)
 
 ![32 · Delete Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-20-delete-chat.png)
 
@@ -822,11 +696,11 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-agent-session-lifecycle"></a>
 ## Keyboard, Context, new Chats and running deletion
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -839,116 +713,80 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>retainedChat</code> | <code>Guide retained chat</code> |
 | <code>freshChat</code> | <code>Guide fresh context</code> |
 | <code>deletedRunningChat</code> | <code>Guide running delete</code> |
-| <code>closeImage</code> | <code>Before the actual Close; the driver verifies the real shutdown between recordings</code> |
-
-<a id="walkthrough-agent-session-lifecycle-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.vtt" default>
-</video>
+| <code>closeImage</code> | <code>Before the actual Close; the driver verifies the real shutdown between App generations</code> |
 
 <a id="walkthrough-agent-session-lifecycle-01-panel"></a>
 ### 01 · Open the Agent panel
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=0.218) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![01 · Open the Agent panel](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png)
 
 <a id="walkthrough-agent-session-lifecycle-02-chat"></a>
 ### 02 · Create the Chat to retain
 
-[Video 00:03](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=3.922) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![02 · Create the Chat to retain](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-02-chat.png)
 
 <a id="walkthrough-agent-session-lifecycle-03-name"></a>
 ### 03 · Name it Guide retained chat
-
-[Video 00:07](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=7.127) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![03 · Name it Guide retained chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-03-name.png)
 
 <a id="walkthrough-agent-session-lifecycle-04-prompt"></a>
 ### 04 · Enter this run’s public prompt
 
-[Video 00:10](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=10.674) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![04 · Enter this run’s public prompt](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-04-prompt.png)
 
 <a id="walkthrough-agent-session-lifecycle-05-keyboard-send"></a>
 ### 05 · Send with Command+Enter
-
-[Video 00:13](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=13.749) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![05 · Send with Command+Enter](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-05-keyboard-send.png)
 
 <a id="walkthrough-agent-session-lifecycle-06-keyboard-context"></a>
 ### 06 · Use actual Tab navigation to read Context
 
-[Video 00:17](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=17.443) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![06 · Use actual Tab navigation to read Context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png)
 
 <a id="walkthrough-agent-session-lifecycle-07-dismiss-context"></a>
 ### 07 · Move focus away from Context
-
-[Video 00:20](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=20.744) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![07 · Move focus away from Context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-07-dismiss-context.png)
 
 <a id="walkthrough-agent-session-lifecycle-08-fresh-chat"></a>
 ### 08 · Start a separate Chat after reviewing usage
 
-[Video 00:23](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=23.874) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![08 · Start a separate Chat after reviewing usage](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png)
 
 <a id="walkthrough-agent-session-lifecycle-09-fresh-name"></a>
 ### 09 · Name it Guide fresh context
-
-[Video 00:27](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=27.014) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![09 · Name it Guide fresh context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-09-fresh-name.png)
 
 <a id="walkthrough-agent-session-lifecycle-10-running-chat"></a>
 ### 10 · Create the running-deletion example
 
-[Video 00:30](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=30.489) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![10 · Create the running-deletion example](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-10-running-chat.png)
 
 <a id="walkthrough-agent-session-lifecycle-11-running-prompt"></a>
 ### 11 · Start the local held-stream example
-
-[Video 00:34](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=34.079) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![11 · Start the local held-stream example](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-11-running-prompt.png)
 
 <a id="walkthrough-agent-session-lifecycle-12-running-delete-dialog"></a>
 ### 12 · Open deletion confirmation while running
 
-[Video 00:37](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=37.802) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![12 · Open deletion confirmation while running](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png)
 
 <a id="walkthrough-agent-session-lifecycle-13-delete-running"></a>
 ### 13 · Confirm deletion and cancel that stream
-
-[Video 00:41](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=41.118) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![13 · Confirm deletion and cancel that stream](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png)
 
 <a id="walkthrough-agent-session-lifecycle-14-retained-chat"></a>
 ### 14 · Return to the retained Chat
 
-[Video 00:44](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=44.464) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
-
 ![14 · Return to the retained Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-14-retained-chat.png)
 
 <a id="walkthrough-agent-session-lifecycle-15-before-close"></a>
 ### 15 · Confirm persistent content before normal Close
-
-[Video 00:47](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle.mp4#t=47.607) · [Back to the video](#walkthrough-agent-session-lifecycle-video)
 
 ![15 · Confirm persistent content before normal Close](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-15-before-close.png)
 
@@ -959,11 +797,11 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-agent-tool-lifecycle"></a>
 ## Completed Tools, Stop, Retry and native file approval
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -979,128 +817,88 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>stopBoundary</code> | <code>A completed Recording pause remains applied after stopping the later model reply</code> |
 | <code>retryBoundary</code> | <code>This retry requests explanation only; other models may propose new actions and require fresh review</code> |
 
-<a id="walkthrough-agent-tool-lifecycle-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4" poster="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.vtt" default>
-</video>
-
 <a id="walkthrough-agent-tool-lifecycle-01-agent"></a>
 ### 01 · Open Agent and create a Chat
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=0.387) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![01 · Open Agent and create a Chat](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png)
 
 <a id="walkthrough-agent-tool-lifecycle-02-ask"></a>
 ### 02 · Explicitly choose Ask
 
-[Video 00:03](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=3.482) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![02 · Explicitly choose Ask](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-02-ask.png)
 
 <a id="walkthrough-agent-tool-lifecycle-03-side-effect-prompt"></a>
 ### 03 · Ask to pause Recording and then continue explaining
-
-[Video 00:06](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=6.519) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![03 · Ask to pause Recording and then continue explaining](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-03-side-effect-prompt.png)
 
 <a id="walkthrough-agent-tool-lifecycle-04-allow-pause"></a>
 ### 04 · Allow the explicit pause operation
 
-[Video 00:09](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=9.633) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![04 · Allow the explicit pause operation](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-04-allow-pause.png)
 
 <a id="walkthrough-agent-tool-lifecycle-05-stop-after-tool"></a>
 ### 05 · Stop the response without undoing the completed Tool
-
-[Video 00:12](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=12.731) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![05 · Stop the response without undoing the completed Tool](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
 
 <a id="walkthrough-agent-tool-lifecycle-06-retry"></a>
 ### 06 · Retry with explanation only in this example
 
-[Video 00:15](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=15.785) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![06 · Retry with explanation only in this example](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-06-retry.png)
 
 <a id="walkthrough-agent-tool-lifecycle-07-clarify"></a>
 ### 07 · Restate a read-only goal
-
-[Video 00:18](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=18.860) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![07 · Restate a read-only goal](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png)
 
 <a id="walkthrough-agent-tool-lifecycle-08-diagnostics-recent"></a>
 ### 08 · Execute a real Diagnostics Recent query
 
-[Video 00:22](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=22.066) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![08 · Execute a real Diagnostics Recent query](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png)
 
 <a id="walkthrough-agent-tool-lifecycle-09-read-trace"></a>
 ### 09 · Query related records using the returned traceId
-
-[Video 00:25](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=25.286) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![09 · Query related records using the returned traceId](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png)
 
 <a id="walkthrough-agent-tool-lifecycle-10-export-request"></a>
 ### 10 · Request a Diagnostics export requiring approval
 
-[Video 00:28](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=28.444) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![10 · Request a Diagnostics export requiring approval](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-10-export-request.png)
 
 <a id="walkthrough-agent-tool-lifecycle-11-native-cancel-panel"></a>
 ### 11 · Approval still leads to a real Save window
-
-[Video 00:41](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=41.719) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![11 · Approval still leads to a real Save window](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-11-native-cancel-panel.png)
 
 <a id="walkthrough-agent-tool-lifecycle-12-cancel-native"></a>
 ### 12 · Cancel native saving without replacing its return value
 
-[Video 00:45](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=45.041) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![12 · Cancel native saving without replacing its return value](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-12-cancel-native.png)
 
 <a id="walkthrough-agent-tool-lifecycle-13-export-again"></a>
 ### 13 · Request export again and review parameters
-
-[Video 00:49](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=49.672) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![13 · Request export again and review parameters](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-13-export-again.png)
 
 <a id="walkthrough-agent-tool-lifecycle-14-native-save"></a>
 ### 14 · Save guide-agent-diagnostics.jsonl
 
-[Video 01:02](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=62.057) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![14 · Save guide-agent-diagnostics.jsonl](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
 
 <a id="walkthrough-agent-tool-lifecycle-15-started-result"></a>
 ### 15 · Distinguish a started job from completion
-
-[Video 01:06](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=66.407) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![15 · Distinguish a started job from completion](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-15-started-result.png)
 
 <a id="walkthrough-agent-tool-lifecycle-16-completion-query"></a>
 ### 16 · Query the actual file task for completion
 
-[Video 01:09](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=69.384) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
-
 ![16 · Query the actual file task for completion](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-16-completion-query.png)
 
 <a id="walkthrough-agent-tool-lifecycle-17-final-state"></a>
 ### 17 · Retain the paused state and verify the actual result
-
-[Video 01:12](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle.mp4#t=72.558) · [Back to the video](#walkthrough-agent-tool-lifecycle-video)
 
 ![17 · Retain the paused state and verify the actual result](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-17-final-state.png)
 
@@ -1111,44 +909,32 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-agent-model-removal"></a>
 ## Recorded walkthrough: removing the final model (native recording excerpt)
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This is a contiguous native-recording excerpt from <code>agent-session-restart</code>, 12.050–19.302 seconds, not a new recording. Actions are not spliced or recreated; original PNGs are unchanged and timestamps are relative to this excerpt. It does not establish acceptance of unpublished parts of the original recording.
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> These step images come from the same actual App run as <code>agent-session-restart</code>. Original PNGs are unchanged; this does not establish acceptance of branches not shown.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
 | <code>profileName</code> | <code>Guide session demo</code> |
 | <code>initialState</code> | <code>One existing model in Settings &gt; Agent; configuration and restart are outside this excerpt</code> |
 | <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
-| <code>recordingScope</code> | <code>Original 12.050s to 19.302s only; earlier Capture/history frames are not published</code> |
-
-<a id="walkthrough-agent-model-removal-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4" poster="../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.vtt" default>
-</video>
+| <code>recordingScope</code> | <code>Only the final Settings steps are published; earlier Capture/history images are not published</code> |
 
 <a id="walkthrough-agent-model-removal-04-model-settings"></a>
 ### 01 · Inspect the retained model configuration
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=0.000) · [Back to the video](#walkthrough-agent-model-removal-video)
 
 ![01 · Inspect the retained model configuration](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png)
 
 <a id="walkthrough-agent-model-removal-05-last-model-dialog"></a>
 ### 02 · Open deletion confirmation for the last model
 
-[Video 00:01](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=1.007) · [Back to the video](#walkthrough-agent-model-removal-video)
-
 ![02 · Open deletion confirmation for the last model](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
 
 <a id="walkthrough-agent-model-removal-06-remove-last"></a>
 ### 03 · Remove the last model and inspect the unconfigured state
-
-[Video 00:04](../media/v0.1.1-alpha.1/agent-model-removal/agent-model-removal.mp4#t=4.100) · [Back to the video](#walkthrough-agent-model-removal-video)
 
 ![03 · Remove the last model and inspect the unconfigured state](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png)
 
@@ -1159,11 +945,11 @@ The complete reference follows. Only operations with matching real step images a
 <a id="walkthrough-agent-session-restart"></a>
 ## Recorded walkthrough: actual restart, restored history and final-model removal
 
-These images and video show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots and video. Advanced branches not shown here still need their own step images and acceptance.
+Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
 
-> This keyless local model returns fixed public demonstration replies. The video shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
+> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
 
 | Example field | Actual recorded value |
 | --- | --- |
@@ -1177,51 +963,33 @@ Loopback addresses, ports and generated IDs belong to this recording, not a publ
 | <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
 | <code>evidenceGeneration</code> | <code>agent-reopened</code> |
 
-<a id="walkthrough-agent-session-restart-video"></a>
-
-<video controls preload="metadata" playsinline lang="en" src="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4" poster="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png">
-<track kind="captions" srclang="zh-CN" label="Steps / 步骤" src="../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.vtt" default>
-</video>
-
 <a id="walkthrough-agent-session-restart-01-open"></a>
 ### 01 · Reopen the Agent panel
-
-[Video 00:00](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=0.359) · [Back to the video](#walkthrough-agent-session-restart-video)
 
 ![01 · Reopen the Agent panel](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png)
 
 <a id="walkthrough-agent-session-restart-02-chats"></a>
 ### 02 · Inspect the actually restored Chat list
 
-[Video 00:04](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=4.130) · [Back to the video](#walkthrough-agent-session-restart-video)
-
 ![02 · Inspect the actually restored Chat list](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png)
 
 <a id="walkthrough-agent-session-restart-03-history"></a>
 ### 03 · Read the retained history
-
-[Video 00:07](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=7.353) · [Back to the video](#walkthrough-agent-session-restart-video)
 
 ![03 · Read the retained history](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png)
 
 <a id="walkthrough-agent-session-restart-04-model-settings"></a>
 ### 04 · Inspect the retained model configuration
 
-[Video 00:11](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=11.042) · [Back to the video](#walkthrough-agent-session-restart-video)
-
 ![04 · Inspect the retained model configuration](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-04-model-settings.png)
 
 <a id="walkthrough-agent-session-restart-05-last-model-dialog"></a>
 ### 05 · Open deletion confirmation for the last model
 
-[Video 00:14](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=14.232) · [Back to the video](#walkthrough-agent-session-restart-video)
-
 ![05 · Open deletion confirmation for the last model](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-05-last-model-dialog.png)
 
 <a id="walkthrough-agent-session-restart-06-remove-last"></a>
 ### 06 · Remove the last model and inspect the unconfigured state
-
-[Video 00:17](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart.mp4#t=17.444) · [Back to the video](#walkthrough-agent-session-restart-video)
 
 ![06 · Remove the last model and inspect the unconfigured state](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-06-remove-last.png)
 

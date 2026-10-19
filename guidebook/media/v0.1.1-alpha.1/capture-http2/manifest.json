@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "filter": "/guide/h2",
     "streamPath": "/guide/h2/stream",
@@ -26,318 +25,334 @@
     "recovery": "separate GET on a new connection; original POST not replayed",
     "inflightBody": "Received byte counts update before the normal HTTP response body becomes readable"
   },
-  "duration": 84.27332663700001,
-  "video": "capture-http2.mp4",
-  "captions": "capture-http2.vtt",
   "steps": [
     {
       "id": "01-scope",
       "title": "限定本轮 HTTP/2 路径 / Scope this run’s HTTP/2 paths",
-      "image": "capture-http2-01-scope.png",
-      "seconds": 0.36818621800000073
+      "image": "capture-http2-01-scope.png"
     },
     {
       "id": "02-record",
       "title": "开启 Recording / Start Recording",
-      "image": "capture-http2-02-record.png",
-      "seconds": 3.251259889999999
+      "image": "capture-http2-02-record.png"
     },
     {
       "id": "03-first-part",
       "title": "接收第一段但保持连接未结束 / Receive the first part without ending the response",
-      "image": "capture-http2-03-first-part.png",
-      "seconds": 6.160359825000001
+      "image": "capture-http2-03-first-part.png"
     },
     {
       "id": "04-select",
       "title": "选择仍在接收的 stream / Select the stream while receiving",
-      "image": "capture-http2-04-select.png",
-      "seconds": 9.143693232
+      "image": "capture-http2-04-select.png"
     },
     {
       "id": "05-headers",
       "title": "核对声明的完整长度 / Inspect the declared complete length",
-      "image": "capture-http2-05-headers.png",
-      "seconds": 12.156363207
+      "image": "capture-http2-05-headers.png"
     },
     {
       "id": "06-partial-body",
       "title": "区分接收进度与正文可读性 / Distinguish received bytes from a readable body",
-      "image": "capture-http2-06-partial-body.png",
-      "seconds": 15.118871859
+      "image": "capture-http2-06-partial-body.png"
     },
     {
       "id": "07-second-part",
       "title": "继续接收第二段 / Receive the second part",
-      "image": "capture-http2-07-second-part.png",
-      "seconds": 18.063504907000002
+      "image": "capture-http2-07-second-part.png"
     },
     {
       "id": "08-complete",
       "title": "结束响应并核对完整正文 / End the response and verify the complete body",
-      "image": "capture-http2-08-complete.png",
-      "seconds": 21.064907314000003
+      "image": "capture-http2-08-complete.png"
     },
     {
       "id": "09-trailers",
       "title": "查看结束时的 trailer / Inspect the completion trailer",
-      "image": "capture-http2-09-trailers.png",
-      "seconds": 24.354760217000003
+      "image": "capture-http2-09-trailers.png"
     },
     {
       "id": "10-protocol-group",
       "title": "展开 Protocol 分组 / Expand the Protocol group",
-      "image": "capture-http2-10-protocol-group.png",
-      "seconds": 27.681510671000005
+      "image": "capture-http2-10-protocol-group.png"
     },
     {
       "id": "11-http2-filter",
       "title": "选择实际 HTTP/2 协议 / Select the actual HTTP/2 protocol",
-      "image": "capture-http2-11-http2-filter.png",
-      "seconds": 30.685246553000006
+      "image": "capture-http2-11-http2-filter.png"
     },
     {
       "id": "client-01-interrupt",
       "title": "观察客户端中断与新连接 / Observe client interruption and a new connection",
-      "image": "capture-http2-client-01-interrupt.png",
-      "seconds": 33.765222536
+      "image": "capture-http2-client-01-interrupt.png"
     },
     {
       "id": "client-02-original",
       "title": "选择原来的 POST / Select the original POST",
-      "image": "capture-http2-client-02-original.png",
-      "seconds": 36.817501944
+      "image": "capture-http2-client-02-original.png"
     },
     {
       "id": "client-03-length",
       "title": "查看仍声明 524288 的 Header / Inspect the Header still declaring 524288 bytes",
-      "image": "capture-http2-client-03-length.png",
-      "seconds": 39.909053569
+      "image": "capture-http2-client-03-length.png"
     },
     {
       "id": "client-04-partial",
       "title": "读取真正捕获到的部分正文 / Read the actually captured partial body",
-      "image": "capture-http2-client-04-partial.png",
-      "seconds": 42.90929186300001
+      "image": "capture-http2-client-04-partial.png"
     },
     {
       "id": "client-05-recovered",
       "title": "选择独立的 recovered GET / Select the separate recovered GET",
-      "image": "capture-http2-client-05-recovered.png",
-      "seconds": 46.062862104
+      "image": "capture-http2-client-05-recovered.png"
     },
     {
       "id": "client-06-recovery-body",
       "title": "读取新连接的正常响应 / Read the normal response on the new connection",
-      "image": "capture-http2-client-06-recovery-body.png",
-      "seconds": 49.783653974
+      "image": "capture-http2-client-06-recovery-body.png"
     },
     {
       "id": "origin-01-interrupt",
       "title": "观察源站中断与新连接 / Observe origin interruption and a new connection",
-      "image": "capture-http2-origin-01-interrupt.png",
-      "seconds": 52.954807237000004
+      "image": "capture-http2-origin-01-interrupt.png"
     },
     {
       "id": "origin-02-original",
       "title": "选择原来的 POST / Select the original POST",
-      "image": "capture-http2-origin-02-original.png",
-      "seconds": 55.923556151
+      "image": "capture-http2-origin-02-original.png"
     },
     {
       "id": "origin-03-length",
       "title": "查看仍声明 524288 的 Header / Inspect the Header still declaring 524288 bytes",
-      "image": "capture-http2-origin-03-length.png",
-      "seconds": 59.069557898
+      "image": "capture-http2-origin-03-length.png"
     },
     {
       "id": "origin-04-partial",
       "title": "读取真正捕获到的部分正文 / Read the actually captured partial body",
-      "image": "capture-http2-origin-04-partial.png",
-      "seconds": 62.113062422000006
+      "image": "capture-http2-origin-04-partial.png"
     },
     {
       "id": "origin-05-recovered",
       "title": "选择独立的 recovered GET / Select the separate recovered GET",
-      "image": "capture-http2-origin-05-recovered.png",
-      "seconds": 65.315210468
+      "image": "capture-http2-origin-05-recovered.png"
     },
     {
       "id": "origin-06-recovery-body",
       "title": "读取新连接的正常响应 / Read the normal response on the new connection",
-      "image": "capture-http2-origin-06-recovery-body.png",
-      "seconds": 68.549856223
+      "image": "capture-http2-origin-06-recovery-body.png"
     },
     {
       "id": "24-settings",
       "title": "返回 Settings / Return to Settings",
-      "image": "capture-http2-24-settings.png",
-      "seconds": 71.709453199
+      "image": "capture-http2-24-settings.png"
     },
     {
       "id": "25-certificates",
       "title": "打开 Certificates / Open Certificates",
-      "image": "capture-http2-25-certificates.png",
-      "seconds": 74.727003764
+      "image": "capture-http2-25-certificates.png"
     },
     {
       "id": "26-mitm-off",
       "title": "关闭本轮 HTTPS 解密 / Disable this run’s HTTPS decryption",
-      "image": "capture-http2-26-mitm-off.png",
-      "seconds": 77.715643847
+      "image": "capture-http2-26-mitm-off.png"
     },
     {
       "id": "27-origin-remove",
       "title": "移除本轮源站例外 / Remove this run’s origin exception",
-      "image": "capture-http2-27-origin-remove.png",
-      "seconds": 80.963595717
+      "image": "capture-http2-27-origin-remove.png"
     }
   ],
   "assets": [
     {
       "file": "capture-http2-01-scope.png",
       "bytes": 220368,
-      "sha256": "85687f8053b327c4f54ec9c40405ff0df40a997438c9b55be9ab8a6a714e4bf3"
+      "sha256": "85687f8053b327c4f54ec9c40405ff0df40a997438c9b55be9ab8a6a714e4bf3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-02-record.png",
       "bytes": 223059,
-      "sha256": "1560336ef4e3c187b34245d78005f05a153f5104bdcd4510084864f3c14623f8"
+      "sha256": "1560336ef4e3c187b34245d78005f05a153f5104bdcd4510084864f3c14623f8",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-03-first-part.png",
       "bytes": 233852,
-      "sha256": "ae048f68e53f68fbbfa970d1633bfbf3520470aee276124053f2ee7959427be2"
+      "sha256": "ae048f68e53f68fbbfa970d1633bfbf3520470aee276124053f2ee7959427be2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-04-select.png",
       "bytes": 372634,
-      "sha256": "307918c1abb551710bd14ba5a342bb54f681bc9b73d4a471f0f54f9a949bd220"
+      "sha256": "307918c1abb551710bd14ba5a342bb54f681bc9b73d4a471f0f54f9a949bd220",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-05-headers.png",
       "bytes": 372013,
-      "sha256": "c12c260b3ed232c197d302b1d3a24e6266e7e75a57230c46bb275e41bdda7940"
+      "sha256": "c12c260b3ed232c197d302b1d3a24e6266e7e75a57230c46bb275e41bdda7940",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-06-partial-body.png",
       "bytes": 266532,
-      "sha256": "d189f7e498fcb2016ca4d6e418f8727594a2faca96e7964afec9c334cc12fdd5"
+      "sha256": "d189f7e498fcb2016ca4d6e418f8727594a2faca96e7964afec9c334cc12fdd5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-07-second-part.png",
       "bytes": 265405,
-      "sha256": "8f593bc3d8a27b6a7d8f40559de035dcd29ac6b41de2a3126eace5a018edeaba"
+      "sha256": "8f593bc3d8a27b6a7d8f40559de035dcd29ac6b41de2a3126eace5a018edeaba",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-08-complete.png",
       "bytes": 369529,
-      "sha256": "0aa7acd4aa2bec9f738120c4a6ac745b67605f204ffa9980c1711ac861039114"
+      "sha256": "0aa7acd4aa2bec9f738120c4a6ac745b67605f204ffa9980c1711ac861039114",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-09-trailers.png",
       "bytes": 373872,
-      "sha256": "4a78cd4ab9dc5505de29a15cf9a5c035ee25405b1791bfc048438f7ecefa8558"
+      "sha256": "4a78cd4ab9dc5505de29a15cf9a5c035ee25405b1791bfc048438f7ecefa8558",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-10-protocol-group.png",
       "bytes": 382685,
-      "sha256": "10ead1a734134d7bae6c678882781805109e9fe1060ed0930f0bcee5fa543bf9"
+      "sha256": "10ead1a734134d7bae6c678882781805109e9fe1060ed0930f0bcee5fa543bf9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-11-http2-filter.png",
       "bytes": 385749,
-      "sha256": "8b6f3793e33e118e9ca3d5ac7b046f5e742b39f47b5113dde690584bd2e8fe4e"
+      "sha256": "8b6f3793e33e118e9ca3d5ac7b046f5e742b39f47b5113dde690584bd2e8fe4e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-01-interrupt.png",
       "bytes": 421022,
-      "sha256": "30a446e6a1431066f2f641d067bcf7f7bac8f661e5ade4532c86730888735ad3"
+      "sha256": "30a446e6a1431066f2f641d067bcf7f7bac8f661e5ade4532c86730888735ad3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-02-original.png",
       "bytes": 432095,
-      "sha256": "39a8855d5ffc80047e96348e2e34d069a6108f243da39560de0e274bd9b97871"
+      "sha256": "39a8855d5ffc80047e96348e2e34d069a6108f243da39560de0e274bd9b97871",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-03-length.png",
       "bytes": 432538,
-      "sha256": "9bdbc9c43fd80a17c9669a3f010b83b41e80c5501fcadf86b29230c10e0eeddd"
+      "sha256": "9bdbc9c43fd80a17c9669a3f010b83b41e80c5501fcadf86b29230c10e0eeddd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-04-partial.png",
       "bytes": 413303,
-      "sha256": "8472320c4aed74c1fbaabd24a4d56e1b96e434f74b508cab221ec9cfe47b503a"
+      "sha256": "8472320c4aed74c1fbaabd24a4d56e1b96e434f74b508cab221ec9cfe47b503a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-05-recovered.png",
       "bytes": 424423,
-      "sha256": "f22fc1f1c4d8b8a94f6e64517caefda839c32360acf37b2c596805476402a62e"
+      "sha256": "f22fc1f1c4d8b8a94f6e64517caefda839c32360acf37b2c596805476402a62e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-client-06-recovery-body.png",
       "bytes": 366372,
-      "sha256": "f928071eedf6f10f739fc8873692a8adad60f1220f47a19cb4aedcefdc1b8b20"
+      "sha256": "f928071eedf6f10f739fc8873692a8adad60f1220f47a19cb4aedcefdc1b8b20",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-01-interrupt.png",
       "bytes": 392882,
-      "sha256": "394062a5ac2103361ee9e9c6118b8e1a07c3205712d0344f286f968aaf1359ab"
+      "sha256": "394062a5ac2103361ee9e9c6118b8e1a07c3205712d0344f286f968aaf1359ab",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-02-original.png",
       "bytes": 423434,
-      "sha256": "0a232b5e8b0936cc424d2dfed3110ae0ebbffb345adad0ebfa85332213cb2368"
+      "sha256": "0a232b5e8b0936cc424d2dfed3110ae0ebbffb345adad0ebfa85332213cb2368",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-03-length.png",
       "bytes": 469196,
-      "sha256": "75755cc6f510e443cf1772dd4eb43a903900e0af5b0f5f3098eb8a0322d17d27"
+      "sha256": "75755cc6f510e443cf1772dd4eb43a903900e0af5b0f5f3098eb8a0322d17d27",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-04-partial.png",
       "bytes": 446108,
-      "sha256": "ecd8573a083fc3be63877d38eb8dc4c47e4c485e183a4d8acbbbdb45332dc95c"
+      "sha256": "ecd8573a083fc3be63877d38eb8dc4c47e4c485e183a4d8acbbbdb45332dc95c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-05-recovered.png",
       "bytes": 464144,
-      "sha256": "7f46a417b123e08fbb2ba6ff770dae68f54763d41978c06bf2e5ad1f1243434c"
+      "sha256": "7f46a417b123e08fbb2ba6ff770dae68f54763d41978c06bf2e5ad1f1243434c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-origin-06-recovery-body.png",
       "bytes": 404452,
-      "sha256": "c46b6c0679ee436fd51a7f6fe71b2245f76ea52a009d64825b81bc6296f52945"
+      "sha256": "c46b6c0679ee436fd51a7f6fe71b2245f76ea52a009d64825b81bc6296f52945",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-24-settings.png",
       "bytes": 380454,
-      "sha256": "60f33457cf53f13f6cfa5dcfe3833300ad423fc40f4e2e70f8f5649a93bdbc12"
+      "sha256": "60f33457cf53f13f6cfa5dcfe3833300ad423fc40f4e2e70f8f5649a93bdbc12",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-25-certificates.png",
       "bytes": 380105,
-      "sha256": "a0b22c012407f4a6226c36a94fe19bb87c788cc6022ea36f4b6a2193b57cbb62"
+      "sha256": "a0b22c012407f4a6226c36a94fe19bb87c788cc6022ea36f4b6a2193b57cbb62",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-26-mitm-off.png",
       "bytes": 376395,
-      "sha256": "855fd65dce8b89d2b557079a5a62ceacb49e84b8a0a1c8d52649674789c5a7af"
+      "sha256": "855fd65dce8b89d2b557079a5a62ceacb49e84b8a0a1c8d52649674789c5a7af",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-http2-27-origin-remove.png",
       "bytes": 362010,
-      "sha256": "c405403405de88ff7a035a0f803c3407da950717dac4f2dce08b6fe9061bed49"
-    },
-    {
-      "file": "capture-http2.mp4",
-      "bytes": 860580,
-      "sha256": "e7dbe9715df82158e400427b080b61cd3c2bbcd9ae090004fce58b0228440fb0"
-    },
-    {
-      "file": "capture-http2.vtt",
-      "bytes": 2716,
-      "sha256": "8e21bb4153f1848cc2fe265559d59f1f8b2e786922c0bc7cf18c9034b3d20a2a"
+      "sha256": "c405403405de88ff7a035a0f803c3407da950717dac4f2dce08b6fe9061bed49",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

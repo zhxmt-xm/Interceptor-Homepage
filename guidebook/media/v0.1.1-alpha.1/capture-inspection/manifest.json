@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "url": "http://127.0.0.1:55601/guide/inspection/body?detail0=guide-0&detail1=guide-1&detail2=guide-2&detail3=guide-3&detail4=guide-4&detail5=guide-5&detail6=guide-6&detail7=guide-7&detail8=guide-8&detail9=guide-9&detail10=guide-10&detail11=guide-11&detail12=guide-12&detail13=guide-13&detail14=guide-14&detail15=guide-15&detail16=guide-16&detail17=guide-17&detail18=guide-18&detail19=guide-19&detail20=guide-20&detail21=guide-21&detail22=guide-22&detail23=guide-23",
     "search": "/guide/inspection",
@@ -25,373 +24,394 @@
     "afterClearPath": "/guide/inspection/after-clear",
     "afterClearBody": "{\"afterClear\":\"guide-visible\"}"
   },
-  "duration": 100.513823031,
-  "video": "capture-inspection.mp4",
-  "captions": "capture-inspection.vtt",
   "steps": [
     {
       "id": "01-filter",
       "title": "限定本轮检查路径 / Scope the inspection path",
-      "image": "capture-inspection-01-filter.png",
-      "seconds": 0.41763563499999873
+      "image": "capture-inspection-01-filter.png"
     },
     {
       "id": "02-record",
       "title": "开启 Recording / Start Recording",
-      "image": "capture-inspection-02-record.png",
-      "seconds": 3.212890904
+      "image": "capture-inspection-02-record.png"
     },
     {
       "id": "03-post",
       "title": "发送长正文 POST / Send the long-body POST",
-      "image": "capture-inspection-03-post.png",
-      "seconds": 5.967571381999998
+      "image": "capture-inspection-03-post.png"
     },
     {
       "id": "04-pause",
       "title": "暂停后检查已捕获请求 / Pause before inspecting the captured request",
-      "image": "capture-inspection-04-pause.png",
-      "seconds": 8.764394238999998
+      "image": "capture-inspection-04-pause.png"
     },
     {
       "id": "05-select",
       "title": "选择 body 请求 / Select the body request",
-      "image": "capture-inspection-05-select.png",
-      "seconds": 11.606283602
+      "image": "capture-inspection-05-select.png"
     },
     {
       "id": "06-headers",
       "title": "查看 Headers / Inspect Headers",
-      "image": "capture-inspection-06-headers.png",
-      "seconds": 14.657234303999997
+      "image": "capture-inspection-06-headers.png"
     },
     {
       "id": "07-collapse",
       "title": "折叠 General / Collapse General",
-      "image": "capture-inspection-07-collapse.png",
-      "seconds": 17.469226636
+      "image": "capture-inspection-07-collapse.png"
     },
     {
       "id": "08-expand",
       "title": "重新展开 General / Expand General again",
-      "image": "capture-inspection-08-expand.png",
-      "seconds": 20.306473072999996
+      "image": "capture-inspection-08-expand.png"
     },
     {
       "id": "09-request",
       "title": "打开 Request 正文 / Open the Request body",
-      "image": "capture-inspection-09-request.png",
-      "seconds": 23.156490777999995
+      "image": "capture-inspection-09-request.png"
     },
     {
       "id": "10-raw",
       "title": "选择请求 Raw / Select request Raw",
-      "image": "capture-inspection-10-raw.png",
-      "seconds": 26.913386085000003
+      "image": "capture-inspection-10-raw.png"
     },
     {
       "id": "11-widen",
       "title": "拖动分栏扩大详情 / Drag the splitter to widen details",
-      "image": "capture-inspection-11-widen.png",
-      "seconds": 29.907309035
+      "image": "capture-inspection-11-widen.png"
     },
     {
       "id": "12-inner-scroll",
       "title": "在正文内使用滚轮 / Scroll inside the body with the wheel",
-      "image": "capture-inspection-12-inner-scroll.png",
-      "seconds": 39.007553073000004
+      "image": "capture-inspection-12-inner-scroll.png"
     },
     {
       "id": "13-request-end",
       "title": "用键盘到达请求末尾 / Reach the request end with the keyboard",
-      "image": "capture-inspection-13-request-end.png",
-      "seconds": 42.007099472
+      "image": "capture-inspection-13-request-end.png"
     },
     {
       "id": "14-outer-up",
       "title": "在详情边缘向上滚动 / Scroll up at the Inspector edge",
-      "image": "capture-inspection-14-outer-up.png",
-      "seconds": 44.906740233
+      "image": "capture-inspection-14-outer-up.png"
     },
     {
       "id": "15-scroll-chain",
       "title": "正文到底后继续滚动外层 / Continue scrolling the outer pane at the body boundary",
-      "image": "capture-inspection-15-scroll-chain.png",
-      "seconds": 47.856348935999996
+      "image": "capture-inspection-15-scroll-chain.png"
     },
     {
       "id": "16-copy-request",
       "title": "复制完整请求正文 / Copy the complete request body",
-      "image": "capture-inspection-16-copy-request.png",
-      "seconds": 50.915169330000005
+      "image": "capture-inspection-16-copy-request.png"
     },
     {
       "id": "17-preview",
       "title": "打开 Markdown Preview / Open Markdown Preview",
-      "image": "capture-inspection-17-preview.png",
-      "seconds": 53.807767768000005
+      "image": "capture-inspection-17-preview.png"
     },
     {
       "id": "18-split",
       "title": "右方向键切换 Split / Use ArrowRight to switch to Split",
-      "image": "capture-inspection-18-split.png",
-      "seconds": 56.71044545900001
+      "image": "capture-inspection-18-split.png"
     },
     {
       "id": "19-source",
       "title": "再次右移切换 Source / Press ArrowRight again for Source",
-      "image": "capture-inspection-19-source.png",
-      "seconds": 59.60776165100001
+      "image": "capture-inspection-19-source.png"
     },
     {
       "id": "20-copy-source",
       "title": "复制 Markdown Source / Copy Markdown Source",
-      "image": "capture-inspection-20-copy-source.png",
-      "seconds": 62.463014783000006
+      "image": "capture-inspection-20-copy-source.png"
     },
     {
       "id": "21-source-scroll",
       "title": "滚动长 Source / Scroll the long Source",
-      "image": "capture-inspection-21-source-scroll.png",
-      "seconds": 65.30667800700002
+      "image": "capture-inspection-21-source-scroll.png"
     },
     {
       "id": "22-source-end",
       "title": "用键盘查看 Source 末尾 / Use the keyboard to inspect the Source end",
-      "image": "capture-inspection-22-source-end.png",
-      "seconds": 68.218595799
+      "image": "capture-inspection-22-source-end.png"
     },
     {
       "id": "23-fullscreen",
       "title": "全屏查看 Source / View Source fullscreen",
-      "image": "capture-inspection-23-fullscreen.png",
-      "seconds": 71.056663811
+      "image": "capture-inspection-23-fullscreen.png"
     },
     {
       "id": "24-return",
       "title": "Escape 返回 Source / Return to Source with Escape",
-      "image": "capture-inspection-24-return.png",
-      "seconds": 73.95680975100001
+      "image": "capture-inspection-24-return.png"
     },
     {
       "id": "25-preview-again",
       "title": "返回 Markdown Preview / Return to Markdown Preview",
-      "image": "capture-inspection-25-preview-again.png",
-      "seconds": 76.911961351
+      "image": "capture-inspection-25-preview-again.png"
     },
     {
       "id": "26-hex",
       "title": "查看同一响应的 Hex / Inspect Hex for the same response",
-      "image": "capture-inspection-26-hex.png",
-      "seconds": 79.75614492700001
+      "image": "capture-inspection-26-hex.png"
     },
     {
       "id": "27-restore-width",
       "title": "拖回原来的详情宽度 / Restore the original detail width",
-      "image": "capture-inspection-27-restore-width.png",
-      "seconds": 82.607630836
+      "image": "capture-inspection-27-restore-width.png"
     },
     {
       "id": "28-close-details",
       "title": "关闭详情回到列表 / Close details and return to the list",
-      "image": "capture-inspection-28-close-details.png",
-      "seconds": 86.207316812
+      "image": "capture-inspection-28-close-details.png"
     },
     {
       "id": "29-clear",
       "title": "Clear 本轮临时记录 / Clear this run’s temporary records",
-      "image": "capture-inspection-29-clear.png",
-      "seconds": 89.006194047
+      "image": "capture-inspection-29-clear.png"
     },
     {
       "id": "30-resume",
       "title": "清理后重新开启 Recording / Resume Recording after Clear",
-      "image": "capture-inspection-30-resume.png",
-      "seconds": 91.857604397
+      "image": "capture-inspection-30-resume.png"
     },
     {
       "id": "31-new-request",
       "title": "发送清理后的新请求 / Send a new request after Clear",
-      "image": "capture-inspection-31-new-request.png",
-      "seconds": 94.706541622
+      "image": "capture-inspection-31-new-request.png"
     },
     {
       "id": "32-new-body",
       "title": "确认新请求正文可读 / Verify the new request body is readable",
-      "image": "capture-inspection-32-new-body.png",
-      "seconds": 97.514703221
+      "image": "capture-inspection-32-new-body.png"
     }
   ],
   "assets": [
     {
       "file": "capture-inspection-01-filter.png",
       "bytes": 221330,
-      "sha256": "66843547ca69a827605cad1437fb903ac250e69a067bf0554003b6612f971307"
+      "sha256": "66843547ca69a827605cad1437fb903ac250e69a067bf0554003b6612f971307",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-02-record.png",
       "bytes": 221359,
-      "sha256": "6d5b5faed85a2c5b04497fc672946d549a03a147af71554bb0c4a78541d4d222"
+      "sha256": "6d5b5faed85a2c5b04497fc672946d549a03a147af71554bb0c4a78541d4d222",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-03-post.png",
       "bytes": 234880,
-      "sha256": "e27041e5b41fde9b25914ff65d8bd15d14b193c66513416cac0fb58e3fcc6181"
+      "sha256": "e27041e5b41fde9b25914ff65d8bd15d14b193c66513416cac0fb58e3fcc6181",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-04-pause.png",
       "bytes": 248106,
-      "sha256": "c011935444d9f200b6158a3dde373931a371c13b9618ac9e324c6324aa1c8453"
+      "sha256": "c011935444d9f200b6158a3dde373931a371c13b9618ac9e324c6324aa1c8453",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-05-select.png",
       "bytes": 444866,
-      "sha256": "3a99358a9a4bd110847b51ce701b18d7bc1442547c9c20c3c8e192802c073dd9"
+      "sha256": "3a99358a9a4bd110847b51ce701b18d7bc1442547c9c20c3c8e192802c073dd9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-06-headers.png",
       "bytes": 444989,
-      "sha256": "ca16fdfab8f15ef098f5e6636e9e6320b10ca3a49cfcaf9622529c8623fbbb04"
+      "sha256": "ca16fdfab8f15ef098f5e6636e9e6320b10ca3a49cfcaf9622529c8623fbbb04",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-07-collapse.png",
       "bytes": 336614,
-      "sha256": "0736889ea66db5298a742582f80e0cbb1e77726eec3e0851ff9f38c84bb860fc"
+      "sha256": "0736889ea66db5298a742582f80e0cbb1e77726eec3e0851ff9f38c84bb860fc",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-08-expand.png",
       "bytes": 445060,
-      "sha256": "eb47c4ab6f43e34a5b6aff9d25138261d8706d9a8d98547cb7de9a329d936fac"
+      "sha256": "eb47c4ab6f43e34a5b6aff9d25138261d8706d9a8d98547cb7de9a329d936fac",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-09-request.png",
       "bytes": 435106,
-      "sha256": "b21fce2fd209e0c046717184095f1118a7e79868844d08a52991928713835896"
+      "sha256": "b21fce2fd209e0c046717184095f1118a7e79868844d08a52991928713835896",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-10-raw.png",
       "bytes": 376170,
-      "sha256": "4db0eb0a8899413ae4b1b13785de8b8c101631ce34b47ba8638bea2387a9432d"
+      "sha256": "4db0eb0a8899413ae4b1b13785de8b8c101631ce34b47ba8638bea2387a9432d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-11-widen.png",
       "bytes": 379869,
-      "sha256": "37812ce43a5de71410085e2c17575fb466576b2c4de648b54ff0cb14485e8224"
+      "sha256": "37812ce43a5de71410085e2c17575fb466576b2c4de648b54ff0cb14485e8224",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-12-inner-scroll.png",
       "bytes": 375198,
-      "sha256": "1c6a7702e49dd7693b3b3f09881f16292bb6380450ea50113dee335764b050ab"
+      "sha256": "1c6a7702e49dd7693b3b3f09881f16292bb6380450ea50113dee335764b050ab",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-13-request-end.png",
       "bytes": 370108,
-      "sha256": "8fe7e02ad606e29c875f61574a286e0ba4bde66f9186e048d1f7069e8a2f3ab4"
+      "sha256": "8fe7e02ad606e29c875f61574a286e0ba4bde66f9186e048d1f7069e8a2f3ab4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-14-outer-up.png",
       "bytes": 382491,
-      "sha256": "9b846c2f301dccac06af5f11a940aa96fd45061575e88a590a686e223c6a89e6"
+      "sha256": "9b846c2f301dccac06af5f11a940aa96fd45061575e88a590a686e223c6a89e6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-15-scroll-chain.png",
       "bytes": 370108,
-      "sha256": "8fe7e02ad606e29c875f61574a286e0ba4bde66f9186e048d1f7069e8a2f3ab4"
+      "sha256": "8fe7e02ad606e29c875f61574a286e0ba4bde66f9186e048d1f7069e8a2f3ab4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-16-copy-request.png",
       "bytes": 395944,
-      "sha256": "1b15d4ba17f6edbc3b2a289d1ccaac7f765aa6d8c70a3451aa8ccbad941a75b9"
+      "sha256": "1b15d4ba17f6edbc3b2a289d1ccaac7f765aa6d8c70a3451aa8ccbad941a75b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-17-preview.png",
       "bytes": 467121,
-      "sha256": "b5330120401f48379b497ccdfbf5a58150beb94e67752afc18031f094a7a0e00"
+      "sha256": "b5330120401f48379b497ccdfbf5a58150beb94e67752afc18031f094a7a0e00",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-18-split.png",
       "bytes": 459419,
-      "sha256": "15433c9e9a3b502f65f822b168e105a8f225d02a35a0862f8372b4095d936b7b"
+      "sha256": "15433c9e9a3b502f65f822b168e105a8f225d02a35a0862f8372b4095d936b7b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-19-source.png",
       "bytes": 478123,
-      "sha256": "f047d56812bdda9dbff48383a0d4011b4cac402f7de033379cacc97baf49b293"
+      "sha256": "f047d56812bdda9dbff48383a0d4011b4cac402f7de033379cacc97baf49b293",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-20-copy-source.png",
       "bytes": 502560,
-      "sha256": "40f5aa9571d519c81f821beb9db99b99c5ade704db8c4571de64523e9d708635"
+      "sha256": "40f5aa9571d519c81f821beb9db99b99c5ade704db8c4571de64523e9d708635",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-21-source-scroll.png",
       "bytes": 489857,
-      "sha256": "98107da3ce71303e3c2e236dd45df0ccc1520cdc8ce2cbee18f4d88b8c3fd40c"
+      "sha256": "98107da3ce71303e3c2e236dd45df0ccc1520cdc8ce2cbee18f4d88b8c3fd40c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-22-source-end.png",
       "bytes": 465127,
-      "sha256": "7403977a0a5b09c81f1f91c93aea9b8b24ca332b021bc2619e88448aa5da2cdf"
+      "sha256": "7403977a0a5b09c81f1f91c93aea9b8b24ca332b021bc2619e88448aa5da2cdf",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-23-fullscreen.png",
       "bytes": 410504,
-      "sha256": "28bfe14debdb3968925b178d798b01ba2924eb49e5c21cfc674121bbbeecc446"
+      "sha256": "28bfe14debdb3968925b178d798b01ba2924eb49e5c21cfc674121bbbeecc446",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-24-return.png",
       "bytes": 477279,
-      "sha256": "f17dcee53073448a06f446d41518f84684a7083dc3865c5bd53748e3a817ac83"
+      "sha256": "f17dcee53073448a06f446d41518f84684a7083dc3865c5bd53748e3a817ac83",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-25-preview-again.png",
       "bytes": 467121,
-      "sha256": "b5330120401f48379b497ccdfbf5a58150beb94e67752afc18031f094a7a0e00"
+      "sha256": "b5330120401f48379b497ccdfbf5a58150beb94e67752afc18031f094a7a0e00",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-26-hex.png",
       "bytes": 683369,
-      "sha256": "7cecafe07d63020fa9588f49fea23c45205019320e5b710237502da2f36b06bd"
+      "sha256": "7cecafe07d63020fa9588f49fea23c45205019320e5b710237502da2f36b06bd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-27-restore-width.png",
       "bytes": 572344,
-      "sha256": "67cd3a30144ae84f2c767bb59a026b3df8db7d4e7a32cbda26277cb1e827d194"
+      "sha256": "67cd3a30144ae84f2c767bb59a026b3df8db7d4e7a32cbda26277cb1e827d194",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-28-close-details.png",
       "bytes": 234676,
-      "sha256": "4d267e1dd3be675ce6e66de0cecae5df58ca3545541882c449c02a2069a7131e"
+      "sha256": "4d267e1dd3be675ce6e66de0cecae5df58ca3545541882c449c02a2069a7131e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-29-clear.png",
       "bytes": 232295,
-      "sha256": "2a9c164b49fbb5c18ff7731b49b6d32f409159e8b36767d23480e47f3c07db3f"
+      "sha256": "2a9c164b49fbb5c18ff7731b49b6d32f409159e8b36767d23480e47f3c07db3f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-30-resume.png",
       "bytes": 235813,
-      "sha256": "cdb678e4c71307f2930aac8bdd1d5d8ed2529ab4ddfee042b7200fc2c06c0261"
+      "sha256": "cdb678e4c71307f2930aac8bdd1d5d8ed2529ab4ddfee042b7200fc2c06c0261",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-31-new-request.png",
       "bytes": 244570,
-      "sha256": "953a44481626633cafa65dd03c53d1281bd6daf12e504e60f09443e3c96e9210"
+      "sha256": "953a44481626633cafa65dd03c53d1281bd6daf12e504e60f09443e3c96e9210",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "capture-inspection-32-new-body.png",
       "bytes": 284813,
-      "sha256": "3d0f9750cd24a46634d5deac2d350602cf0da0572064786194f378d85feebe98"
-    },
-    {
-      "file": "capture-inspection.mp4",
-      "bytes": 1095851,
-      "sha256": "7e24c3151ae461b8dfa9f014672b5d1a546b43c31268f5c1c3823b22683607d1"
-    },
-    {
-      "file": "capture-inspection.vtt",
-      "bytes": 2879,
-      "sha256": "3ffb6c9c4048b659eaa926afc8613cc3acd6c8a370e352791675a1340299a940"
+      "sha256": "3d0f9750cd24a46634d5deac2d350602cf0da0572064786194f378d85feebe98",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

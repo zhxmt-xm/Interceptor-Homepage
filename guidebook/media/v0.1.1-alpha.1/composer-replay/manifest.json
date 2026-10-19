@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated workflow-owned App window; no display, desktop or region recording; no microphone",
   "example": {
     "initialUrl": "http://127.0.0.1:65227/guide/composer-replay/query?guide=url",
     "initialSentUrl": "http://127.0.0.1:65227/guide/composer-replay/query?guide=url&guide=table&guide=again",
@@ -32,329 +31,346 @@
     "replayQueryValues": "url, table, again, current, again",
     "historyRestores": "method and previously composed URL only; enabled current Query rows append again"
   },
-  "duration": 80.906833923,
-  "video": "composer-replay.mp4",
-  "captions": "composer-replay.vtt",
   "steps": [
     {
       "id": "01-open",
       "title": "打开 Composer / Open Composer",
-      "image": "composer-replay-01-open.png",
-      "seconds": 0.4241143140000004
+      "image": "composer-replay-01-open.png"
     },
     {
       "id": "02-new",
       "title": "新建 Query 与重发请求 / Create the Query and replay request",
-      "image": "composer-replay-02-new.png",
-      "seconds": 3.2687816509999994
+      "image": "composer-replay-02-new.png"
     },
     {
       "id": "03-url",
       "title": "在 URL 中填写 guide=url / Enter guide=url in the URL",
-      "image": "composer-replay-03-url.png",
-      "seconds": 6.167920347000001
+      "image": "composer-replay-03-url.png"
     },
     {
       "id": "04-post",
       "title": "选择 POST / Select POST",
-      "image": "composer-replay-04-post.png",
-      "seconds": 9.059508465
+      "image": "composer-replay-04-post.png"
     },
     {
       "id": "05-query",
       "title": "打开仍为空的 Query 表格 / Open the still-empty Query table",
-      "image": "composer-replay-05-query.png",
-      "seconds": 11.958473244999999
+      "image": "composer-replay-05-query.png"
     },
     {
       "id": "06-query-name",
       "title": "填写 Query 名称 guide / Enter the Query name guide",
-      "image": "composer-replay-06-query-name.png",
-      "seconds": 14.809717086
+      "image": "composer-replay-06-query-name.png"
     },
     {
       "id": "07-query-value",
       "title": "填写 Query 值 table / Enter the Query value table",
-      "image": "composer-replay-07-query-value.png",
-      "seconds": 17.659488819
+      "image": "composer-replay-07-query-value.png"
     },
     {
       "id": "08-add-query",
       "title": "添加 guide=table / Add guide=table",
-      "image": "composer-replay-08-add-query.png",
-      "seconds": 20.457720564000002
+      "image": "composer-replay-08-add-query.png"
     },
     {
       "id": "09-duplicate-name",
       "title": "再次填写同名 guide / Enter the duplicate name guide",
-      "image": "composer-replay-09-duplicate-name.png",
-      "seconds": 23.311517592000005
+      "image": "composer-replay-09-duplicate-name.png"
     },
     {
       "id": "10-duplicate-value",
       "title": "填写第二行值 again / Enter the second row value again",
-      "image": "composer-replay-10-duplicate-value.png",
-      "seconds": 26.158286208000003
+      "image": "composer-replay-10-duplicate-value.png"
     },
     {
       "id": "11-add-duplicate",
       "title": "添加第二条同名 Query / Add the second same-name Query row",
-      "image": "composer-replay-11-add-duplicate.png",
-      "seconds": 28.957861621000003
+      "image": "composer-replay-11-add-duplicate.png"
     },
     {
       "id": "12-send-query",
       "title": "发送并核对三个 guide 值 / Send and verify all three guide values",
-      "image": "composer-replay-12-send-query.png",
-      "seconds": 31.808199796
+      "image": "composer-replay-12-send-query.png"
     },
     {
       "id": "13-text-url",
       "title": "只修改主机与路径为文本地址 / Edit only host and path for the text URL",
-      "image": "composer-replay-13-text-url.png",
-      "seconds": 34.907984817000006
+      "image": "composer-replay-13-text-url.png"
     },
     {
       "id": "14-put",
       "title": "将方法改为 PUT / Change the method to PUT",
-      "image": "composer-replay-14-put.png",
-      "seconds": 37.757775105
+      "image": "composer-replay-14-put.png"
     },
     {
       "id": "15-body",
       "title": "打开请求 Body / Open request Body",
-      "image": "composer-replay-15-body.png",
-      "seconds": 40.612893308
+      "image": "composer-replay-15-body.png"
     },
     {
       "id": "16-text-mode",
       "title": "选择 Text，暂不输入 / Select Text before entering content",
-      "image": "composer-replay-16-text-mode.png",
-      "seconds": 43.458278172
+      "image": "composer-replay-16-text-mode.png"
     },
     {
       "id": "17-text-partial",
       "title": "输入中间态 Hello / Enter the intermediate text Hello",
-      "image": "composer-replay-17-text-partial.png",
-      "seconds": 46.355159597
+      "image": "composer-replay-17-text-partial.png"
     },
     {
       "id": "18-text-complete",
       "title": "继续输入为 Hello text / Complete the text as Hello text",
-      "image": "composer-replay-18-text-complete.png",
-      "seconds": 49.355438709000005
+      "image": "composer-replay-18-text-complete.png"
     },
     {
       "id": "19-send-text",
       "title": "发送并核对 Hello text 字节 / Send and verify Hello text bytes",
-      "image": "composer-replay-19-send-text.png",
-      "seconds": 52.204196163000006
+      "image": "composer-replay-19-send-text.png"
     },
     {
       "id": "20-query-again",
       "title": "回到 Query 表格 / Return to the Query table",
-      "image": "composer-replay-20-query-again.png",
-      "seconds": 55.152194644
+      "image": "composer-replay-20-query-again.png"
     },
     {
       "id": "21-query-current",
       "title": "将 table 改为 current / Change table to current",
-      "image": "composer-replay-21-query-current.png",
-      "seconds": 58.002417226
+      "image": "composer-replay-21-query-current.png"
     },
     {
       "id": "22-body-again",
       "title": "回到当前 Text 正文 / Return to the current Text body",
-      "image": "composer-replay-22-body-again.png",
-      "seconds": 60.849009259000006
+      "image": "composer-replay-22-body-again.png"
     },
     {
       "id": "23-body-current",
       "title": "将正文改为 Hello replay / Change the body to Hello replay",
-      "image": "composer-replay-23-body-current.png",
-      "seconds": 63.65569150000001
+      "image": "composer-replay-23-body-current.png"
     },
     {
       "id": "24-history",
       "title": "打开 Recent sends 菜单 / Open the Recent sends menu",
-      "image": "composer-replay-24-history.png",
-      "seconds": 66.596244341
+      "image": "composer-replay-24-history.png"
     },
     {
       "id": "25-restore-old",
       "title": "选回旧 POST 地址 / Select the earlier POST address",
-      "image": "composer-replay-25-restore-old.png",
-      "seconds": 69.448384169
+      "image": "composer-replay-25-restore-old.png"
     },
     {
       "id": "26-current-query",
       "title": "检查 Query 仍为 current 与 again / Check that Query remains current and again",
-      "image": "composer-replay-26-current-query.png",
-      "seconds": 72.298848776
+      "image": "composer-replay-26-current-query.png"
     },
     {
       "id": "27-resend",
       "title": "再次 Send，核对追加的 Query 与当前正文 / Send again and verify appended Query and current body",
-      "image": "composer-replay-27-resend.png",
-      "seconds": 75.166153444
+      "image": "composer-replay-27-resend.png"
     },
     {
       "id": "28-confirm-body",
       "title": "查看重发后保留的 Text 正文 / Inspect the Text body retained after replay",
-      "image": "composer-replay-28-confirm-body.png",
-      "seconds": 78.036615331
+      "image": "composer-replay-28-confirm-body.png"
     }
   ],
   "assets": [
     {
-      "file": "composer-replay.mp4",
-      "bytes": 336512,
-      "sha256": "ad0ee7f9292b9c08c0ad9517399b39f2ab2813ec704bbc098d3150dc97605155"
-    },
-    {
-      "file": "composer-replay.vtt",
-      "bytes": 2628,
-      "sha256": "9535580fee951b3c738cebe3127b09bbe390a1895cebcfd5225a6f82aaecde05"
-    },
-    {
       "file": "composer-replay-01-open.png",
       "bytes": 176130,
-      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157"
+      "sha256": "9f4e7d5edffef3259076c3d0e2aa7f66fbdee0eb89580ae20f9e2e4e591fa157",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-02-new.png",
       "bytes": 230855,
-      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a"
+      "sha256": "3f75ff9552901d6824d6f649293cda3036b506baa7c02e1aaf51ec528ed6b52a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-03-url.png",
       "bytes": 242552,
-      "sha256": "3657eebf226994dc548e2f6c9d08f20a1fe6a00010004a2cc01983533ee3848a"
+      "sha256": "3657eebf226994dc548e2f6c9d08f20a1fe6a00010004a2cc01983533ee3848a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-04-post.png",
       "bytes": 227139,
-      "sha256": "563f7606cbcc952ca149182190eec0010169ca05cceb9675406f1a4ae66d065c"
+      "sha256": "563f7606cbcc952ca149182190eec0010169ca05cceb9675406f1a4ae66d065c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-05-query.png",
       "bytes": 226663,
-      "sha256": "3fb571e630a19a545ea3da0abcf23c9be56f45565b513a2753c9e5d1b3029362"
+      "sha256": "3fb571e630a19a545ea3da0abcf23c9be56f45565b513a2753c9e5d1b3029362",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-06-query-name.png",
       "bytes": 226937,
-      "sha256": "79880b25848234d46c64df2d8598512c27519ef16ec38bf9f5a8d3389130af34"
+      "sha256": "79880b25848234d46c64df2d8598512c27519ef16ec38bf9f5a8d3389130af34",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-07-query-value.png",
       "bytes": 228053,
-      "sha256": "069b7681e4811796acf0143ca272316ff8156c9c3ffe6fb6b52697a1b98a8866"
+      "sha256": "069b7681e4811796acf0143ca272316ff8156c9c3ffe6fb6b52697a1b98a8866",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-08-add-query.png",
       "bytes": 232476,
-      "sha256": "9a0269d8248a6f07019d78a798fe5b550c0373afb2442bbf40218deaf2e75e24"
+      "sha256": "9a0269d8248a6f07019d78a798fe5b550c0373afb2442bbf40218deaf2e75e24",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-09-duplicate-name.png",
       "bytes": 232729,
-      "sha256": "3e09eed8d7aeb672c229c51ebb40d24468d900eb4a262469e86bde5aca0b567b"
+      "sha256": "3e09eed8d7aeb672c229c51ebb40d24468d900eb4a262469e86bde5aca0b567b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-10-duplicate-value.png",
       "bytes": 233460,
-      "sha256": "3911cdd478600d3f92565e39602fc6e80d204a1e9a572cde5a5bb53cc03838a2"
+      "sha256": "3911cdd478600d3f92565e39602fc6e80d204a1e9a572cde5a5bb53cc03838a2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-11-add-duplicate.png",
       "bytes": 237264,
-      "sha256": "ad6af3399e6eadb74799baff0e518c8742b6041b9d6014d3e90b85048fa4b785"
+      "sha256": "ad6af3399e6eadb74799baff0e518c8742b6041b9d6014d3e90b85048fa4b785",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-12-send-query.png",
       "bytes": 269662,
-      "sha256": "4f1ebcb09a9d1d0c4b8770b4912f165b5c105d366470b8efd9b8dc1e35e1b7e4"
+      "sha256": "4f1ebcb09a9d1d0c4b8770b4912f165b5c105d366470b8efd9b8dc1e35e1b7e4",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-13-text-url.png",
       "bytes": 270684,
-      "sha256": "fa76b258fde63813c743578c40b1109c8b749bff7b884cfeda554f01e018243a"
+      "sha256": "fa76b258fde63813c743578c40b1109c8b749bff7b884cfeda554f01e018243a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-14-put.png",
       "bytes": 269469,
-      "sha256": "22e5b97009afb5c2a33345063ee3d32e631a4f6e1e457ab1b8d0321320b69e03"
+      "sha256": "22e5b97009afb5c2a33345063ee3d32e631a4f6e1e457ab1b8d0321320b69e03",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-15-body.png",
       "bytes": 268213,
-      "sha256": "bd4457fd03459d3439ad1df5fd7d58453365b271b1bbe09bc8eee7080ccb3d7f"
+      "sha256": "bd4457fd03459d3439ad1df5fd7d58453365b271b1bbe09bc8eee7080ccb3d7f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-16-text-mode.png",
       "bytes": 268202,
-      "sha256": "77224cb88af556c7349b189bf3fd554896a5c1638ed7ad2a1eb870ae04f13c5f"
+      "sha256": "77224cb88af556c7349b189bf3fd554896a5c1638ed7ad2a1eb870ae04f13c5f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-17-text-partial.png",
       "bytes": 270149,
-      "sha256": "27a797d8e11b279b6fc0fce60a8e35c7cfaef5ff456c2f9fe65f464bc3639f0c"
+      "sha256": "27a797d8e11b279b6fc0fce60a8e35c7cfaef5ff456c2f9fe65f464bc3639f0c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-18-text-complete.png",
       "bytes": 271645,
-      "sha256": "3f55880510b2a0a8c31d85e40a9d932ca453d693bf5048083ceec748b6fd6503"
+      "sha256": "3f55880510b2a0a8c31d85e40a9d932ca453d693bf5048083ceec748b6fd6503",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-19-send-text.png",
       "bytes": 266461,
-      "sha256": "868d6df0a350cf67e15046df725a6e27e5292300790544d07e4c34c15727f426"
+      "sha256": "868d6df0a350cf67e15046df725a6e27e5292300790544d07e4c34c15727f426",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-20-query-again.png",
       "bytes": 263867,
-      "sha256": "c98a5f17de27704e3683d3b88650c1ad28bcb85298d3928dd90fb16037be9a50"
+      "sha256": "c98a5f17de27704e3683d3b88650c1ad28bcb85298d3928dd90fb16037be9a50",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-21-query-current.png",
       "bytes": 264087,
-      "sha256": "0cbbe5fb08788a543b0706a767fec759feaa95aa7a9e1cb810006d4e79112e33"
+      "sha256": "0cbbe5fb08788a543b0706a767fec759feaa95aa7a9e1cb810006d4e79112e33",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-22-body-again.png",
       "bytes": 266409,
-      "sha256": "69b17baaf56e14acdd2de5f30141ee6f4fc5782963557b82b3610e5e5ad65911"
+      "sha256": "69b17baaf56e14acdd2de5f30141ee6f4fc5782963557b82b3610e5e5ad65911",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-23-body-current.png",
       "bytes": 267176,
-      "sha256": "13f3a30e874d28f8cc2c0986338bcef17e71c5fb90a37bb0c98f8672a5fdd900"
+      "sha256": "13f3a30e874d28f8cc2c0986338bcef17e71c5fb90a37bb0c98f8672a5fdd900",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-24-history.png",
       "bytes": 321232,
-      "sha256": "8a70f4c428a7d3e9627c8791931244ca706064cde341e6507a8cf0191de916a2"
+      "sha256": "8a70f4c428a7d3e9627c8791931244ca706064cde341e6507a8cf0191de916a2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-25-restore-old.png",
       "bytes": 271787,
-      "sha256": "7e9c5b235f18a1f276e625ba4311aedeb25a4f1b05549a27aec3833f9e226089"
+      "sha256": "7e9c5b235f18a1f276e625ba4311aedeb25a4f1b05549a27aec3833f9e226089",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-26-current-query.png",
       "bytes": 268702,
-      "sha256": "a943e05ffc6ee9d444cd5d1ea548271d017a4ae913300c1e9180e48b6b3c638d"
+      "sha256": "a943e05ffc6ee9d444cd5d1ea548271d017a4ae913300c1e9180e48b6b3c638d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-27-resend.png",
       "bytes": 285026,
-      "sha256": "26b020d19029b1ebeed0b486f87e91e1c37967b0b99e8017a8ba22a58efcdd11"
+      "sha256": "26b020d19029b1ebeed0b486f87e91e1c37967b0b99e8017a8ba22a58efcdd11",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "composer-replay-28-confirm-body.png",
       "bytes": 287876,
-      "sha256": "0cf8fd4744b1951724954ac602c8b5b3964313007cbddd84c6382a3910d4b115"
+      "sha256": "0cf8fd4744b1951724954ac602c8b5b3964313007cbddd84c6382a3910d4b115",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

@@ -4,9 +4,9 @@
 
 基线为 App 的 [功能设计索引](../../Interceptor/architecture/README.md)、[workflow 规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)、[Inventory](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md)与 [workflow 源码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/)。
 
-当前Inventory包含144条契约，下面逐项列入用户场景，并链接到[中文教程](../guidebook/README.md)的对应功能点；[英文教程](../guidebook/README.en.md)使用相同功能目录和演示值。正文已接入本地阅读模块，已录范围在[真实素材目录](../guidebook/media/v0.1.1-alpha.1/)保留原生截图、视频、字幕及公开出处清单。下面的映射只核对内容覆盖，不把某项`passed`自动转换为教程通过，也不把规格与Inventory的状态冲突改写为Green。未录分支、平台专项、完整媒体验收和公开访问仍未完成。
+当前Inventory包含144条契约，下面逐项列入用户场景，并链接到[中文教程](../guidebook/README.md)的对应功能点；[英文教程](../guidebook/README.en.md)使用相同功能目录和演示值。正文使用[真实素材目录](../guidebook/media/v0.1.1-alpha.1/)中的步骤图及公开出处清单，不再分发教程视频或字幕。下面的映射只核对内容覆盖，不把某项`passed`自动转换为教程通过，也不把规格与Inventory的状态冲突改写为Green。未展示分支、平台专项和公开访问仍未完成。
 
-操作验收以步骤为单位：每个编号步骤须关联真实步骤图与对应视频位置，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一录制中的界面一致；动态值单独说明。当前正文没有步骤图的部分仍为草稿，下面的workflow映射不代表已达到该要求。
+操作验收以步骤为单位：每个编号步骤须关联真实步骤图和稳定锚点，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一次实际操作中的界面一致；动态值单独说明。当前正文没有步骤图的部分仍为草稿，下面的workflow映射不代表已达到该要求。
 
 ## 来源与验收边界
 
@@ -32,7 +32,7 @@
 - [Diagnostics生命周期](../guidebook/zh-CN/diagnostics.md#walkthrough-diagnostics-lifecycle)用真实UI生成历史、实际PAC失败、过滤、自动时间线、分栏、历史加载与JSONL。`composer.send`命令的success不等于HTTP成功；不为没有的时间线展开按钮编造步骤。
 - Agent的[会话操作](../guidebook/zh-CN/agent.md#walkthrough-agent-session-lifecycle)和[Tool生命周期](../guidebook/zh-CN/agent.md#walkthrough-agent-tool-lifecycle)，MCP的[实际审批/导出/撤销](../guidebook/zh-CN/mcp.md#walkthrough-mcp-tool-lifecycle)与[新endpoint查询](../guidebook/zh-CN/mcp.md#walkthrough-mcp-endpoint-reconnect)，以及[完整只读配置](../guidebook/zh-CN/tool-permissions.md#walkthrough-tool-permissions-readonly)/[重启](../guidebook/zh-CN/tool-permissions.md#walkthrough-tool-permissions-restart)均已接入。模型/SDK仍明确是本地演示，不代替商业服务或真实外部Host。
 - Agent的旧重启片前段因背景Capture流量不公开；[新的完整重启](../guidebook/zh-CN/agent.md#walkthrough-agent-session-restart)从Settings取景，前后两代统一使用同一轮成功来源。旧片安全删除尾段另有明确标注的[连续节选](../guidebook/zh-CN/agent.md#walkthrough-agent-model-removal)，不混用时间戳或冒充新录制。早期锁屏拒绝保留为环境证据。
-- 当前源码共接入70段影片和1736个步骤图，中英目录逐项链接全部70段；[当前来源与验收](guidebook.md#本机剩余用户流程的实际补录)保留真实媒体、字节、字幕及退出范围。按用户授权，原item 9未完成的跨平台/隔离场景、外部服务与App入口转由Handover item 16跟踪，不以数量推算完成百分比或把未验证部分算作本机交付。
+- 旧交付包含70段影片和1736张步骤图，其媒体与字幕验收事实仍保留在各自历史记录。当前源码已移除影片/字幕，原PNG全部保留，并通过正式截图导入增加7张原业务workflow截图；当前图文索引直接定位步骤小节，详见[纯图文验收](guidebook.md#原workflow截图与纯图文验收)。跨平台/隔离场景、外部服务与App入口继续由Handover item 16跟踪，不以图片数量推算完成百分比。
 
 ## 完整功能目录的补充来源
 

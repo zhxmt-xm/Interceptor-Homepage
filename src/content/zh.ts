@@ -170,9 +170,9 @@ export const chinese: typeof english = {
     guide: '完整使用指南。',
     guideBody: '中英教程初稿均可阅读。按功能查找操作步骤、真实步骤图和明确的使用限制。',
     guideAction: '阅读教程',
-    video: '看看它是如何工作的。',
-    videoBody: '跟着真实产品录制操作，对照相同示例值、步骤图和字幕；每段演示标明版本与适用范围。',
-    videoAction: '查看操作视频',
+    steps: '跟着步骤操作。',
+    stepsBody: '按功能查找真实 App 步骤图，核对相同示例值与操作结果。',
+    stepsAction: '查看步骤图',
     access: '当前快速开始文档位于私有产品仓库。',
   },
   faq: {

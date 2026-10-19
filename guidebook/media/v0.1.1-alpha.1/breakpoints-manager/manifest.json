@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "url": "http://127.0.0.1:63537/guide/breakpoint-manager/request",
     "shortcutScope": "endpoint",
@@ -18,296 +17,310 @@
     "resumedHeader": "x-guide-attempt: after-abort",
     "finalState": "Break on match enabled; this endpoint Rule disabled and applied; no pending item remains"
   },
-  "duration": 76.539310578,
-  "video": "breakpoints-manager.mp4",
-  "captions": "breakpoints-manager.vtt",
   "steps": [
     {
       "id": "01-source",
       "title": "查看快捷操作的历史请求 / Inspect the captured shortcut source",
-      "image": "breakpoints-manager-01-source.png",
-      "seconds": 0.38383577300000254
+      "image": "breakpoints-manager-01-source.png"
     },
     {
       "id": "02-menu",
       "title": "打开Breakpoint作用范围菜单 / Open the Breakpoint scope menu",
-      "image": "breakpoints-manager-02-menu.png",
-      "seconds": 3.573092355000001
+      "image": "breakpoints-manager-02-menu.png"
     },
     {
       "id": "03-create",
       "title": "选择Endpoint并立即Apply / Choose Endpoint and apply immediately",
-      "image": "breakpoints-manager-03-create.png",
-      "seconds": 7.097519061999999
+      "image": "breakpoints-manager-03-create.png"
     },
     {
       "id": "04-undo",
       "title": "使用创建提示中的Undo / Use Undo in the creation notice",
-      "image": "breakpoints-manager-04-undo.png",
-      "seconds": 7.872595858
+      "image": "breakpoints-manager-04-undo.png"
     },
     {
       "id": "05-after-undo",
       "title": "发送新请求确认已撤销 / Send a new request to verify undo",
-      "image": "breakpoints-manager-05-after-undo.png",
-      "seconds": 11.196952979
+      "image": "breakpoints-manager-05-after-undo.png"
     },
     {
       "id": "06-recreate-menu",
       "title": "再次打开同一Endpoint菜单 / Reopen the same Endpoint menu",
-      "image": "breakpoints-manager-06-recreate-menu.png",
-      "seconds": 14.203943966999999
+      "image": "breakpoints-manager-06-recreate-menu.png"
     },
     {
       "id": "07-recreate",
       "title": "重新创建本轮断点 / Recreate this example Breakpoint",
-      "image": "breakpoints-manager-07-recreate.png",
-      "seconds": 17.647036992
+      "image": "breakpoints-manager-07-recreate.png"
     },
     {
       "id": "08-manager",
       "title": "打开断点管理器 / Open the Breakpoint manager",
-      "image": "breakpoints-manager-08-manager.png",
-      "seconds": 20.700821476999998
+      "image": "breakpoints-manager-08-manager.png"
     },
     {
       "id": "09-global-off",
       "title": "关闭全局Break on match / Turn off global Break on match",
-      "image": "breakpoints-manager-09-global-off.png",
-      "seconds": 23.750667194000002
+      "image": "breakpoints-manager-09-global-off.png"
     },
     {
       "id": "10-close-manager",
       "title": "关闭管理器 / Close the manager",
-      "image": "breakpoints-manager-10-close-manager.png",
-      "seconds": 26.752735496
+      "image": "breakpoints-manager-10-close-manager.png"
     },
     {
       "id": "11-not-paused",
       "title": "确认全局关闭时不暂停新请求 / Verify new requests do not pause while globally disabled",
-      "image": "breakpoints-manager-11-not-paused.png",
-      "seconds": 30.101830067
+      "image": "breakpoints-manager-11-not-paused.png"
     },
     {
       "id": "12-manager-again",
       "title": "再次打开管理器 / Open the manager again",
-      "image": "breakpoints-manager-12-manager-again.png",
-      "seconds": 33.096961279000006
+      "image": "breakpoints-manager-12-manager-again.png"
     },
     {
       "id": "13-global-on",
       "title": "重新开启Break on match / Enable Break on match again",
-      "image": "breakpoints-manager-13-global-on.png",
-      "seconds": 36.096852515
+      "image": "breakpoints-manager-13-global-on.png"
     },
     {
       "id": "14-close-manager",
       "title": "回到请求列表 / Return to the request list",
-      "image": "breakpoints-manager-14-close-manager.png",
-      "seconds": 39.153892085
+      "image": "breakpoints-manager-14-close-manager.png"
     },
     {
       "id": "15-abort-pending",
       "title": "发送会由客户端取消的请求 / Send a request that the client will cancel",
-      "image": "breakpoints-manager-15-abort-pending.png",
-      "seconds": 42.451169907
+      "image": "breakpoints-manager-15-abort-pending.png"
     },
     {
       "id": "16-select-pending",
       "title": "查看这个Head等待项 / Inspect this Head item",
-      "image": "breakpoints-manager-16-select-pending.png",
-      "seconds": 45.396102637000006
+      "image": "breakpoints-manager-16-select-pending.png"
     },
     {
       "id": "17-client-abort",
       "title": "客户端结束后等待项自动解除 / Let the client abort and release the pending item",
-      "image": "breakpoints-manager-17-client-abort.png",
-      "seconds": 48.39708926099999
+      "image": "breakpoints-manager-17-client-abort.png"
     },
     {
       "id": "18-new-wait",
       "title": "重新发送得到新的等待项 / Send again to obtain a new pending item",
-      "image": "breakpoints-manager-18-new-wait.png",
-      "seconds": 51.393753350000004
+      "image": "breakpoints-manager-18-new-wait.png"
     },
     {
       "id": "19-continue-request",
       "title": "原样放行请求阶段 / Continue the request phase unchanged",
-      "image": "breakpoints-manager-19-continue-request.png",
-      "seconds": 54.496451018
+      "image": "breakpoints-manager-19-continue-request.png"
     },
     {
       "id": "20-continue-response",
       "title": "原样放行响应阶段 / Continue the response phase unchanged",
-      "image": "breakpoints-manager-20-continue-response.png",
-      "seconds": 57.783273681
+      "image": "breakpoints-manager-20-continue-response.png"
     },
     {
       "id": "21-rule-manager",
       "title": "打开管理器停用单条规则 / Open the manager to disable one Rule",
-      "image": "breakpoints-manager-21-rule-manager.png",
-      "seconds": 60.987158321
+      "image": "breakpoints-manager-21-rule-manager.png"
     },
     {
       "id": "22-rule-off",
       "title": "只停用本轮Endpoint规则 / Disable only this Endpoint Rule",
-      "image": "breakpoints-manager-22-rule-off.png",
-      "seconds": 63.952644754999994
+      "image": "breakpoints-manager-22-rule-off.png"
     },
     {
       "id": "23-close-manager",
       "title": "返回列表检查停用结果 / Return to the list to inspect disabling",
-      "image": "breakpoints-manager-23-close-manager.png",
-      "seconds": 66.94498225900001
+      "image": "breakpoints-manager-23-close-manager.png"
     },
     {
       "id": "24-rule-disabled",
       "title": "新请求不再被该规则挂起 / Verify the disabled Rule no longer pauses new requests",
-      "image": "breakpoints-manager-24-rule-disabled.png",
-      "seconds": 70.212104035
+      "image": "breakpoints-manager-24-rule-disabled.png"
     },
     {
       "id": "25-open-rule",
       "title": "从管理器进入对应Rules / Open the corresponding Rule from the manager",
-      "image": "breakpoints-manager-25-open-rule.png",
-      "seconds": 73.14700806399999
+      "image": "breakpoints-manager-25-open-rule.png"
     }
   ],
   "assets": [
     {
       "file": "breakpoints-manager-01-source.png",
       "bytes": 362782,
-      "sha256": "098749fe1cdac329d930404b6253b4cc8ce18348482accd3a26672974014ac3d"
+      "sha256": "098749fe1cdac329d930404b6253b4cc8ce18348482accd3a26672974014ac3d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-02-menu.png",
       "bytes": 490108,
-      "sha256": "3ddc08461c2bacc2cbbb6fafefb505edaca1a6122041cb4955230df341b6b818"
+      "sha256": "3ddc08461c2bacc2cbbb6fafefb505edaca1a6122041cb4955230df341b6b818",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-03-create.png",
       "bytes": 535377,
-      "sha256": "f2023f4058bb34f880aa26ca70fa283387f0995cdc32ffe9c823ed8d831bbde5"
+      "sha256": "f2023f4058bb34f880aa26ca70fa283387f0995cdc32ffe9c823ed8d831bbde5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-04-undo.png",
       "bytes": 362823,
-      "sha256": "d0ec24941d61f0e5c948504e3d9e3689a1246b323c48ed64406dafa56cd9041f"
+      "sha256": "d0ec24941d61f0e5c948504e3d9e3689a1246b323c48ed64406dafa56cd9041f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-05-after-undo.png",
       "bytes": 381679,
-      "sha256": "ba63f80063103ebe95394bd74f99ea0a7b7dfa2807ee904026effab7163292e9"
+      "sha256": "ba63f80063103ebe95394bd74f99ea0a7b7dfa2807ee904026effab7163292e9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-06-recreate-menu.png",
       "bytes": 504445,
-      "sha256": "cbc08c0eda93f5a51776708fa56d54a59623a70c9ce3fe755ff294cb3e1a2f02"
+      "sha256": "cbc08c0eda93f5a51776708fa56d54a59623a70c9ce3fe755ff294cb3e1a2f02",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-07-recreate.png",
       "bytes": 402665,
-      "sha256": "dc8a7b74f6d0f53358642476a087be328a990f24f69cf2dd3c22f816b52a84e9"
+      "sha256": "dc8a7b74f6d0f53358642476a087be328a990f24f69cf2dd3c22f816b52a84e9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-08-manager.png",
       "bytes": 456710,
-      "sha256": "fedae5b3dc08feaea147e8756df08d3d6b328e32ea27633e9fc99a2bc9e2e9ae"
+      "sha256": "fedae5b3dc08feaea147e8756df08d3d6b328e32ea27633e9fc99a2bc9e2e9ae",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-09-global-off.png",
       "bytes": 441298,
-      "sha256": "1e847787ad43f11314a42896a181638569fd863a21e8223f59761a02b63e61de"
+      "sha256": "1e847787ad43f11314a42896a181638569fd863a21e8223f59761a02b63e61de",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-10-close-manager.png",
       "bytes": 381530,
-      "sha256": "42ae64e63ba1eeed6b635048bc9a400633f4872ed455a8f6e0234b2fca0c2103"
+      "sha256": "42ae64e63ba1eeed6b635048bc9a400633f4872ed455a8f6e0234b2fca0c2103",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-11-not-paused.png",
       "bytes": 396923,
-      "sha256": "187eaeb32cfe19a7ef406dba2bf3c137dfc1d32a223d00ce91cc2e600be869cf"
+      "sha256": "187eaeb32cfe19a7ef406dba2bf3c137dfc1d32a223d00ce91cc2e600be869cf",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-12-manager-again.png",
       "bytes": 476723,
-      "sha256": "723d63551e6935ac55c0816cddb765eab654f2b572a9ad14b9be20506bb5bc59"
+      "sha256": "723d63551e6935ac55c0816cddb765eab654f2b572a9ad14b9be20506bb5bc59",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-13-global-on.png",
       "bytes": 459589,
-      "sha256": "cf76b31f2351a9de1eb7730eb150bba2519ba046cb4d5390d801228ebfc50ce2"
+      "sha256": "cf76b31f2351a9de1eb7730eb150bba2519ba046cb4d5390d801228ebfc50ce2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-14-close-manager.png",
       "bytes": 397013,
-      "sha256": "2ab6ec5b99cf8418f1e5ccce2391bbd8e73fddc7c035772c18695ae4c1f4cf7d"
+      "sha256": "2ab6ec5b99cf8418f1e5ccce2391bbd8e73fddc7c035772c18695ae4c1f4cf7d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-15-abort-pending.png",
       "bytes": 400351,
-      "sha256": "c6b5339f62e5194fa28f948e3c147fc0fb8284e4b7d4ae2095c12b66b1061c3d"
+      "sha256": "c6b5339f62e5194fa28f948e3c147fc0fb8284e4b7d4ae2095c12b66b1061c3d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-16-select-pending.png",
       "bytes": 374006,
-      "sha256": "311eecc428f81273dfc96a96f22df6063f46b8905d2cec4be7769b6e17cf057f"
+      "sha256": "311eecc428f81273dfc96a96f22df6063f46b8905d2cec4be7769b6e17cf057f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-17-client-abort.png",
       "bytes": 379990,
-      "sha256": "3d87efead5da3a53d933ca75e223b17581728b4ac54baea9829beaf618a32562"
+      "sha256": "3d87efead5da3a53d933ca75e223b17581728b4ac54baea9829beaf618a32562",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-18-new-wait.png",
       "bytes": 390592,
-      "sha256": "c426fe798bc940bf6f09a21253df283a9444f770c512cc06fd1d12f337ce14e3"
+      "sha256": "c426fe798bc940bf6f09a21253df283a9444f770c512cc06fd1d12f337ce14e3",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-19-continue-request.png",
       "bytes": 435158,
-      "sha256": "0fd0322a1eb8e59786e8a9b0f7ea566373a522317d0ee8e7528adbf84a36dafb"
+      "sha256": "0fd0322a1eb8e59786e8a9b0f7ea566373a522317d0ee8e7528adbf84a36dafb",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-20-continue-response.png",
       "bytes": 436605,
-      "sha256": "64b159d0f4a07a87f633451d4c6db036990c233e57a8f45cc947ef6ca9d43de5"
+      "sha256": "64b159d0f4a07a87f633451d4c6db036990c233e57a8f45cc947ef6ca9d43de5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-21-rule-manager.png",
       "bytes": 514600,
-      "sha256": "50eff945508018df18aa317f7876c2b3664334eeb31144b01fe870b369a2f27c"
+      "sha256": "50eff945508018df18aa317f7876c2b3664334eeb31144b01fe870b369a2f27c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-22-rule-off.png",
       "bytes": 496588,
-      "sha256": "a84a30c52ccb03fc0700b292657c0fe380a4597ffad61caad33b0e8efc8edb19"
+      "sha256": "a84a30c52ccb03fc0700b292657c0fe380a4597ffad61caad33b0e8efc8edb19",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-23-close-manager.png",
       "bytes": 436605,
-      "sha256": "64b159d0f4a07a87f633451d4c6db036990c233e57a8f45cc947ef6ca9d43de5"
+      "sha256": "64b159d0f4a07a87f633451d4c6db036990c233e57a8f45cc947ef6ca9d43de5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-24-rule-disabled.png",
       "bytes": 453329,
-      "sha256": "44d58916e256c135ebce17796efad1c9e073dc9858abcd036accccdced1df511"
+      "sha256": "44d58916e256c135ebce17796efad1c9e073dc9858abcd036accccdced1df511",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "breakpoints-manager-25-open-rule.png",
       "bytes": 277614,
-      "sha256": "745e5681ae13ce5b60de03c9ed6e82922fd12c40feae93ac256248cc2bed6ff7"
-    },
-    {
-      "file": "breakpoints-manager.mp4",
-      "bytes": 677578,
-      "sha256": "7e9ba0aad718f4718694e0cfb2906446ff03924a6e76cd8ee946b47a71c61da1"
-    },
-    {
-      "file": "breakpoints-manager.vtt",
-      "bytes": 2520,
-      "sha256": "bbfef66c071fb1f37e2a4613bf6827bc00333f88de08ce0cfe5eb942ce153b0e"
+      "sha256": "745e5681ae13ce5b60de03c9ed6e82922fd12c40feae93ac256248cc2bed6ff7",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

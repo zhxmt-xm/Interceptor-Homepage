@@ -142,7 +142,7 @@
 
 5. 客户端已经断开时重新查询，不向已消失的等待项反复提交。
 
-   [管理器实录](breakpoints.md#walkthrough-breakpoints-manager)包含客户端实际取消后等待项消失。已经消失的项不要再提交旧内容；视频不通过内部API强行复用旧ID。
+   [管理器实录](breakpoints.md#walkthrough-breakpoints-manager)包含客户端实际取消后等待项消失。已经消失的项不要再提交旧内容；实操不通过内部API强行复用旧ID。
 
 **关键说明**：人工断点没有固定超时自动继续；停用规则也不能代替核对已有等待项是否解决。
 

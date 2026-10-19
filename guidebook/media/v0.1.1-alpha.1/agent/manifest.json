@@ -5,7 +5,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App and owned native-panel windows; no microphone",
   "example": {
     "profileName": "Guide local demo",
     "modelId": "guide-demo-model",
@@ -17,296 +16,310 @@
     "answer": "Demo response: Pause stops recording new requests. Clear removes captured records. Neither restores the system proxy.",
     "modelKind": "deterministic local demonstration, not a commercial model acceptance"
   },
-  "duration": 74.784015328,
-  "video": "agent.mp4",
-  "captions": "agent.vtt",
   "steps": [
     {
       "id": "01-settings",
       "title": "打开 Settings / Open Settings",
-      "image": "agent-01-settings.png",
-      "seconds": 0.960743249000001
+      "image": "agent-01-settings.png"
     },
     {
       "id": "02-agent-settings",
       "title": "进入 Agent 设置 / Open Agent settings",
-      "image": "agent-02-agent-settings.png",
-      "seconds": 3.884094355000001
+      "image": "agent-02-agent-settings.png"
     },
     {
       "id": "03-add",
       "title": "添加模型 / Add a model",
-      "image": "agent-03-add.png",
-      "seconds": 6.984469767
+      "image": "agent-03-add.png"
     },
     {
       "id": "04-custom",
       "title": "选择 Custom / Choose Custom",
-      "image": "agent-04-custom.png",
-      "seconds": 9.883146035000001
+      "image": "agent-04-custom.png"
     },
     {
       "id": "05-name",
       "title": "命名 Guide local demo / Name the profile",
-      "image": "agent-05-name.png",
-      "seconds": 12.839003186000001
+      "image": "agent-05-name.png"
     },
     {
       "id": "06-endpoint",
       "title": "填写本地演示地址 / Enter the local demo URL",
-      "image": "agent-06-endpoint.png",
-      "seconds": 15.691652589000002
+      "image": "agent-06-endpoint.png"
     },
     {
       "id": "07-model",
       "title": "填写 guide-demo-model / Enter the model ID",
-      "image": "agent-07-model.png",
-      "seconds": 18.583411969
+      "image": "agent-07-model.png"
     },
     {
       "id": "08-context",
       "title": "填写 Context Window 131072 / Set the context window",
-      "image": "agent-08-context.png",
-      "seconds": 21.433579327
+      "image": "agent-08-context.png"
     },
     {
       "id": "09-output",
       "title": "填写 Maximum Output 8192 / Set maximum output",
-      "image": "agent-09-output.png",
-      "seconds": 24.284619756
+      "image": "agent-09-output.png"
     },
     {
       "id": "10-test",
       "title": "测试实际 HTTP 连接 / Test the actual connection",
-      "image": "agent-10-test.png",
-      "seconds": 27.183656227
+      "image": "agent-10-test.png"
     },
     {
       "id": "11-save",
       "title": "保存已验证模型 / Save the verified model",
-      "image": "agent-11-save.png",
-      "seconds": 30.191942483
+      "image": "agent-11-save.png"
     },
     {
       "id": "12-panel",
       "title": "打开 Agent 面板 / Open the Agent panel",
-      "image": "agent-12-panel.png",
-      "seconds": 33.232439428
+      "image": "agent-12-panel.png"
     },
     {
       "id": "13-chat",
       "title": "新建 Chat / Create a Chat",
-      "image": "agent-13-chat.png",
-      "seconds": 36.184876766
+      "image": "agent-13-chat.png"
     },
     {
       "id": "14-prompt",
       "title": "输入明确的只读问题 / Enter a scoped question",
-      "image": "agent-14-prompt.png",
-      "seconds": 39.134255928
+      "image": "agent-14-prompt.png"
     },
     {
       "id": "15-send",
       "title": "发送并读取演示回复 / Send and read the demo response",
-      "image": "agent-15-send.png",
-      "seconds": 41.983169196000006
+      "image": "agent-15-send.png"
     },
     {
       "id": "16-context",
       "title": "查看 Context 用量 / Inspect context usage",
-      "image": "agent-16-context.png",
-      "seconds": 44.982414229
+      "image": "agent-16-context.png"
     },
     {
       "id": "17-auto",
       "title": "观察 Auto 模式 / Inspect Auto mode",
-      "image": "agent-17-auto.png",
-      "seconds": 47.901224182
+      "image": "agent-17-auto.png"
     },
     {
       "id": "18-ask",
       "title": "恢复 Ask / Restore Ask",
-      "image": "agent-18-ask.png",
-      "seconds": 50.8330853
+      "image": "agent-18-ask.png"
     },
     {
       "id": "18a-tool-question",
       "title": "请求一个需审批的 Tool / Request a Tool requiring approval",
-      "image": "agent-18a-tool-question.png",
-      "seconds": 53.732648304
+      "image": "agent-18a-tool-question.png"
     },
     {
       "id": "18b-deny",
       "title": "拒绝一次 Tool / Deny one Tool call",
-      "image": "agent-18b-deny.png",
-      "seconds": 56.735263497000005
+      "image": "agent-18b-deny.png"
     },
     {
       "id": "18c-tool-again",
       "title": "重新请求并检查目标 / Request again and review the target",
-      "image": "agent-18c-tool-again.png",
-      "seconds": 59.734538617
+      "image": "agent-18c-tool-again.png"
     },
     {
       "id": "18d-allow",
       "title": "允许实际暂停录制 / Allow actual Recording pause",
-      "image": "agent-18d-allow.png",
-      "seconds": 62.83348049800001
+      "image": "agent-18d-allow.png"
     },
     {
       "id": "19-stream",
       "title": "发起可停止的演示 / Start a stoppable demonstration",
-      "image": "agent-19-stream.png",
-      "seconds": 65.833870033
+      "image": "agent-19-stream.png"
     },
     {
       "id": "20-stop",
       "title": "Stop 并保留历史 / Stop while retaining history",
-      "image": "agent-20-stop.png",
-      "seconds": 68.83301360200001
+      "image": "agent-20-stop.png"
     },
     {
       "id": "21-retry",
       "title": "Retry 新尝试 / Retry as a new attempt",
-      "image": "agent-21-retry.png",
-      "seconds": 71.786210758
+      "image": "agent-21-retry.png"
     }
   ],
   "assets": [
     {
-      "file": "agent.mp4",
-      "bytes": 599290,
-      "sha256": "7005bd0893afca0a2fb602407d0d5b5dcabdce75a37bd32056b57f4a370ab0ab"
-    },
-    {
-      "file": "agent.vtt",
-      "bytes": 1999,
-      "sha256": "d4a9f897d6e9cf10d8bdbd4c758c75fdfe23059c84635bd1fdcaa25b48fdaeb9"
-    },
-    {
       "file": "agent-01-settings.png",
       "bytes": 362710,
-      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-02-agent-settings.png",
       "bytes": 429844,
-      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b"
+      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-03-add.png",
       "bytes": 448431,
-      "sha256": "3db73fc54f0a94b50b5d6059d70c0e1f7c71be9900e189286566ec2d5fc877a7"
+      "sha256": "3db73fc54f0a94b50b5d6059d70c0e1f7c71be9900e189286566ec2d5fc877a7",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-04-custom.png",
       "bytes": 426255,
-      "sha256": "8566719b0fa86be3a9719e9ff69f75b0c3bb0cda7276e48e7671828b591ce45e"
+      "sha256": "8566719b0fa86be3a9719e9ff69f75b0c3bb0cda7276e48e7671828b591ce45e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-05-name.png",
       "bytes": 426789,
-      "sha256": "e4539471d5406a935437698bfd427cd8b21e67a61da22488766c324b1d823af9"
+      "sha256": "e4539471d5406a935437698bfd427cd8b21e67a61da22488766c324b1d823af9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-06-endpoint.png",
       "bytes": 429017,
-      "sha256": "9ab477a8516e7962889fc25d4b816f2fdc86eed1551f46ac48823cbbd3401d1d"
+      "sha256": "9ab477a8516e7962889fc25d4b816f2fdc86eed1551f46ac48823cbbd3401d1d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-07-model.png",
       "bytes": 430791,
-      "sha256": "fcd8450e2868930071c211677651a612b07e7399a7dda1f10f8362274d62b37a"
+      "sha256": "fcd8450e2868930071c211677651a612b07e7399a7dda1f10f8362274d62b37a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-08-context.png",
       "bytes": 432278,
-      "sha256": "a77ca73c3c8caa32f7c7e3484725037c1345aedd1dc70a29d1951511cbe58941"
+      "sha256": "a77ca73c3c8caa32f7c7e3484725037c1345aedd1dc70a29d1951511cbe58941",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-09-output.png",
       "bytes": 432918,
-      "sha256": "4c0497198b6fae036f2bb8616dc1d02b75678cc44d863acad00e2315dc2afce1"
+      "sha256": "4c0497198b6fae036f2bb8616dc1d02b75678cc44d863acad00e2315dc2afce1",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-10-test.png",
       "bytes": 436933,
-      "sha256": "c87611c69eaf09236f7b1ed717c80c4e9356b1e7895f469465073aca4f46a4e5"
+      "sha256": "c87611c69eaf09236f7b1ed717c80c4e9356b1e7895f469465073aca4f46a4e5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-11-save.png",
       "bytes": 438776,
-      "sha256": "92d65439bbd0847af90ad477896ed0d39121357dea0f311049ef26027a4dd1b5"
+      "sha256": "92d65439bbd0847af90ad477896ed0d39121357dea0f311049ef26027a4dd1b5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-12-panel.png",
       "bytes": 474680,
-      "sha256": "fec93060eccc9b06b7dac3ba41394c7d21650efc2b54edacf1d6db8d4f18b92c"
+      "sha256": "fec93060eccc9b06b7dac3ba41394c7d21650efc2b54edacf1d6db8d4f18b92c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-13-chat.png",
       "bytes": 478937,
-      "sha256": "2540711dd2b2f28cf2093bf2b666ef970da2cb4a459b5060a2191f3ad5d6ab5a"
+      "sha256": "2540711dd2b2f28cf2093bf2b666ef970da2cb4a459b5060a2191f3ad5d6ab5a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-14-prompt.png",
       "bytes": 483535,
-      "sha256": "9ae6dba2eaa6055c5124cc9fea283edcb7aec976027bae7f1002ef4db2ec3b90"
+      "sha256": "9ae6dba2eaa6055c5124cc9fea283edcb7aec976027bae7f1002ef4db2ec3b90",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-15-send.png",
       "bytes": 509566,
-      "sha256": "71a33c67b085cead986abdab80b66a1721c36ebc9ec725226c060ed6ab39d291"
+      "sha256": "71a33c67b085cead986abdab80b66a1721c36ebc9ec725226c060ed6ab39d291",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-16-context.png",
       "bytes": 541587,
-      "sha256": "7a223443616e5baf0c23bd799ad1d19d826bf67ef6b018837a0fa6139ab4cdac"
+      "sha256": "7a223443616e5baf0c23bd799ad1d19d826bf67ef6b018837a0fa6139ab4cdac",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-17-auto.png",
       "bytes": 497958,
-      "sha256": "a489ca8d6f8e029183f18bc1a69a24ea45f8a6ea75270c36bb2a476492f8cc17"
+      "sha256": "a489ca8d6f8e029183f18bc1a69a24ea45f8a6ea75270c36bb2a476492f8cc17",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-18-ask.png",
       "bytes": 497933,
-      "sha256": "1df6132dee463da3a81f405ed32a41fbfe2abcf8299214b19f89e8dc77a88531"
+      "sha256": "1df6132dee463da3a81f405ed32a41fbfe2abcf8299214b19f89e8dc77a88531",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-18a-tool-question.png",
       "bytes": 579793,
-      "sha256": "36da335441492e11c6658266c95336982a6433402e888e930837e6aff41c1a43"
+      "sha256": "36da335441492e11c6658266c95336982a6433402e888e930837e6aff41c1a43",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-18b-deny.png",
       "bytes": 541803,
-      "sha256": "af45ee833d1502052743083dda20b74b03002cf9a005911293cbbc6fa25376dd"
+      "sha256": "af45ee833d1502052743083dda20b74b03002cf9a005911293cbbc6fa25376dd",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-18c-tool-again.png",
       "bytes": 604548,
-      "sha256": "1797808028f035b54d0076cfa88e197edf80e92739ff53de0edda58966ca6195"
+      "sha256": "1797808028f035b54d0076cfa88e197edf80e92739ff53de0edda58966ca6195",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-18d-allow.png",
       "bytes": 570828,
-      "sha256": "d10973e543d0de3ef6e0494e1aa5b740d668b944f015a95d3a50341befa2738a"
+      "sha256": "d10973e543d0de3ef6e0494e1aa5b740d668b944f015a95d3a50341befa2738a",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-19-stream.png",
       "bytes": 600887,
-      "sha256": "db4825536f9372d9d5499f69a98f8bd54093b0b03588966df244652ce1746eab"
+      "sha256": "db4825536f9372d9d5499f69a98f8bd54093b0b03588966df244652ce1746eab",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-20-stop.png",
       "bytes": 610901,
-      "sha256": "e606dccf4f80cf0a8f62e29854ca9671b6f2b351d2b84138d5466074952f12ce"
+      "sha256": "e606dccf4f80cf0a8f62e29854ca9671b6f2b351d2b84138d5466074952f12ce",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-21-retry.png",
       "bytes": 592710,
-      "sha256": "f9f5f7a7a9b26b88091744ce86b601bfa6bdd4cdc7b93857b317bda8033f62cf"
+      "sha256": "f9f5f7a7a9b26b88091744ce86b601bfa6bdd4cdc7b93857b317bda8033f62cf",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "model": "Guide Tool demo; deterministic local keyless endpoint",
     "endpoint": "http://127.0.0.1:55719/guide-tool-lifecycle/v1",
@@ -23,208 +22,214 @@
     "stopBoundary": "A completed Recording pause remains applied after stopping the later model reply",
     "retryBoundary": "This retry requests explanation only; other models may propose new actions and require fresh review"
   },
-  "duration": 75.493353017,
-  "video": "agent-tool-lifecycle.mp4",
-  "captions": "agent-tool-lifecycle.vtt",
   "steps": [
     {
       "id": "01-agent",
       "title": "打开Agent并建立Chat / Open Agent and create a Chat",
-      "image": "agent-tool-lifecycle-01-agent.png",
-      "seconds": 0.38742579900000057
+      "image": "agent-tool-lifecycle-01-agent.png"
     },
     {
       "id": "02-ask",
       "title": "明确选择Ask / Explicitly choose Ask",
-      "image": "agent-tool-lifecycle-02-ask.png",
-      "seconds": 3.482420019000001
+      "image": "agent-tool-lifecycle-02-ask.png"
     },
     {
       "id": "03-side-effect-prompt",
       "title": "请求暂停后继续解释 / Ask to pause Recording and then continue explaining",
-      "image": "agent-tool-lifecycle-03-side-effect-prompt.png",
-      "seconds": 6.519396031
+      "image": "agent-tool-lifecycle-03-side-effect-prompt.png"
     },
     {
       "id": "04-allow-pause",
       "title": "允许已明确的暂停操作 / Allow the explicit pause operation",
-      "image": "agent-tool-lifecycle-04-allow-pause.png",
-      "seconds": 9.632745948
+      "image": "agent-tool-lifecycle-04-allow-pause.png"
     },
     {
       "id": "05-stop-after-tool",
       "title": "Stop模型回复不撤销已完成的Tool / Stop the response without undoing the completed Tool",
-      "image": "agent-tool-lifecycle-05-stop-after-tool.png",
-      "seconds": 12.730610363
+      "image": "agent-tool-lifecycle-05-stop-after-tool.png"
     },
     {
       "id": "06-retry",
       "title": "Retry本次只继续解释 / Retry with explanation only in this example",
-      "image": "agent-tool-lifecycle-06-retry.png",
-      "seconds": 15.785311928000002
+      "image": "agent-tool-lifecycle-06-retry.png"
     },
     {
       "id": "07-clarify",
       "title": "重新明确只读目标 / Restate a read-only goal",
-      "image": "agent-tool-lifecycle-07-clarify.png",
-      "seconds": 18.859583461000003
+      "image": "agent-tool-lifecycle-07-clarify.png"
     },
     {
       "id": "08-diagnostics-recent",
       "title": "执行真实Diagnostics Recent查询 / Execute a real Diagnostics Recent query",
-      "image": "agent-tool-lifecycle-08-diagnostics-recent.png",
-      "seconds": 22.065779991000003
+      "image": "agent-tool-lifecycle-08-diagnostics-recent.png"
     },
     {
       "id": "09-read-trace",
       "title": "用刚返回的traceId查询关联记录 / Query related records using the returned traceId",
-      "image": "agent-tool-lifecycle-09-read-trace.png",
-      "seconds": 25.285694210000003
+      "image": "agent-tool-lifecycle-09-read-trace.png"
     },
     {
       "id": "10-export-request",
       "title": "请求需要审批的Diagnostics导出 / Request a Diagnostics export requiring approval",
-      "image": "agent-tool-lifecycle-10-export-request.png",
-      "seconds": 28.44429683
+      "image": "agent-tool-lifecycle-10-export-request.png"
     },
     {
       "id": "11-native-cancel-panel",
       "title": "审批后仍需真实Save窗口 / Approval still leads to a real Save window",
-      "image": "agent-tool-lifecycle-11-native-cancel-panel.png",
-      "seconds": 41.718502639
+      "image": "agent-tool-lifecycle-11-native-cancel-panel.png"
     },
     {
       "id": "12-cancel-native",
       "title": "取消原生保存而不是伪造返回值 / Cancel native saving without replacing its return value",
-      "image": "agent-tool-lifecycle-12-cancel-native.png",
-      "seconds": 45.041039685
+      "image": "agent-tool-lifecycle-12-cancel-native.png"
     },
     {
       "id": "13-export-again",
       "title": "重新发起并检查参数 / Request export again and review parameters",
-      "image": "agent-tool-lifecycle-13-export-again.png",
-      "seconds": 49.671643165999996
+      "image": "agent-tool-lifecycle-13-export-again.png"
     },
     {
       "id": "14-native-save",
       "title": "保存guide-agent-diagnostics.jsonl / Save guide-agent-diagnostics.jsonl",
-      "image": "agent-tool-lifecycle-14-native-save.png",
-      "seconds": 62.05710928800001
+      "image": "agent-tool-lifecycle-14-native-save.png"
     },
     {
       "id": "15-started-result",
       "title": "区分任务已开始与完成 / Distinguish a started job from completion",
-      "image": "agent-tool-lifecycle-15-started-result.png",
-      "seconds": 66.40654582500001
+      "image": "agent-tool-lifecycle-15-started-result.png"
     },
     {
       "id": "16-completion-query",
       "title": "查询实际文件任务直到完成 / Query the actual file task for completion",
-      "image": "agent-tool-lifecycle-16-completion-query.png",
-      "seconds": 69.38384964100001
+      "image": "agent-tool-lifecycle-16-completion-query.png"
     },
     {
       "id": "17-final-state",
       "title": "保留暂停状态并核对实际结果 / Retain the paused state and verify the actual result",
-      "image": "agent-tool-lifecycle-17-final-state.png",
-      "seconds": 72.558438478
+      "image": "agent-tool-lifecycle-17-final-state.png"
     }
   ],
   "assets": [
     {
       "file": "agent-tool-lifecycle-01-agent.png",
       "bytes": 262339,
-      "sha256": "a45c9aad13afdc7910e558ab23d5b48f3d9bd0ee052b9c39b8ab4199760cf2d5"
+      "sha256": "a45c9aad13afdc7910e558ab23d5b48f3d9bd0ee052b9c39b8ab4199760cf2d5",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-02-ask.png",
       "bytes": 246297,
-      "sha256": "0a3d293ca9bdd796dd8087045a6217de415441e051be27ca87390ffb43056936"
+      "sha256": "0a3d293ca9bdd796dd8087045a6217de415441e051be27ca87390ffb43056936",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-03-side-effect-prompt.png",
       "bytes": 339331,
-      "sha256": "66372cd701e2f3c4d8e112ed7fc92d06d3d9d46c3bba8a264813277436aeeea2"
+      "sha256": "66372cd701e2f3c4d8e112ed7fc92d06d3d9d46c3bba8a264813277436aeeea2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-04-allow-pause.png",
       "bytes": 312066,
-      "sha256": "dc8201754c984b702a7ff741b8a901dec8feced4dde7eb7d3535d925fb217341"
+      "sha256": "dc8201754c984b702a7ff741b8a901dec8feced4dde7eb7d3535d925fb217341",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-05-stop-after-tool.png",
       "bytes": 333684,
-      "sha256": "a74acdafefd598c22eb04028070b01dba7f774ec5b8adb033ef295b13dc05b4b"
+      "sha256": "a74acdafefd598c22eb04028070b01dba7f774ec5b8adb033ef295b13dc05b4b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-06-retry.png",
       "bytes": 340783,
-      "sha256": "9e89fa068d46323b755fc124ce4f7c2f0c67631080c437a434cb667266eb34bf"
+      "sha256": "9e89fa068d46323b755fc124ce4f7c2f0c67631080c437a434cb667266eb34bf",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-07-clarify.png",
       "bytes": 419502,
-      "sha256": "15e0dccb41aaec3acb02c065f3e1eb68b4d1206b3cfe71f76da83b707906af4d"
+      "sha256": "15e0dccb41aaec3acb02c065f3e1eb68b4d1206b3cfe71f76da83b707906af4d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-08-diagnostics-recent.png",
       "bytes": 416320,
-      "sha256": "7321846e4c86b410c67c934fe78f29d046d934b8327f7329030971d4be787b28"
+      "sha256": "7321846e4c86b410c67c934fe78f29d046d934b8327f7329030971d4be787b28",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-09-read-trace.png",
       "bytes": 424101,
-      "sha256": "b85f5441dfab7903a6f8109c35c61a8e1c725e949c3d38327b47c33cd9dfb68c"
+      "sha256": "b85f5441dfab7903a6f8109c35c61a8e1c725e949c3d38327b47c33cd9dfb68c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-10-export-request.png",
       "bytes": 431172,
-      "sha256": "4fcc27562ecc502ffe35016e9406f72f603379fb8bfeac0b16a75377c4944a0e"
+      "sha256": "4fcc27562ecc502ffe35016e9406f72f603379fb8bfeac0b16a75377c4944a0e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-11-native-cancel-panel.png",
       "bytes": 53970,
-      "sha256": "d2592f0bf42f519e8cbec65c50b8e4281de4f906b785f03c96723d367f94bf16"
+      "sha256": "d2592f0bf42f519e8cbec65c50b8e4281de4f906b785f03c96723d367f94bf16",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "agent-tool-lifecycle-12-cancel-native.png",
       "bytes": 409650,
-      "sha256": "a2923a7f3d0b7b500acbc56ab400e4b5d1f4915e66fc659e0cdaed51761bc5c0"
+      "sha256": "a2923a7f3d0b7b500acbc56ab400e4b5d1f4915e66fc659e0cdaed51761bc5c0",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-13-export-again.png",
       "bytes": 425292,
-      "sha256": "df8db347a5475238a1328fbf8a2a2a7182898c83607d3da7e1a02f8586a0c6aa"
+      "sha256": "df8db347a5475238a1328fbf8a2a2a7182898c83607d3da7e1a02f8586a0c6aa",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-14-native-save.png",
       "bytes": 56381,
-      "sha256": "13849ee4f86c2a141269d667dab778ef461beb1c21e329c5ffcc6bff20efc8a0"
+      "sha256": "13849ee4f86c2a141269d667dab778ef461beb1c21e329c5ffcc6bff20efc8a0",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "agent-tool-lifecycle-15-started-result.png",
       "bytes": 411322,
-      "sha256": "cd450993e51e526d3a3e517b4a0bca441a9e7839777f350cb1b8bbae70189b37"
+      "sha256": "cd450993e51e526d3a3e517b4a0bca441a9e7839777f350cb1b8bbae70189b37",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-16-completion-query.png",
       "bytes": 438072,
-      "sha256": "7e1b13646f58de2c4e4f1c28ae03c29cb35c1f6ef02a450272e005383e340af9"
+      "sha256": "7e1b13646f58de2c4e4f1c28ae03c29cb35c1f6ef02a450272e005383e340af9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "agent-tool-lifecycle-17-final-state.png",
       "bytes": 438072,
-      "sha256": "7e1b13646f58de2c4e4f1c28ae03c29cb35c1f6ef02a450272e005383e340af9"
-    },
-    {
-      "file": "agent-tool-lifecycle.mp4",
-      "bytes": 726614,
-      "sha256": "ad6a7b8443e70db0a76b2872f4c5f31fff251c2364545de07c6830f406b8c499"
-    },
-    {
-      "file": "agent-tool-lifecycle.vtt",
-      "bytes": 1879,
-      "sha256": "d303f5d4236f927dc1ec55733a85fb2a8c5389b15cafbec5bfc9ceb0b0eeca36"
+      "sha256": "7e1b13646f58de2c4e4f1c28ae03c29cb35c1f6ef02a450272e005383e340af9",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

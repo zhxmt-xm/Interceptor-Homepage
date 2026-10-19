@@ -40,14 +40,14 @@ export default function Resources({
         </article>
         <article className={styles.card}>
           <Icon name="monitor" size={22} />
-          <h3>{content.video}</h3>
-          <p>{content.videoBody}</p>
+          <h3>{content.steps}</h3>
+          <p>{content.stepsBody}</p>
           <ActionLink
-            href={`${guideHref('overview', locale)}#videos`}
+            href={`${guideHref('overview', locale)}#walkthroughs`}
             variant="quiet"
-            automationId="homepage.guideVideos"
+            automationId="homepage.guideSteps"
           >
-            {content.videoAction}
+            {content.stepsAction}
             <Icon name="arrowRight" size={15} />
           </ActionLink>
         </article>

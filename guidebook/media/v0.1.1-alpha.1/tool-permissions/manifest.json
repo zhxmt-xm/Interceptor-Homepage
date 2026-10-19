@@ -5,115 +5,111 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "changeTool": "capture_clear",
     "queryTool": "capture_get_proxy_status",
     "operationExecuted": "none"
   },
-  "duration": 23.703010368000005,
-  "video": "tool-permissions.mp4",
-  "captions": "tool-permissions.vtt",
   "steps": [
     {
       "id": "01-settings",
       "title": "打开 Settings / Open Settings",
-      "image": "tool-permissions-01-settings.png",
-      "seconds": 0.36837236100000154
+      "image": "tool-permissions-01-settings.png"
     },
     {
       "id": "02-agent",
       "title": "打开 Tool capabilities / Open Tool capabilities",
-      "image": "tool-permissions-02-agent.png",
-      "seconds": 3.2523003140000073
+      "image": "tool-permissions-02-agent.png"
     },
     {
       "id": "03-search",
       "title": "查找 capture_clear / Find capture_clear",
-      "image": "tool-permissions-03-search.png",
-      "seconds": 6.452845247000004
+      "image": "tool-permissions-03-search.png"
     },
     {
       "id": "04-disable-agent",
       "title": "只关闭 Agent 清理权限 / Disable only Agent clear access",
-      "image": "tool-permissions-04-disable-agent.png",
-      "seconds": 9.302104171
+      "image": "tool-permissions-04-disable-agent.png"
     },
     {
       "id": "05-disable-mcp",
       "title": "再关闭 MCP 清理权限 / Disable MCP clear access separately",
-      "image": "tool-permissions-05-disable-mcp.png",
-      "seconds": 12.20296061400001
+      "image": "tool-permissions-05-disable-mcp.png"
     },
     {
       "id": "06-restore-agent",
       "title": "显式恢复 Agent 权限 / Explicitly restore Agent access",
-      "image": "tool-permissions-06-restore-agent.png",
-      "seconds": 15.101894090000002
+      "image": "tool-permissions-06-restore-agent.png"
     },
     {
       "id": "07-restore-mcp",
       "title": "显式恢复 MCP 权限 / Explicitly restore MCP access",
-      "image": "tool-permissions-07-restore-mcp.png",
-      "seconds": 18.001900699000004
+      "image": "tool-permissions-07-restore-mcp.png"
     },
     {
       "id": "08-query",
       "title": "查找只读查询 Tool / Find a read-only query Tool",
-      "image": "tool-permissions-08-query.png",
-      "seconds": 20.85577054900001
+      "image": "tool-permissions-08-query.png"
     }
   ],
   "assets": [
     {
-      "file": "tool-permissions.mp4",
-      "bytes": 153345,
-      "sha256": "4fa368ed5ec576123d364492ebc5146092886c38d6699d14d6f6fd47fa274926"
-    },
-    {
-      "file": "tool-permissions.vtt",
-      "bytes": 693,
-      "sha256": "fcdf9bf43538004fe7874dcdd5b7c679127bf4d855d52206c9119b9f61b861cb"
-    },
-    {
       "file": "tool-permissions-01-settings.png",
       "bytes": 362710,
-      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c"
+      "sha256": "6a322b31394b73d4e2a160cbc1850cba8ab3586275e1fcb87a488e104d0b6d1c",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-02-agent.png",
       "bytes": 429844,
-      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b"
+      "sha256": "8476f9510e63ad90ab6ebd04370f938959ea3d653c0d64f7820eca45ce33841b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-03-search.png",
       "bytes": 360667,
-      "sha256": "2198c3a16b3a9a76d152a77c1e34d1227de33b3bc966ce6e0b1f4f99651a807b"
+      "sha256": "2198c3a16b3a9a76d152a77c1e34d1227de33b3bc966ce6e0b1f4f99651a807b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-04-disable-agent.png",
       "bytes": 362100,
-      "sha256": "d5c796f9b20349d56fb881996881bf2e912bbbf429a7c256a77adc688aea5c51"
+      "sha256": "d5c796f9b20349d56fb881996881bf2e912bbbf429a7c256a77adc688aea5c51",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-05-disable-mcp.png",
       "bytes": 361726,
-      "sha256": "688422518dc6e0f2aeea29d588257e33f29076145af2dfe9f63faaf923dadd8d"
+      "sha256": "688422518dc6e0f2aeea29d588257e33f29076145af2dfe9f63faaf923dadd8d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-06-restore-agent.png",
       "bytes": 361931,
-      "sha256": "763c10cad9010b79462d2c2b5e338b705d5dc0cd3ea877d580bc0d8614fb144d"
+      "sha256": "763c10cad9010b79462d2c2b5e338b705d5dc0cd3ea877d580bc0d8614fb144d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-07-restore-mcp.png",
       "bytes": 361931,
-      "sha256": "5a2918457b59cd214fb9969b4b12af39a446db78755b4bfcbc4d3e940bf03184"
+      "sha256": "5a2918457b59cd214fb9969b4b12af39a446db78755b4bfcbc4d3e940bf03184",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "tool-permissions-08-query.png",
       "bytes": 367006,
-      "sha256": "a47f6fd342d68980aa83c3ffd9da637fe717d5ccf3317c2a06077d828a0c88c5"
+      "sha256": "a47f6fd342d68980aa83c3ffd9da637fe717d5ccf3317c2a06077d828a0c88c5",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

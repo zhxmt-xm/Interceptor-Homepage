@@ -9,7 +9,6 @@
   "appLanguage": "zh-CN",
   "sourceRelease": "https://github.com/zhxmt-xm/Interceptor/releases/tag/v0.1.1-alpha.1",
   "releaseAssetSha256": "129e3c3105ebcaf3464d97c47d207912fd13defa26fe719851db92e0f2532c48",
-  "recording": "isolated native App window; no microphone",
   "example": {
     "url": "http://127.0.0.1:61384/guide/privacy-export/record",
     "publicAuthorization": "Bearer public-export-value",
@@ -23,285 +22,298 @@
     "safety": "All authentication-like values are deliberately public loopback examples, not real credentials",
     "finalDefaults": "Authorization, Cookie and warning enabled; existing files not rewritten"
   },
-  "duration": 167.147137299,
-  "video": "settings-privacy-export.mp4",
-  "captions": "settings-privacy-export.vtt",
   "steps": [
     {
       "id": "01-privacy",
       "title": "查看三项Privacy默认值 / Inspect all three Privacy defaults",
-      "image": "settings-privacy-export-01-privacy.png",
-      "seconds": 0.48148890900000696
+      "image": "settings-privacy-export-01-privacy.png"
     },
     {
       "id": "02-auth-default",
       "title": "更改Authorization默认值 / Change the Authorization default",
-      "image": "settings-privacy-export-02-auth-default.png",
-      "seconds": 3.6509385900000053
+      "image": "settings-privacy-export-02-auth-default.png"
     },
     {
       "id": "03-cookie-default",
       "title": "更改Cookie默认值 / Change the Cookie default",
-      "image": "settings-privacy-export-03-cookie-default.png",
-      "seconds": 6.662672026999993
+      "image": "settings-privacy-export-03-cookie-default.png"
     },
     {
       "id": "04-inherited-export",
       "title": "打开新HAR草稿核对继承 / Open a new HAR draft and verify inherited defaults",
-      "image": "settings-privacy-export-04-inherited-export.png",
-      "seconds": 9.676192119999993
+      "image": "settings-privacy-export-04-inherited-export.png"
     },
     {
       "id": "05-one-time-override",
       "title": "本次只遮罩Authorization / Mask Authorization for this export only",
-      "image": "settings-privacy-export-05-one-time-override.png",
-      "seconds": 13.781745689000003
+      "image": "settings-privacy-export-05-one-time-override.png"
     },
     {
       "id": "06-save-override",
       "title": "保存guide-auth-masked.har / Save guide-auth-masked.har",
-      "image": "settings-privacy-export-06-save-override.png",
-      "seconds": 37.51321049299999
+      "image": "settings-privacy-export-06-save-override.png"
     },
     {
       "id": "07-check-override",
       "title": "核对文件只遮罩指定字段 / Verify only the selected fields are masked",
-      "image": "settings-privacy-export-07-check-override.png",
-      "seconds": 42.64929533700002
+      "image": "settings-privacy-export-07-check-override.png"
     },
     {
       "id": "08-defaults-unchanged",
       "title": "核对单次覆盖没改全局默认值 / Verify the per-export override did not change defaults",
-      "image": "settings-privacy-export-08-defaults-unchanged.png",
-      "seconds": 45.792929732999994
+      "image": "settings-privacy-export-08-defaults-unchanged.png"
     },
     {
       "id": "09-warning-default",
       "title": "关闭未遮罩前的警示偏好 / Disable the unmasked-export warning preference",
-      "image": "settings-privacy-export-09-warning-default.png",
-      "seconds": 48.91780997599999
+      "image": "settings-privacy-export-09-warning-default.png"
     },
     {
       "id": "10-unmasked-draft",
       "title": "查看新的公开数据导出草稿 / Inspect the new public-data export draft",
-      "image": "settings-privacy-export-10-unmasked-draft.png",
-      "seconds": 51.94005709399999
+      "image": "settings-privacy-export-10-unmasked-draft.png"
     },
     {
       "id": "11-save-public",
       "title": "只保存本轮公开测试值 / Save only this run’s public example values",
-      "image": "settings-privacy-export-11-save-public.png",
-      "seconds": 77.49947072400002
+      "image": "settings-privacy-export-11-save-public.png"
     },
     {
       "id": "12-check-public",
       "title": "核对取消遮罩后文件的真实字段 / Verify the actual unmasked exported fields",
-      "image": "settings-privacy-export-12-check-public.png",
-      "seconds": 83.08159911200002
+      "image": "settings-privacy-export-12-check-public.png"
     },
     {
       "id": "13-restore-privacy",
       "title": "返回Privacy恢复默认值 / Return to Privacy to restore defaults",
-      "image": "settings-privacy-export-13-restore-privacy.png",
-      "seconds": 86.21038725899999
+      "image": "settings-privacy-export-13-restore-privacy.png"
     },
     {
       "id": "14-restore-auth",
       "title": "恢复Authorization遮罩 / Restore Authorization masking",
-      "image": "settings-privacy-export-14-restore-auth.png",
-      "seconds": 89.31704325300001
+      "image": "settings-privacy-export-14-restore-auth.png"
     },
     {
       "id": "15-restore-cookies",
       "title": "恢复Cookie遮罩 / Restore Cookie masking",
-      "image": "settings-privacy-export-15-restore-cookies.png",
-      "seconds": 92.33210416400001
+      "image": "settings-privacy-export-15-restore-cookies.png"
     },
     {
       "id": "16-restore-warning",
       "title": "恢复未遮罩警示 / Restore the unmasked-export warning",
-      "image": "settings-privacy-export-16-restore-warning.png",
-      "seconds": 95.33859914
+      "image": "settings-privacy-export-16-restore-warning.png"
     },
     {
       "id": "17-redacted-draft",
       "title": "检查新草稿使用恢复后的默认值 / Inspect a new draft with restored defaults",
-      "image": "settings-privacy-export-17-redacted-draft.png",
-      "seconds": 98.35821986100002
+      "image": "settings-privacy-export-17-redacted-draft.png"
     },
     {
       "id": "18-strip-bodies",
       "title": "本次移除请求与响应正文 / Remove request and response bodies for this export",
-      "image": "settings-privacy-export-18-strip-bodies.png",
-      "seconds": 102.55173387200001
+      "image": "settings-privacy-export-18-strip-bodies.png"
     },
     {
       "id": "19-save-redacted",
       "title": "保存guide-redacted-no-body.har / Save guide-redacted-no-body.har",
-      "image": "settings-privacy-export-19-save-redacted.png",
-      "seconds": 127.04638002400002
+      "image": "settings-privacy-export-19-save-redacted.png"
     },
     {
       "id": "20-check-redacted",
       "title": "逐字段核对真正的文件内容 / Verify the actual file field by field",
-      "image": "settings-privacy-export-20-check-redacted.png",
-      "seconds": 132.67604472399998
+      "image": "settings-privacy-export-20-check-redacted.png"
     },
     {
       "id": "21-clear",
       "title": "清空本轮临时记录再检查导入 / Clear this run’s temporary records before checking import",
-      "image": "settings-privacy-export-21-clear.png",
-      "seconds": 135.72724628900002
+      "image": "settings-privacy-export-21-clear.png"
     },
     {
       "id": "22-import",
       "title": "从产品选择刚导出的HAR / Select the just-exported HAR through the product",
-      "image": "settings-privacy-export-22-import.png",
-      "seconds": 138.76325423100002
+      "image": "settings-privacy-export-22-import.png"
     },
     {
       "id": "23-open-redacted",
       "title": "打开本轮去正文HAR / Open this run’s body-stripped HAR",
-      "image": "settings-privacy-export-23-open-redacted.png",
-      "seconds": 157.57524525500003
+      "image": "settings-privacy-export-23-open-redacted.png"
     },
     {
       "id": "24-imported",
       "title": "导入不会凭空恢复已移除正文 / Import does not recreate removed body bytes",
-      "image": "settings-privacy-export-24-imported.png",
-      "seconds": 163.13337753200003
+      "image": "settings-privacy-export-24-imported.png"
     }
   ],
   "assets": [
     {
       "file": "settings-privacy-export-01-privacy.png",
       "bytes": 340183,
-      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f"
+      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-02-auth-default.png",
       "bytes": 339614,
-      "sha256": "5facc491f6dee1e0d8d62bad792c216db6e4117f2c667f3d581728e78b1d8715"
+      "sha256": "5facc491f6dee1e0d8d62bad792c216db6e4117f2c667f3d581728e78b1d8715",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-03-cookie-default.png",
       "bytes": 339140,
-      "sha256": "196f4540f9e56e06aa177ee8ba9443f7257656366d63db54106c1f582d2848f9"
+      "sha256": "196f4540f9e56e06aa177ee8ba9443f7257656366d63db54106c1f582d2848f9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-04-inherited-export.png",
       "bytes": 421948,
-      "sha256": "b75689c2c120776eec2bf514cd61dda4979c96fc26de07db2436c9933c30949e"
+      "sha256": "b75689c2c120776eec2bf514cd61dda4979c96fc26de07db2436c9933c30949e",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-05-one-time-override.png",
       "bytes": 422127,
-      "sha256": "83edc09edac0d1095fc563b0199d4791ce5404a580bf22e3748f509490d74ee2"
+      "sha256": "83edc09edac0d1095fc563b0199d4791ce5404a580bf22e3748f509490d74ee2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-06-save-override.png",
       "bytes": 54404,
-      "sha256": "c7213f6dba901adc24ff8781f2948e483da52a8ae452a0538723c23a60625101"
+      "sha256": "c7213f6dba901adc24ff8781f2948e483da52a8ae452a0538723c23a60625101",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "settings-privacy-export-07-check-override.png",
       "bytes": 378534,
-      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d"
+      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-08-defaults-unchanged.png",
       "bytes": 339140,
-      "sha256": "196f4540f9e56e06aa177ee8ba9443f7257656366d63db54106c1f582d2848f9"
+      "sha256": "196f4540f9e56e06aa177ee8ba9443f7257656366d63db54106c1f582d2848f9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-09-warning-default.png",
       "bytes": 338637,
-      "sha256": "1a2909833061523a45280405a557ea3286143a90fb75276ed2ed6478268e61b9"
+      "sha256": "1a2909833061523a45280405a557ea3286143a90fb75276ed2ed6478268e61b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-10-unmasked-draft.png",
       "bytes": 394056,
-      "sha256": "338a8923d8cf27df8814f9554b32d70a81604823cdea416c9a74464eb2516537"
+      "sha256": "338a8923d8cf27df8814f9554b32d70a81604823cdea416c9a74464eb2516537",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-11-save-public.png",
       "bytes": 55618,
-      "sha256": "b16ab009eda65e5a9ea48ff77fafa6b3379d4fbf4bf6f2cab5b29606f54cd75c"
+      "sha256": "b16ab009eda65e5a9ea48ff77fafa6b3379d4fbf4bf6f2cab5b29606f54cd75c",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "settings-privacy-export-12-check-public.png",
       "bytes": 378534,
-      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d"
+      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-13-restore-privacy.png",
       "bytes": 338637,
-      "sha256": "1a2909833061523a45280405a557ea3286143a90fb75276ed2ed6478268e61b9"
+      "sha256": "1a2909833061523a45280405a557ea3286143a90fb75276ed2ed6478268e61b9",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-14-restore-auth.png",
       "bytes": 339209,
-      "sha256": "1b363c8771539bf8fb8456905cdbd3e6370f653e003266b6c0fe6be91c81991f"
+      "sha256": "1b363c8771539bf8fb8456905cdbd3e6370f653e003266b6c0fe6be91c81991f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-15-restore-cookies.png",
       "bytes": 339683,
-      "sha256": "b27a9a28c9d35a8b07418b6f4db33455cb03d2e9fee81b645367baf7bf1908d6"
+      "sha256": "b27a9a28c9d35a8b07418b6f4db33455cb03d2e9fee81b645367baf7bf1908d6",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-16-restore-warning.png",
       "bytes": 340183,
-      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f"
+      "sha256": "136a4803099b0efe4ba3516fe2b2c9697d9c954892fa6deaa8a3d39a3f1f812f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-17-redacted-draft.png",
       "bytes": 394462,
-      "sha256": "6e71b3bb7c0738e21078523137755fc1933d78dd1e77f617ac986594a602025b"
+      "sha256": "6e71b3bb7c0738e21078523137755fc1933d78dd1e77f617ac986594a602025b",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-18-strip-bodies.png",
       "bytes": 394719,
-      "sha256": "eea6da498d448acd972b4cb79df1c94c821e554429a133f274dadbe1924d7bfa"
+      "sha256": "eea6da498d448acd972b4cb79df1c94c821e554429a133f274dadbe1924d7bfa",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-19-save-redacted.png",
       "bytes": 56082,
-      "sha256": "0ddd9d9939a4fb54946c9d1be0ed0b812695186530777c8fc82452691e769eea"
+      "sha256": "0ddd9d9939a4fb54946c9d1be0ed0b812695186530777c8fc82452691e769eea",
+      "width": 860,
+      "height": 390
     },
     {
       "file": "settings-privacy-export-20-check-redacted.png",
       "bytes": 378534,
-      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d"
+      "sha256": "7fb20ee374c3138f53f577aa90ebec8cb9d8d611618b0d017546c581b643273d",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-21-clear.png",
       "bytes": 232164,
-      "sha256": "1a0daa6bd87fac37cea82a6f6a2d83c3f064dcd918d801fd04db930ad39848d2"
+      "sha256": "1a0daa6bd87fac37cea82a6f6a2d83c3f064dcd918d801fd04db930ad39848d2",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-22-import.png",
       "bytes": 225410,
-      "sha256": "6886b959e6ceedd4ba55e9774889cc370b2cd20094f80f528aaa0cd70ec4fc7f"
+      "sha256": "6886b959e6ceedd4ba55e9774889cc370b2cd20094f80f528aaa0cd70ec4fc7f",
+      "width": 3200,
+      "height": 1800
     },
     {
       "file": "settings-privacy-export-23-open-redacted.png",
       "bytes": 156807,
-      "sha256": "9687d73b436f3e484fa8dbb51c14fd26ff16018884767e8a9c73311c0eb83516"
+      "sha256": "9687d73b436f3e484fa8dbb51c14fd26ff16018884767e8a9c73311c0eb83516",
+      "width": 1600,
+      "height": 896
     },
     {
       "file": "settings-privacy-export-24-imported.png",
       "bytes": 265246,
-      "sha256": "cc92f71ec203137998d6a36454644b1a2ddab8a9a9a37ec969f989ee77d68ac7"
-    },
-    {
-      "file": "settings-privacy-export.mp4",
-      "bytes": 1364457,
-      "sha256": "34a67a3236e1775484cd95704330a14c3eae4128955c3487feafeed82a1990a6"
-    },
-    {
-      "file": "settings-privacy-export.vtt",
-      "bytes": 2594,
-      "sha256": "bf8d37697ce0be427723fedb65d3eebd1439ab40f48d7347658cee5220e762bd"
+      "sha256": "cc92f71ec203137998d6a36454644b1a2ddab8a9a9a37ec969f989ee77d68ac7",
+      "width": 3200,
+      "height": 1800
     }
-  ]
+  ],
+  "schemaVersion": 1,
+  "capture": "native-window"
 }

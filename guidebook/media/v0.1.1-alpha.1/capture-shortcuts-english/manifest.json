@@ -1,0 +1,638 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-shortcuts-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/breakpoint-menu-hierarchy.workflow.ts",
+    "test": "capture.breakpoint-menu-hierarchy aligns Block and Breakpoint labels",
+    "run": "2026-10-21T19-33-47-163Z-5INkK1",
+    "testDirectory": "capture-breakpoint-menu-hi-2879a-Block-and-Breakpoint-labels-macos",
+    "manifestSha256": "e5ceb458048b30fde6c885eda23d0b0f299a732e4f48aae77a0960eda1cfb3de",
+    "metadataSha256": "4a4974711b3b583dd0c213f848e3df7f5be0cb7745b848b08a6c09d74a271f3e",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "url": "http://127.0.0.1:59192/e2e/capture/breakpoint-menu-hierarchy",
+    "method": "GET",
+    "responseBytes": 112,
+    "blockName": "Capture quick block",
+    "blockMode": "reset",
+    "draftEnabled": false,
+    "endpointRuleCount": 1,
+    "endpointActionPhases": [
+      "request",
+      "response"
+    ],
+    "endpointImmediatelyApplied": true,
+    "note": "New result rows in steps 011 and 019 are not selected; Inspector belongs to the previous record"
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "选中创建快捷控制所用的原请求 / Select the original request used to create shortcut controls",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "bytes": 257365,
+      "sha256": "be7df72c67b6518178ccb5ff92492e4f47b4066f3b7aea8431c0ad330b72e4c5",
+      "rawBytes": 370131,
+      "rawSha256": "28b9df9f11614261c9d61c966003f03b49619d3d99f41c6be004f98f37bbb131",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviig7zc-rwtlaz26"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "在Control分组查看Block入口 / Inspect Block in the Control group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "bytes": 319132,
+      "sha256": "7c5f13a2b002610f18aca8cbbe2a0d25a64ab16195fca10007d1ef5626fb3624",
+      "rawBytes": 452707,
+      "rawSha256": "16f64e8feadc4893e8ca66f837981c5a7c7534ad3126aa6e6724deb4db5eeb59",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1444,
+            "y": 892,
+            "width": 536,
+            "height": 68
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "Block创建未启用、未保存的草稿 / Block creates a disabled unsaved draft",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "bytes": 165647,
+      "sha256": "4f54a17e8c1a0a2b1259c70d6e624c3769774a3d3071ba5d7980bb2ec3018e8f",
+      "rawBytes": 262878,
+      "rawSha256": "038d50a0ed7a6993c70f8ecf6974c3f1d7daa70580fc1df9e289bb159f03047c",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 218,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.toggle.rule-dfc44d60-f03d-4691-a7d1-0cc3a6e26920"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "命名Capture quick block / Name Capture quick block",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "bytes": 159645,
+      "sha256": "5c9a6a56cfe87aeea3689395037249ed921c14441ddfc7a6b695e92bb57c9a80",
+      "rawBytes": 250947,
+      "rawSha256": "2706a40bfc6c879c683f5360ca5d7027efa4ca1afe1130b3f4244c0a13c7718e",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1490.703125,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "启用Block草稿，仍需Save / Enable the Block draft before Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "bytes": 158915,
+      "sha256": "2982e8cb661e21f357db673b54d6fd78e5e445cb8e2db2dea81fd9881e51701b",
+      "rawBytes": 251748,
+      "rawSha256": "700af09ece99a97738f5a45afb8b0facddc6642dbc5d9f0c1b241ef23414ee25",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 218,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.toggle.rule-dfc44d60-f03d-4691-a7d1-0cc3a6e26920"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "Save使Block规则生效 / Save applies the Block rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "bytes": 156554,
+      "sha256": "6a49351d3ae5e90e976eb57a176b6f0146f031b927761d7a48eb99efee50ff24",
+      "rawBytes": 247805,
+      "rawSha256": "18cb0b8658014b6deed4ad7ad86291807f7543aa51a87428cfbdbdf403f2ccae",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "新请求被Block重置，未到达源站 / Block resets a new request before it reaches the origin",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "bytes": 240771,
+      "sha256": "1f38b343e479fe351607fcc24c652a2526f850e40f3fa9c3070d59a96b3a5715",
+      "rawBytes": 347910,
+      "rawSha256": "8e2e12170ba8f004d588f0bc2f5d28e95c90e3e601247c7eb467d7bffcfd09b9",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviigih2-bfxrgcxw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "停用Capture quick block / Disable Capture quick block",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "bytes": 157402,
+      "sha256": "c694642e13ab5ae0e7deb5134186e33b18d803ee4bc9d6f34b2115382123e421",
+      "rawBytes": 249276,
+      "rawSha256": "396fb7706994aca650d14d32641f735eb24b6c415f9489686db15cc2235283da",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 218,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.toggle.rule-dfc44d60-f03d-4691-a7d1-0cc3a6e26920"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "Save保存Block停用状态 / Save the disabled Block state",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "bytes": 156508,
+      "sha256": "35441420560d140b098e80cbf2f20f62ceec5f9579f55e609d3d0ba562ee39fb",
+      "rawBytes": 247311,
+      "rawSha256": "7edc52a402d53dd0e7959f7c544cf0db7e313782418ecb91dced435ab135cd05",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "停用Block后的新请求恢复200 / A new request returns 200 after disabling Block",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 250745,
+      "sha256": "b3a63afd9dee294a56f413123e8517a7455ec00910bd24d3afa26445175a0fd8",
+      "rawBytes": 363266,
+      "rawSha256": "65f5a488dc39f70e646812f40e97cb51f931c6c44f8f6e10d1a53b33ae4dc766",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 456,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviigls7-50eakr09"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "从原请求选择Endpoint快捷断点 / Choose the Endpoint breakpoint from the original request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "bytes": 339331,
+      "sha256": "71cff676106dbed8dd609d545e094e316d1c352228e6763c070df454f5727ac3",
+      "rawBytes": 479109,
+      "rawSha256": "17e07b538efad280aa8e742f212c50d733d84170d0f3382522dc618ef8058750",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1988,
+            "y": 1036,
+            "width": 816.015625,
+            "height": 68
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "Endpoint已创建并立即应用 / Endpoint is created and immediately applied",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 268020,
+      "sha256": "1ff02ae1d6eb6f698528ae59dfc3e13faef4f10abc65e3537abefafc4a4cfc6e",
+      "rawBytes": 387422,
+      "rawSha256": "a2135be6eecb807d83cae274a5b4d2333cd18495d02d9b0f13bb2be2c7ab8b31",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1414.796875,
+            "y": 37.5,
+            "width": 414.40625,
+            "height": 51
+          },
+          "automationId": "capture.breakpoint-created-message"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "Endpoint先暂停新请求，等待request Continue / Endpoint first pauses the new request for request-phase Continue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "bytes": 258616,
+      "sha256": "df6bbd5abf079caa42d1f3a75e0a9fd4706651536251039036f72e204016ee1b",
+      "rawBytes": 363151,
+      "rawSha256": "a9d4048d7430c4281b686a3ddbd44f5ec0e81749e7735cd6d747b117852d3674",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "同一请求再暂停于response，需第二次Continue / The same exchange pauses again in response and needs a second Continue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "bytes": 301492,
+      "sha256": "6dd07a939e8ba290d8b9213dc6971c4f165820f2ea42ed49d0f7b1350f9ae290",
+      "rawBytes": 419828,
+      "rawSha256": "9305ea9e16990bdfc0d2676505b9fd29d7f71c92991410df28ab2bf7865763a2",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "两阶段原样放行后请求完成200 / Both unmodified continuations complete the request with 200",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "bytes": 291152,
+      "sha256": "5c8c7c2dd9eec7872658894070ba20f637fab4ac7be6a8214fd00c8fdd396c12",
+      "rawBytes": 417649,
+      "rawSha256": "01615de95be14c7d0b0e196f54fcc2265e8b11b4639da928342a3196c67410d5",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 560,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviigq3v-u6tq1k3y"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "停用本轮快捷创建的规则 / Disable this workflow’s shortcut-created rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "bytes": 199830,
+      "sha256": "a852c0bb0430b2b116e2c9699dc96908cc3592797f9a71dfd367b628f3c8bb79",
+      "rawBytes": 300990,
+      "rawSha256": "928d2ace791d6eb7d6fd9b1b3279856c4e773dd05fe1c575c81011ed18c079f5",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 314,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.toggle.rule-681a95c1-9184-4048-a4a8-e2b45af3d010"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "保存已停用的快捷规则 / Save the disabled shortcut rules",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "bytes": 198144,
+      "sha256": "0ebd73ac11bd7d9061da8a01fe602d11466fe8bd99cbb0ba7321a940c076d73b",
+      "rawBytes": 298185,
+      "rawSha256": "81122e04780d21a6fa5fe81529ea88bfbb0f8c13f69821ed464ce8cf1e344205",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "停用快捷断点后，新请求直接完成 / A new request completes directly after disabling the shortcut breakpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "bytes": 301161,
+      "sha256": "b1f81c171ef44a4b83c98992a8a88484247455a331908674f87573506ffb9d6e",
+      "rawBytes": 433027,
+      "rawSha256": "8fc7a515ecdf065aac5db51c2d820002f04de07e3a3cc5baf4f605bf1db683b4",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 664,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviigws9-y89dsglg"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

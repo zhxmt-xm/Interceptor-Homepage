@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-body-truncated-english",
+  "title": {
+    "zh-CN": "正文预览上限",
+    "en": "Body preview limits"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/body-preview-limits.workflow.ts",
+    "test": "capture.body-preview-limits truncated uses the approved read and format budget",
+    "run": "2026-10-21T10-01-02-443Z-34fQvO",
+    "testDirectory": "capture-body-preview-limit-69a88-oved-read-and-format-budget-macos",
+    "manifestSha256": "0beb7e7793a4b9d243044c24c777eaa0b736e000cbe06ebf3f79fe341916fd28",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "打开truncated响应并查看Format入口 / Open the truncated response and inspect the Format control",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2906,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.format"
+        }
+      ],
+      "bytes": 268944,
+      "sha256": "d13ded6e8fa0dc2bf8f3356c9f1a1a0dffbe4fae87a7304d07c58afb6515a54c",
+      "rawBytes": 365881,
+      "rawSha256": "3ef328a531bb45d0abdf53ddde709c06786283dfc76e21067de8531d89549155"
+    },
+    {
+      "id": "step-002",
+      "title": "复制truncated当前预览并核对长度 / Copy the truncated preview and verify its length",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "bytes": 286192,
+      "sha256": "e0c5953217b79c84200c3e0d5b39ffdab6d969997636d85199bded64b3b78d42",
+      "rawBytes": 394574,
+      "rawSha256": "a327a18825a7ebc01186d4a100031ab5d88b07f8f56c4d2bdc41ed24efa0d007"
+    },
+    {
+      "id": "step-003",
+      "title": "截断预览禁用Format / A truncated preview disables Format",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2906,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.format"
+        }
+      ],
+      "bytes": 288107,
+      "sha256": "457b0be3f97db93f6be4f0bacd5f14b836dc4821675ff34603032343cdae7f8f",
+      "rawBytes": 394574,
+      "rawSha256": "a327a18825a7ebc01186d4a100031ab5d88b07f8f56c4d2bdc41ed24efa0d007"
+    }
+  ]
+}

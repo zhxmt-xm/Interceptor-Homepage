@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-websocket-text-english",
+  "title": {
+    "zh-CN": "WebSocket文本消息与方向",
+    "en": "WebSocket text messages and directions"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/websocket-scenarios.workflow.ts",
+    "test": "capture.scenarios.websocket captures directional text binary and controlled connections",
+    "run": "2026-10-21T10-07-07-318Z-9Zv3yz",
+    "testDirectory": "capture-websocket-scenario-a5a4a--and-controlled-connections-macos",
+    "manifestSha256": "891a99ab61755e50fc762a4888b6eb22f0c44cbf5f01834414c591c8527750ae",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-008",
+      "title": "ws-text选择WebSocket连接 / Select the ws-text WebSocket connection",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvhyc7d7-33nn13vn"
+        }
+      ],
+      "bytes": 203634,
+      "sha256": "1677bf5c9b9d99c02867f7654fd07a895e45d1cfffe8331a88fddcd497b62096",
+      "rawBytes": 286564,
+      "rawSha256": "e9a515f4000a21df934caaad3ae5dc0382ca29ecbf01f62b13dd077097d2a663"
+    },
+    {
+      "id": "step-009",
+      "title": "ws-text打开Messages / Open Messages for ws-text",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2485.015625,
+            "y": 292,
+            "width": 171.84375,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.messages"
+        }
+      ],
+      "bytes": 203940,
+      "sha256": "99053a40747b03c68fe4410b9956691b5da18111b9de7d54168f0ddbbc2adcb7",
+      "rawBytes": 286780,
+      "rawSha256": "d87d0df1518ec3c3b50006ad61f764ad7e5cf3cb9894b562ab7a56ace4cfa896"
+    },
+    {
+      "id": "step-010",
+      "title": "ws-text选择Sent方向 / Select the Sent direction for ws-text",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2410.03125,
+            "y": 426.75,
+            "width": 88.96875,
+            "height": 44
+          },
+          "automationId": "capture.websocket.direction.sent"
+        }
+      ],
+      "bytes": 197932,
+      "sha256": "204eed270c7e6400805e9abd02700950f3f5a5822b3e719d65b908820601aa6f",
+      "rawBytes": 279472,
+      "rawSha256": "e471c7f5ee0ec4aae342ae1636f248b109d25093f9744d1470860bf5e4f5f57c"
+    },
+    {
+      "id": "step-011",
+      "title": "ws-text展开当前方向的消息 / Expand a message in the selected ws-text direction",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 619.21875,
+            "width": 94.859375,
+            "height": 27.046875
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 219958,
+      "sha256": "d69c9120d27575c692298bdc50d9230f64b8e017f7dc69900dbc5a68ea729367",
+      "rawBytes": 301727,
+      "rawSha256": "6fc1bbf72846452710e8adbf71a03168f4e49b048a444bcc248da9aec302c22e"
+    },
+    {
+      "id": "step-012",
+      "title": "ws-text复制选中消息 / Copy the selected ws-text message",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3078,
+            "y": 602.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.websocket.copy.ex-mvhyc7d7-33nn13vn.1"
+        }
+      ],
+      "bytes": 230474,
+      "sha256": "96692286ca61b2fa8ba9ef4d204e0b9b7b3361a4177d2e2b6f58c6314d1c64c6",
+      "rawBytes": 318359,
+      "rawSha256": "78ebb082ca8d34ddfa73f1597d12745473ed5f3b23af3aab8c022e80c8e1c81c"
+    },
+    {
+      "id": "step-014",
+      "title": "ws-text选择Received方向 / Select the Received direction for ws-text",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2503,
+            "y": 426.75,
+            "width": 142.828125,
+            "height": 44
+          },
+          "automationId": "capture.websocket.direction.received"
+        }
+      ],
+      "bytes": 198168,
+      "sha256": "e0e9c63d48b71d4ac6a7d067d6d4403862405c2a252f4e42a1ba1efb94fd82c0",
+      "rawBytes": 279409,
+      "rawSha256": "ebd4731f690709fd1bb03485ab939d076acc43a21e053c3781716eac030fce8b"
+    },
+    {
+      "id": "step-015",
+      "title": "ws-text展开当前方向的消息 / Expand a message in the selected ws-text direction",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 619.21875,
+            "width": 144.21875,
+            "height": 27.046875
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 220963,
+      "sha256": "99a046428a9e50d9cc96cff74fe887cf0490d15d4ba3ad25f30a430982d6e53d",
+      "rawBytes": 302596,
+      "rawSha256": "5858797c3401d7419e0564e4697b9564208f0edacc090b973e597d85c4252e08"
+    },
+    {
+      "id": "step-016",
+      "title": "ws-text复制选中消息 / Copy the selected ws-text message",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3078,
+            "y": 602.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.websocket.copy.ex-mvhyc7d7-33nn13vn.2"
+        }
+      ],
+      "bytes": 231240,
+      "sha256": "38ddbaa466769b5782609793a3da45e59fdaf4807f3ef4e692ca9a15daf1064f",
+      "rawBytes": 319402,
+      "rawSha256": "2dbf810fd35e0d172824a9f05872b6d1448d1596a978d2ce78004e7108a51cfe"
+    },
+    {
+      "id": "step-018",
+      "title": "ws-text选择All查看消息结果 / Select All to inspect the ws-text message results",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 426.75,
+            "width": 66.03125,
+            "height": 44
+          },
+          "automationId": "capture.websocket.direction.all"
+        }
+      ],
+      "bytes": 203208,
+      "sha256": "646f6ae40a9e8a150b4924796e711d44079414ce685f7cddf631c535b72153be",
+      "rawBytes": 286707,
+      "rawSha256": "0f2cd296a95fd0e57db9840aef17083e28c87017c827bdab165b102cab34e0d6"
+    }
+  ]
+}

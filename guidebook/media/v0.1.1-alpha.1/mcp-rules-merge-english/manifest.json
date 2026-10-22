@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "chapter": "mcp-rules-merge-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "mcp/streamable-http.workflow.ts",
+    "manifestSha256": "737e39d9d08485e7d4952b5df565de33e1ad58e5ff40e07d7f8ace2ce65d9cfe",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-017",
+      "title": "MCP写入后Rules显示已应用的新值 / Rules shows the applied values written through MCP",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-2f2791a6-8ca0-4609-8493-f5a8b94115b3.0.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "编辑本地草稿但不Apply / Edit the local draft without Apply",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-2f2791a6-8ca0-4609-8493-f5a8b94115b3.0.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "第二写入者生效时保留未Apply的本地草稿 / Retain the unapplied local draft while the second writer takes effect",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1413.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "确认放弃本地草稿前找到Reload / Locate Reload before discarding the local draft",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2981.515625,
+            "y": 118,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "rules.reload"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "显式Reload后采用Core最新版本 / Explicitly Reload the latest Core revision",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    },
+    {
+      "id": "step-022",
+      "title": "外部交互：产品UI自产Rule后，官方Client在Auto下读取并替换完整树；Renderer与真实origin同步更新。 / External interaction: after product UI creates a Rule, the official Client reads and replaces the full tree in Auto; Renderer and origin update.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    },
+    {
+      "id": "step-023",
+      "title": "在最新版本上重新编辑本地合并值 / Edit the local merged values on the latest revision",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-2f2791a6-8ca0-4609-8493-f5a8b94115b3.0.value"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 3065.515625,
+            "y": 120,
+            "width": 98.484375,
+            "height": 56
+          },
+          "automationId": "rules.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "本地合并已经Save并成为已应用版本 / The local merge is saved and applied",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "新请求带有本地合并后的Header / A new request carries the locally merged Header",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1532.75,
+            "width": 824,
+            "height": 36
+          },
+          "automationId": null
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 522,
+            "y": 560,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi719tw-vt9rnjfp"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251128,
+      "sha256": "9464a794f7b7aab83f44b2e8d694dcc0692a219174397e84ce6ad46b2a48c490"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 165275,
+      "sha256": "93211e8f267edb7b755d507f593accf41560aad395441212a6913ce0be331da3"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254861,
+      "sha256": "1e7fd8de75fc1b1c38204d9a1f9c70193ace540a885b31996f73da74329731c8"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167251,
+      "sha256": "898543882d9a96a4d5c3ef6866775e949b8ec8d6f268856b320f36c6945570d5"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258386,
+      "sha256": "17a7d404373bfd187d7a6260fd12616e8f25cd9ed4c3cd399cee00be3f2e5e66"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 169435,
+      "sha256": "4aae1d70e19a0ac3ea21bc9cf7bd77f9a4e8604e0903d5ca832123c9c1cee640"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258608,
+      "sha256": "7bf49b7314045cea3f4fea224c86464aeb3b68684e519986c5ee9ae6fe82445b"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 169587,
+      "sha256": "4eaa9de52a805a85f11b425d1d06da7f91eca1a30c1f4a91a8affb4a8a8866d6"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252090,
+      "sha256": "538494e0d6e8ffaf3d2de1e87777cad6f3decf102a15e45198f57a55f9768337"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252090,
+      "sha256": "538494e0d6e8ffaf3d2de1e87777cad6f3decf102a15e45198f57a55f9768337"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254800,
+      "sha256": "8494d722ccb1544f55520f1ce076c0439309c2e1df8ed336115fb36f0b93942d"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 168123,
+      "sha256": "cb136bcd4c6e57737e71638c58f9429f0e3ff4ea804132046e1f00186fafba87"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 250319,
+      "sha256": "7702ca99e75bcf3f667a3a2abd8355d84cb98ca61c66ea5df42df052e23c3e84"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 412923,
+      "sha256": "1f54e65121b3ce20ac1b4d2ff3670d6ea76a3cc2bf4b85535cf92a35339056c3"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 288026,
+      "sha256": "a008335615c8674555cd694b6201580047347476efa96eca90f255cbf71d462f"
+    }
+  ]
+}

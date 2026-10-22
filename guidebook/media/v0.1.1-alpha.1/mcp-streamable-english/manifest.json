@@ -1,0 +1,1081 @@
+{
+  "schemaVersion": 1,
+  "chapter": "mcp-streamable-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "mcp/streamable-http.workflow.ts",
+    "manifestSha256": "5d215a762cf13a5dd7f6982444964e36085bea0d11b500a07b3577d928b44282",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：从fresh profile进入Agent Settings，MCP必须默认关闭且没有伪造Client。 / Arrange: enter Agent Settings from a fresh profile; MCP starts off with no fabricated Client.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "开启MCP Server并读取独立endpoint / Enable MCP Server and inspect its separate endpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2178,
+            "y": 562.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "mcp.server.enable"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 654,
+            "y": 725.421875,
+            "width": 1504,
+            "height": 55.359375
+          },
+          "automationId": "mcp.server.endpoint"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "打开新增MCP Client窗口 / Open the Add MCP Client dialog",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "填写Client名称后创建凭据 / Enter the Client label before creating its credential",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1194,
+            "y": 893.4375,
+            "width": 812,
+            "height": 51.1875
+          },
+          "automationId": "mcp.client.label"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1792.59375,
+            "y": 976.625,
+            "width": 213.40625,
+            "height": 68
+          },
+          "automationId": "mcp.client.create"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "用户操作：显式开启listener并通过产品Dialog创建默认Ask的workflow Client。 / User actions: explicitly enable the listener and create a default-Ask workflow Client in the product dialog.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "通过Client行复制正式连接配置 / Copy the formal connection configuration from the Client row",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2050,
+            "y": 928.109375,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "mcp.client.copy-configuration.eee65fdc-1872-4ebb-bb78-db6f84ec6bf5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "只关闭query Tool的MCP权限 / Disable only the query Tool’s MCP permission",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2144,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_get_proxy_status"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2016,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "恢复MCP权限后再查询 / Restore MCP permission before querying again",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "业务断言：MCP列关闭项即时不可发现；重新开启后query直接读取真实Core状态。 / Business assertion: an MCP-column disable hides the Tool; re-enable lets a query read real Core state directly.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "Host发起的暂停请求等待MCP审批 / A Host pause request waits for MCP approval",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "Host取消单次调用后Recording不变 / Recording remains enabled after the Host cancels one call",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.png",
+      "rawImage": "step-011.png"
+    },
+    {
+      "id": "step-012",
+      "title": "核对MCP Tool与影响后选择Deny或Allow / Review the MCP Tool and effect before Deny or Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1559.734375,
+            "y": 1047.625,
+            "width": 228.796875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.deny"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1047.625,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "新的MCP暂停调用需要本次Allow / The new MCP pause call needs its own Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1047.625,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "允许MCP暂停后核对Capture状态 / Verify Capture is paused after MCP approval",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "单独设置当前MCP Client的Auto / Set Auto for this MCP Client independently",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1936.984375,
+            "y": 936.109375,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "mcp.client.auto.eee65fdc-1872-4ebb-bb78-db6f84ec6bf5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "用户操作：单次取消与Host断开分别取消Ask，不能用关闭Client代替取消一个调用。 / User actions: cancel one call and disconnect the Host separately; closing the Client cannot stand in for per-call cancellation.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.png",
+      "rawImage": "step-016.png"
+    },
+    {
+      "id": "step-017",
+      "title": "MCP写入后Rules显示已应用的新值 / Rules shows the applied values written through MCP",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-454042ab-4913-4d78-a8a2-903ec73b70a1.0.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "编辑本地草稿但不Apply / Edit the local draft without Apply",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-454042ab-4913-4d78-a8a2-903ec73b70a1.0.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "第二写入者生效时保留未Apply的本地草稿 / Retain the unapplied local draft while the second writer takes effect",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1413.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "确认放弃本地草稿前找到Reload / Locate Reload before discarding the local draft",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2981.515625,
+            "y": 118,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "rules.reload"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "显式Reload后采用Core最新版本 / Explicitly Reload the latest Core revision",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    },
+    {
+      "id": "step-022",
+      "title": "外部交互：产品UI自产Rule后，官方Client在Auto下读取并替换完整树；Renderer与真实origin同步更新。 / External interaction: after product UI creates a Rule, the official Client reads and replaces the full tree in Auto; Renderer and origin update.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    },
+    {
+      "id": "step-023",
+      "title": "Ask Continue：Deny不解除客户端，Allow只继续指定ID；同一旧ID随后在审批前被拒绝。 / Ask Continue: Deny leaves the client suspended, Allow continues only the selected ID, and the stale ID is rejected before approval.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.png",
+      "rawImage": "step-023.png"
+    },
+    {
+      "id": "step-024",
+      "title": "Ask Edit：批准后才修改method、URL与正文，真实origin只观察替换后的目标和文本。 / Ask Edit: only approval changes method, URL, and body; the real origin observes only the replacement target and text.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "Auto：Drop不显示审批且不抵达origin；HTTP disable/enable决定后续真实POST是否进入pending。 / Auto: Drop shows no approval and never reaches origin; HTTP disable/enable controls whether later real POSTs become pending.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.png",
+      "rawImage": "step-025.png"
+    },
+    {
+      "id": "step-026",
+      "title": "WebSocket数据面：真实连接提供exchangeId，Tool启用后frame进入同一pending列表，Continue与Disable作用于真实对端。 / WebSocket data plane: a real connection provides exchangeId; Tool enable queues a frame in the same pending list, and Continue/Disable affect the real peer.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.png",
+      "rawImage": "step-026.png"
+    },
+    {
+      "id": "step-027",
+      "title": "Settings撤权：十一项MCP开关关闭后立即从tools/list消失，逐项猜测调用均为unknown tool且不触发审批。 / Settings revocation: all eleven disappear immediately from tools/list; every guessed call is unknown and never opens approval.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.png",
+      "rawImage": "step-027.png"
+    },
+    {
+      "id": "step-028",
+      "title": "真实重启后保留MCP endpoint与Client模式 / Retain the MCP endpoint and Client mode after a real restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.annotated.png",
+      "rawImage": "step-028.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 626,
+            "y": 900.109375,
+            "width": 1636,
+            "height": 116
+          },
+          "automationId": "mcp.client.row.eee65fdc-1872-4ebb-bb78-db6f84ec6bf5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-029",
+      "title": "Client生命周期：旧Client在Ask审批中断开只取消自己的调用，同一Core pending保持原ID且不抵达origin。 / Client lifecycle: disconnecting the old Client during Ask cancels only its call; the same Core pending keeps its ID and never reaches origin.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.png",
+      "rawImage": "step-029.png"
+    },
+    {
+      "id": "step-030",
+      "title": "轮换MCP凭据前核对确认窗口 / Review the confirmation before rotating MCP credentials",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-030.annotated.png",
+      "rawImage": "step-030.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1512.34375,
+            "y": 933.875,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "mcp.client.regenerate.cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1670.3125,
+            "y": 933.875,
+            "width": 325.6875,
+            "height": 68
+          },
+          "automationId": "mcp.client.regenerate.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-031",
+      "title": "轮换后重新复制配置更新Host / Copy the rotated configuration to update the Host",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-031.annotated.png",
+      "rawImage": "step-031.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2050,
+            "y": 928.109375,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "mcp.client.copy-configuration.eee65fdc-1872-4ebb-bb78-db6f84ec6bf5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-032",
+      "title": "恢复与清理：新Client在Ask下显式Allow同一ID，再删除测试Breakpoint Rule并保留MCP更新的Rule。 / Recovery and cleanup: the new Client explicitly Allows the same ID in Ask, then removes the test Breakpoint Rule while preserving the MCP-updated Rule.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-032.png",
+      "rawImage": "step-032.png"
+    },
+    {
+      "id": "step-033",
+      "title": "撤销Client前核对影响与确认 / Review the effect before revoking this Client",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-033.annotated.png",
+      "rawImage": "step-033.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1616.96875,
+            "y": 933.875,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "mcp.client.revoke.cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1774.9375,
+            "y": 933.875,
+            "width": 221.0625,
+            "height": 68
+          },
+          "automationId": "mcp.client.revoke.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-034",
+      "title": "撤销Client同时取消真实在途Composer请求 / Revoking the Client cancels its actual in-flight Composer request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-034.png",
+      "rawImage": "step-034.png"
+    },
+    {
+      "id": "step-035",
+      "title": "关闭MCP Server并确认停止监听 / Disable MCP Server and verify its stopped state",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-035.annotated.png",
+      "rawImage": "step-035.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2178,
+            "y": 562.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "mcp.server.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-036",
+      "title": "清理与证据：恢复Ask与Recording，撤销Client并关闭MCP；只保存Token hash。 / Cleanup and evidence: restore Ask and Recording, revoke the Client, disable MCP, and save token hashes only.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-036.png",
+      "rawImage": "step-036.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 437546,
+      "sha256": "9b761c5b3c61c8f5f39de90f5c1ae92a8483b8d5160dd87f5863642191b21669"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296157,
+      "sha256": "dd187bb4816b456fb0fa17ff0d635dd3b6bd036c1d20433984d0216532baee5e"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 396618,
+      "sha256": "9172753d4ed9c1299a9c6628a37642023a200c5764ad9e4177494a5d672ca007"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 398620,
+      "sha256": "32f5f75023dc2d42ae261d9aa76e9534c601180aa409e4a1d004a84d1f89401f"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 278867,
+      "sha256": "b7d61847000ebe25d719445eb3347b3be8156c9cabb9805853fc88dc0557acc8"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 443352,
+      "sha256": "8a95c4c26cab7d9b1ad0dd0d664e070dc7bde7c2c1d23b7a315112d66877c310"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 443352,
+      "sha256": "8a95c4c26cab7d9b1ad0dd0d664e070dc7bde7c2c1d23b7a315112d66877c310"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 299244,
+      "sha256": "3648aea11dfbcd269316432baa7ba16540c8647f81f5b65230bc35d538e0a2a0"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 384736,
+      "sha256": "832a95a7d439999c05b52154a617073f5df406c33752e274b150d75afe5ec311"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254845,
+      "sha256": "d701f90985c09ff91c4ee57ad49da5422302d11191c024af42b34181277457cf"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 385110,
+      "sha256": "d857f53adea9b5d65c4d407539e4fd97f39d88e2fad898703bff9e13654d172b"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 384474,
+      "sha256": "ff75537c2b8887edb18d64edbaefcf0cf604b120c646361408f004d89a9c2eb6"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252319,
+      "sha256": "788346354f978a7f2b6b4ede06f58ecb7c60b8795441c7a64b4dbe9c2075c129"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217790,
+      "sha256": "cd67e8cbfda53b4f41abc1d7cdf50588c81dac68662caaebdd5515a272812269"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 253001,
+      "sha256": "5eab3169c656788a589a31b9cf583eed276b6fae9460f94def6c415fae928f10"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 215853,
+      "sha256": "c07ad649039c6a3b0c303a66d431ee13a30c7c7c8e2bfc89e071218444430e3f"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252669,
+      "sha256": "df76a65cdbc32fff24571abecf1d30befd0e204a65ac9fcf0a75ae7fec602047"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 214969,
+      "sha256": "915af1a2aa65aef1e10ecac22bd2b2d6fab46beb7a54245ae484c7bbdd8f670e"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217071,
+      "sha256": "0ada662c2da37bfadc0766673d91162c70c9b3c0e306657dd22243c8b2296751"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 140297,
+      "sha256": "71386dbc814fc7c6bb461e2a2e7ed991952a225afd2c65de3c971fe41f47d650"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 443306,
+      "sha256": "d6ec3db9d5fc6387ee831fd27a52d2b38270716e248c14eb1f165410949a0f42"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298962,
+      "sha256": "ecff3fa7c2727213dfb09f4714be419a5021246a203bc4a94e8d3260c1e0d358"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 233787,
+      "sha256": "c7fb1c5dc06ebade17728809b307267fed0b1b2475e9ef5fa5d1de4e0d7eeb57"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251123,
+      "sha256": "7be9a26c05631377b186996692791a4182329ed7a8a212bd967c167e2aab1cbe"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 165277,
+      "sha256": "d944a39c43204b9e876a102c4bd89030a4bf6867f0b53b2e273c3ac83020240b"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254861,
+      "sha256": "1e7fd8de75fc1b1c38204d9a1f9c70193ace540a885b31996f73da74329731c8"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167251,
+      "sha256": "898543882d9a96a4d5c3ef6866775e949b8ec8d6f268856b320f36c6945570d5"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258402,
+      "sha256": "b268d87424f68c1952d82b22de86e45ecbdd9371b25f400a2477b55de2e7c5ad"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 169351,
+      "sha256": "54cf1944108cd893de238fdbb6b7ac6d282f3abbad1965749e267d321cb43a7e"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258635,
+      "sha256": "ac468650f6d31438f7bbd51e345a1b60289a745a91bdf8ca7a142472d5cbeee3"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 169509,
+      "sha256": "28f54c0a9718d4a00ed25ddce5288bce7a5c0da6f92bbd7c83f15951311cdad8"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252090,
+      "sha256": "538494e0d6e8ffaf3d2de1e87777cad6f3decf102a15e45198f57a55f9768337"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252090,
+      "sha256": "538494e0d6e8ffaf3d2de1e87777cad6f3decf102a15e45198f57a55f9768337"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 272133,
+      "sha256": "e3c9b68a0fc3a9829331a530cd8b43915fd9bc759631ab4bff9bcb359823786f"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 292816,
+      "sha256": "7d2a1d311fe405e954bb1de1f3097322e14a0f2f59b14ae61755f18f364515a9"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 343261,
+      "sha256": "5508c07308047cb83c848ffaf5b4fa4178cf7c3f5a8a749e7d1c3ff511f8411b"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 411919,
+      "sha256": "d32283aee451b0664f459de0db8e9338b47b5e0454946e522b5528ac1d291447"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 542344,
+      "sha256": "ebfbdb3a7283747034b322a02a39fdb8db7c1b708747e6d2dccec9f62db574a5"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 443306,
+      "sha256": "d6ec3db9d5fc6387ee831fd27a52d2b38270716e248c14eb1f165410949a0f42"
+    },
+    {
+      "file": "step-028.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 299310,
+      "sha256": "bf9dc3a0ee73bace63f63dce0132b57e919632c52c4a17cccd1579cdfddac0c4"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 225210,
+      "sha256": "037763c727e5d1783d5d28300d92bc360ae1d6b8bbad45472a3bec944d2204db"
+    },
+    {
+      "file": "step-030.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 405046,
+      "sha256": "918aa51d8dbf3c1d8bee2a61f91fdc9d7b5ed0b171f43c604fd084b02bd2298e"
+    },
+    {
+      "file": "step-030.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 282795,
+      "sha256": "906a39a8ede9953333cc41b8aee08edb38627beb23539a5294ee858604db9c35"
+    },
+    {
+      "file": "step-031.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 443351,
+      "sha256": "57699c30813f920b3bcd30ee4de6550d61a9ef40b97536981aa34dd01857cda3"
+    },
+    {
+      "file": "step-031.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 299245,
+      "sha256": "46db09fc1e6ca9e960b24bb45afa3c4365d294ad75cb15d8e8de6d5bb58d642c"
+    },
+    {
+      "file": "step-032.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 462533,
+      "sha256": "9245bb04273eb962e4d6e593237cd844e343b94d8d0d1de141106aa96a0d519a"
+    },
+    {
+      "file": "step-033.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 397480,
+      "sha256": "e6147f34bb401da22aea1eb865c5b8c51224a9d332f0ca4f6fcb79edbc1864e0"
+    },
+    {
+      "file": "step-033.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 278093,
+      "sha256": "cfac975d966d2da1dc946bd2b6cb8f1e83b0f2503913b56c819eb94a1a3552bb"
+    },
+    {
+      "file": "step-034.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 437557,
+      "sha256": "c40cf0f6c0fdaeb324ee9e38a1ff875235b574d34f314dd28d89fa41ec721953"
+    },
+    {
+      "file": "step-035.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 441188,
+      "sha256": "736d7af5c4926688ab72bd4534de568568656540291f31fe575a876a1e9a8b68"
+    },
+    {
+      "file": "step-035.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296755,
+      "sha256": "6a0dda9897926a939e14a5ff25786d6b53e15788badae4265f615d1e3482d32d"
+    },
+    {
+      "file": "step-036.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 242526,
+      "sha256": "3d41c36e8b3e119e6f6195195c76e3f51d631a3a87619834a62b1b482c9f1fb0"
+    }
+  ]
+}

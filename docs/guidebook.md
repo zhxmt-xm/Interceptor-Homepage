@@ -7,7 +7,7 @@
 - [功能覆盖关系](guidebook-coverage.md)逐组映射 workflow 到正文和锚点；这是内容覆盖，不是产品操作验收。
 - 写作目标为 `v0.1.1-alpha.1` / `e55f1ed1`。代码与契约不一致时以核对后的实际产品行为写作，差异在覆盖文档说明；不能直接把测试说明转成产品能力承诺。
 - 当前工作区已接入`/guide`与全部章节的本地阅读页面，入口按UI语言显示“使用指南”或“User Guide”，资源卡提供“阅读教程”。不再显示重复的“返回官网”控件。
-- 使用React Router的`BrowserRouter / Routes / Link`完成站内导航，不以普通跨页`a`或自行封装History API代替客户端路由；语言、主题与站点外壳在切换时保留，两种正文分别标记实际语言与初稿边界。
+- 使用React Router的`BrowserRouter / Routes / Link`完成站内导航，不以普通跨页`a`或自行封装History API代替客户端路由；语言、主题与站点外壳在切换时保留，两种正文分别标记实际语言，内容验收状态只在维护文档记录。
 - 先完成Homepage，再接App。已配图范围使用真实App步骤图，不再分发教程视频或字幕；未展示分支仍明确标注，不能由部分素材推断全书完成。本轮没有创建App iframe、Preload或IPC，没有修改桌面App的运行依赖；公开上线与App接入仍未完成。
 
 ### 中间进度提交边界
@@ -22,14 +22,37 @@
 
 ## 内容组织
 
-每个操作小节说明用途、平台与前提、实际操作顺序、可观察结果和限制。教程只使用用户可见的功能名称，不出现为了验收才需要的 fixture、automation ID、临时 profile 或测试输入生成步骤。
+每个操作小节沿用快速上手的普通编号图文：先交代操作所需环境，再按顺序写清点击位置、输入值和操作后需要检查的状态，图片紧跟对应步骤。教程只使用用户可见的功能名称，不出现为了验收才需要的 fixture、automation ID、临时 profile 或测试输入生成步骤。
 
+- 阅读页只保留App操作相关内容：用途、所需环境、步骤、输入值、结果、排查和恢复。目录、侧栏、正文、首页教程入口与页面摘要不展示初稿、写作版本、素材制作、验收进度、发布或App接入计划；这些维护信息只留在本文件、覆盖关系与Handover。删除维护说明不改变既有验收结论，也不删除真实的操作限制、授权要求或敏感信息提醒。
+- 不再使用“用途 / 前提 / 步骤 / 预期结果 / 关键说明”等模板标签或“编号标题 + 原图”的独立图册。重复操作只保留有说明的正文；补充功能写成完整编号流程，中英步骤与同源图片一致。原有功能和步骤锚点随对应操作保留，不因整理正文断开站内链接。
 - 相似测试合并为用户场景，布局回归只转写为正常的滚动、分栏或选择行为。
 - 敏感或破坏性操作先写前提与影响，不让用户为了学习删除日常 CA、清掉全部网络设置或操作个人流量。
 - Rules、Breakpoints 与 Composer 的共同 Header/Body 语义由 [Rules 的消息编辑小节](../guidebook/zh-CN/rules.md#message-editing)统一解释，其他章节链接过去。
 - 权限与 Tool 名称分别集中在 [tool-permissions.md](../guidebook/zh-CN/tool-permissions.md) 和 [tool-reference.md](../guidebook/zh-CN/tool-reference.md)，业务步骤由所属 feature 维护。
 - 章节用目录内相对链接和稳定锚点互相引用；用户不用访问私有源码或本机绝对路径才能理解操作。
 - 中文和英文分别维护完整正文，沿用同一示例数据与步骤顺序；英文不得只翻译站点外壳或缩写掉操作。接入前按真实Browser验证当前英文正文缺失，接入后逐章核对标题、步骤、链接和语言标记。
+
+### 当前图片调整目标
+
+- 教程14章中英正文已全部采用English App图片，双语共用同一组真实原图；保留“编号操作说明→对应图片”的结构，不通过修改PNG文字或设计稿生成替代实拍。正文只保留App操作相关内容，制作、版本草稿、验收进度及维护说明不回填读者正文。
+- 重拍沿用原教程已核对的签名`0.1.1-alpha.1`，与待确认的App视觉修改分开。使用隔离新进程的显式初始locale，不改系统或日常App设置；普通workflow保留启动后的实际语言，原生窗口语言按其真实环境记录。
+- 采用前逐组核对完整workflow结果、实际App语言、窗口归属、示例值及退出恢复；新图中的动态地址、名称和值变化时，同步对应操作说明。原始证据保留在原workflow输出目录；审核后先保存原图、标注图和来源清单，核对并合并尺寸，再更新正文引用，避免出现无尺寸或无来源记录的发布图。
+- 图片查看采用已展示的Ant Design原页预览，覆盖教程与首页内容图；外部网页、下载和Logo导航不因此改变。用户要求继续实施后接入同一预览，验证缩放、拖动、关闭、键盘与焦点恢复，不新建网页。
+- 截图高亮按用户示例使用红色边框与红底白字编号。原workflow显式指定控件或区域，读取真实位置并转换为图片坐标；原始PNG保留，另生成标注图和位置记录。不向App注入红框样式，不使用标注图代替原始验收证据。
+- 红框编号是当前图片内的定位号，不是文章步骤号。每个编号都在所属操作步骤中明确点名“红框1”或“box 1”并说明对象或动作，不让读者猜测对应关系；双语Browser检查逐一核对已发布图片的编号绑定。
+- 原页图片预览由共享`ImagePreview`负责，Markdown在构建时生成按钮，不为每张教程图挂载React预览组件。公共事件入口保留完整图片地址；错误显示明确提示，Escape、遮罩和关闭按钮均恢复阅读位置与焦点，浏览器历史切换时收起预览。
+- 最终按双语实际引用跨章去重为1136张英文图、0张旧图；不把未入书素材计入完成数。[完整图片核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/published-image-verification.json)验证2014个原图/标注资产、72份manifest的SHA-256、字节长度、PNG自然尺寸及尺寸登记，同时核对双语同图同序、全部原显式锚点保留。已有语言别名差异保持原样，不删除英文页为中文标题保留的跳转锚点。
+  - [最终Browser结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/guidebook-final-browser.json)为34/34通过，无失败、跳过或flaky，覆盖生产构建/typecheck、完整Markdown/链接/末节/锚点、所有红框编号的同一步骤说明、双语与主题/窄屏、懒加载和导航性能，以及首页/教程图片的原页预览、缩放/拖动、关闭/焦点/阅读位置、历史和加载错误。
+  - [运行稳定性](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/final-reader-stability.json)确认2115项输入在上述Browser运行前后摘要不变；[生产图片审计](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/published-image-build-audit.json)确认2014个已核对原图/标注资产的完整字节均存在于最终构建。23个相关Homepage代码文件通过[Biome](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/homepage-final-lint.log)，Desktop最终typecheck通过。构建仍有大于500 kB的chunk、插件耗时及已有代理环境提示，均未阻断构建，未将它们记为已优化。
+  - [Capture最终采用核对](../../Interceptor/apps/desktop/test-results/capture-english-handoff/publication-final-capture.json)保留241张不同英文图、双语各254次引用、全部来源及操作边界。排查章节双语各51张英文图；Clear search清空搜索后仍保留Method/Status，显示4 of5，不混同Clear all filters或Capture Clear。原图中的未选中记录、未展开详情及操作前画面均按实际状态说明。
+  - [最后请求/响应来源](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T19-16-40-852Z-C2SKBy/)完整验证了可见Status/File、七字节二进制、空Text、仅`202`及规则停用保存；原图与标注已审阅并入书，不采用此前被滚动裁切的三张响应图。[音视频与HAR来源](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T19-01-48-619Z-tbNOPz/)验证元信息/Save和同一`ui.har`导出四条后导入到八条；Transfer和快速上手使用同源导出，Transfer逐向核对`16 B`请求、`17 B`文本响应和六字节二进制响应。原生Open包含非英文系统日期，未采用或改字。
+  - [HTTP/2来源](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T19-20-21-252Z-OBUvxl/)、[Capture快捷操作](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T19-33-47-163Z-5INkK1/)、[Manager/Undo/HTTP取消](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T19-44-10-238Z-JNfI58/)、[WS完整分页](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T20-00-22-713Z-s76DnT/)及[最后筛选/Clear](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T20-08-04-942Z-jn72KP/)均已完成原业务、正常退出和宿主恢复并采用。WS纯文本使用Text而不是不存在的Raw；筛选准备中Restore后的控件状态按实际Paused检查，初始零条时不点正常禁用的Clear，原全量与同帧断言不变。历史失败来源不采用。
+  - [断点入书后的Browser结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/breakpoint-reader-final.json)曾发现Capture只写“框1”的中文前缀遗漏；已修成“红框 1”等并由最终全书检查覆盖，没有放宽编号规则。
+  - [队列与HAR的Browser结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/queue-har-reader.json)覆盖原图、完整正文、锚点和双语编号。[后续段落结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/followups-reader.json)中唯一失败是把App的`draft for the selected wait`误判为版本制作说明；按原有`Draft for v…`及`Draft for the implemented v…`语境修正后，[中英复验](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/app-draft-metadata-green.json)通过。其余检查所用正文和尺寸未变，见[稳定性记录](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/followups-reader-stability.json)；未放宽时间上限或减少编号检查。
+  - 请求编辑由普通driver的Close统一收尾，避免末尾未等待的Restore与Close重叠；[请求编辑来源](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T14-57-06-024Z-v1TiAC/)保留完整业务与恢复证据。[后续原workflow来源](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T15-08-55-695Z-hFPcCP/)包含文件预览、队列推进、退出释放、TLS清理、Storage和更新；[WebSocket双向关闭](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T15-17-57-453Z-1qcJsy/)在新连接之前明确处理返回Close。[Storage可读标注](../../Interceptor/apps/desktop/test-results/workflow-screenshots/2026-10-21T15-29-00-104Z-eCauvt/)框选标签与数值整行，不让编号遮住`0 B`和计数。上述来源均正常退出且宿主恢复；准备好的未入书图仍不算完成。
+- 本轮提交范围仅为已验收的教程、图片预览与对应原workflow，不包含Android、设计同步或部署等其他任务。验收时两仓基线分别为Interceptor `ef3a4681`、Homepage `6ac3e17`。缓存签名App未重建，`app.asar`的SHA-256仍为`7eb1246526a9074aa69cf591ef0fd4d7d8bf942045a3af4c7556e0ff9d6612de`。最后Main/Core正常退出、8888释放后已将App窗口归还Android item14会话；临时Browser服务4176已释放，既有`http://127.0.0.1:4175/guide`预览保留，本轮不部署。
+- 本项完成英文图片、编号图文与原页图片预览，不代表Windows、破坏性CA、独立网络环境、外部MCP Host或公开部署获得了新增验收；原来未验的范围仍由对应功能与Handover item 16跟踪。
 
 ## Homepage 阅读页面
 
@@ -43,9 +66,9 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 2. 目录按当前语言列出全部章节，每章进入`/guide/<chapter>`，显示对应中英Markdown正文而非复制的样章。
 3. 文内相对Markdown链接转换为网站路由，章节锚点在点击、直接打开和刷新后均可定位，并避让固定Header。
 4. 桌面显示章节导航和本章目录；教程不再添加“返回官网”之类重复入口，站点切换使用原Header。手机通过教程目录访问全部章节，代码块和表格在自身区域横向滚动，不能撑宽页面。
-5. 主题继续使用现有System/Light/Dark；切English加载对应英文正文、目录和简介，正文标记`lang="en"`，中文仍为`lang="zh-CN"`。中英文使用共同的章节位置锚点，切换语言不丢失当前功能点；未取得步骤图与媒体验收的内容继续标为初稿。
+5. 主题继续使用现有System/Light/Dark；切English加载对应英文正文、目录和简介，正文标记`lang="en"`，中文仍为`lang="zh-CN"`。中英文使用共同的章节位置锚点，切换语言不丢失当前功能点；内容验收缺口只在维护文档跟踪，不作为阅读器提示。
 6. 未知章节、子路径及不存在的静态资源返回真正404；不把全部路径回退到首页200。
-7. 页面持续标注初稿、真实媒体和逐章实机验收缺口，不显示假图片、占位视频或App离线能力。
+7. 页面只呈现操作正文与必要导航，不展示初稿、素材或验收进度。不显示假图片、占位视频或App离线能力；实际未验证范围继续由维护文档和Handover保留。
 8. 站内入口、章节、文内链接和首页锚点通过客户端路由切换，不产生新的document请求；浏览器前进后退保持同一页面。只有首次访问、显式刷新或新标签页打开才请求对应HTML入口。
 9. 同章锚点保留当前路径和查询参数。英文阅读器点击本章目录、重复定位或前进后退时仍保持`lang=en`，不因只更新hash而重置UI语言；锚点核对读取React Router生成的真实href，不能只检查已不存在的`href="#..."`写法。
 
@@ -130,6 +153,17 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 正文更新后检查相对链接、锚点、完整目录、Tool名称/类型、代码块和UTF-8。纯内容未接入构建时不运行与之无关的App测试，也不增加“测试的测试”。
 
 阅读页面完成后，要从目录实际进入每章并验证深链和媒体；图文取得实际版本操作与退出恢复证据后，才更新正式完成状态。跨平台/隔离场景、公开访问和App接入分别保留未完成范围。
+
+### 操作正文与编号图文整理
+
+- 中英文14章与两份目录统一为操作小节、编号说明和对应图片；删除阅读约定、版本素材访问、初稿提示、制作旁白及模板式结果区块。必要的输入值、业务限制、授权和恢复说明仍在操作中。原有功能与步骤锚点保留，补充流程放在相应主题之后。
+- [最终核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/verification-summary.json)记录30个阅读页面、两语言相同的图片顺序及原始PNG未修改；同一图片可在不同操作中引用，2070是正文中的图片引用总数，不是新增图片数量。
+- 前置Browser证据分别保留[维护提示Red](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/red/)、[孤立截图标题Red](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/flow-red/)和[提示框移除后间距Red](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/spacing-red/)。目录说明与操作入口之间恢复原有`--space-8`间距，不依赖提示框撑开。
+- 最终执行`npm test -- tests/integration/guidebook.test.ts tests/integration/guide-navigation.test.ts`，[本地生产托管结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/verified-browser.log)23项通过，无失败、跳过或重试；启动前的build包含typecheck。覆盖中英全部章节、元信息清理、编号图片归属、原图、深链、语言切换、前进后退、加载失败与重试、真实404，以及320至1600宽度、浅深主题、滚轮和键盘滚动；原有1000ms/300ms性能门槛保持。
+- 受影响10个TS/TSX/CSS文件通过Biome；本项HTML也单独通过Biome。[变更对照](../commit-changes/202610202002_ui_guidebook_operation-guides.html)内嵌原始前后截图，红框为独立标注层。[报告预览核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/report-verification.json)覆盖1360与390宽度、6张内嵌图片、全部展开及标注范围；没有外部资源请求。
+- [正文浅深与窄屏图](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/after-reviewed/)与[最终目录图](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/guidebook-review/after-final/)直接来自实际阅读页。截图前等待字体和可见原图解码；早期尚未解码的窄屏截图未作为最终展示。
+- VS Code对另一个仓库未发现测试、一次误在Interceptor根目录执行的选择器，以及把业务“未提交草稿”误当维护说明的中间断言，均不计作产品Red；最终命令在Homepage运行，保留业务草稿含义。构建的大chunk、plugin timing与代理环境提示为非阻断警告，没有放宽检查或改动依赖。
+- 测试拥有的4176服务已退出并实际bind/close核对，既有4175预览保持可访问。本轮没有启动Electron/Main/Core、没有操作系统代理或证书；这不是新的App业务E2E、跨平台素材或App嵌入验收。原item 16的范围不变，未执行commit/push或部署。
 
 ### 原workflow截图与纯图文验收
 

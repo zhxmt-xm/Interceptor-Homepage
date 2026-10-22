@@ -39,29 +39,6 @@
   line-height: 1.9;
 }
 
-.notice {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-block: var(--space-6) var(--space-8);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--panel-2);
-  color: var(--text-2);
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.notice svg {
-  flex-shrink: 0;
-  color: var(--accent);
-}
-
-.notice strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
 .mobileNavigation {
   display: none;
 }
@@ -120,9 +97,5 @@
 
   .reading h1 {
     font-size: 26px;
-  }
-
-  .notice {
-    padding: var(--space-3);
   }
 }

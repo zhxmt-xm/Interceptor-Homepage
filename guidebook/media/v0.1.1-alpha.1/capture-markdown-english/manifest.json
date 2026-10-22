@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/body-scenarios.workflow.ts",
+    "test": "capture.scenarios.bodies displays the captured text document and form bodies",
+    "run": "2026-10-21T11-41-43-389Z-EK2OdV",
+    "testDirectory": "capture-body-scenarios.wor-fa26a-xt-document-and-form-bodies-macos",
+    "manifestSha256": "06e46d7690efc0979c6ac7d6b4aeb3d2c425d2bd0ea2b461fea158691a4b6511",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "chapter": "capture-markdown-english",
+  "title": {
+    "zh-CN": "Markdown预览、源码与全屏",
+    "en": "Markdown preview, source and fullscreen"
+  },
+  "steps": [
+    {
+      "id": "step-033",
+      "title": "Markdown Preview显示Capture Lab及列表 / Markdown Preview shows Capture Lab and its list",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-033.png",
+      "image": "step-033.annotated.png",
+      "rawImage": "step-033.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 532.75,
+            "width": 128.59375,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.default"
+        }
+      ],
+      "bytes": 220408,
+      "sha256": "c6c8a5fbacbe055eb7823e58ad3484661678a72cc9f9abe831fb1848215ca279",
+      "rawBytes": 292490,
+      "rawSha256": "ab1f37be6ec9a9131a9343cd860859a5e896bee07525c29171329125f3725746"
+    },
+    {
+      "id": "step-034",
+      "title": "Markdown选择Split，同时查看预览与源码 / Select Markdown Split to inspect preview and source together",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-034.png",
+      "image": "step-034.annotated.png",
+      "rawImage": "step-034.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2472.59375,
+            "y": 532.75,
+            "width": 87.625,
+            "height": 44
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 230237,
+      "sha256": "5f6384b362b905825bc58c88623963a4ecfd42651759578c5a4a4dd13cb6bf1e",
+      "rawBytes": 303311,
+      "rawSha256": "f5fc132f12f16476dbde3371b0cdfb24dcc51b15f758257fcfd74002b3f8afa7"
+    },
+    {
+      "id": "step-035",
+      "title": "Markdown选择Source查看原文 / Select Markdown Source to inspect the original text",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-035.png",
+      "image": "step-035.annotated.png",
+      "rawImage": "step-035.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2564.21875,
+            "y": 532.75,
+            "width": 118.109375,
+            "height": 44
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 219894,
+      "sha256": "fe505bbc7612ead43575c56d132f20596b985b9e242815481a69b409a90c183b",
+      "rawBytes": 290620,
+      "rawSha256": "cfa6299956bc9f3033655f96465b17d2b6cd1b9b7d0eae8c07deb78d7bf31eb2"
+    },
+    {
+      "id": "step-036",
+      "title": "在Markdown Source中复制原文 / Copy the original Markdown from Source",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-036.png",
+      "image": "step-036.annotated.png",
+      "rawImage": "step-036.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "bytes": 240286,
+      "sha256": "3c0af791ee4fabcb8c5f961a479929b4026a0dd3d5b17e7688e9800e1b4e4fb5",
+      "rawBytes": 321093,
+      "rawSha256": "f7581414087b5a6390041383b12566f84ab32490b8064854b3c81bcb67fe13b7"
+    },
+    {
+      "id": "step-037",
+      "title": "Markdown Source打开全屏 / Open Markdown Source fullscreen",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-037.png",
+      "image": "step-037.annotated.png",
+      "rawImage": "step-037.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 802.21875,
+            "y": 406,
+            "width": 118.109375,
+            "height": 44
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 230047,
+      "sha256": "61e5e10e5723f757001f498f1b74e4125a398bdc2845b4c26ef856a31ba6ae60",
+      "rawBytes": 251350,
+      "rawSha256": "1ed30a157cbbce41acbf75087f58eba77a4d0dc0d792aa225caa90238595cbbf"
+    },
+    {
+      "id": "step-038",
+      "title": "Escape返回后仍保留Markdown Source / Retain Markdown Source after pressing Escape",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-038.png",
+      "image": "step-038.annotated.png",
+      "rawImage": "step-038.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2564.21875,
+            "y": 532.75,
+            "width": 118.109375,
+            "height": 44
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 229245,
+      "sha256": "2b76be3ce64db7145ac3dedd23776b97dbad513515a6fcd8d65b692aa6d4bd8b",
+      "rawBytes": 303989,
+      "rawSha256": "7655645d8c3b8472899269c8a63a69d67376316a431fd3165174c5b74c7fc959"
+    },
+    {
+      "id": "step-039",
+      "title": "Markdown返回Preview / Return Markdown to Preview",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-039.png",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 532.75,
+            "width": 128.59375,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.default"
+        }
+      ],
+      "bytes": 221034,
+      "sha256": "a23967b19572fe99f6ecf0873241c789c785f5bf6b679a81f1fd26da49848f09",
+      "rawBytes": 293240,
+      "rawSha256": "6c391556df1cfd2c69ef28345c37bb4aad4859faceaad20c091efec15ef4a889"
+    }
+  ]
+}

@@ -1,0 +1,1125 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-response-visible-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/execute-edited.workflow.ts",
+    "manifestSha256": "e5f485a6e3a0ba2fb07f0600bdd5832ba84d59fe6d091842fdb9564665737d75",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "先保存用于响应替换的JSON文件 / Save the JSON file for response replacement first",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2972,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.save"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "响应替换文件已经保存 / The response replacement file is saved",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "核对已保存的响应规则名称与Path / Inspect the saved response Rule name and Path",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1402,
+            "y": 357.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-c98580bc-41d2-4927-9b5b-2e0b1551dc58.0.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "选择Response阶段而不是Request / Choose Response rather than Request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1294,
+            "y": 932.609375,
+            "width": 114.390625,
+            "height": 29
+          },
+          "automationId": "rules.action.rule-c98580bc-41d2-4927-9b5b-2e0b1551dc58.0.phase-option.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "已应用的Response断点 / The applied Response breakpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "选择挂起请求：/e2e/response-edits/header / Select the paused request: /e2e/response-edits/header",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihwo8z-cilegowt"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "只修改响应Header，保留原正文 / Edit only a response Header and retain the body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2932.078125,
+            "y": 1653,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "核对header操作后的完整响应 / Inspect the complete response after header",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "选择挂起请求：/e2e/response-edits/text / Select the paused request: /e2e/response-edits/text",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihwthb-xg3njsq5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "修改响应状态码与完整Text正文 / Edit the response status and complete Text body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2413.59375,
+            "y": 490,
+            "width": 144,
+            "height": 60
+          },
+          "automationId": null
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2332,
+            "y": 1021,
+            "width": 840,
+            "height": 188
+          },
+          "automationId": "breakpoints.body"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 2932.078125,
+            "y": 1653,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "核对text操作后的完整响应 / Inspect the complete response after text",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "选择挂起请求：/e2e/response-edits/file / Select the paused request: /e2e/response-edits/file",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihwycs-9i9u09ww"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "为响应选择File替换 / Choose File replacement for the response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.125,
+            "y": 976,
+            "width": 235.75,
+            "height": 64
+          },
+          "automationId": "breakpoints.file.choose"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "核对响应文件后Forward edited / Verify the response file before Forward edited",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 896,
+            "width": 840,
+            "height": 375
+          },
+          "automationId": "breakpoints.file.selected"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2932.078125,
+            "y": 1653,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "核对file操作后的完整响应 / Inspect the complete response after file",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "选择挂起请求：/e2e/response-edits/unmodified / Select the paused request: /e2e/response-edits/unmodified",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihxah0-ejp2sukq"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "Continue忽略未提交的响应草稿 / Continue ignores the unsubmitted response draft",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 1021,
+            "width": 840,
+            "height": 188
+          },
+          "automationId": "breakpoints.body"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "核对unmodified操作后的完整响应 / Inspect the complete response after unmodified",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "选择挂起请求：/e2e/response-edits/drop / Select the paused request: /e2e/response-edits/drop",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihxewm-z5oa3dm3"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "丢弃当前响应，不撤销已到达源站的请求 / Drop this response without undoing the request already received by the origin",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2328,
+            "y": 1653,
+            "width": 135.265625,
+            "height": 60
+          },
+          "automationId": "breakpoints.drop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "响应Drop后的客户端连接结束 / The client connection ends after dropping the response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.png",
+      "rawImage": "step-023.png"
+    },
+    {
+      "id": "step-024",
+      "title": "选择挂起请求：/e2e/response-edits/status / Select the paused request: /e2e/response-edits/status",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.annotated.png",
+      "rawImage": "step-024.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihxj0g-fxughqv5"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-025",
+      "title": "只改响应状态为202，正文保持Off / Change only response status to 202 with the body Off",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2413.59375,
+            "y": 490,
+            "width": 144,
+            "height": 60
+          },
+          "automationId": null
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2932.078125,
+            "y": 1653,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "核对status操作后的完整响应 / Inspect the complete response after status",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-027",
+      "title": "停用本轮Response规则，尚需Save / Disable this Response Rule before Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "保存Response规则的停用状态 / Save the disabled Response Rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.annotated.png",
+      "rawImage": "step-028.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3065.515625,
+            "y": 120,
+            "width": 98.484375,
+            "height": 56
+          },
+          "automationId": "rules.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-029",
+      "title": "Response规则已停用并应用 / The Response Rule is disabled and applied",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.annotated.png",
+      "rawImage": "step-029.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 282570,
+      "sha256": "555d9b7c66b9fe2d7aa8d3936225ba3c379707bcb024c61c88d9c87165a4c42e"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 213826,
+      "sha256": "14c79093bc727b8f0890876ba208ba141979c07a63e10f6d156d80d97d424ee5"
+    },
+    {
+      "file": "step-002.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 55074,
+      "sha256": "9d03d66f03530e4e03d59c97115e065f828708681c6f4f656902ab412637d15d"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 282570,
+      "sha256": "555d9b7c66b9fe2d7aa8d3936225ba3c379707bcb024c61c88d9c87165a4c42e"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 236972,
+      "sha256": "3d1763b541a43b64e7852ea8f194c6fd4c745711e3d73e3b2d80e2490ce72ca8"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 151111,
+      "sha256": "bb83dcce80374cc8168bebe5a1fdc5346be26522d4b384b33bbdc94d37a99f39"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 264082,
+      "sha256": "afa67a7106b7e29a03ad2e056e7aaf13ff633d1bbc45a8723b411f62d7bca5e2"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 175744,
+      "sha256": "a2f7df0b3e96b80cbbe0ca06a3706b20dda42900d96b7ba0d217762744a1473c"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 236673,
+      "sha256": "4f28a5f378ddb09e60dc249c09dae956adc60206649a9ff9c555f76c6011c422"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 150546,
+      "sha256": "31038effedbca2684d89ac8963431227ed75f455a9a4756ef38d8d76231fbe9d"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 356718,
+      "sha256": "e3845410ff9b83ef1bccee0ebbf7b7736a76985b5dc77279ab73b9bfcce9e61e"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 257590,
+      "sha256": "80f48747345a5008f7280252998be9f3a3863a662875e83335fa4007b5f08bd8"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 362342,
+      "sha256": "74953c1ba933e3401f73bfb1d48a821d258404f072a669d4da9934d851705a0e"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 260990,
+      "sha256": "cb9af46e10cc2cd660f8cbbeee89ecc8526e8d4a6ce94772c73b383c06ca1d65"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286185,
+      "sha256": "9d3ec6a6dc0d5bc8726bf49afaf90f511039e2366d678f203c7e80b12c811b47"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217166,
+      "sha256": "7b2de70ba6386dd2f631a2eb91cc13da60c46a64a7cb61de7a3ee35c6e17d4cb"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 356014,
+      "sha256": "f4c09b9f4de4c8b9d913f265f2a66d00643e0176c67792909bc54e071a24f5d3"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 257124,
+      "sha256": "db4ca8ecd68b8361d4cd25f9b4bfcc12c41d65c0bec76ffd38130a2b1be0b9b6"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312135,
+      "sha256": "f95a157a480cb1037f0f390365d596a3c3eb4b965faf5cacf4f921626d2c6bbe"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 219774,
+      "sha256": "08114ad5126064af5a21df4c7cce403cb5f091bf8ac60bb76db55312a14b3ea0"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312386,
+      "sha256": "f0f97cc3938c81a29bc55899fa17b7de518af7b9850980009367767d3d9dc98c"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217649,
+      "sha256": "23126fa1f68f57cfb24b55de1dbfafa0e4df302aa7a9cace700ded2635c2de8d"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 370354,
+      "sha256": "69c9a6931c1a5579163011eaa59b7e25b1150885d61f9f2ca4d743dc5bc6118c"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 267328,
+      "sha256": "4195a93808f680fa4d5abe4c78e210a5ebfe29bd43135960ff4850c9a5a7add7"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 308737,
+      "sha256": "dc81f7fa5439095786f2ff95e714a46b0da2269a68b3892e7391dbe735afc7b7"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 219256,
+      "sha256": "34c8c978e846652eea6eede0aeef16175c1aa5a642a68b3870369679f543a8bf"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 336457,
+      "sha256": "4608702359a9afaf26dc63010e78d9645c515b54437a69cd773476de7cd860ff"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241899,
+      "sha256": "cebb85d9dff7615cea745236f1ba3ce8e40ffd86e7d454bfcdd03e9c54bf63ca"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 324885,
+      "sha256": "7f4ec53831fe9a585fc2967dd85e78eacef6cbad2ee2d9b95e9b6326feeecd95"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 227841,
+      "sha256": "f115a37913ba73df167bb8e5dc98aad8e8d0b08942078b2a7b0ba395b7bd5e0e"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 357425,
+      "sha256": "dfc443a9119be6f1f04ff94ca7829763a9f46961848314a731571da65eccc9c5"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258071,
+      "sha256": "da472c65a6fa5c7eb2319bf4f1bd8945fef020d715f532f017ebd4d1934cbaf1"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 310164,
+      "sha256": "e344cbccf4f340f342d7a0c0c08eabb045a1f77649e2a7893391bc44ea62781e"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217973,
+      "sha256": "f96da66915d43ac3983039ff8794e33cd60af9256dbd713a3b342ac527539bfc"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286244,
+      "sha256": "72584e01f181262cd3199ec2f3ef26599e11ae18484132a00dbfef1337b81696"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 219334,
+      "sha256": "7c84e4ab4679336b26f470ec6ea03b34b159f05d6f8fa1715af75dcc00c5aec2"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 355782,
+      "sha256": "e964fa9a1259fee8af5f63b0f63f204eb84b1898172b73a8db194237f453543c"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 257041,
+      "sha256": "5507021dd63df29b33d985c4366c24f7147d6cc9d01648ef1d7f00ca7c4812b7"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 355821,
+      "sha256": "a8d03571b88dcf597d75fddf7581fde22696f3f0eeaa8d296626016e12ae7203"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256718,
+      "sha256": "88bccafa3a645147963db6aaa894b52807b8a432754e271d5232d6f1e94b7366"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 262858,
+      "sha256": "4a66d45889c16461fdfadf3e52bae4e6cf8c2d3babe9c42ab40175b7c562bd8d"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 357803,
+      "sha256": "4448e9cf7f82e8d3594f223e33ba1469e5e93d2a1061d6cdd2bd6ccb347ff116"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258404,
+      "sha256": "e445d275c6d22e1d535f3ff8d479218a2bcc8b9c49803736aec64066251848d4"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298403,
+      "sha256": "df5770e38234f331605862cc714bd90736f7e4cea9525a41f3ba40b8d2e522da"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 209011,
+      "sha256": "1a8371f86b21b3f1fd132d9e3047f22016a5db67c8851ab927d3f10845214c4e"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286928,
+      "sha256": "949bcd9706b1d124d03955f40b116c90b506b99c9d9f8001c7d3a9df947539ed"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217548,
+      "sha256": "e9a8d76efdc198d502377f235a4f5d90eaedc6ebe79ac5b36fb5b0c750bee691"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 239666,
+      "sha256": "bf6d06a16d2552155d463975b08bf2ca5ff21cef3338bf8b0e87954dc9e411de"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 151830,
+      "sha256": "5c86a60916be2f00d2a3ba99952dd05fba827ff38b4a92c65fbde992f287bc7c"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 239666,
+      "sha256": "bf6d06a16d2552155d463975b08bf2ca5ff21cef3338bf8b0e87954dc9e411de"
+    },
+    {
+      "file": "step-028.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 152017,
+      "sha256": "f6da502329cf207c791490c349dc23fd0f6e3b3cfc8d84088eb6c0c621bb22d4"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237627,
+      "sha256": "5dbb06c4359746c02d4e4b45728cf659ce726f1bfaa88b4c8c46192d72a31897"
+    },
+    {
+      "file": "step-029.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 150797,
+      "sha256": "bb6d6df18aec1173712f2b619ec341983f8d0d2bcff8a6a6eac59cd60db188e6"
+    }
+  ]
+}

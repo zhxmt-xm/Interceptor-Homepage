@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-query-layout-english",
+  "title": {
+    "zh-CN": "Query与Inspector分栏",
+    "en": "Query and Inspector panes"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/section-collapse.workflow.ts",
+    "test": "capture.inspector.section-collapse keeps sections independent and accessible",
+    "run": "2026-10-21T10-01-02-443Z-34fQvO",
+    "testDirectory": "capture-section-collapse.w-f49e6--independent-and-accessible-macos",
+    "manifestSha256": "0a8b77b005995fc2fbb43e36a9a161c37029882fe23626294374a68dc1221eca",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-007",
+      "title": "在Request检查Query的重复参数与空格解码 / Inspect repeated Query parameters and decoded spaces in Request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 864.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.query-parameters"
+        }
+      ],
+      "bytes": 236662,
+      "sha256": "3eaf8e1a091ec19fcd75e22cf7e98b21d937f98dd0995d3e52d6ed432d6fdd43",
+      "rawBytes": 342931,
+      "rawSha256": "1e56e23e090c2ec14819f8eda469fb325f89338b32c69c7d6e882efca94bef3b"
+    },
+    {
+      "id": "step-008",
+      "title": "折叠Query Parameters / Collapse Query Parameters",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 864.75,
+            "width": 824,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.query-parameters"
+        }
+      ],
+      "bytes": 224306,
+      "sha256": "c0825ff79bfdced9dc4e719ccb651f38100fae16d0a3ebe0fbd5013c36234301",
+      "rawBytes": 325604,
+      "rawSha256": "9751f6d2578bcf2d2645d048675a61c9924973b5d0ab677c1752b32b463036a3"
+    },
+    {
+      "id": "step-009",
+      "title": "重新展开同一请求的Query Parameters / Reopen Query Parameters for the same request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 864.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.query-parameters"
+        }
+      ],
+      "bytes": 236755,
+      "sha256": "2fedce68acfeca6beb15e85a7267a8904325127ef793e849ba2003acb8b2913e",
+      "rawBytes": 343004,
+      "rawSha256": "0154bf9e20910ee8f26635749befb1e51de0b78e5142e909baa7ef403c6b5ae8"
+    },
+    {
+      "id": "step-010",
+      "title": "向左拖动分栏，扩大Inspector / Drag the divider left to widen the Inspector",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2062,
+            "y": 180,
+            "width": 2,
+            "height": 1560
+          },
+          "automationId": "capture.inspector.splitter"
+        }
+      ],
+      "bytes": 233413,
+      "sha256": "06d05c944155ff4d5c0d7b2b023f5b4c7be1a699c93d6692c8638c6b66b0f302",
+      "rawBytes": 340026,
+      "rawSha256": "006f64b300ef7daf1849871d37d61426f7a0655dba800a2d1b175c8061cf3663"
+    },
+    {
+      "id": "step-011",
+      "title": "恢复Inspector原宽度，保留同一Query请求 / Restore the Inspector width while retaining the same Query request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2302,
+            "y": 180,
+            "width": 2,
+            "height": 1560
+          },
+          "automationId": "capture.inspector.splitter"
+        }
+      ],
+      "bytes": 236305,
+      "sha256": "e699a82f326ee3f5e96cee94921159effd35d46be570a21f297f086b43286245",
+      "rawBytes": 342545,
+      "rawSha256": "3eafade17947d9a217bb337e2b4c0df132428a05296d37fac451e97dafdcda6c"
+    }
+  ]
+}

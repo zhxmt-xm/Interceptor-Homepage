@@ -1,7 +1,5 @@
 # Getting started: capture your first request
 
-> Draft for `v0.1.1-alpha.1`. Request inspection and saving accurately reuse the owning chapters' walkthroughs. Installation, first authorization and exit recovery still need images; not all platforms or item9 are accepted.
-
 [Guide directory](../README.en.md) · [Continue to Capture](capture.md)
 
 <a id="先了解你要完成什么"></a>
@@ -14,38 +12,20 @@ No model API key, Rules configuration or HTTPS decryption is needed. Proxy forwa
 <a id="准备应用"></a>
 ## Prepare the App
 
-**Prerequisites**
-
 - Windows or macOS, with the correct installer for your OS and architecture.
 - Permission to run trusted software. Device management policies may restrict certificate or proxy changes.
 - No other process using `127.0.0.1:8888`.
 
-**Steps**
-
 1. Open [GitHub Releases](https://github.com/zhxmt-xm/Interceptor/releases). Read the attached assets, release notes and Pre-release label. `Source code` is not an installer.
-
-   **Image pending / blocked:** current material starts in the running release App, without a real release-download page. The private repository still requires access.
 
 2. On macOS, select the DMG or ZIP for your CPU architecture, place the App in Applications and open it.
 
-   **Image pending:** download, extraction/mounting, Applications placement and Gatekeeper opening were not recorded. A running App cannot demonstrate installation.
-
 3. On Windows, select an installer or ZIP actually attached to the release. Extract a ZIP completely; do not run a lone EXE removed from its directory.
-
-   **Image pending / blocked:** all current step images are from macOS; Windows installation/startup material is missing.
 
 4. Read first-launch system prompts and authorize only the trusted Interceptor operation. Wait for startup preparation to finish.
 
-   **Image pending / blocked:** the recording environment already had CA/trust state, without first authorization. Do not delete the daily-use CA to manufacture first launch.
-
-**Expected result**
-
-The App reaches its workspace. If startup fails, retain the error rather than repeatedly launching additional instances.
-
-**Notes**
-
 - The product repository is currently private. Downloads require a GitHub account with repository access; this guide does not bypass it.
-- The macOS package is ad-hoc signed and not notarized; Windows installers are unsigned. Downloaded-product installation acceptance still has platform-specific gaps.
+- The macOS package is ad-hoc signed and not notarized; Windows installers are unsigned. Download only from a trusted release source.
 - Use the OS's normal per-application process for trusted software. Do not remove quarantine or disable system-wide protection.
 - First launch may prepare shared certificates and system components. Do not delete your daily-use CA to recreate a “first launch.”
 - See [Settings](settings.md#https-decryption) for system authorization, certificate trust and decryption.
@@ -53,180 +33,155 @@ The App reaches its workspace. If startup fails, retain the error rather than re
 <a id="确认代理与录制就绪"></a>
 ## Confirm proxy and recording readiness
 
-**Purpose**
+First confirm the client can reach the proxy and Capture is recording. An open App window alone does not establish either condition.
 
-Make sure traffic can reach the proxy and Capture is recording. An open App window alone does not prove either condition.
+1. Open Capture from box 1 in the left navigation. Inspect recording at the top and proxy status at the bottom; an empty list can also result from search or filters.
 
-**Steps**
+   ![Confirm proxy and recording readiness · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.annotated.png)
 
-1. Open Capture and inspect the Recording state and proxy readiness prompt.
+2. Startup attempts to take ownership of the system proxy. If a readiness prompt appears, read the missing condition and use Enable or Proxy settings. Complete any required system authorization first.
 
-   This reuses Workspace's actual Capture navigation. It shows the workspace, not a displayed or completed authorization prompt.
+3. Verify box 1 shows Recording. If it shows Paused, use the recording control and complete any prompt before sending traffic. Cancelling readiness does not start recording.
 
-   ![Actually opening Capture in the Workspace recording](../media/v0.1.1-alpha.1/workspace/workspace-02-capture.png)
+   ![Confirm proxy and recording readiness · 3](../media/v0.1.1-alpha.1/capture-recording-english/step-002.annotated.png)
 
-2. Startup attempts to take ownership of the system proxy. If readiness is incomplete, read the missing condition and use Enable or Proxy settings.
+- Applications that follow the system proxy use its settings; other clients need an explicit proxy.
+- Pause only affects recording new traffic; it is not system proxy Restore.
+- Inspect system and upstream settings before changing an existing proxy configuration.
 
-   **Image pending:** the readiness prompt and its Enable/Proxy settings actions were not recorded.
-
-3. Once ready, enable Recording and confirm it before sending. This reuses Capture's actual enable action. Any native authorization must still be completed; that branch remains image pending.
-
-   ![Actually enabling Recording with proxy readiness already satisfied](../media/v0.1.1-alpha.1/capture/capture-02-record.png)
-
-**Expected result**
-
-Capture can record new requests that pass through the local proxy.
-
-**Notes**
-
-- Cancelling readiness does not enable recording.
-- Clients that follow system proxy settings use them; other clients need explicit proxy configuration.
-- Pausing Recording does not restore the system proxy. It only affects recording of new traffic.
-- If another proxy or network tool is already configured, inspect system and upstream settings instead of blindly overwriting it.
 
 <a id="发出第一条-http-请求"></a>
 ## Send your first HTTP request
 
-**Prerequisites**
+Enable Recording and prepare an authorized test endpoint that can safely accept POST. The example uses `http://127.0.0.1:59696/playground/body/json` with body `{"ready":true}`. The App does not create this service; replace the URL with your endpoint rather than sending arbitrary writes to production.
 
-Recording is enabled. These images accurately reuse Capture's `http://127.0.0.1:58377/guide/capture/orders`; `58377` is the recording's dynamic port, not an App constant. The App does not start that service. Substitute an already-running, authorized HTTP test service. A public HTTP address is another option, but is not this recording and needs its own result/image checks.
+1. Enter `/playground/body/json` in the Capture search field, box 1. Use the corresponding Host or Path for your own endpoint.
 
-**Steps**
+   ![Send your first HTTP request · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.annotated.png)
 
-1. First search `/guide/capture` in Capture; for your own endpoint, use its corresponding Host/Path text.
-
-   ![Actual search value /guide/capture](../media/v0.1.1-alpha.1/capture/capture-01-filter.png)
-
-2. Request that address through the explicit proxy in a terminal. These commands reproduce the same GET; the recording does not show terminal input.
-
+2. Send the JSON through `127.0.0.1:8888` from a terminal. The macOS command uses `--noproxy ""` for this invocation so `NO_PROXY` does not bypass the local target; the Windows command sets PowerShell’s explicit Proxy parameter.
    macOS:
 
    ```sh
-   curl --proxy http://127.0.0.1:8888 --max-time 20 "http://127.0.0.1:58377/guide/capture/orders"
+   curl --proxy http://127.0.0.1:8888 --noproxy "" --max-time 20 \
+     --header "Content-Type: application/json" \
+     --data-raw '{"ready":true}' \
+     "http://127.0.0.1:59696/playground/body/json"
    ```
 
    Windows PowerShell:
 
    ```powershell
-   curl.exe --proxy http://127.0.0.1:8888 --max-time 20 "http://127.0.0.1:58377/guide/capture/orders"
+   Invoke-WebRequest -UseBasicParsing -Method Post `
+     -Proxy "http://127.0.0.1:8888" `
+     -Uri "http://127.0.0.1:59696/playground/body/json" `
+     -ContentType "application/json" `
+     -Body '{"ready":true}'
    ```
 
-   **Image pending:** neither macOS terminal input nor Windows PowerShell was recorded. The next image shows Capture receiving the request, not terminal operation.
+3. Return to Capture and wait for the POST in box 1 to appear. Confirm the row exists before selecting it; the request comes from the client, not a model or an internal application call.
 
-3. Return to Capture and wait for the new GET.
+   ![Send your first HTTP request · 3](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
-   ![Actual external GET arriving in Capture](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
+4. Click the row in box 1 and inspect POST, Host `127.0.0.1` and Path `/playground/body/json`. Check your actual URL when using another endpoint.
 
-4. Select orders; check Host `127.0.0.1` and Path `/guide/capture/orders`.
+   ![Send your first HTTP request · 4](../media/v0.1.1-alpha.1/capture-json-example-english/step-003.annotated.png)
 
-   ![Selecting orders matching the actual URL](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
+5. Open Response and select Raw in box 1. This example returns `{"ready":true,"items":[1,2,3]}` with status `200`. Other services determine their own status; a captured response need not be `200`.
 
-5. Open Response and check `orderId: guide-001`, `message: Hello Interceptor` and `status: ready`. Other services determine their own status; capture success does not require `200`.
+   ![Send your first HTTP request · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-   ![Actual recorded JSON, not an example.com page](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
+- The example sends no login credential and does not require disabling TLS verification.
+- If the request is missing, check the proxy address, Recording and bypass rules rather than immediately clearing the recording.
+- Composer sends directly and is not automatically captured, so this example uses an external client.
 
-**Expected result**
-
-You can find and inspect the GET request. An HTTP error response may still have been captured correctly. A connection failure needs investigation based on the actual error.
-
-**Notes**
-
-- This example sends no login information, does not disable TLS checks and does not modify server data.
-- Check `NO_PROXY` or other bypass configuration if the terminal does not use the requested proxy.
-- For an offline exercise, use your own running HTTP service. The guide does not create an invisible test server.
-- Composer sends directly and does not automatically create Capture records, so this example uses an external client.
 
 <a id="读懂这条请求"></a>
 ## Understand the request
 
-**Steps**
+Continue with the same POST without resending it or mixing in another request’s body.
 
-1. Inspect the URL, method, status and protocol in the selected request's details.
+1. Open Headers in box 1 to inspect the complete URL, method, status and protocol, then expand the request and response header groups you need.
 
-   ![Recorded orders request summary](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
+   ![Understand the request · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-004.annotated.png)
 
-2. Open Headers and inspect request and response headers. Expand collapsed sections as needed.
+2. Open Request and choose Raw in box 1 to inspect the sent `{"ready":true}`. This is the request body, not the server response.
 
-   ![Actual request and response Headers](../media/v0.1.1-alpha.1/capture/capture-05-headers.png)
+   ![Understand the request · 2](../media/v0.1.1-alpha.1/capture-json-example-english/step-005.annotated.png)
 
-3. Open the JSON Response. Other MIME types offer Code, Text and other modes; this JSON is not HTML.
+3. Return to Response and read the returned `ready` and `items` in Raw, box 1. Inspect request and response separately rather than assuming matching field names mean identical bodies.
 
-   ![Actual Response JSON](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
+   ![Understand the request · 3](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-4. Select Tree to inspect field structure.
+4. Choose Tree in box 1 to read JSON by object and array structure.
 
-   ![Actual JSON Tree](../media/v0.1.1-alpha.1/capture/capture-07-tree.png)
+   ![Understand the request · 4](../media/v0.1.1-alpha.1/capture-json-example-english/step-007.annotated.png)
 
-5. Select Raw for the original text.
+5. Use the root disclosure arrow in box 1 to collapse and expand the tree. This changes the displayed structure without modifying the body.
 
-   ![Actual JSON Raw](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
+   ![Understand the request · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-008.annotated.png)
 
-6. Open the body's fullscreen view.
+   ![Understand the request · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-009.annotated.png)
 
-   ![Actually opening body fullscreen](../media/v0.1.1-alpha.1/capture/capture-08a-fullscreen.png)
+6. Click Copy in box 1 when you need the response body. Copying does not make another origin request.
 
-7. Press Escape to return.
+   ![Understand the request · 6](../media/v0.1.1-alpha.1/capture-json-example-english/step-010.annotated.png)
 
-   ![Actually closing body fullscreen](../media/v0.1.1-alpha.1/capture/capture-08b-close-fullscreen.png)
+7. Select Raw in box 1 to return to the source text while keeping the same response selected.
 
-8. Select Hex for bytes.
+   ![Understand the request · 7](../media/v0.1.1-alpha.1/capture-json-example-english/step-011.annotated.png)
 
-   ![Actual Hex for the same body](../media/v0.1.1-alpha.1/capture/capture-09-hex.png)
+8. Choose Hex in box 1 to inspect bytes. A different presentation does not fetch a different body.
 
-**Expected result**
+   ![Understand the request · 8](../media/v0.1.1-alpha.1/capture-json-example-english/step-012.annotated.png)
 
-You can distinguish what the client requested from what the destination returned.
+9. Use the body’s fullscreen control to enlarge it. Box 1 shows Hex remains selected; fullscreen retains the current view mode.
 
-**Notes**
+   ![Understand the request · 9](../media/v0.1.1-alpha.1/capture-json-example-english/step-013.annotated.png)
 
-Available modes depend on content type. HTML shown as source code is not an error and is not executed as a webpage.
+10. Switch back to Raw in fullscreen and use Copy in box 1 of its header to copy the same JSON.
+
+    ![Understand the request · 10](../media/v0.1.1-alpha.1/capture-json-example-english/step-014.annotated.png)
+
+11. After copying, select Raw again to dismiss the Copy tooltip, then press Escape to return to details. Box 1 shows the inline body still uses Raw.
+
+    ![Understand the request · 11](../media/v0.1.1-alpha.1/capture-json-example-english/step-015.annotated.png)
+
+12. Finally, check Response in box 1 and the selected row still belong to the original POST. Viewing, copying and fullscreen did not Send it again.
+
+    ![Understand the request · 12](../media/v0.1.1-alpha.1/capture-json-example-english/step-016.annotated.png)
+
+Available view modes depend on content type. HTML displayed as code is not executed as a page, and fullscreen does not remove body-preview limits.
+
 
 <a id="保存需要的记录并正常退出"></a>
 ## Save important records and quit normally
 
-**Steps**
+Decide which traffic to keep before exporting. This example uses four separate text and binary records under `/e2e/har-tools/`, not the single JSON request above. Choose the scope that matches your own records.
 
-These save images belong to the separate [Transfer recording](transfer.md), request `http://127.0.0.1:55059/guide/transfer/order`. `55059` is also recording-assigned. They do not claim the Capture request above was automatically exported. Select your own intended traffic when following the steps.
+1. Pause Recording, open Export at the top of Capture and click Export HAR in box 1. To preserve additional native traffic detail, follow [Native Archive](transfer.md#archive) instead.
 
-1. Open Capture Export.
+   ![Save important records and quit normally · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
-   ![Actual Export menu in Transfer](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
+2. Select All traffic in box 1 and check the count is 4. Retain bodies and review masking for Authorization, Cookie and Set-Cookie, then click Export 4 requests in box 2. Your recording can have a different count.
 
-2. Choose HAR for HTTP interchange. For more native traffic detail, follow [Native Archive](transfer.md#archive) separately.
+   ![Save important records and quit normally · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![Actual HAR export configuration](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
+3. Choose your destination in the system Save dialog, enter `ui.har` and click Save. Use Cancel to cancel the operation; cancellation does not export a file.
 
-3. Inspect scope; this example selects its current demo request.
+   ![Save important records and quit normally · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
-   ![Actual current-request export scope](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+4. Wait for the export to finish and return to Capture. Box 1 is the Export entry point available for another operation, and box 2 shows recording remains Paused. Confirm the file was saved before quitting.
 
-4. Review body/privacy options.
+   ![Save important records and quit normally · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   ![Actual HAR privacy options](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+5. Use the App window’s normal Close button and wait for system operations and proxy restoration. If it is busy, let the current operation finish rather than force-killing the process.
 
-5. Save `guide-recording.har` in the real native panel.
+- Capture is temporary data for the current Core process; quitting or restarting Core releases it.
+- Normal shutdown does not remove the shared CA. Disabling decryption, restoring the proxy and removing certificate trust are separate operations.
+- If another application changes the proxy during the session, Interceptor must not overwrite that change; handle the reported conflict.
+- See [Import and export](transfer.md) for scopes, formats and cancellation, and [Proxy recovery](troubleshooting.md#proxy-recovery) if networking remains incorrect after quitting.
 
-   ![Actual native Save panel](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
-
-6. Wait for completion before preparing to close.
-
-   ![Actual HAR completion checkpoint](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
-
-7. Close the App normally and wait for system operations/proxy recovery; if busy, wait before closing again.
-
-   **Image pending:** App Close, process exit and system-proxy recovery have no step images here. Completed export or closing Agent does not verify App shutdown.
-
-**Expected result**
-
-Important records are saved to your chosen file, and the App handles its owned proxy settings during normal shutdown.
-
-**Notes**
-
-- Capture is temporary data belonging to the current Core process. Quitting or restarting Core releases it.
-- Normal shutdown does not remove the shared CA. Decryption, proxy restoration and certificate trust are separate controls.
-- If another application changes the proxy during the session, Interceptor must not overwrite that application's new settings.
-- Do not force-kill the App instead of closing it normally.
-- See [Import and export](transfer.md) for formats and cancellation, and [Proxy recovery](troubleshooting.md#proxy-recovery) if networking remains incorrect.
 
 <a id="没有看到请求时"></a>
 ## If the request is missing

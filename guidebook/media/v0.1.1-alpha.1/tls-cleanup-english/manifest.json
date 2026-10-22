@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "chapter": "tls-cleanup-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "capture/tls-scenarios.workflow.ts",
+    "manifestSha256": "9613f6d35469c4f98e3f362d354df17232e393949c863382541489f3b0fe26d2",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-039",
+      "title": "打开Certificates查看本轮HTTPS解密与localhost例外 / Open Certificates for this run's HTTPS decryption and localhost exception",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 428,
+            "width": 402,
+            "height": 72
+          },
+          "automationId": "settings.section.certificates"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-040",
+      "title": "通过Certificates停用HTTPS解密 / Disable HTTPS decryption through Certificates",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-040.annotated.png",
+      "rawImage": "step-040.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 1124.59375,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.certificates.mitm-toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-041",
+      "title": "定位本轮localhost源站例外并准备移除 / Locate this run's localhost origin exception before removing it",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-041.annotated.png",
+      "rawImage": "step-041.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2897.796875,
+            "y": 1351.59375,
+            "width": 216.203125,
+            "height": 68
+          },
+          "automationId": "settings.certificates.insecure-host.localhost"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-042",
+      "title": "localhost例外已移除，HTTPS解密保持停用 / The localhost exception is removed and HTTPS decryption remains disabled",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-042.annotated.png",
+      "rawImage": "step-042.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2533.578125,
+            "y": 1229.59375,
+            "width": 350,
+            "height": 68
+          },
+          "automationId": "settings.certificates.insecure-host-input"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-039.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 399802,
+      "sha256": "e30a5e58f701b4ccdd0d1407b72c675ea977d044123705ce38c739bf3bd2cbe3"
+    },
+    {
+      "file": "step-039.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 268917,
+      "sha256": "826abf84c8113d5acb1d57984b89509eba464c638a64a617d03c63bc14d04e2d"
+    },
+    {
+      "file": "step-040.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 395208,
+      "sha256": "4ce8560137c995842c66b4e03bee0e8d9a7897e55035e8eedb0d3545fae92585"
+    },
+    {
+      "file": "step-040.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 266310,
+      "sha256": "97067edb065431af78a4c7f274d8244f3438da69b70d1ed2902400c7dcc83ccf"
+    },
+    {
+      "file": "step-041.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 395208,
+      "sha256": "4ce8560137c995842c66b4e03bee0e8d9a7897e55035e8eedb0d3545fae92585"
+    },
+    {
+      "file": "step-041.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 266535,
+      "sha256": "65e4d061151a78c831f082e08a46e874fc6974f2b58e8821b97818fa24057ba1"
+    },
+    {
+      "file": "step-042.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377156,
+      "sha256": "39edec123440fcbe9f754c1e6a3722e7d9622564ea12934ef7746802e5e9f974"
+    },
+    {
+      "file": "step-042.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254401,
+      "sha256": "f3bb19bcd64ab0a699ced87c89d6684ec3f4e44756f021a41b4213d2b34e4f0f"
+    }
+  ]
+}

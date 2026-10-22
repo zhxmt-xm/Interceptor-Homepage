@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-json-example-english",
+  "title": {
+    "zh-CN": "同一HTTP JSON请求的完整检查",
+    "en": "Inspect one HTTP JSON request"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/body-scenarios.workflow.ts",
+    "test": "capture.scenarios.bodies displays the captured text document and form bodies",
+    "run": "2026-10-21T11-41-43-389Z-EK2OdV",
+    "testDirectory": "capture-body-scenarios.wor-fa26a-xt-document-and-form-bodies-macos",
+    "manifestSha256": "06e46d7690efc0979c6ac7d6b4aeb3d2c425d2bd0ea2b461fea158691a4b6511",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "按/playground/body/json筛选同一HTTP示例 / Filter the HTTP example by /playground/body/json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        }
+      ],
+      "bytes": 142584,
+      "sha256": "a544ef83b2e9872ff1cf494f1d47a465af45edd8654d0cae16288c6b1108675c",
+      "rawBytes": 219262,
+      "rawSha256": "c4a6490d22ec6fa239ec89c72b10f5113353dc8659a65510fcd5fa5ff6245146"
+    },
+    {
+      "id": "step-002",
+      "title": "同一POST进入Capture列表 / The POST appears in the Capture list",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi1l9za-oq0dnz8t"
+        }
+      ],
+      "bytes": 149644,
+      "sha256": "e4e908010086817e77e8f1dcbd4c6521dcf8e25e755d86a6751af79b5a1d4cf9",
+      "rawBytes": 229479,
+      "rawSha256": "322b234d6c02fd3fc834d686ea684efcf8642b07dac03cfbad07233ff666a878"
+    },
+    {
+      "id": "step-003",
+      "title": "选中/playground/body/json请求 / Select the /playground/body/json request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi1l9za-oq0dnz8t"
+        }
+      ],
+      "bytes": 270149,
+      "sha256": "4f2937a8c779b6e387eb8da9e8979e22be53cf73f8845b9676ffa3f82f204a0d",
+      "rawBytes": 389032,
+      "rawSha256": "d36fe7dde58e16c9a285277887ada64e910ad2afc1b57b558b6fc897c5875415"
+    },
+    {
+      "id": "step-004",
+      "title": "检查同一HTTP示例的Headers / Inspect Headers for the same HTTP example",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 292,
+            "width": 150.09375,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.headers"
+        }
+      ],
+      "bytes": 270012,
+      "sha256": "0c8487cd1bdf315b498a84bedda660e3ffe73ca2f3823d55f0d8cd77e85f5cfb",
+      "rawBytes": 389065,
+      "rawSha256": "2fd953bd166f9f03f0164a447c3653bfdcfc8654448875d2233d4abe0b61cb2f"
+    },
+    {
+      "id": "step-005",
+      "title": "body-json查看请求正文 / Inspect the body-json request body",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 1075.125,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "bytes": 235809,
+      "sha256": "7e87e065e262f9af7585e431673687289e4c59946156c109cb0fcda740bfbe0f",
+      "rawBytes": 324257,
+      "rawSha256": "d569efd0e55f1a502d15f1d27497103b1efa77fd8dd35b4d32d45da76334eb43"
+    },
+    {
+      "id": "step-006",
+      "title": "body-json选择响应查看模式 / Select the body-json response view",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "bytes": 216504,
+      "sha256": "3fdf76d89cc42d7035822b7b798b8052f14d5af1ceebf1cf76d3a93d1bb430a3",
+      "rawBytes": 285854,
+      "rawSha256": "d940c27955f9811ff13330cf75687ea3f42b2011353618b8ae3bfa611d122835"
+    },
+    {
+      "id": "step-007",
+      "title": "HTTP JSON选择Tree查看字段和数组层级 / Select Tree to inspect HTTP JSON fields and array structure",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2450.109375,
+            "y": 532.75,
+            "width": 87.890625,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.tree"
+        }
+      ],
+      "bytes": 221525,
+      "sha256": "6404237d50d3e2747cf7f95de1b76bef953fefbe7b09b70a5c43cf0f92594ba3",
+      "rawBytes": 291763,
+      "rawSha256": "af0e83ba86c0c3e7d903bd4b2d39f8d2e3bc38754fb8fdf23ec28a679e14dd83"
+    },
+    {
+      "id": "step-008",
+      "title": "折叠HTTP JSON根节点 / Collapse the HTTP JSON root",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2362,
+            "y": 639.75,
+            "width": 30,
+            "height": 30
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 212882,
+      "sha256": "6ecb6cac66c06702a28911a5edb8f5e5e810f641272263a7e6720f130d830470",
+      "rawBytes": 280960,
+      "rawSha256": "0eeb3ed331115b560b55d267b4b7608d6f0a3057cee06a5c9a3ebcb89f61ac11"
+    },
+    {
+      "id": "step-009",
+      "title": "重新展开HTTP JSON根节点 / Expand the HTTP JSON root again",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2362,
+            "y": 639.75,
+            "width": 30,
+            "height": 30
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 221565,
+      "sha256": "a845ce33621ca17c2f10e271d3ada7e6d8ff202dc5c1ee8bc2afc94b04a1d73d",
+      "rawBytes": 292382,
+      "rawSha256": "ca6fb8c60fd7450218546a3b8a86c265c95509d27e87bfe60c45798a4e2b52f3"
+    },
+    {
+      "id": "step-010",
+      "title": "在HTTP JSON Tree中复制同一份原文 / Copy the same source from HTTP JSON Tree",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "bytes": 239273,
+      "sha256": "5a8fe768d44ddbfc1cb664d23545752a4101379541dda1d82cbca4be3fa8546c",
+      "rawBytes": 320730,
+      "rawSha256": "e14ec2422748632b625cb7043585aec2df8a1114533259f9c438687492e7cb49"
+    },
+    {
+      "id": "step-011",
+      "title": "HTTP JSON从Tree返回Raw / Return HTTP JSON from Tree to Raw",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "bytes": 226080,
+      "sha256": "54aa04a00e0daecba7f8cbe118b9f835179c93bd4acf5ea0a3cd22f6991fbd78",
+      "rawBytes": 300496,
+      "rawSha256": "acbfb26db6bdd0aa980770c047dfa65745364cec20e27f7d4a349a7503b50817"
+    },
+    {
+      "id": "step-012",
+      "title": "同一HTTP JSON切换Hex / Select Hex for the same HTTP JSON",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2631.46875,
+            "y": 532.75,
+            "width": 81.25,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.hex"
+        }
+      ],
+      "bytes": 231727,
+      "sha256": "c8e370de340b92196e2b5cea01bdda7966d659361d4c6e54dd527ad81f43fb66",
+      "rawBytes": 308758,
+      "rawSha256": "49385fa488f1732bd96ed83fdac89cf4eff4504a2d9db5264fe00b848f9265ee"
+    },
+    {
+      "id": "step-013",
+      "title": "同一HTTP JSON在Hex中打开全屏 / Open the same HTTP JSON fullscreen in Hex",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 869.46875,
+            "y": 406,
+            "width": 81.25,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.hex"
+        }
+      ],
+      "bytes": 222954,
+      "sha256": "78383aac478995a9bef8e29086648808de6c3f51c61d69568ea14ea757109f4c",
+      "rawBytes": 245141,
+      "rawSha256": "b0c49dae5672228cda0d7b45330b139483bc62b70416547a228de9aafed918e4"
+    },
+    {
+      "id": "step-014",
+      "title": "全屏切回Raw并复制同一JSON原文 / Return to Raw in fullscreen and copy the same JSON source",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2482,
+            "y": 270,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 234003,
+      "sha256": "33a7ad8763ced7e8ab285ba93522ba3e4f8ea28be243faace6e67c55fd98c167",
+      "rawBytes": 258298,
+      "rawSha256": "b08e4076e4deccefe21aeef65634a2c8c3b61d4f6ba5c18927d4c057f5bc4f16"
+    },
+    {
+      "id": "step-015",
+      "title": "从Raw模式控件按Escape返回同一HTTP请求 / Press Escape from the Raw mode control to return to the same HTTP request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "bytes": 226080,
+      "sha256": "54aa04a00e0daecba7f8cbe118b9f835179c93bd4acf5ea0a3cd22f6991fbd78",
+      "rawBytes": 300496,
+      "rawSha256": "acbfb26db6bdd0aa980770c047dfa65745364cec20e27f7d4a349a7503b50817"
+    },
+    {
+      "id": "step-016",
+      "title": "body-json核对响应内容 / Verify the body-json response content",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "bytes": 217164,
+      "sha256": "a29a2c745b44531588c5d6052ef80adb2ceff5ec5028af423eb64d28cc3338b1",
+      "rawBytes": 285854,
+      "rawSha256": "d940c27955f9811ff13330cf75687ea3f42b2011353618b8ae3bfa611d122835"
+    }
+  ]
+}

@@ -1,0 +1,1487 @@
+{
+  "schemaVersion": 1,
+  "chapter": "diagnostics-workflow-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "diagnostics/tools-queries-export.workflow.ts",
+    "manifestSha256": "82a51cd881761de717dda7548dc879edb8ffb80a1faa437178f97e7160159744",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "填写Diagnostics请求：discover_tools / Enter the Diagnostics request: discover_tools",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "填写Diagnostics请求：diagnostics_get_recent / Enter the Diagnostics request: diagnostics_get_recent",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "读取Recent诊断结果，无需change审批 / Read Recent Diagnostics results without change approval",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "填写Diagnostics请求：diagnostics_get_trace / Enter the Diagnostics request: diagnostics_get_trace",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "读取指定trace的相关记录 / Read records for the selected trace",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "填写Diagnostics请求：diagnostics_get_recent / Enter the Diagnostics request: diagnostics_get_recent",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "自产记录与静默查询：通过Composer产生四条记录，Recent保持内存顺序，Trace只返回指定身份且不自污染。 / Product-owned records and silent queries: Composer creates four records; Recent preserves memory order and Trace returns only the requested identity without self-generated records.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    },
+    {
+      "id": "step-008",
+      "title": "填写Diagnostics请求：diagnostics_export / Enter the Diagnostics request: diagnostics_export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "核对Diagnostics导出审批：deny / Review Diagnostics export approval: deny",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2851.640625,
+            "y": 1382.421875,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.diagnostics-export-denied"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2997.046875,
+            "y": 1382.421875,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.diagnostics-export-denied"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "Deny后不打开Save也不生成诊断文件 / Deny opens no Save dialog and creates no Diagnostics file",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "填写Diagnostics请求：diagnostics_export / Enter the Diagnostics request: diagnostics_export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "核对Diagnostics导出审批：allow / Review Diagnostics export approval: allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2851.640625,
+            "y": 1381.71875,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.diagnostics-export-cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2997.046875,
+            "y": 1381.71875,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.diagnostics-export-cancel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "取消文件选择后返回App / Return to the App after cancelling file selection",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.png",
+      "rawImage": "step-013.png"
+    },
+    {
+      "id": "step-014",
+      "title": "取消Save后导出未启动 / Export does not start after cancelling Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "填写Diagnostics请求：diagnostics_export / Enter the Diagnostics request: diagnostics_export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "核对Diagnostics导出审批：allow / Review Diagnostics export approval: allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2851.640625,
+            "y": 1382.015625,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.diagnostics-export-allow"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2997.046875,
+            "y": 1382.015625,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.diagnostics-export-allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-017.png",
+      "rawImage": "step-017.png"
+    },
+    {
+      "id": "step-018",
+      "title": "确认Save后返回导出任务结果 / Return to the export job result after confirming Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "切换Auto后文件导出仍需选择保存位置 / File exports still require a destination after switching to Auto",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2857.546875,
+            "y": 1530,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.auto"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "填写Diagnostics请求：diagnostics_export / Enter the Diagnostics request: diagnostics_export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    },
+    {
+      "id": "step-022",
+      "title": "Agent导出：Deny不开文件，真实Cancel不创建任务；Allow/Auto均经Save并只读取产品生成的原子JSONL。 / Agent export: Deny opens no file, native Cancel creates no job; Allow and Auto both use Save, and assertions only inspect the product-generated atomic JSONL.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    },
+    {
+      "id": "step-023",
+      "title": "填写Diagnostics请求：diagnostics_get_trace / Enter the Diagnostics request: diagnostics_get_trace",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "填写Diagnostics请求：diagnostics_get_recent / Enter the Diagnostics request: diagnostics_get_recent",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.annotated.png",
+      "rawImage": "step-024.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-025",
+      "title": "填写Diagnostics请求：diagnostics_export / Enter the Diagnostics request: diagnostics_export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "MCP导出使用独立的审批窗口 / MCP export uses its independent approval dialog",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1559.734375,
+            "y": 1165.125,
+            "width": 228.796875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.deny"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1165.125,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-027",
+      "title": "允许MCP导出后再处理系统Save / Allow MCP export before handling the system Save dialog",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1165.125,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "取消文件选择后返回App / Return to the App after cancelling file selection",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.png",
+      "rawImage": "step-028.png"
+    },
+    {
+      "id": "step-029",
+      "title": "MCP允许不等于文件已保存，Cancel不启动任务 / MCP approval does not save the file; Cancel starts no job",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.png",
+      "rawImage": "step-029.png"
+    },
+    {
+      "id": "step-030",
+      "title": "重新审批本次MCP导出 / Approve the new MCP export request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-030.annotated.png",
+      "rawImage": "step-030.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1165.125,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-031",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-031.png",
+      "rawImage": "step-031.png"
+    },
+    {
+      "id": "step-032",
+      "title": "MCP导出后检查保留的客户端状态 / Inspect the retained client state after MCP export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-032.png",
+      "rawImage": "step-032.png"
+    },
+    {
+      "id": "step-033",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-033.png",
+      "rawImage": "step-033.png"
+    },
+    {
+      "id": "step-034",
+      "title": "独立授权与MCP：Agent撤权不影响MCP，两项查询静默；导出仍需独立审批和真实Save，撤权立即生效。 / Independent permissions and MCP: revoking Agent leaves MCP enabled; both queries stay silent and export retains independent approval and native Save until MCP is revoked.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-034.png",
+      "rawImage": "step-034.png"
+    },
+    {
+      "id": "step-035",
+      "title": "通过真实Composer操作产生历史页 / Produce the history page through real Composer operations",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-035.png",
+      "rawImage": "step-035.png"
+    },
+    {
+      "id": "step-036",
+      "title": "PAC不可用时读取错误并保留原路线 / Inspect an unavailable PAC error while retaining the original route",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-036.annotated.png",
+      "rawImage": "step-036.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 666,
+            "y": 1162.578125,
+            "width": 2076,
+            "height": 83.1875
+          },
+          "automationId": "upstream.error"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-037",
+      "title": "打开Diagnostics查看已有运行记录 / Open Diagnostics to inspect existing operation records",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-037.png",
+      "rawImage": "step-037.png"
+    },
+    {
+      "id": "step-038",
+      "title": "按main进程筛选Diagnostics / Filter Diagnostics by the main process",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-038.annotated.png",
+      "rawImage": "step-038.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1579.15625,
+            "y": 107,
+            "width": 241.625,
+            "height": 56
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-039",
+      "title": "将日志级别筛为error / Select error as the log level",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1762.8125,
+            "y": 107,
+            "width": 210.65625,
+            "height": 56
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-040",
+      "title": "选中失败的上游应用记录并阅读详情 / Select the failed upstream operation and inspect its details",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-040.annotated.png",
+      "rawImage": "step-040.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2264,
+            "y": 92,
+            "width": 936,
+            "height": 1648
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-041",
+      "title": "按真实main/error/failed记录查看时间线 / Inspect the timeline for an actual main/error/failed record",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-041.png",
+      "rawImage": "step-041.png"
+    },
+    {
+      "id": "step-042",
+      "title": "拖宽Diagnostics详情分栏 / Widen the Diagnostics details pane",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-042.png",
+      "rawImage": "step-042.png"
+    },
+    {
+      "id": "step-043",
+      "title": "清除分类筛选后检查完整记录列表 / Inspect the full record list after clearing category filters",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-043.png",
+      "rawImage": "step-043.png"
+    },
+    {
+      "id": "step-044",
+      "title": "清除筛选并加载真正的较早历史 / Clear filters and load the actual earlier history",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-044.png",
+      "rawImage": "step-044.png"
+    },
+    {
+      "id": "step-045",
+      "title": "通过Diagnostics导出按钮保存记录 / Save records through the Diagnostics export button",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-045.annotated.png",
+      "rawImage": "step-045.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1822,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-046",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-046.png",
+      "rawImage": "step-046.png"
+    },
+    {
+      "id": "step-047",
+      "title": "诊断JSONL已导出，保留当前筛选和详情 / Retain the current filters and details after exporting Diagnostics JSONL",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-047.png",
+      "rawImage": "step-047.png"
+    },
+    {
+      "id": "step-048",
+      "title": "导出诊断后回到真实请求核对恢复 / Return to the real request and verify recovery after exporting Diagnostics",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-048.png",
+      "rawImage": "step-048.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 493980,
+      "sha256": "b5887a8e2635d2944b6e466fad0ae29b94f5de4a1635fd76e5cf27dcd96537fe"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 344246,
+      "sha256": "e4ba2433395953078b8352beb96ebee41f55918a05fa46868f3efd81d19b2dd9"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 454007,
+      "sha256": "4cfcbe72044ecf1177499d67ba841fe9ede9bff622353bd6fa0367268950742c"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301574,
+      "sha256": "589ef2bd35cb1874f6091a6a888a7874726d3816952478c752e20f2f60f3f140"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 501410,
+      "sha256": "79f91b85219723b163b842ac2b758d278fc3505011bef71682ce18293f5f6c41"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 506887,
+      "sha256": "5918e3b03ca92598399add1d33a39aaac505b01d24c430d5b19bb3bdab1a9dda"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 341165,
+      "sha256": "66cd05ca4026bd910d824f3ec76d20c56e1f1d57f0b8456ff6524f2a1a31e2e8"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 549915,
+      "sha256": "97d1e08246d14cf78ee5d1b57b40783b9b8447c7cf07683ced20cbf581a16729"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 556321,
+      "sha256": "4f7a53a298063f6e18b2fc82272ff3aff62c0b4058d90b9dceeb38328dd7ae38"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379686,
+      "sha256": "8747ec9ce0459c968e233928e894097ba546936d039b078eeb14dee2da1985e1"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 563056,
+      "sha256": "e547a4be1b785dc42d4ab84d4c6724f65cacf40598baba1c362beee5ae7ccbe2"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 569511,
+      "sha256": "8a569734e116e3e3e0c7dd9377dab840adfd136c590d36cd6ceca83b0a9a51c7"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 389640,
+      "sha256": "37b0d4ae6db1bde803be8019694e162c91ddeabdf90cb5d8e0a3d710a3f018ba"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 580587,
+      "sha256": "781c49d8238f177f5f1ed99d7b0713e4dd7cc73716da72a1510fbc78c302ea47"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 397331,
+      "sha256": "923b0143f79fd92cbc353155c9eadc4530f3d3b10071be11e323904d5085a526"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 547558,
+      "sha256": "eb31aafda696aad0936c83e63938a73a01bef4e157914261c0fb02d672dd5e9a"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 553097,
+      "sha256": "06e666a759cdc57954a5882bd0a049640ee39e951757f6d15ddb29018830d0ea"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379214,
+      "sha256": "34f3bdfbbe7c505cda32fdafeae74251d86e0a86eb527cecc72c9fea98ecc938"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 571089,
+      "sha256": "5e85afb7e84853254b375fafaf38be75cdbe492781bed5f970dc34e985d298ab"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 389154,
+      "sha256": "de830214e26750e912c6d855b3fc2f89f6e991c7297fd436a2ab66ddf76279d8"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 546289,
+      "sha256": "483143083d86dafffc85ace34285fb136433f642936e5e930441765a54d55861"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 546289,
+      "sha256": "483143083d86dafffc85ace34285fb136433f642936e5e930441765a54d55861"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 551580,
+      "sha256": "378c4750ebed6aad2966b98d5ccb0680d9ee9840e63ebb019ab89ebf7ddc40ac"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376356,
+      "sha256": "3cb17af972f7e73933bea0fec59bf1b13249a58e56af185cae45b1061e3f2fcb"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 569357,
+      "sha256": "5b269dad65b94b7946d99c6a013a8dfad96b65d762b165291815f42dd5c402ee"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 386217,
+      "sha256": "2b378e8272da745cf6876de7c76b904bf1a99a53aebed18f7b15c7126072e3a6"
+    },
+    {
+      "file": "step-017.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 50808,
+      "sha256": "af5cae5e97901dccdd758bb60139606e735bae7c01f3a96679fbc77c6b7931c9"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 543737,
+      "sha256": "f5376fd2bb15e834872b297071449304e0dd32b0956dd51c014d70cdfa31a928"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 544536,
+      "sha256": "4c7e4b87b68148b322db7aff34adb99ff7870e3c6b0ea9fb27837f49bb2860cc"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 370124,
+      "sha256": "30004029ffbf0d690920005262b78f9ca33f624febc3ea8829cf4d5aa8a0580c"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 550059,
+      "sha256": "6289b6d9f3515887e53bac07b53a3449c7cab99a9444317a936550c08e679122"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 373960,
+      "sha256": "9951c6d41c8d1f264a1f23d78599c98ddd64f74dff58b3c358c65efd378f4273"
+    },
+    {
+      "file": "step-021.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 50224,
+      "sha256": "c32a50622ed180a7afdb2b8eb39227a8afed3ff952140f455dfad519dbf1e28f"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 554137,
+      "sha256": "88bb620453a84de52b122aff37acf6da23bba7e6abd4fa0cfd9c509ec5a5e781"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 676819,
+      "sha256": "c51e65a5a93ca2b5fb8ee914fd19786e356644db37e882fd43b7dde562fbeab1"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 476929,
+      "sha256": "ef5cc2b3d7952fbfe1c24a13127344154a08d1a578095acf99e98bb3d01c08dc"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 677971,
+      "sha256": "563a6b63e243a7b3d5d9bca41fb3c171e86c23881bb9df3cd9ece6a6aa265e3e"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 478661,
+      "sha256": "66e96dd2929f439441e26cc86aa727ced279b117b551ea1dea5fede0ec2bbb26"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 678570,
+      "sha256": "cc7226492c91aa75da52188975bad732bd541594e26ffd6da3a8bbd878786f3c"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 481767,
+      "sha256": "0fcfa21cd8f4c51bbf6f64f359b5af130798b10bbf34968de771da48df864e0d"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 485502,
+      "sha256": "c4b8b724e57a2608bdeb9925d7c84ab3ce4eb695a1813fc2af5f71d6f748b127"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 337597,
+      "sha256": "ad6e861fdcaf65e1d4fc6e59064d4940c77f537811a521111846e6b782d6fbdd"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 465277,
+      "sha256": "00f7ae4b2c752952dae60214a304a8251389b2cde96621c9031a78821ccc9764"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 323172,
+      "sha256": "3201532cff477b62bdcba7826e4b1bd0fcf71451f9a202e8fc524f85e692314c"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 494000,
+      "sha256": "e7608e506591d96f0e6e067393450f4e73211d890e5c1dd27fb4f00d683c55c8"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 494000,
+      "sha256": "e7608e506591d96f0e6e067393450f4e73211d890e5c1dd27fb4f00d683c55c8"
+    },
+    {
+      "file": "step-030.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 465222,
+      "sha256": "74944b4ea4e88bb7fb78f3d7ec850b0adc4b4bf1c8a0e7c9b218f3ff15d90578"
+    },
+    {
+      "file": "step-030.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 322938,
+      "sha256": "e082cac11e8d9ca8535f7a7f83f9e2a27e4118e59c107d173c035a208e2062c6"
+    },
+    {
+      "file": "step-031.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 50091,
+      "sha256": "904d80fa0729d8cec65346acf134e1787ff7540ab69e5bc25b9750186563f0ae"
+    },
+    {
+      "file": "step-032.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 494000,
+      "sha256": "e7608e506591d96f0e6e067393450f4e73211d890e5c1dd27fb4f00d683c55c8"
+    },
+    {
+      "file": "step-033.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 51470,
+      "sha256": "4d351bbc8d47b61ef2de1151f95fc5ccd36fe8182125d25bea4a7abf1466ce6b"
+    },
+    {
+      "file": "step-034.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 494424,
+      "sha256": "335b003f574d93b2dda4fffcb2958beaed8ba6b54f33c033030eca62d7e00aec"
+    },
+    {
+      "file": "step-035.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 255469,
+      "sha256": "4e92a879317a35a17311009bdc43d8ed4a34b944104ce1a4eb363db36d1fff29"
+    },
+    {
+      "file": "step-036.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 396211,
+      "sha256": "2f4575b7009b9c306233a1f625358ebbe803b3d0f4c67d1a530eff90fc146ccb"
+    },
+    {
+      "file": "step-036.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 262581,
+      "sha256": "dc22b0f54f9e42021a11237b10451194ad5a33239f77d678b002a3be61590248"
+    },
+    {
+      "file": "step-037.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 391747,
+      "sha256": "7424c80158f9c19d62ab602de840fb500173b684fafe7b8538d9762db8f981ff"
+    },
+    {
+      "file": "step-038.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 426990,
+      "sha256": "6ea32861cfea5efafaffd6f748db126fa4b82abdc546a7f9cd20e359c9887748"
+    },
+    {
+      "file": "step-038.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 273503,
+      "sha256": "01c177bb827176d24f8ed320f642be8f70ce08410131baedbb6b7037bb23cf96"
+    },
+    {
+      "file": "step-039.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 227593,
+      "sha256": "d2d3813e3c9ab9502c3aa833e3c7adb4cf4e5ea740f5a602b598cd55b563b8cc"
+    },
+    {
+      "file": "step-039.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 133586,
+      "sha256": "dddeae3fcc6ef415bee3cb9bda63fdc34b2940a1401132d372f3b5193fa2e91d"
+    },
+    {
+      "file": "step-040.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241019,
+      "sha256": "ec42a3e9a39ed6803d19de10b18a2a57743ac1296b084488fefc60844507837a"
+    },
+    {
+      "file": "step-040.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 148589,
+      "sha256": "9c5adc2bc607c21756d2d285a62ce171096fb7d811dde3e189feeb4b1ba43deb"
+    },
+    {
+      "file": "step-041.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241019,
+      "sha256": "ec42a3e9a39ed6803d19de10b18a2a57743ac1296b084488fefc60844507837a"
+    },
+    {
+      "file": "step-042.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240630,
+      "sha256": "0b27db75052ae3602357b7f49b391f12430d086fc20c5c6b5a1303ca0cb2c116"
+    },
+    {
+      "file": "step-043.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 407978,
+      "sha256": "e73dbd443db1c65529283bdd2b4de62fc161a8d61241fe24282db7d44b8be786"
+    },
+    {
+      "file": "step-044.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 412922,
+      "sha256": "3e7b2b79c3409e3c26fc8d72a89de4a9cb77af84630e3cebd86663b8889ca8c3"
+    },
+    {
+      "file": "step-045.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 421798,
+      "sha256": "ba88096992729e7eb87d4887137bd2df8bed55a49a5320dcd51a3815323ca496"
+    },
+    {
+      "file": "step-045.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 275042,
+      "sha256": "ac37cf5f477a7b0311377729ffd2259af2502f0a063ef46127ada9cf8ba3f13e"
+    },
+    {
+      "file": "step-046.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 53393,
+      "sha256": "9299a10c9a8732ae94208f8e2233bf5fbdd35355ac1a2bf14815117a385e12eb"
+    },
+    {
+      "file": "step-047.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 421891,
+      "sha256": "0d08e3976ff901aab5e5852abfb8a0a7ee6df550ccb428916a3eee8f9fed9db6"
+    },
+    {
+      "file": "step-048.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251213,
+      "sha256": "0571cb3e3d0ebdf50abb923977340a38e04e5196f7cfea68a9044660a18e3b9c"
+    }
+  ]
+}

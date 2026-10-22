@@ -9,117 +9,286 @@
   "platform": "macOS x64",
   "source": {
     "workflow": "composer/body-formatting.workflow.ts",
-    "manifestSha256": "bcada5d6a79368c48640ca6044f492efdcb1334a681a0ce3749e1a8aace9c757",
+    "manifestSha256": "04c105ecd3519c97fd65798d1801dac0e5798e74ff0c5d0979f35ab689d50626",
     "target": "macos-signed-app",
-    "capture": "native-window"
+    "capture": "native-window",
+    "run": "2026-10-21T06-07-15-387Z-x3F0cx"
   },
   "steps": [
     {
       "id": "step-001",
       "title": "01 · HTML自动格式化 / Automatically format HTML",
-      "image": "step-001.png",
-      "language": "zh-CN",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-002",
       "title": "02 · JavaScript自动格式化 / Automatically format JavaScript",
-      "image": "step-002.png",
-      "language": "zh-CN",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-003",
       "title": "03 · 查看超过自动阈值的CSS原文 / Inspect CSS above the automatic-formatting limit",
-      "image": "step-003.png",
-      "language": "zh-CN",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2980,
+            "y": 1094,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "composer.response-body.format"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-004",
       "title": "04 · 手动Format CSS / Format CSS manually",
-      "image": "step-004.png",
-      "language": "zh-CN",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "2",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-005",
       "title": "05 · 格式化失败保留XML原文 / Retain XML source when formatting fails",
-      "image": "step-005.png",
-      "language": "zh-CN",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-006",
       "title": "06 · 切回文档保持格式化视图 / Restore the document’s formatted view",
-      "image": "step-006.png",
-      "language": "zh-CN",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     },
     {
       "id": "step-007",
       "title": "07 · 检查2MiB预览与禁用Format / Check the 2 MiB preview and disabled Format",
-      "image": "step-007.png",
-      "language": "zh-CN",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2980,
+            "y": 1094,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "composer.response-body.format"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 790,
+            "y": 1084,
+            "width": 2382,
+            "height": 628
+          },
+          "automationId": "composer.response-body"
+        }
+      ]
     }
   ],
   "assets": [
     {
       "file": "step-001.png",
-      "bytes": 289655,
-      "sha256": "7970aa885d83a8d68b91da5dd03d6b5593cfb34f51122fa6f29fdeb43a532f9e",
+      "bytes": 250801,
+      "sha256": "e877051d14581d13f6d5e5f28d648a6b8b04e2f175d0ec6d192cd49202cb27f5",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-001.annotated.png",
+      "bytes": 195813,
+      "sha256": "0a99e8716d5ab0e2e9495d2a6c5bd9e6ecf52748a89174352add65859fbe1092",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-002.png",
-      "bytes": 297704,
-      "sha256": "568294e0501f4d7259ce0ae24b115dc9e3c0ac8201f2e71d42a800c959020bda",
+      "bytes": 257920,
+      "sha256": "0f4fc32e97359300d01ff66741a26199dc5af748a587536e5ce0a513bb132ad2",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-002.annotated.png",
+      "bytes": 201117,
+      "sha256": "678476755c83bbf0e12fdd62f8d2b27f8d60b720e707a2b0db2d3e1fa1ca6006",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-003.png",
-      "bytes": 338372,
-      "sha256": "2e27fb675ef3d96d9feeaf4a6dd3494c935491efa9278e83f583b3f47fe2d7ba",
+      "bytes": 292518,
+      "sha256": "fbfe70c480a31196587c57c5635e55f12646d99b00f7bf72e42705ead2180296",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-003.annotated.png",
+      "bytes": 220180,
+      "sha256": "75c6511d64763dfcada51f3e58ba4771ab6656bbbaf34064daaa1c72eec185c6",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-004.png",
-      "bytes": 349716,
-      "sha256": "c111bd49d29950690a9ed503cc694648f19e1aa47c04d3be89c9818b0e2c4b0d",
+      "bytes": 285548,
+      "sha256": "86d83a4ff2b2dbb0cb295d7ada89a4ef486b7b6288fee063bdeb5c2c0833be31",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-004.annotated.png",
+      "bytes": 216420,
+      "sha256": "0360ea80d6f1fb6ee26889183762b769a467adce1ff27c0066d1a9f227fab7b2",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-005.png",
-      "bytes": 327013,
-      "sha256": "e7c1638fe8ce63b13c8d0cc07b60c861e4cc4eb25dc8310b3a4c3fcef5c20b36",
+      "bytes": 267116,
+      "sha256": "22eaabfeb8d90c5e84594842a0d081c9a1c19ace61e281ac61d6b2dc8fe4fce4",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-005.annotated.png",
+      "bytes": 205102,
+      "sha256": "6d09dce3f43fe7fce26a0efe9ed5071062fb1c46240c9e7ae731bbe5761cd363",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-006.png",
-      "bytes": 330485,
-      "sha256": "e538c99598170f7a6a757d061d40a3dc4fa11cf423966545208b0ebb3d76fa0d",
+      "bytes": 289381,
+      "sha256": "f0e12f21b3d4b96d5355e9033f6e365a55ef5c23620a5852f20019e8f0133f1f",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-006.annotated.png",
+      "bytes": 218997,
+      "sha256": "cdf99cbbe12527ef0102952a41f02ad72582abd92951da0daba118c987125dc8",
       "width": 3200,
       "height": 1800
     },
     {
       "file": "step-007.png",
-      "bytes": 352918,
-      "sha256": "4ccd4d3d98ee59bf5efcad5f54411b728c4cf46ef5e16c727bc1a000c497d0ac",
+      "bytes": 317598,
+      "sha256": "5b49090ec0d3d73489421bace5c070d2179b871f1d60c43a7a76c18d252fe984",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "file": "step-007.annotated.png",
+      "bytes": 239904,
+      "sha256": "0d4659b482345a6974e633d202a6538c040ccd63eaa4cde21a4ded51cddf9e93",
       "width": 3200,
       "height": 1800
     }
-  ]
+  ],
+  "appLanguage": "en"
 }

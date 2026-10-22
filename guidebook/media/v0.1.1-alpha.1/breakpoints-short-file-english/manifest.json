@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-short-file-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/body-file-preview.workflow.ts",
+    "manifestSha256": "cba63b95800bebea82d963d922a1999f65cdb4bc2854a7ffabbbe6e099d34d58",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "先从自己的响应保存替换文件 / Save the replacement file from an owned response first",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2972,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.save"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-004",
+      "title": "选择需要文件替换的暂停请求 / Select the paused request for file replacement",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi91ou3-4yu31wo4"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "收起Original后为File预览留出空间 / Collapse Original to make room for the File preview",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "选择File模式并找到文件选择入口 / Select File mode and locate the file chooser",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.125,
+            "y": 1136,
+            "width": 235.75,
+            "height": 64
+          },
+          "automationId": "breakpoints.file.choose"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "选择刚保存的文件后在App核对名称和完整大小 / Verify the selected file name and full size in the App",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "布局联动：展开前面的Original后，File必须立即按新剩余空间重算。 / Layout dependency: expanding the preceding Original must immediately update the File height.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "拖动File预览高度但不修改文件内容 / Resize the File preview without changing its contents",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "核对File后用Forward edited发送完整文件 / Forward the complete file after inspecting its preview",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2932.078125,
+            "y": 1653,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "业务断言：大JSON有有限预览，Forward edited仍发送完整原文件。 / Assertions: large JSON has a bounded preview while Forward edited sends the entire original file.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    },
+    {
+      "id": "step-013",
+      "title": "完整编辑：Text输入不受只读预览上限影响，末尾追加仍完整到达origin。 / Complete editing: Text input is not capped by readonly preview limits and its appended suffix reaches the origin.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.png",
+      "rawImage": "step-013.png"
+    },
+    {
+      "id": "step-014",
+      "title": "清理：失败时经Continue结束请求，fixture验证正常退出和完整宿主恢复。 / Cleanup: settle failures through Continue; the fixture verifies normal exit and complete host restoration.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294006,
+      "sha256": "7cb27756bba4fa095dfdc35cee4c1537a7af7129b9e92f1ebdb8b3267abaa120"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 222611,
+      "sha256": "2fdb84b35e3989a81dfb103dc8291906b9c25f7568fd886fb5599623ccd5055c"
+    },
+    {
+      "file": "step-002.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 55371,
+      "sha256": "5e8c90fa4a99041d59da62d6a242e56e6f7f211056c084b536346a62112d2a0c"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 356179,
+      "sha256": "a6cf9daf6660f7ce0beae9da88c1a353d1d2913f250da548d673790e57a27df9"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263761,
+      "sha256": "e82e0a3a45f29a6abbe419be34bc1abe6fc9836468c6ea6368597a88ce3925b9"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 334625,
+      "sha256": "302459f314e7409d713458907634224876e1a0357c67fe6c1672396c56837636"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 333315,
+      "sha256": "e334e2e0f2bdd2b4741f43ba1ac0993b9780261e119ee83e13f1ba301e95faaf"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240065,
+      "sha256": "71b979dbfbbb8496e0757027cb02c08d42691957b8da45c7a355a1a979b879db"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372628,
+      "sha256": "fe1f8bf51fec561f7f6395375fbb5efc20de3dc265060fafd879a4a8df67634f"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 356196,
+      "sha256": "b55eab69632f15aa88ddeaa857e6620714e98bd706f2e7242dc9296e0813ff65"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 365668,
+      "sha256": "c570aca9da0a732cda65d0d51e8b991267560881582c91590422dd3b2e632a27"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 366434,
+      "sha256": "5c3f91580e1416196a206d3f0b1a7b25e09d8e24e6a142de9d8835ec4967aaa1"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 265725,
+      "sha256": "be27c06b56b19df7f43addc25bea79652b97b6e92073f6d8605627b01f20b3b8"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 342420,
+      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 342420,
+      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 342420,
+      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
+    }
+  ]
+}

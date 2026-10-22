@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-video-metadata-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/body-media-scenarios.workflow.ts",
+    "test": "capture.scenarios.body-media previews images and hex and saves media without loading players",
+    "run": "2026-10-21T19-01-48-619Z-tbNOPz",
+    "testDirectory": "capture-body-media-scenari-1bc03-dia-without-loading-players-macos",
+    "manifestSha256": "b114bc241693cbe613e3f84edc5df83e079371a5388d89839ba2f22164724901",
+    "metadataSha256": "f296cec70744f835a24d626f1431a79446965a7ced18c8734bd107c6867af728",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "method": "GET",
+    "path": "/playground/body/video",
+    "mime": "video/mp4",
+    "bytes": 24,
+    "file": "body-video.mp4"
+  },
+  "notes": [
+    "All three images show the same 24-byte video metadata example.",
+    "This small fixture is not presented as a complete playable movie; only MIME, byte size and Save are demonstrated.",
+    "The native Save dialog is English and unnumbered."
+  ],
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "nativeSavesEnglish": true,
+    "sourceImagesUnchanged": true,
+    "runnerRequiresFullScrollAncestorIntersection": 1
+  },
+  "steps": [
+    {
+      "id": "step-011",
+      "title": "查看video/mp4、24字节和Save入口，不加载播放器 / Inspect video/mp4, 24 bytes and Save without loading a player",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 227136,
+      "sha256": "f4b378b2a07adea4ea31b3725d1b890d7849045b9259d2a8a7554c7a9d74b3b9",
+      "rawBytes": 293836,
+      "rawSha256": "4818b6c8e945e740bff29853b2ff32ae210166e4f8fbdb5c13bb2fcc3e54285e",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2649.640625,
+            "y": 1232.828125,
+            "width": 204.71875,
+            "height": 56
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-012.png",
+      "image": "step-012.png",
+      "rawImage": "step-012.png",
+      "bytes": 53897,
+      "sha256": "ecdd2beef43c7aebb2836692805572e464f1d74f104ae5c64b1db94996c481a3",
+      "rawBytes": 53897,
+      "rawSha256": "ecdd2beef43c7aebb2836692805572e464f1d74f104ae5c64b1db94996c481a3",
+      "highlights": []
+    },
+    {
+      "id": "step-013",
+      "title": "body-video保存完成后仍显示原MIME与大小 / body-video retains its MIME and size after saving",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 226912,
+      "sha256": "4e9ff4b65dc7e958e11dd0ccc2b0850c23a5671ea6b078fbf8250c264b0ad563",
+      "rawBytes": 293611,
+      "rawSha256": "2d03108f368926b957cec5caedad49c48dc4f1c72d65d918b3dc382e093b0615",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2649.640625,
+            "y": 1232.828125,
+            "width": 204.71875,
+            "height": 56
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

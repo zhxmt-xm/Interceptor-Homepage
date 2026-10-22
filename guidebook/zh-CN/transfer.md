@@ -1,122 +1,6 @@
 # 导入导出：保留和分享调试数据
 
-> 草稿，面向 `v0.1.1-alpha.1`；已配真实 Save/Open 面板和文件往返，取消、错误及其他未录分支仍有缺口，不代表全章或 item9 完成。文件可能含敏感信息，导出成功不等于可以直接公开。
-
 [教程目录](../README.md) · [Capture](capture.md) · [隐私设置](settings.md#privacy)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## 逐步骤实操：真实产品录制
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:55059/guide/transfer/order</code> |
-| <code>har</code> | <code>guide-recording.har</code> |
-| <code>archive</code> | <code>guide-recording.iarchive</code> |
-| <code>bodyFile</code> | <code>guide-response.json</code> |
-| <code>body</code> | <code>{&quot;orderId&quot;:&quot;guide-001&quot;,&quot;message&quot;:&quot;Hello Interceptor&quot;}</code> |
-
-<a id="walkthrough-01-export-menu"></a>
-### 01 · 打开 Export
-
-![01 · 打开 Export](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
-
-<a id="walkthrough-02-har-options"></a>
-### 02 · 选择 HAR
-
-![02 · 选择 HAR](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
-
-<a id="walkthrough-03-scope"></a>
-### 03 · 选择当前请求
-
-![03 · 选择当前请求](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
-
-<a id="walkthrough-04-privacy"></a>
-### 04 · 核对隐私选项
-
-![04 · 核对隐私选项](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
-
-<a id="walkthrough-05-har-save-dialog"></a>
-### 05 · 保存为 guide-recording.har
-
-![05 · 保存为 guide-recording.har](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
-
-<a id="walkthrough-06-har-complete"></a>
-### 06 · 确认 HAR 保存完成
-
-![06 · 确认 HAR 保存完成](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
-
-<a id="walkthrough-07-import-menu"></a>
-### 07 · 打开 Import
-
-![07 · 打开 Import](../media/v0.1.1-alpha.1/transfer/transfer-07-import-menu.png)
-
-<a id="walkthrough-08-import-har"></a>
-### 08 · 选择 HAR 导入
-
-![08 · 选择 HAR 导入](../media/v0.1.1-alpha.1/transfer/transfer-08-import-har.png)
-
-<a id="walkthrough-09-har-open-dialog"></a>
-### 09 · 打开同一个 HAR
-
-![09 · 打开同一个 HAR](../media/v0.1.1-alpha.1/transfer/transfer-09-har-open-dialog.png)
-
-<a id="walkthrough-10-har-appended"></a>
-### 10 · 核对记录追加
-
-![10 · 核对记录追加](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
-
-<a id="walkthrough-11-archive-options"></a>
-### 11 · 选择 Native Archive
-
-![11 · 选择 Native Archive](../media/v0.1.1-alpha.1/transfer/transfer-11-archive-options.png)
-
-<a id="walkthrough-12-archive-save-dialog"></a>
-### 12 · 保存 guide-recording.iarchive
-
-![12 · 保存 guide-recording.iarchive](../media/v0.1.1-alpha.1/transfer/transfer-12-archive-save-dialog.png)
-
-<a id="walkthrough-13-archive-complete"></a>
-### 13 · 核对归档保存
-
-![13 · 核对归档保存](../media/v0.1.1-alpha.1/transfer/transfer-13-archive-complete.png)
-
-<a id="walkthrough-14-clear"></a>
-### 14 · 清空已导出的演示记录
-
-![14 · 清空已导出的演示记录](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
-
-<a id="walkthrough-15-archive-import"></a>
-### 15 · 选择打开 Native Archive
-
-![15 · 选择打开 Native Archive](../media/v0.1.1-alpha.1/transfer/transfer-15-archive-import.png)
-
-<a id="walkthrough-16-archive-open-dialog"></a>
-### 16 · 选择刚保存的归档
-
-![16 · 选择刚保存的归档](../media/v0.1.1-alpha.1/transfer/transfer-16-archive-open-dialog.png)
-
-<a id="walkthrough-17-restored"></a>
-### 17 · 核对恢复的请求和正文
-
-![17 · 核对恢复的请求和正文](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
-
-<a id="walkthrough-18-body-save-dialog"></a>
-### 18 · 保存单独正文
-
-![18 · 保存单独正文](../media/v0.1.1-alpha.1/transfer/transfer-18-body-save-dialog.png)
-
-<a id="walkthrough-19-body-complete"></a>
-### 19 · 核对完整正文
-
-![19 · 核对完整正文](../media/v0.1.1-alpha.1/transfer/transfer-19-body-complete.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:end -->
 
 <a id="formats"></a>
 ## 先选对格式
@@ -130,475 +14,277 @@
 | 请求集合 | Composer Export collection 的 JSON | 不等于发送历史或抓包归档 |
 | App 的运行错误与操作记录 | Diagnostics 的 JSONL | 不等于请求正文或网络协议抓包 |
 
-**原则**：先确定需要保留的事实，再选格式。扩展名相似或同样使用 JSON，不代表文件可以互相导入。
+先确定需要保留的内容，再选格式。扩展名相似或同样使用 JSON，不代表文件可以互相导入。
 
 <a id="har"></a>
 ## 导出 HAR
 
-**前提**：Capture 中已有需要保留的请求；选择范围前先核对当前筛选与选中项。
+Capture 已有需要保留的记录。下面共有四条：两条 `/e2e/har-tools/text`、两条 `/e2e/har-tools/binary`；同一批数据的 All、Current filter 和 Selected request 分别为四、二、一条。实际操作按自己的记录与筛选核对，不照抄数量。
 
-**步骤**
+1. <a id="walkthrough"></a><a id="walkthrough-01-export-menu"></a><a id="walkthrough-02-har-options"></a><a id="walkthrough-transfer-scopes-all-01-menu"></a><a id="walkthrough-transfer-scopes-all-02-har"></a>先暂停新录制，打开 Capture 的 Export 菜单，点击红框 1 的 Export HAR。
 
-本段实际请求为 `http://127.0.0.1:55059/guide/transfer/order`，正文为 `{"orderId":"guide-001","message":"Hello Interceptor"}`。`55059` 仅为录制环境动态端口，实际使用自己的测试服务。
+   ![导出 HAR · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
-1. 打开 Capture 的 Export 菜单。
+2. <a id="walkthrough-03-scope"></a><a id="walkthrough-transfer-scopes"></a><a id="walkthrough-transfer-scopes-all-03-scope"></a><a id="walkthrough-04-privacy"></a>选择红框 1 的 All traffic，核对四条记录。检查授权、Cookie 遮罩与是否保留正文，再点击红框 2 的 Export 4 requests。
 
-   ![实际打开 Export](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
+   ![导出 HAR · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-2. 选择 HAR。
+3. <a id="walkthrough-transfer-scopes-all-04-save"></a><a id="walkthrough-05-har-save-dialog"></a>在系统 Save 窗口选择自己的位置，保存为 `ui.har`。若取消，这次操作不会生成文件。
 
-   ![选择 HAR 后的配置窗口](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
+   ![导出 HAR · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
-3. 本次选择当前请求。[独立的范围实录](#walkthrough-transfer-scopes)另准备三条`/guide/export-scopes`请求，筛选后显示两条且选中其中一条；完整操作分别生成`guide-all.har`、`guide-filtered.har`和`guide-selected.har`，实际文件分别只有3、2、1条URL。
+4. <a id="walkthrough-transfer-scopes-all-05-complete"></a><a id="walkthrough-06-har-complete"></a>等待文件保存后回到 Capture。红框 1 是可再次打开的 Export，红框 2 显示仍为 Paused；确认文件存在后再继续。
 
-   ![实际当前请求范围](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+   ![导出 HAR · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   ![三条输入时选择全部记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+5. <a id="walkthrough-transfer-scopes-01-filter"></a><a id="walkthrough-transfer-scopes-02-select"></a>在红框 1 的 Keyword 输入 `/e2e/har-tools/text`，筛选到两条文本记录，并点击红框 2 的其中一条。筛选范围与选中范围不是同一回事。
 
-   ![同一组三条输入中选择当前筛选两条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+   ![导出 HAR · 5](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-016.annotated.png)
 
-   每个文件的真实Save面板与完成结果都在该实录中；随后[导入同一次Export生成的筛选文件](#walkthrough-transfer-scopes-import-01-menu)，只追加两条，不重发源站请求。
+6. <a id="walkthrough-transfer-scopes-filtered-01-menu"></a><a id="walkthrough-transfer-scopes-filtered-02-har"></a><a id="walkthrough-transfer-scopes-filtered-03-scope"></a>再次打开 Export HAR，选择红框 1 的 Current filter，再点击红框 2 的 Export 2 requests。它包含筛选出的两条，不只包含选中行。
 
-4. 核对是否保留正文、Authorization/Cookie 遮罩，并阅读格式损失与敏感数据提示，不假设遮罩会处理所有字段。
+   ![导出 HAR · 6](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
 
-   ![本次 HAR 隐私选项检查](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+7. <a id="walkthrough-transfer-scopes-filtered-04-save"></a>在 Save 窗口另存 `ui-filter.har`，避免无意覆盖刚才的全部记录文件。
 
-5. 确认导出，在真实系统保存窗口保存 `guide-recording.har`。
+   ![导出 HAR · 7](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-018.png)
 
-   ![实际原生 Save 面板与 guide-recording.har](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
+8. <a id="walkthrough-transfer-scopes-filtered-05-complete"></a>等待保存完成，再从红框 1 的 Export 进入下一次导出。列表筛选仍保留，不会因为导出而删除原记录。
 
-6. 等待完成，再检查本次文件；取消或失败不能当作完成。
+   ![导出 HAR · 8](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-019.annotated.png)
 
-   ![本次 HAR 保存完成的实际检查点](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+9. <a id="walkthrough-transfer-scopes-selected-01-menu"></a><a id="walkthrough-transfer-scopes-selected-02-har"></a><a id="walkthrough-transfer-scopes-selected-03-scope"></a>选择红框 1 的 Selected request，确认只有一条，再点击红框 2 的 Export 1 request。没有选中记录时不能把这个范围当作全部记录。
 
-**预期结果**：得到可与支持 HAR 1.2 的工具交换的 HTTP 数据。
+   ![导出 HAR · 9](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-020.annotated.png)
 
-**关键说明**
+10. <a id="walkthrough-transfer-scopes-selected-04-save"></a>另存 `ui-selected.har`，按用途分别保留全部、筛选和单条文件。
 
-- HAR 无法无损表达 HTTP/2 pseudo-header、trailer、WebSocket 消息、TLS 详情和规则历史等信息。
-- 压缩响应在 HAR 中可能按格式要求转成解码后的内容；不能只比较文件中正文大小就断定线上字节丢失。
-- 大正文 HAR 会消耗额外内存；没有文件大小限制不等于任何规模都能低内存处理。
-- 导出是当时的快照，不把导出过程中新增的流量默认视为已包含。
+    ![导出 HAR · 10](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-021.png)
+
+11. <a id="walkthrough-transfer-scopes-selected-05-complete"></a>保存后仍可使用红框 1 的 Export。分享前检查最终文件中的记录数、正文与敏感字段，不只检查界面选择。
+
+    ![导出 HAR · 11](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-022.annotated.png)
+
+12. 需要重新查看时，按[导入步骤](#import)打开自己刚保存的文件。导入追加文件中的记录，不重发请求，也不会自动去重。
+
+- HAR 不能无损表达 HTTP/2 pseudo-header、trailers、WebSocket 消息、TLS 详情和完整规则历史。
+- 压缩响应可能按 HAR 要求保存解码内容，不能仅比较文件正文大小判断线上字节是否丢失。
+- 大正文会增加导出内存需求；没有固定文件大小限制不代表任意规模都低内存。
+- 导出是开始时的快照，不默认包含之后新到的流量。
+
 
 <a id="archive"></a>
 ## 保存 Native Archive
 
-**步骤**
+Native Archive 保存当前 Capture 的完整快照，只能由 Interceptor 打开。下面的独立例子有八条记录，包含 `/e2e/archive-tools/http` 的 HTTP 请求和 `/e2e/archive-tools/websocket` 的消息连接；操作时核对自己的数据，不默认套用 HAR 遮罩。
 
-1. 确认要保存的流量已出现。此图来自本次先完成 HAR 导入后的状态，仍是 `/guide/transfer/order`，不是重新发送的请求；长流等待结束的分支仍待配图。
+1. <a id="walkthrough-10-har-appended"></a><a id="walkthrough-11-archive-options"></a>在 Capture 核对要保留的记录，打开 Export，点击红框 1 的 Save Capture（`.iarchive`）。如果响应仍在接收，先决定是否要等完整内容。
 
-   ![本次 HAR 追加后的实际流量状态](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
+   ![保存 Native Archive · 1](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-020.annotated.png)
 
-2. 打开 Export，选择 Native Archive，阅读保存内容和隐私提示。
+2. 阅读完整快照与敏感数据提示。尚未准备好分享时，点击红框 1 的 Cancel；取消此确认不会保存归档。
 
-   ![实际 Native Archive 导出选项](../media/v0.1.1-alpha.1/transfer/transfer-11-archive-options.png)
+   ![保存 Native Archive · 2](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-021.annotated.png)
 
-3. 在真实系统保存窗口保存 `guide-recording.iarchive`。
+3. 确认需要保存时，再次从 Export 打开该操作，点击红框 1 的 Save Capture。
 
-   ![原生 Save 面板中的 guide-recording.iarchive](../media/v0.1.1-alpha.1/transfer/transfer-12-archive-save-dialog.png)
+   ![保存 Native Archive · 3](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-022.annotated.png)
 
-4. 等待归档任务完成，再保留或分享。
+4. <a id="walkthrough-12-archive-save-dialog"></a>在系统 Save 窗口选择自己的目录，保存为 `ui.iarchive`，不要把它改成 Rules 或 Collection 的 JSON 文件。
 
-   ![本次原生归档保存完成](../media/v0.1.1-alpha.1/transfer/transfer-13-archive-complete.png)
+   ![保存 Native Archive · 4](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-023.png)
 
-**预期结果**：保存 Interceptor 的原生流量记录及引用的正文，包括 HAR 无法完整表达的部分信息。
+5. <a id="walkthrough-13-archive-complete"></a>等待保存完成再保留或分享文件。返回 Capture 不会自动清空原记录；记录仍在可以继续检查。
 
-**关键说明**
+   ![保存 Native Archive · 5](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-024.png)
 
-- 原生归档包含敏感原始数据，不默认套用 HAR 的遮罩选项。
-- 它可以保留规则命中关联，但不是完整 Rules 配置或历史规则定义的备份。
-- 格式使用当前实现的归档结构，不承诺所有旧版或未来版本之间迁移兼容。
-- 当前归档不支持 ZIP64；文件很大时不能以“压缩容器可打开”推断产品一定支持。
-- 保存时的流量尚未完整结束，就不要把快照当作未来所有字节的备份。
+- 归档包含未遮罩的原始数据，分享前单独检查。
+- 规则命中关联不等于完整 Rules 配置备份。
+- 不承诺任意旧版或未来版本迁移兼容；当前格式不支持 ZIP64。
+- 长连接尚未结束时的快照不包含未来才到达的字节。
+
 
 <a id="import"></a>
 ## 重新打开 HAR 或原生归档
 
-**前提**：使用可信文件。第一次练习，先通过上面的产品 Export 生成自己的示例文件。
+使用自己已通过产品 Export 保存的可信文件。HAR 与 Archive 下面分别演示，按各自当前列表和文件记录数核对；导入会追加，不会重新向源站发送请求，也不要求先 Clear。
 
-**步骤**
+1. <a id="walkthrough-07-import-menu"></a><a id="walkthrough-transfer-scopes-import-01-menu"></a>导入 HAR 时，在 Capture 打开 Import，点击红框 1 的 Import HAR。
 
-1. 保留当前需要的数据；导入不要求先 Clear。
+   ![重新打开 HAR 或原生归档 · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-032.annotated.png)
 
-   本次 HAR 输入就是上面产品刚导出的 `guide-recording.har`，先确认保存完成：
+2. <a id="walkthrough-08-import-har"></a><a id="walkthrough-09-har-open-dialog"></a><a id="walkthrough-transfer-scopes-import-02-har"></a><a id="walkthrough-transfer-scopes-import-03-open"></a>点击红框 1 的 Import HAR，在系统 Open 窗口选择上节保存的 `ui.har`，不要选择 `.iarchive` 或配置 JSON。
 
-   ![作为输入的 HAR 已实际保存](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+   ![重新打开 HAR 或原生归档 · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-033.annotated.png)
 
-2. 打开 Import 菜单。
+3. <a id="walkthrough-transfer-scopes-import-04-complete"></a><a id="walkthrough-transfer-scopes-import-05-all"></a>等待导入完成。本例原有四条，`ui.har` 的四条追加后共八条；红框 1 是新增的 binary 记录，但还未选中，右侧仍是先前的 text 内容。不要把旧详情误认为新导入行的正文。
 
-   ![实际 Import 菜单](../media/v0.1.1-alpha.1/transfer/transfer-07-import-menu.png)
+   ![重新打开 HAR 或原生归档 · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-035.annotated.png)
 
-3. 选择 HAR 导入，不拿 Rules/Collection JSON 混用。
+4. 选中新增的 `/e2e/har-tools/binary`，打开 Request，点击红框 1 的 Copy 核对完整 `HAR request body`，共 `16 B`。路径叫 binary 不代表请求正文也是二进制。
 
-   ![选择 HAR 的实际入口](../media/v0.1.1-alpha.1/transfer/transfer-08-import-har.png)
+   ![重新打开 HAR 或原生归档 · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-036.annotated.png)
 
-4. 在真实系统打开窗口选择同一个 `guide-recording.har`。
+5. 切到同一记录的 Response，用 Hex 核对六个字节 `00 01 7f 80 fe ff`；红框 1 的 Copy 复制当前正文显示。它与上一张图的请求是两个不同方向。
 
-   ![原生 Open 面板中的同一个 HAR](../media/v0.1.1-alpha.1/transfer/transfer-09-har-open-dialog.png)
+   ![重新打开 HAR 或原生归档 · 5](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-037.annotated.png)
 
-5. 阅读实际进度、警告及产品提供的确认，再等成功，检查记录追加。不要预设每种格式都有 Rules 式预览；错误、取消或有损警告分支仍待配图。
+6. 再选新增的 `/e2e/har-tools/text`。第一张图红框 1 的 Request Copy 对应 `HAR request body`（`16 B`）；第二张图红框 1 的 Response Copy 对应 `HAR response body`（`17 B`），分别核对，不仅比较记录数量。
 
-   ![HAR 导入后的真实追加记录](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
+   ![重新打开 HAR 或原生归档 · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-038.annotated.png)
 
-6. 若要按本次图文练习归档恢复，先完成上节 Native Archive 保存，再 Clear 不需保留的演示记录。此清空只为展示恢复，不是导入前提。
+   ![重新打开 HAR 或原生归档 · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.annotated.png)
 
-   ![已保存归档后清空演示记录](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
+7. 阅读导入警告。文件中没有的协议细节或已经移除的正文不会凭空恢复；有失败或取消时，不把部分进度当作完整导入。
 
-7. 选择 Import Native Archive。
+8. <a id="walkthrough-14-clear"></a>导入不需要空列表。若想从空 Capture 打开归档，先保存仍需保留的记录，再通过 Capture Clear 清理，并等待清理完成。
 
-   ![实际原生归档导入入口](../media/v0.1.1-alpha.1/transfer/transfer-15-archive-import.png)
+9. <a id="walkthrough-15-archive-import"></a>下面独立打开刚保存的 `ui.iarchive`。当前列表仍有八条原记录；从 Import 点击红框 1 的 Open Capture（`.iarchive`）。
 
-8. 在真实打开窗口选择刚导出的 `guide-recording.iarchive`。
+   ![重新打开 HAR 或原生归档 · 9](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-025.annotated.png)
 
-   ![原生 Open 面板中的同一个归档](../media/v0.1.1-alpha.1/transfer/transfer-16-archive-open-dialog.png)
+10. <a id="walkthrough-16-archive-open-dialog"></a>阅读提示，点击红框 1 的 Open Capture，在系统窗口选择同一个 `ui.iarchive` 并确认 Open。
 
-9. 等待成功后，选中恢复记录并打开正文，核对 `guide-001` 与 `Hello Interceptor`。
+    ![重新打开 HAR 或原生归档 · 10](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-026.annotated.png)
 
-   ![实际恢复的请求与 JSON 正文](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
+11. <a id="walkthrough-17-restored"></a>等待完成。八条归档记录追加到原来的八条之后，本例共十六条；原记录不被同名内容覆盖。
 
-**预期结果**：记录追加到当前 Capture，导入本身不把这些请求重新发送到网络。
+    ![重新打开 HAR 或原生归档 · 11](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-028.png)
 
-**关键说明**
+12. 选中导入的 HTTP 记录，打开红框 1 的 Response，核对完整 `archive-response-payload`。它是文本响应，不是前面其他例子的 JSON。
 
-- 同一文件重复导入不是增量同步，可能得到多份记录。
-- HAR 缺失的协议信息不会在导入时凭空恢复。
-- 失败或取消时，不能用部分进度推断已经完整导入；以最终结果和列表为准。
-- 只导入文件不要求用隐藏的录制状态制造新流量；暂停或取消代理就绪与文件阅读是不同事情。
-- 未知来源的归档可能非常大，不自动解压或打开不可信材料来“试一下”。
+    ![重新打开 HAR 或原生归档 · 12](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-029.annotated.png)
+
+13. 再打开导入的 WebSocket 记录，选择红框 1 的消息，核对 `archive-websocket-payload` 与发送方向。打开归档只恢复可查看的历史，不重新建立那条连接。
+
+    ![重新打开 HAR 或原生归档 · 13](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-030.annotated.png)
+
+重复导入同一文件可能继续产生副本，不是增量同步。未知来源文件可能很大或包含敏感数据；先确认来源，不为试一下而自动打开或解压。读取文件与 Recording 是不同操作。
+
 
 <a id="body"></a>
 ## 单独保存正文
 
-**步骤**
+Save body 保存已捕获的完整存储字节，不以屏幕上的只读预览替代文件。本例是 GET `/e2e/body-preview/four-byte` 的 UTF-8 响应，总长 `2097166` 字节，即 `2 MiB + 14`；它不是前面的 HAR 或归档文件。
 
-1. 选中本次恢复的 `/guide/transfer/order`，打开 Response；本段是 JSON 响应，不是 WebSocket/gRPC 消息导出。
+1. 在 Capture 选中自己的记录并打开 Request、Response 或对应消息正文。本例保存 Response，先确认不是在保存另一方向或另一条记录。
 
-   ![要保存的实际响应正文](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
+2. 存在 Original/Final 时，先选要保留的版本。本例没有双版本对照；规则改写后的独立保存步骤见[原始与最终正文](rules.md#effects)。
 
-2. 若有 Original/Final 选择，先确定要保存哪一份。
+3. <a id="walkthrough-18-body-save-dialog"></a>点击正文工具栏的 Save，在系统窗口选择目录并保存为 `utf8-full-body.txt`。文件名和位置由你选择，不把 Copy 当作保存完整正文。
 
-   本次普通 JSON 没有双版本对照。另见[真实版本切换与保存](capture.md#区分原始内容与规则修改结果)：独立的 `/guide/response-evidence/request-body` 从 Original 切到 Final，并保存 `guide-final.json`；不要把它与本段的 `guide-response.json` 混为同一个文件。
+   ![单独保存正文 · 3](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
 
-3. 使用 Save body，在真实保存窗口填写 `guide-response.json`。
+4. <a id="walkthrough-19-body-complete"></a>等待保存完成，再用适合该格式的工具检查文件。本例完整文件为 `2097166` 字节，末尾仍有 `🙂after-preview`，即使屏幕预览已经截断。下图是关闭详情后回到 Capture，不是正文内容或永久完成标志。
 
-   ![实际保存单独正文的原生面板](../media/v0.1.1-alpha.1/transfer/transfer-18-body-save-dialog.png)
+   ![单独保存正文 · 4](../media/v0.1.1-alpha.1/capture-body-save-english/step-050.png)
 
-4. 等待完成，用适合 JSON 的工具核对 `{"orderId":"guide-001","message":"Hello Interceptor"}`。
+- 网络中断前未收到的字节不能靠导出恢复。
+- 存储内容可能仍包含线上编码；保存文件不保证是可直接阅读的明文。
+- 音视频、未知二进制或超限图片可以只显示元信息与 Save，不代表 App 会内部播放。
+- Copy 可能只复制预览或格式化显示；完整数据使用 Save body。
 
-   ![实际完整正文保存检查点](../media/v0.1.1-alpha.1/transfer/transfer-19-body-complete.png)
-
-**预期结果**：保存该正文实际捕获的完整存储字节，不以 `2 MiB` 只读预览代替整个文件。
-
-**关键说明**
-
-- 网络中断前没有收到的字节无法靠导出恢复。
-- 存储字节可能仍包含线上内容编码；文件不是必然可直接按明文阅读的“屏幕文本”。
-- 音视频和超限图片可以只显示元信息与保存入口，不代表产品会在内部播放它们。
-- Copy 与 Save body 不同，前者可能只复制当前预览或格式化显示。
 
 <a id="jobs"></a>
 ## 进度、取消与退出
 
-**步骤**
+大任务通常有可观察的进度；小文件可能很快完成。取消运行中的任务与取消尚未开始的 Save 窗口不是同一操作。本例使用一条 `128 MiB` 二进制响应，不含个人流量。
 
-1. 导入或导出后观察任务状态，不以弹窗已打开或开始计数作为成功。
+1. <a id="walkthrough-transfer-cancel"></a><a id="walkthrough-transfer-cancel-01-source"></a>在 Capture 确认红框 1 的 `/e2e/transfer-jobs/large-source` 已收完。只选择你允许保存和删除的测试数据。
 
-   下图是本次 HAR 的完成状态，不是任务仍在进行：
+   ![进度、取消与退出 · 1](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-004.annotated.png)
 
-   ![确认实际文件任务完成](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+2. <a id="walkthrough-transfer-cancel-02-export-menu"></a>打开 Export，选择红框 1 的 Save Capture，开始原生归档流程。
 
-2. 不再需要时使用任务的 Cancel，等待最终状态。
+   ![进度、取消与退出 · 2](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-016.annotated.png)
 
-   [归档取消实录](#walkthrough-transfer-cancel)使用自有`/guide/transfer-cancel/large-source`的128MiB响应。选择`guide-cancel.iarchive`后，先检查真实running进度，再点击任务Cancel，不是取消原生Save面板。
+3. <a id="walkthrough-transfer-cancel-03-archive"></a><a id="walkthrough-transfer-cancel-04-save-dialog"></a>阅读提示，点击红框 1 的 Save Capture，在系统窗口保存为 `cancel-ui.iarchive`。系统窗口中的 Cancel 只取消选文件阶段，不是下面的运行中任务取消。
 
-   ![真正运行中的归档进度和取消入口](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+   ![进度、取消与退出 · 3](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-017.annotated.png)
 
-   ![真实Cancel之后返回保留原记录的Capture](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
+   ![进度、取消与退出 · 3](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-018.png)
 
-3. 若任务已经完成，不把迟到的取消当作撤销；自行按需要管理已保存文件。
+4. <a id="walkthrough-transfer-cancel-05-running"></a><a id="walkthrough-transfer-cancel-06-cancel"></a>任务显示 Exporting archive 且仍在运行时，点击红框 1 的 Cancel transfer。进度里的 `1 of 2 files` 是归档处理进度，不是两条 Capture 记录。
 
-   **待配图**：迟到取消竞态与已保存文件管理没有单独录制。
+   ![进度、取消与退出 · 4](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-019.annotated.png)
 
-4. 需要 Clear 或关闭 App 时，先等待有关任务及取消清理完成。
+5. <a id="walkthrough-transfer-cancel-07-cleaned"></a>等待取消与临时文件清理完成；UI 取消会关闭进度窗口，原 Capture 记录仍在。红框 1 的 Clear 是后续独立清理入口，不能用它代替 Cancel transfer。
 
-   在同一取消实录中，[等待清理完成](#walkthrough-transfer-cancel-07-cleaned)后确认没有正式归档或部分文件，原始记录仍在；随后才Clear，暂停状态保持。运行中通过其他入口触发Clear拒绝和带任务退出仍有独立缺口，不将此处扩成通过。
+   ![进度、取消与退出 · 5](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-020.annotated.png)
 
-   ![取消清理完成后原记录仍保留](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+6. <a id="walkthrough-transfer-cancel-08-clear"></a>确认不再需要这条记录后才 Clear，检查列表清空。需要继续保留记录时不执行这一步；正常退出前同样先等待任务清理。
 
-   ![清理完成后实际Clear](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
+   ![进度、取消与退出 · 6](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-021.png)
 
-**预期结果**：取消过程显式结束，失败保持为失败，已经提交成功的保存保持为完成。
+- 任务已经完成时，迟到的 Cancel 不是撤销，不应删除正式保存的文件。
+- Capture Clear 不会替你取消其他文件任务，也不删除已导出文件。
+- 任务运行或清理期间 Clear 可能被拒绝；不要强制调用禁用操作。
+- Agent/MCP 返回已启动只表示任务被接受，继续查询终态；Stop 对话不自动取消已经启动的文件任务。
 
-**关键说明**
-
-- Capture 文件任务运行或清理期间可能拒绝 Clear，避免删除仍被读取的数据。
-- Clear 不会帮你取消另一个文件任务，也不删除已导出的文件。
-- 取消不是瞬间回滚；任务跨过最终保存点后，不应因稍晚的 Cancel 删除正式文件。
-- Agent/MCP 返回“已启动”只代表任务被接受。继续用任务查询确认完成；停止一轮 AI 对话不等于取消一个已经启动的文件任务。
 
 <a id="config-files"></a>
 ## 交换 Rules 和 Collection
 
-这里引用两次独立录制，不把一种文件交给另一功能：Rules 使用 `guide-rules.json`，Composer 使用 `guide-collection.json`。
+Rules 与 Collection 是两种不同的 JSON 文件。下面分别使用 `rules-roundtrip.json` 和 `collection-roundtrip.json`，均先从对应功能 Export，再由同一功能 Import，不混用入口。
 
-1. 在对应功能 Export，通过其真实保存面板生成文件。
+1. 在 Rules 检查自己的树后点击 Export rules，保存 `rules-roundtrip.json`。本例两条规则、一个目录，其中一条规则启用；导出不会替你应用未保存的编辑。
 
-   ![Rules 保存 guide-rules.json](../media/v0.1.1-alpha.1/rules-organization/rules-organization-11-export.png)
+   ![交换 Rules 和 Collection · 1](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
 
-   ![Composer 保存 guide-collection.json](../media/v0.1.1-alpha.1/composer-editing/composer-editing-25-export.png)
+2. 在 Composer 通过 Collection 工具栏 Export，另存 `collection-roundtrip.json`。本例有两个请求和一个目录；导出不会发送这些请求。
 
-2. 用同一功能 Import，在真实打开面板选择刚生成的同一个文件。
+   ![交换 Rules 和 Collection · 2](../media/v0.1.1-alpha.1/composer-import-english/step-021.png)
 
-   ![Rules 选择刚导出的规则文件](../media/v0.1.1-alpha.1/rules-organization/rules-organization-13-import-file.png)
+3. 回到 Rules 点击 Import rules，选择刚保存的规则文件。核对 Rules `2`、Folders `1`、Enabled `1`、Skipped `0`。红框 1 的 Cancel 取消导入，红框 2 的 Import 2 rules 会追加并保存，其中启用规则可能立即影响后续流量。
 
-   ![Composer 选择刚导出的集合文件](../media/v0.1.1-alpha.1/composer-editing/composer-editing-27-import.png)
+   ![交换 Rules 和 Collection · 3](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.annotated.png)
 
-3. 阅读各自预览的数量、跳过项和影响；Rules 额外注意已启用规则。
+4. 先点击 Cancel，确认原规则树没有增加节点。取消的是预览，不会删除已经导出的文件。
 
-   ![Rules 真实导入预览](../media/v0.1.1-alpha.1/rules-organization/rules-organization-14-preview.png)
+   ![交换 Rules 和 Collection · 4](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
-   ![Collection 真实导入预览](../media/v0.1.1-alpha.1/composer-editing/composer-editing-28-preview.png)
+5. 再次 Import 同一个规则文件，确认后检查新增节点追加在原树之后，不按名称覆盖。本例变为四条规则、两个目录和两条启用规则；不需要再点一次 Save。
 
-4. 不接受时取消。Rules 实拍先取消并保留原树；[Collection 的独立管理实录](composer.md#walkthrough-composer-collection)也已展示预览取消，本段 `composer-editing` 则仍是直接确认的那次操作。
+   ![交换 Rules 和 Collection · 5](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-011.png)
 
-   ![Rules 实际取消预览](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
+6. 到 Composer 的 Collection 点击 Import，选择 `collection-roundtrip.json`。红框 1 是待导入内容，红框 2 是 Cancel；核对请求、目录和警告，不把规则文件交给这个入口。
 
-5. Rules 练习若继续，重新选择同一个 `guide-rules.json`；Collection 实拍则直接从其预览继续。
+   ![交换 Rules 和 Collection · 6](../media/v0.1.1-alpha.1/composer-import-english/step-025.annotated.png)
 
-   ![Rules 再次选择同一个文件](../media/v0.1.1-alpha.1/rules-organization/rules-organization-16-import-again.png)
+7. 点击 Cancel 后核对原 Collection 和当前打开请求仍保持原样。取消不追加，也不触发 Send。
 
-6. 确认后分别检查追加结果，不覆盖原项目。
+   ![交换 Rules 和 Collection · 7](../media/v0.1.1-alpha.1/composer-import-english/step-026.png)
 
-   ![Rules 确认追加](../media/v0.1.1-alpha.1/rules-organization/rules-organization-17-confirm.png)
+8. 再次选择同一集合文件，检查红框 1 的预览，再点击红框 2 的确认按钮。
 
-   ![Collection 确认追加](../media/v0.1.1-alpha.1/composer-editing/composer-editing-29-confirm.png)
+   ![交换 Rules 和 Collection · 8](../media/v0.1.1-alpha.1/composer-import-english/step-028.annotated.png)
 
-**预期结果**：以新的本地身份追加内容，不按名称覆盖已有项目。
+9. 展开红框 1 的新目录，核对原集合仍在，新内容追加而非覆盖。
 
-**关键说明**
+   ![交换 Rules 和 Collection · 9](../media/v0.1.1-alpha.1/composer-import-english/step-029.annotated.png)
 
-- Rules 导入保留文件中的启用状态，确认后启用规则可能立即作用于后续流量。
-- Collection 导入不自动 Send。
-- Rules UI 导出当前草稿，Rules Tool 导出已保存配置；先确认是否需要 Apply。
-- 两种文件都可能有认证、目标地址、正文或本地路径，分享前检查。详见 [Rules](rules.md#import-export) 与 [Composer](composer.md#导出和导入-collection)。
+10. 选择红框 1 的导入请求，核对红框 2 的 URL 以及 Header、Query、Body、Auth。只有明确点击 Send 才发送，不把导入成功当作请求已经执行。
+
+    ![交换 Rules 和 Collection · 10](../media/v0.1.1-alpha.1/composer-import-english/step-030.annotated.png)
+
+Rules UI 导出当前编辑树，Rules Tool 导出已保存配置；按需要先 Save。重复导入会继续追加，启用规则可能重复命中。两种文件都可能包含凭据、地址、正文或路径，分享前检查。完整流程见[Rules](rules.md#import-export)和[Composer](composer.md#导出和导入-collection)。
+
 
 <a id="privacy"></a>
 ## 分享前的隐私检查
 
-**步骤**
+只分享复现问题所需的数据，不因为选择了某个导出格式就假定已经匿名化。
 
-1. 缩小导出范围，只保留复现问题所需的记录。
+1. 先缩小范围。图中红框 1 选择当前一条记录，红框 2 是 Export 1 request；不要无意导出整个会话。
 
-   ![本次只选择当前演示请求](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+   ![分享前的隐私检查 · 1](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-020.annotated.png)
 
-2. HAR 按需要遮罩 Authorization、Cookie，或移除正文。
+2. 按需要遮罩 Authorization、Cookie/Set-Cookie，并选择是否移除正文。确认选项后才点击红框 1 的 Export；这里展示授权和 Cookie 遮罩及 Strip bodies 都开启的导出。
 
-   ![实际 HAR 隐私选项所在位置](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+   ![分享前的隐私检查 · 2](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.annotated.png)
 
-3. 另外检查 URL query、用户名、业务标识、其他 Header、文件内容和本地路径。
+3. 另行检查 URL query、用户名、业务标识、自定义 Header、本地路径及文件内容。默认规则不能识别全部业务敏感字段。
 
-   **待配图**：没有逐字段隐私复核的步骤图；本次公开测试数据不代表任意实际流量都安全。
+4. 检查将要发送的最终文件，而不只检查 App 的选项。原生归档及集合配置尤其应按敏感文件管理。
 
-4. 对要发送的最终文件再检查一次，不只检查导出设置。
-
-   **待配图**：保存完成与格式正确不等于隐私检查通过，没有独立录制最终文件的完整隐私检查。
-
-5. 在工单中说明 App 版本、系统、协议、复现步骤和实际错误，不发送 CA 私钥或模型凭据。
-
-   **待配图**：没有创建或提交工单的录制，也不会为了截图公开凭据。
-
-**预期结果**：分享的是最小、可公开的复现资料。
-
-**关键说明**：遮罩不是对任意业务字段的完整匿名化。原生归档和集合配置尤其应按敏感文件管理；无法确认可公开时，用重新产生的无凭据测试数据替代。
-
-<!-- recorded-walkthrough:transfer-scopes:start -->
-<a id="walkthrough-transfer-scopes"></a>
-## 逐步骤实操：全部、筛选和选中导出范围
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>paths</code> | <code>/guide/export-scopes/filtered-one, /guide/export-scopes/filtered-two, /guide/export-scopes/other</code> |
-| <code>filter</code> | <code>/guide/export-scopes/filtered</code> |
-| <code>selectedPath</code> | <code>/guide/export-scopes/filtered-one</code> |
-| <code>allFile</code> | <code>guide-all.har (3 entries)</code> |
-| <code>filteredFile</code> | <code>guide-filtered.har (2 entries)</code> |
-| <code>selectedFile</code> | <code>guide-selected.har (1 entry)</code> |
-| <code>afterImport</code> | <code>5 total, 4 match the filter</code> |
-| <code>inputSource</code> | <code>Import uses guide-filtered.har created by this same product Export flow</code> |
-
-<a id="walkthrough-transfer-scopes-01-filter"></a>
-### 01 · 搜索filtered，保留两条可见记录
-
-![01 · 搜索filtered，保留两条可见记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png)
-
-<a id="walkthrough-transfer-scopes-02-select"></a>
-### 02 · 选中filtered-one
-
-![02 · 选中filtered-one](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-02-select.png)
-
-<a id="walkthrough-transfer-scopes-all-01-menu"></a>
-### 03 · 打开Export菜单
-
-![03 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-all-02-har"></a>
-### 04 · 选择HAR
-
-![04 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-02-har.png)
-
-<a id="walkthrough-transfer-scopes-all-03-scope"></a>
-### 05 · 全部记录
-
-![05 · 全部记录](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-all-04-save"></a>
-### 06 · 保存guide-all.har
-
-![06 · 保存guide-all.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-04-save.png)
-
-<a id="walkthrough-transfer-scopes-all-05-complete"></a>
-### 07 · 核对保存3条请求
-
-![07 · 核对保存3条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-filtered-01-menu"></a>
-### 08 · 打开Export菜单
-
-![08 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-filtered-02-har"></a>
-### 09 · 选择HAR
-
-![09 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-02-har.png)
-
-<a id="walkthrough-transfer-scopes-filtered-03-scope"></a>
-### 10 · 当前筛选
-
-![10 · 当前筛选](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-filtered-04-save"></a>
-### 11 · 保存guide-filtered.har
-
-![11 · 保存guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-04-save.png)
-
-<a id="walkthrough-transfer-scopes-filtered-05-complete"></a>
-### 12 · 核对保存2条请求
-
-![12 · 核对保存2条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-selected-01-menu"></a>
-### 13 · 打开Export菜单
-
-![13 · 打开Export菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-selected-02-har"></a>
-### 14 · 选择HAR
-
-![14 · 选择HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-02-har.png)
-
-<a id="walkthrough-transfer-scopes-selected-03-scope"></a>
-### 15 · 当前选中
-
-![15 · 当前选中](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-selected-04-save"></a>
-### 16 · 保存guide-selected.har
-
-![16 · 保存guide-selected.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-04-save.png)
-
-<a id="walkthrough-transfer-scopes-selected-05-complete"></a>
-### 17 · 核对保存1条请求
-
-![17 · 核对保存1条请求](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-import-01-menu"></a>
-### 18 · 打开Import菜单
-
-![18 · 打开Import菜单](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-import-02-har"></a>
-### 19 · 选择HAR导入
-
-![19 · 选择HAR导入](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-02-har.png)
-
-<a id="walkthrough-transfer-scopes-import-03-open"></a>
-### 20 · 打开刚导出的guide-filtered.har
-
-![20 · 打开刚导出的guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-03-open.png)
-
-<a id="walkthrough-transfer-scopes-import-04-complete"></a>
-### 21 · 确认仅追加文件中的两条
-
-![21 · 确认仅追加文件中的两条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-04-complete.png)
-
-<a id="walkthrough-transfer-scopes-import-05-all"></a>
-### 22 · 清空搜索查看全部五条
-
-![22 · 清空搜索查看全部五条](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-05-all.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:transfer-scopes:end -->
-
-<!-- recorded-walkthrough:transfer-cancel:start -->
-<a id="walkthrough-transfer-cancel"></a>
-## 逐步骤实操：取消运行中的归档并等待清理
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>path</code> | <code>/guide/transfer-cancel/large-source</code> |
-| <code>responseBytes</code> | <code>134217728</code> |
-| <code>responseSha256</code> | <code>611e09db6a2947d55c5718fc7a7b9885c263fa33ebcea9ea87ff9d20c19d3d9d</code> |
-| <code>archive</code> | <code>guide-cancel.iarchive</code> |
-| <code>cancellation</code> | <code>Cancel clicked while the real archive job was running</code> |
-| <code>result</code> | <code>No archive or partial file remains; source record retained until explicit Clear</code> |
-
-<a id="walkthrough-transfer-cancel-01-source"></a>
-### 01 · 检查已完成的大响应
-
-![01 · 检查已完成的大响应](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png)
-
-<a id="walkthrough-transfer-cancel-02-export-menu"></a>
-### 02 · 打开Export
-
-![02 · 打开Export](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-02-export-menu.png)
-
-<a id="walkthrough-transfer-cancel-03-archive"></a>
-### 03 · 选择Native Archive
-
-![03 · 选择Native Archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-03-archive.png)
-
-<a id="walkthrough-transfer-cancel-04-save-dialog"></a>
-### 04 · 选择guide-cancel.iarchive
-
-![04 · 选择guide-cancel.iarchive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-04-save-dialog.png)
-
-<a id="walkthrough-transfer-cancel-05-running"></a>
-### 05 · 查看真实运行中的进度
-
-![05 · 查看真实运行中的进度](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
-
-<a id="walkthrough-transfer-cancel-06-cancel"></a>
-### 06 · 取消正在运行的归档
-
-![06 · 取消正在运行的归档](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
-
-<a id="walkthrough-transfer-cancel-07-cleaned"></a>
-### 07 · 等待取消清理完成
-
-![07 · 等待取消清理完成](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
-
-<a id="walkthrough-transfer-cancel-08-clear"></a>
-### 08 · 清理完成后再Clear
-
-![08 · 清理完成后再Clear](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:transfer-cancel:end -->
+5. 反馈中写清 App 版本、系统、协议、操作步骤和实际错误；不发送 CA 私钥、模型凭据或 Client 凭据。无法确认可公开时，重新产生无凭据的最小测试数据。

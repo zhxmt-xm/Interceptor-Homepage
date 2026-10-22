@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "chapter": "settings-update-check-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/updates-check.workflow.ts",
+    "manifestSha256": "1e5f1c60d2c07189f117bc60bfb01f29d22cbcd8ef1ef243c4ff1ef3cadbb1d4",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "打开更新设置 / Open update settings (initial)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "检查当前版本并手动Check now / Inspect the current version before Check now (initial, 1)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2875.265625,
+            "y": 1154.6875,
+            "width": 238.734375,
+            "height": 68
+          },
+          "automationId": "settings.updates.check"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (initial, 1)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "检查当前版本并手动Check now / Inspect the current version before Check now (initial, 2)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2875.265625,
+            "y": 1154.6875,
+            "width": 238.734375,
+            "height": 68
+          },
+          "automationId": "settings.updates.check"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (initial, 2)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "打开更新设置 / Open update settings (restarted)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "检查当前版本并手动Check now / Inspect the current version before Check now (restarted, 1)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2875.265625,
+            "y": 1154.6875,
+            "width": 238.734375,
+            "height": 68
+          },
+          "automationId": "settings.updates.check"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (restarted, 1)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "检查当前版本并手动Check now / Inspect the current version before Check now (restarted, 2)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2875.265625,
+            "y": 1154.6875,
+            "width": 238.734375,
+            "height": 68
+          },
+          "automationId": "settings.updates.check"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (restarted, 2)",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237066,
+      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354329,
+      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354329,
+      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237544,
+      "sha256": "fa222a379f7d65cafaf69541164922386149eeed2cf7898d4fd44acd0729f545"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354329,
+      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237066,
+      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237066,
+      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    }
+  ]
+}

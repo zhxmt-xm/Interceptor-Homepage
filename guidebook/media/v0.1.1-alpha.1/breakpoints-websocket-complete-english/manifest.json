@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-websocket-complete-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/websocket-close.workflow.ts",
+    "manifestSha256": "071395ce06e49837db84618c87bc116e94787a3d87d19c9308860c9e375e0f58",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "在Messages打开WebSocket断点设置 / Open WebSocket breakpoint settings from Messages",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3104,
+            "y": 418.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.websocket.breakpoint.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "选择Close帧并准备启用 / Select Close frames before enabling",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2957.078125,
+            "y": 703.921875,
+            "width": 97.71875,
+            "height": 60
+          },
+          "automationId": "capture.websocket.breakpoint.frame.close"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2864.0625,
+            "y": 795.921875,
+            "width": 275.9375,
+            "height": 60
+          },
+          "automationId": "capture.websocket.breakpoint.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "建立真实历史消息，验证38px分隔行和暂停后的内部滚动，而不是裁掉历史内容。 / Create real history frames to verify 38px rows and scrolling while a frame is paused.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "选中挂起的Close帧并读取关闭码 / Select the paused Close frame and inspect its code",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2368,
+            "y": 978.75,
+            "width": 176,
+            "height": 60
+          },
+          "automationId": "breakpoints.close-code"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "已启用按钮的hover必须保留黄色状态，不被共享图标按钮的默认反馈覆盖。 / An armed button keeps its warning appearance on hover instead of inheriting the generic icon feedback.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "暂停行必须由同一层flex负责居中，不以中心坐标或字形像素容差替代布局规则。 / The pause row uses flex centering; geometry and glyph tolerances do not replace the layout contract.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "收起Replacement区域 / Collapse the Replacement section",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    },
+    {
+      "id": "step-008",
+      "title": "只修改关闭码后Forward edited / Forward an edit that changes only the close code",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2368,
+            "y": 978.75,
+            "width": 176,
+            "height": 60
+          },
+          "automationId": "breakpoints.close-code"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2856.078125,
+            "y": 1623.75,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "替换标题由模式控件决定高度，折叠图标不得用30px按钮把它撑高。 / The mode control sets the replacement heading height; the collapse icon must not enlarge it.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "Both中的返回Close仍需单独放行 / Continue the returning Close separately in Both mode",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2705.546875,
+            "y": 1623.75,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "两个Close方向均已处理 / Both Close directions have been resolved",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.png",
+      "rawImage": "step-011.png"
+    },
+    {
+      "id": "step-012",
+      "title": "为Both方向启用Message、Ping和Pong / Enable Message, Ping and Pong in Both directions",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2616,
+            "y": 625.921875,
+            "width": 89.65625,
+            "height": 44
+          },
+          "automationId": "capture.websocket.breakpoint.direction.both"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2864.0625,
+            "y": 795.921875,
+            "width": 275.9375,
+            "height": 60
+          },
+          "automationId": "capture.websocket.breakpoint.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "WebSocket明确使用空Text替换 / Explicitly replace a WebSocket message with empty Text",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2967.8125,
+            "y": 1212.75,
+            "width": 86.1875,
+            "height": 44
+          },
+          "automationId": "breakpoints.replacement.text"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2368,
+            "y": 1302.75,
+            "width": 728,
+            "height": 164
+          },
+          "automationId": "breakpoints.body"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 2856.078125,
+            "y": 1530.71875,
+            "width": 243.921875,
+            "height": 60
+          },
+          "automationId": "breakpoints.execute-edited"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "Both的返回方向仍独立暂停 / The return direction remains independently paused in Both mode",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "单独放行返回方向的消息 / Continue the return-direction message separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2705.546875,
+            "y": 1435.75,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "ping控制帧等待明确放行 / The ping control frame waits for an explicit continue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2745.546875,
+            "y": 1435.75,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "Pong仍需独立放行 / Pong still requires its own Continue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2745.546875,
+            "y": 1435.75,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "依次放行ping和pong后核对客户端 / Verify the client after continuing ping and pong in order",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "停用WebSocket断点后新消息直接通过 / New messages pass directly after WebSocket breakpoints are disabled",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.png",
+      "rawImage": "step-019.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312785,
+      "sha256": "010658345ab54c1db0917bbbfd05c74016d68e13fdd053958e23b234f96ea964"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 222921,
+      "sha256": "668a6aa17c6e2598863efff355150f89904fac642e21f7bb1fcc3d32d9c10f68"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 346598,
+      "sha256": "1cf929d0eea569fdeb52e9f728cc47b8d7359433ce3db82fb78d700589105092"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254540,
+      "sha256": "e02fbc007441535c7d461e1bf4c553ea832b59af1a7ffd5eda07cf98553b73cf"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 311451,
+      "sha256": "c9c26ae8323221f81acc62c8e0e7ded1e620b524f81b32d265a2445b7a4a79bb"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 340866,
+      "sha256": "0e03b6acb8584848b08854a617e49240da38b35e1979a6b944866c1abd0ebefe"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244822,
+      "sha256": "8a68e3094874bc4b7ca06004d43c3fa7831b516269828af285748254b1d0d778"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 340866,
+      "sha256": "0e03b6acb8584848b08854a617e49240da38b35e1979a6b944866c1abd0ebefe"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 340866,
+      "sha256": "0e03b6acb8584848b08854a617e49240da38b35e1979a6b944866c1abd0ebefe"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 348752,
+      "sha256": "e7592f4a8ecd8e89a1c778fb01ffe06269559e3bfddccd35f065fb91122f13b8"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 340603,
+      "sha256": "0dbdafa8b7a20f8ebdc78ca897db69c770fbf9b7ef048c580e9ef6ee36bb5cb5"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 245275,
+      "sha256": "a88ba45e19c811a1181890a871c0fb6d6b51ba38991c1a34eac5f2dd27c2017d"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 343174,
+      "sha256": "390ae3ee2175a33253fd8b53d461a351caf704a255499fcc875a1248d5285a0b"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 343173,
+      "sha256": "fe63cc38f92d4bfb22d0135e63691738d7123bd03c44dfabfd9375247b6c7619"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 246382,
+      "sha256": "fc9a06fcc2ac10d1be7ab7f22d343b1d8990a66f1a7f368ee417f31598f927a2"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314445,
+      "sha256": "ec0cd4e4e94ec019aaaec40ef2a3bca642b26d066ca34ffb55f619ad6125b0df"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 358172,
+      "sha256": "9cd281d9208761b195ca47af9aeb19f8da87583e9da30d2055535847a9aa5dc7"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 260643,
+      "sha256": "0ed8083cd4297f703a3861cd24cd7f6fed545085cecf826947fa8b1c36f5b46c"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 329550,
+      "sha256": "35173f8490ede62235964c1f8c74bd452a3386ceffa737f5a8fc3ff0f070d1f5"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240862,
+      "sha256": "764c1d27f14834a2767c3aa7250b31539c5f32dec744c91d8c2ed9748e706379"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 337585,
+      "sha256": "2a93fb44b882299a0eb004bbad4fc9beb49b62c10627d0ea5b954a3ca8fa0ac6"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 337585,
+      "sha256": "2a93fb44b882299a0eb004bbad4fc9beb49b62c10627d0ea5b954a3ca8fa0ac6"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 242652,
+      "sha256": "cb2248b886e779de021f020013f3e615945d73420016e23671aa2537aab5a7ce"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 355752,
+      "sha256": "e49072fca1fdb452ce15b0b5e12c50011b5bdb4a88a328c03b3dec30888dc6d4"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 257116,
+      "sha256": "1ea1f349b6474e37dd407893edd69f25a57341a611fda9a891c2b144dd3dd22f"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 357018,
+      "sha256": "e6b623d1579663fd0200471e064c9b1922a9064e75919ec45cf5bbef472d3271"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258002,
+      "sha256": "2e48ac9b0e4a742f5c930ffbf45e4a516441bf176b2e3477c5c1733e206a071c"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 300301,
+      "sha256": "5d138370c54b9cd8b87f54fa40b0bfb4717285dc638b6bd1df89e12761b84560"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 321956,
+      "sha256": "92ba5c45e3447eb52d0b3568dff06ea948edbf33f112d61a932a6137d151afd7"
+    }
+  ]
+}

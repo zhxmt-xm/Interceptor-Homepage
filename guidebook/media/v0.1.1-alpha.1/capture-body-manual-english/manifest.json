@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-body-manual-english",
+  "title": {
+    "zh-CN": "大正文手动格式化",
+    "en": "Format a large body manually"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/body-preview-limits.workflow.ts",
+    "test": "capture.body-preview-limits manual uses the approved read and format budget",
+    "run": "2026-10-21T10-01-02-443Z-34fQvO",
+    "testDirectory": "capture-body-preview-limit-6d906-oved-read-and-format-budget-macos",
+    "manifestSha256": "c64f16a09ab4ab00880e814fe14d860fe2b82e2126852d6f1317818ddc6cfeb9",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "打开manual响应并查看Format入口 / Open the manual response and inspect the Format control",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2906,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.format"
+        }
+      ],
+      "bytes": 255954,
+      "sha256": "ff4f97971e5242715a956e4954cbf1ffac2e471b451cd15257cfcc4b00ce9d1b",
+      "rawBytes": 348943,
+      "rawSha256": "2c1551f7353c179f9aef1d9d704e2ae0a46789d048ece2fc8e019186b8294cc8"
+    },
+    {
+      "id": "step-002",
+      "title": "复制manual当前预览并核对长度 / Copy the manual preview and verify its length",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "bytes": 275474,
+      "sha256": "35bf9c438ea2f52f69cad1b8f1af3c57872b61a92fefad2bcd96f96977815701",
+      "rawBytes": 377748,
+      "rawSha256": "c2281ea12539783d6b2fcf3a6e57f8ab8a5ffdffd3af9fd48fab85eb3277552d"
+    },
+    {
+      "id": "step-003",
+      "title": "手动点击Format / Click Format manually",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2906,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.format"
+        }
+      ],
+      "bytes": 273673,
+      "sha256": "1d7d6484490e19dd01ffc9f38bfdb6bc5bbb23d80b7c87237d6dbb70f22b8954",
+      "rawBytes": 372639,
+      "rawSha256": "34581a97c5cbcf761d0285b8465717906d5323935ca0f229d2e9453af611e62a"
+    },
+    {
+      "id": "step-004",
+      "title": "Copy核对格式化后的显示文本 / Copy and verify the formatted display text",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "bytes": 273442,
+      "sha256": "da80bffa14f470cf9b5ac63a2b52795837f50f7309a6c4b0ee65352a28d8c7d5",
+      "rawBytes": 371930,
+      "rawSha256": "50bdeb3e34c2f4afdb39439bbab7c9567a071ee2a32f7cfb54bfbdb095580671"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "chapter": "agent-traffic-control-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/traffic-control.workflow.ts",
+    "manifestSha256": "a0bd34de57c8cdc24c3abc153b8e03092822e1c446dbacba3c01d6417f74aae1",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "用户操作：capture_start_recording在Ask下分别Deny/Allow，再在Auto下无问询执行，Capture toggle始终同步。 / User actions: capture_start_recording is denied and allowed in Ask, then runs without a prompt in Auto while the toggle stays synchronized.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "允许暂停后再继续模型解释 / Approve the pause before continuing the model explanation",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2997.046875,
+            "y": 1381.75,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.stop-after-tool"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "暂停已经完成，Stop只取消仍在生成的解释 / The pause is complete and Stop only cancels the ongoing explanation",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.turn.stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "Stop模型回复不撤销已完成的暂停 / Stopping the model response does not undo a completed pause",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "Retry只解释时不重复执行业务动作 / An explanation-only Retry does not repeat the business action",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "用户操作与业务断言：Allow和Auto都经同一reset清空所有镜像，且清空后Recording继续接收新流量。 / User actions and assertions: Allow and Auto share one reset for every mirror, and Recording accepts new traffic after each clear.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "用户操作：关闭两项后schema和执行均拒绝；保留的row与暂停态证明没有触达业务命令。 / User actions: disabling both removes their schemas and rejects execution; the retained row and paused state prove no business command ran.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 373182,
+      "sha256": "438881f2ad6f2f67828f81234694b7eedec4e0f9212538f47eee62d03ed4fc06"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 400186,
+      "sha256": "918038c6580c44a1be3b6dcb0ff77a8e59e3582953c31b9d5b2550625f5ca0f0"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 284208,
+      "sha256": "a9f9c15fb0043e3d151ac74bc0b55243604986d05e265a440cbcdb7a93870241"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 390881,
+      "sha256": "700efdb3f7616e29702938a41b70b8f9ff9f9efe276017af92848c94b2226542"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 277240,
+      "sha256": "4ccfb3f74c22f5fb94090acc9a29840dd4500099b5cf3d42c895c687d8fa82ea"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 400763,
+      "sha256": "35291e8a919d11afba0f56d83fec0750cad159985bfdbc388519122ba57a677b"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 390556,
+      "sha256": "53526b05b4b5b9c08fe1a588b236106eec1d52bef1708c3c766a29e07c236f99"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 397533,
+      "sha256": "1ba0d7d129ed03ce425dbc1112ff36ed9c8a1e7d41f510012469c1c90ed98659"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 535621,
+      "sha256": "bd36b370dd40058b4812fcf5c38a3506e16749f3dfaf6e90b3d10acd0189adf4"
+    }
+  ]
+}

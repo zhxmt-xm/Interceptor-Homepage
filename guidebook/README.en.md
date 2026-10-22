@@ -1,7 +1,5 @@
 # Interceptor User Guide
 
-> English draft for `v0.1.1-alpha.1`. Every operating step requires a matching real screenshot and consistent example data before it can be accepted. Release walkthroughs and step images are still being completed. The website is not yet publicly deployed, and the App does not embed it yet.
-
 Interceptor is a desktop HTTP(S) debugging proxy. Start with the task you want to accomplish; you do not need to read source code, test scripts or use an AI agent.
 
 ## First use
@@ -48,11 +46,11 @@ AI is optional. Capture, Composer, Rules and Breakpoints do not require a model 
 | Networking fails after quitting | [Proxy recovery](en/troubleshooting.md#proxy-recovery) |
 
 <a id="walkthroughs"></a>
-## Step-by-step image index
+## Operation index
 
-These links open real product step images and matching values in the same chapter. Images retain the actual App version and language; branches not shown, other platforms and first-time system authorization are not automatically accepted.
+Choose the operation you want to carry out and follow its numbered instructions.
 
-| Operation | Recording |
+| Operation | Instructions |
 | --- | --- |
 | Workspaces and themes | [Workspace](en/workspace.md#walkthrough) |
 | Recording, bodies, HTTP/2, WebSocket and gRPC | [Capture](en/capture.md#walkthrough) |
@@ -114,7 +112,7 @@ These links open real product step images and matching values in the same chapte
 | Settings: actual Check and its failure state | [Update check](en/settings.md#walkthrough-settings-update-check) |
 | Diagnostics: actual failures, history, filters and JSONL | [Diagnostic investigation](en/diagnostics.md#walkthrough-diagnostics-lifecycle) |
 | Agent: models, Chat management and capability enforcement | [Management](en/agent.md#walkthrough-agent-management) |
-| Agent: removing the only remaining model and becoming unconfigured | [Final model removal (native excerpt)](en/agent.md#walkthrough-agent-model-removal) |
+| Agent: removing the only remaining model and becoming unconfigured | [Remove the final model](en/agent.md#walkthrough-agent-model-removal) |
 | Agent: keyboard, Context, new Chats and running deletion | [Sessions](en/agent.md#walkthrough-agent-session-lifecycle) |
 | Agent: actual restart, restored history and final-model removal | [Restart and history](en/agent.md#walkthrough-agent-session-restart) |
 | Agent: completed Tools, Stop, Retry and native file approval | [Tool lifecycle](en/agent.md#walkthrough-agent-tool-lifecycle) |
@@ -122,20 +120,3 @@ These links open real product step images and matching values in the same chapte
 | MCP: discovery and queries after changing a conflicting endpoint | [Endpoint reconnection](en/mcp.md#walkthrough-mcp-endpoint-reconnect) |
 | Permissions: every read-only switch and actual rejection | [Complete read-only setup](en/tool-permissions.md#walkthrough-tool-permissions-readonly) |
 | Permissions: read-only discovery and queries after restart | [Persistence](en/tool-permissions.md#walkthrough-tool-permissions-restart) |
-
-## Reading conventions
-
-- Names such as Capture, Recording and Headers identify App features. Button text follows the App's current language; you do not need to change that language for the guide.
-- Each procedure states its purpose, prerequisites, actions, observable outcome and limitations.
-- Example names, field names and values are shared by the text and screenshots. Generated IDs, timestamps and dynamic ports are identified rather than silently changed.
-- Use only traffic you are authorized to inspect. `example.com` is a public example; `.test` addresses and example filenames are not ready-made services.
-- Start with plain HTTP, then configure HTTPS. Do not disable system-wide security controls to follow a tutorial.
-- A captured record, a body preview and a completely received response are different facts.
-
-## Versions, media and access
-
-- The Chinese and English drafts cover the same operations. Neither translation nor a working reading page proves the steps have passed release acceptance.
-- Every operating step needs a real screenshot from the stated App version and platform. Design previews and empty images do not count.
-- The guide is maintained only in Homepage. Finish the website first; App integration will later use an online borderless iframe and a browser-open action.
-- Online access requires a reachable website. There is no offline guarantee or private npm dependency for building the App.
-- Capture is temporary. Export important records and review credentials, cookies, URLs, bodies and system identity before sharing.

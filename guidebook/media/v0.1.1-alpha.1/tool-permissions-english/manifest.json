@@ -1,0 +1,929 @@
+{
+  "schemaVersion": 1,
+  "chapter": "tool-permissions-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/settings-capabilities.workflow.ts",
+    "manifestSha256": "1b5a3dbcabf413e3561cb51b3319966120fb0ffeb57036f0486aa1424244d611",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：记录真实产品业务初态，再进入无Provider也必须可用的Tool设置。 / Arrange: record real product state, then open Tool settings that require no Provider.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "业务断言：fresh profile的69行、138个Agent/MCP开关必须全部开启。 / Business assertion: all 138 Agent/MCP switches across 69 fresh-profile rows start enabled.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "搜索Tool并区分Agent与MCP两列 / Search for a Tool and distinguish Agent from MCP",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1076.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "关闭Agent查询权限不会关闭MCP / Disabling Agent query access leaves MCP unchanged",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "只关闭规则替换Tool的MCP权限 / Disable only MCP access to the rule-replacement Tool",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.rules_replace_tree"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.rules_replace_tree"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "用户操作：两列各关闭一项；同一行另一列和其他Tool不得联动。 / User actions: disable one Tool in each column without changing its peer or other Tools.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "搜索只筛选Diagnostics行，不改变权限 / Search filters Diagnostics rows without changing access",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1076.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "清空搜索后逐组检查全部Tool / Clear search to inspect every Tool group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "用户操作：搜索只过滤可见行；清空与Settings往返后关闭状态仍由Main快照恢复。 / User actions: search only filters rows; clearing it and returning to Settings retain Main state.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "重启后Agent查询权限仍关闭 / Agent query access remains disabled after restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "明确恢复Agent查询权限 / Explicitly restore Agent query access",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "重启后MCP规则替换权限仍关闭 / MCP rule-replacement access remains disabled after restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.rules_replace_tree"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "明确恢复MCP规则替换权限 / Explicitly restore MCP rule-replacement access",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.rules_replace_tree"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "只读配置先关闭Agent的Clear权限 / Disable Agent Clear access for read-only configuration",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_clear"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "再独立关闭MCP的Clear权限 / Disable MCP Clear access separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_clear"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1305.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "检查capture分组的只读权限 / Inspect read-only access in the capture group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "检查rules分组的只读权限 / Inspect read-only access in the rules group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "检查composer分组的只读权限 / Inspect read-only access in the composer group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "检查breakpoints分组的只读权限 / Inspect read-only access in the breakpoints group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "检查diagnostics分组的只读权限 / Inspect read-only access in the diagnostics group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "检查settings分组的只读权限 / Inspect read-only access in the settings group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1836,
+            "y": 1084.109375,
+            "width": 386,
+            "height": 42
+          },
+          "automationId": "agent.tools.search"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "全部change关闭后保留需要的query / Retain the required query after disabling all change Tools",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_get_proxy_status"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_get_proxy_status"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "全部change关闭后只能发现query / Only query Tools remain discoverable after all change Tools are disabled",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.png",
+      "rawImage": "step-023.png"
+    },
+    {
+      "id": "step-024",
+      "title": "重启后两列Clear权限仍关闭 / Clear access remains disabled in both columns after restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.annotated.png",
+      "rawImage": "step-024.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_clear"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1313.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-025",
+      "title": "重启后保留完整双列只读权限 / Retain the complete read-only configuration in both columns after restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.png",
+      "rawImage": "step-025.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 368149,
+      "sha256": "5e6adfb1a808877cb06c0958820d86d635b19cbd600a4717148bbdda146197a3"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244492,
+      "sha256": "f42b98cd218aacc86a47a4eb14868b9e39da0a5a0ac1c45878c27cb30c682617"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369015,
+      "sha256": "dc753c688385b47c1802e4a07580fb926e64d60b4b932e5835728960d07e3bc2"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244336,
+      "sha256": "a41e262ea0fd595ecf72e4a0645e33436d23ad22254787c4a5e0092f41c60845"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364629,
+      "sha256": "c415cd1c373cf5edc97b9e8f657ddccd3c8adcee92f45f42404760d9da15195c"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241339,
+      "sha256": "b5c0b82ef1eec46ce6fd40abdedbc31aacfde9159582a9d667ba0bf96fea7b19"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 434621,
+      "sha256": "392bf3d5d341843a11cc77d2422040ddd79fdeb3e64a344592df267899c078cf"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 448768,
+      "sha256": "1496670d174ac78a3bf71fe676f6603eb082d623645ab91af6711ba1552bb108"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 302823,
+      "sha256": "220f7d7de0b2759ebbac715d20ecc4928430127d9e313ee0b08f26c8284cee75"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 434584,
+      "sha256": "5c288bf93cd29e72ecc37d77642e5fb02e434411527ab6c3211602e7eb35c5f6"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 433881,
+      "sha256": "ec561da10e183b8c1d7c3159791f0b70c4ca84504b7ce113c4125e2e20a4b60f"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369988,
+      "sha256": "7bcae26a26e461c2a04171530875a6955c63ed2118692c820c958c980763c456"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244724,
+      "sha256": "6f1f649e562aeafd562f563d70f65b49fe13694a3b320e1c80c045f5e1b9a7a9"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 368892,
+      "sha256": "1ac780615cb6b792669dcbf20e3119acc59612a733957b0ba33da3018a4aab57"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244604,
+      "sha256": "d1afd500fbe6c9b656754da3314d82ae48d9d241206c5553e1d87187ebb13e32"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364890,
+      "sha256": "449c33c20fee215ebaeb139be757bd91e7960069f342ba4a9db2ab4f17b387cc"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241298,
+      "sha256": "cd505fd8d50bea72f5f7ada2444d925771fb31a2bcf7b1110e6847a86015467a"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364661,
+      "sha256": "e186e7dd8dd150f5e5ed925d449ce8a0cd8deaf25572b9e90fafb2120dd00b82"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241447,
+      "sha256": "111ca4272cdb1ceb0392a6f677f4856a4fe3ac673c232a50c43b9b4af2ebf3a6"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364369,
+      "sha256": "0ef5de2932da79f91834345b20a7c1514fd4171c2b2ccee3577fb4e39d278cee"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241025,
+      "sha256": "00bf8baaa80020c048fea6d18bb10ed83253afa7c0a486e29c23f438e0d07f35"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364451,
+      "sha256": "cb2b2ed60948b556fff2b4fd4ccb7bee19e7404f504d6d19db1d9c9a15710fe0"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240609,
+      "sha256": "52b39d1c507db9b9f92fd8a6fa39722a1ba8db380f8d15f6310a4733f05443fd"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 467970,
+      "sha256": "3bf5bf71c3911b59672a3b93d808519ad97961f315bb6404b3ea0ece43ba3983"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314788,
+      "sha256": "92bfa985da3cac250cc6ea1553b780af3158a0da036d6081f59e8a3055eb504a"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 456183,
+      "sha256": "5ea3246f4bd813404a316eec0c70d832627d03423c4dc814efeb24469c093eac"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 306528,
+      "sha256": "b3cfe4e96d644adaf6eda82ac2682eff0275ef0ed31d0570a9d79b4b97c43942"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 476148,
+      "sha256": "614a6b0a0c7846639c630c83e052ba692d3439b4391101fa42b11fe743349dce"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 320201,
+      "sha256": "4d569f4f5de7218c71f1f6343e54f5c10ab0b50c6f963c269b9f28a19e986fad"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 482802,
+      "sha256": "ca899bd03093a9d734601d8ecaa135f89400f143b74d4413ee3b18b09cc5e6e2"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 325208,
+      "sha256": "d3aa4eda6c8775225975366d9ee93e431c8e5fcf503d3bf74ac17a18296e4eeb"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 484032,
+      "sha256": "d648d7957e732f9d7a09addb4e82961ec54bcfd28db1d597b5df9466ef08777e"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 324903,
+      "sha256": "731ee9ebab1fe1ab21202a2ec6845470f7b089588d38849c2bcfa2cd631bdd44"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 492425,
+      "sha256": "89289fd6967e5b28bfc9d8f0caa900e7ae9ad661c922ca05260060b34398d8b0"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 331296,
+      "sha256": "f325cbb6f180e2332426aeb1925e7abaa7a5ba60bffa00b670faf67105c7e811"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 404796,
+      "sha256": "b1d439a92c7636e67069633c26fa3baa7b5f08ddafdd929289f1a9c784050b7a"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 267293,
+      "sha256": "a3282a759d1af48722c642da5a17421d8f45586e1ca78a31bc4779e6ee71476e"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 464780,
+      "sha256": "7a740190c6243423821146ff49c398a097951b135513619cdc3e12420b68b5c3"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379898,
+      "sha256": "bdddabfa730f16632c742f2c79046dec463378a76628ccf159d098a12c0c32a4"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252146,
+      "sha256": "a3ec12a518b108b031ed0fb31096153142584d15b17d2d364349789a35048673"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379914,
+      "sha256": "9e5bb290c695d323376d65683e8637b2898a9e9bb714925d8ce445e961c5fb8d"
+    }
+  ]
+}

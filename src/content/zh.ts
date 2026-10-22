@@ -5,6 +5,17 @@ export const chinese: typeof english = {
   description:
     'Interceptor 是面向 macOS 与 Windows 的 HTTP(S) 调试代理，集流量捕获、规则改写、断点、请求重放与可选 AI 调试于一个工作台。',
   skip: '跳到正文',
+  imagePreview: {
+    close: '关闭图片',
+    error: '图片未能加载。',
+    errorHint: '请检查网络，关闭预览后重新打开。',
+    flipX: '水平翻转',
+    flipY: '垂直翻转',
+    rotateLeft: '向左旋转',
+    rotateRight: '向右旋转',
+    zoomOut: '缩小',
+    zoomIn: '放大',
+  },
   nav: {
     label: '主导航',
     features: '产品能力',
@@ -168,7 +179,7 @@ export const chinese: typeof english = {
     quickBody: '设置代理、检查 HTTPS、找到第一个请求，以及结束后的恢复方式，都在项目 README 中。',
     quickAction: '阅读快速开始',
     guide: '完整使用指南。',
-    guideBody: '中英教程初稿均可阅读。按功能查找操作步骤、真实步骤图和明确的使用限制。',
+    guideBody: '从抓到第一条请求开始，按功能查找操作步骤和对应截图。',
     guideAction: '阅读教程',
     steps: '跟着步骤操作。',
     stepsBody: '按功能查找真实 App 步骤图，核对相同示例值与操作结果。',

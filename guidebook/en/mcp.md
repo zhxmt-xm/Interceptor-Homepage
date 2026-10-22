@@ -1,143 +1,6 @@
 # MCP: connect an external AI host
 
-> Draft for `v0.1.1-alpha.1`; local SDK, credential rotation and both port-conflict paths have real step images. Host-specific configuration still has gaps; neither this chapter nor item9 is complete. Protocol support is not universal host compatibility.
-
 [Guide directory](../README.en.md) · [Permissions](tool-permissions.md) · [Tool reference](tool-reference.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>clientName</code> | <code>Guide local client</code> |
-| <code>endpoint</code> | <code>http://127.0.0.1:65443/mcp</code> |
-| <code>endpointChanged</code> | <code>false</code> |
-| <code>caller</code> | <code>official SDK local demonstration; not a VS Code or cloud-host compatibility claim</code> |
-
-<a id="walkthrough-01-settings"></a>
-### 01 · Open Settings
-
-![01 · Open Settings](../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png)
-
-<a id="walkthrough-02-mcp"></a>
-### 02 · Find MCP Server
-
-![02 · Find MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-02-mcp.png)
-
-<a id="walkthrough-03-enable"></a>
-### 03 · Enable the local MCP Server
-
-![03 · Enable the local MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-03-enable.png)
-
-<a id="walkthrough-04-add-client"></a>
-### 04 · Add a separate Client
-
-![04 · Add a separate Client](../media/v0.1.1-alpha.1/mcp/mcp-04-add-client.png)
-
-<a id="walkthrough-05-name"></a>
-### 05 · Name the Client
-
-![05 · Name the Client](../media/v0.1.1-alpha.1/mcp/mcp-05-name.png)
-
-<a id="walkthrough-06-create"></a>
-### 06 · Create the Client
-
-![06 · Create the Client](../media/v0.1.1-alpha.1/mcp/mcp-06-create.png)
-
-<a id="walkthrough-07-copy"></a>
-### 07 · Copy configuration without displaying credentials
-
-![07 · Copy configuration without displaying credentials](../media/v0.1.1-alpha.1/mcp/mcp-07-copy.png)
-
-<a id="walkthrough-08-query"></a>
-### 08 · Connect the demo client and query
-
-![08 · Connect the demo client and query](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
-
-<a id="walkthrough-09-ask"></a>
-### 09 · Request an operation requiring approval
-
-![09 · Request an operation requiring approval](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
-
-<a id="walkthrough-10-deny"></a>
-### 10 · Deny the operation
-
-![10 · Deny the operation](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
-
-<a id="walkthrough-11-ask-again"></a>
-### 11 · Request again and review effects
-
-![11 · Request again and review effects](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
-
-<a id="walkthrough-12-allow"></a>
-### 12 · Allow pausing Recording
-
-![12 · Allow pausing Recording](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
-
-<a id="walkthrough-13-auto"></a>
-### 13 · Inspect Client Auto mode
-
-![13 · Inspect Client Auto mode](../media/v0.1.1-alpha.1/mcp/mcp-13-auto.png)
-
-<a id="walkthrough-14-ask-mode"></a>
-### 14 · Restore Client Ask
-
-![14 · Restore Client Ask](../media/v0.1.1-alpha.1/mcp/mcp-14-ask-mode.png)
-
-<a id="walkthrough-14a-regenerate-dialog"></a>
-### 15 · Review credential rotation
-
-![15 · Review credential rotation](../media/v0.1.1-alpha.1/mcp/mcp-14a-regenerate-dialog.png)
-
-<a id="walkthrough-14b-regenerate"></a>
-### 16 · Rotate and verify old configuration is rejected
-
-![16 · Rotate and verify old configuration is rejected](../media/v0.1.1-alpha.1/mcp/mcp-14b-regenerate.png)
-
-<a id="walkthrough-14c-update-client"></a>
-### 17 · Copy new configuration and reconnect
-
-![17 · Copy new configuration and reconnect](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
-
-<a id="walkthrough-15-revoke-dialog"></a>
-### 18 · Review Client revocation
-
-![18 · Review Client revocation](../media/v0.1.1-alpha.1/mcp/mcp-15-revoke-dialog.png)
-
-<a id="walkthrough-16-revoke"></a>
-### 19 · Revoke the demo Client
-
-![19 · Revoke the demo Client](../media/v0.1.1-alpha.1/mcp/mcp-16-revoke.png)
-
-<a id="walkthrough-17-disable"></a>
-### 20 · Disable MCP Server
-
-![20 · Disable MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-17-disable.png)
-
-<a id="walkthrough-18-port-conflict"></a>
-### 21 · Observe an endpoint conflict
-
-![21 · Observe an endpoint conflict](../media/v0.1.1-alpha.1/mcp/mcp-18-port-conflict.png)
-
-<a id="walkthrough-19-release-port"></a>
-### 22 · Retry after ending the known port owner
-
-![22 · Retry after ending the known port owner](../media/v0.1.1-alpha.1/mcp/mcp-19-release-port.png)
-
-<a id="walkthrough-20-final-disable"></a>
-### 23 · Finish by disabling the Server
-
-![23 · Finish by disabling the Server](../media/v0.1.1-alpha.1/mcp/mcp-20-final-disable.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="requirements"></a>
 ## Check the prerequisites
@@ -153,450 +16,207 @@ A cloud-originated connector cannot access your computer's `127.0.0.1`. Supporti
 <a id="server"></a>
 ## Enable the server
 
-1. Open Settings.
+MCP Server is separate from the Capture proxy listener. Initial enablement selects an available port; normal later starts reuse the saved port.
 
-   ![Opening Settings](../media/v0.1.1-alpha.1/mcp/mcp-01-settings.png)
+1. <a id="walkthrough"></a><a id="walkthrough-01-settings"></a><a id="walkthrough-02-mcp"></a>Open Settings → Agent and find MCP server. MCP does not require an internal Agent model, and the Server starts disabled.
 
-2. Open Agent, find MCP Server and read protocol support.
+   ![Enable the server · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-001.png)
 
-   ![Actual MCP Server entry before enabling](../media/v0.1.1-alpha.1/mcp/mcp-02-mcp.png)
+2. <a id="walkthrough-03-enable"></a>Enable the switch in box 1 and wait for Running. Box 2 shows this instance’s endpoint, `http://127.0.0.1:57871/mcp`. Use the URL shown in your App rather than treating Capture’s `8888` as an MCP port.
 
-3. Enable, wait for Running and inspect the endpoint. This recording uses `http://127.0.0.1:65443/mcp`; `65443` is recording-assigned, not fixed. Check `127.0.0.1` and `/mcp`, not Capture's `8888`.
+   ![Enable the server · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.annotated.png)
 
-   ![Actually enabled local MCP Server and endpoint](../media/v0.1.1-alpha.1/mcp/mcp-03-enable.png)
+The service listens only on local loopback, not the LAN or public Internet. Normal App exit does not leave an independent MCP Server running.
 
-**Expected result:** first enable selects an available port; later starts retain the saved endpoint.
-
-**Notes:** the service does not listen on LAN/public interfaces or remain as an independent background service after App exit.
 
 <a id="client"></a>
 ## Create one client per host
 
-The caller here is a local official-SDK demonstration, not VS Code, Claude or a cloud host. Its Client is explicitly named `Guide local client`.
+Create a separate Client for each actual Host. This example is named `MCP workflow client`; its label identifies the Client but does not configure the Host automatically.
 
-1. Add a Client in the management area.
+1. <a id="walkthrough-04-add-client"></a>Click Add client in the Clients section to open the Client name dialog. Replace the default label with one that identifies your Host.
 
-   ![Actual Add Client entry](../media/v0.1.1-alpha.1/mcp/mcp-04-add-client.png)
+   ![Create one client per host · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-003.png)
 
-2. Enter `Guide local client`.
+2. <a id="walkthrough-05-name"></a><a id="walkthrough-06-create"></a>Enter `MCP workflow client` in box 1 and click Create client in box 2. The new Client starts in Ask and has an independent credential rather than sharing another Host’s identity.
 
-   ![Entering the recorded Client name](../media/v0.1.1-alpha.1/mcp/mcp-05-name.png)
+   ![Create one client per host · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-004.annotated.png)
 
-3. Create the Client and keep Ask initially.
+   ![Create one client per host · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-005.png)
 
-   ![New independent Client](../media/v0.1.1-alpha.1/mcp/mcp-06-create.png)
+3. <a id="walkthrough-07-copy"></a>Use the copy button in box 1 of the Client row to place its connection configuration on the clipboard. It contains authentication data; do not paste it into chat, commit it to a project or publish it in screenshots.
 
-4. Copy configuration through the product action without exposing its authentication fields.
+   ![Create one client per host · 3](../media/v0.1.1-alpha.1/mcp-streamable-english/step-006.annotated.png)
 
-   ![Actually copying configuration without displaying credentials](../media/v0.1.1-alpha.1/mcp/mcp-07-copy.png)
+4. Add an HTTP Server in your Host’s user-level MCP configuration using its required format, endpoint and authentication fields. Outer configuration formats vary, and a cloud connector without access to your machine cannot use its loopback URL.
 
-5. In the real host's user-level settings, add an HTTP server using the copied endpoint/authentication fields in its required format.
+5. <a id="walkthrough-08-query"></a>Connect from the Host, refresh its Tool list and first call the read-only `capture_get_proxy_status`. Inspect the returned result in the Host. The App retains this Client configuration; a successful copy alone does not prove authentication or querying succeeded.
 
-   **Image pending / blocked:** the SDK demonstration has no commercial host settings page. App copy success is not host configuration success.
+   ![Create one client per host · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-009.png)
 
-6. Connect, discover tools and perform a read-only proxy-status query. This is the actual local SDK checkpoint; real host discovery UI remains image pending.
+6. To control query access, search Tool capabilities for `capture_get_proxy_status`. Box 1 is the MCP switch; box 2 is the independent Agent switch. Disabling MCP makes this Tool unavailable until explicitly enabled again.
 
-   ![Actual local SDK connection and query result](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
+   ![Create one client per host · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-007.annotated.png)
 
-**Expected result:** the host can use enabled tools through its own client identity.
+   ![Create one client per host · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
-**Notes**
+- Keep the configuration in the Host’s secure user-level location, outside the project and Settings Sync.
+- Use separate Clients for separate Hosts instead of sharing a credential.
+- The Host’s model account is independent of Interceptor’s internal Agent configuration.
 
-- The copied snippet is not necessarily the entire configuration file for every host.
-- It contains credentials. Keep it in user-level secure configuration, not a project, chat, public screenshot or Settings Sync.
-- Copy success and successful authentication are distinct.
-- Independent hosts should not share a client identity and credentials.
 
 <a id="approval"></a>
 ## Request a change from the host
 
-1. Check the Tool is enabled in the MCP column, not merely Agent. This example already has `capture_stop_recording` enabled and does not toggle it again.
+<a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a><a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a><a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a><a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a><a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
+Enable the required Tool in the MCP column of Tool capabilities. This example uses `capture_stop_recording`, which pauses new recording without clearing Capture or restoring the system proxy.
 
-   ![Checking separate MCP permission for capture_stop_recording](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
+1. <a id="walkthrough-mcp-tool-lifecycle"></a><a id="walkthrough-mcp-tool-lifecycle-01-client"></a><a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a><a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>Keep the Client in Ask and request a pause from the Host. Review the Client name, Tool, arguments and effect in the App’s MCP approval dialog.
 
-2. Ask `Guide local client` to pause new recording. In Ask, inspect caller, Tool, arguments and effects in the App. This is the SDK caller, not a commercial host conversation.
+   ![Request a change from the host · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-010.png)
 
-   ![Actual Ask approval for an external Pause call](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
+2. <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>Cancelling that call in the Host dismisses its approval while retaining the previous Recording state. Cancelling one call is different from disconnecting the entire Host.
 
-3. Deny the first call.
+   ![Request a change from the host · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-011.png)
 
-   ![Actually denied call](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
+3. <a id="walkthrough-09-ask"></a><a id="walkthrough-10-deny"></a>Request it again and review the new approval. Deny Tool call in box 1 refuses execution; Allow Tool call in box 2 permits it. Choosing Deny first leaves Recording active.
 
-4. Request again and inspect the new approval rather than reusing the old decision.
+   ![Request a change from the host · 3](../media/v0.1.1-alpha.1/mcp-streamable-english/step-012.annotated.png)
 
-   ![Independent approval for the second call](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
+4. <a id="walkthrough-11-ask-again"></a>For another call, review the request and choose Allow Tool call in box 1. The earlier denial does not decide this new request.
 
-5. Allow and inspect the call result and product Recording state.
+   ![Request a change from the host · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-013.annotated.png)
 
-   ![Recording actually paused after MCP Allow](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
+5. <a id="walkthrough-12-allow"></a>Return to Capture and verify Paused in box 1, then inspect the result in the Host. Do not infer state from a model saying “done”.
 
-6. Other operations may still need native file/system prompts before success.
+   ![Request a change from the host · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-014.annotated.png)
 
-   The [MCP export recording](#walkthrough-mcp-tool-lifecycle-08-export-ask) actually calls `diagnostics_export`, showing Deny, Allow followed by native Save cancellation, saving again and querying completion. It does not reuse manual Export or claim Windows authorization.
+6. <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>Select Auto in box 1 for this Client only when automatic execution is intended. It skips per-call App approval for enabled change Tools, not Tool permissions, and does not change an internal Agent Chat’s mode.
 
-   ![MCP Allow still opens a native Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
+   ![Request a change from the host · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-015.annotated.png)
 
-**Expected result:** the App enforces its own authorization even if the external host considers the operation approved.
+7. <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a><a id="walkthrough-mcp-tool-lifecycle-06-recent"></a><a id="walkthrough-mcp-tool-lifecycle-07-trace"></a><a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a><a id="walkthrough-mcp-tool-lifecycle-09-deny"></a><a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a><a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a><a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a><a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a><a id="walkthrough-mcp-tool-lifecycle-14-save"></a><a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a><a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>File Tools still require the system dialog. In this example, the separate `Diagnostics transfer MCP` Client requests `diagnostics_export`: choose Allow Tool call in box 1, then save `mcp.jsonl`. Cancel starts no export. Check the job and actual file afterward.
 
-**Notes:** a host can also have its own approval layer. Auto skips per-call App approval for enabled change tools, not native file dialogs or UAC.
+   ![Request a change from the host · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+
+   ![Request a change from the host · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
+
+8. After the pause example, resume Recording in Capture when needed. Check the MCP connection, Client mode and Recording independently.
+
+   ![Request a change from the host · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-016.png)
+
+A Host may also require its own approval, separately from Interceptor. Auto does not choose files or bypass system authorization.
+
 
 <a id="endpoint"></a>
 ## Resolve an endpoint conflict
 
-Read these as two separate paths: steps 1–4 are runtime manual Enable failure/retry; steps 5–11 are a saved-port conflict after a different normal restart. Ports belong to their own recording environments. You do not need to create a conflict.
+An occupied port during manual enablement and a saved-port conflict after App restart have different recovery paths. Read the actual error first. Do not create conflicts for practice or terminate unknown processes.
 
-1. When manual Enable fails, inspect `EADDRINUSE`; the service remains disabled.
+1. Open Settings → Agent. Protocol information in box 1 remains visible while the Server is off. A port conflict does not change the supported revisions: `2026-07-28`, `2025-11-25` and `2025-06-18`.
 
-   ![Runtime EADDRINUSE, not endpoint-conflict](../media/v0.1.1-alpha.1/mcp/mcp-18-port-conflict.png)
+   ![Resolve an endpoint conflict · 1](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-002.annotated.png)
 
-2. Identify a known old App or owned service; never blindly terminate an unknown process.
+2. <a id="walkthrough-18-port-conflict"></a>After manual enablement fails, box 1 shows `EADDRINUSE` and the Server stays Off. The occupied endpoint here is `127.0.0.1:57093`, not Capture’s `8888`.
 
-   The conflicting service was deliberately started for this recording, so its owner is known. Only the App is recorded, not another process manager. Identify an unknown owner before acting; do not blindly terminate an unfamiliar process.
+   ![Resolve an endpoint conflict · 2](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.annotated.png)
 
-3. End the confirmed owned conflict and retry Enable without changing the endpoint. This shows the App retry result; ending the other process itself remains image pending.
+3. Identify the owner first and normally stop only a service you manage and no longer need. If ownership is unclear, leave it running and ask its user to resolve the conflict.
 
-   ![Successful retry after releasing the known conflict](../media/v0.1.1-alpha.1/mcp/mcp-19-release-port.png)
+4. <a id="walkthrough-19-release-port"></a>Enable MCP Server after the known owner releases the port and wait for Running. Box 1 still shows `http://127.0.0.1:57093/mcp`; changing the endpoint was not required.
 
-4. Disable the demonstration Server afterward.
+   ![Resolve an endpoint conflict · 4](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-006.annotated.png)
 
-   ![Ending the runtime retry demonstration](../media/v0.1.1-alpha.1/mcp/mcp-20-final-disable.png)
+5. <a id="walkthrough-20-final-disable"></a>Disable the Server when MCP is no longer needed and verify Off. A saved URL can remain visible even when the Server is not listening.
 
-5. The other path starts with MCP saved enabled and its port occupied by an owned demo process during normal App restart. Open Settings afterward.
+   ![Resolve an endpoint conflict · 5](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-007.png)
 
-   ![MCP settings after normal restart](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png)
+6. <a id="walkthrough-mcp-endpoint"></a><a id="walkthrough-mcp-endpoint-01-settings"></a><a id="walkthrough-mcp-endpoint-02-conflict"></a><a id="walkthrough-mcp-endpoint-reconnect"></a><a id="walkthrough-mcp-endpoint-reconnect-01-settings"></a><a id="walkthrough-mcp-endpoint-reconnect-02-conflict"></a>The other case occurs after a normal restart: a previously enabled Server’s saved port is occupied. Port unavailable appears while the URL and Client remain. This example retains `Endpoint recovery client`; it need not be deleted or recreated.
 
-6. Inspect `endpoint-conflict`. This old endpoint is `http://127.0.0.1:49659/mcp`, not the earlier `65443`.
+   ![Resolve an endpoint conflict · 6](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-010.png)
 
-   ![Separate saved-endpoint conflict state](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-02-conflict.png)
+7. <a id="walkthrough-mcp-endpoint-03-change"></a><a id="walkthrough-mcp-endpoint-reconnect-03-change"></a>Click Change endpoint in box 1 when a different available port is intended. The App does not silently update the Host’s configuration.
 
-7. Explicitly choose Change endpoint when a new address is needed.
+   ![Resolve an endpoint conflict · 7](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-011.annotated.png)
 
-   ![Deliberately changing endpoint](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-03-change.png)
+8. <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>Wait for Running and read the new URL in box 1. Here it is `http://127.0.0.1:57247/mcp`; the previous `57093` is no longer this Server’s address.
 
-8. Inspect the new `http://127.0.0.1:49835/mcp`. Both `49659` and `49835` are values assigned for this recording.
+   ![Resolve an endpoint conflict · 8](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-012.annotated.png)
 
-   ![Checking the new address to update in hosts](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-04-note-new-address.png)
+9. <a id="walkthrough-mcp-endpoint-reconnect-04-copy-current"></a>Use the copy control in box 1 on the original Client row, then update the endpoint and authentication fields in its Host. Change endpoint itself does not rotate the Client credential. Keep copied configuration out of chats and public projects.
 
-9. Copy effective configurations and update each affected host.
+   ![Resolve an endpoint conflict · 9](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-013.annotated.png)
 
-   This independently recorded copy occurs after changing the endpoint, not during credential rotation. The real external-host settings page remains blocked. This example retains credentials only in the local SDK's memory.
+10. <a id="walkthrough-mcp-endpoint-reconnect-05-reconnect"></a><a id="walkthrough-mcp-endpoint-reconnect-06-query-new-endpoint"></a>Reconnect the Host, refresh its Tool list, call `capture_get_proxy_status` and inspect the actual result. The App retains the same Client. A copied-configuration message alone does not establish query success.
 
-   ![Copying current configuration after changing the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
+    ![Resolve an endpoint conflict · 10](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-014.png)
 
-10. Reconnect the host and repeat a read-only query.
+11. <a id="walkthrough-mcp-endpoint-reconnect-07-disable"></a><a id="walkthrough-mcp-endpoint-05-disable"></a>Disable the Server with box 1 when finished and verify Off. Its Client configuration can remain. If the Host is no longer trusted, revoke that Client separately as described next.
 
-    ![The local SDK actually querying the new endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
+    ![Resolve an endpoint conflict · 11](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-015.annotated.png)
 
-    This result belongs to the local official SDK caller, not an unrecorded external-host compatibility claim.
+Normal enablement, disablement or restart does not require recreating Clients. An explicit endpoint change does require updating Hosts that still use the old URL.
 
-11. Disable this demonstration Server afterward.
-
-    ![Disabling the endpoint-change demonstration Server](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-05-disable.png)
-
-**Expected result:** address changes are deliberate, not hidden changes that invalidate existing clients.
-
-**Notes:** normal disable/enable/restart should not require creating a Client again. An explicit endpoint change does require host updates.
-
-**Actual branches in this release:** a manual enable attempt on an occupied port remains disabled and shows `EADDRINUSE`; end the known, owned conflicting process and retry. If MCP was previously saved as enabled and the port is occupied during App startup, it shows `endpoint-conflict` with Change endpoint. See the separate [runtime failure/retry recording](#walkthrough) and [restart recovery recording](#walkthrough-mcp-endpoint); do not assume their controls are identical.
 
 <a id="credentials"></a>
 ## Rotate, revoke and disable
 
-1. Open the credential-regeneration confirmation if a Client's configuration may have leaked. This target is `Guide local client`.
+<a id="walkthrough-13-auto"></a><a id="walkthrough-14-ask-mode"></a>
+Credential rotation, Client revocation and Server shutdown are distinct operations. Inspect ongoing calls and pending work before choosing one.
 
-   ![Actual confirmation for this Client's credential rotation](../media/v0.1.1-alpha.1/mcp/mcp-14a-regenerate-dialog.png)
+1. Normal App restart restores the saved endpoint and Client mode. The original Client in box 1 remains Auto; an ordinary restart does not rotate its credential.
 
-2. Confirm rotation; old credentials become invalid. Neither old nor new secrets are published here.
+   ![Rotate, revoke and disable · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-028.annotated.png)
 
-   ![Actual post-rotation checkpoint](../media/v0.1.1-alpha.1/mcp/mcp-14b-regenerate.png)
+2. Switch the Client back to Ask when approval is needed. A Host disconnect during approval of an operation such as Continue cancels that Tool call, not the pending traffic; the HTTP item here remains waiting.
 
-3. Copy the new configuration, update the caller and reconnect. This covers the same local SDK client; commercial host settings remain image pending.
+   ![Rotate, revoke and disable · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-029.png)
 
-   ![Copying new configuration and reconnecting](../media/v0.1.1-alpha.1/mcp/mcp-14c-update-client.png)
+3. <a id="walkthrough-14a-regenerate-dialog"></a>Use Regenerate on the Client and review its confirmation. Cancel in box 1 abandons it; Regenerate credential in box 2 invalidates the old configuration immediately without resolving existing breakpoints.
 
-4. When no longer needed, open Revoke and check the Client name.
+   ![Rotate, revoke and disable · 3](../media/v0.1.1-alpha.1/mcp-streamable-english/step-030.annotated.png)
 
-   ![Confirmation for revoking Guide local client](../media/v0.1.1-alpha.1/mcp/mcp-15-revoke-dialog.png)
+4. <a id="walkthrough-14b-regenerate"></a><a id="walkthrough-14c-update-client"></a>After rotation, copy the new configuration with box 1, update the corresponding Host and reconnect. The endpoint stays the same, but the old credential no longer works. Keep the new credential out of chats and projects.
 
-5. Confirm revocation and check the identity is unusable. Cancellation of long in-flight calls was not separately recorded and remains image pending.
+   ![Rotate, revoke and disable · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-031.annotated.png)
 
-   ![Actually revoking the demo Client](../media/v0.1.1-alpha.1/mcp/mcp-16-revoke.png)
+5. After reconnecting, handle previously pending work under the current permissions. Allow it only when continuation is intended; rotation is not business recovery.
 
-6. Disable MCP Server when no caller needs it.
+   ![Rotate, revoke and disable · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-032.png)
 
-   ![Actually disabling MCP Server](../media/v0.1.1-alpha.1/mcp/mcp-17-disable.png)
+6. <a id="walkthrough-15-revoke-dialog"></a>Revoke the Client when its Host is no longer trusted or needed. Cancel in box 1 retains its identity; Revoke client in box 2 removes access and cancels its active calls.
 
-7. Quit normally and let calls and listeners finish cleanup.
+   ![Rotate, revoke and disable · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-033.annotated.png)
 
-   Disabling Server is not quitting the App. Normal shutdown, released listeners and restored system proxy are checked separately after recording. A disabled-Server image is not process-cleanup proof, and recording does not expand to the desktop or a process manager.
+7. <a id="walkthrough-16-revoke"></a>After revocation, the Client row disappears and its old configuration cannot call Tools. The Server still shows Running here; removing one Client does not shut down the whole service.
 
-**Expected result:** rotation invalidates old credentials; revoke targets one client; disable stops all MCP access.
+   ![Rotate, revoke and disable · 7](../media/v0.1.1-alpha.1/mcp-streamable-english/step-034.png)
 
-**Notes:** cancellation/revocation does not undo a completed file write, request or setting change. Inspect actual state before replaying side effects.
+8. <a id="walkthrough-17-disable"></a>Disable MCP Server with box 1 when external access is no longer needed and verify Off. Hosts can no longer connect to that listener until it is explicitly enabled again.
+
+   ![Rotate, revoke and disable · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-035.annotated.png)
+
+Rotate or revoke immediately after credential exposure. Renaming a Host does not invalidate its credential.
+
 
 <a id="browser"></a>
 ## Browser hosts and compatibility
 
 1. Confirm the browser-side client runs on your device rather than through a remote connector.
 
-   **Image pending / blocked:** this caller is a local SDK, not a Browser Host; deployment/reachability inspection is missing.
-
 2. Use only a deliberately trusted page and provide only its authorized Client credentials.
-
-   **Image pending / blocked:** there is no real Browser Host security-settings page. Credentials are not exposed to fill the gap.
 
 3. If discovery is empty, inspect Server, identity, protocol and MCP permissions.
 
-   **External-host environment blocked:** an actual Browser Host's empty-discovery investigation is not recorded. For App-side rejection and restart discovery, see the [complete read-only recording](tool-permissions.md#walkthrough-tool-permissions-readonly).
+   If discovery returns no Tools, check this Client’s Tool permissions, then reconnect and refresh the list. See [read-only permissions](tool-permissions.md#read-only).
 
 4. If queries work but changes wait, check App approval, native windows and business prerequisites.
 
-   **External-host environment blocked:** that Browser Host's waiting scenario is not recorded. Actual App approval and native windows for the local SDK are shown in the [Tool lifecycle](#walkthrough-mcp-tool-lifecycle); the two callers are not conflated.
+   If a call keeps waiting, return to the App and check Tool approval, file selection and confirmation dialogs. Confirm or cancel them explicitly.
 
 5. After host upgrades, verify a real query/action rather than only seeing a registered server entry.
-
-   **Image pending / blocked:** no specific host before/after-upgrade operation is recorded. Local SDK success is not wider compatibility acceptance.
-
-**Expected result:** network, authentication, protocol, permissions and business errors are distinguished.
-
-**Notes**
 
 - Cross-Origin browser support is not anonymous access.
 - Do not give client credentials to arbitrary third-party webpages.
 - The guide does not require internal Playground or claim that SDK-client checks certify all real VS Code/Claude/other hosts.
 - Existing representative host results do not prove every Tool, two-host concurrency or every host version.
-
-<!-- recorded-walkthrough:mcp-endpoint:start -->
-<a id="walkthrough-mcp-endpoint"></a>
-## Recorded walkthrough: recover the endpoint after restart
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>oldEndpoint</code> | <code>http://127.0.0.1:49659/mcp</code> |
-| <code>newEndpoint</code> | <code>http://127.0.0.1:49835/mcp</code> |
-| <code>prerequisite</code> | <code>MCP was enabled before normal App restart; its saved port was occupied by an owned demo process</code> |
-
-<a id="walkthrough-mcp-endpoint-01-settings"></a>
-### 01 · Open Settings after restart
-
-![01 · Open Settings after restart](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-01-settings.png)
-
-<a id="walkthrough-mcp-endpoint-02-conflict"></a>
-### 02 · Inspect the saved endpoint conflict
-
-![02 · Inspect the saved endpoint conflict](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-02-conflict.png)
-
-<a id="walkthrough-mcp-endpoint-03-change"></a>
-### 03 · Explicitly change the endpoint
-
-![03 · Explicitly change the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-03-change.png)
-
-<a id="walkthrough-mcp-endpoint-04-note-new-address"></a>
-### 04 · Inspect the address that hosts must update
-
-![04 · Inspect the address that hosts must update](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-04-note-new-address.png)
-
-<a id="walkthrough-mcp-endpoint-05-disable"></a>
-### 05 · Disable the demonstration Server
-
-![05 · Disable the demonstration Server](../media/v0.1.1-alpha.1/mcp-endpoint/mcp-endpoint-05-disable.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:mcp-endpoint:end -->
-
-<!-- recorded-walkthrough:mcp-tool-lifecycle:start -->
-<a id="walkthrough-mcp-tool-lifecycle"></a>
-## Cancelled approval, export and in-flight Client revocation
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>caller</code> | <code>Official SDK on localhost; App-side UI, not an external Host settings page</code> |
-| <code>clientName</code> | <code>Guide MCP lifecycle</code> |
-| <code>endpoint</code> | <code>http://127.0.0.1:57686/mcp</code> |
-| <code>queries</code> | <code>diagnostics_get_recent and diagnostics_get_trace using the actual returned traceId</code> |
-| <code>file</code> | <code>guide-mcp-diagnostics.jsonl</code> |
-| <code>cancelledFile</code> | <code>guide-mcp-cancelled.jsonl</code> |
-| <code>inFlightUrl</code> | <code>http://127.0.0.1:57678/guide/mcp-tools/in-flight</code> |
-| <code>revocation</code> | <code>The owned Composer socket is cancelled and the old Client can no longer query</code> |
-
-<a id="walkthrough-mcp-tool-lifecycle-01-client"></a>
-### 01 · Inspect this actual SDK Client
-
-![01 · Inspect this actual SDK Client](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-01-client.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a>
-### 02 · Locate MCP permission for this pause Tool
-
-![02 · Locate MCP permission for this pause Tool](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-02-pause-permission.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>
-### 03 · Start an operation awaiting approval
-
-![03 · Start an operation awaiting approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-03-pending-ask.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>
-### 04 · Have the caller actually cancel the request
-
-![04 · Have the caller actually cancel the request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-04-caller-abort.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a>
-### 05 · Locate Diagnostics query and export permissions
-
-![05 · Locate Diagnostics query and export permissions](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-05-diagnostics-permissions.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-06-recent"></a>
-### 06 · Query Recent through the SDK without approval
-
-![06 · Query Recent through the SDK without approval](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-06-recent.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-07-trace"></a>
-### 07 · Query Trace using the returned traceId
-
-![07 · Query Trace using the returned traceId](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-07-trace.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a>
-### 08 · Request export and review actual arguments
-
-![08 · Request export and review actual arguments](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-08-export-ask.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-09-deny"></a>
-### 09 · Deny without opening a file window
-
-![09 · Deny without opening a file window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-09-deny.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a>
-### 10 · Request export again
-
-![10 · Request export again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-10-export-again.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a>
-### 11 · Allow still opens a real Save window
-
-![11 · Allow still opens a real Save window](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-11-native-panel.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a>
-### 12 · Actually cancel native Save
-
-![12 · Actually cancel native Save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-12-native-cancel.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a>
-### 13 · Request the export to save
-
-![13 · Request the export to save](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-13-export-save.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-14-save"></a>
-### 14 · Save guide-mcp-diagnostics.jsonl
-
-![14 · Save guide-mcp-diagnostics.jsonl](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-14-save.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a>
-### 15 · Query the actual task and verify the file
-
-![15 · Query the actual task and verify the file](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-15-job-completed.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>
-### 16 · Clear search and return to Client controls
-
-![16 · Clear search and return to Client controls](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-16-clear-search.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>
-### 17 · Select Auto for this long-call example
-
-![17 · Select Auto for this long-call example](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-17-auto.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a>
-### 18 · Start an actual unfinished Composer request
-
-![18 · Start an actual unfinished Composer request](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-18-long-request.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a>
-### 19 · Open revocation confirmation during the call
-
-![19 · Open revocation confirmation during the call](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-19-revoke-dialog.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a>
-### 20 · Revoke the Client and verify actual request cancellation
-
-![20 · Revoke the Client and verify actual request cancellation](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-20-revoke.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a>
-### 21 · Verify the old Client identity cannot query again
-
-![21 · Verify the old Client identity cannot query again](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-21-old-identity.png)
-
-<a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
-### 22 · Disable this run’s MCP Server
-
-![22 · Disable this run’s MCP Server](../media/v0.1.1-alpha.1/mcp-tool-lifecycle/mcp-tool-lifecycle-22-stop.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:mcp-tool-lifecycle:end -->
-
-<!-- recorded-walkthrough:mcp-endpoint-reconnect:start -->
-<a id="walkthrough-mcp-endpoint-reconnect"></a>
-## Replace a conflicting endpoint and rediscover Tools
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> The caller is a local official-SDK demonstration client, not proof of VS Code or cloud-host compatibility. Credentials are not shown in the images; copied configuration is used only in local test memory.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>oldEndpoint</code> | <code>http://127.0.0.1:59234/mcp</code> |
-| <code>newEndpoint</code> | <code>http://127.0.0.1:59291/mcp</code> |
-| <code>clientName</code> | <code>Guide endpoint client</code> |
-| <code>caller</code> | <code>Actual official local SDK; no commercial Host configuration screen is claimed</code> |
-| <code>identity</code> | <code>Endpoint changes; the same Client credential remains valid and is never shown</code> |
-| <code>evidenceGeneration</code> | <code>endpoint-reopened</code> |
-
-<a id="walkthrough-mcp-endpoint-reconnect-01-settings"></a>
-### 01 · Open MCP settings after restart
-
-![01 · Open MCP settings after restart](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-01-settings.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-02-conflict"></a>
-### 02 · Inspect the actual endpoint conflict
-
-![02 · Inspect the actual endpoint conflict](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-02-conflict.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-03-change"></a>
-### 03 · Explicitly change the endpoint
-
-![03 · Explicitly change the endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-03-change.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-04-copy-current"></a>
-### 04 · Copy current configuration without showing credentials
-
-![04 · Copy current configuration without showing credentials](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-04-copy-current.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-05-reconnect"></a>
-### 05 · Reconnect the local SDK using the new address
-
-![05 · Reconnect the local SDK using the new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-05-reconnect.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-06-query-new-endpoint"></a>
-### 06 · Execute an actual query at the new endpoint
-
-![06 · Execute an actual query at the new endpoint](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-06-query-new-endpoint.png)
-
-<a id="walkthrough-mcp-endpoint-reconnect-07-disable"></a>
-### 07 · Disable the demo Server at its new address
-
-![07 · Disable the demo Server at its new address](../media/v0.1.1-alpha.1/mcp-endpoint-reconnect/mcp-endpoint-reconnect-07-disable.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:mcp-endpoint-reconnect:end -->

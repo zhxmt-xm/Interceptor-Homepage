@@ -1,0 +1,1415 @@
+{
+  "schemaVersion": 1,
+  "chapter": "agent-chat-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/restart-recovery.workflow.ts",
+    "manifestSha256": "48ba86da71e007b05e45cb81711bc5086b13064b24077a8a809e9b49941c8d37",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "保存用于对话的模型：Recovery lab / Save the model used for conversation: Recovery lab",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "打开已配置模型的Agent面板 / Open the Agent panel with a configured model",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3052,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.chat.new"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "创建独立的新Chat并检查当前模型 / Create a separate Chat and inspect its selected model",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "填写本次问题并找到Send / Enter the question and locate Send",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "等待当前Chat的回复完成 / Wait for the current Chat to finish its response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2420,
+            "y": 330.5,
+            "width": 752,
+            "height": 73.59375
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 282,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.rename"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "为第一个Chat填写清楚的名称 / Give the first Chat a descriptive name",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2535,
+            "y": 921.5,
+            "width": 536,
+            "height": 68
+          },
+          "automationId": "agent.chat.title"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2840.578125,
+            "y": 1017.5,
+            "width": 230.421875,
+            "height": 68
+          },
+          "automationId": "agent.chat.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "保存第一个Chat的新名称 / Save the first Chat name",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "保存用于对话的模型：Recovery alternate / Save the model used for conversation: Recovery alternate",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "为后续新Chat设置另一个默认模型 / Set another default model for subsequent Chats",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1909.03125,
+            "y": 572.109375,
+            "width": 150.234375,
+            "height": 56
+          },
+          "automationId": "agent.model.set-default.cfb74ea1-389d-47d6-b6a4-f0b1285c9bff"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "全局默认已改变，当前Chat仍使用原模型 / The global default changes while the current Chat retains its model",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 626,
+            "y": 538.109375,
+            "width": 1620,
+            "height": 124
+          },
+          "automationId": "agent.model.row.cfb74ea1-389d-47d6-b6a4-f0b1285c9bff"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2342,
+            "y": 1526,
+            "width": 223.265625,
+            "height": 52
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "为当前Chat单独选择模型 / Choose a model specifically for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2358,
+            "y": 1344,
+            "width": 468,
+            "height": 84
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "当前Chat切换到Recovery alternate / Switch the current Chat to Recovery alternate",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.png",
+      "rawImage": "step-013.png"
+    },
+    {
+      "id": "step-014",
+      "title": "当前Chat模型与全局默认相互独立 / Keep the current Chat model independent from the global default",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "创建独立的新Chat并检查当前模型 / Create a separate Chat and inspect its selected model",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.png",
+      "rawImage": "step-015.png"
+    },
+    {
+      "id": "step-016",
+      "title": "填写本次问题并找到Send / Enter the question and locate Send",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "等待当前Chat的回复完成 / Wait for the current Chat to finish its response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2420,
+            "y": 330.5,
+            "width": 752,
+            "height": 73.59375
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 370,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.rename"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "不想重命名时取消并保留当前Chat / Cancel renaming to retain the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2682.609375,
+            "y": 1017.5,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "agent.chat.cancel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 370,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.rename"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "为第二个Chat命名以区分任务 / Name the second Chat to distinguish its task",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2535,
+            "y": 921.5,
+            "width": 536,
+            "height": 68
+          },
+          "automationId": "agent.chat.title"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2840.578125,
+            "y": 1017.5,
+            "width": 230.421875,
+            "height": 68
+          },
+          "automationId": "agent.chat.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "用户操作：创建并完成Chat A，使用正式菜单重命名；再创建并完成当前Chat B。 / User actions: create and complete Chat A, rename it through the real menu, then create and complete current Chat B.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    },
+    {
+      "id": "step-023",
+      "title": "保存Chat后关闭App / Close the App after saving the Chats",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 15,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "shell.window.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "真实重启后重新打开上次的Chat / Reopen the previous Chat after a real restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "在Chat列表中核对保留的两个会话 / Inspect the two retained Chats in the selector",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 182,
+            "width": 448,
+            "height": 88
+          },
+          "automationId": "agent.session.option.45314dea-c0e1-49a1-8b54-3d6d1ea49b1d"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2412,
+            "y": 270,
+            "width": 448,
+            "height": 88
+          },
+          "automationId": "agent.session.option.0ba8ab4e-012e-440a-9b33-5c321414c251"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "切回第一个Chat并读取它自己的历史 / Return to the first Chat and read its own history",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.png",
+      "rawImage": "step-026.png"
+    },
+    {
+      "id": "step-027",
+      "title": "在原Chat中继续追问 / Ask a follow-up in the original Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "证据边界：恢复状态验证后关闭菜单并停止trace，再让A继续；请求不得包含B历史。 / Evidence boundary: close the menu and stop trace after recovery checks, then continue A without sending B history.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.png",
+      "rawImage": "step-028.png"
+    },
+    {
+      "id": "step-029",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.annotated.png",
+      "rawImage": "step-029.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 434,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.delete"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-030",
+      "title": "删除前核对Chat名称并选择取消 / Review the Chat name and cancel deletion",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-030.annotated.png",
+      "rawImage": "step-030.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2614.28125,
+            "y": 994.25,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "agent.chat.cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2772.25,
+            "y": 994.25,
+            "width": 298.75,
+            "height": 68
+          },
+          "automationId": "agent.chat.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-031",
+      "title": "取消删除后第二个Chat仍然保留 / The second Chat remains after cancelling deletion",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-031.png",
+      "rawImage": "step-031.png"
+    },
+    {
+      "id": "step-032",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-032.annotated.png",
+      "rawImage": "step-032.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 434,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.delete"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-033",
+      "title": "再次核对并确认删除第二个Chat / Review and confirm removal of the second Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-033.annotated.png",
+      "rawImage": "step-033.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2772.25,
+            "y": 994.25,
+            "width": 298.75,
+            "height": 68
+          },
+          "automationId": "agent.chat.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-034",
+      "title": "删除第二个Chat后回到保留的会话 / Return to the retained Chat after deleting the second one",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-034.png",
+      "rawImage": "step-034.png"
+    },
+    {
+      "id": "step-035",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-035.annotated.png",
+      "rawImage": "step-035.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 434,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.delete"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-036",
+      "title": "用户操作：正式选择并删除B；创建空C再删除，A与Provider必须保持完整。 / User actions: select and delete B; create and delete empty C while A and Provider remain intact.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-036.png",
+      "rawImage": "step-036.png"
+    },
+    {
+      "id": "step-037",
+      "title": "新Chat正在接收模型回复 / A new Chat is receiving the model response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-037.png",
+      "rawImage": "step-037.png"
+    },
+    {
+      "id": "step-038",
+      "title": "从当前Chat菜单选择操作 / Choose an action from the current Chat menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-038.annotated.png",
+      "rawImage": "step-038.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2412,
+            "y": 434,
+            "width": 448,
+            "height": 60
+          },
+          "automationId": "agent.chat.delete"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-039",
+      "title": "运行中删除Chat前确认取消影响 / Confirm the cancellation impact before deleting a running Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2772.25,
+            "y": 994.25,
+            "width": 298.75,
+            "height": 68
+          },
+          "automationId": "agent.chat.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-040",
+      "title": "删除运行中Chat会取消真实模型连接 / Deleting a running Chat cancels the actual model connection",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-040.png",
+      "rawImage": "step-040.png"
+    },
+    {
+      "id": "step-041",
+      "title": "核对将要移除的模型配置 / Review the model profile to remove",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-041.annotated.png",
+      "rawImage": "step-041.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1650.3125,
+            "y": 933.875,
+            "width": 335.6875,
+            "height": 68
+          },
+          "automationId": "agent.remove-provider.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-042",
+      "title": "核对将要移除的模型配置 / Review the model profile to remove",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-042.annotated.png",
+      "rawImage": "step-042.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1650.3125,
+            "y": 933.875,
+            "width": 335.6875,
+            "height": 68
+          },
+          "automationId": "agent.remove-provider.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-043",
+      "title": "删除最后模型后显示未配置状态 / Show the unconfigured state after removing the last model",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-043.png",
+      "rawImage": "step-043.png"
+    },
+    {
+      "id": "step-044",
+      "title": "Evidence/teardown：关闭含Transcript的Panel后恢复trace，并保存两代销毁证据。 / Evidence/teardown: close the Transcript Panel before resuming trace and save both generations' destroy evidence.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-044.png",
+      "rawImage": "step-044.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 444348,
+      "sha256": "66647a2703c1640a83d84452a813c743ad5cb3343a9183ae00adf3675ed2eca9"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 481426,
+      "sha256": "3b72bceb16561de81c92790779a015ed5f2ac5e9c1590b5ee348af7014656098"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 332921,
+      "sha256": "861b1919c5d7d26b87d79fae980e53c086a6fdbbc56c26d22fafb8ee73d11f8e"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 483455,
+      "sha256": "679b8eeccf3b6574da95d7f572beb65e04c4987ecec7835e0b694350f1bb764f"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 489785,
+      "sha256": "dc9821aa2e0cb046759d7ba5ed010c07cb63088a5aa19228fea9df5b62c76491"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 341256,
+      "sha256": "1813ee811abc1473d04051bfa789ad780f26441c66dea494673316f2efb1e2d8"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 509953,
+      "sha256": "0d66e543d64890befbc8360d2e46cfa75f852b4c74a0e938ede97f88a4694ff9"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354652,
+      "sha256": "ec13935d2004192ee1b347278907928f17298ca7d33a3d6dadd055a82cd0189c"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 519316,
+      "sha256": "8bbe21ec94cc3649b68b25693b90abab8dd2927c5eb1ceac9f4efc4058effeef"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 365521,
+      "sha256": "5ad7d0106f9f1f9426e47d88b2f458c1f9a22505c757d33930a7aadc7e4903c0"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 595500,
+      "sha256": "c1ca43c9ac9e09caee85a0df980696770923365a61000abb1889972d2923ea01"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442042,
+      "sha256": "041dc377fa20b32a1fd7acc56e0512b1d847f9b0f979a0834fa440aa31117a1d"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 501721,
+      "sha256": "dd832fbe889b6b9b492afeea5194b0d14739822de4443701c2b6377aae439b9d"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 505939,
+      "sha256": "636c97e0204d69685336961b8cc896780f02fd5eb9bf69b97a59fc1c7c56da63"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 505939,
+      "sha256": "636c97e0204d69685336961b8cc896780f02fd5eb9bf69b97a59fc1c7c56da63"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 351708,
+      "sha256": "cc3d28f0efc8fbabe79394abf66c3c843c1c0dda64eaa85e39f868c3056174ea"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 505993,
+      "sha256": "cf97f1d040af422df8bdd2ee94edb0baff85e2ecdef5fbad329f484fd45817b1"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352148,
+      "sha256": "e297dbfdf49299e3b877aeb98b98f2bda8b8e1084a362b560927b2db434b3c66"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 567016,
+      "sha256": "62e061218d3f066c92aef21946f052509cf99ea82490349130ba5bfeaae9de39"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 399075,
+      "sha256": "0e3d632e11c5588f57f8a59317ff8b4c583728ff9a54c9fe720ca05353537b32"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 506329,
+      "sha256": "b332b21236257da654c594692c33de8532481d300c9cdab3541a6f6704529a8a"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 505739,
+      "sha256": "94e13124bdc022597438b45e7766305cb48dc5a3c5a2de3b740c785ce87cddf1"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 488905,
+      "sha256": "715a1c9e2e8b669d25763a16f6aa231bc129f670c83791bee9465e75787fb2f0"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 494592,
+      "sha256": "3d091284b018db1f342598254ad65063da14d160975f6c3c45bfcaaf88ec5aae"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 343254,
+      "sha256": "2ada399dc98e5359811b0fcaf08268fc9e97e7a382410f44218ea88c8231efd1"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 516990,
+      "sha256": "e7a2e3ba79e1206efa761fb5775cfa94b88cc8f4e2ceb0743426695bc7cf3af2"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 358467,
+      "sha256": "255aefec6ab2dbf3bfb2832aee98efd2804e83bad8b81892c71297543b719cd5"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 532466,
+      "sha256": "51b462404a629320e54a6e5042bc687e7d5600852bde6b7ef64aaf3e325236c2"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 374453,
+      "sha256": "1a73ea51b06a55592871926b5624ee7072af5beacde2de35a5022e87e9f8d19a"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 604700,
+      "sha256": "722b28728b67633f0497e2c2ccc110f8d13a84e568a19981ea8500ef256c4a8b"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 447091,
+      "sha256": "72f72e0b4419cf83363393f280b9b689aa4941a1ed705d3ac605bae54d7fdf7b"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 532466,
+      "sha256": "51b462404a629320e54a6e5042bc687e7d5600852bde6b7ef64aaf3e325236c2"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 374453,
+      "sha256": "1a73ea51b06a55592871926b5624ee7072af5beacde2de35a5022e87e9f8d19a"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 606148,
+      "sha256": "c1b57cd39aaa2354a1e89dea8cdf6b177cf82e33059129f8826c4ea7f525f300"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 449140,
+      "sha256": "e6995c7fd124e63cbfa933bbd5437862a860d80673cd941370a4b07702d6d427"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 508352,
+      "sha256": "b269b8087da4c50b5b664363172f73339f15ad1b038556d87dc28b22c6ee73cd"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 446931,
+      "sha256": "ada9bcc7eb96c2281e5cadca37ec3809cb01da4b9b1f0691cabe441861064c93"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 304064,
+      "sha256": "41643ab58d23b0181763e2a64949d00f55f8b567eac2df1f57f18d7393e621a9"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 303196,
+      "sha256": "aa8055da57ffc6d89caa876fe02f5270098c2916b3fba0d0cc5ca12d7e919cc4"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314269,
+      "sha256": "bcec84f69526298c868a1e75eefcdae697c290fbba02fd8c439a8885647f0c2d"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217774,
+      "sha256": "9d7895feb293af163332f025cf7f05c632d1b1cdf72073686c516a851f9e3b8d"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 283138,
+      "sha256": "bfbce2deb3333f4927ac0a8b63a072e54ce61293ddee1e4e6d938ce37b883f25"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 289434,
+      "sha256": "511c1a096fd98b53cb5f7c09bd0875f6b6b75a521798ad25b20535bd4d78cc6a"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 196941,
+      "sha256": "3c4fcc9158878f7a26d3d365f1df21c02db08f0eafb5d6135014676d33475f92"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 324046,
+      "sha256": "471f2b75921fef8c6d3043db1085b2233bbae10598adc671b09462333a19b186"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 313889,
+      "sha256": "5853189064742c64e3150e7f7f53fe31ea529e63fc580c188d8de22ac99d7aac"
+    },
+    {
+      "file": "step-029.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216814,
+      "sha256": "f6ed01a6aa956b03dc4e069916bb4307b24014181daf34ac650398c0da7c6a2e"
+    },
+    {
+      "file": "step-030.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 390351,
+      "sha256": "0c5fee029c014ea4847f606bd5f5dbefa208f37c8dbc95e3202ae2b2e7e2285a"
+    },
+    {
+      "file": "step-030.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296233,
+      "sha256": "5443224137f04ed6601da012ea1111af7cfeea97ef102343aac4dcf2252a63e8"
+    },
+    {
+      "file": "step-031.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286005,
+      "sha256": "fc3fc787ed67c07f3d5e7dd9d858483ea111fe26ea0e3a761f072d6222419e73"
+    },
+    {
+      "file": "step-032.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 313893,
+      "sha256": "0f133b12c4b631d4bd02c058e5c1f20885cd338f71f9cb7104bef420d6226db6"
+    },
+    {
+      "file": "step-032.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216818,
+      "sha256": "6ca9c356cefeae7b6f4d007292dafc269e206f3db15107a14124541ce57de8c9"
+    },
+    {
+      "file": "step-033.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 390351,
+      "sha256": "0c5fee029c014ea4847f606bd5f5dbefa208f37c8dbc95e3202ae2b2e7e2285a"
+    },
+    {
+      "file": "step-033.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 295707,
+      "sha256": "301a38284df85b0ba3f429388ee6b3e78b06bfd18032844150aef66d0dc8c6b9"
+    },
+    {
+      "file": "step-034.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312697,
+      "sha256": "72c81679cfd86cd0ea2d81e6c83109546f59c62997bf6fc7e7094d6a859c47c0"
+    },
+    {
+      "file": "step-035.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 295958,
+      "sha256": "b9addbc54fbbf5f28140f72cd72474dd9ff780179563c635ea7996ef0d5bfc01"
+    },
+    {
+      "file": "step-035.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 203142,
+      "sha256": "30cdc39e643c9f5527ebc2d9d788c89dea9fc444e847885c025ed20b89839000"
+    },
+    {
+      "file": "step-036.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312697,
+      "sha256": "72c81679cfd86cd0ea2d81e6c83109546f59c62997bf6fc7e7094d6a859c47c0"
+    },
+    {
+      "file": "step-037.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286494,
+      "sha256": "55cfa8b54b1670d672ae82ccd277c142e28197f2018f138f94e4d0a68204a180"
+    },
+    {
+      "file": "step-038.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 303480,
+      "sha256": "3d186bc4c67bf6e50a1ee2824ceadb05002650b2712b9bb7fafc8dc4d8729ed4"
+    },
+    {
+      "file": "step-038.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 210444,
+      "sha256": "84e7ba4b6b18064cd6ce1c07e16481f4290f815c6df1a8a0a62b0c5fa33b7d70"
+    },
+    {
+      "file": "step-039.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 366981,
+      "sha256": "89287f62daac06d6c94fa2a7eaff0eee54f6afe0bb058236ec16a57d5b665be4"
+    },
+    {
+      "file": "step-039.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276752,
+      "sha256": "5297bfde00939677e307ec5ff9f296d9c127ed22ea00d5b5aae8d50bf12512ca"
+    },
+    {
+      "file": "step-040.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312691,
+      "sha256": "e40dcdb6f19bcacf8a9a62278d4efbef8f51f99532cf7d780a9bebe514526d56"
+    },
+    {
+      "file": "step-041.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 463237,
+      "sha256": "006bc2bdcc0efffb2d6f03599723169dc4b9fc6183b454102d00578d0fc430f7"
+    },
+    {
+      "file": "step-041.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 321417,
+      "sha256": "cf6a2aab31505af5cf5398d091dcdb5e96dbff5731a26c8ec67f8f017165e781"
+    },
+    {
+      "file": "step-042.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 464830,
+      "sha256": "6cacef86264ad8cce7093c2ca397fc3f5f2019804952da410f7a08d08e7bc4ec"
+    },
+    {
+      "file": "step-042.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 320049,
+      "sha256": "7ca7a08490157b240a3cd6c855c954b36fff1b4d6bac84508d237c20d58f8761"
+    },
+    {
+      "file": "step-043.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 467700,
+      "sha256": "b22decfc483e9145da42db6d7c8d1e232896e924fa7d6e3e7ab605255cc7ca55"
+    },
+    {
+      "file": "step-044.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    }
+  ]
+}

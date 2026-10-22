@@ -1,7 +1,5 @@
 # Tool reference
 
-> Draft for the implemented `v0.1.1-alpha.1` catalog. The final section illustrates representative status-query/pause steps, not acceptance of every Tool or item9. Read connected schemas; do not invent parameters or treat internal IPC names as Tools.
-
 [Guide directory](../README.en.md) · [Permissions](tool-permissions.md)
 
 `query` reads data. `change` controls operations, changes state, sends network traffic or opens native dialogs. Enabled queries run directly; changes follow the Agent Chat or MCP Client's Ask/Auto policy.
@@ -128,38 +126,26 @@ Ordinary queries do not expose arbitrary native paths, private keys or complete 
 <a id="使用这份速查表"></a>
 ## Use this reference
 
-1. Read the owning chapter and understand its effects.
+This example queries proxy status over MCP and then pauses recording. First create and connect your Client as described in [MCP](mcp.md). A label identifies the Client but does not configure the Host automatically.
 
-   The basic example below queries proxy status and pauses Recording. The [complete permissions walkthrough](tool-permissions.md#walkthrough-tool-permissions-readonly) inspects the whole catalog and verifies actual rejection of disabled actions. This is an entry-point reference, not a claim that every argument combination has its own step images.
+1. Find the owning chapter and understand the operation’s effects. Queries can also read sensitive traffic; enable only the capabilities needed.
 
-2. Search `capture_get_proxy_status` in Settings Tool capabilities, inspect the chosen entry point and disable unrelated abilities.
+2. Search `capture_get_proxy_status` under Settings → Agent → Tool capabilities and confirm MCP access is enabled. Configure Agent separately; searching does not disable hidden rows.
 
-   ![Actual status-query Tool search from the permissions chapter](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
+   ![Use this reference · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
-   See the [complete read-only setup](tool-permissions.md#walkthrough-tool-permissions-readonly) for individual switches in every group. A row hidden by search is not automatically disabled.
+3. Refresh the Tool list in the Host, read exact arguments from the current schema, then call `capture_get_proxy_status` and inspect its listener and recording state. Do not guess fields from a name or equate copying configuration with a successful query.
 
-3. Use the current schema for exact parameters.
+4. To pause recording, enable MCP access to `capture_stop_recording`, keep the Client in Ask and request it from the Host. Review the Client, Tool and effect. Box 1 is Deny Tool call; box 2 is Allow Tool call. Choose Deny first to leave Recording active.
 
-   [Agent Recent→Trace→export](agent.md#walkthrough-agent-tool-lifecycle) and [MCP query/export approvals](mcp.md#walkthrough-mcp-tool-lifecycle) show actual arguments and results. The real external-host schema page still needs its own environment; this name table is not a complete argument schema.
+   ![Use this reference · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-012.annotated.png)
 
-4. Query first. This accurately reuses MCP's local SDK query, not a commercial host settings/conversation page.
+5. Request the operation again when intended, review the new approval and click Allow Tool call in box 1.
 
-   ![Actual read-only query from the local MCP SDK](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
+   ![Use this reference · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-013.annotated.png)
 
-5. To pause, keep Ask and inspect `capture_stop_recording` approval. Review other change tools' effects separately.
+6. Return to Capture and verify Paused in box 1, then inspect the Tool result in the Host. Pausing neither clears existing records nor restores the system proxy. Resume with the recording control when needed.
 
-   ![Actual MCP approval for pausing new recording](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
+   ![Use this reference · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-014.annotated.png)
 
-6. Deny if this operation is unwanted.
-
-   ![Actually denying a call](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
-
-7. To continue the exercise, request again and inspect the new approval.
-
-   ![New approval after requesting again](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
-
-8. After Allow, inspect the Tool result and product Recording state rather than only model text.
-
-   ![Actual result after Allow pauses recording](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
-
-This is not a provider-config, MCP credential-management, arbitrary file-access or update-tool catalog. Use the formal product UI for those control-plane operations.
+Model configuration, MCP Client credentials, arbitrary file access and App updates are not in this business Tool catalog. Use their formal UI. See [Tool permissions](tool-permissions.md) for the full access and approval steps.

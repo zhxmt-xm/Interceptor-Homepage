@@ -1,0 +1,638 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-websocket-messages-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/compact-message-layout.workflow.ts",
+    "test": "capture.messages.compact-layout websocket keeps long messages bounded and resizable",
+    "run": "2026-10-21T20-00-22-713Z-s76DnT",
+    "testDirectory": "capture-compact-message-la-4cdc3-sages-bounded-and-resizable-macos",
+    "manifestSha256": "10b06c9a821082633d15e08200f012f64b14c3ffc2acd218140538612be3b675",
+    "metadataSha256": "928cf5670266b4fee8fdc7b0f02602946a20ad736598ae35ce7efd2ca6930b86",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "path": "/e2e/websocket/compact-message-layout",
+    "direction": "Sent",
+    "shortBytes": 70,
+    "longBytes": 2538,
+    "longConnectionSequence": 3,
+    "longBodyCopy": "UTF-8 JSON",
+    "longMessageCopy": "space-separated hexadecimal",
+    "paginationPath": "/e2e/websocket/compact-message-layout/pagination",
+    "paginationDirectionCount": 205,
+    "lastIndex": 204,
+    "lastConnectionSequence": 409,
+    "lastBodyMode": "Text",
+    "lastBody": "{\"index\":204,\"state\":\"complete\"}"
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "websocket打开消息并选择方向 / Open websocket messages and select the direction",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "bytes": 242749,
+      "sha256": "731964d601dcf79b26d6a779dd5bf2b35d0887aa130172763bbeeaf481fa472d",
+      "rawBytes": 341642,
+      "rawSha256": "e58a5b72bc3d33bf9929f03239c4c88b989fe50dc69591ce559cdc41f1e6913f",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2410.03125,
+            "y": 426.75,
+            "width": 88.96875,
+            "height": 44
+          },
+          "automationId": "capture.websocket.direction.sent"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "websocket展开短消息并选择Raw / Expand the short websocket message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "bytes": 279642,
+      "sha256": "c2e40e5058ff624b2878fb4f9c06eb938de3aea8932b34d5773787ce568506e2",
+      "rawBytes": 378065,
+      "rawSha256": "458ca17347a8a4b6a988aa53c636ac77e0a13774b0c6a5d82ee32ce33aaea6d7",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 698.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "websocket复制短消息的完整Raw文本 / Copy the complete short websocket message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "bytes": 297201,
+      "sha256": "468ff75685d592b675c36d177feaf072feeef9ebf8ed7aae40641d9dda690179",
+      "rawBytes": 406083,
+      "rawSha256": "cbe1f7f777df60d5feec4e0fdbda56baca8d815bf53f1d5191b16bcdbaeb944f",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3012,
+            "y": 690.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "websocket收起短消息 / Collapse the short websocket message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "bytes": 253416,
+      "sha256": "3d52c468e0df83dbe2cabee11c0a0b46d9155e5a3b598839e1e7cb2d9aad7933",
+      "rawBytes": 356297,
+      "rawSha256": "84b59f16db4d092fe3e6a4ded5048aa88907fdaf2672ab42ab7c311732867a70",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 504.75,
+            "width": 820,
+            "height": 76
+          },
+          "automationId": "capture.websocket.frame.ex-mvijegv3-0s2by586.1"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "websocket展开长消息并选择Raw / Expand the long websocket message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "bytes": 286183,
+      "sha256": "815828be605be54e14a88d3efc9017d34307d60c7aa1c8b85542307358b60abf",
+      "rawBytes": 378608,
+      "rawSha256": "cbabe6cc58b59a2adbaa3b41321f759dc101652349ced4e8c6527e7e546244a4",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 774.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "websocket拖动正文右下角调整高度 / Drag the lower-right corner to resize the websocket body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "bytes": 287952,
+      "sha256": "a1b7b6dc8b98fd24e7421936f98bd933ecd3c6516d05b08e301a96de2a92a7c0",
+      "rawBytes": 382505,
+      "rawSha256": "3eed61e1602ab89380accb687812fab29fb0bf53fea07671883abb291a44fc11",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 674
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "websocket在长消息正文内滚动 / Scroll inside the long websocket message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "bytes": 286788,
+      "sha256": "b3a2db054a18e18f378b71081c3dbb46b2f5d11f58ba52bcc52deb1e02c884d8",
+      "rawBytes": 380399,
+      "rawSha256": "bcdb7e70926d803657fd4520a2b321e6291ea3437630fdabe1cab7e2f20b7a97",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 674
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "websocket用键盘到达compact-message-end / Use the keyboard to reach compact-message-end in websocket",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "bytes": 283667,
+      "sha256": "c7d0d88bc52a469b5f024e10f48bd34e779367ce523cbfb23d53a03e870e4bdb",
+      "rawBytes": 375695,
+      "rawSha256": "cbaafe05cbc829d77db6c33ee63acecad4168274435157323dd5e31ca7c5c768",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 674
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "websocket正文到底后滚动外层消息区 / Scroll the outer websocket message area after reaching the body end",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "bytes": 279576,
+      "sha256": "f1f75262040a2a3e097d2f9e8cd8447cca488f1bccfe153d9515aa14097c87ac",
+      "rawBytes": 376714,
+      "rawSha256": "22eca90b154874ffa034512c91ae469692b9f8c880dd6cd48072af2feda6f51b",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2304,
+            "y": 374.75,
+            "width": 896,
+            "height": 1365.25
+          },
+          "automationId": "capture.inspector.scroll"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "websocket用正文Copy复制完整Raw文本 / Copy the complete websocket Raw text with the body Copy control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "bytes": 301722,
+      "sha256": "6dae0ad92070d6d2324848b417c1c8e2f426657ed8ef71d31b5e16de1eb05f64",
+      "rawBytes": 406270,
+      "rawSha256": "a7607efd023451cc5d6c527b176c65269ff57599265aea0d23e88bf9d0393be2",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2992,
+            "y": 550.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "websocket使用消息专用Copy / Use the websocket message-specific Copy control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 306747,
+      "sha256": "15d84889f4fbdccce15cfedec794e720924c6e874a1edccf6805f1b5cfa7b262",
+      "rawBytes": 411591,
+      "rawSha256": "3f8cd28d389e65b64d977516d713f2ffa1b9308a1a255a62a72780d90146dd88",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3058,
+            "y": 504.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.websocket.copy.ex-mvijegv3-0s2by586.3"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "websocket切换长消息Hex / Select Hex for the long websocket message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 276764,
+      "sha256": "2b90ee9e629aa670fda0d925690ac38da3be614b9fca0b100f308df53ba8e0d7",
+      "rawBytes": 379672,
+      "rawSha256": "c68b00b5ad073850eb1d9a550cc166c6c689f74bc31982988b740f69c80516fb",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2657.46875,
+            "y": 774.75,
+            "width": 81.25,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.hex"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "websocket打开长消息全屏 / Open the long websocket message fullscreen",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "bytes": 311465,
+      "sha256": "422fc26347b370b10b6ad1bd6404a4485d4041cf72121aa101e23237c6a0e013",
+      "rawBytes": 355496,
+      "rawSha256": "05c208d61abfde67b053a1af57a54902930bea19a23ed97f24608606962641e6",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 542,
+            "y": 242,
+            "width": 2116,
+            "height": 118
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "websocket按Escape返回消息详情 / Press Escape to return to websocket message details",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "bytes": 297705,
+      "sha256": "311898dfebdf1c99f38872cfcf6b38148757cb42604387799822e6c015816f54",
+      "rawBytes": 394115,
+      "rawSha256": "06a88afdb58667fd415aa78278835a83afab08da8ed41654b4751c70cb8f524b",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 774.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "滚动加载后续websocket消息页 / Scroll to load later websocket message pages",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "bytes": 327704,
+      "sha256": "5463885fcc89bc66cacada3c03a0648f7e4b96ba467ef1c14c8c290a552b523b",
+      "rawBytes": 464726,
+      "rawSha256": "d542075c6d4464f53493d1c0e69015b8340c4c6539f2dff19852c874caa814d3",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2304,
+            "y": 374.75,
+            "width": 896,
+            "height": 1365.25
+          },
+          "automationId": "capture.inspector.scroll"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "展开第205条websocket方向消息 / Expand message 205 in the selected websocket direction",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "bytes": 332518,
+      "sha256": "0d1c5ba61e3c8dfe7a67df9ebe7f71ba4900faaabd6777b96ebde70cb3ff3305",
+      "rawBytes": 463746,
+      "rawSha256": "e783a06e95ac5a62829490648f54349a14e180ab8ae4640666cd4764e4bcab60",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 1574.75,
+            "width": 800,
+            "height": 76
+          },
+          "automationId": "capture.websocket.frame.ex-mvijf46x-4sydprdj.409"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "查看第205条websocket消息的完整Text正文 / Inspect the complete Text body of websocket message 205",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "bytes": 324763,
+      "sha256": "2ae65258dca8ac61da17644318bd3f92ab9f6b5226772157dfc03d8330d55834",
+      "rawBytes": 447202,
+      "rawSha256": "76fd86cbb622a5bf7a51c05f90dc8f8cda704655be44450a2d2c6ca9ae6f7758",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1522.75,
+            "width": 752,
+            "height": 96
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "复制第205条websocket消息，JSON index为204 / Copy websocket message 205 with JSON index 204",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "bytes": 336383,
+      "sha256": "6d4856f8da5350cb2dd44fac963881b04044d50cfe878bc949f8d82719b14ef4",
+      "rawBytes": 464180,
+      "rawSha256": "b102e53762ea9c95641995f3ad0694d0e53589c23ab60ee1d4f09207ec2f2efb",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3058,
+            "y": 1344.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.websocket.copy.ex-mvijf46x-4sydprdj.409"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

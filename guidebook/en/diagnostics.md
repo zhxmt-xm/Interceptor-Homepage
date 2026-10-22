@@ -1,229 +1,142 @@
 # Diagnostics: investigate runtime problems
 
-> Draft for `v0.1.1-alpha.1`. Actual query and native JSONL export steps are illustrated; fault and Tool branches still have gaps. Neither this chapter nor item9 is complete. Diagnostics records operations, not every network frame.
-
 [Guide directory](../README.en.md) · [Troubleshooting](troubleshooting.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>requestUrl</code> | <code>http://127.0.0.1:54599/guide/diagnostics</code> |
-| <code>method</code> | <code>GET</code> |
-| <code>command</code> | <code>composer.send</code> |
-| <code>process</code> | <code>core</code> |
-| <code>level</code> | <code>info</code> |
-| <code>outcome</code> | <code>success</code> |
-| <code>fileName</code> | <code>guide-diagnostics.jsonl</code> |
-
-<a id="walkthrough-01-open"></a>
-### 01 · Open Diagnostics
-
-![01 · Open Diagnostics](../media/v0.1.1-alpha.1/diagnostics/diagnostics-01-open.png)
-
-<a id="walkthrough-02-record"></a>
-### 02 · Select an actual record
-
-![02 · Select an actual record](../media/v0.1.1-alpha.1/diagnostics/diagnostics-02-record.png)
-
-<a id="walkthrough-03-process"></a>
-### 03 · Filter by Process
-
-![03 · Filter by Process](../media/v0.1.1-alpha.1/diagnostics/diagnostics-03-process.png)
-
-<a id="walkthrough-04-level"></a>
-### 04 · Filter by Level
-
-![04 · Filter by Level](../media/v0.1.1-alpha.1/diagnostics/diagnostics-04-level.png)
-
-<a id="walkthrough-05-info"></a>
-### 05 · Select the info level
-
-![05 · Select the info level](../media/v0.1.1-alpha.1/diagnostics/diagnostics-05-info.png)
-
-<a id="walkthrough-06-outcome"></a>
-### 06 · Inspect successful operations
-
-![06 · Inspect successful operations](../media/v0.1.1-alpha.1/diagnostics/diagnostics-06-outcome.png)
-
-<a id="walkthrough-07-export"></a>
-### 07 · Save guide-diagnostics.jsonl
-
-![07 · Save guide-diagnostics.jsonl](../media/v0.1.1-alpha.1/diagnostics/diagnostics-07-export.png)
-
-<a id="walkthrough-08-exported"></a>
-### 08 · Verify the actual JSONL export
-
-![08 · Verify the actual JSONL export](../media/v0.1.1-alpha.1/diagnostics/diagnostics-08-exported.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="records"></a>
 ## Select a record and inspect details
 
-**Purpose:** locate a failed request send, file operation, proxy action or runtime event.
+When a send, proxy or file operation fails, note its time and the action you performed, then find the matching Diagnostics record. This example uses `main.upstream.apply.failed`; locate your own incident by its actual time and command.
 
-1. Note the operation and time. This reference uses the supplementary recording's successful `GET http://127.0.0.1:54599/guide/diagnostics`, command `composer.send`. `54599` is its dynamic recording port, not a public service or failed-request example.
+1. <a id="walkthrough"></a><a id="walkthrough-01-open"></a>Open Diagnostics from the sidebar and wait for the list. Use Time, Command, Level, Outcome and Duration to identify when an operation happened, what ran, its severity, result and duration.
 
-   **Image pending:** this clip starts in Diagnostics, without the preceding Composer input/Send. A Composer image using another port cannot stand in for this operation.
+   ![Select a record and inspect details · 1](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-037.png)
 
-2. Open Diagnostics and wait for the list to update.
+2. <a id="filters"></a><a id="walkthrough-03-process"></a>Use Process in box 1 to select `main` for this example. Leave it unrestricted when the source is uncertain; `core`, `main` and `renderer` are distinct processes.
 
-   ![Opening the actual Diagnostics list](../media/v0.1.1-alpha.1/diagnostics/diagnostics-01-open.png)
+   ![Select a record and inspect details · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-038.annotated.png)
 
-3. Select a matching record and inspect process, command, level, outcome and duration.
+3. <a id="walkthrough-04-level"></a><a id="walkthrough-05-info"></a>Select `error` with Level in box 1. Use `warn`, `info` or `debug` as appropriate for other records. No matching result does not mean the logs were lost.
 
-   Recorded values are `core` / `composer.send` / `info` / `success`; time and duration are record-specific.
+   ![Select a record and inspect details · 3](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-039.annotated.png)
 
-   ![Selecting the actual successful composer.send record](../media/v0.1.1-alpha.1/diagnostics/diagnostics-02-record.png)
+4. <a id="walkthrough-02-record"></a><a id="walkthrough-diagnostics-lifecycle-11-timeline"></a><a id="walkthrough-06-outcome"></a>Select `failed` in Outcome and click the `main.upstream.apply.failed` record matching the incident time. Box 1 shows its process, outcome, duration, error type and related timeline automatically; there is no separate expand-timeline action.
 
-4. Select a record and read the related timeline shown automatically on the right. There is no separate “expand timeline” button.
+   ![Select a record and inspect details · 4](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-040.annotated.png)
 
-   ![The actual failed upstream operation and automatic timeline](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-11-timeline.png)
+5. <a id="walkthrough-diagnostics-lifecycle-12-widen"></a><a id="walkthrough-diagnostics-lifecycle-18-list-wheel"></a>Drag the divider between list and details to give the timeline more room. Scroll within the relevant pane to read its content while retaining the selected record.
 
-**Expected result:** connect a visible user action to actual runtime records instead of guessing from one error sentence.
+   ![Select a record and inspect details · 5](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-042.png)
 
-**Notes:** Main, Core and Renderer are different sources. The UI does not expose every internal attribute or log complete command payloads and request bodies.
+6. <a id="walkthrough-diagnostics-lifecycle-14-outcome-timed_out"></a><a id="walkthrough-diagnostics-lifecycle-14-outcome-all"></a><a id="walkthrough-diagnostics-lifecycle-15-process-renderer"></a><a id="walkthrough-diagnostics-lifecycle-15-process-all"></a><a id="walkthrough-diagnostics-lifecycle-16-filters-cleared"></a>Return Process, Level and Outcome to their unrestricted states when you need to search again. Filtering changes the view; it neither deletes records nor clears Capture.
 
-<a id="filters"></a>
-## Narrow the query
+   ![Select a record and inspect details · 6](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-043.png)
 
-1. Select this example's `core` Process; keep all if the source is uncertain.
+7. <a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>Scroll to the bottom of the list and use Load earlier records. Wait for older records to be added; this is different from refreshing the latest records or loading the entire database at once.
 
-   ![Actual Process filtering](../media/v0.1.1-alpha.1/diagnostics/diagnostics-03-process.png)
+   ![Select a record and inspect details · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-044.png)
 
-2. Use Level and observe the changed list; temporarily empty results are not necessarily missing logs.
+A record missing from the current screen may still exist. Check filters and pagination first; a filter available to a Tool does not necessarily have a matching page control.
 
-   ![Actual intermediate Level filter state](../media/v0.1.1-alpha.1/diagnostics/diagnostics-04-level.png)
-
-3. Select this command's `info` level.
-
-   ![Selecting info](../media/v0.1.1-alpha.1/diagnostics/diagnostics-05-info.png)
-
-4. Limit Outcome to `success`.
-
-   ![Actual success-only results](../media/v0.1.1-alpha.1/diagnostics/diagnostics-06-outcome.png)
-
-5. Confirm list/selection belong to this operation; clear filters when necessary.
-
-   ![Process, Level and Outcome all returned to all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-16-filters-cleared.png)
-
-6. Load earlier records and wait for the page to appear.
-
-   ![Loading history produced by real Composer operations](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-17-earlier.png)
-
-7. Resize the list/detail split and scroll through complete content.
-
-   ![Resizing the list/detail divider](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-12-widen.png)
-
-   ![Scrolling actual historical records](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-18-list-wheel.png)
-
-**Expected result:** filtering changes the view, not stored records. Loading older results differs from receiving recent ones.
-
-**Notes:** the screen is not the complete database. Tool filters follow their real schema; internal fields are not automatically UI controls.
 
 <a id="outcome"></a>
 ## Distinguish failure, cancellation and unfinished work
 
-1. Check whether the operation has reached a terminal state.
+Check command completion, job completion and actual network results separately. Logs provide evidence, not a substitute for the business outcome.
 
-   This shows the actual `composer.send` success, not a failed, cancelled or still-running example.
+1. <a id="walkthrough-diagnostics-lifecycle-04a-upstream"></a><a id="walkthrough-diagnostics-lifecycle-04b-pac-mode"></a><a id="walkthrough-diagnostics-lifecycle-04c-pac-url"></a><a id="walkthrough-diagnostics-lifecycle-04d-pac-failure"></a><a id="walkthrough-diagnostics-lifecycle-04e-discard"></a>Read an error on the operation page first. Box 1 reports a failed PAC application while Current route remains System; the failure did not switch the route. Use Discard changes if the draft is no longer wanted.
 
-   ![Actual successful terminal state](../media/v0.1.1-alpha.1/diagnostics/diagnostics-02-record.png)
+   ![Distinguish failure, cancellation and unfinished work · 1](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-036.annotated.png)
 
-2. Inspect the error summary and process, then verify state in the owning feature.
+2. <a id="walkthrough-diagnostics-lifecycle-05-diagnostics"></a><a id="walkthrough-diagnostics-lifecycle-05a-save-evidence"></a><a id="walkthrough-diagnostics-lifecycle-05b-evidence"></a><a id="walkthrough-diagnostics-lifecycle-06-core"></a><a id="walkthrough-diagnostics-lifecycle-06a-main"></a><a id="walkthrough-diagnostics-lifecycle-07-error"></a><a id="walkthrough-diagnostics-lifecycle-08-success-filter"></a><a id="walkthrough-diagnostics-lifecycle-09-failed-filter"></a><a id="walkthrough-diagnostics-lifecycle-10-select-failed"></a>Find the failure from the same time in Diagnostics. The `main.upstream.apply.failed` record in box 1 matches this operation; an unrelated `success` record does not explain every failure.
 
-   In this example, enter an owned PAC URL returning 404 in Settings, observe Apply fail, discard the draft, then select `main.upstream.apply.failed`. The [recording](#walkthrough-diagnostics-lifecycle) includes input and recovery.
+   ![Distinguish failure, cancellation and unfinished work · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-040.annotated.png)
 
-   ![Selecting the actual main-process failure](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-10-select-failed.png)
+3. <a id="walkthrough-diagnostics-lifecycle"></a><a id="walkthrough-diagnostics-lifecycle-01-input"></a><a id="walkthrough-diagnostics-lifecycle-02-send-success"></a><a id="walkthrough-diagnostics-lifecycle-03-failed-input"></a><a id="walkthrough-diagnostics-lifecycle-04-send-failed"></a><a id="walkthrough-diagnostics-lifecycle-19-export"></a><a id="walkthrough-diagnostics-lifecycle-20-exported"></a><a id="walkthrough-diagnostics-lifecycle-21-composer-return"></a><a id="walkthrough-diagnostics-lifecycle-22-good-url"></a><a id="walkthrough-diagnostics-lifecycle-23-recovered"></a>Return to the owning feature to verify recovery. Here Composer sends to the working endpoint and receives `200` with `diagnostics-recovered`. An `info/success` record for `composer.send` can also mean the command successfully returned a network failure result; the log alone does not prove HTTP success.
 
-3. For networking, inspect client/origin results; for files, task completion; for proxies, actual ownership.
+   ![Distinguish failure, cancellation and unfinished work · 3](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-048.png)
 
-   A Composer network failure can still have an `info/success` record for `composer.send`: the command successfully returned a network-failure result, not an HTTP success. Return to Composer and Send against the working owned service to verify actual recovery.
+4. <a id="walkthrough-diagnostics-lifecycle-13-level-warn"></a><a id="walkthrough-diagnostics-lifecycle-13-level-info"></a><a id="walkthrough-diagnostics-lifecycle-13-level-debug"></a><a id="walkthrough-diagnostics-lifecycle-13-level-all"></a><a id="walkthrough-diagnostics-lifecycle-14-outcome-cancelled"></a>Distinguish `success`, `failed`, `cancelled` and `timed_out`. Cancellation or timeout filters can be empty; an empty list does not prove those events occurred. Also inspect the actual file and terminal job state for file operations.
 
-   ![A real network failure rather than a command exception](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04-send-failed.png)
+Successfully submitting an operation does not complete an asynchronous file job, and a failed step does not prove the destination received no request.
 
-   ![Checking the successful response after another Send](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-23-recovered.png)
-
-4. Do not conflate user cancellation, destination rejection, protocol errors and App failures.
-
-   The `cancelled` or `timed_out` filter can be empty; that is not evidence of an actual timeout. See [native Save cancellation](agent.md#walkthrough-agent-tool-lifecycle-12-cancel-native) and [cancelling a running archive](transfer.md#walkthrough-transfer-cancel) for real user cancellation.
-
-   ![The actual results of selecting cancelled](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-cancelled.png)
-
-**Expected result:** a specific investigation direction, not an assumption that one successful intermediate record means the entire operation succeeded.
-
-**Notes:** an accepted UI intent may start an unfinished file task. A reported failure also does not prove the server received nothing.
 
 <a id="export"></a>
 ## Export useful diagnostics
 
-1. Reproduce the smallest authorized scenario and note time, version and OS.
+Reproduce the smallest authorized case and note its time. Set Process, Level and Outcome for the issue without excluding its errors. This example clears those filters, so the export includes both successful and failed records.
 
-   The basic clip uses a successful `composer.send`. The [additional recording](#walkthrough-diagnostics-lifecycle-04a-upstream) also shows an actual Apply failure from an owned PAC URL returning 404. Both use macOS x64, `0.1.1-alpha.1`; no failure logs are fabricated.
+1. <a id="walkthrough-07-export"></a>After checking the filters, click Export in box 1. Selecting a record for inspection does not limit the export to that row.
 
-2. This example uses Process `core`, Level `info`, Outcome `success`. Adjust to your own records for an actual fault rather than filtering out the needed errors.
+   ![Export useful diagnostics · 1](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-045.annotated.png)
 
-   ![Selecting core](../media/v0.1.1-alpha.1/diagnostics/diagnostics-03-process.png)
+2. Choose your own directory and a filename such as `lifecycle.jsonl` in the system Save dialog, then select Save. Use Cancel to abandon it.
 
-   ![Selecting info](../media/v0.1.1-alpha.1/diagnostics/diagnostics-05-info.png)
+   ![Export useful diagnostics · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-046.png)
 
-   ![Selecting success](../media/v0.1.1-alpha.1/diagnostics/diagnostics-06-outcome.png)
+3. <a id="walkthrough-08-exported"></a>After returning to Diagnostics, check the job and output file rather than treating a visible list as proof of completion. Each JSONL line is a JSON record; it is not HAR and cannot restore missing traffic bodies.
 
-3. Use Export and save `guide-diagnostics.jsonl` in the real native dialog.
+   ![Export useful diagnostics · 3](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-047.png)
 
-   ![Real native Save panel for guide-diagnostics.jsonl](../media/v0.1.1-alpha.1/diagnostics/diagnostics-07-export.png)
+4. Inspect business identifiers and other identifying data before sharing. Include reproduction steps, time, version, operating system and the actual error. Do not send model keys, MCP credentials, CA private keys or personal traffic; exporting does not upload anything automatically.
 
-4. Wait for completion and inspect the output.
+Records are redacted during collection and export, but still inspect the actual file. See [file transfers](transfer.md#jobs) for cancellation and completion states.
 
-   ![Actual JSONL export check](../media/v0.1.1-alpha.1/diagnostics/diagnostics-08-exported.png)
-
-5. Review privacy, then share steps, expected behavior and the actual error.
-
-   This is a safety requirement before sharing, not an automatic upload step. This tutorial did not send the exported file to a third party; completing export is not permission to share it unchecked.
-
-**Expected result:** line-delimited JSON useful for diagnosis, without sending the entire App data directory.
-
-**Notes**
-
-- Recording/export redaction does not eliminate every business identifier; review the final file.
-- JSONL is not HAR and cannot recover missing captured bodies.
-- Do not share model keys, MCP credentials, CA private keys or personal traffic.
-- Starting export does not prove completion. See [file tasks](transfer.md#jobs).
 
 <a id="tools"></a>
 ## Query through Agent or MCP
 
-1. Enable only required Diagnostics query tools.
+Enable only the Diagnostics permissions you need and scope the model’s request by source, time clues and operation. Queries are read-only; `diagnostics_export` is a separately authorized change.
 
-   The [complete read-only recording](tool-permissions.md#walkthrough-tool-permissions-readonly) disables change entries individually and retains query entries, including Diagnostics. Explicitly grant `diagnostics_export` separately when export is needed.
+1. Use `diagnostics_get_recent` for recent records in the current Core memory. This example passes `limit: 200` and receives a record count and droppedCount; it is not an unrestricted history query.
 
-2. Limit the AI task to the source, time clues and operation instead of requesting unrelated history.
+   ![Query through Agent or MCP · 1](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-003.png)
 
-   ![Agent querying actual Recent records for a limited goal](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png)
+2. Take traceId from an actual returned record and pass it to `diagnostics_get_trace`. The example returns two records for that trace. Do not guess an ID or add an unsupported limit argument.
 
-3. Distinguish current Core memory snapshots from persistent queries.
+   ![Query through Agent or MCP · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-005.png)
 
-   Read the current Core snapshot with `diagnostics_get_recent`, then pass the returned `traceId` to `diagnostics_get_trace`. Use `diagnostics_query` for persistent records. Do not add a nonexistent `limit` argument to `diagnostics_get_trace` or treat it as an arbitrary-history query.
+3. Use `diagnostics_query` for persisted history and pagination with its actual schema. Recent/Trace retain the current Core memory order rather than providing newest-first database pagination.
 
-   ![Reading Trace with the just-returned traceId](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png)
+4. Review the `diagnostics_export` arguments: process `core`, level `info` and outcome `success` here. Deny Tool in box 1 refuses the operation; Allow Tool in box 2 continues. Choosing Deny does not open Save.
 
-4. Approve export separately and complete its native file window.
+   ![Query through Agent or MCP · 4](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-009.annotated.png)
 
-   The [Agent recording](agent.md#walkthrough-agent-tool-lifecycle-10-export-request) and [MCP recording](mcp.md#walkthrough-mcp-tool-lifecycle-08-export-ask) each include actual approval, native Save cancellation, saving again and querying job completion.
+   ![Query through Agent or MCP · 4](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-010.png)
 
-   ![Agent approval still requires a real save destination](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
+5. For another request, box 1 can still refuse it and box 2 permits that call. Even after Allow, cancelling the system Save dialog returns Export canceled without starting an export job.
 
-**Expected result:** AI receives the necessary redacted context while you choose export destinations.
+   ![Query through Agent or MCP · 5](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-012.annotated.png)
 
-**Notes:** `diagnostics_get_trace` and `diagnostics_get_recent` are current-Core snapshots, not unlimited history. The trace query has current-trace/count limits. See [Tool reference](tool-reference.md#diagnostics).
+   ![Query through Agent or MCP · 5](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-014.png)
+
+6. When ready to save, review the new approval: box 1 is Deny and box 2 is Allow. After allowing, choose a destination in the real Save dialog, `agent.jsonl` here, and confirm Save.
+
+   ![Query through Agent or MCP · 6](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-016.annotated.png)
+
+   ![Query through Agent or MCP · 6](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-017.png)
+
+7. Export job Running or started means the job began, not that the file is complete. Check the file and terminal result rather than relying on the model’s statement that it is done.
+
+   ![Query through Agent or MCP · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-018.png)
+
+8. Selecting Agent Auto in box 1 still leaves system Save dialogs in place. This example saves `auto.jsonl`; Auto does not choose a path for you.
+
+   ![Query through Agent or MCP · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-019.annotated.png)
+
+   ![Query through Agent or MCP · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-021.png)
+
+9. An external MCP Client uses its own approval. Review the client, Tool and arguments, click Allow Tool call in box 1, then save `mcp.jsonl` in the system dialog. An Agent approval does not authorize this MCP call.
+
+   ![Query through Agent or MCP · 9](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+
+   ![Query through Agent or MCP · 9](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
+
+10. MCP Client Auto also retains file selection; the image still requires Save for `mcp-auto.jsonl`. Revoke permissions for the relevant entry point when finished rather than removing unrelated configuration.
+
+    ![Query through Agent or MCP · 10](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-033.png)
+
+See [Tool permissions](tool-permissions.md#walkthrough-tool-permissions-readonly) for read-only configuration and the [Tool reference](tool-reference.md#diagnostics) for argument boundaries.
+
 
 <a id="limits"></a>
 ## What Diagnostics cannot prove
@@ -232,214 +145,3 @@ The complete reference follows. Only operations with matching real step images a
 - It does not record every HTTP/2 frame or associate every session/stream precisely with requests. Normal records cannot reconstruct all SETTINGS, RST_STREAM or GOAWAY traffic.
 - Records are not automatically discarded by a retention-days/count setting. Capture Clear is not a full Diagnostics-history deletion action.
 - A hidden internal attribute is not permission for AI to infer or reconstruct it elsewhere.
-
-<!-- recorded-walkthrough:diagnostics-lifecycle:start -->
-<a id="walkthrough-diagnostics-lifecycle"></a>
-## Actual failure, filters, history and JSONL
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>successUrl</code> | <code>http://127.0.0.1:60694/guide/diagnostics-visible/success</code> |
-| <code>failureUrl</code> | <code>http://127.0.0.1:60696/guide/diagnostics-failure</code> |
-| <code>unavailablePac</code> | <code>http://127.0.0.1:60694/guide/diagnostics-visible/unavailable.pac</code> |
-| <code>failedOrigin</code> | <code>Owned loopback TCP service closes its accepted connection</code> |
-| <code>history</code> | <code>120 real Composer Send operations prepared before filming, not seeded diagnostic rows</code> |
-| <code>command</code> | <code>composer.send</code> |
-| <code>failedAction</code> | <code>main.upstream.apply.failed</code> |
-| <code>failureFilter</code> | <code>main / error / failed</code> |
-| <code>clearedFilter</code> | <code>all / all / all</code> |
-| <code>outcomeBoundary</code> | <code>Composer returns a normal command result with ok=false for network failure; diagnostic success does not imply HTTP success</code> |
-| <code>file</code> | <code>guide-diagnostics-lifecycle.jsonl</code> |
-| <code>timeline</code> | <code>Shown automatically for the selected operation; not an expandable control</code> |
-
-<a id="walkthrough-diagnostics-lifecycle-01-input"></a>
-### 01 · Enter the visible success example
-
-![01 · Enter the visible success example](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-01-input.png)
-
-<a id="walkthrough-diagnostics-lifecycle-02-send-success"></a>
-### 02 · Actually Send and verify the successful response
-
-![02 · Actually Send and verify the successful response](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-02-send-success.png)
-
-<a id="walkthrough-diagnostics-lifecycle-03-failed-input"></a>
-### 03 · Enter the owned endpoint that closes its connection
-
-![03 · Enter the owned endpoint that closes its connection](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-03-failed-input.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04-send-failed"></a>
-### 04 · Observe the real network failure
-
-![04 · Observe the real network failure](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04-send-failed.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04a-upstream"></a>
-### 05 · Open the owned PAC failure example
-
-![05 · Open the owned PAC failure example](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04a-upstream.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04b-pac-mode"></a>
-### 06 · Choose a PAC draft
-
-![06 · Choose a PAC draft](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04b-pac-mode.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04c-pac-url"></a>
-### 07 · Enter the owned PAC URL that returns 404
-
-![07 · Enter the owned PAC URL that returns 404](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04c-pac-url.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04d-pac-failure"></a>
-### 08 · Observe actual Apply failure while retaining the route
-
-![08 · Observe actual Apply failure while retaining the route](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04d-pac-failure.png)
-
-<a id="walkthrough-diagnostics-lifecycle-04e-discard"></a>
-### 09 · Discard the failed draft without changing saved configuration
-
-![09 · Discard the failed draft without changing saved configuration](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-04e-discard.png)
-
-<a id="walkthrough-diagnostics-lifecycle-05-diagnostics"></a>
-### 10 · Open Diagnostics
-
-![10 · Open Diagnostics](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05-diagnostics.png)
-
-<a id="walkthrough-diagnostics-lifecycle-05a-save-evidence"></a>
-### 11 · Export current records before filtering
-
-![11 · Export current records before filtering](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05a-save-evidence.png)
-
-<a id="walkthrough-diagnostics-lifecycle-05b-evidence"></a>
-### 12 · Inspect the actual exported outcome classifications
-
-![12 · Inspect the actual exported outcome classifications](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-05b-evidence.png)
-
-<a id="walkthrough-diagnostics-lifecycle-06-core"></a>
-### 13 · Filter by core process
-
-![13 · Filter by core process](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06-core.png)
-
-<a id="walkthrough-diagnostics-lifecycle-06a-main"></a>
-### 14 · Switch to the failed action’s main process
-
-![14 · Switch to the failed action’s main process](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-06a-main.png)
-
-<a id="walkthrough-diagnostics-lifecycle-07-error"></a>
-### 15 · Filter by error level
-
-![15 · Filter by error level](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-07-error.png)
-
-<a id="walkthrough-diagnostics-lifecycle-08-success-filter"></a>
-### 16 · Inspect the success outcome combination
-
-![16 · Inspect the success outcome combination](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-08-success-filter.png)
-
-<a id="walkthrough-diagnostics-lifecycle-09-failed-filter"></a>
-### 17 · Switch to failed outcomes
-
-![17 · Switch to failed outcomes](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-09-failed-filter.png)
-
-<a id="walkthrough-diagnostics-lifecycle-10-select-failed"></a>
-### 18 · Select the actually failed upstream action
-
-![18 · Select the actually failed upstream action](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-10-select-failed.png)
-
-<a id="walkthrough-diagnostics-lifecycle-11-timeline"></a>
-### 19 · Read the automatically shown related timeline
-
-![19 · Read the automatically shown related timeline](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-11-timeline.png)
-
-<a id="walkthrough-diagnostics-lifecycle-12-widen"></a>
-### 20 · Drag the Diagnostics splitter
-
-![20 · Drag the Diagnostics splitter](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-12-widen.png)
-
-<a id="walkthrough-diagnostics-lifecycle-13-level-warn"></a>
-### 21 · Cycle Level to warn
-
-![21 · Cycle Level to warn](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-warn.png)
-
-<a id="walkthrough-diagnostics-lifecycle-13-level-info"></a>
-### 22 · Cycle Level to info
-
-![22 · Cycle Level to info](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-info.png)
-
-<a id="walkthrough-diagnostics-lifecycle-13-level-debug"></a>
-### 23 · Cycle Level to debug
-
-![23 · Cycle Level to debug](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-debug.png)
-
-<a id="walkthrough-diagnostics-lifecycle-13-level-all"></a>
-### 24 · Cycle Level to all
-
-![24 · Cycle Level to all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-13-level-all.png)
-
-<a id="walkthrough-diagnostics-lifecycle-14-outcome-cancelled"></a>
-### 25 · Cycle Outcome to cancelled
-
-![25 · Cycle Outcome to cancelled](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-cancelled.png)
-
-<a id="walkthrough-diagnostics-lifecycle-14-outcome-timed_out"></a>
-### 26 · Cycle Outcome to timed_out
-
-![26 · Cycle Outcome to timed_out](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-timed_out.png)
-
-<a id="walkthrough-diagnostics-lifecycle-14-outcome-all"></a>
-### 27 · Cycle Outcome to all
-
-![27 · Cycle Outcome to all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-14-outcome-all.png)
-
-<a id="walkthrough-diagnostics-lifecycle-15-process-renderer"></a>
-### 28 · Cycle Process to renderer
-
-![28 · Cycle Process to renderer](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-renderer.png)
-
-<a id="walkthrough-diagnostics-lifecycle-15-process-all"></a>
-### 29 · Cycle Process to all
-
-![29 · Cycle Process to all](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-15-process-all.png)
-
-<a id="walkthrough-diagnostics-lifecycle-16-filters-cleared"></a>
-### 30 · Verify all three filters are cleared
-
-![30 · Verify all three filters are cleared](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-16-filters-cleared.png)
-
-<a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>
-### 31 · Load the actual earlier page
-
-![31 · Load the actual earlier page](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-17-earlier.png)
-
-<a id="walkthrough-diagnostics-lifecycle-18-list-wheel"></a>
-### 32 · Scroll the real history list
-
-![32 · Scroll the real history list](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-18-list-wheel.png)
-
-<a id="walkthrough-diagnostics-lifecycle-19-export"></a>
-### 33 · Save this Diagnostics JSONL
-
-![33 · Save this Diagnostics JSONL](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-19-export.png)
-
-<a id="walkthrough-diagnostics-lifecycle-20-exported"></a>
-### 34 · Verify the actual export, not just the dialog
-
-![34 · Verify the actual export, not just the dialog](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-20-exported.png)
-
-<a id="walkthrough-diagnostics-lifecycle-21-composer-return"></a>
-### 35 · Return to Composer, which produced the records
-
-![35 · Return to Composer, which produced the records](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-21-composer-return.png)
-
-<a id="walkthrough-diagnostics-lifecycle-22-good-url"></a>
-### 36 · Return to the working owned service
-
-![36 · Return to the working owned service](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-22-good-url.png)
-
-<a id="walkthrough-diagnostics-lifecycle-23-recovered"></a>
-### 37 · Send again and verify actual recovery
-
-![37 · Send again and verify actual recovery](../media/v0.1.1-alpha.1/diagnostics-lifecycle/diagnostics-lifecycle-23-recovered.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:diagnostics-lifecycle:end -->

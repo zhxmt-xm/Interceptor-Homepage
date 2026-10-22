@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-https-local-mapping-english",
+  "title": {
+    "zh-CN": "HTTPS Map Local文件映射",
+    "en": "HTTPS Map Local file mapping"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/tls-scenarios.workflow.ts",
+    "test": "capture.scenarios.tls distinguishes opaque tunnels from decrypted H1 and H2 bodies",
+    "run": "2026-10-21T13-36-04-054Z-XO6oHx",
+    "testDirectory": "capture-tls-scenarios.work-ac367--decrypted-H1-and-H2-bodies-macos",
+    "manifestSha256": "275af98ce727e2f610044a21e7362b6b5537091b1e3ac2b82e2c93a0cd06034d",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-021",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-021.png",
+      "image": "step-021.png",
+      "rawImage": "step-021.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [],
+      "bytes": 56123,
+      "sha256": "78ab5151e9004d788514d5295bd64402ff77c43aae8970f50447b15474a17e61",
+      "rawBytes": 56123,
+      "rawSha256": "78ab5151e9004d788514d5295bd64402ff77c43aae8970f50447b15474a17e61"
+    },
+    {
+      "id": "step-022",
+      "title": "从Response Save保存本轮映射文件 / Save this response as the local mapping file",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-022.png",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2972,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.save"
+        }
+      ],
+      "bytes": 211147,
+      "sha256": "303b6d0633954266614ecb2796c1eb27b46312cddd9935a0e8ba497758bcca21",
+      "rawBytes": 278147,
+      "rawSha256": "c65518898f89b840a870fc833ea8f99418873babd6ac2d9b64126ea9188a2569",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "把原映射规则改为本地文件示例 / Rename the existing Rule for local file mapping",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-026.png",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1490.703125,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        }
+      ],
+      "bytes": 174903,
+      "sha256": "90378dd86ad2fcc61ebed0ec4041bc27195e445adc44b117ce9e7c9141a8bbea",
+      "rawBytes": 266459,
+      "rawSha256": "dbcbbf11211691d34ead01bb56edc6707cf358e9392b7778414d8e4a5d815668",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-027",
+      "title": "移除Map Remote后选择Map Local / Choose Map Local after removing Map Remote",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-027.png",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1260,
+            "y": 702.59375,
+            "width": 468,
+            "height": 68
+          },
+          "automationId": "rules.action.map-local"
+        }
+      ],
+      "bytes": 235114,
+      "sha256": "25d8c80b80829c593e51b29cadb897139e6fa54174aaa9a3d8d1312c5c7a306c",
+      "rawBytes": 342322,
+      "rawSha256": "453d976418d8552b52b1b9d97dce380e3c48cf0d62410f0c3c84dd5d16e9edcc",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "输入本轮不存在的Map Local路径 / Enter this run's missing Map Local file path",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-028.png",
+      "image": "step-028.annotated.png",
+      "rawImage": "step-028.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1118,
+            "y": 875.234375,
+            "width": 1994,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 180885,
+      "sha256": "5b12a2b156c97fb2cba5d2dbe87df7e3ad62d3fe2d812745ddf378b0b7cea4eb",
+      "rawBytes": 276479,
+      "rawSha256": "a6dd2c863c7ad9d030c00cf20281ce4764b23f20ec70dd091b80960f76a930b3",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-029",
+      "title": "启用本地文件映射草稿 / Enable the local file mapping draft",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-029.png",
+      "image": "step-029.annotated.png",
+      "rawImage": "step-029.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "bytes": 181041,
+      "sha256": "9ee3586eb98d1a557598110de00a8678ced1e1a3acd155a079f2fad21a7131b9",
+      "rawBytes": 277930,
+      "rawSha256": "8f362c284c0f4e3eb954ac831ee7cfb0e30ed3e842ec97c24d993782c6f5f53d",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-030",
+      "title": "保存缺失路径的Map Local规则 / Save the Map Local Rule with the missing path",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-030.png",
+      "image": "step-030.annotated.png",
+      "rawImage": "step-030.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "bytes": 178888,
+      "sha256": "5a4053ee04faa776b5340238beb2c4397b02e3024934099d59a7be503ce2753b",
+      "rawBytes": 274345,
+      "rawSha256": "f7eeeda5958d8e3ce68c48323fc5647fcdba5d6f5ad62b9e4c17ee069fbd0217",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-031",
+      "title": "缺失本地文件的HTTPS请求返回明确404正文 / The HTTPS request returns the missing-file 404 body",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-031.png",
+      "image": "step-031.annotated.png",
+      "rawImage": "step-031.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "bytes": 214735,
+      "sha256": "3c426a7931a779e135eabbba9fc116a6fecec94a52ff0ddfcb9362488f618fd4",
+      "rawBytes": 282961,
+      "rawSha256": "169dc218ab2cd41c4466b24ad8010db95bb85af42ce1bb4fb8dc7cf36abd5715",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-032",
+      "title": "修正为刚由产品Save生成的文件路径 / Correct the path to the file just produced by Save",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-032.png",
+      "image": "step-032.annotated.png",
+      "rawImage": "step-032.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1118,
+            "y": 875.234375,
+            "width": 1994,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "bytes": 181405,
+      "sha256": "d886b09b966de6873156cc282b5eeb3f0de4b29a841663047b9f8c0c12a47a5b",
+      "rawBytes": 278427,
+      "rawSha256": "b0cb34e7ce1731f67d301c400942a86bd6ff7f11d60e810e31b2870b3db3ce0f",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-033",
+      "title": "保存修正后的Map Local路径 / Save the corrected Map Local path",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-033.png",
+      "image": "step-033.annotated.png",
+      "rawImage": "step-033.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "bytes": 178895,
+      "sha256": "4cd4a2da7531623c2a4c679ff477b03ca80a2107ae430d8e641fdf02e47bcf0d",
+      "rawBytes": 274407,
+      "rawSha256": "92a01896edaf1bba8380890322acbe2712dcc7d1a3767d1cbd2ce419f1f7d67b",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-034",
+      "title": "HTTPS Map Local返回产品保存的文件正文 / HTTPS Map Local returns the product-saved file body",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-034.png",
+      "image": "step-034.annotated.png",
+      "rawImage": "step-034.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "bytes": 215153,
+      "sha256": "4a50979c8bc6d8b070adcf530c2b704aa1ae0bb254c3e9ee64a0af41ba9698fb",
+      "rawBytes": 284431,
+      "rawSha256": "ca1ef18a58a2f2d1252601148515cc57737434f83559da46b84bb294074a5b6c",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-035",
+      "title": "停用本地文件映射 / Disable local file mapping",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-035.png",
+      "image": "step-035.annotated.png",
+      "rawImage": "step-035.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "bytes": 179810,
+      "sha256": "f932361ee0bcb6698a371fa913f1795a4ffaf8dead52d567c673dfcc19866d0f",
+      "rawBytes": 275589,
+      "rawSha256": "7a6c18b11c6c00076ddb9c25d5437e48eb15ed1fc5204ef8d811b402299c9808",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-036",
+      "title": "保存Map Local停用状态 / Save the disabled Map Local state",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-036.png",
+      "image": "step-036.annotated.png",
+      "rawImage": "step-036.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "bytes": 178793,
+      "sha256": "ec2cb06d88e687955fb86e372b2b07b8362d6068c59e1854ffa0dcca0e95d101",
+      "rawBytes": 273401,
+      "rawSha256": "1e7ccff6f83b888b5875ceb3a075b0afdd18a8469248d58dad521ad84a5a1887",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-037",
+      "title": "停用Map Local后新HTTPS请求恢复原404 / A new HTTPS request restores the original 404 after disabling Map Local",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-037.png",
+      "image": "step-037.annotated.png",
+      "rawImage": "step-037.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi5ptd8-cglbf365"
+        }
+      ],
+      "bytes": 242282,
+      "sha256": "6345c1e76cae4ed4e8c86e4fbc1d67e12a27df65ee0421bb858dca4417238234",
+      "rawBytes": 351492,
+      "rawSha256": "32e824a858567a0177ba14ab7381750f336d00cd90055cf29ebc6806a0c0d67e",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

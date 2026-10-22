@@ -147,14 +147,14 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
       `mediaSources[${JSON.stringify(`../../..${target.pathname}`)}]${target.hash ? `+${JSON.stringify(target.hash)}` : ''}`,
     );
   };
-  const link = (href: string): { value: string; separate: boolean } => {
+  const link = (href: string): { value: string; separate: boolean; image?: boolean } => {
     if (href.startsWith('#') || /^(?:https?:|mailto:)/i.test(href))
       return { value: href, separate: /^https?:/i.test(href) };
     const target = new URL(href, sourceUrl);
     if (target.origin !== 'https://guidebook.invalid')
       return { value: target.href, separate: true };
     if (target.pathname.startsWith('/guidebook/media/'))
-      return { value: media(href), separate: true };
+      return { value: media(href), separate: false, image: true };
     if (target.pathname === '/guidebook/README.md' || target.pathname === '/guidebook/README.en.md')
       return {
         value: `${guideHref('overview', locale)}${target.hash}`,
@@ -170,23 +170,41 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
       separate: false,
     };
   };
-  const transform = (node: Element): Element => {
+  const transform = (node: Element, insideImageButton = false): Element => {
     const properties = { ...node.properties };
     if (typeof properties.src === 'string') properties.src = media(properties.src);
     let tagName = node.tagName;
+    let imageButton = false;
     if (tagName === 'a') {
       properties.className = style(properties.href ? 'link' : 'anchor');
       if (typeof properties.href === 'string') {
         const resolved = link(properties.href);
         properties.href = resolved.value;
-        if (resolved.separate) {
+        const linkedImage = node.children.find(
+          (child): child is Element => child.type === 'element' && child.tagName === 'img',
+        );
+        if (resolved.image || linkedImage) {
+          const source = linkedImage?.properties.src;
+          tagName = 'button';
+          imageButton = true;
+          properties.className = style(linkedImage ? 'image' : 'imageLink');
+          properties.type = 'button';
+          properties['data-image-preview'] = true;
+          properties['data-image-src'] =
+            typeof source === 'string' ? media(source) : resolved.value;
+          properties['data-image-alt'] = linkedImage?.properties.alt ?? textContent(node);
+          properties['aria-haspopup'] = 'dialog';
+          delete properties.href;
+          delete properties.target;
+          delete properties.rel;
+        } else if (resolved.separate) {
           properties.target = '_blank';
           properties.rel = ['noopener', 'noreferrer'];
         }
       } else tagName = 'span';
     }
     const children = node.children.map((child) =>
-      child.type === 'element' ? transform(child) : child,
+      child.type === 'element' ? transform(child, imageButton || insideImageButton) : child,
     );
     if (tagName === 'img') {
       const original = node.properties.src;
@@ -204,14 +222,16 @@ function compileArticle(tree: Root, page: GuidePageId, locale: Locale, files: Se
       properties.loading = 'lazy';
       properties.decoding = 'async';
       properties.alt ??= '';
+      if (insideImageButton) return { ...node, properties, children };
       return {
         type: 'element',
-        tagName: 'a',
+        tagName: 'button',
         properties: {
           className: style('image'),
-          href: properties.src,
-          target: '_blank',
-          rel: ['noopener', 'noreferrer'],
+          type: 'button',
+          'data-image-preview': true,
+          'data-image-src': properties.src,
+          'aria-haspopup': 'dialog',
           'aria-label': node.properties.alt,
         },
         children: [{ ...node, properties, children }],

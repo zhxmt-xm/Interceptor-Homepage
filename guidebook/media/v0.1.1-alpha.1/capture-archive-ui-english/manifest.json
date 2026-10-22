@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-archive-ui-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "capture/tools-archive-transfer.workflow.ts",
+    "manifestSha256": "61fb89224fb0b8f4ba035178325703e3f567636c4f776125fe61ef166d5903a3",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-020",
+      "title": "在Export菜单选择Native Archive / Choose Native Archive in the Export menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2728,
+            "y": 268,
+            "width": 420,
+            "height": 80
+          },
+          "automationId": "capture.transfer.archive-save"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "阅读Archive范围与敏感数据提示后先取消 / Read archive scope and sensitive-data warnings, then cancel first",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1639.84375,
+            "y": 1100,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "capture.transfer.cancel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "确认Native Archive导出 / Confirm the Native Archive export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1803.8125,
+            "y": 1100,
+            "width": 266.1875,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-023.png",
+      "rawImage": "step-023.png"
+    },
+    {
+      "id": "step-024",
+      "title": "Native Archive保存完成后回到Capture / Return to Capture after saving the native archive",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "从Import菜单选择Native Archive / Choose Native Archive in the Import menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2662,
+            "y": 268,
+            "width": 420,
+            "height": 80
+          },
+          "automationId": "capture.transfer.archive-open"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "阅读原生归档导入提示并选择文件 / Read the native archive import warning before choosing a file",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1798.125,
+            "y": 1024,
+            "width": 271.875,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "同一份UI导出归档已追加，不覆盖原记录 / The same UI-exported archive appends without replacing existing records",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.png",
+      "rawImage": "step-028.png"
+    },
+    {
+      "id": "step-029",
+      "title": "导入后检查保存的HTTP响应正文 / Inspect the saved HTTP response body after import",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.annotated.png",
+      "rawImage": "step-029.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2758.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-030",
+      "title": "归档中的WebSocket消息仍可查看 / Inspect the WebSocket message retained by the archive",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-030.annotated.png",
+      "rawImage": "step-030.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2466,
+            "y": 504.75,
+            "width": 696,
+            "height": 76
+          },
+          "automationId": "capture.websocket.frame.archive-exchange-53b1d600-7c68-4b02-8af7-273d65215e0f.1"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442689,
+      "sha256": "dcc38d5e7fb5783b29d93dee52ab8dc68c832b62b2a1ccb5bf97a65006eca8ec"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 318878,
+      "sha256": "96d84e2b91e907c51bd746a15fb370ec176981b120435c540f67a29b36f70518"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 370423,
+      "sha256": "d48e95db81c8e868b40c338c6233e8c80f3e35151646e60d80e2765afdf4ca17"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 312856,
+      "sha256": "cbfcbad60f49ebcf3bfd8920ed693c3ff5242b55f3a5e927caa6194499881924"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 370423,
+      "sha256": "d48e95db81c8e868b40c338c6233e8c80f3e35151646e60d80e2765afdf4ca17"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 313360,
+      "sha256": "e1f554f58f52cee2fa9e004456499518e757b924507440bedbbb575417418c42"
+    },
+    {
+      "file": "step-023.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 52431,
+      "sha256": "e593a654635d96e0565bb7b86e0369df99ba777349dd479495a2997061177f6e"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 401623,
+      "sha256": "b6022e80fa664c72fda53694a6ea5b5c5e621bf1359764c08379f39f63af5c47"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 447574,
+      "sha256": "f894011ce4134c76becce331cec49d292339f9645d89409fc1253e3f96f2e07d"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 322816,
+      "sha256": "76424715f8b3d308943fe3ac21e35e5f52f6df02ec95cb8e30a675b70f8196b1"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 349473,
+      "sha256": "b7f39e52f5330cd3bb8fd3b2335b79c6a7b9102f41df1062f9d5fbd1ef3b5555"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296367,
+      "sha256": "0b94be3fa0ab1a10e5ff8cbbcca6143e67c4aae35edf62301eedda271457aecf"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 503347,
+      "sha256": "e09c047c9106e142376f411f531ac408096e041ca01ec9448ded555c577d6840"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 497701,
+      "sha256": "729ba9855d3fd7a3447881577be6a56ad44617cb0b96d8b519d094d445b33d5e"
+    },
+    {
+      "file": "step-029.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 365653,
+      "sha256": "8fec43a65e31dfa7a2d32fa3775be94623c5ce847803b5205101d9d8bb7f05dc"
+    },
+    {
+      "file": "step-030.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 529871,
+      "sha256": "62d41875c4a541d2f66c192571f85bafaf49ae43c0f0b8e623c8e5a7788097da"
+    },
+    {
+      "file": "step-030.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377940,
+      "sha256": "c41d16a70fd73f897f01bb576e688b5bfda474a2287249dbd177caa275ca5250"
+    }
+  ]
+}

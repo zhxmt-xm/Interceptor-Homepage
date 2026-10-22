@@ -1,122 +1,6 @@
 # Import and export: retain and share evidence
 
-> Draft for `v0.1.1-alpha.1`; actual Save/Open panels and file round trips are illustrated. Cancellation, errors and other unrecorded branches still have gaps; neither this chapter nor item9 is complete. Export success does not make a file safe to publish.
-
 [Guide directory](../README.en.md) · [Capture](capture.md) · [Privacy settings](settings.md#privacy)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:55059/guide/transfer/order</code> |
-| <code>har</code> | <code>guide-recording.har</code> |
-| <code>archive</code> | <code>guide-recording.iarchive</code> |
-| <code>bodyFile</code> | <code>guide-response.json</code> |
-| <code>body</code> | <code>{&quot;orderId&quot;:&quot;guide-001&quot;,&quot;message&quot;:&quot;Hello Interceptor&quot;}</code> |
-
-<a id="walkthrough-01-export-menu"></a>
-### 01 · Open Export
-
-![01 · Open Export](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
-
-<a id="walkthrough-02-har-options"></a>
-### 02 · Choose HAR
-
-![02 · Choose HAR](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
-
-<a id="walkthrough-03-scope"></a>
-### 03 · Select the current request
-
-![03 · Select the current request](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
-
-<a id="walkthrough-04-privacy"></a>
-### 04 · Review privacy options
-
-![04 · Review privacy options](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
-
-<a id="walkthrough-05-har-save-dialog"></a>
-### 05 · Save as guide-recording.har
-
-![05 · Save as guide-recording.har](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
-
-<a id="walkthrough-06-har-complete"></a>
-### 06 · Verify HAR completion
-
-![06 · Verify HAR completion](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
-
-<a id="walkthrough-07-import-menu"></a>
-### 07 · Open Import
-
-![07 · Open Import](../media/v0.1.1-alpha.1/transfer/transfer-07-import-menu.png)
-
-<a id="walkthrough-08-import-har"></a>
-### 08 · Choose HAR import
-
-![08 · Choose HAR import](../media/v0.1.1-alpha.1/transfer/transfer-08-import-har.png)
-
-<a id="walkthrough-09-har-open-dialog"></a>
-### 09 · Open the same exported HAR
-
-![09 · Open the same exported HAR](../media/v0.1.1-alpha.1/transfer/transfer-09-har-open-dialog.png)
-
-<a id="walkthrough-10-har-appended"></a>
-### 10 · Verify appended records
-
-![10 · Verify appended records](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
-
-<a id="walkthrough-11-archive-options"></a>
-### 11 · Choose Native Archive
-
-![11 · Choose Native Archive](../media/v0.1.1-alpha.1/transfer/transfer-11-archive-options.png)
-
-<a id="walkthrough-12-archive-save-dialog"></a>
-### 12 · Save the native archive
-
-![12 · Save the native archive](../media/v0.1.1-alpha.1/transfer/transfer-12-archive-save-dialog.png)
-
-<a id="walkthrough-13-archive-complete"></a>
-### 13 · Verify archive completion
-
-![13 · Verify archive completion](../media/v0.1.1-alpha.1/transfer/transfer-13-archive-complete.png)
-
-<a id="walkthrough-14-clear"></a>
-### 14 · Clear the exported example records
-
-![14 · Clear the exported example records](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
-
-<a id="walkthrough-15-archive-import"></a>
-### 15 · Open Native Archive
-
-![15 · Open Native Archive](../media/v0.1.1-alpha.1/transfer/transfer-15-archive-import.png)
-
-<a id="walkthrough-16-archive-open-dialog"></a>
-### 16 · Select the product-created archive
-
-![16 · Select the product-created archive](../media/v0.1.1-alpha.1/transfer/transfer-16-archive-open-dialog.png)
-
-<a id="walkthrough-17-restored"></a>
-### 17 · Verify restored requests and body
-
-![17 · Verify restored requests and body](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
-
-<a id="walkthrough-18-body-save-dialog"></a>
-### 18 · Save the individual body
-
-![18 · Save the individual body](../media/v0.1.1-alpha.1/transfer/transfer-18-body-save-dialog.png)
-
-<a id="walkthrough-19-body-complete"></a>
-### 19 · Verify the complete body
-
-![19 · Verify the complete body](../media/v0.1.1-alpha.1/transfer/transfer-19-body-complete.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="formats"></a>
 ## Choose the right format
@@ -135,448 +19,272 @@ Choose based on the facts you need. Similar file extensions or JSON syntax do no
 <a id="har"></a>
 ## Export HAR
 
-**Prerequisites:** Capture contains the needed traffic. Check filters and selection before choosing scope.
+Start with records you want to retain in Capture. This example has four: two `/e2e/har-tools/text` and two `/e2e/har-tools/binary` records. All, Current filter and Selected request produce four, two and one records from this set. Check your own records and filters rather than assuming these counts.
 
-The actual request is `http://127.0.0.1:55059/guide/transfer/order`, body `{"orderId":"guide-001","message":"Hello Interceptor"}`. `55059` is only the recording's dynamic port; use your own test service.
+1. <a id="walkthrough"></a><a id="walkthrough-01-export-menu"></a><a id="walkthrough-02-har-options"></a><a id="walkthrough-transfer-scopes-all-01-menu"></a><a id="walkthrough-transfer-scopes-all-02-har"></a>Pause new recording, open Export in Capture and choose Export HAR in box 1.
 
-1. Open Capture Export.
+   ![Export HAR · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
-   ![Actually opening Export](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
+2. <a id="walkthrough-03-scope"></a><a id="walkthrough-transfer-scopes"></a><a id="walkthrough-transfer-scopes-all-03-scope"></a><a id="walkthrough-04-privacy"></a>Choose All traffic in box 1 and check the four-record count. Review authorization and cookie masks and whether to retain bodies, then click Export 4 requests in box 2.
 
-2. Select HAR.
+   ![Export HAR · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![HAR configuration after selection](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
+3. <a id="walkthrough-transfer-scopes-all-04-save"></a><a id="walkthrough-05-har-save-dialog"></a>Choose your destination in the system Save dialog and save `ui.har`. Cancelling does not create an output file.
 
-3. This recording selects the current request. The [separate scope recording](#walkthrough-transfer-scopes) owns three `/guide/export-scopes` requests, filters to two and selects one. Its complete sequence creates `guide-all.har`, `guide-filtered.har` and `guide-selected.har`, whose actual files contain exactly 3, 2 and 1 request URLs.
+   ![Export HAR · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
-   ![Actual current-request scope](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+4. <a id="walkthrough-transfer-scopes-all-05-complete"></a><a id="walkthrough-06-har-complete"></a>Wait for the file to be saved and return to Capture. Box 1 is Export, available for another operation, and box 2 shows recording remains Paused. Confirm the file exists before continuing.
 
-   ![Selecting all records from three inputs](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
+   ![Export HAR · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   ![Selecting the two filtered records from the same inputs](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
+5. <a id="walkthrough-transfer-scopes-01-filter"></a><a id="walkthrough-transfer-scopes-02-select"></a>Enter `/e2e/har-tools/text` in Keyword, box 1, to filter the two text records, then select one in box 2. The filtered scope and selected scope are different.
 
-   The recording includes each real Save panel and completion result, then [imports the filtered file created by the same Export flow](#walkthrough-transfer-scopes-import-01-menu). Only two records are appended, without resending requests.
+   ![Export HAR · 5](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-016.annotated.png)
 
-4. Inspect body inclusion and Authorization/Cookie masking, and read format-loss/sensitive-data warnings. Masking is not universal.
+6. <a id="walkthrough-transfer-scopes-filtered-01-menu"></a><a id="walkthrough-transfer-scopes-filtered-02-har"></a><a id="walkthrough-transfer-scopes-filtered-03-scope"></a>Open Export HAR again, choose Current filter in box 1 and click Export 2 requests in box 2. It includes both filtered records, not only the selected row.
 
-   ![Actual HAR privacy review](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+   ![Export HAR · 6](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
 
-5. Confirm export and save `guide-recording.har` in the real native dialog.
+7. <a id="walkthrough-transfer-scopes-filtered-04-save"></a>Save a separate `ui-filter.har` so the all-records file is not unintentionally overwritten.
 
-   ![Actual native Save panel for guide-recording.har](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
+   ![Export HAR · 7](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-018.png)
 
-6. Wait for completion and inspect this file. Cancelled/failed is not completed.
+8. <a id="walkthrough-transfer-scopes-filtered-05-complete"></a>Wait for saving to finish, then use Export in box 1 for the next operation. The list retains its filter, and export does not delete original records.
 
-   ![Actual completion checkpoint for this HAR](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+   ![Export HAR · 8](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-019.annotated.png)
 
-**Expected result:** a HAR 1.2 file for HTTP interchange.
+9. <a id="walkthrough-transfer-scopes-selected-01-menu"></a><a id="walkthrough-transfer-scopes-selected-02-har"></a><a id="walkthrough-transfer-scopes-selected-03-scope"></a>Choose Selected request in box 1, confirm the one-record count and click Export 1 request in box 2. With no selected record, this scope is not a synonym for all records.
 
-**Notes**
+   ![Export HAR · 9](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-020.annotated.png)
 
-- HAR cannot preserve all HTTP/2 pseudo-headers, trailers, WebSocket messages, TLS details and rule history.
-- Encoded responses may become decoded HAR content; exported content size and wire size can legitimately differ.
-- Large HAR bodies can consume substantial memory. No file-size limit does not imply bounded memory for every input.
-- Export is a snapshot, not automatic inclusion of later traffic.
+10. <a id="walkthrough-transfer-scopes-selected-04-save"></a>Save `ui-selected.har` separately and retain the all, filtered and single-record files according to their purpose.
+
+    ![Export HAR · 10](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-021.png)
+
+11. <a id="walkthrough-transfer-scopes-selected-05-complete"></a>Export in box 1 remains available after saving. Before sharing, inspect record counts, bodies and sensitive fields in the actual output file, not only the dialog choices.
+
+    ![Export HAR · 11](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-022.annotated.png)
+
+12. To reopen the data, follow [Import](#import) using a file you just saved. Import appends its records without sending requests or automatically deduplicating them.
+
+- HAR cannot losslessly represent HTTP/2 pseudo-headers, trailers, WebSocket messages, TLS detail or full Rule history.
+- Compressed responses may be stored as decoded content as required by HAR. File body size alone does not establish whether wire bytes were lost.
+- Large bodies increase export memory requirements; no fixed file-size limit does not imply low memory at every scale.
+- Export is a snapshot, not an automatic inclusion of traffic arriving afterward.
+
 
 <a id="archive"></a>
 ## Save a native archive
 
-1. Confirm the traffic exists. This image follows the recording's HAR import: it is still `/guide/transfer/order`, not a resent request. Waiting for a long stream remains image pending.
+Native Archive saves a complete Capture snapshot that Interceptor can reopen. This independent example contains eight records, including HTTP at `/e2e/archive-tools/http` and message connections at `/e2e/archive-tools/websocket`. Check your own data; HAR masks are not automatically applied.
 
-   ![Actual traffic state after this HAR append](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
+1. <a id="walkthrough-10-har-appended"></a><a id="walkthrough-11-archive-options"></a>Review the records in Capture, open Export and click Save Capture (`.iarchive`) in box 1. If a response is still arriving, decide whether to wait for its complete contents first.
 
-2. Choose Native Archive from Export and review contents/privacy implications.
+   ![Save a native archive · 1](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-020.annotated.png)
 
-   ![Actual Native Archive export options](../media/v0.1.1-alpha.1/transfer/transfer-11-archive-options.png)
+2. Read the snapshot and sensitive-data warnings. Use Cancel in box 1 if not ready to save or share; cancelling this confirmation does not create an archive.
 
-3. Save `guide-recording.iarchive` in the real native dialog.
+   ![Save a native archive · 2](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-021.annotated.png)
 
-   ![Native Save panel for guide-recording.iarchive](../media/v0.1.1-alpha.1/transfer/transfer-12-archive-save-dialog.png)
+3. When ready, open the same action from Export again and click Save Capture in box 1.
 
-4. Wait for completion before retaining or sharing.
+   ![Save a native archive · 3](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-022.annotated.png)
 
-   ![This native archive actually saved](../media/v0.1.1-alpha.1/transfer/transfer-13-archive-complete.png)
+4. <a id="walkthrough-12-archive-save-dialog"></a>Choose your destination in the system Save dialog and save `ui.iarchive`. Do not treat it as Rules or Collection JSON.
 
-**Expected result:** retain native exchanges and their bodies, including details HAR cannot fully express.
+   ![Save a native archive · 4](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-023.png)
 
-**Notes**
+5. <a id="walkthrough-13-archive-complete"></a>Wait for saving to finish before retaining or sharing the file. Returning to Capture does not clear the original records, which remain available for inspection.
 
-- Native archives retain sensitive source data and do not inherit HAR masking.
-- Rule-hit associations are not complete Rules configuration or historical definitions.
-- The archive uses the current format, not a promise of migration across arbitrary versions.
-- ZIP64 is unsupported; a generic ZIP tool's ability to open something does not prove product compatibility.
-- A snapshot of unfinished traffic is not a backup of bytes that will arrive later.
+   ![Save a native archive · 5](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-024.png)
+
+- Archives contain unmasked original data; inspect them separately before sharing.
+- Rule-hit associations are not a full Rules configuration backup.
+- Arbitrary migration across past or future versions is not guaranteed; the current format does not support ZIP64.
+- A snapshot of an unfinished connection does not contain bytes that will arrive later.
+
 
 <a id="import"></a>
 ## Reopen HAR or native archives
 
-**Prerequisites:** use a trusted file. For the first exercise, generate it with product Export.
+Use a trusted file you have already saved through product Export. HAR and Archive are separate examples below; compare each file’s record count with the current list. Import appends without sending the requests to their origins and does not require Clear first.
 
-1. Retain current important data; you do not need to Clear before importing.
+1. <a id="walkthrough-07-import-menu"></a><a id="walkthrough-transfer-scopes-import-01-menu"></a>For HAR, open Import in Capture and choose Import HAR in box 1.
 
-   This input is the `guide-recording.har` just exported by the product above. Confirm it finished saving first:
+   ![Reopen HAR or native archives · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-032.annotated.png)
 
-   ![The input HAR actually finished saving](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+2. <a id="walkthrough-08-import-har"></a><a id="walkthrough-09-har-open-dialog"></a><a id="walkthrough-transfer-scopes-import-02-har"></a><a id="walkthrough-transfer-scopes-import-03-open"></a>Click Import HAR in box 1 and select the previously saved `ui.har` in the system Open dialog, not an `.iarchive` or configuration JSON file.
 
-2. Open Import.
+   ![Reopen HAR or native archives · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-033.annotated.png)
 
-   ![Actual Import menu](../media/v0.1.1-alpha.1/transfer/transfer-07-import-menu.png)
+3. <a id="walkthrough-transfer-scopes-import-04-complete"></a><a id="walkthrough-transfer-scopes-import-05-all"></a>Wait for import to finish. Four entries from `ui.har` append to the original four, making eight. Box 1 marks a new binary record that is not selected yet; the Inspector still shows the earlier text content. Do not mistake those old details for the new row’s body.
 
-3. Select HAR import, not Rules/Collection JSON.
+   ![Reopen HAR or native archives · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-035.annotated.png)
 
-   ![Actual HAR import entry](../media/v0.1.1-alpha.1/transfer/transfer-08-import-har.png)
+4. Select the imported `/e2e/har-tools/binary`, open Request and use Copy in box 1 to check the complete `HAR request body`, `16 B`. A binary path does not mean its request body is binary.
 
-4. Select the same `guide-recording.har` in the real native open dialog.
+   ![Reopen HAR or native archives · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-036.annotated.png)
 
-   ![Native Open panel for that same HAR](../media/v0.1.1-alpha.1/transfer/transfer-09-har-open-dialog.png)
+5. Switch the same record to Response and inspect its six bytes in Hex: `00 01 7f 80 fe ff`. Copy in box 1 copies the current body representation. This is the opposite direction from the preceding request.
 
-5. Read actual progress, warnings and provided confirmations, then inspect the successful append. Do not assume every format has a Rules-style preview. Error, cancellation and lossy-warning branches remain image pending.
+   ![Reopen HAR or native archives · 5](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-037.annotated.png)
 
-   ![Actual records appended by HAR import](../media/v0.1.1-alpha.1/transfer/transfer-10-har-appended.png)
+6. Select an imported `/e2e/har-tools/text` next. Request Copy in box 1 of the first image corresponds to `HAR request body` (`16 B`); Response Copy in box 1 of the second corresponds to `HAR response body` (`17 B`). Check each body rather than only counting records.
 
-6. To follow this archive-restoration exercise, finish the preceding Native Archive export, then Clear disposable demo records. Clearing demonstrates restoration; it is not an import prerequisite.
+   ![Reopen HAR or native archives · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-038.annotated.png)
 
-   ![Clearing demo records after the archive was saved](../media/v0.1.1-alpha.1/transfer/transfer-14-clear.png)
+   ![Reopen HAR or native archives · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.annotated.png)
 
-7. Choose Import Native Archive.
+7. Read import warnings. Missing protocol detail or stripped bodies cannot be recreated. Failure or cancellation is not a complete import, even if partial progress was shown.
 
-   ![Actual native archive import entry](../media/v0.1.1-alpha.1/transfer/transfer-15-archive-import.png)
+8. <a id="walkthrough-14-clear"></a>Import does not require an empty list. To reopen an archive into empty Capture, save records you need first, use Capture Clear and wait for cleanup to finish.
 
-8. Select the just-exported `guide-recording.iarchive` in the native open dialog.
+9. <a id="walkthrough-15-archive-import"></a>This separate example opens the saved `ui.iarchive` while eight original records remain. Choose Open Capture (`.iarchive`) in box 1 of Import.
 
-   ![Native Open panel for the same archive](../media/v0.1.1-alpha.1/transfer/transfer-16-archive-open-dialog.png)
+   ![Reopen HAR or native archives · 9](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-025.annotated.png)
 
-9. After success, select the restored record and open its body; check `guide-001` and `Hello Interceptor`.
+10. <a id="walkthrough-16-archive-open-dialog"></a>Read the warning, click Open Capture in box 1 and choose that same `ui.iarchive` in the system Open dialog.
 
-   ![Actually restored request and JSON body](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
+    ![Reopen HAR or native archives · 10](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-026.annotated.png)
 
-**Expected result:** records are appended. Import does not resend requests.
+11. <a id="walkthrough-17-restored"></a>Wait for completion. The archive’s eight records append to the original eight, making sixteen in this example without replacing original records by name.
 
-**Notes**
+    ![Reopen HAR or native archives · 11](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-028.png)
 
-- Reimporting is not incremental synchronization and may create duplicate records.
-- Missing HAR details cannot be reconstructed during import.
-- Partial progress does not prove a completed import; use its terminal state.
-- Import-only reading does not require hidden Recording state.
-- Do not automatically unpack untrusted archives just to see whether they work.
+12. Select an imported HTTP record, open Response in box 1 and check the complete `archive-response-payload`. This is a text response, not JSON from another example.
+
+    ![Reopen HAR or native archives · 12](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-029.annotated.png)
+
+13. Open the imported WebSocket record, select the message in box 1 and inspect `archive-websocket-payload` and its direction. An archive restores inspectable history, not a new live connection.
+
+    ![Reopen HAR or native archives · 13](../media/v0.1.1-alpha.1/capture-archive-ui-english/step-030.annotated.png)
+
+Repeated imports can append more copies rather than performing incremental synchronization. Unknown files can be large or sensitive; verify their source instead of automatically opening or extracting them to experiment. Reading a file and Recording are separate operations.
+
 
 <a id="body"></a>
 ## Save an individual body
 
-1. Select restored `/guide/transfer/order` and open Response. This is JSON response export, not a WebSocket/gRPC message.
+Save body writes the complete captured storage bytes, not only the read-only preview. This example is the UTF-8 response to GET `/e2e/body-preview/four-byte`, with `2097166` bytes (`2 MiB + 14`). It is separate from the HAR and archive files above.
 
-   ![Actual response body to save](../media/v0.1.1-alpha.1/transfer/transfer-17-restored.png)
+1. Select your Capture record and open Request, Response or the relevant message body. This example saves Response; first confirm the direction and selected record.
 
-2. If Original/Final is available, choose the required version first.
+2. Choose Original or Final first when both versions exist. This example has no dual-version comparison; see [original and final bodies](rules.md#effects) for saving rewritten traffic.
 
-   This ordinary JSON example has no two-version comparison. See the [actual version switching and saving](capture.md#区分原始内容与规则修改结果): a separate `/guide/response-evidence/request-body` switches from Original to Final and saves `guide-final.json`. Do not confuse it with this section's `guide-response.json`.
+3. <a id="walkthrough-18-body-save-dialog"></a>Click Save in the body toolbar, choose a destination in the system dialog and save `utf8-full-body.txt`. You choose the filename and location; Copy is not a substitute for saving the complete body.
 
-3. Use Save body and enter `guide-response.json` in the real native panel.
+   ![Save an individual body · 3](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
 
-   ![Actual native panel for saving one body](../media/v0.1.1-alpha.1/transfer/transfer-18-body-save-dialog.png)
+4. <a id="walkthrough-19-body-complete"></a>Wait for the save to finish and inspect the file with an appropriate tool. The complete example is `2097166` bytes and still ends with `🙂after-preview`, even though the on-screen preview is truncated. The image shows Capture after closing the Inspector, not the file contents or a permanent completion badge.
 
-4. Wait for completion and use a JSON-capable tool to check `{"orderId":"guide-001","message":"Hello Interceptor"}`.
+   ![Save an individual body · 4](../media/v0.1.1-alpha.1/capture-body-save-english/step-050.png)
 
-   ![Actual complete-body save checkpoint](../media/v0.1.1-alpha.1/transfer/transfer-19-body-complete.png)
+- Export cannot recover bytes that never arrived before a network interruption.
+- Stored content can retain its wire encoding; a saved file is not necessarily directly readable text.
+- Audio, video, unknown binary data or oversized images may expose metadata and Save without an in-App player.
+- Copy can copy only the preview or formatted display. Use Save body for complete data.
 
-**Expected result:** save the actual stored captured bytes, not just a `2 MiB` preview.
-
-**Notes:** missing network bytes cannot be recovered. Stored bytes may retain wire content encoding rather than visible text. Media may offer metadata/save only. Copy can represent a preview or formatted view instead of the complete file.
 
 <a id="jobs"></a>
 ## Progress, cancellation and quitting
 
-1. Observe actual task state, not just a dialog or rising progress count.
+Large tasks usually expose progress; small files can finish quickly. Cancelling a running task differs from cancelling a Save dialog before a task starts. This example uses one `128 MiB` binary response without personal traffic.
 
-   This is the recorded HAR's completed state, not an active job:
+1. <a id="walkthrough-transfer-cancel"></a><a id="walkthrough-transfer-cancel-01-source"></a>Confirm the `/e2e/transfer-jobs/large-source` response in box 1 has finished arriving. Use only test data you are allowed to save and delete.
 
-   ![Confirming actual file-task completion](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+   ![Progress, cancellation and quitting · 1](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-004.annotated.png)
 
-2. Use Cancel if no longer needed and wait for a terminal outcome.
+2. <a id="walkthrough-transfer-cancel-02-export-menu"></a>Open Export and choose Save Capture in box 1 to begin a native archive.
 
-   The [archive-cancellation recording](#walkthrough-transfer-cancel) owns a 128 MiB response at `/guide/transfer-cancel/large-source`. After selecting `guide-cancel.iarchive`, inspect actual running progress and click the job's Cancel, not the native Save panel's Cancel.
+   ![Progress, cancellation and quitting · 2](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-016.annotated.png)
 
-   ![Actual running archive progress and its cancellation control](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+3. <a id="walkthrough-transfer-cancel-03-archive"></a><a id="walkthrough-transfer-cancel-04-save-dialog"></a>Read the warning, click Save Capture in box 1 and choose `cancel-ui.iarchive` in the system dialog. Cancel in that system dialog cancels file selection, not the running-task action below.
 
-   ![Actual Cancel returns to Capture while retaining the source record](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
+   ![Progress, cancellation and quitting · 3](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-017.annotated.png)
 
-3. If saving already completed, a late Cancel is not undo; manage the saved file deliberately.
+   ![Progress, cancellation and quitting · 3](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-018.png)
 
-   **Image pending:** late-cancellation races and managing the saved file were not separately recorded.
+4. <a id="walkthrough-transfer-cancel-05-running"></a><a id="walkthrough-transfer-cancel-06-cancel"></a>While Exporting archive is still running, click Cancel transfer in box 1. The `1 of 2 files` progress refers to archive work, not two Capture records.
 
-4. Wait for active operations and cancellation cleanup before Clear or quitting.
+   ![Progress, cancellation and quitting · 4](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-019.annotated.png)
 
-   In the same cancellation recording, [wait for cleanup](#walkthrough-transfer-cancel-07-cleaned) and verify no final or partial archive remains, while the source record is retained. Clear only afterward; Recording remains paused. Clear rejection through another entry during a running job and quitting with active work remain separate gaps.
+5. <a id="walkthrough-transfer-cancel-07-cleaned"></a>Wait for cancellation and temporary-file cleanup. UI cancellation closes the progress dialog while the original Capture record remains. Clear in box 1 is a separate later cleanup action, not a substitute for Cancel transfer.
 
-   ![The source record remains after cancellation cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
+   ![Progress, cancellation and quitting · 5](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-020.annotated.png)
 
-   ![Actually clearing only after cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
+6. <a id="walkthrough-transfer-cancel-08-clear"></a>Clear only after confirming the record is disposable, then check the empty list. Skip this step if the record must remain. Also wait for task cleanup before a normal exit.
 
-**Expected result:** cancellation completes explicitly, errors remain errors and committed output stays completed.
+   ![Progress, cancellation and quitting · 6](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-021.png)
 
-**Notes**
+- A late Cancel is not Undo for a completed task and should not delete its final saved file.
+- Capture Clear neither cancels another file task nor deletes exported files.
+- Clear may be rejected during active work or cleanup; do not force a disabled action.
+- Started from Agent/MCP means the job was accepted. Query its terminal state; stopping a conversation does not automatically cancel an existing file job.
 
-- Capture file operations can reject Clear while holding data.
-- Clear neither cancels another task nor deletes prior exports.
-- Cancellation is not instantaneous rollback. A late signal must not delete a successfully committed output.
-- Agent/MCP “started” results are not “finished.” Query the task; stopping a chat does not necessarily cancel an already-started transfer.
 
 <a id="config-files"></a>
 ## Exchange Rules and Collections
 
-These are two independent walkthroughs, not interchangeable inputs: Rules uses `guide-rules.json`; Composer uses `guide-collection.json`.
+Rules and Collection use different JSON formats. These examples use `rules-roundtrip.json` and `collection-roundtrip.json`: Export from the owning feature first, then Import through that same feature.
 
-1. Export in the owning feature using its real native save panel.
+1. Inspect your tree in Rules, click Export rules and save `rules-roundtrip.json`. This example has two Rules and one folder, with one Rule enabled. Export does not apply unsaved edits for you.
 
-   ![Rules saving guide-rules.json](../media/v0.1.1-alpha.1/rules-organization/rules-organization-11-export.png)
+   ![Exchange Rules and Collections · 1](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
 
-   ![Composer saving guide-collection.json](../media/v0.1.1-alpha.1/composer-editing/composer-editing-25-export.png)
+2. Use Export in the Composer Collection toolbar and save a separate `collection-roundtrip.json`. This example has two requests and one folder. Export does not send them.
 
-2. Import through the same feature, selecting its just-generated file in the native open panel.
+   ![Exchange Rules and Collections · 2](../media/v0.1.1-alpha.1/composer-import-english/step-021.png)
 
-   ![Rules selecting its just-exported file](../media/v0.1.1-alpha.1/rules-organization/rules-organization-13-import-file.png)
+3. In Rules, click Import rules and select the saved Rules file. Check Rules `2`, Folders `1`, Enabled `1` and Skipped `0`. Cancel in box 1 cancels the import; Import 2 rules in box 2 appends and saves it, potentially activating the enabled Rule for subsequent traffic.
 
-   ![Composer selecting its just-exported collection](../media/v0.1.1-alpha.1/composer-editing/composer-editing-27-import.png)
+   ![Exchange Rules and Collections · 3](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.annotated.png)
 
-3. Read each preview's counts, skipped items and effects; pay attention to enabled Rules.
+4. Click Cancel first and confirm the existing tree has no additional nodes. This cancels the preview, not the exported file.
 
-   ![Actual Rules import preview](../media/v0.1.1-alpha.1/rules-organization/rules-organization-14-preview.png)
+   ![Exchange Rules and Collections · 4](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
-   ![Actual Collection import preview](../media/v0.1.1-alpha.1/composer-editing/composer-editing-28-preview.png)
+5. Import the same Rules file again and confirm. New nodes append after the existing tree rather than replacing names. This example now has four Rules, two folders and two enabled Rules, without another Save.
 
-4. Cancel unwanted effects. Rules actually cancels first and retains its tree. The [separate Collection management recording](composer.md#walkthrough-composer-collection) now also shows preview cancellation; this section's `composer-editing` recording still demonstrates direct confirmation.
+   ![Exchange Rules and Collections · 5](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-011.png)
 
-   ![Actually cancelling Rules preview](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
+6. In Composer Collection, click Import and choose `collection-roundtrip.json`. Box 1 shows the import preview and box 2 is Cancel. Inspect requests, folders and warnings; do not use a Rules file here.
 
-5. To continue the Rules exercise, select the same `guide-rules.json` again. Collection proceeds directly from its own preview.
+   ![Exchange Rules and Collections · 6](../media/v0.1.1-alpha.1/composer-import-english/step-025.annotated.png)
 
-   ![Rules selecting the same file again](../media/v0.1.1-alpha.1/rules-organization/rules-organization-16-import-again.png)
+7. After Cancel, check the original Collection and open request remain unchanged. Cancellation neither appends data nor triggers Send.
 
-6. Confirm and inspect each append without overwriting existing items.
+   ![Exchange Rules and Collections · 7](../media/v0.1.1-alpha.1/composer-import-english/step-026.png)
 
-   ![Confirmed Rules append](../media/v0.1.1-alpha.1/rules-organization/rules-organization-17-confirm.png)
+8. Select the same Collection file again, review the preview in box 1 and click the confirmation action in box 2.
 
-   ![Confirmed Collection append](../media/v0.1.1-alpha.1/composer-editing/composer-editing-29-confirm.png)
+   ![Exchange Rules and Collections · 8](../media/v0.1.1-alpha.1/composer-import-english/step-028.annotated.png)
 
-**Expected result:** new local identities are appended; matching names do not overwrite existing items.
+9. Expand the new folder in box 1 and verify the original Collection remains; new content was appended rather than overwritten.
 
-**Notes:** imported enabled Rules may immediately act on traffic. Collection import does not Send. Rules UI exports drafts; Rules Tools export saved configuration. Review credentials, addresses, bodies and paths before sharing. See [Rules](rules.md#import-export) and [Composer](composer.md#导出和导入-collection).
+   ![Exchange Rules and Collections · 9](../media/v0.1.1-alpha.1/composer-import-english/step-029.annotated.png)
+
+10. Select the imported request in box 1 and inspect its URL in box 2, then Headers, Query, Body and Auth. Only an explicit Send issues a request; a successful import does not execute it.
+
+    ![Exchange Rules and Collections · 10](../media/v0.1.1-alpha.1/composer-import-english/step-030.annotated.png)
+
+Rules UI exports the current edited tree; Rules Tools export saved configuration, so Save first when appropriate. Repeated imports append again and enabled Rules can match repeatedly. Both file types can contain credentials, addresses, bodies or paths. Review them before sharing; see [Rules](rules.md#import-export) and [Composer](composer.md#导出和导入-collection) for complete workflows.
+
 
 <a id="privacy"></a>
 ## Review privacy before sharing
 
-1. Export only the records needed to reproduce the issue.
+Share only the data needed to reproduce the issue. A selected export format does not establish that the output is anonymized.
 
-   ![This example selects only the current demo request](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+1. Narrow the scope first. Box 1 selects one current record and box 2 is Export 1 request. Avoid unintentionally exporting the whole session.
 
-2. Mask Authorization/Cookie or remove bodies from HAR as appropriate.
+   ![Review privacy before sharing · 1](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-020.annotated.png)
 
-   ![Actual HAR privacy-option location](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+2. Mask Authorization and Cookie/Set-Cookie as needed and decide whether to strip bodies before using Export in box 1. This example enables both masks and Strip bodies.
 
-3. Also inspect query values, usernames, business identifiers, other headers, contents and local paths.
+   ![Review privacy before sharing · 2](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.annotated.png)
 
-   **Image pending:** field-by-field privacy review has no step images. Public demonstration data does not make arbitrary traffic safe.
+3. Separately inspect URL queries, usernames, business identifiers, custom headers, local paths and file contents. Default rules cannot identify every sensitive business field.
 
-4. Recheck the final file, not just dialog options.
+4. Inspect the final file you will send, not only the App options. In particular, treat native archives and Collection configuration as sensitive files.
 
-   **Image pending:** saving and format validity are not a privacy review; a complete final-file privacy check was not separately recorded.
-
-5. Report version, OS, protocol, steps and actual errors without CA private keys or model credentials.
-
-   **Image pending:** issue creation/submission was not recorded. Credentials will not be published just to provide a screenshot.
-
-**Expected result:** a minimal reproducible artifact you are authorized to disclose.
-
-**Notes:** masking is not universal anonymization. Native archives and configuration exports are sensitive files. When uncertain, reproduce the issue using newly generated credential-free test data.
-
-<!-- recorded-walkthrough:transfer-scopes:start -->
-<a id="walkthrough-transfer-scopes"></a>
-## Recorded walkthrough: all, filtered and selected export scopes
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>paths</code> | <code>/guide/export-scopes/filtered-one, /guide/export-scopes/filtered-two, /guide/export-scopes/other</code> |
-| <code>filter</code> | <code>/guide/export-scopes/filtered</code> |
-| <code>selectedPath</code> | <code>/guide/export-scopes/filtered-one</code> |
-| <code>allFile</code> | <code>guide-all.har (3 entries)</code> |
-| <code>filteredFile</code> | <code>guide-filtered.har (2 entries)</code> |
-| <code>selectedFile</code> | <code>guide-selected.har (1 entry)</code> |
-| <code>afterImport</code> | <code>5 total, 4 match the filter</code> |
-| <code>inputSource</code> | <code>Import uses guide-filtered.har created by this same product Export flow</code> |
-
-<a id="walkthrough-transfer-scopes-01-filter"></a>
-### 01 · Search filtered to show two records
-
-![01 · Search filtered to show two records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-01-filter.png)
-
-<a id="walkthrough-transfer-scopes-02-select"></a>
-### 02 · Select filtered-one
-
-![02 · Select filtered-one](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-02-select.png)
-
-<a id="walkthrough-transfer-scopes-all-01-menu"></a>
-### 03 · Open the Export menu
-
-![03 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-all-02-har"></a>
-### 04 · Choose HAR
-
-![04 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-02-har.png)
-
-<a id="walkthrough-transfer-scopes-all-03-scope"></a>
-### 05 · All records
-
-![05 · All records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-all-04-save"></a>
-### 06 · Save guide-all.har
-
-![06 · Save guide-all.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-04-save.png)
-
-<a id="walkthrough-transfer-scopes-all-05-complete"></a>
-### 07 · Verify 3 exported requests
-
-![07 · Verify 3 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-all-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-filtered-01-menu"></a>
-### 08 · Open the Export menu
-
-![08 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-filtered-02-har"></a>
-### 09 · Choose HAR
-
-![09 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-02-har.png)
-
-<a id="walkthrough-transfer-scopes-filtered-03-scope"></a>
-### 10 · Current filter
-
-![10 · Current filter](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-filtered-04-save"></a>
-### 11 · Save guide-filtered.har
-
-![11 · Save guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-04-save.png)
-
-<a id="walkthrough-transfer-scopes-filtered-05-complete"></a>
-### 12 · Verify 2 exported requests
-
-![12 · Verify 2 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-filtered-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-selected-01-menu"></a>
-### 13 · Open the Export menu
-
-![13 · Open the Export menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-selected-02-har"></a>
-### 14 · Choose HAR
-
-![14 · Choose HAR](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-02-har.png)
-
-<a id="walkthrough-transfer-scopes-selected-03-scope"></a>
-### 15 · Selected request
-
-![15 · Selected request](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-03-scope.png)
-
-<a id="walkthrough-transfer-scopes-selected-04-save"></a>
-### 16 · Save guide-selected.har
-
-![16 · Save guide-selected.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-04-save.png)
-
-<a id="walkthrough-transfer-scopes-selected-05-complete"></a>
-### 17 · Verify 1 exported requests
-
-![17 · Verify 1 exported requests](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-selected-05-complete.png)
-
-<a id="walkthrough-transfer-scopes-import-01-menu"></a>
-### 18 · Open the Import menu
-
-![18 · Open the Import menu](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-01-menu.png)
-
-<a id="walkthrough-transfer-scopes-import-02-har"></a>
-### 19 · Choose HAR import
-
-![19 · Choose HAR import](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-02-har.png)
-
-<a id="walkthrough-transfer-scopes-import-03-open"></a>
-### 20 · Open the exported guide-filtered.har
-
-![20 · Open the exported guide-filtered.har](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-03-open.png)
-
-<a id="walkthrough-transfer-scopes-import-04-complete"></a>
-### 21 · Verify only the two file entries are appended
-
-![21 · Verify only the two file entries are appended](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-04-complete.png)
-
-<a id="walkthrough-transfer-scopes-import-05-all"></a>
-### 22 · Clear search to view all five records
-
-![22 · Clear search to view all five records](../media/v0.1.1-alpha.1/transfer-scopes/transfer-scopes-import-05-all.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:transfer-scopes:end -->
-
-<!-- recorded-walkthrough:transfer-cancel:start -->
-<a id="walkthrough-transfer-cancel"></a>
-## Recorded walkthrough: cancelling a running archive and waiting for cleanup
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>path</code> | <code>/guide/transfer-cancel/large-source</code> |
-| <code>responseBytes</code> | <code>134217728</code> |
-| <code>responseSha256</code> | <code>611e09db6a2947d55c5718fc7a7b9885c263fa33ebcea9ea87ff9d20c19d3d9d</code> |
-| <code>archive</code> | <code>guide-cancel.iarchive</code> |
-| <code>cancellation</code> | <code>Cancel clicked while the real archive job was running</code> |
-| <code>result</code> | <code>No archive or partial file remains; source record retained until explicit Clear</code> |
-
-<a id="walkthrough-transfer-cancel-01-source"></a>
-### 01 · Inspect the completed large response
-
-![01 · Inspect the completed large response](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-01-source.png)
-
-<a id="walkthrough-transfer-cancel-02-export-menu"></a>
-### 02 · Open Export
-
-![02 · Open Export](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-02-export-menu.png)
-
-<a id="walkthrough-transfer-cancel-03-archive"></a>
-### 03 · Choose Native Archive
-
-![03 · Choose Native Archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-03-archive.png)
-
-<a id="walkthrough-transfer-cancel-04-save-dialog"></a>
-### 04 · Choose guide-cancel.iarchive
-
-![04 · Choose guide-cancel.iarchive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-04-save-dialog.png)
-
-<a id="walkthrough-transfer-cancel-05-running"></a>
-### 05 · Inspect actual running progress
-
-![05 · Inspect actual running progress](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
-
-<a id="walkthrough-transfer-cancel-06-cancel"></a>
-### 06 · Cancel the running archive
-
-![06 · Cancel the running archive](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-06-cancel.png)
-
-<a id="walkthrough-transfer-cancel-07-cleaned"></a>
-### 07 · Wait for cancellation cleanup
-
-![07 · Wait for cancellation cleanup](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-07-cleaned.png)
-
-<a id="walkthrough-transfer-cancel-08-clear"></a>
-### 08 · Clear only after cleanup finishes
-
-![08 · Clear only after cleanup finishes](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-08-clear.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:transfer-cancel:end -->
+5. Describe the App version, system, protocol, steps and actual error in feedback. Do not send CA private keys, model credentials or Client credentials. When unsure, reproduce the issue with minimal credential-free test data.

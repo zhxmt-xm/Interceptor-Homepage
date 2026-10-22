@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "chapter": "settings-upstream-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/upstream-settings.workflow.ts",
+    "manifestSha256": "4c5c9e84efbfe7ba9fc40069c229e92950de63f283d004ea43e4be7d4bc3ec6c",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：真实App已启动，fixture拥有回环源站、上游和PAC，不写产品配置文件。 / Arrange: the real App is running; the fixture owns loopback origin, proxy and PAC without seeding product settings.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "选择Direct草稿但尚未应用 / Select a Direct draft without applying it",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2405.453125,
+            "y": 1208.578125,
+            "width": 218.171875,
+            "height": 60
+          },
+          "automationId": "upstream.discard"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "Discard后仍使用System路线 / Retain the System route after Discard",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "填写真实Manual上游的Host和Port / Enter the actual Manual upstream Host and Port",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1728,
+            "y": 694.3125,
+            "width": 814,
+            "height": 63.140625
+          },
+          "automationId": "upstream.host"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2566,
+            "y": 694.3125,
+            "width": 176,
+            "height": 63.140625
+          },
+          "automationId": "upstream.port"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 2639.625,
+            "y": 1208.578125,
+            "width": 102.375,
+            "height": 60
+          },
+          "automationId": "upstream.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "放弃Manual草稿，当前System路线不变 / Discard the Manual draft without changing the System route",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "用户操作：草稿取消不改路线；Manual通过两个入口共用的Apply生效。 / User actions: cancelling a draft keeps the route; Manual is applied through the shared settings operation.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "查看实际通过Manual上游的请求 / Inspect the request sent through the Manual upstream",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvhz27o9-krpu9hvr"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "从Capture打开当前Manual快捷设置 / Open the current Manual route from Capture",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "填写快捷PAC草稿，可取消而不改变Manual路线 / Enter a PAC shortcut draft that can be cancelled without changing Manual",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2350,
+            "y": 1346.078125,
+            "width": 784,
+            "height": 63.140625
+          },
+          "automationId": "upstream.pac-url"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3074,
+            "y": 600.40625,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "upstream.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "取消后重新打开快捷设置，仍为Manual / Reopen the shortcut after cancellation and retain Manual",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "填写PAC草稿并找到Open in Settings / Enter a PAC draft and locate Open in Settings",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2350,
+            "y": 1346.078125,
+            "width": 784,
+            "height": 63.140625
+          },
+          "automationId": "upstream.pac-url"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2318,
+            "y": 1664,
+            "width": 848,
+            "height": 74
+          },
+          "automationId": "upstream.open-settings"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "Settings保留同一PAC草稿，当前路线尚未改变 / Settings retains the same PAC draft without changing the active route",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1728,
+            "y": 556.03125,
+            "width": 1014,
+            "height": 63.140625
+          },
+          "automationId": "upstream.pac-url"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2639.625,
+            "y": 1208.578125,
+            "width": 102.375,
+            "height": 60
+          },
+          "automationId": "upstream.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "在Settings放弃PAC草稿，保留Manual路线 / Discard the PAC draft in Settings and retain Manual",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.png",
+      "rawImage": "step-013.png"
+    },
+    {
+      "id": "step-014",
+      "title": "Apply后Current route显示PAC / Current route shows PAC after Apply",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "查看PAC选择PROXY的请求 / Inspect the request for which PAC selects PROXY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvhz2fd6-wv2eljih"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "查看PAC选择DIRECT的localhost请求 / Inspect the localhost request for which PAC selects DIRECT",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 456,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvhz2gea-12h8a43q"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "选择Direct并准备应用 / Select Direct before applying the route",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2639.625,
+            "y": 1208.578125,
+            "width": 102.375,
+            "height": 60
+          },
+          "automationId": "upstream.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "业务断言：实际连接经过上游，PAC分别选择代理和DIRECT，不以按钮文案代替网络结果。 / Business assertions: real traffic crosses the proxy; PAC selects proxy and DIRECT independently of UI labels.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "保存Direct路线后正常关闭App / Close the App normally after saving the Direct route",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 15,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "shell.window.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "真实重启后保留Direct路线 / Retain the Direct route after a real restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.png",
+      "rawImage": "step-020.png"
+    },
+    {
+      "id": "step-021",
+      "title": "需要恢复原出口时选择System并Apply / Select System and Apply to return to the original upstream settings",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2639.625,
+            "y": 1208.578125,
+            "width": 102.375,
+            "height": 60
+          },
+          "automationId": "upstream.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "确认Current route已经回到System / Confirm Current route has returned to System",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376647,
+      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372572,
+      "sha256": "ced41d19e7297674ea59725b3143a8dd333d0da6dcfc37a272f9982bb19cd6b6"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240805,
+      "sha256": "f2bfa62a98598d49ded635c162519496afa0ae706d2b03c00a0c507674fd90ba"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376647,
+      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377758,
+      "sha256": "d25750d96a6c124ae644c533eaacf0603fcb0e458ce02d379945371f4c06c392"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 247437,
+      "sha256": "f855517e57bbee12c062654b5321da08370cd930ea53173d429745a6d41a0d9e"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376647,
+      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 371901,
+      "sha256": "ecb04ba213b712b8e828406f0621c1a08de146245cfce7abec05642037f5935c"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 349034,
+      "sha256": "cd0f77becce03fd12b09eb32e861ba52ae4a379d80d0ec8dc5089e2b47e5aa6c"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241861,
+      "sha256": "d56b886c8d147a66e4f0b96e2d54bb60fc6e9f4671ddf8412c8f56555ca74ae4"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 395106,
+      "sha256": "a20499cdbdc01a91d9731ef08317b628e36c2e5581f5902c30be8ed3f451915a"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 414914,
+      "sha256": "590ac453a0d70d4c4fedeb099e4f81bff3da69930018805894d96cc47f9aa703"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 305665,
+      "sha256": "87cb1a4bb8974cf5fcec75d2168dd39e3d677113f8be0a8c17303d319e79633e"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 395106,
+      "sha256": "a20499cdbdc01a91d9731ef08317b628e36c2e5581f5902c30be8ed3f451915a"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 414914,
+      "sha256": "590ac453a0d70d4c4fedeb099e4f81bff3da69930018805894d96cc47f9aa703"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 304162,
+      "sha256": "68ec758c4533ca42b81cb30804aba45dd191531770006d51f80cf317ccbb876e"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 374882,
+      "sha256": "b67d1ab719c33029b0b86e6f66e6a9d56ba81485a7df97cff32a970b5bb14dc3"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244572,
+      "sha256": "b1f2950a4bea428e1c8a61ee668d99b5f2a9e4dbd91b236c518f545f93398da4"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 371901,
+      "sha256": "ecb04ba213b712b8e828406f0621c1a08de146245cfce7abec05642037f5935c"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 371008,
+      "sha256": "0cb14bd850f37b65c6849748264d648e2411abf4b7809bcecf2e09a3b14cd286"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 367671,
+      "sha256": "fa562c4c61153d7ce1a8300a70703dc6b19db87a3746cc1a8a80e55dcde199fa"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 255626,
+      "sha256": "a20df72b28a3fd9600b7a893a1eb282f184a508b1d19404c0ad22897a25cff9d"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 388644,
+      "sha256": "d1fcb9ec46c8de6d20604f481fbf2bdb3d3fc61a9a7f7ffc1c6b24d0441220cf"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 268759,
+      "sha256": "0f824f7a9b9caf65c09667f1344b461a8a77fffcded4776c0723bd430932bc7b"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372132,
+      "sha256": "26f071c3c8a837fc033ecf529732bfb41406a19cf32be738f1f10f80fdbb41f8"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240162,
+      "sha256": "c5ad19082625aabcdefc3fbb8c10867f6abadd8da95108037d539795763ed019"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 366464,
+      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 366464,
+      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 237161,
+      "sha256": "7559b4e2188909d68df0695741ddd4ec7604a7393aac6eb06504d6c0327daca0"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 366464,
+      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379361,
+      "sha256": "24b0e3d8f1c0c1503e1b15dca43897f19b8cbf2128f4bc35eb0a57f2efb9e5bb"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 245966,
+      "sha256": "e5ecb853f8996c3627ec9efc68ffa688720db9292a5d324672271c80446a1a95"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376647,
+      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+    }
+  ]
+}

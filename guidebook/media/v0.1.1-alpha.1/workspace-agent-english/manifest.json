@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "chapter": "workspace-agent-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/panel-navigation-persistence.workflow.ts",
+    "manifestSha256": "3be468b3364711469db130de6aa813ea1846a2a9b078b47db508b82a854fda2c",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：fresh profile 已完成真实 App/Core/listener readiness，Agent 初始关闭且窗口为 1600×900。 / Arrange: a fresh profile passed real App/Core/listener readiness; Agent starts closed in a 1600×900 window.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "打开Agent后查看配置入口 / Inspect the configuration entry in the open Agent panel",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2609.4375,
+            "y": 1052.078125,
+            "width": 303.109375,
+            "height": 68
+          },
+          "automationId": "agent.configure"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "用户操作：从 Header 显式打开 Agent，fresh profile 只能呈现诚实的未配置态。 / User action: explicitly open Agent from the Header; a fresh profile may only show the honest unconfigured state.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "用户操作：唯一配置出口深链 Settings > Agent，导航不得关闭或替换 Panel。 / User action: the sole configuration exit deep-links to Settings > Agent without closing or replacing the Panel.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "Agent保持打开时进入rules / Open rules while keeping Agent open",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "Agent保持打开时进入composer / Open composer while keeping Agent open",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "Agent保持打开时进入diagnostics / Open diagnostics while keeping Agent open",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    },
+    {
+      "id": "step-008",
+      "title": "Agent保持打开时进入capture / Open capture while keeping Agent open",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "业务断言：跨全部 Workspace 往返时 Panel 保持打开、固定宽度且不获得隐式页面 Context。 / Business assertion: every workspace round trip preserves the fixed Panel and never injects implicit page context.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "关闭Agent面板但保持App运行 / Close Agent without closing the App",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "再次打开Agent并定位关闭按钮 / Reopen Agent and locate its close button",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3126,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.panel.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "用户操作：Panel Close 与全局 toggle 是唯二关闭入口，关闭后 Main 释放完整 440px track。 / User action: Panel Close and the global toggle are the only close commands; Main reclaims the 440px track.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 225365,
+      "sha256": "994bea194f26c487ad8768f6d9121a86a33a985aea39195480d2fbf552cba4b5"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 277903,
+      "sha256": "8ab4c8b7f7b029ace566b2d7c018f2b3f631a4eeffe979eaf0e48f5b5a73678b"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 185482,
+      "sha256": "dcd4104b0d3dfc8241c679f120fff974a6a47c3eac37189c3af2b5e89d8580cf"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 277903,
+      "sha256": "8ab4c8b7f7b029ace566b2d7c018f2b3f631a4eeffe979eaf0e48f5b5a73678b"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 467771,
+      "sha256": "74f1dacd30723a934ad51a88851a1efe4e5334a0a2e1f58df5e6298c1f410170"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 204003,
+      "sha256": "b1125925aabae9df2549bafad02a641b0955f55a21fd7453cb09440fd0505281"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 206208,
+      "sha256": "84fb4b00b06a1bff7d86afc329ac2db31948c819d3a73fc410d7b9e14bf1ee06"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 406278,
+      "sha256": "aa0ab82cf5c0ebfcd0a88d81d873a1feaee50c3a73c8b0306f71266fb20cd761"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 261877,
+      "sha256": "63079da7aee772fdc5f7c74b4eed40e8c2d487a2f6149a2d01666acec2870f1b"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 467656,
+      "sha256": "2b249e1741bd24351effca759a65e78f47885dfdd927e1058b15bebea17949d3"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 485097,
+      "sha256": "35794513720e8df01d4a77e7e391748235d6bd2457a2aaa8cd94a3817443a318"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 333259,
+      "sha256": "ce0a91c9553c8e839db44e16659dc7627ef0792bef1dd3d6c41e9aedbaf44910"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 450099,
+      "sha256": "b9746c5e76acad26651ba235c153372a2a697bf6d83b91517d211589933035a8"
+    }
+  ]
+}

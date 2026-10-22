@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Icon from '../../components/Icon/Icon';
 import type { Locale } from '../../content';
 import {
   GUIDE_CHAPTERS,
@@ -83,12 +82,6 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
         <p className={styles.lead} lang={GUIDE_LANGUAGE[locale]}>
           {overview ? copy.overviewSummary : chapter?.summary[locale]}
         </p>
-        <div className={styles.notice} data-automation-id="guide.draft">
-          <Icon name="info" size={16} />
-          <p>
-            <strong>{copy.draft}</strong> · {copy.notice}
-          </p>
-        </div>
         {overview && <GuideOverview locale={locale} />}
         <GuideArticle key={`${locale}/${page}`} document={document} locale={locale} />
         {!overview && (

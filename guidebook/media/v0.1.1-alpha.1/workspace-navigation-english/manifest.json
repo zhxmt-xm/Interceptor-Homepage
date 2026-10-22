@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 1,
+  "chapter": "workspace-navigation-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/navigation.workflow.ts",
+    "manifestSha256": "a79e677becd020a86c7d9d17361a04af3f73298cae0689a870f2f6f381bd7d86",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：fresh profile 已通过真实 App/Core/listener readiness，普通导航进入 Settings 默认 section。 / Arrange: a fresh profile passed real App/Core/listener readiness; normal navigation opens the default Settings section.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "打开Settings分组proxy / Open Settings section proxy",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "打开Settings分组upstream / Open Settings section upstream",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "打开Settings分组app-containers / Open Settings section app-containers",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "打开Settings分组tls-passthrough / Open Settings section tls-passthrough",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "打开Settings分组certificates / Open Settings section certificates",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "打开Settings分组appearance / Open Settings section appearance",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    },
+    {
+      "id": "step-008",
+      "title": "打开Settings分组storage / Open Settings section storage",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "打开Settings分组privacy / Open Settings section privacy",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "打开Settings分组agent / Open Settings section agent",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "打开Settings分组updates / Open Settings section updates",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.png",
+      "rawImage": "step-011.png"
+    },
+    {
+      "id": "step-012",
+      "title": "键盘交互：Agent section 必须是可聚焦的原生命令，并可用 Enter 激活。 / Keyboard interaction: the Agent section must be a focusable native command activated with Enter.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    },
+    {
+      "id": "step-013",
+      "title": "从侧栏进入Capture / Open Capture from the sidebar",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 20,
+            "y": 118,
+            "width": 78,
+            "height": 76
+          },
+          "automationId": "shell.workspace.capture"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "业务断言：从 App Containers 普通离开到 Capture 后返回，必须恢复离开前的 section。 / Business assertion: leaving App Containers for Capture and returning normally must restore the last section.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "从侧栏进入rules / Open rules from the sidebar",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 20,
+            "y": 200,
+            "width": 78,
+            "height": 76
+          },
+          "automationId": "shell.workspace.rules"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "从侧栏进入composer / Open composer from the sidebar",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 20,
+            "y": 282,
+            "width": 78,
+            "height": 76
+          },
+          "automationId": "shell.workspace.composer"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "从侧栏进入diagnostics / Open diagnostics from the sidebar",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 20,
+            "y": 364,
+            "width": 78,
+            "height": 76
+          },
+          "automationId": "shell.workspace.diagnostics"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "业务断言：Rules、Composer、Diagnostics 的连续往返均不得重置 TLS passthrough section。 / Business assertion: round trips through Rules, Composer, and Diagnostics must not reset TLS passthrough.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "展开或收起侧栏而不离开当前分组 / Toggle sidebar labels without leaving the current section",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.png",
+      "rawImage": "step-019.png"
+    },
+    {
+      "id": "step-020",
+      "title": "打开Theme菜单 / Open the Theme menu",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 20,
+            "y": 1700,
+            "width": 78,
+            "height": 76
+          },
+          "automationId": "shell.theme.trigger"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "选择light主题 / Select the light theme",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    },
+    {
+      "id": "step-022",
+      "title": "选择dark主题 / Select the dark theme",
+      "language": "en",
+      "theme": "dark",
+      "window": "app",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
+    },
+    {
+      "id": "step-023",
+      "title": "选择warm主题 / Select the warm theme",
+      "language": "en",
+      "theme": "warm",
+      "window": "app",
+      "image": "step-023.png",
+      "rawImage": "step-023.png"
+    },
+    {
+      "id": "step-024",
+      "title": "选择ember主题 / Select the ember theme",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "查看语言菜单但保持当前App语言 / Inspect the language menu without changing the App language",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.png",
+      "rawImage": "step-025.png"
+    },
+    {
+      "id": "step-026",
+      "title": "通过产品按钮最大化窗口 / Maximize the window through the product control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.png",
+      "rawImage": "step-026.png"
+    },
+    {
+      "id": "step-027",
+      "title": "恢复原窗口尺寸 / Restore the original window size",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.png",
+      "rawImage": "step-027.png"
+    },
+    {
+      "id": "step-028",
+      "title": "定位窗口最小化按钮 / Locate the window minimize control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-028.annotated.png",
+      "rawImage": "step-028.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2992,
+            "y": 15,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "shell.window.minimize"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-029",
+      "title": "恢复最小化窗口并保留当前设置 / Restore the minimized window while retaining current settings",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-029.png",
+      "rawImage": "step-029.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377723,
+      "sha256": "a0549c54510e5df6d34cb8566cc99b9b82446cf45523d72152bd3292003986a3"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369438,
+      "sha256": "3613cff7b914a14dd7090d9572aca4b81005b753caf085321eeab45777fcfe2c"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376647,
+      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276724,
+      "sha256": "a62f30344a388b0e214ba405fd8e94da159315f241dcc476ecc444d3140a4f29"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294414,
+      "sha256": "43bc65f5edff36897b2be58cfed3eab819b803cbadd0f0ce3a16d1bbd56720bd"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377447,
+      "sha256": "f5b1cf044e82473f943eff92f600090e0461bafc612b3acad1db8e5c74c808cf"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216482,
+      "sha256": "500e60943efcb3230a3c94f03a16878b8076d34daca65490a332f94ad918de93"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301561,
+      "sha256": "9c0cb0385923e78b0ab4701e1f6085b61323627a9017a8063c6eab13613162fb"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353842,
+      "sha256": "5bad79aca53a368cdb0a60331c758fd6d5b26a0f5430f12d7eb08905adedaa73"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 432045,
+      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354271,
+      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 433350,
+      "sha256": "634c7abdfff573ecbd691eed4b91e3ddf9da328dee13243477e0c4edf19cadf6"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 223601,
+      "sha256": "51b09b0b3a96aac7b8a1c2af8e76df8fc27d72e2b4caa4d1452c6fec105c6861"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 144970,
+      "sha256": "bb8e0f2cb0798e5ac1b5c4afade7992f7917c41f66c02fb396f8d205a20b0ecc"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 277041,
+      "sha256": "51e4dc2545502d1df2cb8623fdaea57e9e506949af4260a9bb4edea7af1432bd"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167404,
+      "sha256": "7151419c1ddf549c4b8c74e9b5bb61c3e345e6751f1549d2a649ed8254eb400e"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 91003,
+      "sha256": "01b9cfa32da04ab705bb7da827c56203803fdc7cd560981737f49e27f634a21e"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 171894,
+      "sha256": "11397047ad7201e4d6f87ea2349cb6dd2614a23134a4579ba8ff01ce62dcc046"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 117046,
+      "sha256": "ee40749d980057523ebce534584c98f5f9ec5261695058cbe55465210215bb7d"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 393545,
+      "sha256": "abe7216dcd258241a870b54fbfd6c6a70c3b4cdd535551cf8c9f477821ede97c"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 249759,
+      "sha256": "e5b49079d8bdfccfb3eb10ad3b4e72b1dedfeac0ffda41c9407f5aebb388d4db"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294690,
+      "sha256": "771a689fc9396dffc91f2ca5f995b3d95827ae2143f2f489999773d75ca2c35f"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 339116,
+      "sha256": "d0aeeae62260ff3a6f5d7535a0dc4e96913ac16368775b0d87925aacd66b32a2"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 330879,
+      "sha256": "96e81829cbb11f1eb0a7b514e2351fe279cd6970c01eeea41741e3b1a36ad62e"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 220785,
+      "sha256": "9ca3656d39d33c36144cab66e10d0f4678aaff2e52bc1f070056079d59f56129"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294414,
+      "sha256": "43bc65f5edff36897b2be58cfed3eab819b803cbadd0f0ce3a16d1bbd56720bd"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296596,
+      "sha256": "b11c50f302cd624e98e773b8fdd4d10e3144ea3b3d43693d3fd88c77638d997e"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294007,
+      "sha256": "bd8877ec019b9d65787fe54778faf6481bb61db839081f88d18eabc811f05630"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296183,
+      "sha256": "5d5da0c9a8fa5001c7ac67fef2fa7674af2675d33bf7d81f20d191b19112bd6f"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 367002,
+      "sha256": "257cdf0ed03ebcd2a3ef3ed2dcb0d53fccd4431e3cb57949193140cafdb438a1"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3584,
+      "height": 2054,
+      "bytes": 324661,
+      "sha256": "54614947ba044c318a4ce0208184988058ca0af0236210a00ee362d7e1d8c9f9"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294438,
+      "sha256": "6e7ae073cdd1eb2c418f7f8edfa3bab6f816ce1f287593742b0b47efeb4a485d"
+    },
+    {
+      "file": "step-028.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294438,
+      "sha256": "6e7ae073cdd1eb2c418f7f8edfa3bab6f816ce1f287593742b0b47efeb4a485d"
+    },
+    {
+      "file": "step-028.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 187040,
+      "sha256": "93c935a8b7b495f220091991f0355cb970f495b5499ee7b1d97fb439f814e4c5"
+    },
+    {
+      "file": "step-029.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294438,
+      "sha256": "6e7ae073cdd1eb2c418f7f8edfa3bab6f816ce1f287593742b0b47efeb4a485d"
+    }
+  ]
+}

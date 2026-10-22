@@ -30,11 +30,6 @@ export default function GuideSidebar({ page, locale }: { page: GuidePageId; loca
           </Link>
         ))}
       </nav>
-      <p className={styles.note}>
-        {copy.draft}
-        <br />
-        {copy.sidebarNote}
-      </p>
     </aside>
   );
 }

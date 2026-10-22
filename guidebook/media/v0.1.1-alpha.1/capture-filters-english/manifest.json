@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-filters-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/facets-clear-menu.workflow.ts",
+    "test": "capture facets, Clear and breakpoint menu stay stable end to end",
+    "run": "2026-10-21T20-08-04-942Z-jn72KP",
+    "testDirectory": "capture-facets-clear-menu.-8fa41-menu-stay-stable-end-to-end-macos",
+    "manifestSha256": "44a1cb003ac418d0c6e62e0d031b4d170ece505ed258d5e3775ae90366ff65f3",
+    "metadataSha256": "c0d565b82c16d18a15b54e7d5dc87b05a947a71c6a9ced8275f3a7f1eba3c4d5",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "paths": [
+      "/e2e/facets/get-first",
+      "/e2e/facets/post-first",
+      "/e2e/facets/post-second",
+      "/e2e/facets/pending",
+      "/e2e/facets/get-error"
+    ],
+    "total": 5,
+    "methods": {
+      "GET": 3,
+      "POST": 2
+    },
+    "statuses": {
+      "200": 4,
+      "503": 1
+    },
+    "contentTypes": {
+      "json": 5
+    },
+    "search": "/e2e/facets/post",
+    "clearSearchVisible": 4,
+    "clearSearchTotal": 5,
+    "recordingControl": "Paused after restoring system proxy; explicit proxy input still reaches Core"
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "展开筛选并检查Pending选项 / Expand facets and inspect Pending options",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "bytes": 150078,
+      "sha256": "194348c5e09d9373f39be2edb6473d917199a6c83069ce2e8d83355b09b5d355",
+      "rawBytes": 232637,
+      "rawSha256": "3e8011b4d02b4e4e3e6fa3bac41e3781e7d640bcdbfda28a39c4c378396179c9",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 810,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.type.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "展开Method并查看已有方法 / Expand Method and inspect captured methods",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "bytes": 175672,
+      "sha256": "a81ab78b605f3d5469a2772578cf3c41816d805dee1847d1bb88c35b3869ff73",
+      "rawBytes": 267646,
+      "rawSha256": "49bff9d3f777d54d5dcdbf8861b28321fc862ae1ca089f1e81be84b2e1149f46",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 152,
+            "y": 362,
+            "width": 308,
+            "height": 56
+          },
+          "automationId": "capture.filter.toggle.method"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "选择Application的Pending / Select Pending in Application",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "bytes": 159967,
+      "sha256": "15ba555e74844a85ef4d8e765cd5d4e3e8616ad7311d6bed5cb7a53b8f1840ee",
+      "rawBytes": 244707,
+      "rawSha256": "076b871efd6129d88e78b74480a9959206c9a9c21818371b0faeb760392a1eac",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 284,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.application.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "取消Application的Pending / Deselect Pending in Application",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "bytes": 175557,
+      "sha256": "6c121d190ffc74d4f95f592f777cda618548f50f009476802317cd27030bbd01",
+      "rawBytes": 267581,
+      "rawSha256": "3fe263b586bbaee5aafade29fd250b726aa47a4622419276fcf7c7e347d52e7b",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 284,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.application.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "按Status Pending查看未完成请求 / Filter unfinished requests by Status Pending",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "bytes": 162675,
+      "sha256": "9809205d02ecdd309c0ea58df71c58e94c0cf0be0a6f65d5ad2acbf9b7528141",
+      "rawBytes": 247800,
+      "rawSha256": "6f1ee71abcc9eaaeadb7dc5b76d0b87b5ce50124d4dc3ba6a670019f2dd2e225",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 856,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.status.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "按Content type Pending查看未完成请求 / Filter unfinished requests by Content type Pending",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "bytes": 162759,
+      "sha256": "a37cb3983ca8c461dfc8331740a1172dfe006453df91a4c2f38bc119052860e1",
+      "rawBytes": 247828,
+      "rawSha256": "6f78e042b4becbcd2bdf7c4e8dd00bd2ad49efcaba39d46336ed5f9278fb2726",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 1174,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.type.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "响应完成后退出Pending筛选 / Leave the Pending filter after completion",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "bytes": 198427,
+      "sha256": "3997082f4ebfb13723eb242ca619878ece20e03be13486aca6eede1e7433c638",
+      "rawBytes": 299040,
+      "rawSha256": "45c4965b014de2c49945cc9ca4d3c4613cde37047e1d685c6fb5067fcdd9a7d0",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 1174,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.type.%00pending"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "五条自产记录已保留，录制控件显示Paused / Five owned records are retained and the recording control shows Paused",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "bytes": 212136,
+      "sha256": "e0562cdfe68d597edaa3b340cb1d469b086bbc5419defb6ccaabba636a24b5d5",
+      "rawBytes": 317363,
+      "rawSha256": "c3ac9920f729d79402a98e89d7dd824df04d2b85e7705f80aff59699e1b3eb1e",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "Method只选择GET / Select only GET in Method",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 189611,
+      "sha256": "441476c218458330b375dd7b6c390753da032c8222148759e25c869337dcdc7b",
+      "rawBytes": 286185,
+      "rawSha256": "1b44c894d1b90dca7320f8122a4db1af43b53c5ba57422d8f99148770bc544b3",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 480,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.method.GET"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "Method再选择POST，与GET按OR组合 / Also select POST to combine with GET using OR",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "bytes": 212028,
+      "sha256": "2f34b31d6de41f2b18d56aa8dd9fd64b9b1e81982faf0761fe76bb7b6caea3a6",
+      "rawBytes": 318014,
+      "rawSha256": "5b5833103ea77062d4c258e506e4aa25294d73f9afe002e471c153d5f6bae650",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 538,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.method.POST"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "Status选择200，与Method按AND组合 / Select Status 200 and combine with Method using AND",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 201102,
+      "sha256": "907de18dc162b01b333b075b87d248644ab2ec00250a9d656a1c3f2b12573ab4",
+      "rawBytes": 304477,
+      "rawSha256": "6ef1192fb3717bf6f68aee19c8afd1fedb227d5dc2f73503252b2f810c37d852",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 798,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.status.200"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "搜索/e2e/facets/post并保留分组条件 / Search /e2e/facets/post while retaining facet selections",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "bytes": 181328,
+      "sha256": "a3c2897490f16804cd22220e89313f24a96dfe8e7d2f886f73ea1ab2597e784f",
+      "rawBytes": 274718,
+      "rawSha256": "d629261346589f3af6deff735e53354cc4184036327806833be9897cacb249f5",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "Clear search只移除关键词，分组条件仍保留 / Clear search removes only the keyword and retains facet selections",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "bytes": 200748,
+      "sha256": "ebd25852b9533c11e1df5af2ce045288dfd1daac9fcd895f483dd640f890291e",
+      "rawBytes": 304294,
+      "rawSha256": "ef8015c4960f91e4ae18d7aa250293c0f863c04b2e579433a368a54dcf711cf9",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 644,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "取消Status 200，仍保留Method条件 / Deselect Status 200 while retaining Method selections",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "bytes": 212573,
+      "sha256": "466fb1423abfc27527f74979f45b6e9a6ffef36ab5c7ba9ef49cfe9a7a18150a",
+      "rawBytes": 318564,
+      "rawSha256": "f005102d1b1e3efa1199d25b1d4aeb49c6adf3c8e649f774915a5eb4d6b07d68",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 798,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.status.200"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "取消POST，仍保留GET / Deselect POST while retaining GET",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "bytes": 189832,
+      "sha256": "92b88fa19e88f471e56f05410cbe5a65fe98d3549916324e2c6d980fdf1a1e24",
+      "rawBytes": 286662,
+      "rawSha256": "6b03771dc40835348a6b35835c719d36477835c168fd4f59ea7607f261aa217f",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 538,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.method.POST"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "取消最后一个GET条件，保留五条记录 / Deselect the final GET condition while retaining all five records",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "bytes": 211716,
+      "sha256": "49c16a41c81c5b847470d04121a32e33a5a7290755cb6f5f835cf3d034973691",
+      "rawBytes": 317418,
+      "rawSha256": "9ccc6ca10bbcac3cea8aeab3f3b543494a3c09b74e52b30db36a74b1b6a002fc",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 480,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.method.GET"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "Clear同步清空Capture与筛选计数 / Clear Capture and facet counts together",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "bytes": 159122,
+      "sha256": "41be77079d5e65849e76ce48b04c5335b86e92b08fece0b773e5e56c3b5c1a84",
+      "rawBytes": 245564,
+      "rawSha256": "d6a8c6935e5bedbca38b7aecf2c6a8860e259d3a5f6ad27ad29027c2b8dfad72",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 860.125,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

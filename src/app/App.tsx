@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import {
   Link,
   matchPath,
@@ -8,6 +8,8 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+import ImagePreview from '../components/ImagePreview/ImagePreview';
+import type { ImagePreviewState } from '../components/ImagePreview/interfaces';
 import SiteFooter from '../components/SiteFooter/SiteFooter';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import type { Locale } from '../content';
@@ -35,6 +37,19 @@ export default function App({
   );
   const content = COPY[locale];
   const { preference, theme, chooseTheme } = useTheme(initialThemePreference);
+  const [imagePreview, setImagePreview] = useState<ImagePreviewState>({ open: false });
+  const restoreImageFocus = useRef<HTMLButtonElement | undefined>(undefined);
+
+  useEffect(() => {
+    setImagePreview({ open: false });
+  }, [location.pathname, location.search, location.hash]);
+
+  useEffect(() => {
+    if (imagePreview.open || !restoreImageFocus.current) return;
+    const trigger = restoreImageFocus.current;
+    restoreImageFocus.current = undefined;
+    if (trigger.isConnected) trigger.focus({ preventScroll: true });
+  }, [imagePreview.open]);
 
   useLayoutEffect(() => {
     if (guidePage !== null) {
@@ -70,7 +85,8 @@ export default function App({
     const description =
       guidePage === null
         ? content.description
-        : `${GUIDE_UI[locale].draft}. ${GUIDE_UI[locale].notice}`;
+        : (GUIDE_CHAPTERS.find((chapter) => chapter.slug === guidePage)?.summary[locale] ??
+          GUIDE_UI[locale].overviewSummary);
     document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
     document.title = title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
@@ -82,7 +98,31 @@ export default function App({
   }, [locale, content, guidePage, home]);
 
   return (
-    <div id="top" className={styles.site}>
+    <div
+      id="top"
+      className={styles.site}
+      onClick={(event) => {
+        const trigger =
+          event.target instanceof Element
+            ? event.target.closest('button[data-image-preview]')
+            : null;
+        if (!(trigger instanceof HTMLButtonElement)) return;
+        const image = trigger.querySelector('img');
+        const source = trigger.dataset.imageSrc ?? image?.currentSrc ?? image?.src;
+        if (!source) {
+          console.error('Image preview trigger has no image source.');
+          return;
+        }
+        setImagePreview({
+          open: true,
+          image: {
+            source,
+            alt: image?.alt ?? trigger.dataset.imageAlt ?? trigger.textContent?.trim() ?? '',
+          },
+          trigger,
+        });
+      }}
+    >
       <a className={styles.skipLink} href="#main-content">
         {content.skip}
       </a>
@@ -140,6 +180,16 @@ export default function App({
         </Suspense>
       </GuideErrorBoundary>
       <SiteFooter content={content.footer} homePrefix={home ? '' : '/'} />
+      {imagePreview.open && (
+        <ImagePreview
+          image={imagePreview.image}
+          content={content.imagePreview}
+          onClose={() => {
+            restoreImageFocus.current = imagePreview.trigger;
+            setImagePreview({ open: false });
+          }}
+        />
+      )}
     </div>
   );
 }

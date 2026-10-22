@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "chapter": "agent-context-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/streaming-context.workflow.ts",
+    "manifestSha256": "41df6cb99ae30db111194fcc58da393c720093aa03b277ae59c511c135d74bd2",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：通过产品Settings配置真实本地Provider，再显式打开全局Agent Panel。 / Arrange: configure a real local Provider through Settings, then explicitly open the global Agent Panel.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "发送一条消息以读取流式回复与用量 / Send a message to inspect streaming output and usage",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "回复完成后查看Context入口 / Locate Context after the response completes",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2950.359375,
+            "y": 1527.515625,
+            "width": 229.640625,
+            "height": 48.96875
+          },
+          "automationId": "agent.context"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "悬停Context读取当前上下文与累计用量 / Hover Context to read current context and cumulative usage",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2740,
+            "y": 1280.6875,
+            "width": 440,
+            "height": 237.796875
+          },
+          "automationId": "agent.usage.panel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "通过键盘聚焦Context读取相同用量 / Focus Context with the keyboard to read the same usage",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2740,
+            "y": 1280.6875,
+            "width": 440,
+            "height": 237.796875
+          },
+          "automationId": "agent.usage.panel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "用户操作：第一轮必须逐chunk原位增长，并在终态显示精确Context与Usage。 / User actions: the first turn must grow in place by chunk and expose exact terminal Context and Usage.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "第二轮后区分当前Context和会话累计值 / Distinguish current Context from cumulative session totals after the second turn",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2740,
+            "y": 1280.6875,
+            "width": 440,
+            "height": 237.796875
+          },
+          "automationId": "agent.usage.panel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "用户操作：第二轮发送完整历史；Reasoning保持独立，Session Usage按Token加权聚合。 / User actions: the second turn sends complete history; Reasoning stays separate and Session Usage is token-weighted.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "回复仍在生成时找到Stop / Locate Stop while the response is still generating",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.turn.stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "Stop后保留部分回复，Retry可重新尝试 / Retain partial output after Stop and offer Retry",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2953.984375,
+            "y": 948.203125,
+            "width": 200.015625,
+            "height": 47.359375
+          },
+          "automationId": "agent.turn.retry"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "Retry完成后保留同一条用户消息 / Retain the same user message after Retry completes",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.png",
+      "rawImage": "step-011.png"
+    },
+    {
+      "id": "step-012",
+      "title": "Retry后读取更新的累计用量 / Inspect updated cumulative usage after Retry",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2740,
+            "y": 1280.6875,
+            "width": 440,
+            "height": 237.796875
+          },
+          "automationId": "agent.usage.panel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "用户操作：可见delta后Stop必须abort真实HTTP；Retry复用原user item且不伪造取消调用Usage。 / User actions: Stop after a visible delta must abort real HTTP; Retry reuses the user item without fake cancelled-call Usage.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.png",
+      "rawImage": "step-013.png"
+    },
+    {
+      "id": "step-014",
+      "title": "Evidence/teardown：关闭Panel后恢复trace，确保任何Prompt/Reasoning都不进入保存的快照。 / Evidence/teardown: close the Panel before resuming trace so no Prompt/Reasoning enters retained snapshots.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 482887,
+      "sha256": "da36d5a5618d5471b796b90eeb75da73b4e2e8fe7dc0bfb0b815e14f5dfc7797"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 484025,
+      "sha256": "17a559de77ab172c5dc8360a563f879bad4f1a8f146e8b80ffe6c592ef7523ad"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 337149,
+      "sha256": "aec50f8687d6021b1e0a67ce060791cf41284f7b7397c815b06c9021f2aa6e1f"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 495405,
+      "sha256": "5521e4dc4dc4592f0520ad40db1d611391c1d825f7aaf6ac364184bc05147af4"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 345688,
+      "sha256": "8ac1807889e0c008551815079bdcfe261aa8c850edc69a2fdea2052c52004590"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 516823,
+      "sha256": "f20ad9a641b9377a94ebb5be942ba3f6275f0750d3a3ef386c5027ca0366b319"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 363231,
+      "sha256": "79b5fad1110212bf055f1c5b35adffe33134bc74284a4c9af7e4bb297ec5e4b9"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 517439,
+      "sha256": "294e6635f13bc2af284f03143338681ce64591f84d8b498b82048556c7a94e3b"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364065,
+      "sha256": "f0cbbff5640e8d82457963b052bd18e5feeb2a9b19bfbb5b31f1090525802080"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 490086,
+      "sha256": "0dcb4f68bb311f67bc7e6f0e3826db9006d2e945a5e4bf19eafbedd28710cbc9"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 536437,
+      "sha256": "3b8a3f278f21c0a288f5511f9c4be26cce78c06444fd26b94afebb565d8f57ee"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376656,
+      "sha256": "dbce3dbd5087a13c6be266042f21297554ff9e2378ce07dae06f27ba15d02841"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 536437,
+      "sha256": "3b8a3f278f21c0a288f5511f9c4be26cce78c06444fd26b94afebb565d8f57ee"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 531770,
+      "sha256": "3949a0c518775a244a8b6ad86433627d2349dc6df0c90bbd5c9b135f8e9318f1"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 371293,
+      "sha256": "55e27ffcc7072497a77690953d6c3b1bac74642b88e1d984b7d5eb8bd9d629f5"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 542308,
+      "sha256": "ca5e322c93893effe3326d5c2d7dc042165da924530f779233d76ad9949e5730"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 380217,
+      "sha256": "0e83eab4d69556f16bb2936ba37f28726c239ee5ebd3009f3fdd0896f89be9bc"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 538416,
+      "sha256": "ee9d505317aec67163219ed78a425521b18be0728555c44c028c880dc404e4fe"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 571399,
+      "sha256": "5735547855100bad070c13258f1a9c793355db2d3441f085adf80ca52700149d"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 403103,
+      "sha256": "fd2c4d224ea3504aefffdb4b047cd23de2cdbe14c4dfd4860caf7fad804d7a05"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 571399,
+      "sha256": "5735547855100bad070c13258f1a9c793355db2d3441f085adf80ca52700149d"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 441980,
+      "sha256": "51c733992cc141e5ae878cf0efb0664dc26ae71c046e6730004e0ecb8a1caf96"
+    }
+  ]
+}

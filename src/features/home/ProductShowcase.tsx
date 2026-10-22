@@ -23,10 +23,11 @@ export default function ProductShowcase({ content, theme }: Props) {
           <span className={styles.overview}>{content.label}</span>
         </div>
         <figure>
-          <a
-            href={image}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            data-image-preview
+            data-image-src={image}
+            aria-haspopup="dialog"
             aria-label={content.original}
             className={styles.imageLink}
           >
@@ -38,7 +39,7 @@ export default function ProductShowcase({ content, theme }: Props) {
               fetchPriority="high"
               data-automation-id="homepage.overview.image"
             />
-          </a>
+          </button>
           <figcaption className={styles.caption}>
             <span>{content.description}</span>
             <span className={styles.disclaimer}>{content.caption}</span>

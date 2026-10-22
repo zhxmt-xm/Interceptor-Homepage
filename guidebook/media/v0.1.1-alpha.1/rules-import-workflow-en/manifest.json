@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "chapter": "rules-import-workflow-en",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "rules/import-tree.workflow.ts",
+    "test": "rules.import-tree appends a product-exported tree without reusing identities",
+    "run": "2026-10-21T08-31-10-634Z-1CYiUI",
+    "testDirectory": "rules-import-tree.workflow-220d9--without-reusing-identities-macos",
+    "manifestSha256": "af1fc22d5e35bc5944ded22ca7c7472f0d44a022a3cd6270e9045b2a641d6451",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "填写导出示例的目录名称 / Enter the export example folder name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 236,
+            "y": 400.625,
+            "width": 724,
+            "height": 34.75
+          },
+          "automationId": "rules.folder-rename.dir-0fa02acb-cb99-4585-89b7-391fd0d1acef"
+        }
+      ],
+      "rawImage": "step-002.png",
+      "bytes": 173917,
+      "sha256": "2fe7c999bc922d9633134d5a1cdaed83f9194f33b4504320bd48b3060e5299e0",
+      "rawBytes": 271424,
+      "rawSha256": "6947e67b015b2d7ca5d2fe04e441bd956155b48525dc883ff40e87514ac0db01"
+    },
+    {
+      "id": "step-003",
+      "title": "将停用规则拖入目录 / Drag the disabled Rule into the folder",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 356,
+            "width": 832,
+            "height": 84
+          },
+          "automationId": "rules.row.rule-607cee7c-f345-4a3a-ba9f-3fd2f76afaa9"
+        }
+      ],
+      "rawImage": "step-003.png",
+      "bytes": 164778,
+      "sha256": "19adc7c61ea26e360a284e5952ea3855515c559bec6138138d9f76c25fc834f9",
+      "rawBytes": 255220,
+      "rawSha256": "681614a0ef611cac963aeacc19922244040e487e9ad6a5022633b51f73952acb"
+    },
+    {
+      "id": "step-004",
+      "title": "通过真实Rules UI创建两条完整规则和一层目录，再把第二条拖入目录并Apply。 / Build two complete Rules and one folder through the real UI, then drag the second Rule into it and Apply.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.png",
+      "bytes": 250844,
+      "sha256": "fe1e29090359018441eb93087e4c7ca2a80a5e04ce76c9e04937fc41a97232a4"
+    },
+    {
+      "id": "step-005",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-005.png",
+      "image": "step-005.png",
+      "bytes": 53514,
+      "sha256": "5f6633001d3b7e2bae9df7d038306dec2e6251d70bfade2478007bbd1bd59c20"
+    },
+    {
+      "id": "step-008",
+      "title": "核对导入预览的规则、目录和启用数量 / Review the Rule, folder and enabled counts in the import preview",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1594.03125,
+            "y": 1193.609375,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "rules.import.cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1754,
+            "y": 1193.609375,
+            "width": 344,
+            "height": 68
+          },
+          "automationId": "rules.import.confirm-apply"
+        }
+      ],
+      "rawImage": "step-008.png",
+      "bytes": 254936,
+      "sha256": "3d561f5d01ff611613a48c8b36e347776e062342c6486e171490debf0afd47ee",
+      "rawBytes": 288658,
+      "rawSha256": "c2d7103ab85d74087b171834aa4541c8be034b2ce0c56c8a959cea06b4c8e7a2"
+    },
+    {
+      "id": "step-009",
+      "title": "第一次Import在确认Dialog取消，树身份、顺序与Core revision必须保持不变。 / Cancel the first Import preview; tree identity, ordering, and Core revision must remain unchanged.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.png",
+      "bytes": 250853,
+      "sha256": "9a2dfe06a00c9eb8c8df7675b183c5a0e05f498e27388ac938bdba788d229e7a"
+    },
+    {
+      "id": "step-011",
+      "title": "再次Import并确认，验证追加位置、全新ID、enabled沿用、目录层级与原子持久化。 / Import again and confirm, proving append order, fresh IDs, preserved enabled state, hierarchy, and atomic persistence.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.png",
+      "bytes": 280842,
+      "sha256": "265ef9d43338ee29bd5f88117d05e20087326b0e165f992277e045ca4307b1ed"
+    },
+    {
+      "id": "step-013",
+      "title": "Reload Renderer后必须从Core恢复同一批身份；随后重复导入仍只能追加全新节点。 / Reload Renderer to restore the same identities from Core, then repeat Import and require another fresh append.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.png",
+      "bytes": 308475,
+      "sha256": "5d61c419b0b23168827cbbf43ea10c3db1f445f99e8b6cddb50bcade25b67c3d"
+    }
+  ]
+}

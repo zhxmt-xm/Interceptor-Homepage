@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/tools-har-transfer.workflow.ts",
+    "test": "capture.tools.har-transfer exports and imports real HAR files through Agent and MCP",
+    "run": "2026-10-21T14-22-36-893Z-Oo9Ie8",
+    "testDirectory": "capture-tools-har-transfer-49de8-files-through-Agent-and-MCP-macos",
+    "manifestSha256": "ebec34dbbe59db9ecaef54745be03c149a73574b651867c6b2c76da92ef945d6",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "relaunchGracefulDestroyVerified": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "chapter": "capture-har-scopes-english",
+  "title": {
+    "zh-CN": "HAR筛选范围与选中记录",
+    "en": "HAR filtered and selected scopes"
+  },
+  "steps": [
+    {
+      "id": "step-016",
+      "title": "筛选两条自产文本记录并选中一条 / Filter the two owned text records and select one",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1904,
+            "height": 104
+          },
+          "automationId": "capture.request-row.har-exchange-63c56082-b4ce-4191-b865-5a2d43c67e77"
+        }
+      ],
+      "bytes": 218006,
+      "sha256": "8727f85c8293ad49ada9c3d250863743512b292232eb6e17457e5e398db07d84",
+      "rawBytes": 289011,
+      "rawSha256": "ec2b6bb5d1547799c2136ead7e01af56f117ba876d0764c9b2b7ee5552dda549",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "选择HAR filter范围并Export / Select the HAR filter scope and Export",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 836.484375,
+            "width": 940,
+            "height": 107.03125
+          },
+          "automationId": "capture.transfer.scope.filter"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1752.484375,
+            "y": 1308.5625,
+            "width": 317.515625,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "bytes": 297854,
+      "sha256": "660fcd4509e72016f60d2acd7e23900d21b86bcbcb5cb6b8880f90df76c19048",
+      "rawBytes": 332966,
+      "rawSha256": "5e2fba5cbb6975689140da14531aa7bfff7629d20cd97a0cd7fcef6b1b30646b",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-018.png",
+      "image": "step-018.png",
+      "rawImage": "step-018.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [],
+      "bytes": 48893,
+      "sha256": "df590868088bcf38195a7288d307a4f604b1eb39faab52c952ec10c1f05d8005",
+      "rawBytes": 48893,
+      "rawSha256": "df590868088bcf38195a7288d307a4f604b1eb39faab52c952ec10c1f05d8005"
+    },
+    {
+      "id": "step-019",
+      "title": "HAR filter范围实际导出2条后返回Capture / Return to Capture after HAR filter exports 2 entries",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.export-menu"
+        }
+      ],
+      "bytes": 217113,
+      "sha256": "b3b622234377d512fb8aa75c354ce0618346b8ec9d9082c8c136317fd0a506ad",
+      "rawBytes": 290022,
+      "rawSha256": "42ddbe48886b4719ceefc3bc4e8e654d3b51ca614193d18fa7ca681abc34b2d7",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "选择HAR selected范围并Export / Select the HAR selected scope and Export",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-020.png",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 949.515625,
+            "width": 940,
+            "height": 76
+          },
+          "automationId": "capture.transfer.scope.selected"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1771.015625,
+            "y": 1308.5625,
+            "width": 298.984375,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "bytes": 297214,
+      "sha256": "6f7efeff02f05ddb12bb663bf8f1ecdba83179c51646cb5ea16cc4c44d3e7f2d",
+      "rawBytes": 331962,
+      "rawSha256": "0906d2f0e0ac36424e6a5f9547457632206218b7da6ed7e616909abc4de225cf",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-021.png",
+      "image": "step-021.png",
+      "rawImage": "step-021.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [],
+      "bytes": 50405,
+      "sha256": "dc65703428c7bd8bed5140d4aa4a7dfb884c7fae71e5ae82948d2f84412c45b8",
+      "rawBytes": 50405,
+      "rawSha256": "dc65703428c7bd8bed5140d4aa4a7dfb884c7fae71e5ae82948d2f84412c45b8"
+    },
+    {
+      "id": "step-022",
+      "title": "HAR selected范围实际导出1条后返回Capture / Return to Capture after HAR selected exports 1 entries",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-022.png",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.export-menu"
+        }
+      ],
+      "bytes": 216256,
+      "sha256": "3fadfe925d4a90ed5292dfe021d3d08876eb04f62d28ed126cb7194bcb707d7c",
+      "rawBytes": 289000,
+      "rawSha256": "a502faf5b03872f32343ad6ceecad92577c4e8d006ace22b6a80183ea725cd64",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

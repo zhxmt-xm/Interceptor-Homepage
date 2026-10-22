@@ -1,0 +1,787 @@
+{
+  "schemaVersion": 1,
+  "chapter": "privacy-workspace-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/tools-preferences.workflow.ts",
+    "manifestSha256": "acdeceee04094438e4004e573402b2220d32e92c40c02790d709ad78b6dbcbac",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "Agent操作：Deny保持原值，Allow和Auto应用指定设置，已挂载UI反映结果。 / Agent actions: Deny preserves values; Allow and Auto apply the requested preferences and update the mounted UI.",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "Privacy中的三个默认设置相互独立 / Inspect the three independent Privacy defaults",
+      "language": "en",
+      "theme": "warm",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 812.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3046,
+            "y": 928.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-cookies"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 3046,
+            "y": 1044.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.warn-unmasked"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "分别修改Authorization与Cookie默认值 / Change Authorization and Cookie defaults separately",
+      "language": "en",
+      "theme": "warm",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 812.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3046,
+            "y": 928.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-cookies"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "原UI：Sidebar仍应用同一设置请求；Privacy连续点击只修改各自字段。 / Original UI: Sidebar uses the same preference request; consecutive Privacy clicks change only their own fields.",
+      "language": "en",
+      "theme": "warm",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "MCP：Agent撤权不影响独立Ask/Auto，审批拒绝无修改，允许后结果与页面一致。 / MCP: Agent revocation leaves independent Ask/Auto access; denial does not mutate settings and allowed results agree with the page.",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "打开HAR时读取当时的Privacy默认值 / An opened HAR draft uses the current Privacy defaults",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 1030.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1130,
+            "y": 1082.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-cookies"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "默认值改变不改写已经打开的HAR草稿 / Changing defaults does not rewrite an open HAR draft",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 1106.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1130,
+            "y": 1158.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-cookies"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "重新打开HAR读取新的默认值 / Reopening HAR reads the new defaults",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 1106.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1130,
+            "y": 1158.5625,
+            "width": 32,
+            "height": 32
+          },
+          "automationId": "capture.transfer.mask-cookies"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "关闭前核对保存的Privacy设置 / Inspect saved Privacy settings before closing",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 812.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3046,
+            "y": 928.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-cookies"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 3046,
+            "y": 1044.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.warn-unmasked"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "导出默认值：真实Capture使HAR选项可用，打开中的草稿保持原值，下次打开读取新偏好。 / Export defaults: real Capture enables HAR options; an open draft retains its values and the next draft reads the updated preferences.",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "在Collection中新建需要保留的请求 / Create a Collection request to retain",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 482,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "composer.collection.new-request"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "填写请求URL并等待自动保存，不发送 / Enter the URL for autosave without sending",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1176.8125,
+            "y": 212.234375,
+            "width": 1703.1875,
+            "height": 29.515625
+          },
+          "automationId": "composer.url"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "填写保存请求的名称 / Name the saved request",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 146,
+            "y": 207.234375,
+            "width": 590,
+            "height": 33.515625
+          },
+          "automationId": "composer.collection.folder-rename.req-mvic6od8-1"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "关闭前的Capture记录仍是临时数据 / Capture records remain temporary before closing",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvic6ge5-z1jm81xa"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "保存后通过窗口Close正常退出 / Close the window normally after saving",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 15,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "shell.window.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "重启后Privacy保持关闭前的设置 / Privacy retains its saved settings after restart",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 812.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3046,
+            "y": 928.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-cookies"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 3046,
+            "y": 1044.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.warn-unmasked"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "重启后Collection名称和URL保留且没有自动Send / The Collection name and URL survive restart without an automatic Send",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 196,
+            "width": 608,
+            "height": 60
+          },
+          "automationId": "composer.collection.request.req-mvic6od8-1"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1176.8125,
+            "y": 212.234375,
+            "width": 1703.1875,
+            "height": 29.515625
+          },
+          "automationId": "composer.url"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "重启后上一代临时Capture记录不再保留 / Temporary Capture records from the previous process are not retained",
+      "language": "en",
+      "theme": "ember",
+      "window": "app",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "恢复原来的Privacy默认值和主题 / Restore the original Privacy defaults and theme",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 812.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-authorization"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3046,
+            "y": 928.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.mask-cookies"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 3046,
+            "y": 1044.765625,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.privacy.warn-unmasked"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353918,
+      "sha256": "2c68ce9b9c1d12f2ca94e3574a6bd1fbae4f31b9c1e0533e00d87089fe5b935c"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 351772,
+      "sha256": "305963c022fc6aa1743db3af1bb855b3a2904e2793b99f9fa128b689e95960f2"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301085,
+      "sha256": "fd8a42716effe5f31a038cd39ebe08dca80de107b0366955ea6543406c106253"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 351807,
+      "sha256": "5feca8d43aff228bd8ed01c8e416372dff8996d97a6fcb3949e5de7e41104a3a"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 300469,
+      "sha256": "833b6fe3e1f09004c186d867756587752362a6636a1b75798c3d1193cb6aeaac"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 351807,
+      "sha256": "5feca8d43aff228bd8ed01c8e416372dff8996d97a6fcb3949e5de7e41104a3a"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353918,
+      "sha256": "2c68ce9b9c1d12f2ca94e3574a6bd1fbae4f31b9c1e0533e00d87089fe5b935c"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 317557,
+      "sha256": "d02adfa54cc11e1d0d264989ed87d75ef59455f010c9cba4f4b6420fcd771830"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 283243,
+      "sha256": "71184dd396f86247ee592c74dfe99e2ee8db51fcdc6ca31a8f7a8524cfb1e11e"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 292305,
+      "sha256": "be4a995d191932554c857f71538f852875f16ae7e0683288cf8f17a5e36491ab"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263460,
+      "sha256": "262f80e0863fbd0bf8a2e73e1d25811e0ec006fa680f3af4c39349d69cdf103b"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 292208,
+      "sha256": "d431e03b587fae18c3cf0ad38a03a8fa82a8ddffaee18707728adff18cddcd5d"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263460,
+      "sha256": "6aebd050da791257acc10f277ceb232fa60a7d279032b64ccfc2c73d6495b123"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353553,
+      "sha256": "9ee0ecd4012413c60c2a3a3b4762a40c05f29e126390bc4fdc372969a6db473f"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301048,
+      "sha256": "2521b9b815e36c91e54a062e17da7cf675df39d9bc24833fee3ca93f1fc35ea0"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 622982,
+      "sha256": "f3a0b0ec6ade257d87d28ec6127ae1322226dc26250c5f0c9640defbce5d75df"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 173501,
+      "sha256": "5b4c4d6608b08b7904ad55bc3f6edd65e0b97a648d1157c2180fcf9337fbb150"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 178117,
+      "sha256": "60e21cacc7774a0fc6537e9f4ae3627e18cd7e6e59addfc943d19c7cd2747f84"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 239368,
+      "sha256": "9f39b73bb02eb54fe271c25bca75e4ac8d99d689fa442c1945b90720bacd3233"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 222025,
+      "sha256": "45dd5532ffb46092e9e8b5b6fe7ae1ac3824ceab7805d54be3a1a8b8a7938d8b"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 232924,
+      "sha256": "69d428da5d68918a067c712355075b458807a9eb1473613bee1d49c632ed2202"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 218071,
+      "sha256": "c7a0069cdeb03f2355c10d7bd7129aef1fe22329451ba6af552080f844c76990"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230406,
+      "sha256": "4389ce16a389e16484536e8736524c6770a2babc457a8bea1974e957e0c56864"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216051,
+      "sha256": "3481bd9c8da61eb111adf8a1414d66810795d6abad5ebc612b6c634842a995ba"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230406,
+      "sha256": "4389ce16a389e16484536e8736524c6770a2babc457a8bea1974e957e0c56864"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216061,
+      "sha256": "4fee694fb4d6e8a5f8592e974d561f7e4b136552ab17aa0fdcc7662338c26f15"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353553,
+      "sha256": "9ee0ecd4012413c60c2a3a3b4762a40c05f29e126390bc4fdc372969a6db473f"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301048,
+      "sha256": "2521b9b815e36c91e54a062e17da7cf675df39d9bc24833fee3ca93f1fc35ea0"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238733,
+      "sha256": "2bac1b13fb8f8fd16d713c118a22a11d9502756aa52735fa82590be96e30e0d4"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 222834,
+      "sha256": "c121dd0b4c3271093d0d8d3eb42ea99f90670bcd4cc0f67f4dc2371b5e8adfeb"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 225140,
+      "sha256": "271d11bc1049ed6d60417b2d04156ae410b3811b929b3dbb9501ae56e1475fc5"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353842,
+      "sha256": "5bad79aca53a368cdb0a60331c758fd6d5b26a0f5430f12d7eb08905adedaa73"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 231088,
+      "sha256": "2f7a824337a0e42b05be9033d19161b7209470d55bb91a41cdc5282cd3175347"
+    }
+  ]
+}

@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-queue-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/queue-commands.workflow.ts",
+    "manifestSha256": "fb78faf52d72e60c7104cacf0d57748d9c134c46460381047f790aa16a767c46",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "保存限定范围的POST请求断点 / Save the scoped POST request breakpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1662,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-9afe533b-18fb-4df8-8ded-84f4a7578f19.1.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "用另一条规则匹配PUT请求 / Match PUT requests with a separate Rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1497.96875,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1662,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-af932915-e637-4e76-8bf4-2daa9e8816e4.1.value"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "打开HTTP断点管理器 / Open the HTTP breakpoint manager",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1427.84375,
+            "y": 212,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": "breakpoints.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "布局：队列操作前检查Manager的自然排版和共享按钮，不改变规则配置。 / Layout: inspect the shared manager before queue commands without changing its rules.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "核对三条等待项及HTTP队列 / Inspect the three pending items in the HTTP queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 820.109375,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.breakpoint-manager"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "保留尚未Forward的Text草稿 / Keep a Text draft that has not been forwarded",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 1401,
+            "width": 840,
+            "height": 188
+          },
+          "automationId": "breakpoints.body"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "查看Queued请求而不编辑其他队首 / Inspect a Queued request without editing another head",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi7q6pc-ah7pia23"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "查看Queued请求而不编辑其他队首 / Inspect a Queued request without editing another head",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 456,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi7q6sw-1f33x9mg"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "返回队首后保留自己的Text草稿 / Retain the head’s own Text draft after returning",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 1401,
+            "width": 840,
+            "height": 188
+          },
+          "automationId": "breakpoints.body"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "区分当前规则与整个HTTP队列的批量命令 / Distinguish this Rule from the entire HTTP queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2825.046875,
+            "y": 529,
+            "width": 314.953125,
+            "height": 42
+          },
+          "automationId": "breakpoints.continue-rule"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2825.046875,
+            "y": 375,
+            "width": 145.15625,
+            "height": 42
+          },
+          "automationId": "breakpoints.continue-queue"
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 2825.046875,
+            "y": 443,
+            "width": 94.140625,
+            "height": 42
+          },
+          "automationId": "breakpoints.drop-queue"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "只放行POST规则后PUT仍在等待 / PUT remains pending after continuing only the POST Rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 456,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi7q6sw-1f33x9mg"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "Continue all from this rule：释放两条POST、忽略草稿，并让PUT继续pending。 / Continue all from this rule: release both POST requests, ignore the draft, and leave PUT pending.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    },
+    {
+      "id": "step-013",
+      "title": "丢弃当前HTTP队列前核对Drop all / Review Drop all for the current HTTP queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2825.046875,
+            "y": 443,
+            "width": 94.140625,
+            "height": 42
+          },
+          "automationId": "breakpoints.drop-queue"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "Drop all：再加入一条PUT，丢弃调用开始时的HTTP队列，且不得抵达origin。 / Drop all: add a second PUT, then drop the invocation-time HTTP queue without reaching origin.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "选择新HTTP队列的队首 / Select the head of the new HTTP queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 664,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi7qic4-wdfx53k9"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "原样放行整个当前队列 / Continue the entire current queue without edits",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2825.046875,
+            "y": 375,
+            "width": 145.15625,
+            "height": 42
+          },
+          "automationId": "breakpoints.continue-queue"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "Continue all：建立新的POST队列，并原样释放整个逻辑队列。 / Continue all: build a fresh POST queue and release the whole logical queue unchanged.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.png",
+      "rawImage": "step-017.png"
+    },
+    {
+      "id": "step-018",
+      "title": "停用自己的断点规则，尚需Save / Disable the owned breakpoint Rule before Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "停用自己的断点规则，尚需Save / Disable the owned breakpoint Rule before Save",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "保存两条规则的停用状态 / Save the disabled state of both Rules",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3065.515625,
+            "y": 120,
+            "width": 98.484375,
+            "height": 56
+          },
+          "automationId": "rules.apply"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "两条规则已停用并保存 / Both Rules are disabled and saved",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256989,
+      "sha256": "537ac2bf4cbc1291e07ab63c71240208ef10af8c8a9574f624c4926460e58655"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 170428,
+      "sha256": "e8fd46baaf2962d55610d1a1785ac728175cd75f8ae6380f8b24bd7ec7df17da"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 273905,
+      "sha256": "6f34ef698b50b34390ef928dd49a482558cae58e160a53d4a6f855c80226a71c"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 182928,
+      "sha256": "10b7776ddf3a4daa56a5d9f34dfa6abc87e4afa290c5d02337a3a9af21df0ef9"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 326516,
+      "sha256": "0d19493c4995e4719c420d7855c1f1f90844c84ca120d84038997ea470b7d374"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 224063,
+      "sha256": "d607cb0fb278d42c7c0aac2ff6201d8963d16b6672093accf488ea0cc2d69d3d"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 216814,
+      "sha256": "590d118350fbca9d82c947e71aa90318169e7aa2e6834a01b17f164fa1d7eef7"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 233324,
+      "sha256": "ddafa73e2e1f0a061b9dff08996844977fe6cc760a6ba8a895bdd1c57465182e"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167157,
+      "sha256": "99463d015d917941dc399dfa38fae854894c7b9809e971c6b4f0684231c97976"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 373605,
+      "sha256": "7f87106d5f423f8a44f470b1068512211109aced0fed0fcf1727ec5ae2d8ca1c"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 272782,
+      "sha256": "3baa378f5cee56c221e29adf3e467ab4d3e2e71ca60100716233db1325de7090"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 351202,
+      "sha256": "c086fc2baf357d9ec5f7533171708859e8a5a4a056e4e0ff35730fde3a873e00"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 250124,
+      "sha256": "a7a92ce00c760a0ad3db22d9788e70fbd0ba608a77d481db7d16b5213d9cfe0b"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 348128,
+      "sha256": "a937caa37bd709bf389d7e6ffe03a22680931a26c91ad478de08a7c93723ad0c"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 248329,
+      "sha256": "76f2e3fa4bac0c765f9bf8cb1ae41e1aafaae9879dc1101e35ced972784d1d7c"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372701,
+      "sha256": "e65440a3d2b17b3ae697689e38db9ea4d87c5b04972508142e93e0a9040c50e1"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 275540,
+      "sha256": "d0fdc9597e92f24dc0ac02bbcbd6f8b1a671c3966b41cdf1e79f2d41664131b1"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 407901,
+      "sha256": "4f81519a608b6e4c3f786fd24ea20cec9226ef19731a5ede96ed63e33df4ccb2"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 300465,
+      "sha256": "8db716b96b11f2f55e00354673f77dbc02d36b410a08d7514c5dcb6431e7bd99"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 361272,
+      "sha256": "537067ac4802bfc0912b536fd42b9965c5231b045ab0efeb9fede0964d76b18e"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 259129,
+      "sha256": "89a275d430fe966b8395bbe1bbcd85baf508a44996b64a1c9602cdb2b0f35aa7"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 361272,
+      "sha256": "537067ac4802bfc0912b536fd42b9965c5231b045ab0efeb9fede0964d76b18e"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 408139,
+      "sha256": "1ad3abc07af83f21083d3207efc2a3964368d356b2eb2210bec44af1d6d30039"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 293560,
+      "sha256": "22ab70356a0ca2d636da1c119511a464615131c9bf2d2c27f62fa38beaa7a274"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 373993,
+      "sha256": "d9b774b29b438541a2e9d5bb0c14965d2991867b5706a1d1bda95c8ae0bf6824"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 402033,
+      "sha256": "a6afec4b36b531e49f9d745f846d0637de2d86dcd3356fd88ac2bd10eb4e9bfd"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 290160,
+      "sha256": "a379dd8c542b9ee654fe84232c27ac955816e44a79ed8f64508275aced7cd354"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 436998,
+      "sha256": "0ea55513ae5bc886d918e4d642418d7a4e33a5b1201491abf929c4f3880055f8"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314231,
+      "sha256": "940b2b1fe7a1f1f7b9d15fcc9afe2cd6a1a06be1afe47b812bd1d5cf9074538d"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442224,
+      "sha256": "6b8f059267e4b286862f8b7f4e350b0569a3509871ada30e0bab711997ee5002"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276664,
+      "sha256": "f7f5e730a5aaa32ac0f40b5442f45ed632309ad9437cae593415964038bd45df"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 183807,
+      "sha256": "af095ad739c2b4427b8b21547aaacb26b6ca3adaec4c62f3dec738d1cc194dd4"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 272975,
+      "sha256": "28952b2bd4d9ac7339e0ce55dc8795a5cc0c1159a14376220e3afcbf1cc77c55"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 180812,
+      "sha256": "208ad721be8adb04442a829eeb71825124b643a5334759e0ee16312f2723e305"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 272975,
+      "sha256": "28952b2bd4d9ac7339e0ce55dc8795a5cc0c1159a14376220e3afcbf1cc77c55"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 180979,
+      "sha256": "aed8bf451f38de90f99965fcc3bc00cb7f01eecee5f64cefd7dfd076c03e062c"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 270125,
+      "sha256": "cca1f4224745ff81cf1a1dcbc76ba15ba9f6e61209265525286fc1ba85a40c58"
+    }
+  ]
+}

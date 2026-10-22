@@ -1,7 +1,5 @@
 # Interceptor 使用指南
 
-> 中文内容初稿，面向 `v0.1.1-alpha.1` 整理。已有对应英文正文与部分真实逐步图文，但完整功能点的逐步配图与实机验收仍未结束；不要把初稿或单个演示当作整章已验收。公开上线与App接入仍未完成。
-
 Interceptor 是桌面 HTTP(S) 调试代理。本书从你要完成的事情出发，不要求阅读源码、测试脚本或使用 Agent。
 
 ## 第一次使用
@@ -48,11 +46,11 @@ AI 是可选能力。抓包、Composer、Rules 和 Breakpoints 不需要模型 A
 | App 关闭后网络异常 | [退出与代理恢复](zh-CN/troubleshooting.md#proxy-recovery) |
 
 <a id="walkthroughs"></a>
-## 逐步骤图文索引
+## 操作步骤索引
 
-以下入口打开同章中的真实产品步骤图与操作值。图片保留实际 App 版本和语言；未展示的分支、其他平台及首次系统授权不因此自动通过验收。
+按要完成的操作进入对应小节。
 
-| 想学习的操作 | 实拍入口 |
+| 想学习的操作 | 操作步骤 |
 | --- | --- |
 | 工作区与主题 | [工作区演示](zh-CN/workspace.md#walkthrough) |
 | 录制、正文、HTTP/2、WebSocket 与 gRPC | [Capture演示](zh-CN/capture.md#walkthrough) |
@@ -114,7 +112,7 @@ AI 是可选能力。抓包、Composer、Rules 和 Breakpoints 不需要模型 A
 | Settings：实际Check与失败状态 | [更新检查](zh-CN/settings.md#walkthrough-settings-update-check) |
 | Diagnostics：实际失败、历史、过滤与JSONL | [诊断排查](zh-CN/diagnostics.md#walkthrough-diagnostics-lifecycle) |
 | Agent：模型、Chat管理与权限实效 | [管理操作](zh-CN/agent.md#walkthrough-agent-management) |
-| Agent：删除唯一剩余模型并回到未配置状态 | [最后模型删除（真实节选）](zh-CN/agent.md#walkthrough-agent-model-removal) |
+| Agent：删除唯一剩余模型并回到未配置状态 | [删除最后一个模型](zh-CN/agent.md#walkthrough-agent-model-removal) |
 | Agent：快捷键、Context、新Chat与运行中删除 | [会话操作](zh-CN/agent.md#walkthrough-agent-session-lifecycle) |
 | Agent：真实重启、历史回载与最后模型删除 | [重启与历史](zh-CN/agent.md#walkthrough-agent-session-restart) |
 | Agent：Tool完成、Stop、Retry与原生文件审批 | [Tool生命周期](zh-CN/agent.md#walkthrough-agent-tool-lifecycle) |
@@ -122,19 +120,3 @@ AI 是可选能力。抓包、Composer、Rules 和 Breakpoints 不需要模型 A
 | MCP：更换冲突地址后重新发现与查询 | [新地址重连](zh-CN/mcp.md#walkthrough-mcp-endpoint-reconnect) |
 | 权限：逐项完整只读配置与真实拒绝 | [完整只读](zh-CN/tool-permissions.md#walkthrough-tool-permissions-readonly) |
 | 权限：重启后只读发现与查询 | [持久化核对](zh-CN/tool-permissions.md#walkthrough-tool-permissions-restart) |
-
-## 阅读约定
-
-- Capture、Composer、Recording、Headers 等名称对应 App 功能；按钮文字会随当前语言变化，不要求为了看教程切换语言。
-- 每个场景写用途、前提、操作步骤、可观察的结果与限制。章节链接和锚点可在本地官网中使用，公开访问仍以实际部署地址为准。
-- 示例只用于自己有权检查的测试流量；`example.com` 是公开示例，`example.test`、示例服务地址和示例文件名不代表真实可用服务。
-- 第一次先完成普通 HTTP，再处理 HTTPS；不会要求关闭全局系统安全保护。
-- “有记录”“有正文预览”“网络请求完整结束”不是同一件事；以客户端结果与 App 实际状态共同判断。
-
-## 版本、素材与访问
-
-- [English](README.en.md)提供对应英文初稿，网站切换语言会切换正文，不仅改变导航。两种语言保持同一组演示名称和值。
-- 已加入的步骤图片来自核对过发布摘要的真实App，注明版本、平台和原App语言；每步对应独立截图，没有使用设计预览或空图片。未配图分支仍待制作。
-- 教程只在 Homepage 维护。先完成官网阅读体验，再接入 App；后续 App 计划用无边框 iframe 打开相应在线章节，并提供浏览器打开按钮。
-- 在线教程依赖官网可达性，不承诺断网可读。暂不分发教程 npm 包，不复制目录进 App，不给 App 构建增加私有 registry 认证。
-- 当前 Capture 是临时记录。重要数据先导出；分享前检查凭据、Cookie、URL、正文和系统身份信息。

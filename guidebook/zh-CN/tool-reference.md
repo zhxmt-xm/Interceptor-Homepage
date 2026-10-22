@@ -1,7 +1,5 @@
 # Tool 操作速查
 
-> 草稿，面向 `v0.1.1-alpha.1` 的已实现目录；末节只配状态查询与暂停的代表流程，不表示每个 Tool 或 item9 已验收。参数以连接后返回的 schema 为准，不猜字段或把内部 IPC 名称当作 Tool。
-
 [教程目录](../README.md) · [权限与审批](tool-permissions.md)
 
 本表按用户意图列出名称。`query` 读取数据，`change` 会控制操作、修改状态、产生网络请求或打开原生窗口。启用后，query 直接查询，change 再按 Agent Chat 或 MCP Client 的 Ask/Auto 决定是否审批。
@@ -127,38 +125,26 @@
 
 ## 使用这份速查表
 
-1. 找到对应业务章节，先理解操作后果。
+下面以 MCP 查询代理状态、再暂停录制为例。先在 [MCP](mcp.md) 创建并连接自己的 Client；名称只标识客户端，不会自动配置 Host。
 
-   下方基础例使用代理状态查询和暂停录制；[完整权限实录](tool-permissions.md#walkthrough-tool-permissions-readonly)逐项检查整个catalog并验证禁用动作确实被拒绝。本表是入口速查，不声称每个Tool的全部参数组合都已配有独立步骤图。
+1. 按目标找到对应业务章节，理解操作后果。query 也可能读取敏感流量，只开启本次需要的能力。
 
-2. 在 Settings 的 Tool capabilities 搜索 `capture_get_proxy_status`，检查目标入口的权限，再关闭无关项。
+2. 在 Settings → Agent 的 Tool capabilities 搜索 `capture_get_proxy_status`，确认 MCP 列已开启。Agent 列独立配置；搜索不会关闭看不见的行。
 
-   ![权限章节中实际查找状态查询 Tool](../media/v0.1.1-alpha.1/tool-permissions/tool-permissions-08-query.png)
+   ![使用这份速查表 · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
-   其他分组的逐项操作见[完整只读配置](tool-permissions.md#walkthrough-tool-permissions-readonly)；不要把搜索框里看不到的行当成已关闭。
+3. 在 Host 刷新 Tool 列表，从当前 schema 读取准确参数，再调用 `capture_get_proxy_status` 并检查返回的 listener 与录制状态。不从名称猜字段，也不把复制连接配置当作查询成功。
 
-3. 从当前 Tool schema 读取准确参数，不从名称猜字段。
+4. 需要暂停录制时，先确认 MCP 列允许 `capture_stop_recording`，Client 保持 Ask，再从 Host 发起调用。核对 Client、Tool 和影响；红框 1 是 Deny Tool call，红框 2 是 Allow Tool call。本次先选择 Deny，录制不会暂停。
 
-   [Agent的Recent→Trace→导出](agent.md#walkthrough-agent-tool-lifecycle)与[MCP的查询/导出审批](mcp.md#walkthrough-mcp-tool-lifecycle)展示实际参数和结果。真实外部Host的schema页面仍缺环境，不把这个名称表当成完整参数表。
+   ![使用这份速查表 · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-012.annotated.png)
 
-4. 先查状态。下图准确引用 MCP 的本地 SDK 查询，不是商业 Host 的设置或对话画面。
+5. 确实需要执行时重新请求，审阅新的审批，再点击红框 1 的 Allow Tool call。
 
-   ![本地 MCP SDK 的实际只读查询](../media/v0.1.1-alpha.1/mcp/mcp-08-query.png)
+   ![使用这份速查表 · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-013.annotated.png)
 
-5. 要暂停时保持 Ask，检查实际 `capture_stop_recording` 审批；其他 change Tool 的影响要重新审阅。
+6. 回到 Capture，确认红框 1 已变为 Paused，再检查 Host 中的 Tool 结果。暂停不清空已有记录，也不恢复系统代理；需要继续采集时通过录制按钮恢复。
 
-   ![MCP 暂停新录制的实际审批](../media/v0.1.1-alpha.1/mcp/mcp-09-ask.png)
+   ![使用这份速查表 · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-014.annotated.png)
 
-6. 不接受本次操作时选择 Deny。
-
-   ![实际拒绝一次调用](../media/v0.1.1-alpha.1/mcp/mcp-10-deny.png)
-
-7. 需要继续练习时重新请求，再审阅新审批。
-
-   ![重新请求后的新审批](../media/v0.1.1-alpha.1/mcp/mcp-11-ask-again.png)
-
-8. 允许后核对 Tool 结果与产品 Recording 状态，不只读模型回答。
-
-   ![实际允许并暂停录制的结果](../media/v0.1.1-alpha.1/mcp/mcp-12-allow.png)
-
-本表不提供模型配置、MCP Client 凭据管理、任意文件读写或 App 更新 Tool；这些控制面仍使用正式产品界面。
+模型配置、MCP Client 凭据管理、任意文件读写和 App 更新不在这份业务 Tool 表中，使用对应正式界面。更完整的权限与审批步骤见 [Tool 权限](tool-permissions.md)。

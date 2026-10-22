@@ -1,669 +1,249 @@
 # Workspace and everyday controls
 
-> Draft for `v0.1.1-alpha.1`; navigation, four themes, the language menu and panel have real images. Layout, language switching and exit still have gaps; neither this chapter nor item9 is complete. This is the desktop App, not the website layout/System theme.
-
 [Guide directory](../README.en.md) · [Getting started](getting-started.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>initialTheme</code> | <code>light</code> |
-| <code>appLanguage</code> | <code>zh-CN</code> |
-| <code>languageChanged</code> | <code>false</code> |
-
-<a id="walkthrough-01-sidebar"></a>
-### 01 · Expand sidebar labels
-
-![01 · Expand sidebar labels](../media/v0.1.1-alpha.1/workspace/workspace-01-sidebar.png)
-
-<a id="walkthrough-02-capture"></a>
-### 02 · Open Capture
-
-![02 · Open Capture](../media/v0.1.1-alpha.1/workspace/workspace-02-capture.png)
-
-<a id="walkthrough-03-rules"></a>
-### 03 · Open Rules
-
-![03 · Open Rules](../media/v0.1.1-alpha.1/workspace/workspace-03-rules.png)
-
-<a id="walkthrough-04-composer"></a>
-### 04 · Open Composer
-
-![04 · Open Composer](../media/v0.1.1-alpha.1/workspace/workspace-04-composer.png)
-
-<a id="walkthrough-05-diagnostics"></a>
-### 05 · Open Diagnostics
-
-![05 · Open Diagnostics](../media/v0.1.1-alpha.1/workspace/workspace-05-diagnostics.png)
-
-<a id="walkthrough-06-settings"></a>
-### 06 · Open Settings
-
-![06 · Open Settings](../media/v0.1.1-alpha.1/workspace/workspace-06-settings.png)
-
-<a id="walkthrough-07-theme-warm"></a>
-### 07 · Select the warm theme
-
-![07 · Select the warm theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-warm.png)
-
-<a id="walkthrough-07-theme-light"></a>
-### 08 · Select the light theme
-
-![08 · Select the light theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-light.png)
-
-<a id="walkthrough-07-theme-ember"></a>
-### 09 · Select the ember theme
-
-![09 · Select the ember theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-ember.png)
-
-<a id="walkthrough-07-theme-dark"></a>
-### 10 · Select the dark theme
-
-![10 · Select the dark theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-dark.png)
-
-<a id="walkthrough-08-restore-theme"></a>
-### 11 · Restore the original theme
-
-![11 · Restore the original theme](../media/v0.1.1-alpha.1/workspace/workspace-08-restore-theme.png)
-
-<a id="walkthrough-09-language-menu"></a>
-### 12 · Inspect languages without changing the current language
-
-![12 · Inspect languages without changing the current language](../media/v0.1.1-alpha.1/workspace/workspace-09-language-menu.png)
-
-<a id="walkthrough-10-agent-panel"></a>
-### 13 · Open the optional Agent panel
-
-![13 · Open the optional Agent panel](../media/v0.1.1-alpha.1/workspace/workspace-10-agent-panel.png)
-
-<a id="walkthrough-11-close-panel"></a>
-### 14 · Close the panel, not the App
-
-![14 · Close the panel, not the App](../media/v0.1.1-alpha.1/workspace/workspace-11-close-panel.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="navigation"></a>
 ## Find the tool you need
 
-**Purpose and prerequisites:** startup has finished. Choose the workspace for your task from the left navigation.
+<a id="walkthrough-workspace-navigation"></a>
+After the App is ready, use the left navigation to open the tool you need. Breakpoints are handled within Capture, not in a separate workspace.
 
-| Entry | Purpose |
-| --- | --- |
-| Capture | Inspect proxied requests, bodies and messages; handle waiting breakpoints |
-| Rules & Map | Change subsequent matching proxy traffic |
-| Composer | Send independent requests and manage collections |
-| Diagnostics | Query operations and failures |
-| Settings | Manage proxies, certificates, preferences, models, MCP and updates |
-| Agent button near the window controls | Open or close the AI panel beside the workspace |
+1. <a id="walkthrough"></a><a id="walkthrough-01-sidebar"></a>Click the menu button to the left of the window title to expand the sidebar labels. Click again to collapse it without leaving the current page.
 
-**Steps**
+   ![Find the tool you need · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-019.png)
 
-1. Expand the sidebar using the menu button at the left of the window header.
+2. <a id="walkthrough-02-capture"></a>Click Capture in box 1 to inspect proxied traffic. This example filters its test path, so the list may be empty; an empty list does not mean the proxy failed to start.
 
-   ![Actually expanded navigation labels](../media/v0.1.1-alpha.1/workspace/workspace-01-sidebar.png)
+   ![Find the tool you need · 2](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.annotated.png)
 
-2. Select Capture.
+3. <a id="walkthrough-03-rules"></a>Click Rules & Map in box 1 to manage rules for subsequent traffic. Rules do not rewrite requests that have already completed.
 
-   ![Actual Capture workspace](../media/v0.1.1-alpha.1/workspace/workspace-02-capture.png)
+   ![Find the tool you need · 3](../media/v0.1.1-alpha.1/workspace-navigation-english/step-015.annotated.png)
 
-3. Select Rules & Map.
+4. <a id="walkthrough-04-composer"></a>Click Composer in box 1 to build requests and manage Collection. Composer sends directly; its requests are not automatically captured or processed by proxy Rules.
 
-   ![Actual Rules workspace](../media/v0.1.1-alpha.1/workspace/workspace-03-rules.png)
+   ![Find the tool you need · 4](../media/v0.1.1-alpha.1/workspace-navigation-english/step-016.annotated.png)
 
-4. Select Composer.
+5. <a id="walkthrough-05-diagnostics"></a>Click Diagnostics in box 1 to inspect App operation records by time and category. It helps diagnose App operations rather than acting as a complete network-frame analyzer.
 
-   ![Actual Composer workspace](../media/v0.1.1-alpha.1/workspace/workspace-04-composer.png)
+   ![Find the tool you need · 5](../media/v0.1.1-alpha.1/workspace-navigation-english/step-017.annotated.png)
 
-5. Select Diagnostics.
+6. <a id="walkthrough-06-settings"></a><a id="walkthrough-workspace-navigation-01-settings"></a><a id="walkthrough-workspace-navigation-02-privacy"></a><a id="walkthrough-workspace-navigation-03-composer"></a><a id="walkthrough-workspace-navigation-04-return-settings"></a><a id="walkthrough-workspace-navigation-19-capture"></a><a id="walkthrough-workspace-navigation-20-upstream-shortcut"></a><a id="walkthrough-workspace-navigation-21-upstream-link"></a><a id="walkthrough-workspace-navigation-22-leave-deeplink"></a><a id="walkthrough-workspace-navigation-23-retained-deeplink"></a><a id="walkthrough-workspace-navigation-24-recording"></a><a id="walkthrough-workspace-navigation-25-request"></a>Open Settings and choose a section such as Certificates, App Containers or TLS passthrough. Returning normally preserves the last section; a feature-specific settings link opens its designated section.
 
-   ![Actual Diagnostics workspace](../media/v0.1.1-alpha.1/workspace/workspace-05-diagnostics.png)
+   ![Find the tool you need · 6](../media/v0.1.1-alpha.1/workspace-navigation-english/step-006.png)
 
-6. Select Settings and the section you need.
+   ![Find the tool you need · 6](../media/v0.1.1-alpha.1/workspace-navigation-english/step-014.png)
 
-   ![Actually entering Settings](../media/v0.1.1-alpha.1/workspace/workspace-06-settings.png)
+   ![Find the tool you need · 6](../media/v0.1.1-alpha.1/workspace-navigation-english/step-018.png)
 
-7. Leave Settings and return to inspect the retained last section.
+Navigation itself neither sends requests nor pauses Recording. Proxy, rule and recording states remain independent.
 
-   ![Privacy retained after leaving and returning](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png)
-
-8. Follow a feature-specific prompt and check its selected section, such as TLS passthrough.
-
-   ![Opening Upstream from Capture's shortcut popover](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png)
-
-   See the separate [TLS passthrough round trip](settings.md#walkthrough-settings-tls-passthrough) for its deep link; opening a section directly is not the same operation.
-
-**Expected result:** the header and main content follow navigation; navigation does not resend traffic.
-
-**Notes:** Breakpoints live inside Capture. Entering Composer or Settings does not pause Capture. Background behavior still depends on Recording, proxy ownership and rules.
 
 <a id="layout"></a>
 ## Resize panes, windows and scrollable content
 
-**Steps**
+1. Drag Capture's separators between filters, list and details to allocate space. Box 1 marks the divider between the list and Inspector. Drag left to widen the details, then right to restore space when needed; the selected request and Query contents remain.
 
-1. Drag Capture's separators between filters, list and details to allocate space.
+   ![Dragging the divider left to widen the Inspector](../media/v0.1.1-alpha.1/capture-query-layout-english/step-010.annotated.png)
 
-   ![Actually dragging the Capture detail divider](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
+   ![Restoring Inspector width while retaining the selected request](../media/v0.1.1-alpha.1/capture-query-layout-english/step-011.annotated.png)
 
 2. In Composer, adjust the Collection width and the request/response heights separately.
 
-   ![Actually widening the Collection pane](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-33-collection-drag.png)
+   ![Widening Collection while retaining the selected request](../media/v0.1.1-alpha.1/composer-tree-workflow-en/step-016.png)
 
-   ![Independently enlarging the Composer response pane](../media/v0.1.1-alpha.1/composer-inspection/composer-inspection-34-response-drag.png)
+   ![Enlarging the response pane while retaining its view mode](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-029.png)
 
-3. Use minimize, maximize or restore; resize the window from its edges when needed.
+3. <a id="walkthrough-workspace-navigation-16-dismiss-theme"></a><a id="walkthrough-workspace-navigation-17-resize"></a><a id="walkthrough-workspace-navigation-18-restore-size"></a>Drag a window edge or corner for a custom size; panes respond to the available space. For the header’s maximize, restore and minimize controls, follow the next section’s [illustrated window operations](#walkthrough-workspace-window-controls). Minimizing does not stop the proxy.
 
-   ![Resizing the same actual App window smaller](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png)
+4. Use the wheel, trackpad or keyboard to read overflow. These images select the long Request body for `/e2e/detail-body-fill`. Box 1 is the Inspector's scroll region, containing the body's own scrollbar. Scroll inside the body first, or drag its scrollbar to the lower boundary. After `entry-199`, further scrolling moves the outer Inspector instead of being trapped inside the body.
 
-   ![Restoring that window's original size](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
+   ![Using the wheel inside the Request body](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-003.annotated.png)
 
-   These consecutive steps demonstrate resizing. The separate [window-controls recording](#walkthrough-workspace-window-controls) actually clicks Maximize and Restore and checks native window/work-area dimensions, then clicks Minimize. Its button image precedes the actual click; native state is checked separately. The test restores only the same window for continued inspection, not as recorded Dock interaction.
+   ![Dragging the body scrollbar to its lower boundary](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-004.annotated.png)
 
-4. Use the wheel, trackpad or keyboard to read overflow. Continue scrolling the outer content after the body viewer reaches its boundary.
+   ![Continuing into the outer Inspector after the body reaches its end](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-005.annotated.png)
 
-   ![Actual wheel input inside the body](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png)
+5. Use the fullscreen control in a Capture body to enlarge its contents. This example shows the JSON response for `/e2e/fullscreen-json`; box 1 marks Raw mode in fullscreen.
 
-   ![Continuing into the outer pane at the body boundary](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+   ![Reading the JSON response as Raw text in fullscreen](../media/v0.1.1-alpha.1/capture-fullscreen-english/step-014.annotated.png)
 
-5. Use fullscreen for a long body, then return to the workspace.
+6. Select Hex in fullscreen when you need to inspect bytes. Box 1 marks the selected Hex mode; this is still the same response.
 
-   These accurately reuse Capture's orders JSON fullscreen/Escape sequence. They demonstrate the controls, not oversized-body scrolling.
+   ![Selecting Hex for the same response in fullscreen](../media/v0.1.1-alpha.1/capture-fullscreen-english/step-017.annotated.png)
 
-   ![Actually opening Capture body fullscreen](../media/v0.1.1-alpha.1/capture/capture-08a-fullscreen.png)
+7. Press Escape to return to the original details. Box 1 shows that Hex remains selected, without reselecting the request or its view mode.
 
-   ![Returning to Capture details with Escape](../media/v0.1.1-alpha.1/capture/capture-08b-close-fullscreen.png)
+   ![Retaining Hex after returning to the details with Escape](../media/v0.1.1-alpha.1/capture-fullscreen-english/step-018.annotated.png)
 
-**Expected result:** panes fit the available area without silently cutting off readable content.
+minimizing is not quitting. Recording and proxy forwarding can continue. Fullscreen changes the viewing area, not byte-preview limits or previously missing data.
 
-**Notes:** minimizing is not quitting. Recording and proxy forwarding can continue. Fullscreen changes the viewing area, not byte-preview limits or previously missing data.
+<a id="walkthrough-workspace-window-controls"></a>
+## Maximize, restore and minimize the window
+
+Window controls are on the right of the header. Resizing or minimizing does not quit the App or stop the proxy.
+
+1. <a id="walkthrough-workspace-window-controls-01-normal"></a><a id="walkthrough-workspace-window-controls-02-maximize"></a>Click Maximize to use the available screen area. The current Settings section and edits remain in place.
+
+   ![Maximize, restore and minimize the window · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-026.png)
+
+2. <a id="walkthrough-workspace-window-controls-03-restore"></a>Click Restore in the same position to return to a normal window. Drag its edges if you need another size.
+
+   ![Maximize, restore and minimize the window · 2](../media/v0.1.1-alpha.1/workspace-navigation-english/step-027.png)
+
+3. <a id="walkthrough-workspace-window-controls-04-minimize-control"></a>Box 1 marks Minimize. Click it to put the window away temporarily; it is not Close, and the App and proxy may keep running.
+
+   ![Maximize, restore and minimize the window · 3](../media/v0.1.1-alpha.1/workspace-navigation-english/step-028.annotated.png)
+
+4. <a id="walkthrough-workspace-window-controls-05-returned-window"></a>Restore the window to continue the same operation. When finished, close the App normally instead of treating minimization as quitting.
+
+   ![Maximize, restore and minimize the window · 4](../media/v0.1.1-alpha.1/workspace-navigation-english/step-029.png)
+
 
 <a id="appearance"></a>
 ## Choose a theme and language
 
-**Steps**
+Themes change colors rather than behavior. Interface language does not translate request URLs, bodies, protocol values or Tool names.
 
-1. Open Theme at the bottom of the sidebar.
+1. <a id="walkthrough-workspace-navigation-15-theme-menu"></a>Click Theme in box 1 at the bottom of the sidebar to open the four theme choices.
 
-   ![Opening Theme without changing the current selection](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png)
+   ![Choose a theme and language · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-020.annotated.png)
 
-2. First select `warm`.
+2. <a id="walkthrough-07-theme-warm"></a>Choose warm for the warm palette. The current page, requests and settings remain unchanged.
 
-   ![Actual App after selecting warm](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-warm.png)
+   ![Choose a theme and language · 2](../media/v0.1.1-alpha.1/workspace-navigation-english/step-023.png)
 
-3. Select `light`.
+3. <a id="walkthrough-07-theme-light"></a><a id="walkthrough-08-restore-theme"></a>Choose light to return to the light palette. Keep it if it was your previous preference.
 
-   ![Actual light theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-light.png)
+   ![Choose a theme and language · 3](../media/v0.1.1-alpha.1/workspace-navigation-english/step-021.png)
 
-4. Select `ember`.
+4. <a id="walkthrough-07-theme-ember"></a>Choose ember for the warm dark palette.
 
-   ![Actual ember theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-ember.png)
+   ![Choose a theme and language · 4](../media/v0.1.1-alpha.1/workspace-navigation-english/step-024.png)
 
-5. Select `dark`.
+5. <a id="walkthrough-07-theme-dark"></a>Choose dark for the dark palette. Return to your previous theme through the same menu when needed.
 
-   ![Actual dark theme](../media/v0.1.1-alpha.1/workspace/workspace-07-theme-dark.png)
+   ![Choose a theme and language · 5](../media/v0.1.1-alpha.1/workspace-navigation-english/step-022.png)
 
-6. Restore the original `light`, not an App System theme.
+6. <a id="walkthrough-09-language-menu"></a><a id="walkthrough-workspace-restart-05-language"></a>Open Language and choose the interface language you need. This example uses English; language names use their own native spelling. Close the menu to continue without resending requests.
 
-   ![Restoring the original light theme](../media/v0.1.1-alpha.1/workspace/workspace-08-restore-theme.png)
+   ![Choose a theme and language · 6](../media/v0.1.1-alpha.1/workspace-navigation-english/step-025.png)
 
-7. Open Language to inspect available choices; this recording retains `zh-CN`.
+The App provides four themes and 15 interface languages. The website’s System/Light/Dark preference is separate from the App theme.
 
-   ![Actual language menu without switching](../media/v0.1.1-alpha.1/workspace/workspace-09-language-menu.png)
-
-8. Select a different supported language when needed and inspect the interface change.
-
-   **Image pending:** `languageChanged=false` in this recording. The menu does not prove a switch to English or another language.
-
-9. Restart normally and inspect retained language/theme preferences.
-
-   The new `workspace-restart` recording confirms `zh-CN` across two App starts without switching language for recording:
-
-   ![Confirming language was not changed after the real restart](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
-
-   **Image pending:** this does not change language/theme before restarting, so it is not a complete changed-preference round trip.
-
-**Expected result:** theme changes colors, not behavior. Language changes UI text, not URLs, protocol values, request content or Tool names.
-
-**Notes:** the App has four themes and 15 UI languages. This does not imply 15 translated guides. The website's System/Light/Dark control is a separate preference.
 
 <a id="agent-panel"></a>
 ## Use Agent beside your workspace
 
-**Steps**
+Agent is an optional side panel. Opening it does not send the current request or automatically provide page content to a model.
 
-1. Click the Agent button near the window controls.
+1. <a id="walkthrough-10-agent-panel"></a><a id="walkthrough-workspace-navigation-07-capture"></a><a id="walkthrough-workspace-navigation-08-agent-empty"></a>Click Agent in the header to open the side panel. Without a configured model, box 1 shows the configuration entry instead of starting a conversation.
 
-   ![Actually opening Agent beside the workspace](../media/v0.1.1-alpha.1/workspace/workspace-10-agent-panel.png)
+   ![Use Agent beside your workspace · 1](../media/v0.1.1-alpha.1/workspace-agent-english/step-002.annotated.png)
 
-2. If no model is configured, follow the configuration entry to Settings > Agent.
+   ![Use Agent beside your workspace · 1](../media/v0.1.1-alpha.1/workspace-agent-english/step-003.png)
 
-   ![Following Configure from the unconfigured Agent panel](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png)
+2. <a id="walkthrough-workspace-navigation-09-configure-link"></a>Click the configuration entry to open Settings → Agent while keeping the panel open. See [Agent](agent.md) for model configuration.
 
-3. Otherwise, select or create a Chat. Switch workspaces normally when you need another tool.
+   ![Use Agent beside your workspace · 2](../media/v0.1.1-alpha.1/workspace-agent-english/step-004.png)
 
-   These reuse the separate `agent-management` with `Guide model one` and `Guide model two` already configured: create the second Chat, then select `Guide chat one`. This workspace's empty panel did not configure models automatically.
+3. <a id="walkthrough-workspace-navigation-05-diagnostics"></a><a id="walkthrough-workspace-navigation-06-retained-again"></a><a id="walkthrough-workspace-navigation-10-agent-open"></a><a id="walkthrough-workspace-navigation-11-rules"></a><a id="walkthrough-workspace-navigation-11-composer"></a><a id="walkthrough-workspace-navigation-11-diagnostics"></a>Switch to Rules, Composer, Diagnostics or Capture; Agent stays beside the workspace. Once a model is configured, create or select a Chat in the panel; see [Agent](agent.md#sessions) for conversation controls.
 
-   ![Actually creating a second Chat with an existing session](../media/v0.1.1-alpha.1/agent-management/agent-management-09-new-chat.png)
+   ![Use Agent beside your workspace · 3](../media/v0.1.1-alpha.1/workspace-agent-english/step-005.png)
 
-   ![Actually selecting Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-11-switch-chat.png)
+   ![Use Agent beside your workspace · 3](../media/v0.1.1-alpha.1/workspace-agent-english/step-006.png)
 
-   ![Switching to Rules with Agent still open](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png)
+   ![Use Agent beside your workspace · 3](../media/v0.1.1-alpha.1/workspace-agent-english/step-007.png)
 
-   ![Continuing to Composer while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png)
+   ![Use Agent beside your workspace · 3](../media/v0.1.1-alpha.1/workspace-agent-english/step-008.png)
 
-4. Close the panel using the Agent toggle or its own Close action.
+   ![Use Agent beside your workspace · 3](../media/v0.1.1-alpha.1/workspace-agent-english/step-009.png)
 
-   ![Actually closing the panel while the App remains running](../media/v0.1.1-alpha.1/workspace/workspace-11-close-panel.png)
+4. <a id="walkthrough-11-close-panel"></a><a id="walkthrough-workspace-navigation-12-header-close"></a><a id="walkthrough-workspace-navigation-13-header-open"></a><a id="walkthrough-workspace-navigation-14-panel-close"></a>Box 1 marks the panel Close button. Click it, or click Agent in the header again, to close only the panel. The workspace and App keep running, and existing conversations are not deleted.
 
-   ![Closing Agent through the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png)
+   ![Use Agent beside your workspace · 4](../media/v0.1.1-alpha.1/workspace-agent-english/step-011.annotated.png)
 
-   ![Reopening and using the panel's own Close](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png)
+   ![Use Agent beside your workspace · 4](../media/v0.1.1-alpha.1/workspace-agent-english/step-010.png)
 
-**Expected result:** the main workspace narrows beside the panel rather than being covered. Workspace/settings navigation does not close Agent implicitly.
+   ![Use Agent beside your workspace · 4](../media/v0.1.1-alpha.1/workspace-agent-english/step-012.png)
 
-**Notes:** merely opening the panel does not attach the selected request to the model. See [Agent privacy](agent.md#privacy).
 
 <a id="saved-data"></a>
 ## Know what is retained
 
-| Data | Retention rule |
+| Content | How it is retained |
 | --- | --- |
-| Current Capture records and bodies | Temporary; Core shutdown/restart releases them. Export important data |
-| Rules | Apply edits; confirming a file import saves the appended result directly |
-| Composer Collection | Edits save automatically; Recent sends is separate in-memory data |
-| Proxy, TLS and preferences | Saved through their own controls; Capture Clear does not erase them |
-| Agent configuration and chats | Stored locally, but model calls and Tool results can still leave the machine |
-| Exported files | Saved where you choose; Capture Clear does not delete them |
+| Capture requests and bodies | Temporary data for the current Core; export important records before exit or restart |
+| Rules | Save after editing; confirming an import saves appended content |
+| Composer Collection | Edits autosave; Recent sends is separate temporary send history |
+| Proxy, TLS and preferences | Saved by their own setting operations, not removed by Capture Clear |
+| Agent configuration and chats | Stored locally; model calls can still send context to the model service |
+| Exported files | Kept at the selected destination, not deleted by Capture Clear |
 
-**Actual saving and restart check**
+Compare Collection, Privacy and temporary Capture before and after the same normal restart. Saving a request does not send it.
 
-Read `workspace-close` → `workspace-restart` in their real order: two App generations using the same profile. The request is `Guide retained request`, URL `http://127.0.0.1:63009/guide/restart/request`; `63009` is this recording's dynamic service port.
+1. <a id="walkthrough-workspace-close"></a><a id="walkthrough-workspace-close-01-composer"></a>Open Composer and create a Collection request with box 1.
 
-1. Open Composer.
+   ![Know what is retained · 1](../media/v0.1.1-alpha.1/privacy-workspace-english/step-011.annotated.png)
 
-   ![Actually opening Composer before closing](../media/v0.1.1-alpha.1/workspace-close/workspace-close-01-composer.png)
+2. <a id="walkthrough-workspace-close-02-url"></a>Enter your URL in box 1. This example uses `http://127.0.0.1:56881/e2e/preferences/retained-request` and saves the definition without clicking Send. Use your own address.
 
-2. Enter that test URL and wait for automatic saving.
+   ![Know what is retained · 2](../media/v0.1.1-alpha.1/privacy-workspace-english/step-012.annotated.png)
 
-   ![Actually saving this example URL](../media/v0.1.1-alpha.1/workspace-close/workspace-close-02-url.png)
+3. <a id="walkthrough-workspace-close-03-name"></a>Choose Rename from the request row’s context menu, enter `Workspace retained request` in box 1 and press Enter.
 
-3. Name the request `Guide retained request`.
+   ![Know what is retained · 3](../media/v0.1.1-alpha.1/privacy-workspace-english/step-013.annotated.png)
 
-   ![Actual request name before closing](../media/v0.1.1-alpha.1/workspace-close/workspace-close-03-name.png)
+4. <a id="walkthrough-workspace-close-04-privacy"></a>Note the current Privacy settings. In this example, authorization masking in box 1 is off, cookie masking in box 2 is on and the warning in box 3 is off. These are previously selected defaults, not a request to disable protection.
 
-4. Temporarily set that profile's Privacy `maskCookies` to `false` to inspect persistence. No personal data is exported/shared here; masking is restored afterward.
+   ![Know what is retained · 4](../media/v0.1.1-alpha.1/privacy-workspace-english/step-009.annotated.png)
 
-   ![Actually setting maskCookies=false before closing](../media/v0.1.1-alpha.1/workspace-close/workspace-close-04-privacy.png)
+5. <a id="walkthrough-workspace-close-05-capture"></a>Inspect the temporary `/e2e/preferences/export-defaults` Capture record in box 1. It is separate from the Collection definition; export it first if it must be retained.
 
-5. Generate a temporary Capture demonstration record through the proxy, separate from the saved Collection definition.
+   ![Know what is retained · 5](../media/v0.1.1-alpha.1/privacy-workspace-english/step-014.annotated.png)
 
-   ![Actual temporary Capture record before closing](../media/v0.1.1-alpha.1/workspace-close/workspace-close-05-capture.png)
+6. <a id="walkthrough-workspace-close-06-before-close"></a>Wait for saves and file tasks to finish, then use the window Close control in box 1. Do not substitute force termination.
 
-6. After confirming saving, Close normally. The driver executed the real Close in this run. This image precedes the action; it is neither the click nor the desktop after exit.
+   ![Know what is retained · 6](../media/v0.1.1-alpha.1/privacy-workspace-english/step-015.annotated.png)
 
-   ![Saved state before the actual Close](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
+7. <a id="walkthrough-workspace-restart"></a><a id="walkthrough-workspace-restart-01-collection"></a>Restart the App and open Composer. Box 1 still contains `Workspace retained request`, and the address in box 2 retains its value. The protocol prefix is displayed separately from the address field. Without clicking Send, this request should not be issued.
 
-   Actual Close and exit recovery are checked outside the recording through real operations and state evidence. A pre-close picture is not a process-exit image. Other exit branches, such as busy refusal, still need their own scenarios; the desktop or a process manager is not recorded to fill the gap.
+   ![Know what is retained · 7](../media/v0.1.1-alpha.1/privacy-workspace-english/step-017.annotated.png)
 
-7. Start the same profile again, find `Guide retained request` in the new App generation's Collection and inspect the saved URL.
+8. <a id="walkthrough-workspace-restart-02-privacy"></a>Return to Privacy and check authorization masking in box 1, cookie masking in box 2 and the warning in box 3 match the saved values. Do not delete App data or the CA to simulate a restart.
 
-   ![Collection request retained after an actual restart](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png)
+   ![Know what is retained · 8](../media/v0.1.1-alpha.1/privacy-workspace-english/step-016.annotated.png)
 
-8. Open Privacy and verify `maskCookies` remains `false`, rather than inferring persistence from an old window staying open.
+9. <a id="walkthrough-workspace-restart-04-temporary-capture"></a>Return to Capture: the previous temporary record is gone. Also check the interface still uses the previously selected language. Collection definitions and saved preferences remain separate.
 
-   ![Privacy preference retained after an actual restart](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-02-privacy.png)
+   ![Know what is retained · 9](../media/v0.1.1-alpha.1/privacy-workspace-english/step-018.png)
 
-9. Restore the Cookie-masking default rather than leaving it disabled for the demonstration.
+10. <a id="walkthrough-workspace-restart-03-restore-privacy"></a>If protection was temporarily changed for testing, finish by enabling authorization masking in box 1, cookie masking in box 2 and the warning in box 3. Restore your preferred theme as needed.
 
-   ![Actually restoring the masking default](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-03-restore-privacy.png)
+    ![Know what is retained · 10](../media/v0.1.1-alpha.1/privacy-workspace-english/step-019.annotated.png)
 
-10. Return to Capture and confirm the previous generation's temporary records are gone, unlike the retained Collection definition.
+Finish exports, Rules Save and other saves before quitting; visible data alone does not prove persistence. See [Composer](composer.md#walkthrough-composer-persistence-save) for complete request fields and [Agent](agent.md#walkthrough-agent-session-restart) for chat history. Different system accounts or independent App data environments do not automatically synchronize collections or chats. Shared CA and proxy-recovery information have separate lifecycles and should not be deleted casually.
 
-    ![Old Capture records absent after the actual restart](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-04-temporary-capture.png)
-
-11. Confirm the language is still `zh-CN`; recording did not change it.
-
-    ![Original language actually retained after restarting](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
-
-**Scope:** this segment checks Collection name/URL, Privacy and temporary Capture. A complete representative request now has paired [saving](composer.md#walkthrough-composer-persistence-save) and [actual restart](composer.md#walkthrough-composer-persistence-restart) walkthroughs covering three folder levels, method/protocol, Header values and enabled states, Query, JSON and public Auth fields, without refilling or automatic Send. See [Agent restart](agent.md#walkthrough-agent-session-restart) for history. No single walkthrough exhausts every preference or Body/Auth combination.
-
-**Before quitting:** finish exports, Apply or pending saves. Visible editor content alone does not prove it has been persisted.
-
-Do not assume collections or chats synchronize between OS accounts or separate App data environments. The current OS user's shared CA and proxy-recovery information have separate lifetimes; deleting an App profile is not a safe way to reset them.
 
 <a id="close"></a>
 ## Finish a session
 
-1. Resolve or deliberately abandon waiting breakpoints so clients are not left waiting unnoticed.
+Handle data you need to retain and outstanding operations before quitting.
 
-   These separately reuse one unchanged continuation and POST-C/PUT-C batch continuation in the new HTTP queue. They are not a global status for every current connection; complete cleanup across mixed queues remains image pending.
+1. Resolve breakpoints that need to continue. Continue in box 1 forwards only the current HTTP head unchanged. For multiple waits, check the scope before using [batch commands](breakpoints.md#batch).
 
-   ![Actually continuing one breakpoint unchanged](../media/v0.1.1-alpha.1/breakpoints/breakpoints-17-unmodified.png)
+   ![Finish a session · 1](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-017.annotated.png)
 
-   ![Actually resolving this HTTP queue in a batch](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-24-continue-queue.png)
+2. Export important traffic and wait for completion. All traffic in box 1 contains four records, and Export 4 requests in box 2 opens Save. Confirm the file was saved rather than treating a selected destination as completion. Use [Native Archive](transfer.md#archive) when additional protocol information is needed.
 
-2. Export important traffic and wait for file operations.
+   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
 
-   This reuses Transfer's completed `guide-recording.iarchive`, not automatic persistence of the entire workspace.
+   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
 
-   ![Actual completed archive save](../media/v0.1.1-alpha.1/transfer/transfer-13-archive-complete.png)
+3. Complete or cancel each system authorization and file dialog you opened. After cancelling a running task, wait for cleanup before Clear or exit.
 
-3. Check for native authorization or file windows awaiting a decision.
+4. Finally click Close in box 1. If an active system operation prevents exit, let that operation finish before closing again rather than repeatedly clicking or force-killing.
 
-   Finish or cancel each window you opened. [Agent](agent.md#walkthrough-agent-tool-lifecycle-11-native-cancel-panel) and [MCP](mcp.md#walkthrough-mcp-tool-lifecycle-11-native-panel) show actual Save cancellation and subsequent saving, not a claim that every current window was inspected for you.
+   ![Finish a session · 4](../media/v0.1.1-alpha.1/privacy-workspace-english/step-015.annotated.png)
 
-4. Close the App normally. If a busy operation prevents quitting, wait for it and close again.
-
-   The [preceding section](#saved-data) now records a real driver-executed Close and actual restart. This image precedes closing, not the Close click or completed system recovery.
-
-   ![Image before the actual Close occurs](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
-
-   **Recording boundary:** [shutdown with mixed waits](breakpoints.md#walkthrough-breakpoints-mixed-queues) actually closes normally while HTTP and WS items are pending, then verifies client cancellation and no origin forwarding. Native file cancellation is in [Collection Tools](composer.md#walkthrough-composer-file-tools). A pre-close picture is still not an exited-process image; shutdown and host recovery have separate evidence. The guide does not manufacture Core crashes or record the desktop/process manager.
-
-**Expected result:** proxy recovery and process shutdown finish. Minimizing or force-killing is not normal shutdown.
-
-**Notes:** quitting does not uninstall a CA, delete exports or overwrite another application's new proxy settings. See [recovery](troubleshooting.md#proxy-recovery).
-
-<!-- recorded-walkthrough:workspace-close:start -->
-<a id="walkthrough-workspace-close"></a>
-## Recorded walkthrough: save before normal Close
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>requestName</code> | <code>Guide retained request</code> |
-| <code>url</code> | <code>http://127.0.0.1:63009/guide/restart/request</code> |
-| <code>maskCookies</code> | <code>false</code> |
-| <code>closeImage</code> | <code>before the actual Close action; shutdown is verified by the driver</code> |
-
-<a id="walkthrough-workspace-close-01-composer"></a>
-### 01 · Open Composer
-
-![01 · Open Composer](../media/v0.1.1-alpha.1/workspace-close/workspace-close-01-composer.png)
-
-<a id="walkthrough-workspace-close-02-url"></a>
-### 02 · Save the example URL
-
-![02 · Save the example URL](../media/v0.1.1-alpha.1/workspace-close/workspace-close-02-url.png)
-
-<a id="walkthrough-workspace-close-03-name"></a>
-### 03 · Name the retained request
-
-![03 · Name the retained request](../media/v0.1.1-alpha.1/workspace-close/workspace-close-03-name.png)
-
-<a id="walkthrough-workspace-close-04-privacy"></a>
-### 04 · Set this profile’s export preference
-
-![04 · Set this profile’s export preference](../media/v0.1.1-alpha.1/workspace-close/workspace-close-04-privacy.png)
-
-<a id="walkthrough-workspace-close-05-capture"></a>
-### 05 · Produce a temporary Capture record
-
-![05 · Produce a temporary Capture record](../media/v0.1.1-alpha.1/workspace-close/workspace-close-05-capture.png)
-
-<a id="walkthrough-workspace-close-06-before-close"></a>
-### 06 · Save first, then close normally
-
-![06 · Save first, then close normally](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:workspace-close:end -->
-
-<!-- recorded-walkthrough:workspace-restart:start -->
-<a id="walkthrough-workspace-restart"></a>
-## Recorded walkthrough: persistent and temporary data after reopening
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>requestName</code> | <code>Guide retained request</code> |
-| <code>url</code> | <code>http://127.0.0.1:63009/guide/restart/request</code> |
-| <code>persisted</code> | <code>Collection and privacy preference</code> |
-| <code>temporary</code> | <code>Capture records</code> |
-| <code>appLanguage</code> | <code>zh-CN</code> |
-
-<a id="walkthrough-workspace-restart-01-collection"></a>
-### 01 · Find the saved request after reopening
-
-![01 · Find the saved request after reopening](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-01-collection.png)
-
-<a id="walkthrough-workspace-restart-02-privacy"></a>
-### 02 · Verify the persisted preference
-
-![02 · Verify the persisted preference](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-02-privacy.png)
-
-<a id="walkthrough-workspace-restart-03-restore-privacy"></a>
-### 03 · Restore the masking default
-
-![03 · Restore the masking default](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-03-restore-privacy.png)
-
-<a id="walkthrough-workspace-restart-04-temporary-capture"></a>
-### 04 · Verify old Capture records are temporary
-
-![04 · Verify old Capture records are temporary](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-04-temporary-capture.png)
-
-<a id="walkthrough-workspace-restart-05-language"></a>
-### 05 · Confirm recording did not change language
-
-![05 · Confirm recording did not change language](../media/v0.1.1-alpha.1/workspace-restart/workspace-restart-05-language.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:workspace-restart:end -->
-
-<!-- recorded-walkthrough:workspace-navigation:start -->
-<a id="walkthrough-workspace-navigation"></a>
-## Recorded walkthrough: retained Settings, Agent deep links, panel navigation and window resizing
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>savedSection</code> | <code>Privacy</code> |
-| <code>configureTarget</code> | <code>Settings / Agent</code> |
-| <code>shortcutTarget</code> | <code>Settings / Upstream</code> |
-| <code>originalSize</code> | <code>1600x900</code> |
-| <code>smallerSize</code> | <code>1280x800</code> |
-| <code>initialTheme</code> | <code>light</code> |
-| <code>appLanguage</code> | <code>zh-CN</code> |
-| <code>languageChanged</code> | <code>false</code> |
-| <code>requestPath</code> | <code>/guide/navigation/ready</code> |
-
-<a id="walkthrough-workspace-navigation-01-settings"></a>
-### 01 · Open Settings
-
-![01 · Open Settings](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-01-settings.png)
-
-<a id="walkthrough-workspace-navigation-02-privacy"></a>
-### 02 · Open the Privacy section
-
-![02 · Open the Privacy section](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-02-privacy.png)
-
-<a id="walkthrough-workspace-navigation-03-composer"></a>
-### 03 · Leave Settings for Composer
-
-![03 · Leave Settings for Composer](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-03-composer.png)
-
-<a id="walkthrough-workspace-navigation-04-return-settings"></a>
-### 04 · Return to Settings with Privacy retained
-
-![04 · Return to Settings with Privacy retained](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-04-return-settings.png)
-
-<a id="walkthrough-workspace-navigation-05-diagnostics"></a>
-### 05 · Switch to Diagnostics
-
-![05 · Switch to Diagnostics](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-05-diagnostics.png)
-
-<a id="walkthrough-workspace-navigation-06-retained-again"></a>
-### 06 · Return again to the retained Privacy section
-
-![06 · Return again to the retained Privacy section](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-06-retained-again.png)
-
-<a id="walkthrough-workspace-navigation-07-capture"></a>
-### 07 · Return to Capture
-
-![07 · Return to Capture](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-07-capture.png)
-
-<a id="walkthrough-workspace-navigation-08-agent-empty"></a>
-### 08 · Open the unconfigured Agent panel
-
-![08 · Open the unconfigured Agent panel](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-08-agent-empty.png)
-
-<a id="walkthrough-workspace-navigation-09-configure-link"></a>
-### 09 · Follow Configure from the empty state
-
-![09 · Follow Configure from the empty state](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-09-configure-link.png)
-
-<a id="walkthrough-workspace-navigation-10-agent-open"></a>
-### 10 · Return to Capture with Agent open
-
-![10 · Return to Capture with Agent open](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-10-agent-open.png)
-
-<a id="walkthrough-workspace-navigation-11-rules"></a>
-### 11 · Open rules while retaining Agent
-
-![11 · Open rules while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-rules.png)
-
-<a id="walkthrough-workspace-navigation-11-composer"></a>
-### 12 · Open composer while retaining Agent
-
-![12 · Open composer while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-composer.png)
-
-<a id="walkthrough-workspace-navigation-11-diagnostics"></a>
-### 13 · Open diagnostics while retaining Agent
-
-![13 · Open diagnostics while retaining Agent](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-11-diagnostics.png)
-
-<a id="walkthrough-workspace-navigation-12-header-close"></a>
-### 14 · Close Agent with the Header control
-
-![14 · Close Agent with the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-12-header-close.png)
-
-<a id="walkthrough-workspace-navigation-13-header-open"></a>
-### 15 · Reopen with the Header control
-
-![15 · Reopen with the Header control](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-13-header-open.png)
-
-<a id="walkthrough-workspace-navigation-14-panel-close"></a>
-### 16 · Use the panel’s own close button
-
-![16 · Use the panel’s own close button](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-14-panel-close.png)
-
-<a id="walkthrough-workspace-navigation-15-theme-menu"></a>
-### 17 · Open Theme without changing the selection
-
-![17 · Open Theme without changing the selection](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-15-theme-menu.png)
-
-<a id="walkthrough-workspace-navigation-16-dismiss-theme"></a>
-### 18 · Dismiss with Escape and retain the theme
-
-![18 · Dismiss with Escape and retain the theme](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-16-dismiss-theme.png)
-
-<a id="walkthrough-workspace-navigation-17-resize"></a>
-### 19 · Resize the actual App window smaller
-
-![19 · Resize the actual App window smaller](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-17-resize.png)
-
-<a id="walkthrough-workspace-navigation-18-restore-size"></a>
-### 20 · Restore the original window size
-
-![20 · Restore the original window size](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-18-restore-size.png)
-
-<a id="walkthrough-workspace-navigation-19-capture"></a>
-### 21 · Return to Capture for its shortcut
-
-![21 · Return to Capture for its shortcut](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-19-capture.png)
-
-<a id="walkthrough-workspace-navigation-20-upstream-shortcut"></a>
-### 22 · Open the statusbar Upstream shortcut
-
-![22 · Open the statusbar Upstream shortcut](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-20-upstream-shortcut.png)
-
-<a id="walkthrough-workspace-navigation-21-upstream-link"></a>
-### 23 · Open Upstream settings from the popover
-
-![23 · Open Upstream settings from the popover](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-21-upstream-link.png)
-
-<a id="walkthrough-workspace-navigation-22-leave-deeplink"></a>
-### 24 · Leave the deep-link destination
-
-![24 · Leave the deep-link destination](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-22-leave-deeplink.png)
-
-<a id="walkthrough-workspace-navigation-23-retained-deeplink"></a>
-### 25 · Return to Settings with Upstream retained
-
-![25 · Return to Settings with Upstream retained](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-23-retained-deeplink.png)
-
-<a id="walkthrough-workspace-navigation-24-recording"></a>
-### 26 · Return to Capture and confirm Recording
-
-![26 · Return to Capture and confirm Recording](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-24-recording.png)
-
-<a id="walkthrough-workspace-navigation-25-request"></a>
-### 27 · Verify a request after navigation
-
-![27 · Verify a request after navigation](../media/v0.1.1-alpha.1/workspace-navigation/workspace-navigation-25-request.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:workspace-navigation:end -->
-
-<!-- recorded-walkthrough:workspace-window-controls:start -->
-<a id="walkthrough-workspace-window-controls"></a>
-## Recorded walkthrough: native window maximize, restore and minimize
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>workspace</code> | <code>Settings &gt; Privacy</code> |
-| <code>initialSize</code> | <code>1600x900</code> |
-| <code>maximize</code> | <code>Actual product Maximize and Restore clicks</code> |
-| <code>minimize</code> | <code>Actual product Minimize click; the button image precedes the click</code> |
-| <code>restoreBoundary</code> | <code>Test-side accessibility restores the same owned window for continued verification; no Dock interaction is claimed</code> |
-| <code>recordingScope</code> | <code>Only the App window; no display, desktop or other application capture</code> |
-
-<a id="walkthrough-workspace-window-controls-01-normal"></a>
-### 01 · Inspect the current normal window
-
-![01 · Inspect the current normal window](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-01-normal.png)
-
-<a id="walkthrough-workspace-window-controls-02-maximize"></a>
-### 02 · Click Maximize
-
-![02 · Click Maximize](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-02-maximize.png)
-
-<a id="walkthrough-workspace-window-controls-03-restore"></a>
-### 03 · Click again to restore the window
-
-![03 · Click again to restore the window](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-03-restore.png)
-
-<a id="walkthrough-workspace-window-controls-04-minimize-control"></a>
-### 04 · Inspect Minimize before actually clicking it
-
-![04 · Inspect Minimize before actually clicking it](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-04-minimize-control.png)
-
-<a id="walkthrough-workspace-window-controls-05-returned-window"></a>
-### 05 · Inspect the returned window without recording the Dock
-
-![05 · Inspect the returned window without recording the Dock](../media/v0.1.1-alpha.1/workspace-window-controls/workspace-window-controls-05-returned-window.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:workspace-window-controls:end -->
+Minimizing or closing the Agent panel does not quit the App. Normal exit ends Main/Core and restores system proxy settings owned by this session; it does not uninstall the shared CA. If networking remains incorrect, follow [proxy recovery](troubleshooting.md#proxy-recovery) rather than indiscriminately clearing network settings.

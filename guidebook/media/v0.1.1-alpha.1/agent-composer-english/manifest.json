@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "chapter": "agent-composer-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/composer.workflow.ts",
+    "manifestSha256": "b5c6e1732a1a70fd505dbe4cbc7debbccd95b4d48ddec63b066f6c660ebe55b0",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "检查Composer发送审批后选择拒绝 / Review the Composer send approval before denying",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2871.640625,
+            "y": 1090.9375,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.send-deny"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "Ask Deny：问询展示完整目标；拒绝后origin零到达。 / Ask Deny: approval shows the complete target; denial leaves the origin untouched.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "检查Composer目标与参数后允许发送 / Review the Composer target and parameters before allowing Send",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2997.046875,
+            "y": 1381.796875,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.send-allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "Ask Allow：真实origin接收method/query/header/body；结果遮罩凭据并且不进入Capture。 / Ask Allow: the real origin receives method/query/header/body; the result redacts credentials and never enters Capture.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "Auto TLS：成功探测只握手不发应用数据；未监听端口返回稳定失败结果。 / Auto TLS: a successful probe performs only a handshake; a closed port returns a stable failure result.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "Stop：真实origin已收到请求但暂缓响应；停止Turn必须立即关闭socket且不发起下一次Model Call。 / Stop: the real origin has received a held request; stopping the Turn must close the socket and skip the next Model Call.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "Settings撤权：关闭全部六项后discovery为空，旧网络调用均unknown_tool且网络计数不变。 / Settings revocation: disabling all six empties discovery; previous network calls are unknown and network counts stay unchanged.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 381240,
+      "sha256": "c88d1f57412acd1e5a774644e7b4f9390b05df196c010c5b967c2aea21cebcb1"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 269928,
+      "sha256": "70a891fededdb153638309a52f579dcb5815b08d1e5de8de7f2e1ef38297c884"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 317048,
+      "sha256": "c676dbaffe14cf88873c09769e046ba5624da6d5edd772f22a69fb163abe8b6e"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 431905,
+      "sha256": "2b2a06d0b4f2f35a17861d89f8e0ba34e9528ed1b1aac77aa99f02cd6e26a189"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 307732,
+      "sha256": "86819b1623930db38978d7ce756b80c1caeda88fa49b934bcb5b4779bacb24bb"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 345277,
+      "sha256": "2feb723700f6e8854b2d86d3e3e5960cec394eef03147b2b70c606e0b3bcf052"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 396715,
+      "sha256": "a2e8730d18c5e0c0b4b30601e78cb576ed1127b48ec2763b1d48632d9bd4d16d"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 418701,
+      "sha256": "6836f191497f2dba55a9e02b20b9c5fa3c5ecb35c3cec5af474380c3e993e590"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 527866,
+      "sha256": "f4afcd9df54f3d6e4555c557bda138e0c54b01a89b845e692f45bb48490d19e1"
+    }
+  ]
+}

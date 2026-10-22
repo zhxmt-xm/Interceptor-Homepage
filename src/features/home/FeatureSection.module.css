@@ -91,13 +91,16 @@
   min-width: 0;
 }
 
-.visual a {
+.visual button {
   display: block;
+  width: 100%;
+  padding: 0;
   border: 1px solid var(--border-2);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--chrome);
   box-shadow: 0 12px 40px var(--shadow-medium);
+  cursor: zoom-in;
 }
 
 .visual img {

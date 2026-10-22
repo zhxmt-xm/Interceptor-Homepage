@@ -1,158 +1,6 @@
 # Agent: use conversation to assist debugging
 
-> Draft for `v0.1.1-alpha.1`; real local-demo model steps are illustrated, with other branches marked image pending. Neither this chapter nor item9 is complete. Model capability, price and availability belong to its provider; no credentials or correctness guarantee are supplied.
-
 [Guide directory](../README.en.md) · [Tool permissions](tool-permissions.md) · [MCP](mcp.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>profileName</code> | <code>Guide local demo</code> |
-| <code>modelId</code> | <code>guide-demo-model</code> |
-| <code>baseUrl</code> | <code>http://127.0.0.1:54446/guide/v1</code> |
-| <code>contextWindow</code> | <code>131072</code> |
-| <code>maximumOutput</code> | <code>8192</code> |
-| <code>prompt</code> | <code>Explain Pause and Clear. Do not change settings.</code> |
-| <code>pausePrompt</code> | <code>Pause recording after asking me.</code> |
-| <code>answer</code> | <code>Demo response: Pause stops recording new requests. Clear removes captured records. Neither restores the system proxy.</code> |
-| <code>modelKind</code> | <code>deterministic local demonstration, not a commercial model acceptance</code> |
-
-<a id="walkthrough-01-settings"></a>
-### 01 · Open Settings
-
-![01 · Open Settings](../media/v0.1.1-alpha.1/agent/agent-01-settings.png)
-
-<a id="walkthrough-02-agent-settings"></a>
-### 02 · Open Agent settings
-
-![02 · Open Agent settings](../media/v0.1.1-alpha.1/agent/agent-02-agent-settings.png)
-
-<a id="walkthrough-03-add"></a>
-### 03 · Add a model
-
-![03 · Add a model](../media/v0.1.1-alpha.1/agent/agent-03-add.png)
-
-<a id="walkthrough-04-custom"></a>
-### 04 · Choose Custom
-
-![04 · Choose Custom](../media/v0.1.1-alpha.1/agent/agent-04-custom.png)
-
-<a id="walkthrough-05-name"></a>
-### 05 · Name the profile
-
-![05 · Name the profile](../media/v0.1.1-alpha.1/agent/agent-05-name.png)
-
-<a id="walkthrough-06-endpoint"></a>
-### 06 · Enter the local demo URL
-
-![06 · Enter the local demo URL](../media/v0.1.1-alpha.1/agent/agent-06-endpoint.png)
-
-<a id="walkthrough-07-model"></a>
-### 07 · Enter the model ID
-
-![07 · Enter the model ID](../media/v0.1.1-alpha.1/agent/agent-07-model.png)
-
-<a id="walkthrough-08-context"></a>
-### 08 · Set the context window
-
-![08 · Set the context window](../media/v0.1.1-alpha.1/agent/agent-08-context.png)
-
-<a id="walkthrough-09-output"></a>
-### 09 · Set maximum output
-
-![09 · Set maximum output](../media/v0.1.1-alpha.1/agent/agent-09-output.png)
-
-<a id="walkthrough-10-test"></a>
-### 10 · Test the actual connection
-
-![10 · Test the actual connection](../media/v0.1.1-alpha.1/agent/agent-10-test.png)
-
-<a id="walkthrough-11-save"></a>
-### 11 · Save the verified model
-
-![11 · Save the verified model](../media/v0.1.1-alpha.1/agent/agent-11-save.png)
-
-<a id="walkthrough-12-panel"></a>
-### 12 · Open the Agent panel
-
-![12 · Open the Agent panel](../media/v0.1.1-alpha.1/agent/agent-12-panel.png)
-
-<a id="walkthrough-13-chat"></a>
-### 13 · Create a Chat
-
-![13 · Create a Chat](../media/v0.1.1-alpha.1/agent/agent-13-chat.png)
-
-<a id="walkthrough-14-prompt"></a>
-### 14 · Enter a scoped question
-
-![14 · Enter a scoped question](../media/v0.1.1-alpha.1/agent/agent-14-prompt.png)
-
-<a id="walkthrough-15-send"></a>
-### 15 · Send and read the demo response
-
-![15 · Send and read the demo response](../media/v0.1.1-alpha.1/agent/agent-15-send.png)
-
-<a id="walkthrough-16-context"></a>
-### 16 · Inspect context usage
-
-![16 · Inspect context usage](../media/v0.1.1-alpha.1/agent/agent-16-context.png)
-
-<a id="walkthrough-17-auto"></a>
-### 17 · Inspect Auto mode
-
-![17 · Inspect Auto mode](../media/v0.1.1-alpha.1/agent/agent-17-auto.png)
-
-<a id="walkthrough-18-ask"></a>
-### 18 · Restore Ask
-
-![18 · Restore Ask](../media/v0.1.1-alpha.1/agent/agent-18-ask.png)
-
-<a id="walkthrough-18a-tool-question"></a>
-### 19 · Request a Tool requiring approval
-
-![19 · Request a Tool requiring approval](../media/v0.1.1-alpha.1/agent/agent-18a-tool-question.png)
-
-<a id="walkthrough-18b-deny"></a>
-### 20 · Deny one Tool call
-
-![20 · Deny one Tool call](../media/v0.1.1-alpha.1/agent/agent-18b-deny.png)
-
-<a id="walkthrough-18c-tool-again"></a>
-### 21 · Request again and review the target
-
-![21 · Request again and review the target](../media/v0.1.1-alpha.1/agent/agent-18c-tool-again.png)
-
-<a id="walkthrough-18d-allow"></a>
-### 22 · Allow actual Recording pause
-
-![22 · Allow actual Recording pause](../media/v0.1.1-alpha.1/agent/agent-18d-allow.png)
-
-<a id="walkthrough-19-stream"></a>
-### 23 · Start a stoppable demonstration
-
-![23 · Start a stoppable demonstration](../media/v0.1.1-alpha.1/agent/agent-19-stream.png)
-
-<a id="walkthrough-20-stop"></a>
-### 24 · Stop while retaining history
-
-![24 · Stop while retaining history](../media/v0.1.1-alpha.1/agent/agent-20-stop.png)
-
-<a id="walkthrough-21-retry"></a>
-### 25 · Retry as a new attempt
-
-![25 · Retry as a new attempt](../media/v0.1.1-alpha.1/agent/agent-21-retry.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="先决定是否需要-ai"></a>
 ## Decide whether you need AI
@@ -164,337 +12,461 @@ The internal Agent uses App-configured models; external MCP hosts use their own 
 <a id="models"></a>
 ## Add and verify a model
 
-**Prerequisites:** authorized provider access and awareness of possible charges. Enter credentials only in the product's configuration dialog.
+<a id="walkthrough-agent-management"></a>
+Add a model service you are authorized to use in Settings → Agent. Connection tests and conversations may incur charges; enter credentials only in the configuration dialog.
 
-This uses a deterministic local demonstration service without a key, not commercial-model acceptance. `54446` is its recording-only dynamic port. The App does not create that service; prepare your own compatible test service first. Context/output numbers are configured examples, not measured model capacity.
+This example uses a local demonstration service at `http://127.0.0.1:64325/keyed/v1`, named `Keyed lab`. The App does not create it. Use your own service URL, Model ID and credentials rather than sending a real key to the example address.
 
-1. Open Settings, then Agent.
+1. <a id="walkthrough"></a><a id="walkthrough-01-settings"></a><a id="walkthrough-02-agent-settings"></a><a id="walkthrough-agent-management-01-settings"></a>Open Settings from the sidebar and select Agent. Before adding a model, the page shows No models configured; ordinary capture remains available.
 
-   ![Opening Settings](../media/v0.1.1-alpha.1/agent/agent-01-settings.png)
+   ![Add and verify a model · 1](../media/v0.1.1-alpha.1/agent-models-english/step-001.png)
 
-   ![Opening Agent model settings](../media/v0.1.1-alpha.1/agent/agent-02-agent-settings.png)
+2. <a id="walkthrough-03-add"></a><a id="walkthrough-04-custom"></a><a id="walkthrough-agent-management-guide-one-01-dialog"></a>Click Add provider and choose OpenAI-compatible in box 1 to open its configuration. DeepSeek uses its separate preset and official endpoint and requires your own valid key.
 
-2. Add a model.
+   ![Add and verify a model · 2](../media/v0.1.1-alpha.1/agent-models-english/step-002.annotated.png)
 
-   ![Actual add-model dialog](../media/v0.1.1-alpha.1/agent/agent-03-add.png)
+   ![Add and verify a model · 2](../media/v0.1.1-alpha.1/agent-models-english/step-003.png)
 
-3. Select Custom OpenAI-compatible. DeepSeek uses its fixed official endpoint and needs your own key and Model ID; that paid-service branch is image pending / blocked, not certified by this local demo.
+3. <a id="walkthrough-05-name"></a><a id="walkthrough-agent-management-guide-one-02-name"></a>Enter a recognizable Profile name in box 1, `Keyed lab` here. It names the local configuration, not the Model ID.
 
-   ![Actually selecting Custom](../media/v0.1.1-alpha.1/agent/agent-04-custom.png)
+   ![Add and verify a model · 3](../media/v0.1.1-alpha.1/agent-models-english/step-004.annotated.png)
 
-4. Enter Profile name `Guide local demo`.
+4. <a id="walkthrough-06-endpoint"></a><a id="walkthrough-agent-management-guide-one-03-endpoint"></a>Enter the service’s Base URL in box 1, `http://127.0.0.1:64325/keyed/v1` in the image. Remote Custom services require HTTPS; HTTP is restricted to supported local loopback endpoints.
 
-   ![Actual profile name Guide local demo](../media/v0.1.1-alpha.1/agent/agent-05-name.png)
+   ![Add and verify a model · 4](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 
-5. Enter Base URL `http://127.0.0.1:54446/guide/v1`, with no key for this local service. Credential input for an authenticated service remains image pending.
+5. <a id="walkthrough-07-model"></a><a id="walkthrough-agent-management-guide-one-04-model"></a>Enter your credential in API key when authentication is required; the interface masks it. Enter the actual model identifier in Model ID, box 1, initially `keyed-model` here. Do not substitute the profile name.
 
-   ![Actual loopback demo endpoint](../media/v0.1.1-alpha.1/agent/agent-06-endpoint.png)
+   ![Add and verify a model · 5](../media/v0.1.1-alpha.1/agent-models-english/step-006.annotated.png)
 
-6. Enter Model ID `guide-demo-model`.
+6. <a id="walkthrough-08-context"></a><a id="walkthrough-09-output"></a>Set Context window in box 1 and Maximum output in box 2 to the model’s actual capabilities, `131072` and `8192` here. Larger values do not expand the server’s capacity.
 
-   ![Actual Model ID](../media/v0.1.1-alpha.1/agent/agent-07-model.png)
+   ![Add and verify a model · 6](../media/v0.1.1-alpha.1/agent-models-english/step-007.annotated.png)
 
-7. Enter Context Window `131072`.
+7. <a id="walkthrough-10-test"></a><a id="walkthrough-agent-management-guide-one-05-test"></a>Click Test connection and wait for its result. After Connection verified appears, Save provider in box 1 becomes available. Test sends an actual model request rather than only checking URL syntax.
 
-   ![This example's Context Window](../media/v0.1.1-alpha.1/agent/agent-08-context.png)
+   ![Add and verify a model · 7](../media/v0.1.1-alpha.1/agent-models-english/step-008.annotated.png)
 
-8. Enter Maximum Output `8192`.
+8. <a id="walkthrough-agent-management-02-edit"></a>Changing a connection field requires another test. Here Model ID in box 1 changes to `keyed-model-v2`, disabling Save provider in box 2 because the previous verification no longer matches.
 
-   ![This example's Maximum Output](../media/v0.1.1-alpha.1/agent/agent-09-output.png)
+   ![Add and verify a model · 8](../media/v0.1.1-alpha.1/agent-models-english/step-009.annotated.png)
 
-9. Test connection and wait for the actual HTTP model request.
+9. <a id="walkthrough-agent-management-03-retest"></a>Click Test connection in box 1 to verify the current fields again. Resolve the displayed error if the test fails.
 
-   ![Actual connection test against the local demo service](../media/v0.1.1-alpha.1/agent/agent-10-test.png)
+   ![Add and verify a model · 9](../media/v0.1.1-alpha.1/agent-models-english/step-010.annotated.png)
 
-10. Save after success and inspect identity/status in Configured models.
+10. <a id="walkthrough-11-save"></a><a id="walkthrough-agent-management-guide-one-06-save"></a><a id="walkthrough-agent-management-04-save-edit"></a>After the new test succeeds, click Save provider in box 1 and inspect `Keyed lab` with `keyed-model-v2` in Configured models. Closing a dialog or seeing typed values does not mean they were saved.
 
-    ![Saving verified Guide local demo](../media/v0.1.1-alpha.1/agent/agent-11-save.png)
+    ![Add and verify a model · 10](../media/v0.1.1-alpha.1/agent-models-english/step-011.annotated.png)
 
-11. Retest after changing connection fields; do not reuse the earlier test result.
+    ![Add and verify a model · 10](../media/v0.1.1-alpha.1/agent-models-english/step-012.png)
 
-    These accurately reuse the separate `agent-management` example: change `Guide model two` to Model ID `guide-two-edited`, then Test and Save. This is not silently changing the preceding `Guide local demo` into another configuration.
+11. <a id="walkthrough-agent-management-guide-two-01-dialog"></a>For a local service that does not need a key, add a separate profile through Add provider → OpenAI-compatible in box 1 rather than overwriting another model.
 
-    ![Actually editing the second Model ID](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
+    ![Add and verify a model · 11](../media/v0.1.1-alpha.1/agent-models-english/step-013.annotated.png)
 
-    ![Actually retesting changed fields](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
+    ![Add and verify a model · 11](../media/v0.1.1-alpha.1/agent-models-english/step-014.png)
 
-    ![Saving the retested configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
+12. <a id="walkthrough-agent-management-guide-two-02-name"></a>Enter `Keyless lab` in Profile name, box 1, to distinguish this keyless configuration.
 
-**Expected result:** the saved configuration is the one you tested and appears in the model selector.
+    ![Add and verify a model · 12](../media/v0.1.1-alpha.1/agent-models-english/step-015.annotated.png)
 
-**Notes**
+13. <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>Enter the local service URL in box 1, `http://127.0.0.1:64325/keyless/v1` here. This service permits unauthenticated access, so leave API key empty.
 
-- Test connection makes a real model request, not only a URL-format check.
-- Remote Custom endpoints require HTTPS; HTTP is limited to supported loopback addresses.
-- “OpenAI-compatible” does not guarantee every provider extension. Use its actual Base URL and Model ID.
-- Context/output values must match real support; larger numbers do not expand server capacity.
-- Resolve secure-storage errors instead of saving keys in plaintext to bypass them.
+    ![Add and verify a model · 13](../media/v0.1.1-alpha.1/agent-models-english/step-016.annotated.png)
+
+14. <a id="walkthrough-agent-management-guide-two-04-model"></a>Enter `keyless-model` in Model ID, box 1. A keyless service can still require a model identifier.
+
+    ![Add and verify a model · 14](../media/v0.1.1-alpha.1/agent-models-english/step-017.annotated.png)
+
+15. Verify Context window in box 1 is `131072` and Maximum output in box 2 is `8192`. Use the actual supported values for your own model.
+
+    ![Add and verify a model · 15](../media/v0.1.1-alpha.1/agent-models-english/step-018.annotated.png)
+
+16. <a id="walkthrough-agent-management-guide-two-05-test"></a>Click Test connection in box 1 to verify the keyless service is reachable and usable.
+
+    ![Add and verify a model · 16](../media/v0.1.1-alpha.1/agent-models-english/step-019.annotated.png)
+
+17. <a id="walkthrough-agent-management-guide-two-06-save"></a>After success, click Save provider in box 1. Both `Keyed lab` and `Keyless lab` remain in the list, ready for default selection or individual editing.
+
+    ![Add and verify a model · 17](../media/v0.1.1-alpha.1/agent-models-english/step-020.annotated.png)
+
+    ![Add and verify a model · 17](../media/v0.1.1-alpha.1/agent-models-english/step-021.png)
+
+- OpenAI-compatible does not guarantee support for every service extension; use the provider’s actual Base URL and Model ID.
+- Resolve secure-storage errors instead of bypassing them by storing a key in plaintext.
+
 
 <a id="manage-models"></a>
 ## Edit, choose defaults and remove models
 
-This section uses the two key-free profiles created and tested in the [management recording](#walkthrough-agent-management). `51439` is this local service's dynamic port, not a fixed replacement for the earlier `54446`, nor commercial-model acceptance.
+Continue with the saved `Keyed lab` and `Keyless lab` profiles. Check the target name before editing; removing a local profile does not revoke the provider account or key.
 
-| Profile | Base URL | Model ID |
-| --- | --- | --- |
-| `Guide model one` | `http://127.0.0.1:51439/guide-one/v1` | `guide-one` |
-| `Guide model two` | `http://127.0.0.1:51439/guide-two/v1` | Initially `guide-two`; Edit below changes it to `guide-two-edited` |
+1. <a id="walkthrough-agent-management-07-default"></a>Click Set default in box 1 on the `Keyless lab` row to use it for subsequently created Chats.
 
-1. Edit the second profile in Configured models and change Model ID to `guide-two-edited`.
+   ![Edit, choose defaults and remove models · 1](../media/v0.1.1-alpha.1/agent-models-english/step-022.annotated.png)
 
-   ![Actually editing Guide model two](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
+2. <a id="walkthrough-agent-management-05-first-chat"></a><a id="walkthrough-agent-management-06-chat-name"></a><a id="walkthrough-agent-management-08-current-model"></a><a id="walkthrough-agent-management-09-new-chat"></a>The row in box 1 shows Default without reordering the list. Existing Chats retain their own models. Follow [Chat management](#sessions) to create, name or change the model of a particular Chat.
 
-2. Test connection again instead of reusing the initial add-model test.
+   ![Edit, choose defaults and remove models · 2](../media/v0.1.1-alpha.1/agent-models-english/step-023.annotated.png)
 
-   ![Actual retest after editing](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
+3. Click Edit on `Keyed lab` and change Model ID in box 1 to `keyed-model-edited`. Leaving the key field in box 2 empty retains the stored credential rather than deleting it. Enter a new key to replace it or use the separate removal option.
 
-3. Save after success.
+   ![Edit, choose defaults and remove models · 3](../media/v0.1.1-alpha.1/agent-models-english/step-024.annotated.png)
 
-   ![Actually saving the edited profile](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
+4. After editing, click Test connection in box 1 instead of reusing the previous verification.
 
-4. First create a Chat using the first default model.
+   ![Edit, choose defaults and remove models · 4](../media/v0.1.1-alpha.1/agent-models-english/step-025.annotated.png)
 
-   ![First Chat before changing the global default](../media/v0.1.1-alpha.1/agent-management/agent-management-05-first-chat.png)
+5. After a successful test, click Save changes in box 1 and verify the new Model ID in the list. `Keyless lab` remains the default.
 
-5. Rename it `Guide chat one` to distinguish it later.
+   ![Edit, choose defaults and remove models · 5](../media/v0.1.1-alpha.1/agent-models-english/step-026.annotated.png)
 
-   ![Actually naming Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-06-chat-name.png)
+   ![Edit, choose defaults and remove models · 5](../media/v0.1.1-alpha.1/agent-models-english/step-027.png)
 
-6. Set `Guide model two` as the global default. This affects subsequent new Chats, without automatically switching existing `Guide chat one`.
+6. To check persistence, exit normally with Close in box 1, then reopen Settings → Agent. Model order, edited fields and the Default selection are restored without automatically starting a conversation.
 
-   ![Actually making the second model the global default](../media/v0.1.1-alpha.1/agent-management/agent-management-07-default.png)
+   ![Edit, choose defaults and remove models · 6](../media/v0.1.1-alpha.1/agent-models-english/step-029.annotated.png)
 
-7. To change existing `Guide chat one`, separately operate its Model Select and inspect the selected entry. This changes the current Chat, not the global default again.
+   ![Edit, choose defaults and remove models · 6](../media/v0.1.1-alpha.1/agent-models-english/step-030.png)
 
-   ![Actually changing only the current Chat model](../media/v0.1.1-alpha.1/agent-management/agent-management-08-current-model.png)
+7. When the service no longer needs authentication, edit its profile and select Remove saved API key. The disabled input indicates explicit removal rather than retention of the old key.
 
-8. Create a second Chat and inspect its new default configuration; naming and selection follow below.
+   ![Edit, choose defaults and remove models · 7](../media/v0.1.1-alpha.1/agent-models-english/step-031.png)
 
-   ![Actually creating the second Chat after changing default](../media/v0.1.1-alpha.1/agent-management/agent-management-09-new-chat.png)
+8. Click Test connection in box 1 to verify the service permits keyless access. Retain or replace a valid key for a service that still requires authentication.
 
-9. Later cleanup removes only the first unnecessary demo Provider. Review its confirmation and any chats still using it first.
+   ![Edit, choose defaults and remove models · 8](../media/v0.1.1-alpha.1/agent-models-english/step-032.annotated.png)
 
-   ![Actual confirmation for removing the first Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-17-remove-model-dialog.png)
+9. After success, click Save changes in box 1. `Keyed lab` now shows No API key in the list; this only removes the locally stored credential.
 
-10. Confirm removal of `Guide model one`, retaining the second profile.
+   ![Edit, choose defaults and remove models · 9](../media/v0.1.1-alpha.1/agent-models-english/step-033.annotated.png)
 
-    ![Actually removing the first demo Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-18-remove-model.png)
+   ![Edit, choose defaults and remove models · 9](../media/v0.1.1-alpha.1/agent-models-english/step-034.png)
 
-11. For a credentialed Custom service, still explicitly retain, replace or remove the stored key; DeepSeek requires a valid key.
+10. <a id="walkthrough-agent-management-17-remove-model-dialog"></a>Click the remove button for the unwanted `Keyless lab` and check its name in the confirmation. Cancel in box 1 retains it; this example uses Confirm remove model in box 2.
 
-    **Image pending / blocked:** neither local profile has a key. They do not cover credential management or commercial-model connections.
+    ![Edit, choose defaults and remove models · 10](../media/v0.1.1-alpha.1/agent-models-english/step-036.annotated.png)
 
-12. Removing the final model requires configuration again before model calls can continue.
+11. <a id="walkthrough-agent-management-18-remove-model"></a>After the default is removed, the remaining `Keyed lab` becomes the default. Inspect the remaining profiles instead of assuming a dismissed dialog means removal succeeded.
 
-    This separate example uses `Guide session demo`, not `Guide model two` above. The [final-model removal steps](#walkthrough-agent-model-removal) retains the safe Settings ending of the earlier source recording. A later [complete restart walkthrough](#walkthrough-agent-session-restart) has its own source; their images are not mixed.
+    ![Edit, choose defaults and remove models · 11](../media/v0.1.1-alpha.1/agent-models-english/step-037.png)
 
-    ![Reviewing confirmation for the only remaining model](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
+12. <a id="walkthrough-agent-model-removal"></a><a id="walkthrough-agent-model-removal-04-model-settings"></a><a id="walkthrough-agent-model-removal-05-last-model-dialog"></a><a id="walkthrough-agent-model-removal-06-remove-last"></a>If the last model is no longer needed, review the confirmation for `Keyed lab`. Cancel in box 1 abandons the operation; Confirm remove model in box 2 removes the final profile.
 
-    ![The panel actually becomes unconfigured after deletion](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png)
+    ![Edit, choose defaults and remove models · 12](../media/v0.1.1-alpha.1/agent-models-english/step-038.annotated.png)
 
-**Expected result:** global defaults and current-chat selection remain separate, without silently reordering model rows.
+13. The list returns to No models configured. Add and test a model before using Agent again. If a real key was exposed, also revoke or rotate it at the provider.
 
-**Notes:** deleting local configuration does not revoke a provider account/key. Revoke leaked credentials at the provider.
+    ![Edit, choose defaults and remove models · 13](../media/v0.1.1-alpha.1/agent-models-english/step-039.png)
+
 
 <a id="chat"></a>
 ## Start a well-scoped conversation
 
-1. Open Agent using the button near window controls.
+Prepare at least one tested and saved model. This conversation uses the profile named `Recovery lab`; select your own configured model when following the steps, and expect its actual response to differ.
 
-   ![Actually opening Agent](../media/v0.1.1-alpha.1/agent/agent-12-panel.png)
+1. <a id="walkthrough-12-panel"></a>Open the right-hand panel with Agent in the App header. Click the plus button in box 1 to create a New chat.
 
-2. Create a Chat and inspect model and Ask/Auto mode.
+   ![Start a well-scoped conversation · 1](../media/v0.1.1-alpha.1/agent-chat-english/step-002.annotated.png)
 
-   ![New Chat using the local demo model](../media/v0.1.1-alpha.1/agent/agent-13-chat.png)
+2. <a id="walkthrough-13-chat"></a>Check the model and execution mode above the input. This example uses `Recovery lab` with Ask; the new Chat has no previous messages.
 
-3. Enter the actual prompt `Explain Pause and Clear. Do not change settings.` This asks for an explanation, not traffic queries or modifications.
+   ![Start a well-scoped conversation · 2](../media/v0.1.1-alpha.1/agent-chat-english/step-003.png)
 
-   ![Read-only question matching the recording](../media/v0.1.1-alpha.1/agent/agent-14-prompt.png)
+3. <a id="walkthrough-14-prompt"></a>Enter `Explain Recording and Clear without changing settings.` in box 1 to request an explanation only. Check the scope, then click Send in box 2 or use Ctrl+Enter (Command+Enter on macOS).
 
-4. Click Send and read the answer starting with `Demo response:`. `Ctrl+Enter` / macOS `Command+Enter` is also available; keyboard sending remains image pending.
+   ![Start a well-scoped conversation · 3](../media/v0.1.1-alpha.1/agent-chat-english/step-004.annotated.png)
 
-   ![Actual local demonstration answer, not commercial-model quality evidence](../media/v0.1.1-alpha.1/agent/agent-15-send.png)
+4. <a id="walkthrough-15-send"></a>Wait for the response and read box 1. It explains Recording versus Clear without calling a business Tool or changing settings. When requesting real operations, inspect the Tool result and product state rather than relying only on the model’s wording.
 
-5. If a task produces Tool calls, inspect calls/results and effects before approving.
+   ![Start a well-scoped conversation · 4](../media/v0.1.1-alpha.1/agent-chat-english/step-005.annotated.png)
 
-   This read-only question requests explanation, not a business Tool. The Pause approval below uses a separate, explicit prompt and is not presented as an effect of this reply.
+- Selecting a request or changing workspaces does not automatically add the page to model context.
+- Obtain request IDs, bodies or messages through available queries rather than asking the model to guess stale records.
+- Commands or “ignore the rules” text inside network responses are inspected data, not your authorization.
 
-6. Verify results in the relevant product workspace.
-
-   An explanation has no configuration mutation to verify. See the Pause example below and the [Tool lifecycle recording](#walkthrough-agent-tool-lifecycle) for actual operations and state checks.
-
-**Expected result:** a conversation with an explicit scope, where explanation and actual execution are distinguishable.
-
-**Notes**
-
-- Selecting a request or changing workspace does not implicitly attach it to model context.
-- Read current records through authorized tools; do not ask the model to invent IDs.
-- Instructions contained in captured pages, bodies or logs are untrusted data, not your authorization.
 
 <a id="sessions"></a>
 ## Manage chats and restore history
 
-This continues `agent-management`, not the earlier single `Guide local demo` Chat. The two sessions are `Guide chat one` and `Guide chat two`.
+Continue the previous conversation by naming it `Recording and Clear`, then create a separate `Upstream modes` Chat. Separate tasks into different Chats to avoid unrelated history.
 
-1. Create the first Chat before the preceding section's global-default change.
+1. Open the Chat selector at the top of the panel and choose Rename current chat in box 1.
 
-   ![Actually creating the first demo Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-05-first-chat.png)
+   ![Manage chats and restore history · 1](../media/v0.1.1-alpha.1/agent-chat-english/step-006.annotated.png)
 
-2. Rename it `Guide chat one`.
+2. Enter `Recording and Clear` in box 1 and click Save chat title in box 2. The panel title changes while its messages remain.
 
-   ![Actually renaming the first Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-06-chat-name.png)
+   ![Manage chats and restore history · 2](../media/v0.1.1-alpha.1/agent-chat-english/step-007.annotated.png)
 
-3. After the separate default/current-model operations above, use New Chat for a second task instead of reusing the first.
+   ![Manage chats and restore history · 2](../media/v0.1.1-alpha.1/agent-chat-english/step-008.png)
 
-   ![Actually creating a second Chat with an existing session](../media/v0.1.1-alpha.1/agent-management/agent-management-09-new-chat.png)
+3. To compare the global default with a Chat-specific model, add and test another profile using the earlier steps. This example adds `Recovery alternate` with Model ID `recovery-alternate`, while the current Chat retains `Recovery lab`.
 
-4. Rename it `Guide chat two`.
+   ![Manage chats and restore history · 3](../media/v0.1.1-alpha.1/agent-chat-english/step-009.png)
 
-   ![Actually renaming the second Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-10-second-name.png)
+4. In Settings → Agent, click Set default in box 1 to use `Recovery alternate` for future Chats.
 
-5. Use Chat selector to return to `Guide chat one` and verify the selected target.
+   ![Manage chats and restore history · 4](../media/v0.1.1-alpha.1/agent-chat-english/step-010.annotated.png)
 
-   ![Actually returning to Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-11-switch-chat.png)
+5. Box 1 shows the new global Default, while the current Chat still selects `Recovery lab` in box 2. These choices are independent.
 
-6. Open Delete confirmation and inspect the session name.
+   ![Manage chats and restore history · 5](../media/v0.1.1-alpha.1/agent-chat-english/step-011.annotated.png)
 
-   ![First actual Chat deletion confirmation](../media/v0.1.1-alpha.1/agent-management/agent-management-12-delete-dialog.png)
+6. To change this Chat, open the model selector above its input and choose `Recovery alternate` in box 1. Check the selected model after the menu closes rather than changing the global default again.
 
-7. Cancel first, retaining that Chat.
+   ![Manage chats and restore history · 6](../media/v0.1.1-alpha.1/agent-chat-english/step-012.annotated.png)
 
-   ![Actually cancelling Chat deletion](../media/v0.1.1-alpha.1/agent-management/agent-management-13-cancel-delete.png)
+   ![Manage chats and restore history · 6](../media/v0.1.1-alpha.1/agent-chat-english/step-013.png)
 
-8. Later in this recording, after capability checks and Provider cleanup, open Delete for `Guide chat one` again.
+7. To return to the original model, select `Recovery lab` in the same menu. The current Chat switches back while the global Default remains `Recovery alternate`.
 
-   ![Confirming the actual Chat to delete again](../media/v0.1.1-alpha.1/agent-management/agent-management-19-delete-chat-dialog.png)
+   ![Manage chats and restore history · 7](../media/v0.1.1-alpha.1/agent-chat-english/step-014.png)
 
-9. Confirm deletion of `Guide chat one` and inspect the remaining sessions. The cancellation image is not deletion.
+8. Click New chat for the second task. Verify it has no earlier conversation history and uses the new default, `Recovery alternate`.
 
-   ![Actually deleting Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-20-delete-chat.png)
+   ![Manage chats and restore history · 8](../media/v0.1.1-alpha.1/agent-chat-english/step-015.png)
 
-10. When deleting an actively executing Chat, wait for its cancellation cleanup.
+9. Enter `Explain when to use Direct and Manual upstream modes.` in the input, box 1, and send with box 2. Box 1 in the response image marks this second Chat’s answer, not an added message in the first Chat.
 
-    ![Opening deletion confirmation for a running Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png)
+   ![Manage chats and restore history · 9](../media/v0.1.1-alpha.1/agent-chat-english/step-016.annotated.png)
 
-    ![Waiting for actual cancellation and inspecting retained Chats](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png)
+   ![Manage chats and restore history · 9](../media/v0.1.1-alpha.1/agent-chat-english/step-017.annotated.png)
 
-11. Restart normally, reopen Agent and inspect retained sessions/state.
+10. Open Rename current chat from box 1 in the menu. If you decide not to rename it yet, use Cancel in box 1 of the dialog to retain the Chat and messages.
 
-    The [session actions](#walkthrough-agent-session-lifecycle) and [restart clip](#walkthrough-agent-session-restart) now come from the same successful two-generation App run. Settings is opened before restart recording starts, showing only the public demo Chats rather than background Capture traffic.
+    ![Manage chats and restore history · 10](../media/v0.1.1-alpha.1/agent-chat-english/step-018.annotated.png)
 
-    ![The retained Chat list after an actual restart](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png)
+    ![Manage chats and restore history · 10](../media/v0.1.1-alpha.1/agent-chat-english/step-019.annotated.png)
 
-    ![Selecting Guide retained chat and reading its actual restored history](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png)
+11. <a id="walkthrough-agent-management-10-second-name"></a>Open Rename again, enter `Upstream modes` in box 1 and click Save chat title in box 2. Verify the updated title before switching tasks.
 
-    `Guide running delete` is absent; `Guide retained chat` and `Guide fresh context` remain. No model-request replay is verified through that run's local-service count, not inferred from a static picture alone.
+    ![Manage chats and restore history · 11](../media/v0.1.1-alpha.1/agent-chat-english/step-021.annotated.png)
 
-**Expected result:** history persists locally. Navigating workspaces does not close the panel, and closing the panel does not delete a Chat.
+    ![Manage chats and restore history · 11](../media/v0.1.1-alpha.1/agent-chat-english/step-022.png)
 
-**Notes:** restoring history does not replay prior side effects. Old Capture IDs can become invalid after Core restarts.
+12. <a id="walkthrough-agent-session-restart"></a><a id="walkthrough-agent-session-restart-01-open"></a>When finished, exit normally with the App Close button in box 1. Reopen the App and Agent panel and verify `Upstream modes` and its response were restored. Reopening does not resend the message.
+
+    ![Manage chats and restore history · 12](../media/v0.1.1-alpha.1/agent-chat-english/step-023.annotated.png)
+
+    ![Manage chats and restore history · 12](../media/v0.1.1-alpha.1/agent-chat-english/step-024.png)
+
+13. <a id="walkthrough-agent-management-11-switch-chat"></a><a id="walkthrough-agent-session-restart-02-chats"></a><a id="walkthrough-agent-session-restart-03-history"></a>Open the Chat selector. Box 1 is `Upstream modes`; box 2 is `Recording and Clear`. Select box 2 and inspect that Chat’s own history and `Recovery lab` model.
+
+    ![Manage chats and restore history · 13](../media/v0.1.1-alpha.1/agent-chat-english/step-025.annotated.png)
+
+    ![Manage chats and restore history · 13](../media/v0.1.1-alpha.1/agent-chat-english/step-026.png)
+
+14. Enter `Does pausing Recording restore the system proxy?` in the original Chat and click Send in box 1. Its follow-up stays in `Recording and Clear` rather than merging with the other Chat.
+
+    ![Manage chats and restore history · 14](../media/v0.1.1-alpha.1/agent-chat-english/step-027.annotated.png)
+
+    ![Manage chats and restore history · 14](../media/v0.1.1-alpha.1/agent-chat-english/step-028.png)
+
+15. <a id="walkthrough-agent-management-12-delete-dialog"></a>To remove the second Chat, first select `Upstream modes` and check the title, then choose Delete current chat in box 1 of its menu.
+
+    ![Manage chats and restore history · 15](../media/v0.1.1-alpha.1/agent-chat-english/step-029.annotated.png)
+
+16. <a id="walkthrough-agent-management-13-cancel-delete"></a>Cancel in box 1 abandons deletion; Confirm delete chat in box 2 removes its history. Choose Cancel first and verify `Upstream modes` and its messages remain.
+
+    ![Manage chats and restore history · 16](../media/v0.1.1-alpha.1/agent-chat-english/step-030.annotated.png)
+
+    ![Manage chats and restore history · 16](../media/v0.1.1-alpha.1/agent-chat-english/step-031.png)
+
+17. <a id="walkthrough-agent-management-19-delete-chat-dialog"></a><a id="walkthrough-agent-management-20-delete-chat"></a>When the Chat is no longer needed, select Delete current chat again and click Confirm delete chat in box 1. After removal, return to `Recording and Clear` and verify its history remains.
+
+    ![Manage chats and restore history · 17](../media/v0.1.1-alpha.1/agent-chat-english/step-033.annotated.png)
+
+    ![Manage chats and restore history · 17](../media/v0.1.1-alpha.1/agent-chat-english/step-034.png)
+
+18. <a id="walkthrough-agent-session-lifecycle-09-fresh-name"></a><a id="walkthrough-agent-session-lifecycle-10-running-chat"></a><a id="walkthrough-agent-session-lifecycle-11-running-prompt"></a>A Chat that is still generating a response can also be deleted. Verify the current Chat is the unwanted one, then choose Delete current chat in box 1 of its menu rather than removing a completed Chat.
+
+    ![Manage chats and restore history · 18](../media/v0.1.1-alpha.1/agent-chat-english/step-037.png)
+
+    ![Manage chats and restore history · 18](../media/v0.1.1-alpha.1/agent-chat-english/step-038.annotated.png)
+
+19. <a id="walkthrough-agent-session-lifecycle-12-running-delete-dialog"></a><a id="walkthrough-agent-session-lifecycle-13-delete-running"></a><a id="walkthrough-agent-session-lifecycle-14-retained-chat"></a><a id="walkthrough-agent-session-lifecycle-15-before-close"></a>Click Confirm delete chat in box 1 and wait for cancellation to settle. Generation stops and the panel returns to a retained Chat; the unfinished response is not automatically retried.
+
+    ![Manage chats and restore history · 19](../media/v0.1.1-alpha.1/agent-chat-english/step-039.annotated.png)
+
+    ![Manage chats and restore history · 19](../media/v0.1.1-alpha.1/agent-chat-english/step-040.png)
+
+20. <a id="walkthrough-agent-session-restart-04-model-settings"></a><a id="walkthrough-agent-session-restart-05-last-model-dialog"></a><a id="walkthrough-agent-session-restart-06-remove-last"></a>If the model profiles are also no longer needed, review and remove each in Settings → Agent. The images remove `Recovery alternate` first and `Recovery lab` second; box 1 in each is Confirm remove model for that profile.
+
+    ![Manage chats and restore history · 20](../media/v0.1.1-alpha.1/agent-chat-english/step-041.annotated.png)
+
+    ![Manage chats and restore history · 20](../media/v0.1.1-alpha.1/agent-chat-english/step-042.annotated.png)
+
+21. After the last model is removed, Agent shows Connect a model to start. Use Configure Agent to configure a model before continuing; this state does not mean a network request is still running.
+
+    ![Manage chats and restore history · 21](../media/v0.1.1-alpha.1/agent-chat-english/step-043.png)
+
+Restoring history does not automatically replay side effects. Capture IDs in older messages may be stale; query the current recording again when needed.
+
 
 <a id="context"></a>
 ## Read context and usage
 
-1. Inspect the Context ring and details above the input: current context, window limit and available input, output, total and cache figures.
+Context describes the context carried by the latest model request; the Session usage popup reports cumulative session usage. Read your actual values rather than treating the example numbers as quotas or charges.
 
-   ![Actual Context usage details for this demonstration](../media/v0.1.1-alpha.1/agent/agent-16-context.png)
+1. <a id="walkthrough-16-context"></a>Hover Context above the message input. Box 1 is the cumulative usage panel: this example totals `12`, with Cache hit `6`, Cache miss `4` and Output `2`. The Context indicator below is `10 / 131.1k`, not the cumulative `12`.
 
-2. Hover or keyboard focus reveals the explanation. The preceding image uses hover; the following image independently records `Shift+Tab` from the message input to Context.
+   ![Read context and usage · 1](../media/v0.1.1-alpha.1/agent-context-english/step-004.annotated.png)
 
-   ![Keyboard-focused Context usage details](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png)
+2. <a id="walkthrough-agent-session-lifecycle"></a><a id="walkthrough-agent-session-lifecycle-01-panel"></a><a id="walkthrough-agent-session-lifecycle-02-chat"></a><a id="walkthrough-agent-session-lifecycle-03-name"></a><a id="walkthrough-agent-session-lifecycle-04-prompt"></a><a id="walkthrough-agent-session-lifecycle-05-keyboard-send"></a><a id="walkthrough-agent-session-lifecycle-06-keyboard-context"></a>Alternatively, focus the message input and press Shift+Tab to focus the Context button. Box 1 shows the same usage; press Tab to return to the input.
 
-3. Decide whether a separate Chat would reduce unrelated context.
+   ![Read context and usage · 2](../media/v0.1.1-alpha.1/agent-context-english/step-005.annotated.png)
 
-   ![Creating an independent Chat after inspecting usage](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png)
+3. Inspect the values again after another response. Current Context is `20`, while box 1 totals `36`: Cache hit `24`, Cache miss `6` and Output `6`. Cache hit/miss are already parts of input usage and must not be added twice.
 
-**Expected result:** distinguish current/recent request context from cumulative session consumption.
+   ![Read context and usage · 3](../media/v0.1.1-alpha.1/agent-context-english/step-007.annotated.png)
 
-**Notes**
+4. A later Retry can also add usage. Box 1 now totals `66`, while current Context is `25` for the latest request. Cache hit rate is calculated from reported input tokens rather than averaging per-turn percentages.
 
-- Current Context is not the visible App workspace or cumulative token count.
-- Cache hit/miss are parts of input, not extra tokens to add again.
-- Missing provider metrics are unavailable, not zero.
-- Remaining context must also accommodate output; it is not a guaranteed generation length.
-- Token usage is not automatically a monetary bill or automatic spending stop.
+   ![Read context and usage · 4](../media/v0.1.1-alpha.1/agent-context-english/step-012.annotated.png)
+
+5. <a id="walkthrough-agent-session-lifecycle-07-dismiss-context"></a><a id="walkthrough-agent-session-lifecycle-08-fresh-chat"></a>Use New chat for a different task instead of continuing with unrelated history. The image shows a new Chat’s initial state; previous Chats remain accessible from the selector.
+
+   ![Read context and usage · 5](../media/v0.1.1-alpha.1/agent-context-english/step-001.png)
+
+- A small proportion can display `0.0%`; still read the actual token count.
+- Unreported usage may appear as `—`, not zero consumption. A cancelled call is not necessarily free.
+- The remaining window must also accommodate model output; it does not guarantee a response of that length.
+- Usage is not automatically converted into a bill.
+
 
 <a id="tools"></a>
 ## Let Agent use product tools
 
-1. First inspect enforcement using `agent-management`: find `capture_stop_recording` in Tool capabilities and disable its Agent column, not `capture_clear` or the MCP column.
+Configure a usable model and state the allowed scope in the current Chat. This example uses `Execution mode lab` with `capture_stop_recording`: it pauses new recording without clearing records or restoring the system proxy. Ask/Auto belongs to the current Chat; new Chats start in Ask.
 
-   ![Actually disabling the Agent stop-recording capability](../media/v0.1.1-alpha.1/agent-management/agent-management-14-disable-tool.png)
+1. <a id="walkthrough-18-ask"></a>Select Ask in box 1 to require approval before a change Tool executes. Availability still depends on that Tool’s Settings permission.
 
-2. Have the local demo model request that disabled Tool and inspect the actual `unknown_tool` refusal, not a successful pause. This is unavailable capability, not a user clicking Deny in Ask or a model connection failure.
+   ![Let Agent use product tools · 1](../media/v0.1.1-alpha.1/agent-execution-english/step-004.annotated.png)
 
-   ![Actual unknown_tool refusal without executing the disabled Tool](../media/v0.1.1-alpha.1/agent-management/agent-management-15-enforcement.png)
+2. <a id="walkthrough-18a-tool-question"></a>Enter `Pause recording after asking for my approval.` in box 1 and click Send in box 2.
 
-3. Restore the Agent capability to its pre-exercise state. Restoring the switch does not replay the rejected call.
+   ![Let Agent use product tools · 2](../media/v0.1.1-alpha.1/agent-execution-english/step-005.annotated.png)
 
-   ![Actually restoring capture_stop_recording permission](../media/v0.1.1-alpha.1/agent-management/agent-management-16-restore-tool.png)
+3. The approval card identifies `capture_stop_recording` and its effect. Read it first: Deny Tool in box 1 refuses execution; Allow Tool in box 2 permits the pause.
 
-4. The following accurately reuses `Guide local demo` from the original `agent` clip to demonstrate approval for an enabled capability. Keep Ask in that Chat.
+   ![Let Agent use product tools · 3](../media/v0.1.1-alpha.1/agent-execution-english/step-006.annotated.png)
 
-   ![Actually restoring Ask](../media/v0.1.1-alpha.1/agent/agent-18-ask.png)
+4. Even if you select Auto in box 1 while an approval is pending, that existing approval is not automatically resolved.
 
-5. Enter `Pause recording after asking me.` Inspect `capture_stop_recording` and its effect on new recording, not Clear or proxy restoration.
+   ![Let Agent use product tools · 4](../media/v0.1.1-alpha.1/agent-execution-english/step-007.annotated.png)
 
-   ![Actual Pause request and pending Tool approval](../media/v0.1.1-alpha.1/agent/agent-18a-tool-question.png)
+5. The approval in box 1 still waits for a decision. Switching workspaces or leaving the Chat is not a substitute for Allow or Deny.
 
-6. Deny the first request and inspect the refusal.
+   ![Let Agent use product tools · 5](../media/v0.1.1-alpha.1/agent-execution-english/step-008.annotated.png)
 
-   ![Actually denying one pause operation](../media/v0.1.1-alpha.1/agent/agent-18b-deny.png)
+6. <a id="walkthrough-18b-deny"></a>Return to the original Chat and click Deny Tool in box 1 to refuse this pause.
 
-7. Request the same scoped action again and review the new target. A past denial is not the new approval.
+   ![Let Agent use product tools · 6](../media/v0.1.1-alpha.1/agent-execution-english/step-009.annotated.png)
 
-   ![New approval after requesting again](../media/v0.1.1-alpha.1/agent/agent-18c-tool-again.png)
+7. Box 2 retains the Denied result and Recording in box 1 remains enabled. The refusal did not pause recording; a model reply alone is not proof of execution.
 
-8. Allow and inspect actual execution and the Recording state.
+   ![Let Agent use product tools · 7](../media/v0.1.1-alpha.1/agent-execution-english/step-010.annotated.png)
 
-   ![Recording actually paused after Allow](../media/v0.1.1-alpha.1/agent/agent-18d-allow.png)
+8. Before requesting approval again, switch this Chat back to Ask in box 1.
 
-9. For other tools needing native file/system prompts, finish them after Allow and inspect the terminal state.
+   ![Let Agent use product tools · 8](../media/v0.1.1-alpha.1/agent-execution-english/step-012.annotated.png)
 
-   The [Diagnostics export recording](#walkthrough-agent-tool-lifecycle-10-export-request) includes native Save after approval. Cancelling does not start export; saving again still requires checking completion. This does not replace Windows system authorization.
+9. <a id="walkthrough-18c-tool-again"></a>Enter the new request `Pause capture after explicit approval.` in box 1 and send with box 2. The earlier denial does not decide this new call.
 
-   ![Actual native Save destination selection](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
+   ![Let Agent use product tools · 9](../media/v0.1.1-alpha.1/agent-execution-english/step-013.annotated.png)
 
-**Expected result:** authorized actions use formal product operations and update the relevant UI.
+10. <a id="walkthrough-18d-allow"></a>Review the Tool and effect again, then choose Allow Tool in box 1.
 
-**Notes:** see [permissions](tool-permissions.md) for query/change types and independent entry points. “Done” in model text is not a substitute for Tool results or real state.
+    ![Let Agent use product tools · 10](../media/v0.1.1-alpha.1/agent-execution-english/step-014.annotated.png)
+
+11. Box 2 shows the allowed call result and box 1 changes to Paused. Proxy forwarding can continue; new traffic is simply no longer recorded.
+
+    ![Let Agent use product tools · 11](../media/v0.1.1-alpha.1/agent-execution-english/step-015.annotated.png)
+
+12. Resume Recording with the Capture control in box 1 when needed and verify its state before continuing.
+
+    ![Let Agent use product tools · 12](../media/v0.1.1-alpha.1/agent-execution-english/step-016.annotated.png)
+
+13. <a id="walkthrough-17-auto"></a>Select Auto in box 1 only when you accept automatic execution of subsequent change operations. It does not bypass disabled permissions or native file selection.
+
+    ![Let Agent use product tools · 13](../media/v0.1.1-alpha.1/agent-execution-english/step-017.annotated.png)
+
+14. Enter `Pause capture using this Chat mode.` in box 1 and send with box 2. This call executes directly in Auto; still inspect Tool activity and Capture’s Paused state.
+
+    ![Let Agent use product tools · 14](../media/v0.1.1-alpha.1/agent-execution-english/step-018.annotated.png)
+
+    ![Let Agent use product tools · 14](../media/v0.1.1-alpha.1/agent-execution-english/step-019.png)
+
+15. <a id="walkthrough-agent-management-14-disable-tool"></a>Resume Recording, then open Settings → Agent and search Tool capabilities for `capture_stop_recording`. Disable Agent in box 1 without changing MCP in box 2; their permissions are independent.
+
+    ![Let Agent use product tools · 15](../media/v0.1.1-alpha.1/agent-execution-english/step-021.annotated.png)
+
+16. A model cannot execute a disabled Tool even if it tries to call it. Here, enter `Try the disabled recording Tool.` in box 1 and send with box 2 to inspect the refusal.
+
+    ![Let Agent use product tools · 16](../media/v0.1.1-alpha.1/agent-execution-english/step-022.annotated.png)
+
+17. <a id="walkthrough-agent-management-15-enforcement"></a>Tool activity shows Unknown tool while Recording in box 1 stays enabled. This is an `unknown_tool` permission refusal, distinct from Deny in Ask or a model connection failure.
+
+    ![Let Agent use product tools · 17](../media/v0.1.1-alpha.1/agent-execution-english/step-023.annotated.png)
+
+18. After a normal restart, the permission in box 1 remains disabled. Reopening the App does not restore revoked access or replay the request.
+
+    ![Let Agent use product tools · 18](../media/v0.1.1-alpha.1/agent-execution-english/step-025.annotated.png)
+
+19. <a id="walkthrough-agent-management-16-restore-tool"></a>Explicitly enable Agent access in box 1 when the Tool is needed again. Restoring access affects later calls; it does not replay the failed one.
+
+    ![Let Agent use product tools · 19](../media/v0.1.1-alpha.1/agent-execution-english/step-026.annotated.png)
+
+20. Return this Chat to Ask in box 1 when finished, then verify Recording is in the state you want.
+
+    ![Let Agent use product tools · 20](../media/v0.1.1-alpha.1/agent-execution-english/step-027.annotated.png)
+
+21. <a id="walkthrough-agent-tool-lifecycle-08-diagnostics-recent"></a><a id="walkthrough-agent-tool-lifecycle-09-read-trace"></a><a id="walkthrough-agent-tool-lifecycle-10-export-request"></a><a id="walkthrough-agent-tool-lifecycle-11-native-cancel-panel"></a><a id="walkthrough-agent-tool-lifecycle-12-cancel-native"></a><a id="walkthrough-agent-tool-lifecycle-13-export-again"></a><a id="walkthrough-agent-tool-lifecycle-14-native-save"></a><a id="walkthrough-agent-tool-lifecycle-15-started-result"></a><a id="walkthrough-agent-tool-lifecycle-16-completion-query"></a><a id="walkthrough-agent-tool-lifecycle-17-final-state"></a>Continue with any file dialog or system authorization required after Allow. For example, `diagnostics_export` opens Save; this example uses `agent.jsonl`, but choose your own destination. Cancel starts no export. After confirming Save, return to the App and inspect the job. `started` or Export job Running indicates a start, not a substitute for checking the actual file and terminal result.
+
+    ![Let Agent use product tools · 21](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-017.png)
+
+    ![Let Agent use product tools · 21](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-018.png)
+
+See [Tool permissions](tool-permissions.md) for query/change, independent entry-point access and read-only configuration. A model saying “done” is not a substitute for Tool results and product state.
+
 
 <a id="stop-retry"></a>
 ## Stop, inspect failure and retry
 
-1. Start the stoppable local streaming demonstration and observe the active turn.
+Stop cancels the current model response without deleting the Chat or undoing completed product operations. Read the actual error after a failure rather than treating an empty reply as success.
 
-   ![Demonstration still running before Stop](../media/v0.1.1-alpha.1/agent/agent-19-stream.png)
+1. <a id="walkthrough-19-stream"></a>While Generating response is visible, click Stop response in box 1 if the response is no longer needed.
 
-2. Stop when no longer needed, wait for cancellation and inspect preserved history.
+   ![Stop, inspect failure and retry · 1](../media/v0.1.1-alpha.1/agent-context-english/step-009.annotated.png)
 
-   ![Actual Chat history retained after Stop](../media/v0.1.1-alpha.1/agent/agent-20-stop.png)
+2. <a id="walkthrough-20-stop"></a>Wait for Response stopped; already displayed partial output is retained. Box 1 is Retry response, not continued waiting on the old connection.
 
-3. Inspect actual state, then use the offered Retry for a new attempt. A network-failure branch was not recorded here.
+   ![Stop, inspect failure and retry · 2](../media/v0.1.1-alpha.1/agent-context-english/step-010.annotated.png)
 
-   ![Actual new Retry attempt](../media/v0.1.1-alpha.1/agent/agent-21-retry.png)
+3. <a id="walkthrough-21-retry"></a>Inspect the message and completed Tools before clicking Retry response. Retry is a new attempt that retains the original user message, without requiring you to copy and resend the question.
 
-4. Before retrying a possibly sent request, export or setting change, verify what already happened.
+   ![Stop, inspect failure and retry · 3](../media/v0.1.1-alpha.1/agent-context-english/step-011.png)
 
-   The [actual Tool recording](#walkthrough-agent-tool-lifecycle) allows Pause before stopping the model reply; Recording remains paused. This demo model's Retry continues explanation only, not a promise that another model will never request the Tool again.
+4. Inspect usage in box 1 after Retry completes. The cumulative values have updated; neither a stopped request nor Retry is necessarily free.
 
-   ![Stop does not undo the completed Pause](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
+   ![Stop, inspect failure and retry · 4](../media/v0.1.1-alpha.1/agent-context-english/step-012.annotated.png)
 
-5. Send a new message to clarify the allowed scope when needed.
+5. <a id="walkthrough-agent-tool-lifecycle"></a><a id="walkthrough-agent-tool-lifecycle-01-agent"></a><a id="walkthrough-agent-tool-lifecycle-02-ask"></a><a id="walkthrough-agent-tool-lifecycle-03-side-effect-prompt"></a><a id="walkthrough-agent-tool-lifecycle-04-allow-pause"></a><a id="walkthrough-agent-tool-lifecycle-05-stop-after-tool"></a>If `capture_stop_recording` already executed, box 1 already shows Paused. Stop in box 2 only cancels the ongoing explanation. After Response stopped appears, Recording remains paused; the completed Tool is not undone.
 
-   ![Restating a read-only status-query goal after Retry](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png)
+   ![Stop, inspect failure and retry · 5](../media/v0.1.1-alpha.1/agent-traffic-control-english/step-003.annotated.png)
 
-**Expected result:** stopping preserves the Chat and completed history. Failures stay visible.
+   ![Stop, inspect failure and retry · 5](../media/v0.1.1-alpha.1/agent-traffic-control-english/step-004.png)
 
-**Notes**
+6. <a id="walkthrough-agent-tool-lifecycle-06-retry"></a><a id="walkthrough-agent-tool-lifecycle-07-clarify"></a>This Retry only returns an explanation without repeating the pause, and Recording remains Paused. Send a new message if the goal needs clarification, for example limiting it to a read-only status query. A stopped or failed turn does not automatically justify repeating sends, exports or configuration writes.
 
-- Stop is not undo or Breakpoint Continue.
-- The formal Chat UI does not expose a general Continue for an active turn merely because an internal runtime supports checkpoints.
-- Switching to Auto does not approve an already-pending question.
-- A stream that already displayed content is not assumed safe to replay automatically.
+   ![Stop, inspect failure and retry · 6](../media/v0.1.1-alpha.1/agent-traffic-control-english/step-005.png)
+
+- Stop is neither a breakpoint Continue action nor an undo for existing side effects.
+- Chat does not provide a generic Continue button for arbitrarily restoring a running turn.
+- After model output has appeared, do not assume a network failure can safely replay the entire operation automatically.
+
 
 <a id="privacy"></a>
 ## Understand the model-data boundary
@@ -505,493 +477,3 @@ This continues `agent-management`, not the earlier single `Guide local demo` Cha
 - Redaction does not recognize every possible business secret.
 - Captured webpages/logs are data, not authorization to expand the task.
 - Disabling Agent access does not disable MCP or revoke provider credentials.
-
-<!-- recorded-walkthrough:agent-management:start -->
-<a id="walkthrough-agent-management"></a>
-## Recorded walkthrough: models, Chats and capability enforcement
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>firstProfile</code> | <code>Guide model one</code> |
-| <code>secondProfile</code> | <code>Guide model two</code> |
-| <code>firstModel</code> | <code>guide-one</code> |
-| <code>editedModel</code> | <code>guide-two-edited</code> |
-| <code>firstEndpoint</code> | <code>http://127.0.0.1:51439/guide-one/v1</code> |
-| <code>secondEndpoint</code> | <code>http://127.0.0.1:51439/guide-two/v1</code> |
-| <code>firstChat</code> | <code>Guide chat one</code> |
-| <code>secondChat</code> | <code>Guide chat two</code> |
-| <code>tool</code> | <code>capture_stop_recording</code> |
-| <code>credentials</code> | <code>none</code> |
-
-<a id="walkthrough-agent-management-01-settings"></a>
-### 01 · Open Agent settings
-
-![01 · Open Agent settings](../media/v0.1.1-alpha.1/agent-management/agent-management-01-settings.png)
-
-<a id="walkthrough-agent-management-guide-one-01-dialog"></a>
-### 02 · Add Guide model one
-
-![02 · Add Guide model one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-01-dialog.png)
-
-<a id="walkthrough-agent-management-guide-one-02-name"></a>
-### 03 · Enter Guide model one
-
-![03 · Enter Guide model one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-02-name.png)
-
-<a id="walkthrough-agent-management-guide-one-03-endpoint"></a>
-### 04 · Enter the local demo endpoint
-
-![04 · Enter the local demo endpoint](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-03-endpoint.png)
-
-<a id="walkthrough-agent-management-guide-one-04-model"></a>
-### 05 · Enter guide-one
-
-![05 · Enter guide-one](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-04-model.png)
-
-<a id="walkthrough-agent-management-guide-one-05-test"></a>
-### 06 · Test the connection
-
-![06 · Test the connection](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-05-test.png)
-
-<a id="walkthrough-agent-management-guide-one-06-save"></a>
-### 07 · Save verified configuration
-
-![07 · Save verified configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-one-06-save.png)
-
-<a id="walkthrough-agent-management-guide-two-01-dialog"></a>
-### 08 · Add Guide model two
-
-![08 · Add Guide model two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-01-dialog.png)
-
-<a id="walkthrough-agent-management-guide-two-02-name"></a>
-### 09 · Enter Guide model two
-
-![09 · Enter Guide model two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-02-name.png)
-
-<a id="walkthrough-agent-management-guide-two-03-endpoint"></a>
-### 10 · Enter the local demo endpoint
-
-![10 · Enter the local demo endpoint](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-03-endpoint.png)
-
-<a id="walkthrough-agent-management-guide-two-04-model"></a>
-### 11 · Enter guide-two
-
-![11 · Enter guide-two](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-04-model.png)
-
-<a id="walkthrough-agent-management-guide-two-05-test"></a>
-### 12 · Test the connection
-
-![12 · Test the connection](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-05-test.png)
-
-<a id="walkthrough-agent-management-guide-two-06-save"></a>
-### 13 · Save verified configuration
-
-![13 · Save verified configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-guide-two-06-save.png)
-
-<a id="walkthrough-agent-management-02-edit"></a>
-### 14 · Edit the second Model ID
-
-![14 · Edit the second Model ID](../media/v0.1.1-alpha.1/agent-management/agent-management-02-edit.png)
-
-<a id="walkthrough-agent-management-03-retest"></a>
-### 15 · Retest changed configuration
-
-![15 · Retest changed configuration](../media/v0.1.1-alpha.1/agent-management/agent-management-03-retest.png)
-
-<a id="walkthrough-agent-management-04-save-edit"></a>
-### 16 · Save the edit
-
-![16 · Save the edit](../media/v0.1.1-alpha.1/agent-management/agent-management-04-save-edit.png)
-
-<a id="walkthrough-agent-management-05-first-chat"></a>
-### 17 · Create a Chat with the first default
-
-![17 · Create a Chat with the first default](../media/v0.1.1-alpha.1/agent-management/agent-management-05-first-chat.png)
-
-<a id="walkthrough-agent-management-06-chat-name"></a>
-### 18 · Rename Guide chat one
-
-![18 · Rename Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-06-chat-name.png)
-
-<a id="walkthrough-agent-management-07-default"></a>
-### 19 · Make the second model the default
-
-![19 · Make the second model the default](../media/v0.1.1-alpha.1/agent-management/agent-management-07-default.png)
-
-<a id="walkthrough-agent-management-08-current-model"></a>
-### 20 · Change only the current Chat model
-
-![20 · Change only the current Chat model](../media/v0.1.1-alpha.1/agent-management/agent-management-08-current-model.png)
-
-<a id="walkthrough-agent-management-09-new-chat"></a>
-### 21 · Create a second Chat
-
-![21 · Create a second Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-09-new-chat.png)
-
-<a id="walkthrough-agent-management-10-second-name"></a>
-### 22 · Rename Guide chat two
-
-![22 · Rename Guide chat two](../media/v0.1.1-alpha.1/agent-management/agent-management-10-second-name.png)
-
-<a id="walkthrough-agent-management-11-switch-chat"></a>
-### 23 · Return to Guide chat one
-
-![23 · Return to Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-11-switch-chat.png)
-
-<a id="walkthrough-agent-management-12-delete-dialog"></a>
-### 24 · Review Chat deletion
-
-![24 · Review Chat deletion](../media/v0.1.1-alpha.1/agent-management/agent-management-12-delete-dialog.png)
-
-<a id="walkthrough-agent-management-13-cancel-delete"></a>
-### 25 · Cancel deletion
-
-![25 · Cancel deletion](../media/v0.1.1-alpha.1/agent-management/agent-management-13-cancel-delete.png)
-
-<a id="walkthrough-agent-management-14-disable-tool"></a>
-### 26 · Disable the Agent stop-recording Tool
-
-![26 · Disable the Agent stop-recording Tool](../media/v0.1.1-alpha.1/agent-management/agent-management-14-disable-tool.png)
-
-<a id="walkthrough-agent-management-15-enforcement"></a>
-### 27 · Verify a disabled Tool cannot execute
-
-![27 · Verify a disabled Tool cannot execute](../media/v0.1.1-alpha.1/agent-management/agent-management-15-enforcement.png)
-
-<a id="walkthrough-agent-management-16-restore-tool"></a>
-### 28 · Restore the original capability
-
-![28 · Restore the original capability](../media/v0.1.1-alpha.1/agent-management/agent-management-16-restore-tool.png)
-
-<a id="walkthrough-agent-management-17-remove-model-dialog"></a>
-### 29 · Review removing an unused Provider
-
-![29 · Review removing an unused Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-17-remove-model-dialog.png)
-
-<a id="walkthrough-agent-management-18-remove-model"></a>
-### 30 · Remove the first demo Provider
-
-![30 · Remove the first demo Provider](../media/v0.1.1-alpha.1/agent-management/agent-management-18-remove-model.png)
-
-<a id="walkthrough-agent-management-19-delete-chat-dialog"></a>
-### 31 · Review deleting the demo Chat
-
-![31 · Review deleting the demo Chat](../media/v0.1.1-alpha.1/agent-management/agent-management-19-delete-chat-dialog.png)
-
-<a id="walkthrough-agent-management-20-delete-chat"></a>
-### 32 · Delete Guide chat one
-
-![32 · Delete Guide chat one](../media/v0.1.1-alpha.1/agent-management/agent-management-20-delete-chat.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:agent-management:end -->
-
-<!-- recorded-walkthrough:agent-session-lifecycle:start -->
-<a id="walkthrough-agent-session-lifecycle"></a>
-## Keyboard, Context, new Chats and running deletion
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>profileName</code> | <code>Guide session demo</code> |
-| <code>modelId</code> | <code>guide-session-model</code> |
-| <code>endpoint</code> | <code>http://127.0.0.1:52300/guide-session/v1</code> |
-| <code>prompt</code> | <code>Explain why a fresh Chat has separate context.</code> |
-| <code>answer</code> | <code>Demo response: this local example reports usage; a new Chat starts a separate history.</code> |
-| <code>reportedInputTokens</code> | <code>120000 (deliberately reported by the local demo, not commercial billing)</code> |
-| <code>retainedChat</code> | <code>Guide retained chat</code> |
-| <code>freshChat</code> | <code>Guide fresh context</code> |
-| <code>deletedRunningChat</code> | <code>Guide running delete</code> |
-| <code>closeImage</code> | <code>Before the actual Close; the driver verifies the real shutdown between App generations</code> |
-
-<a id="walkthrough-agent-session-lifecycle-01-panel"></a>
-### 01 · Open the Agent panel
-
-![01 · Open the Agent panel](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-01-panel.png)
-
-<a id="walkthrough-agent-session-lifecycle-02-chat"></a>
-### 02 · Create the Chat to retain
-
-![02 · Create the Chat to retain](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-02-chat.png)
-
-<a id="walkthrough-agent-session-lifecycle-03-name"></a>
-### 03 · Name it Guide retained chat
-
-![03 · Name it Guide retained chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-03-name.png)
-
-<a id="walkthrough-agent-session-lifecycle-04-prompt"></a>
-### 04 · Enter this run’s public prompt
-
-![04 · Enter this run’s public prompt](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-04-prompt.png)
-
-<a id="walkthrough-agent-session-lifecycle-05-keyboard-send"></a>
-### 05 · Send with Command+Enter
-
-![05 · Send with Command+Enter](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-05-keyboard-send.png)
-
-<a id="walkthrough-agent-session-lifecycle-06-keyboard-context"></a>
-### 06 · Use actual Tab navigation to read Context
-
-![06 · Use actual Tab navigation to read Context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-06-keyboard-context.png)
-
-<a id="walkthrough-agent-session-lifecycle-07-dismiss-context"></a>
-### 07 · Move focus away from Context
-
-![07 · Move focus away from Context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-07-dismiss-context.png)
-
-<a id="walkthrough-agent-session-lifecycle-08-fresh-chat"></a>
-### 08 · Start a separate Chat after reviewing usage
-
-![08 · Start a separate Chat after reviewing usage](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-08-fresh-chat.png)
-
-<a id="walkthrough-agent-session-lifecycle-09-fresh-name"></a>
-### 09 · Name it Guide fresh context
-
-![09 · Name it Guide fresh context](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-09-fresh-name.png)
-
-<a id="walkthrough-agent-session-lifecycle-10-running-chat"></a>
-### 10 · Create the running-deletion example
-
-![10 · Create the running-deletion example](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-10-running-chat.png)
-
-<a id="walkthrough-agent-session-lifecycle-11-running-prompt"></a>
-### 11 · Start the local held-stream example
-
-![11 · Start the local held-stream example](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-11-running-prompt.png)
-
-<a id="walkthrough-agent-session-lifecycle-12-running-delete-dialog"></a>
-### 12 · Open deletion confirmation while running
-
-![12 · Open deletion confirmation while running](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-12-running-delete-dialog.png)
-
-<a id="walkthrough-agent-session-lifecycle-13-delete-running"></a>
-### 13 · Confirm deletion and cancel that stream
-
-![13 · Confirm deletion and cancel that stream](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-13-delete-running.png)
-
-<a id="walkthrough-agent-session-lifecycle-14-retained-chat"></a>
-### 14 · Return to the retained Chat
-
-![14 · Return to the retained Chat](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-14-retained-chat.png)
-
-<a id="walkthrough-agent-session-lifecycle-15-before-close"></a>
-### 15 · Confirm persistent content before normal Close
-
-![15 · Confirm persistent content before normal Close](../media/v0.1.1-alpha.1/agent-session-lifecycle/agent-session-lifecycle-15-before-close.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:agent-session-lifecycle:end -->
-
-<!-- recorded-walkthrough:agent-tool-lifecycle:start -->
-<a id="walkthrough-agent-tool-lifecycle"></a>
-## Completed Tools, Stop, Retry and native file approval
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>model</code> | <code>Guide Tool demo; deterministic local keyless endpoint</code> |
-| <code>endpoint</code> | <code>http://127.0.0.1:55719/guide-tool-lifecycle/v1</code> |
-| <code>pausePrompt</code> | <code>Pause recording after asking me, then continue a streaming explanation.</code> |
-| <code>clarification</code> | <code>Keep recording paused. Only read and explain its current status.</code> |
-| <code>queryTools</code> | <code>diagnostics_get_recent, diagnostics_get_trace</code> |
-| <code>exportTool</code> | <code>diagnostics_export</code> |
-| <code>taskQuery</code> | <code>capture_get_transfer_job</code> |
-| <code>canceledFile</code> | <code>guide-cancelled.jsonl</code> |
-| <code>savedFile</code> | <code>guide-agent-diagnostics.jsonl</code> |
-| <code>stopBoundary</code> | <code>A completed Recording pause remains applied after stopping the later model reply</code> |
-| <code>retryBoundary</code> | <code>This retry requests explanation only; other models may propose new actions and require fresh review</code> |
-
-<a id="walkthrough-agent-tool-lifecycle-01-agent"></a>
-### 01 · Open Agent and create a Chat
-
-![01 · Open Agent and create a Chat](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-01-agent.png)
-
-<a id="walkthrough-agent-tool-lifecycle-02-ask"></a>
-### 02 · Explicitly choose Ask
-
-![02 · Explicitly choose Ask](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-02-ask.png)
-
-<a id="walkthrough-agent-tool-lifecycle-03-side-effect-prompt"></a>
-### 03 · Ask to pause Recording and then continue explaining
-
-![03 · Ask to pause Recording and then continue explaining](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-03-side-effect-prompt.png)
-
-<a id="walkthrough-agent-tool-lifecycle-04-allow-pause"></a>
-### 04 · Allow the explicit pause operation
-
-![04 · Allow the explicit pause operation](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-04-allow-pause.png)
-
-<a id="walkthrough-agent-tool-lifecycle-05-stop-after-tool"></a>
-### 05 · Stop the response without undoing the completed Tool
-
-![05 · Stop the response without undoing the completed Tool](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-05-stop-after-tool.png)
-
-<a id="walkthrough-agent-tool-lifecycle-06-retry"></a>
-### 06 · Retry with explanation only in this example
-
-![06 · Retry with explanation only in this example](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-06-retry.png)
-
-<a id="walkthrough-agent-tool-lifecycle-07-clarify"></a>
-### 07 · Restate a read-only goal
-
-![07 · Restate a read-only goal](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-07-clarify.png)
-
-<a id="walkthrough-agent-tool-lifecycle-08-diagnostics-recent"></a>
-### 08 · Execute a real Diagnostics Recent query
-
-![08 · Execute a real Diagnostics Recent query](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-08-diagnostics-recent.png)
-
-<a id="walkthrough-agent-tool-lifecycle-09-read-trace"></a>
-### 09 · Query related records using the returned traceId
-
-![09 · Query related records using the returned traceId](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-09-read-trace.png)
-
-<a id="walkthrough-agent-tool-lifecycle-10-export-request"></a>
-### 10 · Request a Diagnostics export requiring approval
-
-![10 · Request a Diagnostics export requiring approval](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-10-export-request.png)
-
-<a id="walkthrough-agent-tool-lifecycle-11-native-cancel-panel"></a>
-### 11 · Approval still leads to a real Save window
-
-![11 · Approval still leads to a real Save window](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-11-native-cancel-panel.png)
-
-<a id="walkthrough-agent-tool-lifecycle-12-cancel-native"></a>
-### 12 · Cancel native saving without replacing its return value
-
-![12 · Cancel native saving without replacing its return value](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-12-cancel-native.png)
-
-<a id="walkthrough-agent-tool-lifecycle-13-export-again"></a>
-### 13 · Request export again and review parameters
-
-![13 · Request export again and review parameters](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-13-export-again.png)
-
-<a id="walkthrough-agent-tool-lifecycle-14-native-save"></a>
-### 14 · Save guide-agent-diagnostics.jsonl
-
-![14 · Save guide-agent-diagnostics.jsonl](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-14-native-save.png)
-
-<a id="walkthrough-agent-tool-lifecycle-15-started-result"></a>
-### 15 · Distinguish a started job from completion
-
-![15 · Distinguish a started job from completion](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-15-started-result.png)
-
-<a id="walkthrough-agent-tool-lifecycle-16-completion-query"></a>
-### 16 · Query the actual file task for completion
-
-![16 · Query the actual file task for completion](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-16-completion-query.png)
-
-<a id="walkthrough-agent-tool-lifecycle-17-final-state"></a>
-### 17 · Retain the paused state and verify the actual result
-
-![17 · Retain the paused state and verify the actual result](../media/v0.1.1-alpha.1/agent-tool-lifecycle/agent-tool-lifecycle-17-final-state.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:agent-tool-lifecycle:end -->
-
-<!-- recorded-walkthrough:agent-model-removal:start -->
-<a id="walkthrough-agent-model-removal"></a>
-## Recorded walkthrough: removing the final model (native recording excerpt)
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> These step images come from the same actual App run as <code>agent-session-restart</code>. Original PNGs are unchanged; this does not establish acceptance of branches not shown.
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>profileName</code> | <code>Guide session demo</code> |
-| <code>initialState</code> | <code>One existing model in Settings &gt; Agent; configuration and restart are outside this excerpt</code> |
-| <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
-| <code>recordingScope</code> | <code>Only the final Settings steps are published; earlier Capture/history images are not published</code> |
-
-<a id="walkthrough-agent-model-removal-04-model-settings"></a>
-### 01 · Inspect the retained model configuration
-
-![01 · Inspect the retained model configuration](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-04-model-settings.png)
-
-<a id="walkthrough-agent-model-removal-05-last-model-dialog"></a>
-### 02 · Open deletion confirmation for the last model
-
-![02 · Open deletion confirmation for the last model](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-05-last-model-dialog.png)
-
-<a id="walkthrough-agent-model-removal-06-remove-last"></a>
-### 03 · Remove the last model and inspect the unconfigured state
-
-![03 · Remove the last model and inspect the unconfigured state](../media/v0.1.1-alpha.1/agent-model-removal/agent-session-restart-06-remove-last.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:agent-model-removal:end -->
-
-<!-- recorded-walkthrough:agent-session-restart:start -->
-<a id="walkthrough-agent-session-restart"></a>
-## Recorded walkthrough: actual restart, restored history and final-model removal
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-> This keyless local model returns fixed public demonstration replies. The walkthrough shows real configuration and chat controls, not a commercial model benchmark or bill. Never enter real credentials for this demo endpoint.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>profileName</code> | <code>Guide session demo</code> |
-| <code>retainedChat</code> | <code>Guide retained chat</code> |
-| <code>freshChat</code> | <code>Guide fresh context</code> |
-| <code>deletedRunningChat</code> | <code>Guide running delete</code> |
-| <code>retainedPrompt</code> | <code>Explain why a fresh Chat has separate context.</code> |
-| <code>retainedAnswer</code> | <code>Demo response: this local example reports usage; a new Chat starts a separate history.</code> |
-| <code>modelCallsOnRestart</code> | <code>0</code> |
-| <code>finalModelState</code> | <code>No provider remains; the panel is unconfigured</code> |
-| <code>evidenceGeneration</code> | <code>agent-reopened</code> |
-
-<a id="walkthrough-agent-session-restart-01-open"></a>
-### 01 · Reopen the Agent panel
-
-![01 · Reopen the Agent panel](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-01-open.png)
-
-<a id="walkthrough-agent-session-restart-02-chats"></a>
-### 02 · Inspect the actually restored Chat list
-
-![02 · Inspect the actually restored Chat list](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-02-chats.png)
-
-<a id="walkthrough-agent-session-restart-03-history"></a>
-### 03 · Read the retained history
-
-![03 · Read the retained history](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-03-history.png)
-
-<a id="walkthrough-agent-session-restart-04-model-settings"></a>
-### 04 · Inspect the retained model configuration
-
-![04 · Inspect the retained model configuration](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-04-model-settings.png)
-
-<a id="walkthrough-agent-session-restart-05-last-model-dialog"></a>
-### 05 · Open deletion confirmation for the last model
-
-![05 · Open deletion confirmation for the last model](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-05-last-model-dialog.png)
-
-<a id="walkthrough-agent-session-restart-06-remove-last"></a>
-### 06 · Remove the last model and inspect the unconfigured state
-
-![06 · Remove the last model and inspect the unconfigured state](../media/v0.1.1-alpha.1/agent-session-restart/agent-session-restart-06-remove-last.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:agent-session-restart:end -->

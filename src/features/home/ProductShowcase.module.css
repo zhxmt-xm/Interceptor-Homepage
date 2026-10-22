@@ -44,10 +44,14 @@
 
 .imageLink {
   display: block;
+  width: calc(100% - var(--space-2) * 2);
+  padding: 0;
   margin: var(--space-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  background: transparent;
+  cursor: zoom-in;
 }
 
 .imageLink img {

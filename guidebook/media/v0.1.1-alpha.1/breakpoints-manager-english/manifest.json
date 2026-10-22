@@ -1,0 +1,987 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-manager-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "capture/breakpoint-submenu-lifecycle.workflow.ts",
+    "manifestSha256": "2dc35318362998ca7cdf932b8f98eaac1b247bdce7cbbcbcacdc7fc7d994b434",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "在原请求右边界打开菜单 / Open the original request menu at the right edge",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2636,
+            "y": 28,
+            "width": 313.90625,
+            "height": 29
+          },
+          "automationId": "capture.context-menu.root"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "Endpoint子菜单在边界内展开 / Open Endpoint within the window boundary",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1766,
+            "y": 1036,
+            "width": 853.828125,
+            "height": 68
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "再次hover重新展开Endpoint / Hover again to reopen Endpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1766,
+            "y": 1036,
+            "width": 853.828125,
+            "height": 68
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "关闭菜单后仍保留原记录 / Dismissing the menu retains the original record",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviitm4e-hx4pfi4t"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "从Endpoint创建Manager中的实际规则 / Create the actual Manager rule from Endpoint",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1414.796875,
+            "y": 37.5,
+            "width": 414.40625,
+            "height": 51
+          },
+          "automationId": "capture.breakpoint-created-message"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "Endpoint已应用 / Endpoint applied：request阶段原样放行 / Endpoint已应用 / Endpoint applied: continue the request phase unmodified",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "Endpoint已应用 / Endpoint applied：response阶段再次原样放行 / Endpoint已应用 / Endpoint applied: continue the response phase separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "Manager显示实际Endpoint规则与独立全局开关 / Manager shows the Endpoint rule and its separate global switch",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1782,
+            "y": 374,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": null
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1427.84375,
+            "y": 212,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": "breakpoints.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "在Manager中停用这一条规则 / Disable this rule in Manager",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1782,
+            "y": 374,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "View rule定位同一规则，停用已自动保存 / View rule locates the same rule with its disabled state already saved",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "逐规则停用 / Rule disabled：新请求直接完成200 / 逐规则停用 / Rule disabled: a new request completes directly with 200",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 456,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviiu3ak-ljicz0ev"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "在Manager中重新启用这一条规则 / Re-enable this rule in Manager",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1782,
+            "y": 374,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "逐规则启用 / Rule enabled：request阶段原样放行 / 逐规则启用 / Rule enabled: continue the request phase unmodified",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "逐规则启用 / Rule enabled：response阶段再次原样放行 / 逐规则启用 / Rule enabled: continue the response phase separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "关闭全局Break on match，但保留规则启用状态 / Disable global Break on match while retaining the enabled rule",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1427.84375,
+            "y": 212,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": "breakpoints.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "全局停用 / Global matching disabled：新请求直接完成200 / 全局停用 / Global matching disabled: a new request completes directly with 200",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 664,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviiub2l-u9wj8j99"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "重新开启全局Break on match / Re-enable global Break on match",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1427.84375,
+            "y": 212,
+            "width": 52,
+            "height": 30
+          },
+          "automationId": "breakpoints.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "客户端取消前核对HTTP请求队首 / Inspect the HTTP request head before client cancellation",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 768,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviiue1w-9ct9lj5c"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "客户端取消后HTTP等待项解除 / Client cancellation removes the HTTP pending item",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 820.109375,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.breakpoint-manager"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "全局启用 / Global matching enabled：request阶段原样放行 / 全局启用 / Global matching enabled: continue the request phase unmodified",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "全局启用 / Global matching enabled：response阶段再次原样放行 / 全局启用 / Global matching enabled: continue the response phase separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "Undo前确认新规则已应用，原停用规则仍在 / Before Undo, confirm the new rule is applied and the disabled original remains",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1663.984375,
+            "y": 37.5,
+            "width": 98.21875,
+            "height": 51
+          },
+          "automationId": "capture.breakpoint-created-message.undo"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "Undo只删除刚创建的规则，原规则仍停用 / Undo removes only the new rule and leaves the original disabled",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 218,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.toggle.rule-467c5647-6cb6-428d-a9e8-e900ce94a014"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "Undo完成 / Undo completed：新请求直接完成200 / Undo完成 / Undo completed: a new request completes directly with 200",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.annotated.png",
+      "rawImage": "step-024.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 976,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mviiuojn-gwdfvbay"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 317614,
+      "sha256": "f096ecd6cb762346adf2ddbd222e38b00959ca844a8eaaa53892922ce1d1825f"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 217282,
+      "sha256": "2a23e22074b564e21825e4ba11299563daafdccca7bf66856f877d349cbe0af8"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 381802,
+      "sha256": "87c6adfb7e120f4ab199bfc76b6ba6856c8a60aaca978750d3e8ec5fd9ed2dca"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263021,
+      "sha256": "50789665e7f3bb38601467d96e0f641220314e80cfabd62dd33acf5295e7da07"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 381727,
+      "sha256": "05ee9ea566def5903c8512967edcbbde1ae697019f9ca89e979c22fa971c6dd9"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 262855,
+      "sha256": "e94077dae540233267fb75ce19e023f71da68f11b9707455c958a81b3d4b9f42"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 234059,
+      "sha256": "cd41b20d05f029b4bcdca9fa24fa2b3b38d2bd2e367163c91f5f9eabe5265a8e"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 151917,
+      "sha256": "d772b60049e5952141f7bb212bacc70a0b7c7def8f6eedf8de3fc5623e6fae88"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256831,
+      "sha256": "064489fd5788de98efcc49e845d531a2f5fb7da4a0df654e1b2901edebaa96ca"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 169103,
+      "sha256": "1b93b4114f87c8a16564db604f201b2a4511bc970208c8dc1ea0dc8b488de16b"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 336112,
+      "sha256": "1b21466a852fd792f318a1e0cd4f5aa18aaca067e86acf717dcfd6546180e46b"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238619,
+      "sha256": "7441941b52673377541e8b0dbb2cb68c7214a7aa09165a9f1a9d5a7c1e80470f"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 392603,
+      "sha256": "9fdcb7eceae493167991f120098a8e9b2c78c9d33a58159397e3fc9ec744ca25"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 281417,
+      "sha256": "ec0448564d5cde2c3f07f8a18874042743ad72bcbc05ab18149bf0fa1f81ebef"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 478064,
+      "sha256": "a82d2635124be02d0ce78cd644f1c3cd2397151016c3b6e28234e7a6ce954e84"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 336551,
+      "sha256": "65d56dcb017df652000f8b67b419dae5e7e5374ea48b8243f01c787b5d5b4d03"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 456197,
+      "sha256": "a3d4f6b0c705339f3163b53baeeb6b63020674ffeca6ce357203518fec198f56"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 325853,
+      "sha256": "3a6b42fc4ce5feb778a821565032181930dbd9e49cd1cd67fd166febb332c3ad"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 283605,
+      "sha256": "c6b6d1f31b7dc689b23c0931c5d588bfeaffce494dd616cae2ce4e2ecdd7660d"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 187927,
+      "sha256": "b6188ad6e91fb7c30a6b77ef551247b650d1a3c0da9df1532677442eace8156a"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 406112,
+      "sha256": "d8ea1bdb38520e526051f615c9b240236ce21844ee72a8151eafe3f5ecf01602"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 282696,
+      "sha256": "cccb1726715eefa78f78edd3e2336a37b960ccbc9f837ea24b10b94aff88e8ce"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 478313,
+      "sha256": "141530619294b3b3da6d95fee0aa9f76acb2456ec781842c301a38d3e69634c8"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 341967,
+      "sha256": "6ea3a23b6407a86906c45616c4417004084beecc2a0b242a4a01516dc3e92e2e"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372468,
+      "sha256": "23a1d7020b15ac3743184228a1a7b3b18789805795935e302eb6358478e77727"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263768,
+      "sha256": "21cf7ba562650899449a5bc8c27a1323fd2533895df620aa9eac2cbcd48f80a3"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 428557,
+      "sha256": "1f6b4e43b1b2ca7163e3cd4bed30481c6269553813bfc5ebae8318f2778712f2"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 306663,
+      "sha256": "d2a7811bcf9897402913bbdfc283e5ccbc9cdb763413d7fb722c9b6bd933790b"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 496850,
+      "sha256": "c8159924472c6da961ca4aa14c495fb90465ba2d28dc87396caa8644483f2b65"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353729,
+      "sha256": "257352b3d059975bde8ca33d3f05264a352b03dd919f4d94907d0b2ffca8b04f"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 460297,
+      "sha256": "056c17615ac6687dfb3ee6776c84edf4f4580acbd6c3c3ea7ee4232401e5c5f5"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 318789,
+      "sha256": "513381989292cc3d8ff431b9a5b71ed9526ae2423d487ee2e613bfa3ad6164c8"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 513057,
+      "sha256": "57a3b537e19f1835d345bf7cf1bfdc2214c3727eaf8fdf526d40a7fd8d2b394d"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 364576,
+      "sha256": "2a3821057b78557c695cc1af62067107bda2cd075a3ae984ef5df9a150683d1e"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 407251,
+      "sha256": "d320fe2ab4167da9e2ebf971c165774515b409be32d0e86a9d183b5399e3aaa9"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 289231,
+      "sha256": "89413c4970971551c818873f00b5d66f5fac9e33dea86240bbdb8ed3f6247cdf"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 422205,
+      "sha256": "3624173452955d3ec6330e65ed90b042493ac3f3c57afb093f531c45188d1550"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 292242,
+      "sha256": "16fec04260378a867ecd81d41350341c0cff688a5d6870e6f7d56417087cfd42"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 420738,
+      "sha256": "306458fc5d7a1915f9c281fea701599053d8a65c6d41112d27d47afe82a6c36c"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298079,
+      "sha256": "4623b629e58d6469fc4bf827f909855a9803710c88f5812bd37cf7331c86627e"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 475594,
+      "sha256": "1998d494529699501bad5959e9dc52f3c0fbd582d466007d82b3bc8bf5663942"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 339023,
+      "sha256": "6d43c33f0a87442619565c9f365129d497e4d0e4a550a409ee0120cb7d316fd1"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 332950,
+      "sha256": "66adb7c48d1295ff50c5fcf9561594d7d215f2e2374f9543fbe36b7b70d2117e"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 223135,
+      "sha256": "622885eae64fe083d11381ac19b4a3b3790e20f40c775609c57283c6a1718429"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 283722,
+      "sha256": "0c2412587be9b5a2e40f8c311b392a2acbc713f0effe0af15acc7d00b3273ef3"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 187727,
+      "sha256": "83f3aaded16ddb6fb4485cac9cdc025d659fee489b9d15f7165a90661c5763ae"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 511053,
+      "sha256": "0f2abd62756695673686a6eb6afbef1e455a67ceea42a79e96b58c7989145ce5"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354088,
+      "sha256": "3e1f3720d7d8f334065aed85411e81ed6763291ae98b29694da98a12648c6e19"
+    }
+  ]
+}

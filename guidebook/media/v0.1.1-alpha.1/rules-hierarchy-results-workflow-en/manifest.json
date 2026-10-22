@@ -1,0 +1,2002 @@
+{
+  "schemaVersion": 1,
+  "chapter": "rules-hierarchy-results-workflow-en",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "published-reader-validation-pending",
+  "source": {
+    "workflow": "rules/hierarchy-menus-status.workflow.ts",
+    "test": "rules.hierarchy-menus-status keeps hierarchy, validation and effects coherent",
+    "run": "2026-10-21T11-05-20-545Z-PWrqzA",
+    "testDirectory": "rules-hierarchy-menus-stat-444ea-dation-and-effects-coherent-macos",
+    "manifestSha256": "cf5e3ee259fcf2bbed1e4dd08180d5e33a363b8260c609f1fa1a9349421e2d63",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "review": {
+    "actualRendererLanguage": "en",
+    "captureRows": "Only workflow-owned loopback requests are visible.",
+    "failedRootNotAdopted": true,
+    "originPort": 53161,
+    "invalidRegexRawImage": "step-089.png preserves the visible [ without a number badge covering it.",
+    "sameRunConfigurationAndResults": true
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "打开根目录菜单 / Open the root menu",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 566,
+            "y": 1110,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.create-folder"
+        }
+      ],
+      "rawImage": "step-002.png",
+      "bytes": 128837,
+      "sha256": "00738be962479be6e7543c816077ac1e388fa0efdbfaebb3c42af527c14aed35",
+      "rawBytes": 234261,
+      "rawSha256": "bf3ee15046897dc6c9ddea9eb6f1b238c3b2fc6339f21a1663c83ac96350b5cf"
+    },
+    {
+      "id": "step-003",
+      "title": "填写一级目录名称 / Enter the first-level folder name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 236,
+            "y": 208.625,
+            "width": 724,
+            "height": 34.75
+          },
+          "automationId": "rules.folder-rename.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+        }
+      ],
+      "rawImage": "step-003.png",
+      "bytes": 89985,
+      "sha256": "3641f3436fc939c502bbec583f00ecc0f201ca7fbaa198d165aab05cb3b7b8b9",
+      "rawBytes": 165762,
+      "rawSha256": "e507637528c3e17f1951b3f074af0589eabe78e166899c69a90b5562e0eaef22"
+    },
+    {
+      "id": "step-006",
+      "title": "填写二级目录名称 / Enter the second-level folder name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 288,
+            "y": 272.625,
+            "width": 672,
+            "height": 34.75
+          },
+          "automationId": "rules.folder-rename.dir-671297ab-4ad6-4c78-bfd4-1041f1954035"
+        }
+      ],
+      "rawImage": "step-006.png",
+      "bytes": 92983,
+      "sha256": "aec5570d2a2e40d5089d604231291cb716fa4b70bbdb27fffaf93ddac5d420f3",
+      "rawBytes": 170609,
+      "rawSha256": "4111b408973108a1348929560025b4c777d89da3d1f55f829e1d90f723e42334"
+    },
+    {
+      "id": "step-009",
+      "title": "填写三级目录名称 / Enter the third-level folder name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 340,
+            "y": 336.625,
+            "width": 620,
+            "height": 34.75
+          },
+          "automationId": "rules.folder-rename.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791"
+        }
+      ],
+      "rawImage": "step-009.png",
+      "bytes": 96004,
+      "sha256": "645edd15975e2056e7bc27183cae47487b6dffeaa366d5dc27fb125d23c4e47b",
+      "rawBytes": 175474,
+      "rawSha256": "01981a2f08b967c3fe3b16a18889a33c5fb7de05ce5c66993aba67a576cf7fcc"
+    },
+    {
+      "id": "step-011",
+      "title": "三级目录不能继续新建子目录 / A third-level folder cannot add a subfolder",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 150,
+            "y": 466,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791.new-folder"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 150,
+            "y": 526,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791.new-rule"
+        }
+      ],
+      "rawImage": "step-011.png",
+      "bytes": 135556,
+      "sha256": "09c25d54f6dd80b2ca008b4717b0381fca78c9842086fd3f7f30b3422422a90f",
+      "rawBytes": 241592,
+      "rawSha256": "15d1616e325563d38cfcadcf933ec69785b317d1b6b8ed4e0da1a37849e315c4"
+    },
+    {
+      "id": "step-013",
+      "title": "无命中时打开规则菜单 / Open the Rule menu before any hits",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 566,
+            "y": 452,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.rename"
+        }
+      ],
+      "rawImage": "step-013.png",
+      "bytes": 192267,
+      "sha256": "d3a5a33411118c6f465120b76efda8d8cf0fb8fa452c4dfc2e3b33f4ce00d7ac",
+      "rawBytes": 310407,
+      "rawSha256": "ecdfc0b2b346de93aebe86798e3b536416246d9528cfbfbc931fcfa1d7a27f60"
+    },
+    {
+      "id": "step-014",
+      "title": "在列表中填写规则名称 / Enter the Rule name inline",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 392,
+            "y": 400.625,
+            "width": 568,
+            "height": 34.75
+          },
+          "automationId": "rules.rename.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+        }
+      ],
+      "rawImage": "step-014.png",
+      "bytes": 154809,
+      "sha256": "720806ab644f4c61feca14ca04ff1e4992bc3bc01a88517cd92d34367aa7271c",
+      "rawBytes": 242506,
+      "rawSha256": "679f3aca123808acc6a1cb252988aec7bbc4adbd5b53c8f28f5d8b50f104bc57"
+    },
+    {
+      "id": "step-016",
+      "title": "invalid状态必须在Statusbar和Apply边界一致，不能把未填写字段写入Core。 / Invalid state must agree across Statusbar and Apply, never writing missing fields to Core.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.png",
+      "bytes": 249674,
+      "sha256": "2857e6f2ffcb6883474d4b8c57503335a1e8885d8cbd16ecccd12a8fbd1b9313"
+    },
+    {
+      "id": "step-017",
+      "title": "补齐Host条件 / Complete the Host condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 357.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+        }
+      ],
+      "rawImage": "step-017.png",
+      "bytes": 156698,
+      "sha256": "d1339b96859241bf708b47553acdf5a64fb5ce8ba73d43c1910b623614fbaa90",
+      "rawBytes": 242818,
+      "rawSha256": "d18df6b8d512af24306c457764a50e41b5edb8bb2bff64da9a377285c8e307c2"
+    },
+    {
+      "id": "step-018",
+      "title": "补齐Header名称 / Complete the Header name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1538,
+            "y": 791.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.name"
+        }
+      ],
+      "rawImage": "step-018.png",
+      "bytes": 159622,
+      "sha256": "1455a1d55bbea5e490587c34c0848195e024733c92fc4d4a1d9426d724bfea65",
+      "rawBytes": 248041,
+      "rawSha256": "4c20452ffed536df8cdd37a2442ef9f4921409b7d12c4d820289a5e7924a81ff"
+    },
+    {
+      "id": "step-019",
+      "title": "补齐Header值 / Complete the Header value",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2357,
+            "y": 791.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+        }
+      ],
+      "rawImage": "step-019.png",
+      "bytes": 159296,
+      "sha256": "e22317cbe0fe61886dff592d826df6bfb86910a32b52747368d229540b99bb44",
+      "rawBytes": 248135,
+      "rawSha256": "b8794a4abae8451c95b568d91fec1b7a33038bd386ef926db36d147177244d31"
+    },
+    {
+      "id": "step-020",
+      "title": "填完默认host/header字段并启用rule，Statusbar转dirty且Apply恢复。 / Complete the default host/header fields and enable the Rule; Statusbar becomes dirty and Apply recovers.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-020.png",
+      "image": "step-020.png",
+      "bytes": 249001,
+      "sha256": "ef0a0cebb631ffe6c518f6ad3d49e4cadd74f66deffca32a5fc71b42a854f966"
+    },
+    {
+      "id": "step-021",
+      "title": "选中目录时保留正在编辑的规则 / Keep the open Rule editor when selecting a folder",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-021.png",
+      "image": "step-021.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 196,
+            "y": 196,
+            "width": 704,
+            "height": 60
+          },
+          "automationId": "rules.folder-target.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+        }
+      ],
+      "rawImage": "step-021.png",
+      "bytes": 164560,
+      "sha256": "1ca0dbeb23f674196db44d80ae9e74516dc60c4aa6de2f7273b3c9978c40608f",
+      "rawBytes": 254267,
+      "rawSha256": "2adb274751f58997d805a8188208e0d38bbb9dd5d26cb650406d5f89cd859e03"
+    },
+    {
+      "id": "step-022",
+      "title": "选择目录只改树落点，右侧仍打开同一rule；随后Apply并验证revision。 / Folder selection changes only the tree target; the same Rule stays open before Apply and revision verification.",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-022.png",
+      "image": "step-022.png",
+      "bytes": 245074,
+      "sha256": "26d6e1651c287e47c4da40e4e7de8ec7d9cebbe0e473e0a943622a45d9cb6678"
+    },
+    {
+      "id": "step-024",
+      "title": "匹配请求使规则命中数变为1 / A matching request raises the Rule hit count to 1",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-024.png",
+      "image": "step-024.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 908,
+            "y": 416.46875,
+            "width": 52,
+            "height": 27.046875
+          },
+          "automationId": "rules.hit-count.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+        }
+      ],
+      "rawImage": "step-024.png",
+      "bytes": 159585,
+      "sha256": "3625f326e1a995d4ad88c87674a927f2a2c2fba06aec91c6f0217996493b26b9",
+      "rawBytes": 245836,
+      "rawSha256": "96b1d4b289922f47cd6b33570faef9b155158a8801697cfdd30d4c6f2885e406"
+    },
+    {
+      "id": "step-025",
+      "title": "命中后打开Show matching requests / Open Show matching requests after a hit",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-025.png",
+      "image": "step-025.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 566,
+            "y": 512,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.show-requests"
+        }
+      ],
+      "rawImage": "step-025.png",
+      "bytes": 193414,
+      "sha256": "cea7730180e69cbfa805512c15c21aa4908580d7cf3abc81e792496f82d70b0d",
+      "rawBytes": 310285,
+      "rawSha256": "8f1c2bbc96f9d77f96dd1e77d7d0abb9b8480a1474e523cbac5f61693e2fbd55"
+    },
+    {
+      "id": "step-027",
+      "title": "在Capture选择本次GET /e2e/rules/hierarchy-status / Select this GET /e2e/rules/hierarchy-status request in Capture",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-027.png",
+      "image": "step-027.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi0c893-kqw2saj9"
+        }
+      ],
+      "rawImage": "step-027.png",
+      "bytes": 268085,
+      "sha256": "2859274cb617b54eae9c5ba340ef6b93350071adcc634b4cd627de935dfe4b3b",
+      "rawBytes": 387475,
+      "rawSha256": "6b709fc9580cf6a14e6fc5daa26e03f9ead886995dd810714b3a1cb4f2c27fbc"
+    },
+    {
+      "id": "step-028",
+      "title": "Capture中查看初始规则写入的Header和来源 / Inspect the initial Rule Header and its source in Capture",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-028.png",
+      "image": "step-028.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2798.8125,
+            "y": 1532.75,
+            "width": 101.40625,
+            "height": 36
+          },
+          "automationId": "capture.rule-effect.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.set.x-rules-e2e"
+        }
+      ],
+      "rawImage": "step-028.png",
+      "bytes": 267502,
+      "sha256": "756dcfc6483e8b53430c289ea1f3d346bc98eb0e732410278c3ec82066319597",
+      "rawBytes": 387475,
+      "rawSha256": "6b709fc9580cf6a14e6fc5daa26e03f9ead886995dd810714b3a1cb4f2c27fbc"
+    },
+    {
+      "id": "step-030",
+      "title": "点击Header来源标记返回同一规则 / Follow the Header source marker back to the same Rule",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-030.png",
+      "image": "step-030.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 380,
+            "y": 388,
+            "width": 406.890625,
+            "height": 84
+          },
+          "automationId": "rules.target.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+        }
+      ],
+      "rawImage": "step-030.png",
+      "bytes": 158217,
+      "sha256": "cae0e5ba20a33960e7b2b9e662be6e2587667d6d3eaf1d7c4b7f0b1956badfea",
+      "rawBytes": 244851,
+      "rawSha256": "11118b0f72066438c2315d45373730bcc48c7528b7622f05a6774d2dd6c1733a"
+    },
+    {
+      "id": "step-033",
+      "title": "填写method条件的第1个值 / Enter value 1 for the method condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-033.png",
+      "image": "step-033.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1662,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+        }
+      ],
+      "rawImage": "step-033.png",
+      "bytes": 167691,
+      "sha256": "afad6caa8bdd6dcc1bd9d26ca2c08eb74cfe73bf119eef235ad8f2a04663b267",
+      "rawBytes": 257367,
+      "rawSha256": "e45d5f720bf7cabb2636c957079e83003bda0dad734b66ee1a51531397ca7e80"
+    },
+    {
+      "id": "step-037",
+      "title": "填写path条件的第1个值 / Enter value 1 for the path condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-037.png",
+      "image": "step-037.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 525.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.2.value"
+        }
+      ],
+      "rawImage": "step-037.png",
+      "bytes": 183681,
+      "sha256": "50e6a95e1f19d1bfee554162dd4a18896928e72e31c3ebe4960412839dd4d9d2",
+      "rawBytes": 275163,
+      "rawSha256": "96c8878b1887e7f3848fc6d42324464fef6ed933de3bc7574d548ded5803f23f"
+    },
+    {
+      "id": "step-041",
+      "title": "填写url条件的第1个值 / Enter value 1 for the url condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-041.png",
+      "image": "step-041.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 609.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.3.value"
+        }
+      ],
+      "rawImage": "step-041.png",
+      "bytes": 200452,
+      "sha256": "65a9d81cc94d8cab8939642fab246d2df3a35d7c0bdb90499ef6df07fb55d336",
+      "rawBytes": 295169,
+      "rawSha256": "70179ce024d0afa99508c8a23f4880ad0f361035c5d26c794f7835ef7b40937d"
+    },
+    {
+      "id": "step-046",
+      "title": "填写query条件的第2个值 / Enter value 2 for the query condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-046.png",
+      "image": "step-046.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2190,
+            "y": 693.234375,
+            "width": 724,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-046.png",
+      "bytes": 210571,
+      "sha256": "13da28e180ab604410babd573222a3999b273b3db71b2bc3b675a6f8f60c638c",
+      "rawBytes": 308453,
+      "rawSha256": "5e3b201dc5aaf718e8e4a99c81d1ca610d9cac4a4fc02acf41ab9dfe071ec8c7"
+    },
+    {
+      "id": "step-051",
+      "title": "填写header条件的第2个值 / Enter value 2 for the header condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-051.png",
+      "image": "step-051.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2302,
+            "y": 777.234375,
+            "width": 612,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-051.png",
+      "bytes": 225584,
+      "sha256": "b464613c14588e347cef828681baa01632d00e5460091fbdf5ee40ed20496d91",
+      "rawBytes": 324320,
+      "rawSha256": "09e15b9776158a2d418a843e925e8d796cb29a4984e2241da4c4dcb64243c23d"
+    },
+    {
+      "id": "step-056",
+      "title": "填写status条件的第2个值 / Enter value 2 for the status condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-056.png",
+      "image": "step-056.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1622.1875,
+            "y": 861.234375,
+            "width": 120,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-056.png",
+      "bytes": 233218,
+      "sha256": "258b23fe13f18d529b4917f33ad4a33cb11db5d06781f39288392d509024f944",
+      "rawBytes": 334671,
+      "rawSha256": "43347bdf7d97cf088b725eb9ff0e1bcf21b162c79f57541d8ec9c3ef0b397b35"
+    },
+    {
+      "id": "step-060",
+      "title": "填写mime条件的第1个值 / Enter value 1 for the mime condition",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-060.png",
+      "image": "step-060.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1626,
+            "y": 945.234375,
+            "width": 1438,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-060.png",
+      "bytes": 245096,
+      "sha256": "db634b899fb7da4f375ef24b36659dbfb3ebc468e8bfcc84c5d9555f28a17570",
+      "rawBytes": 347601,
+      "rawSha256": "8a9175948ac2b2de4180bb2999069c12fcc6ae2d7fea5308bc64394a2c9553d1"
+    },
+    {
+      "id": "step-062",
+      "title": "响应条件使用响应阶段Header动作 / Use a response-phase Header action with response conditions",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-062.png",
+      "image": "step-062.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1050,
+            "y": 1360,
+            "width": 208,
+            "height": 68
+          },
+          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.phase"
+        }
+      ],
+      "rawImage": "step-062.png",
+      "bytes": 245985,
+      "sha256": "c77aeb3e2ca456e6361b8c1e6aa3e4e5380869a3ce43386c751fbd8537e4aad6",
+      "rawBytes": 348198,
+      "rawSha256": "1c460413b06604052402f5390327dfce16fabe59da593421e953deafd32dbcf8"
+    },
+    {
+      "id": "step-063",
+      "title": "保存八类AND条件 / Save all eight AND conditions",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-063.png",
+      "image": "step-063.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 178,
+            "y": 1756.859375,
+            "width": 173.109375,
+            "height": 28.28125
+          },
+          "automationId": "rules.status.state"
+        }
+      ],
+      "rawImage": "step-063.png",
+      "bytes": 243288,
+      "sha256": "35efeff7750b8afa4b26aef788c65adfa47edacbcb3b3d779adee258b09604af",
+      "rawBytes": 344284,
+      "rawSha256": "2ff259236d211eecb09c03c26bc89a89382c9a318a5b382ad1e477cc52e24935"
+    },
+    {
+      "id": "step-065",
+      "title": "查看GET /e2e/rules/all-conditions?case=and的response Header结果 / Inspect response Header results for GET /e2e/rules/all-conditions?case=and",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-065.png",
+      "image": "step-065.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 804,
+            "height": 438
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-065.png",
+      "bytes": 282954,
+      "sha256": "5fbf37399246ffbfbb64f85899d6a63811ce2af72fc22e39a30a7ab4eeb307d0",
+      "rawBytes": 405310,
+      "rawSha256": "e19cd355298c077fc2b536b447abdd572bdba9a538e64c5158a57b5ddee54b36"
+    },
+    {
+      "id": "step-068",
+      "title": "查看POST /e2e/rules/all-conditions?case=and的response Header结果 / Inspect response Header results for POST /e2e/rules/all-conditions?case=and",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-068.png",
+      "image": "step-068.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 804,
+            "height": 384
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-068.png",
+      "bytes": 296178,
+      "sha256": "1fb29f2b07246bd026d77bf4a688aed36550c74bc5710838e82a119e1927aa48",
+      "rawBytes": 423918,
+      "rawSha256": "4553067f06e0158a51ef5eb7738aee3972c06ff82bf5474291625fa36d537dcc"
+    },
+    {
+      "id": "step-071",
+      "title": "填写用于比较匹配模式的Path / Enter the Path for comparing matching modes",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-071.png",
+      "image": "step-071.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+        }
+      ],
+      "rawImage": "step-071.png",
+      "bytes": 184470,
+      "sha256": "e15a72aaef3c93c7837bfcdc7d052ab5c318332046ff7dea3350c5097d4c81c5",
+      "rawBytes": 282043,
+      "rawSha256": "f6e7101acee15d800cd5446ced85803cb8c9536169441b699a9fef9019e271e5"
+    },
+    {
+      "id": "step-073",
+      "title": "查看GET /e2e/rules/modes/case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/case/extra",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-073.png",
+      "image": "step-073.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-073.png",
+      "bytes": 276870,
+      "sha256": "4549f909236316822616618ae6093d83167066b1584eb848184ccc666dac600b",
+      "rawBytes": 397705,
+      "rawSha256": "f4aaefd1965bc91230d37ce93ab163caba01f44ef0b0a2bb2f53f8db692bfed2"
+    },
+    {
+      "id": "step-076",
+      "title": "开启Aa大小写敏感 / Enable Aa case sensitivity",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-076.png",
+      "image": "step-076.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2930,
+            "y": 435,
+            "width": 42,
+            "height": 42
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-076.png",
+      "bytes": 173721,
+      "sha256": "c2e9e0f1dfe7ee4a0c69754359045f1bbb1f79b7570b24b4c524df77c15c532a",
+      "rawBytes": 267597,
+      "rawSha256": "fb2f2d470318837476fd0b75e9863b9944d0956a939f7868979d4d67c2f31074"
+    },
+    {
+      "id": "step-078",
+      "title": "查看GET /e2e/rules/modes/case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/case/extra",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-078.png",
+      "image": "step-078.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 294
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-078.png",
+      "bytes": 281493,
+      "sha256": "8e20b52bb387b42b6d18665357a4bbd554cd940dfef9b2359215c022798b377e",
+      "rawBytes": 404809,
+      "rawSha256": "ddbed6998f0a8f247f46fbf90ebd8495815cae0aa64fdd556d563c5d97fa40a9"
+    },
+    {
+      "id": "step-081",
+      "title": "选择精确匹配 / Select exact matching",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-081.png",
+      "image": "step-081.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2976,
+            "y": 435,
+            "width": 42,
+            "height": 42
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-081.png",
+      "bytes": 173862,
+      "sha256": "41fedce0698cd18422d9e0d443eb348b521b73dfe3ed423a7b2fe64b7ecff532",
+      "rawBytes": 267838,
+      "rawSha256": "9b7f17d62b90cfc533703be36dc316ac88438e417c281e28b0dfe343022f5cf6"
+    },
+    {
+      "id": "step-083",
+      "title": "查看GET /e2e/rules/modes/Case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/extra",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-083.png",
+      "image": "step-083.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 294
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-083.png",
+      "bytes": 292394,
+      "sha256": "e380f7989e61ce7e4b01fde5c94b11b78c05c46912b0d4ac15f13f6a1d4fa0c1",
+      "rawBytes": 420441,
+      "rawSha256": "46be7d1d338c83a47f8ef8540f005ecd718c84b4badb34bdcb77b4097a33514d"
+    },
+    {
+      "id": "step-086",
+      "title": "查看GET /e2e/rules/modes/Case的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-086.png",
+      "image": "step-086.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-086.png",
+      "bytes": 308201,
+      "sha256": "49ec476f1c88e307aca3af3be3bdd7c8ce8faa56ddb68e4384427af759b46c12",
+      "rawBytes": 443685,
+      "rawSha256": "b4bd6210b9ec5bebd7228c308fab0b7b61d8ebd69d7cc2494be61c08ce4777fa"
+    },
+    {
+      "id": "step-089",
+      "title": "填写无效正则示例 / Enter the invalid regex example",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-089.png",
+      "image": "step-089.png",
+      "bytes": 258509,
+      "sha256": "170fe549f68b8545e9298c8f0da8f5bc8eda506d90e2e40ab93d11b4f6701f8b"
+    },
+    {
+      "id": "step-091",
+      "title": "查看GET /e2e/rules/modes/Case的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-091.png",
+      "image": "step-091.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 294
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-091.png",
+      "bytes": 311129,
+      "sha256": "80f8f6808c06cca3e1c79fa12cb63d7a55271814ae3993a97195eb6aa1a89b32",
+      "rawBytes": 445795,
+      "rawSha256": "8555f967cfacec089385a6cd8dc1742df5fffad706f0a38c79ee35fa3d944d4e"
+    },
+    {
+      "id": "step-094",
+      "title": "填写数字路径正则 / Enter the numeric-path regex",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-094.png",
+      "image": "step-094.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+        }
+      ],
+      "rawImage": "step-094.png",
+      "bytes": 176043,
+      "sha256": "f21565241f3fc145c6f9011f918ab9f2d7eb6a38351b559767fefe19bcbbd9eb",
+      "rawBytes": 271350,
+      "rawSha256": "b762cb0800e822b1318e90f8827bbba6235edbff599c606c964f75e48dfb6841"
+    },
+    {
+      "id": "step-096",
+      "title": "查看GET /e2e/rules/modes/Case/123的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/123",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-096.png",
+      "image": "step-096.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-096.png",
+      "bytes": 276896,
+      "sha256": "7a53bdce44fe7083d0e2d5caa51b770cc08465a3ed8d23043e92bde7c9aaa32c",
+      "rawBytes": 398046,
+      "rawSha256": "b95ca0b091a8f912782c2ddaa7c4330195bf89dec428bb7b55ec645624d86636"
+    },
+    {
+      "id": "step-099",
+      "title": "查看GET /e2e/rules/modes/Case/letters的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/letters",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-099.png",
+      "image": "step-099.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 294
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-099.png",
+      "bytes": 270490,
+      "sha256": "de1eebd52777db8729568f8cb73028b134ae807c2227289043396b0f990a7a5e",
+      "rawBytes": 390423,
+      "rawSha256": "53ab99a336bf51ad0ee061ce0afb2d7b6b67922eefa7212d0095937a157f01e1"
+    },
+    {
+      "id": "step-102",
+      "title": "填写响应MIME通配符 / Enter the response MIME wildcard",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-102.png",
+      "image": "step-102.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1626,
+            "y": 525.234375,
+            "width": 1438,
+            "height": 29.515625
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-102.png",
+      "bytes": 189941,
+      "sha256": "bef4cdb86be602a768e6476fa3e348b7e66a0319047b0b6dae3fd3fd9ba03a5d",
+      "rawBytes": 285780,
+      "rawSha256": "c140650764dd0b60ef93f36abce2a186fdb2ab269e42b777ecaee36a40509332"
+    },
+    {
+      "id": "step-104",
+      "title": "查看GET /e2e/rules/modes/Case/124的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/124",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-104.png",
+      "image": "step-104.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 402
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-104.png",
+      "bytes": 283844,
+      "sha256": "8fc85dd71cb7df3c365e4f18c77b0b1b8258cd893d02c427f98d15ce7d775e2f",
+      "rawBytes": 408497,
+      "rawSha256": "8eb18efb5f567de1e71cf41e8aff24865d8f1c0803dc9a61b155a3c846d9f46c"
+    },
+    {
+      "id": "step-107",
+      "title": "查看GET /e2e/rules/modes/Case/125的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/125",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-107.png",
+      "image": "step-107.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 900.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-107.png",
+      "bytes": 279174,
+      "sha256": "9db1b99b6b12426feaad4f89c733feb4a3a48257f3b06815dcf97413dc0cc2c2",
+      "rawBytes": 400413,
+      "rawSha256": "92b10e515ba6d803c6a40bdf419132c159b3715bdfb8f3d8bffdadac67b41825"
+    },
+    {
+      "id": "step-110",
+      "title": "配置嵌套规则的优先级示例 / Configure the nested Rule for the priority example",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-110.png",
+      "image": "step-110.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+        }
+      ],
+      "rawImage": "step-110.png",
+      "bytes": 173222,
+      "sha256": "0d6ba1bbcc9b65938b0a0b5604cf037d4c7673628a972cf3e3cf628c3c148def",
+      "rawBytes": 265874,
+      "rawSha256": "5204a27535c728f039cffca43b454943da9cdabe82facf7a9be958b57015eaf5"
+    },
+    {
+      "id": "step-112",
+      "title": "填写根规则名称 / Enter the root Rule name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-112.png",
+      "image": "step-112.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1022,
+            "y": 128.78125,
+            "width": 1490.703125,
+            "height": 38.4375
+          },
+          "automationId": "rules.editor.name"
+        }
+      ],
+      "rawImage": "step-112.png",
+      "bytes": 171980,
+      "sha256": "bded6a0145b22f54074e747c1fd346caea5a62a65ec43c99309486ab52704d68",
+      "rawBytes": 264496,
+      "rawSha256": "31df47fc07648803bca3063ea5d4cd4d1f44315534f9172e83bde2f42b8cecc5"
+    },
+    {
+      "id": "step-114",
+      "title": "填写根规则Path / Enter the root Rule Path",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-114.png",
+      "image": "step-114.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1402,
+            "y": 441.234375,
+            "width": 1512,
+            "height": 29.515625
+          },
+          "automationId": "rules.matcher.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.1.value"
+        }
+      ],
+      "rawImage": "step-114.png",
+      "bytes": 179929,
+      "sha256": "7c9f60196ee4030c3c815b450a2c63805d7c21d81d042737d7be630849830928",
+      "rawBytes": 273253,
+      "rawSha256": "c12222276e18ab39ef544698dc7c9f421daee6dc86a9a9732d295e7541a49f11"
+    },
+    {
+      "id": "step-116",
+      "title": "填写根规则Header值 / Enter the root Rule Header value",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-116.png",
+      "image": "step-116.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2357,
+            "y": 875.234375,
+            "width": 755,
+            "height": 29.515625
+          },
+          "automationId": "rules.action.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.0.value"
+        }
+      ],
+      "rawImage": "step-116.png",
+      "bytes": 183151,
+      "sha256": "fe79637971b35e46768769b98f63170cfa56fa34782d486ffdeb06b9a0ff06b8",
+      "rawBytes": 279099,
+      "rawSha256": "ad637278048ed2382c797e153267fbe825f743438180a0912854e9b55d98fafd"
+    },
+    {
+      "id": "step-117",
+      "title": "启用根规则，准备保存顺序 / Enable the root Rule before saving the order",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-117.png",
+      "image": "step-117.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2721.515625,
+            "y": 128,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "rules.editor.enabled"
+        }
+      ],
+      "rawImage": "step-117.png",
+      "bytes": 184567,
+      "sha256": "1415cd66602262125ec63d7e19bbf99fd9952f04ce1808d29d9ebb9ce3d305b7",
+      "rawBytes": 280726,
+      "rawSha256": "1672339500d15eb2d2a41e8b90f1dcd917dc062647953c934349b4c8d3807fef"
+    },
+    {
+      "id": "step-119",
+      "title": "查看GET /e2e/rules/priority/before-drag的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/before-drag",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-119.png",
+      "image": "step-119.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1328.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-119.png",
+      "bytes": 287087,
+      "sha256": "da678639d0539bd6494b7a89561725001d410b1f2ca34a0aac6dfe99d483a541",
+      "rawBytes": 413302,
+      "rawSha256": "5d451939bd203be153ae68c691cba462d911b6364cfa65d7ad45e6a0c44856c4"
+    },
+    {
+      "id": "step-121",
+      "title": "拖拽前的已保存规则顺序 / The saved Rule order before dragging",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-121.png",
+      "image": "step-121.png",
+      "bytes": 277620,
+      "sha256": "04aa5c8d54171a12a6a69a6325d19b683cd62230c960954639eae23a7973413b"
+    },
+    {
+      "id": "step-122",
+      "title": "将根规则拖到嵌套规则之前 / Drag the root Rule before the nested Rule",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-122.png",
+      "image": "step-122.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 388,
+            "width": 832,
+            "height": 84
+          },
+          "automationId": "rules.row.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077"
+        }
+      ],
+      "rawImage": "step-122.png",
+      "bytes": 183906,
+      "sha256": "42eda8078b4a2db42e1f5603feb0622eae7b807d6696a6fdaee26c95366c73e0",
+      "rawBytes": 280000,
+      "rawSha256": "bc60358c5ad184fd8cd1b73ab3677721f3c44ede7a3c67f8fe0e7c1d74651f7a"
+    },
+    {
+      "id": "step-124",
+      "title": "查看GET /e2e/rules/priority/after-drag的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/after-drag",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-124.png",
+      "image": "step-124.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1328.75,
+            "width": 824,
+            "height": 348
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-124.png",
+      "bytes": 284974,
+      "sha256": "7a291fa1d0768a40bbc048314d433ea3fef644f665e79afae849763cadd8bd0d",
+      "rawBytes": 409860,
+      "rawSha256": "e77aa8a4b82b950ca50443b8fdfa44b09ec601f8906dd355be8867c39fe4a08c"
+    },
+    {
+      "id": "step-126",
+      "title": "调整规则顺序后核对真实Header覆盖 / Verify actual Header precedence after reordering Rules",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-126.png",
+      "image": "step-126.png",
+      "bytes": 278340,
+      "sha256": "250a41d5547ebe737970f104b90981249eabb4e0dc5aa0fc7904957ffb29df4c"
+    },
+    {
+      "id": "step-127",
+      "title": "按名称搜索根规则 / Search for the root Rule by name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-127.png",
+      "image": "step-127.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 214,
+            "y": 118.5,
+            "width": 436,
+            "height": 33
+          },
+          "automationId": "rules.search"
+        }
+      ],
+      "rawImage": "step-127.png",
+      "bytes": 171757,
+      "sha256": "bc988a040418f79b20fec536e53620bf5c2ef44aeaeb712de709c83f56f8ecb7",
+      "rawBytes": 262971,
+      "rawSha256": "60d2d4acbefb1b40462fc544cfe025b9e5621f6fd958e921d6eb57710d4b2adc"
+    },
+    {
+      "id": "step-129",
+      "title": "填写目录的新名称 / Enter the new folder name",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-129.png",
+      "image": "step-129.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 236,
+            "y": 208.625,
+            "width": 724,
+            "height": 34.75
+          },
+          "automationId": "rules.folder-rename.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+        }
+      ],
+      "rawImage": "step-129.png",
+      "bytes": 156256,
+      "sha256": "03aeedf7475acea9b135935bb620f46cfc0cc7898671fa52109c23a9db48ff31",
+      "rawBytes": 240578,
+      "rawSha256": "d2a6d68efaf1f4e5386b900198ed81fe24a6232c517a34fe0ee62db949a5024f"
+    },
+    {
+      "id": "step-131",
+      "title": "折叠目录隐藏子规则 / Collapse the folder to hide its child Rules",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-131.png",
+      "image": "step-131.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 144,
+            "y": 196,
+            "width": 40,
+            "height": 60
+          },
+          "automationId": "rules.folder-toggle.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+        }
+      ],
+      "rawImage": "step-131.png",
+      "bytes": 158799,
+      "sha256": "c75a09033e33c953f75a03bb40f09e007d18057af58f15681a97b3a8a45ce7d6",
+      "rawBytes": 242800,
+      "rawSha256": "e5e58032bb8a62a69197f0c8b9e6e59f6e3ad813495d66f3bcac31a6acddc062"
+    },
+    {
+      "id": "step-133",
+      "title": "打开非最后一条规则的删除菜单 / Open Delete for a Rule that is not the last one",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-133.png",
+      "image": "step-133.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 566,
+            "y": 594,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.delete"
+        }
+      ],
+      "rawImage": "step-133.png",
+      "bytes": 216895,
+      "sha256": "ace81fa24525ab433907a2e9246a99f92fdbc3ae8eb410c05c454d91d9df4702",
+      "rawBytes": 340396,
+      "rawSha256": "aff3f8d9d17ffe8d7bee734e2a6b714ea66a94a94186bd35b059b92416b670db"
+    },
+    {
+      "id": "step-134",
+      "title": "删除竞争规则后仍保留嵌套规则 / Keep the nested Rule after deleting the competing Rule",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-134.png",
+      "image": "step-134.png",
+      "bytes": 267999,
+      "sha256": "df2ce5ebdeb71cc93d7036df6c2772c94fe0943c7ce67df353844bc856696d6c"
+    },
+    {
+      "id": "step-135",
+      "title": "将保留规则移回根目录 / Move the retained Rule back to the root",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-135.png",
+      "image": "step-135.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 400,
+            "width": 832,
+            "height": 84
+          },
+          "automationId": "rules.row.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+        }
+      ],
+      "rawImage": "step-135.png",
+      "bytes": 174565,
+      "sha256": "5f06ab024c1f90eecc29296f01361844291593fce4dde22496edf21a752ad714",
+      "rawBytes": 268083,
+      "rawSha256": "789ae756b56998e6da204221594858e0da53b1071ed1c503527a43412c33edf3"
+    },
+    {
+      "id": "step-136",
+      "title": "打开空目录的删除菜单 / Open Delete for the empty folder",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-136.png",
+      "image": "step-136.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 150,
+            "y": 480,
+            "width": 352,
+            "height": 60
+          },
+          "automationId": "rules.node-action.dir-31a6b3c4-75df-4bae-b928-260aec058fc1.delete"
+        }
+      ],
+      "rawImage": "step-136.png",
+      "bytes": 201067,
+      "sha256": "93c6c17866eab187ccb56de8dd6d008ab0cebef948dbf52e2fe5fa9d991a9ab1",
+      "rawBytes": 316567,
+      "rawSha256": "033ae29275d64aabe7bc9e18116b349a1ceaaa057f608ecd5a27cd534804a4ea"
+    },
+    {
+      "id": "step-138",
+      "title": "查看GET /e2e/rules/priority/after-deletion的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/after-deletion",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-138.png",
+      "image": "step-138.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1328.75,
+            "width": 824,
+            "height": 240
+          },
+          "automationId": null
+        }
+      ],
+      "rawImage": "step-138.png",
+      "bytes": 276704,
+      "sha256": "71a74a4a0583186ac6691d6f6978552ae2235fbaceab61406fcf4fbe72b425bb",
+      "rawBytes": 398214,
+      "rawSha256": "519067c2a92bf42bef9b377414268623e06400418d6d2c76d6c74b9d94bfaf62"
+    },
+    {
+      "id": "step-140",
+      "title": "删除非最后规则和空目录后保留有效规则 / Keep the valid Rule after deleting a non-last Rule and empty folders",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-140.png",
+      "image": "step-140.png",
+      "bytes": 251743,
+      "sha256": "27a4c42165902cf86b83b0a94af5159eb460a374eda6567adc5f5c57eb1673a4"
+    }
+  ]
+}

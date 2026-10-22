@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-http2-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/http2-scenarios.workflow.ts",
+    "test": "capture.scenarios.http2 captures decrypted H2 headers trailers and body",
+    "run": "2026-10-21T19-20-21-252Z-OBUvxl",
+    "testDirectory": "capture-http2-scenarios.wo-15ef0-2-headers-trailers-and-body-macos",
+    "manifestSha256": "fd63a7efc23f3a80d5bc23a884fc6712199c65259fc725a8f189dda56857c7ef",
+    "metadataSha256": "053f14ffc2d4e40d09670e42e2362e361dc1aa90c835e86eaeaea9188ac2053b",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "origin": "https://localhost:56588",
+    "jsonPath": "/playground/h2-json",
+    "jsonResponseBytes": 55,
+    "trailer": {
+      "x-playground-trailer": "h2-complete"
+    },
+    "progressPath": "/e2e/h2/body-progress",
+    "progressBytes": [
+      65536,
+      131072
+    ],
+    "completedResponseBytes": 131072,
+    "completedTrailer": {
+      "x-capture-end": "complete"
+    },
+    "errorPaths": [
+      "/e2e/h2/error-goaway-origin",
+      "/e2e/h2/error-goaway-client"
+    ],
+    "interruptedMethod": "POST",
+    "declaredResponseBytes": 524288,
+    "actualResponseBytes": 262144,
+    "requestBody": "single-attempt",
+    "recoveredMethod": "GET",
+    "recoveredResponseBytes": 73
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "选择/playground/h2-json并核对H2 / Select /playground/h2-json and inspect H2",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "bytes": 264099,
+      "sha256": "c778973413a0114d8f7763f950bf24bcc568f696563df1bfde4c215068fa63a7",
+      "rawBytes": 378183,
+      "rawSha256": "97249fba5f9089c39588c1236c452cf4b8348c1d97061e4ea09ddf91e5b0a1e6",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihzhr6-1ecc24dk"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "展开Protocol分组 / Expand the Protocol group",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "bytes": 266139,
+      "sha256": "fce2004ae50b4837f0fbc96e3a3035f24d09faa2b3076a9c3d242421a5b57366",
+      "rawBytes": 383176,
+      "rawSha256": "82c7891679eebe1f4fe338cd5cdbdfcc6a389d33c1ad7cf7062ac3ce4d54ead3",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 152,
+            "y": 364,
+            "width": 308,
+            "height": 56
+          },
+          "automationId": "capture.filter.toggle.protocol"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "选择HTTP/2并保留同一请求 / Select HTTP/2 and retain the same request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "bytes": 265762,
+      "sha256": "91423e1289ee3cfb7fce9b192bc89bd1e61da9f9104c3ec9f73d983ae4381145",
+      "rawBytes": 383007,
+      "rawSha256": "a404d7c15390932bb147112482db0f4c798eaacf661a6996de6e1e83bf09c73f",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 482,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.protocol.HTTP%2F2"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "取消HTTP/2筛选，不删除请求 / Deselect HTTP/2 without deleting the request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "bytes": 265629,
+      "sha256": "00f6b882d76d4026121ce6d556caa325ebe6c93569b8650b2391aef4abe4cd1b",
+      "rawBytes": 383099,
+      "rawSha256": "48838fce6331d2414524a3249d02e43c0cfb7f43d270ee1a0f8c2955e2b06d12",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 136,
+            "y": 482,
+            "width": 368,
+            "height": 52
+          },
+          "automationId": "capture.filter.option.protocol.HTTP%2F2"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "H2查看capture.inspector.section.response-trailers / Inspect H2 capture.inspector.section.response-trailers",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "bytes": 267273,
+      "sha256": "fd4be0e43a9f932b6a83e5164c25602530ea01ed45f4b276b6d0172df24b3ee6",
+      "rawBytes": 385052,
+      "rawSha256": "45652984b406bc7b4bd8b51c7c569fa63549e4378805b7f758f96f7a5c32c73d",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1571.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-trailers"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "H2 Response选择Raw并核对JSON / Select Raw and inspect the H2 JSON response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "bytes": 216985,
+      "sha256": "12130258dcab3a94d9c66ffe1d1e3a9bdd4cac8e9613b99e687c224d20430e80",
+      "rawBytes": 285652,
+      "rawSha256": "a83b482211a02790c433c332c333b8fd56dcc189165e4c83f148b416f16a77d3",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "同一H2响应先收到64KiB，尚未结束 / The same H2 response has received 64 KiB without ending",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "bytes": 182044,
+      "sha256": "594c25f3ee04b6ee9351a90c37efed73d2152eb6d13f28c1d10c4179faee441f",
+      "rawBytes": 266328,
+      "rawSha256": "173cd567f507deb55cc960c6d86a97513afaaecfb5f0d4c3137dffb938eac264",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihzs4u-wdy42q2z"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "第二段到达128KiB，响应仍未结束 / The second part reaches 128 KiB before the response ends",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "bytes": 182268,
+      "sha256": "65ae516eb07f7dd73e9e2bf13f65814088bcb07697936547325a5e7322e069ea",
+      "rawBytes": 266682,
+      "rawSha256": "da6edbf8d0cba518c94a166892db197320b2f47ef32db5818e58d658b39eaac5",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvihzs4u-wdy42q2z"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "H2响应结束后读取完整Text正文 / Read the completed H2 response in Text",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 252800,
+      "sha256": "2ed358ca8a2710b5b9029956a19cd55cf36ec2539ca7e0a9117c5113f4263f17",
+      "rawBytes": 338418,
+      "rawSha256": "3749985ad1c792ed53d907c7e31b42f8e4af9d87a99621c54df8a94ee0cb61c1",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 532.75,
+            "width": 86.1875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.default"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "Copy复制同一H2响应的完整128KiB / Copy all 128 KiB of the same H2 response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "bytes": 271161,
+      "sha256": "ac80973548f944e6ccdfeaac48b213c71eee177bb52f00df992d2399eb47e034",
+      "rawBytes": 366829,
+      "rawSha256": "6bc50c1262969f29ee46d7266ef3cf829796ff603ae7c2cc1b05606cae9f58bb",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3038,
+            "y": 524.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "检查同一H2响应结束后的trailer / Inspect the trailer after the same H2 response ends",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 276255,
+      "sha256": "01680e32a12107085f33b5272e8d69d1896d4153443744ad5623f16934ed0121",
+      "rawBytes": 399227,
+      "rawSha256": "522ca477a3cd3d9693b93e5336085b8b54ab0622fe81f21eef2af36a93141164",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1571.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-trailers"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-039",
+      "title": "origin错误GOAWAY后查看响应声明的512KiB / Inspect the declared 512 KiB response after origin error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-039.png",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
+      "bytes": 276270,
+      "sha256": "6c9cab9847b58048b2d63960fa7e2399f93b004a3cfb1e530a529d1db3b31b3a",
+      "rawBytes": 398506,
+      "rawSha256": "68dc33f4c9910a88d9e26c2f1235a0ca4583cad5599b75b13713bff33e365746",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 936.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-headers"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-040",
+      "title": "origin错误GOAWAY后读取原POST响应的256KiB部分正文 / Read the original POST response's 256 KiB partial body after origin error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-040.png",
+      "image": "step-040.annotated.png",
+      "rawImage": "step-040.png",
+      "bytes": 257236,
+      "sha256": "8c28a98d45321ffea0a01baefede36a344d83fe72a3a567f23c9c2e1e971c5aa",
+      "rawBytes": 346347,
+      "rawSha256": "8599c10cae39f68021ea27c8a6f43aa5deedb474239da4f4482d72d20bb232c3",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 532.75,
+            "width": 86.1875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.default"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-042",
+      "title": "origin错误GOAWAY后打开独立GET的Response Raw / Open the separate GET Response in Raw after origin error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-042.png",
+      "image": "step-042.annotated.png",
+      "rawImage": "step-042.png",
+      "bytes": 233395,
+      "sha256": "0cbcac362907226eed0c58e4eccdaf4f5c5138f795c064c8475532199701dbf9",
+      "rawBytes": 313122,
+      "rawSha256": "cf8aa97830352f50231e7af51137ae2895f4dfa779bc6f39503746e26ff970c7",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-044",
+      "title": "client错误GOAWAY后查看响应声明的512KiB / Inspect the declared 512 KiB response after client error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-044.png",
+      "image": "step-044.annotated.png",
+      "rawImage": "step-044.png",
+      "bytes": 277191,
+      "sha256": "d6aad0213c0ab0d5a89fb586277cb1a1049cea5bba1f5044ca41ba5a4fa59f06",
+      "rawBytes": 399655,
+      "rawSha256": "bd3a0fab588d5382c0a29c4b03e3eb2e3e388ecd9fd16bb77897d3df2aeb4979",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 936.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-headers"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-045",
+      "title": "client错误GOAWAY后读取原POST响应的256KiB部分正文 / Read the original POST response's 256 KiB partial body after client error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-045.png",
+      "image": "step-045.annotated.png",
+      "rawImage": "step-045.png",
+      "bytes": 257541,
+      "sha256": "cdc67800033ff79809a3b79490dd7ab2fce7c9e044226163b6808c4df8f3dc86",
+      "rawBytes": 346628,
+      "rawSha256": "dfa7d7ad8302c6ad2aeddf033028e0dddf4d5dbf72860c4d69e006c41aa39c7b",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 532.75,
+            "width": 86.1875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.default"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-047",
+      "title": "client错误GOAWAY后打开独立GET的Response Raw / Open the separate GET Response in Raw after client error GOAWAY",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-047.png",
+      "image": "step-047.annotated.png",
+      "rawImage": "step-047.png",
+      "bytes": 235348,
+      "sha256": "d7286712b2c4f21cc2688b243da914d19077b1a95025f42d9132d286f0a31371",
+      "rawBytes": 315362,
+      "rawSha256": "c801e092722490925d963e2a3de6fac28ebdbf2524deb9551afc6e01caf3e76c",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

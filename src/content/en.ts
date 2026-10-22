@@ -5,6 +5,17 @@ export const english = {
   description:
     'Interceptor is an HTTP(S) debugging proxy for macOS and Windows. Inspect traffic, rewrite responses, replay requests, and debug with optional AI.',
   skip: 'Skip to content',
+  imagePreview: {
+    close: 'Close image',
+    error: 'The image could not be loaded.',
+    errorHint: 'Check your connection, close this preview and try again.',
+    flipX: 'Flip horizontally',
+    flipY: 'Flip vertically',
+    rotateLeft: 'Rotate left',
+    rotateRight: 'Rotate right',
+    zoomOut: 'Zoom out',
+    zoomIn: 'Zoom in',
+  },
   nav: {
     label: 'Main navigation',
     features: 'Features',
@@ -172,8 +183,7 @@ export const english = {
       'Proxy setup, HTTPS inspection, your first request, and orderly cleanup — in the project README.',
     quickAction: 'Read the quick start',
     guide: 'The complete user guide.',
-    guideBody:
-      'Read the Chinese or English draft by feature, with real step images and clearly stated limitations.',
+    guideBody: 'Start with your first request, then find instructions and screenshots by feature.',
     guideAction: 'Read the user guide',
     steps: 'Follow the steps.',
     stepsBody: 'Find real App step images by feature, with matching example values and results.',

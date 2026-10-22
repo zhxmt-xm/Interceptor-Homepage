@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "chapter": "rules-header-effects-workflow-en",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "published-reader-validation-pending",
+  "source": {
+    "workflow": "rules/body-effect-evidence.workflow.ts",
+    "test": "rules.body-effect-evidence keeps breakpoint header effects aligned",
+    "run": "2026-10-21T11-05-20-545Z-PWrqzA",
+    "testDirectory": "rules-body-effect-evidence-7cdc3-oint-header-effects-aligned-macos",
+    "manifestSha256": "db4cbf616bbf850a3b8d3ba69ef34bb585a4f8044af755466a6d6b2d3e1f09e2",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "review": {
+    "actualRendererLanguage": "en",
+    "captureRows": "Only workflow-owned loopback requests are visible.",
+    "failedRootNotAdopted": true,
+    "originPort": 52974,
+    "requestRule": "E2E request header layout",
+    "responseRule": "E2E response header layout",
+    "scope": "Header source markers after Continue unmodified; both rules contain same-phase Header and Breakpoint actions. Do not label them as E2E action variants."
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "Capture中查看request Header来源 / Inspect the request Header source in Capture",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2840.203125,
+            "y": 1703.75,
+            "width": 101.40625,
+            "height": 36
+          },
+          "automationId": "capture.rule-effect.rule-e39eea1e-4ed4-47ba-aac8-d7afc3a672ea.set.x-effect-layout"
+        }
+      ],
+      "rawImage": "step-002.png",
+      "bytes": 291021,
+      "sha256": "cb3a287f5ccc51523eb9cd25a1a6d8eb67dd28815f40ba3414fd7556170192da",
+      "rawBytes": 419195,
+      "rawSha256": "14089a64e4c5dd071e1cf809145ec87cdc02ce97a033f9396bdbd21af3ca3cc2"
+    },
+    {
+      "id": "step-003",
+      "title": "从request Header标记返回原Rule / Return to the original Rule from the request Header marker",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 224,
+            "y": 196,
+            "width": 424.109375,
+            "height": 84
+          },
+          "automationId": "rules.target.rule-e39eea1e-4ed4-47ba-aac8-d7afc3a672ea"
+        }
+      ],
+      "rawImage": "step-003.png",
+      "bytes": 172286,
+      "sha256": "848ddcffa9411b1b9e9c6a8aae79ac1e77c05bb96ed743a8646b52e0daf4598d",
+      "rawBytes": 256859,
+      "rawSha256": "66964d2c854452ceecb4947c3bc94733929ad09957c329ccdd4c639b45bb775f"
+    },
+    {
+      "id": "step-008",
+      "title": "Capture中查看response Header来源 / Inspect the response Header source in Capture",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2840.203125,
+            "y": 1410.75,
+            "width": 165.484375,
+            "height": 36
+          },
+          "automationId": "capture.rule-effect.rule-383b7870-bc94-42de-a7a7-f1adf5a44f24.append.x-effect-layout"
+        }
+      ],
+      "rawImage": "step-008.png",
+      "bytes": 281195,
+      "sha256": "308442754af3aa38a8331497a72fb3ee9a9402ae23a34f56cecfaa97ebcca727",
+      "rawBytes": 403056,
+      "rawSha256": "ce390ad575ac66d12a267472427b451d6d3e96545437b966f0b88d1dbbc65653"
+    },
+    {
+      "id": "step-009",
+      "title": "从response Header标记返回原Rule / Return to the original Rule from the response Header marker",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 224,
+            "y": 292,
+            "width": 424.109375,
+            "height": 84
+          },
+          "automationId": "rules.target.rule-383b7870-bc94-42de-a7a7-f1adf5a44f24"
+        }
+      ],
+      "rawImage": "step-009.png",
+      "bytes": 187097,
+      "sha256": "6f0c4f2012f1cd7f62b8398964b8ac953fcbdf594bbab643bc372a1a00b430d2",
+      "rawBytes": 278148,
+      "rawSha256": "2cdcefb3407c24b5c93c66f128bef40d07cf1a9b28b7f442930b5e1925bbe1a7"
+    }
+  ]
+}

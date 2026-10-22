@@ -44,14 +44,15 @@ export default function FeatureSection({ feature, theme, index, imageNote, openI
         </div>
       </div>
       <figure className={styles.visual}>
-        <a
-          href={image}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          type="button"
+          data-image-preview
+          data-image-src={image}
+          aria-haspopup="dialog"
           aria-label={`${openImage}: ${feature.label}`}
         >
           <img src={image} width="3200" height="1800" alt={feature.imageAlt} loading="lazy" />
-        </a>
+        </button>
         <figcaption>
           {imageNote}
           <Icon name="arrowUpRight" size={13} />

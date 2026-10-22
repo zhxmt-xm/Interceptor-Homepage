@@ -18,7 +18,7 @@ for (const theme of ['light', 'dark'] as const) {
 }
 
 for (const locale of ['zh-CN', 'en']) {
-  test(`homepage identifies real demo media and preserves original-image links in ${locale}`, async ({
+  test(`homepage identifies real demo media and opens original-image previews in ${locale}`, async ({
     page,
   }) => {
     await page.goto('/');
@@ -48,11 +48,13 @@ for (const locale of ['zh-CN', 'en']) {
           const file = `${feature === 'overview' ? 'capture' : feature}-${theme}.png`;
           await expect(area.locator('figcaption')).toContainText(note);
           await expect(area.locator('figcaption')).not.toContainText(previewLabel);
-          await expect(area.locator('a')).not.toHaveAttribute('aria-label', previewLabel);
+          const trigger = image.locator('..');
+          await expect(trigger).not.toHaveAttribute('aria-label', previewLabel);
           await expect(image).not.toHaveAttribute('alt', previewLabel);
           await expect(image).toHaveAttribute('src', `/media/features/${file}`);
-          await expect(area.locator('a')).toHaveAttribute('href', `/media/features/${file}`);
-          await expect(area.locator('a')).toHaveAttribute('target', '_blank');
+          await expect(trigger).toHaveAttribute('data-image-src', `/media/features/${file}`);
+          await expect(trigger).toHaveAttribute('aria-haspopup', 'dialog');
+          await expect(trigger).not.toHaveAttribute('target');
           await image.scrollIntoViewIfNeeded();
           await expect
             .poll(() =>

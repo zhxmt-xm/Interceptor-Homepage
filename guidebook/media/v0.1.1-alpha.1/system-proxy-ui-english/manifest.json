@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "chapter": "system-proxy-ui-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/tools-system-proxy.workflow.ts",
+    "manifestSha256": "3e224b1364bddeb36f4f26f780062b6b6e2c4c3c389d879d136197b1c993a5a5",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "检查已接管的系统代理及Restore入口 / Inspect owned system proxy and Restore",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2961.515625,
+            "y": 696.6875,
+            "width": 152.484375,
+            "height": 68
+          },
+          "automationId": "settings.proxy.restore"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "Restore后系统路由恢复，监听器继续运行 / Restore the system route while keeping the listener available",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "显式代理客户端在Restore后仍通过监听器 / An explicit proxy client still uses the listener after Restore",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvibbzw6-dntgl9ys"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "通过Enable重新接管系统代理 / Take ownership again through Enable",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2972.28125,
+            "y": 696.6875,
+            "width": 141.71875,
+            "height": 68
+          },
+          "automationId": "settings.proxy.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "Enable后确认接管状态 / Confirm ownership after Enable",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "确认Recording已开启后再暂停 / Confirm Recording is active before pausing",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "单独暂停Recording / Pause Recording separately",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "暂停Recording不恢复系统代理 / Pausing Recording does not restore the system proxy",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "用户操作：同一真实Main并发接收两个Enable，冲突请求必须立即结束而不是排队。 / User actions: send two concurrent Enable calls to the same real Main; a conflicting call must finish without queuing.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "结束前通过Restore恢复原系统路由 / Restore the original system route at the end",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369438,
+      "sha256": "3613cff7b914a14dd7090d9572aca4b81005b753caf085321eeab45777fcfe2c"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 246840,
+      "sha256": "204b3cbd37e2f4ea9245d921b43d9db75e701425c4aade3c30491bd83dba1768"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379293,
+      "sha256": "7222bf9a3114c0aadc6f6d3426dd5e84b05718c691e3e0e583c893b7db3d0367"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369646,
+      "sha256": "31389d6e0b9efed312953d0a0b70760fe07b89ad4398907da6166ea83eccb7f0"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256431,
+      "sha256": "4be1ef5930dfc9a09b6c38e4dc697e8ce0ed60a0bfc8cc14dc9b19707a0b5149"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369894,
+      "sha256": "87510dd76a64837db9ad19d83830b9c9bd27f62860d80a7b2823564e6da91193"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 246612,
+      "sha256": "5fd3cc09135d1ef0517c4e8ce6e99f605e0efc0d804c5b340863ae17d4e20c86"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 380186,
+      "sha256": "82a10d116660d4ba669149a9db04f122fa9fbbf0cfa3f1d4839e326ae08f61e7"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 388572,
+      "sha256": "1eb94e612f3ece064f33d6f2a928e186ae67a0a35f75ff9503578a7f97829fb8"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 265788,
+      "sha256": "936c34ff067d006dcdacc5ea071f93f22cd8f58680f67238c256012664eba89c"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 387834,
+      "sha256": "b710f480839efa1f534ced0b0c3eebb5d3d670ee1f811cd28cb9dbbdff6b4015"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 265751,
+      "sha256": "a3618a53ceaec1b87dfcf2045c1299cb63e786433a372154b96d94cd5bebaa54"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 369438,
+      "sha256": "3613cff7b914a14dd7090d9572aca4b81005b753caf085321eeab45777fcfe2c"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 488544,
+      "sha256": "3967c549dacece229cdc21da96d03283f4d69b6cc86171ad5d31b52433af7935"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379293,
+      "sha256": "7222bf9a3114c0aadc6f6d3426dd5e84b05718c691e3e0e583c893b7db3d0367"
+    }
+  ]
+}

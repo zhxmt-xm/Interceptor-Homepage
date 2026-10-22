@@ -1,103 +1,6 @@
 # Settings：代理、证书、存储和更新
 
-> 草稿，面向 `v0.1.1-alpha.1`；已配只读检查、安全草稿及已录操作，授权和平台缺口逐步标注，不代表全章或 item9 完成。原生授权须由有权限的用户完成，macOS 或测试结果不能替代 Windows 验收。
-
 [教程目录](../README.md) · [快速上手](getting-started.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## 逐步骤实操：真实产品录制
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>manualHost</code> | <code>127.0.0.1</code> |
-| <code>manualPort</code> | <code>7890</code> |
-| <code>pacUrl</code> | <code>https://proxy.example.test/proxy.pac</code> |
-| <code>exampleApplied</code> | <code>false</code> |
-
-<a id="walkthrough-01-open"></a>
-### 01 · 打开 Settings
-
-![01 · 打开 Settings](../media/v0.1.1-alpha.1/settings/settings-01-open.png)
-
-<a id="walkthrough-02-certificates"></a>
-### 02 · 检查当前 CA 与信任
-
-![02 · 检查当前 CA 与信任](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
-
-<a id="walkthrough-03-proxy"></a>
-### 03 · 检查 System proxy
-
-![03 · 检查 System proxy](../media/v0.1.1-alpha.1/settings/settings-03-proxy.png)
-
-<a id="walkthrough-04-upstream"></a>
-### 04 · 查看当前上游路线
-
-![04 · 查看当前上游路线](../media/v0.1.1-alpha.1/settings/settings-04-upstream.png)
-
-<a id="walkthrough-05-manual-draft"></a>
-### 05 · 选择 Manual 草稿
-
-![05 · 选择 Manual 草稿](../media/v0.1.1-alpha.1/settings/settings-05-manual-draft.png)
-
-<a id="walkthrough-06-discard"></a>
-### 06 · Discard 不应用示例草稿
-
-![06 · Discard 不应用示例草稿](../media/v0.1.1-alpha.1/settings/settings-06-discard.png)
-
-<a id="walkthrough-07-pac"></a>
-### 07 · 查看 PAC 输入
-
-![07 · 查看 PAC 输入](../media/v0.1.1-alpha.1/settings/settings-07-pac.png)
-
-<a id="walkthrough-08-discard-pac"></a>
-### 08 · 放弃未运行的 PAC 示例
-
-![08 · 放弃未运行的 PAC 示例](../media/v0.1.1-alpha.1/settings/settings-08-discard-pac.png)
-
-<a id="walkthrough-09-passthrough"></a>
-### 09 · 打开 TLS passthrough
-
-![09 · 打开 TLS passthrough](../media/v0.1.1-alpha.1/settings/settings-09-passthrough.png)
-
-<a id="walkthrough-10-privacy"></a>
-### 10 · 检查导出隐私默认值
-
-![10 · 检查导出隐私默认值](../media/v0.1.1-alpha.1/settings/settings-10-privacy.png)
-
-<a id="walkthrough-11-storage"></a>
-### 11 · 查看临时存储
-
-![11 · 查看临时存储](../media/v0.1.1-alpha.1/settings/settings-11-storage.png)
-
-<a id="walkthrough-12-refresh"></a>
-### 12 · 刷新用量
-
-![12 · 刷新用量](../media/v0.1.1-alpha.1/settings/settings-12-refresh.png)
-
-<a id="walkthrough-13-clear-confirm"></a>
-### 13 · 查看清理确认
-
-![13 · 查看清理确认](../media/v0.1.1-alpha.1/settings/settings-13-clear-confirm.png)
-
-<a id="walkthrough-14-cancel"></a>
-### 14 · 取消清理
-
-![14 · 取消清理](../media/v0.1.1-alpha.1/settings/settings-14-cancel.png)
-
-<a id="walkthrough-15-updates"></a>
-### 15 · 查看版本与更新状态
-
-![15 · 查看版本与更新状态](../media/v0.1.1-alpha.1/settings/settings-15-updates.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:end -->
 
 ## 先找到对应设置
 
@@ -108,353 +11,287 @@
 <a id="system-proxy"></a>
 ## 接管与恢复系统代理
 
-**用途**：让遵循系统代理的应用把请求交给 Interceptor。
+系统代理让遵循系统设置的应用把流量交给 Interceptor；显式配置代理的客户端仍使用自己的地址。操作需要产品 helper 已就绪，并完成系统要求的授权。Restore、Enable 和 Recording 分别检查，不用一个按钮的状态推断全部网络行为。
 
-**步骤**
+1. <a id="walkthrough-settings-proxy-routing"></a><a id="walkthrough-settings-proxy-routing-01-owned"></a>打开 Settings → Proxy & Listener，检查监听地址 `127.0.0.1:8888`、Listening 和 Owned by Interceptor。红框 1 是恢复本轮接管前设置的 Restore。
 
-本段使用 `settings-proxy-routing`，录制机器已经有获授权的 helper。它展示实际 Restore/Enable，不是首次 helper 安装或系统授权；调用方是明确配置代理的本地演示客户端。
+   ![接管与恢复系统代理 · 1](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-001.annotated.png)
 
-1. 检查当前系统代理已由 Interceptor 接管，监听地址为 `127.0.0.1:8888`。
+2. <a id="walkthrough-settings-proxy-routing-02-restore"></a>点击 Restore 并等待操作完成。系统代理恢复原配置，本例显示 External；监听器仍显示 Listening。不要把按钮暂时不可点击当作已经恢复。
 
-   ![实际系统代理接管状态](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-01-owned.png)
+   ![接管与恢复系统代理 · 2](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
 
-2. 点击 Restore，恢复本轮接管前的系统路由。
+3. <a id="walkthrough-settings-proxy-routing-03-listener"></a>需要继续使用显式代理时，客户端仍可连接 `http://127.0.0.1:8888`。红框 1 是 Restore 后显式代理访问 `/e2e/system-proxy/ui/explicit-client` 的记录；它证明监听器可用，不证明其他应用自动遵循系统代理。
 
-   ![实际 Restore 系统代理](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png)
+   ![接管与恢复系统代理 · 3](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-003.annotated.png)
 
-3. 核对监听器仍在运行。演示客户端显式通过 `http://127.0.0.1:8888` 访问 `http://127.0.0.1:59429/guide/system-proxy/explicit-client`；`59429` 是本次源站动态端口，不是代理端口。Restore 不等于关闭监听器，这个请求也不证明某个应用自动跟随系统代理。
+4. <a id="walkthrough-settings-proxy-routing-04-enable"></a>需要重新接管时，点击红框 1 的 Enable，等待 Owned by Interceptor。本例复用已有授权 helper；首次授权仍应在系统窗口中完成。
 
-   ![Restore 后实际仍运行的监听器检查点](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-03-listener.png)
+   ![接管与恢复系统代理 · 4](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-004.annotated.png)
 
-4. 通过 Settings 再次 Enable，等待系统接管状态确认。本次复用已有授权 helper，没有首次授权弹窗。
+   ![接管与恢复系统代理 · 4](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-005.png)
 
-   ![已有授权 helper 下的实际 Enable](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-04-enable.png)
+5. <a id="walkthrough-settings-proxy-routing-05-recording"></a>回到 Capture，单独确认红框 1 的 Recording。若尚未开始录制，先使用录制按钮完成就绪提示。
 
-5. 返回 Capture，确认 Recording 当前开启；系统接管状态与录制状态分别检查。
+   ![接管与恢复系统代理 · 5](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-006.annotated.png)
 
-   ![实际返回 Capture 检查 Recording](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-05-recording.png)
+6. <a id="walkthrough-settings-proxy-routing-06-pause"></a>点击录制按钮暂停，确认红框 1 变为 Paused。这不是在 Settings 中执行 Restore。
 
-6. 暂停 Recording。
+   ![接管与恢复系统代理 · 6](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-007.annotated.png)
 
-   ![实际暂停新流量录制](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-06-pause.png)
+7. <a id="walkthrough-settings-proxy-routing-07-still-owned"></a>再到 Proxy & Listener 核对系统代理仍为 Owned by Interceptor。分别检查路由、监听器和录制状态，不把 Pause 当作恢复原网络设置。
 
-7. 返回 System proxy，确认仍由 Interceptor 接管：Pause 没有执行 Restore。
+   ![接管与恢复系统代理 · 7](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-008.png)
 
-   ![暂停 Recording 后实际仍接管系统代理](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-07-still-owned.png)
+8. <a id="walkthrough-settings-proxy-routing-08-final-restore"></a>只想恢复系统路由而继续使用 App 时，再执行 Restore 并等待完成。需要退出时先保存数据，再通过窗口 Close 正常关闭。
 
-8. 结束本轮演示前，再 Restore 原系统路由；不要把关闭录制当作恢复代理。
+   ![接管与恢复系统代理 · 8](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-010.png)
 
-   ![本轮结束前实际 Restore](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-08-final-restore.png)
+- Windows 主要接管 WinINet；WinHTTP、自带网络栈、Java、curl、容器或 WSL 不保证自动跟随。
+- 要确认某个应用的路由，使用该应用自己发请求并检查 Capture。
+- 启用、恢复或原生授权正在进行时，不重复点击或强制结束；冲突按提示处理。
+- 若其他软件在会话期间修改了代理，不要求 Interceptor 覆盖对方的新配置。原有代理的上游安排见下一节。
 
-9. 首次使用或 helper 尚未获授权时，仍须阅读并完成真实系统授权后再判断 Enable 成功。
-
-   **待配图 / blocked**：此录制没有首次 helper、macOS 系统授权或 Windows UAC 的操作，已有授权下成功不能替代。
-
-10. 要确认某个目标应用自动遵循系统代理，必须使用该应用自身发请求并检查 Capture。
-
-    **待配图**：本例是显式代理客户端，不包含外部应用自动遵循系统代理的验证。
-
-**预期结果**：系统代理的接管和恢复是明确的操作，不用 Recording 的状态代替判断。
-
-**关键说明**
-
-- Windows 主要接管 WinINet。WinHTTP、自带网络栈、Java、curl、容器或 WSL 不保证自动跟随。
-- 客户端仍显式连接 `127.0.0.1:8888` 时，即使 Restore 了系统代理，它也可能继续经过监听器。
-- 启用、恢复与原生授权正在进行时，不要反复点击或强制结束；冲突应按提示处理。
-- App 不应覆盖另一软件在会话期间新写入的系统配置；已有代理环境见下一节。
-- 正常关闭 App 也会走退出恢复流程，但本段以 Restore 收尾，不把它当作 Close 的实录；退出边界见 [Workspace](workspace.md#close)。
 
 <a id="upstream"></a>
 ## 选择上游代理
 
-**用途**：请求先经过 Interceptor，再按你选择的出口访问目标。它与客户端是否接入 Interceptor 是两个方向。
+上游代理决定 Interceptor 收到请求后使用哪个出口，与客户端是否接入 Interceptor 分开。
 
-| 模式 | 含义 | 需要准备 |
+| 模式 | 界面选项 | 作用 |
 | --- | --- | --- |
-| System | 沿用 Interceptor 接管前的系统生效代理 | 已正确配置的原系统代理或自动配置 |
-| Direct | Interceptor 直接连接目标 | 目标直接可达 |
-| Manual | 明确指定另一个上游代理 | 协议、Host、端口 |
-| PAC | 按 PAC 脚本为请求选择路线 | 可访问的 HTTP/HTTPS PAC URL |
-| WPAD | 从当前网络发现 PAC | 网络实际提供所需的自动发现配置 |
+| System | Use system settings | 沿用接管前的系统代理或自动配置 |
+| Direct | No upstream proxy | 直接连接目标，不经过另一个上游代理 |
+| Manual | Manual proxy | 使用填写的协议、Host 和 Port |
+| PAC | PAC URL | 通过 HTTP/HTTPS PAC 为各个请求选择路线 |
+| WPAD | Auto-discover (WPAD) | 从实际支持自动发现的网络取得 PAC |
 
-**步骤**
+先准备自己的可用上游或 PAC。下面的 HTTP 上游为 `127.0.0.1:64599`，PAC 为 `http://127.0.0.1:64598/proxy.pac`；App 不会自动创建这些服务。没有对应服务时只练习填写和 Discard，不要 Apply。
 
-下面前五步属于早期安全草稿片段，`exampleApplied=false`。`127.0.0.1:7890`没有作为已运行的上游验证，`https://proxy.example.test/proxy.pac`也不是公共PAC；不要为了与截图一致而Apply。[完整上游实录](#walkthrough-settings-upstream)使用另外实际启动的自有上游和PAC，分别验证Manual、PAC、Direct与System。
+1. <a id="walkthrough-03-proxy"></a><a id="walkthrough-04-upstream"></a><a id="walkthrough-settings-upstream"></a><a id="walkthrough-settings-upstream-01-settings"></a><a id="walkthrough-settings-upstream-02-upstream"></a>进入 Settings → Upstream proxy，先查看 Current route。这里显示的是当前已生效的 System，而不是正在编辑的草稿。
 
-1. 在Settings打开Upstream proxy，查看当前路线；[Capture快捷入口](#walkthrough-settings-upstream-11-shortcut)也可打开同一份配置。
+   ![选择上游代理 · 1](../media/v0.1.1-alpha.1/settings-upstream-english/step-001.png)
 
-   ![当前 Upstream proxy 路线](../media/v0.1.1-alpha.1/settings/settings-04-upstream.png)
+2. <a id="walkthrough-settings-upstream-03-direct-draft"></a><a id="walkthrough-settings-upstream-04-discard"></a>选择 No upstream proxy（Direct）后先不应用。Not applied 表示草稿尚未提交；点击红框 1 的 Discard changes，Current route 仍为 System。
 
-2. 选择 Manual 草稿，Host 填 `127.0.0.1`，端口填 `7890`。Host 不带协议、路径或凭据；本次端口是演示输入，不是自动分配的代理监听端口。
+   ![选择上游代理 · 2](../media/v0.1.1-alpha.1/settings-upstream-english/step-002.annotated.png)
 
-   ![未 Apply 的 Manual 演示草稿](../media/v0.1.1-alpha.1/settings/settings-05-manual-draft.png)
+   ![选择上游代理 · 2](../media/v0.1.1-alpha.1/settings-upstream-english/step-003.png)
 
-3. 点击 Discard，不应用没有实际上游服务的示例。
+3. <a id="walkthrough-05-manual-draft"></a><a id="walkthrough-settings-upstream-05-manual"></a><a id="walkthrough-settings-upstream-06-host"></a><a id="walkthrough-settings-upstream-07-port"></a>选择 Manual proxy。Protocol 使用上游支持的协议，本例为 HTTP；红框 1 的 Host 填 `127.0.0.1`，红框 2 的 Port 填 `64599`。Host 不包含协议、路径或凭据。红框 3 是 Apply，只有上游确实可用时才点击。
 
-   ![放弃 Manual 草稿](../media/v0.1.1-alpha.1/settings/settings-06-discard.png)
+   ![选择上游代理 · 3](../media/v0.1.1-alpha.1/settings-upstream-english/step-004.annotated.png)
 
-4. 选择 PAC，查看 `https://proxy.example.test/proxy.pac` 输入。实际使用时必须是自己的可访问 HTTP/HTTPS PAC，不是本地路径或含凭据的 URL。
+4. <a id="walkthrough-06-discard"></a>不想保存这次 Manual 草稿时点击 Discard changes，核对仍使用 System。放弃草稿不会关闭监听器或停止 Capture。
 
-   ![未运行的 PAC 示例输入](../media/v0.1.1-alpha.1/settings/settings-07-pac.png)
+   ![选择上游代理 · 4](../media/v0.1.1-alpha.1/settings-upstream-english/step-005.png)
 
-5. 放弃该 PAC 草稿，保留原配置。
+5. <a id="walkthrough-settings-upstream-08-apply-manual"></a>要实际使用上游，重新填写自己的 Manual 字段并点击 Apply。Current route 变为 Manual，显示已保存的 Host 和 Port，Apply 回到禁用状态。
 
-   ![实际 Discard PAC 草稿](../media/v0.1.1-alpha.1/settings/settings-08-discard-pac.png)
+   ![选择上游代理 · 5](../media/v0.1.1-alpha.1/settings-upstream-english/step-006.png)
 
-6. 只有准备好真实出口后才填写其字段并 Apply，成功后查看 Current route。
+6. <a id="walkthrough-settings-upstream-09-manual-request"></a><a id="walkthrough-settings-upstream-10-capture"></a>让客户端通过 `http://127.0.0.1:8888` 请求自己的接口，再到 Capture 选择红框 1 的请求。图中源站使用 `127.0.0.1:64598`，请求路径以 `/manual-` 开头；检查实际客户端结果及目标服务，不只看设置输入框。
 
-   ![实际自有Manual上游Apply后的状态](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-08-apply-manual.png)
+   ![选择上游代理 · 6](../media/v0.1.1-alpha.1/settings-upstream-english/step-007.annotated.png)
 
-   ![实际自有PAC Apply后的状态](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-19-apply-pac.png)
+7. <a id="walkthrough-settings-upstream-11-shortcut"></a>点击 Capture 底栏右侧的 Upstream，打开同一份上游配置。快捷浮层显示当前 Manual 路线和已保存字段。
 
-   WPAD仍缺实际网络前提，不能用本地PAC示例代替发现流程。
+   ![选择上游代理 · 7](../media/v0.1.1-alpha.1/settings-upstream-english/step-008.png)
 
-7. 发新请求，检查客户端结果与实际目标；长连接按需要重新建立。
+8. <a id="walkthrough-07-pac"></a><a id="walkthrough-settings-upstream-12-pac-draft"></a><a id="walkthrough-settings-upstream-13-pac-url"></a><a id="walkthrough-settings-upstream-14-cancel-draft"></a>选择 PAC URL，在红框 1 输入 `http://127.0.0.1:64598/proxy.pac`。它必须是自己可访问的 HTTP/HTTPS 地址。不想应用时点击 Cancel，或点击红框 2 的关闭按钮，放弃这次草稿。
 
-   ![核对真正通过Manual上游的请求](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-09-manual-request.png)
+   ![选择上游代理 · 8](../media/v0.1.1-alpha.1/settings-upstream-english/step-009.annotated.png)
 
-   PAC分别核对[经代理](#walkthrough-settings-upstream-20-pac-proxy)与[DIRECT](#walkthrough-settings-upstream-21-pac-direct)的请求；结束后显式切换Direct和System，不把所有PAC请求都说成经过同一出口。
+9. <a id="walkthrough-settings-upstream-15-reopen"></a>重新打开 Upstream，核对仍是原来的 Manual，取消的 PAC 草稿没有生效。
 
-8. 不想应用时使用 Cancel/Discard；在快捷入口中选择 Open in Settings 可继续检查同一份草稿。
+   ![选择上游代理 · 9](../media/v0.1.1-alpha.1/settings-upstream-english/step-010.png)
 
-   ![真实取消快捷入口中的PAC草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-14-cancel-draft.png)
+10. <a id="walkthrough-settings-upstream-16-pac-again"></a><a id="walkthrough-settings-upstream-17-pac-url-again"></a><a id="walkthrough-settings-upstream-18-open-settings"></a>再次选择 PAC URL，在红框 1 填写地址，然后点击红框 2 的 Open in Settings，继续在设置页编辑同一份草稿。
 
-   ![同一份草稿通过Open in Settings继续编辑](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-18-open-settings.png)
+    ![选择上游代理 · 10](../media/v0.1.1-alpha.1/settings-upstream-english/step-011.annotated.png)
 
-**预期结果**：Apply 成功后改变后续请求的路线；失败时显示错误并保留之前已生效配置，而不是偷偷转成 Direct。
+11. 进入 Settings 后，红框 1 保留刚填写的 PAC URL，Current route 仍为 Manual。红框 2 的 Apply 才会提交这份草稿。
 
-**关键说明**
+    ![选择上游代理 · 11](../media/v0.1.1-alpha.1/settings-upstream-english/step-012.annotated.png)
 
-- 选择 Direct 不等于停止 Capture，也不等于恢复操作系统代理。
-- System 不能把 Interceptor 自己的 `8888` 当作原上游，否则会形成循环。
-- 不要把 Manual 指向当前 Interceptor listener；另一个合法本地代理可以使用自己的端口。
-- PAC/WPAD 可能对不同请求选择不同出口，不能只靠一个固定地址概括全部路线。
-- WPAD 需要真实网络前提；不要为了读教程修改办公网络的 DHCP 或 DNS。发现失败先联系网络管理者。
-- macOS 与 Windows 的网络发现、系统快照和授权不同，不以另一平台成功推断本机一定可用。
-- 产品没有独立的上游账号/密码设置，不能把凭据拼进不接受它们的字段。
+12. <a id="walkthrough-08-discard-pac"></a>需要放弃时点击 Discard changes，核对 Manual 路线和原 Host、Port 恢复显示。打开 Settings 本身不会应用草稿。
+
+    ![选择上游代理 · 12](../media/v0.1.1-alpha.1/settings-upstream-english/step-013.png)
+
+13. <a id="walkthrough-settings-upstream-19-apply-pac"></a>要使用 PAC，重新填写有效地址并 Apply。Current route 显示 PAC 和 Selected per request，表示每个请求分别按脚本选择出口。
+
+    ![选择上游代理 · 13](../media/v0.1.1-alpha.1/settings-upstream-english/step-014.png)
+
+14. <a id="walkthrough-settings-upstream-20-pac-proxy"></a>发送脚本应选择 PROXY 的请求。示例对 `127.0.0.1` 使用上游，红框 1 是路径以 `/pac-` 开头的请求；检查服务响应及实际上游记录。
+
+    ![选择上游代理 · 14](../media/v0.1.1-alpha.1/settings-upstream-english/step-015.annotated.png)
+
+15. <a id="walkthrough-settings-upstream-21-pac-direct"></a>再发送脚本应选择 DIRECT 的请求。示例对 `localhost` 直连，红框 1 是 `/pac-direct-` 请求。它仍会被 Capture 记录，DIRECT 只表示这一跳不经过另一个上游。
+
+    ![选择上游代理 · 15](../media/v0.1.1-alpha.1/settings-upstream-english/step-016.annotated.png)
+
+16. <a id="walkthrough-settings-upstream-22-direct"></a><a id="walkthrough-settings-upstream-23-apply-direct"></a><a id="walkthrough-settings-upstream-24-direct-request"></a>不再使用 PAC 时，选择 No upstream proxy（Direct）并点击红框 1 的 Apply。等 Current route 显示 Direct / Direct connection 后再发送新请求；已有连接不会因此重放。
+
+    ![选择上游代理 · 16](../media/v0.1.1-alpha.1/settings-upstream-english/step-017.annotated.png)
+
+    ![选择上游代理 · 16](../media/v0.1.1-alpha.1/settings-upstream-english/step-018.png)
+
+17. 保存后可通过红框 1 的 Close 正常退出，再打开 App 检查 Current route。图中 Direct 已保留；窗口关闭不等于删除已保存的上游偏好。
+
+    ![选择上游代理 · 17](../media/v0.1.1-alpha.1/settings-upstream-english/step-019.annotated.png)
+
+    ![选择上游代理 · 17](../media/v0.1.1-alpha.1/settings-upstream-english/step-020.png)
+
+18. <a id="walkthrough-settings-upstream-25-system"></a><a id="walkthrough-settings-upstream-26-apply-system"></a>要重新沿用接管前的系统出口，选择 Use system settings（System），点击红框 1 的 Apply，再确认 Current route 为 System。这与恢复操作系统代理是两个操作。
+
+    ![选择上游代理 · 18](../media/v0.1.1-alpha.1/settings-upstream-english/step-021.annotated.png)
+
+    ![选择上游代理 · 18](../media/v0.1.1-alpha.1/settings-upstream-english/step-022.png)
+
+- 不要把 Manual 指向 Interceptor 自己的 `8888`，System 也不能把它当作原上游，否则会形成循环。
+- Apply 成功后新请求使用新配置；应用失败时读取错误提示，原有效路线仍保留，不把失败当成自动直连。
+- Direct 不关闭 Capture，也不恢复操作系统代理。
+- WPAD 需要真实网络支持，不用手填 PAC 冒充自动发现。发现失败先联系网络管理者，不为练习修改办公网络的 DHCP 或 DNS。
+- macOS 与 Windows 的系统快照、网络发现和授权不同。
+- 产品没有独立的上游账号/密码设置，不把凭据拼进不接受它们的字段。
+
 
 <a id="https-decryption"></a>
 ## 准备 CA 并启用 HTTPS 解密
 
-**用途**：检查你有权调试的 HTTPS 请求头和正文，而不只是 TLS 隧道。
+只调试自己有权查看的 HTTPS 流量。普通 HTTPS 解密需要可用 CA、相应客户端信任及已开启的 MITM；看到 CONNECT 或 TLS tunnel 不代表正文已经解密。
 
-**步骤**
+1. <a id="walkthrough"></a><a id="walkthrough-01-open"></a><a id="walkthrough-02-certificates"></a>打开 Settings → Certificates，检查公开指纹、有效期、Generated 和 Trusted。本例复用已经准备并信任的 CA，不删除现有证书来重新演示首次启动。
 
-1. 打开 Certificates，检查 CA 是否存在、当前身份以及是否受信任。
+   ![准备 CA 并启用 HTTPS 解密 · 1](../media/v0.1.1-alpha.1/tls-pattern-english/step-001.png)
 
-   ![Certificates 中已有 CA 与信任状态](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
+2. 若 CA 尚未准备好，按 App 的生成与信任入口完成系统授权。不要自己覆盖证书材料，也不要把系统权限提示当作 GitHub 登录。
 
-2. App 首次准备通常会处理缺失的共享 CA；若需要手动操作，用产品提供的生成入口，而不是自己覆盖证书文件。
+3. 确认所需信任后，开启红框 1 的 Decrypt HTTPS (MITM)。只有开关开启并不保证所有客户端都接受这个 CA；证书固定和独立信任库仍可能拒绝。
 
-   **待配图 / blocked**：录制机器已有日常 CA，没有空共享 CA 环境，不为拍图删除它。
+   ![准备 CA 并启用 HTTPS 解密 · 3](../media/v0.1.1-alpha.1/tls-pattern-english/step-002.annotated.png)
 
-3. 未受信任时使用 Install/信任操作，阅读并完成真实系统授权。
+4. 仅在自己控制的本机源站使用测试证书时，才在红框 1 填 `localhost` 并点击红框 2 的 Add host。该源站例外不代替客户端信任，也不应照搬到公网。
 
-   **待配图 / blocked**：首次 helper、钥匙串信任或 Windows UAC 未录制；已受信任状态不证明授权步骤。
+   ![准备 CA 并启用 HTTPS 解密 · 4](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
 
-4. 确认产品报告受信任，再开启 HTTPS decryption。
+5. 让客户端建立新连接。本例 GET `/e2e/passthrough/http` 在红框 1 的 Response 显示 `{"mode":"https-h1","secure":true}` 的格式化 JSON。它展示 HTTP/1.1 的已解密正文，不代表所有 TLS 故障都已解决。
 
-   下图引用 Capture 的受控协议演示，只说明已有可信 CA 时开启解密：
+   ![准备 CA 并启用 HTTPS 解密 · 5](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
-   ![Capture 演示中开启 HTTPS 解密](../media/v0.1.1-alpha.1/capture/capture-20-decryption.png)
+已有连接不会因为切换设置自动变成另一种模式。关闭解密不自动卸载 CA 信任；正常退出或删除单个 App 数据环境也不等于删除共享 CA。不要为了查看正文全局关闭证书校验。
 
-5. 让客户端建立一条新的 HTTPS 连接，在 Capture 中检查 HTTP 详情。
-
-   本图是同次 `/playground/h2-json` 新连接；其 `localhost` 测试源站例外按[下一相关小节](#insecure-hosts)处理，不应推广到公网。
-
-   ![开启解密后的真实 HTTP/2 详情](../media/v0.1.1-alpha.1/capture/capture-22-http2.png)
-
-**预期结果**：只有 CA 可用、已信任且解密开启时，普通可代理 HTTPS 连接才按解密路径处理。
-
-**关键说明**
-
-- macOS 可能请求 helper、钥匙串或系统信任授权；Windows 使用对应的管理员授权。系统提示不是 GitHub 登录。
-- CA 影响系统信任，不只是 App 内的一张图片；先确认来源和用途。
-- 同一系统用户的不同 App 数据环境会复用共享 CA。正常退出或删除某份 profile 不表示 CA 已经删除。
-- 证书固定、独立信任库或 TLS passthrough 可以阻止普通 MITM 解密；不建议为了看正文关闭全局证书验证。
-- 关闭解密仅停止解密，不自动卸载 CA 信任。
 
 <a id="certificate-lifecycle"></a>
 ## 查看、移除信任与删除 CA
 
-**步骤**
-
 1. 用 View 查看当前公开证书，按平台提供的方式核对身份；Reveal 用于定位相关材料。
-
-   **待配图**：只读 Certificates 页已录制，但没有点击 View 或 Reveal，不能冒充原生证书/文件窗口。
 
 2. 需要查看系统信任管理时，使用产品提供的系统证书管理入口，并遵守平台权限。
 
-   **待配图 / blocked**：缺实际钥匙串或 Windows 管理员 MMC 操作。
-
 3. 不再信任该 CA 时，用 Uninstall 撤销信任。
-
-   **待配图 / blocked**：未对日常 CA 执行撤销信任，需独立安全环境。
 
 4. 确实不再需要材料时，再使用 Delete；若仍有信任，按产品流程先撤销。
 
-   **待配图 / blocked**：未执行删除，不用空列表或其他设置图代替。
-
 5. 需要重新生成时，先核对当前 CA 与所有仍在使用它的测试客户端，再按产品提示处理。
-
-   **待配图 / blocked**：未执行重新生成及客户端信任更新，不能宣称生命周期全部验收。
-
-**预期结果**：查看、撤销信任、删除材料是可区分的操作。
-
-**关键说明**
 
 - Uninstall 保留 CA 材料，Delete 才删除；受信任时不能直接重新生成覆盖。
 - 重新生成会改变证书身份，独立客户端的旧信任可能失效。
 - 不为复现教程删除日常 CA，不复制私钥到工单或其他机器。
-- Windows 管理员 MMC 专项仍有独立验收边界，不能把存在入口当作每个平台原生窗口均已验收。
+-
 
 <a id="tls-passthrough"></a>
 ## 对特定主机保持 TLS 透传
 
-**用途**：让不适合解密的目标继续使用原始加密连接。
+透传名单让选定主机保持端到端加密。下面使用同一个 `https://localhost:52139/e2e/passthrough/http`，每次重新连接，依次比较解密、透传和移除后的恢复；实际操作使用自己的服务。
 
-**步骤**
+1. <a id="walkthrough-settings-tls-passthrough"></a><a id="walkthrough-settings-tls-passthrough-01-filter"></a><a id="walkthrough-settings-tls-passthrough-02-record"></a><a id="walkthrough-settings-tls-passthrough-03-opaque-request"></a><a id="walkthrough-settings-tls-passthrough-04-tunnel-select"></a><a id="walkthrough-settings-tls-passthrough-05-tunnel"></a><a id="walkthrough-settings-tls-passthrough-06-https-setup"></a><a id="walkthrough-settings-tls-passthrough-07-cancel-setup"></a><a id="walkthrough-settings-tls-passthrough-08-settings"></a><a id="walkthrough-settings-tls-passthrough-09-certificates"></a><a id="walkthrough-settings-tls-passthrough-10-origin-host"></a><a id="walkthrough-settings-tls-passthrough-11-origin-add"></a><a id="walkthrough-settings-tls-passthrough-12-mitm-on"></a><a id="walkthrough-settings-tls-passthrough-13-capture-decrypted"></a><a id="walkthrough-settings-tls-passthrough-14-decrypted-request"></a><a id="walkthrough-settings-tls-passthrough-15-decrypted-select"></a><a id="walkthrough-settings-tls-passthrough-16-decrypted-body"></a>先完成上节 CA、受控源站例外和 MITM 设置。发送新请求，在红框 1 的 Response 确认能看到 `https-h1` 与 `secure: true` 正文。
 
-本例使用自有 `https://localhost:63604/playground/tls/h1`；`63604` 是录制时的随机端口，不是产品固定端口。先按[准备步骤](#walkthrough-settings-tls-passthrough)确认已有受信任 CA，并仅为本轮自签名测试源站添加 `localhost` 例外、开启解密，取得第一条可见 HTTP 正文。不要把源站例外或演示地址照抄到不受控服务。
+   ![对特定主机保持 TLS 透传 · 1](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
-1. 返回 Settings。[对应步骤图](#walkthrough-settings-tls-passthrough-17-settings-passthrough)
+2. <a id="walkthrough-settings-tls-passthrough-17-settings-passthrough"></a><a id="walkthrough-settings-tls-passthrough-18-passthrough"></a>进入 Settings → TLS passthrough，检查当前名单。精确主机与通配域名影响范围不同，默认选择最小范围。
 
-   ![从 Capture 返回 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-17-settings-passthrough.png)
+   ![对特定主机保持 TLS 透传 · 2](../media/v0.1.1-alpha.1/tls-pattern-english/step-003.png)
 
-2. 打开 TLS passthrough，检查当前名单。[对应步骤图](#walkthrough-settings-tls-passthrough-18-passthrough)
+3. <a id="walkthrough-settings-tls-passthrough-19-host"></a><a id="walkthrough-settings-tls-passthrough-20-add"></a>红框 1 输入精确主机 `localhost`，不要填写协议、端口或 Path，再点击红框 2 的 Add。添加后立即保存，不需要 Rules Save。
 
-   ![添加前的实际 TLS passthrough 名单](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-18-passthrough.png)
+   ![对特定主机保持 TLS 透传 · 3](../media/v0.1.1-alpha.1/tls-pattern-english/step-013.annotated.png)
 
-3. 输入精确主机 `localhost`，不填写协议、端口或 Path。[对应步骤图](#walkthrough-settings-tls-passthrough-19-host)
+4. <a id="walkthrough-settings-tls-passthrough-21-capture-passthrough"></a><a id="walkthrough-settings-tls-passthrough-22-passthrough-request"></a><a id="walkthrough-settings-tls-passthrough-23-passthrough-select"></a><a id="walkthrough-settings-tls-passthrough-24-passthrough-tunnel"></a>回到 Capture 并搜索 `localhost`，让客户端用新连接再次请求同一地址。红框 1 是新的 CONNECT，右侧显示 TLS passthrough、无 HTTP 正文；客户端仍可以收到完整响应。红框 2 是 View passthrough pattern。
 
-   ![填写精确主机 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-19-host.png)
+   ![对特定主机保持 TLS 透传 · 4](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
-4. 点击 Add，条目加入后即保存，不另找 Rules 的 Apply。[对应步骤图](#walkthrough-settings-tls-passthrough-20-add)
+5. <a id="walkthrough-settings-tls-passthrough-25-locate"></a><a id="walkthrough-settings-tls-passthrough-26-remove"></a>点击上图的配置入口，App 会定位并短暂高亮匹配的 `localhost` 条目。需要恢复解密时，点击本图红框 1 的移除按钮；移除立即保存。
 
-   ![已保存的 localhost 透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-20-add.png)
+   ![对特定主机保持 TLS 透传 · 5](../media/v0.1.1-alpha.1/tls-pattern-english/step-015.annotated.png)
 
-5. 返回 Capture，保持 `localhost` 搜索。[对应步骤图](#walkthrough-settings-tls-passthrough-21-capture-passthrough)
+6. <a id="walkthrough-settings-tls-passthrough-27-capture-restored"></a><a id="walkthrough-settings-tls-passthrough-28-reconnect"></a><a id="walkthrough-settings-tls-passthrough-29-restored-select"></a><a id="walkthrough-settings-tls-passthrough-30-restored-body"></a>再次新建连接并请求同一地址，选择新 GET，在红框 1 的 Response 核对 JSON 又可读取。原来的 Tunnel 仍是历史隧道，不会被补成 HTTP 记录。
 
-   ![保持同一主机筛选返回 Capture](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-21-capture-passthrough.png)
+   ![对特定主机保持 TLS 透传 · 6](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
-6. 让客户端用新连接再次请求同一个 HTTPS 地址。[对应步骤图](#walkthrough-settings-tls-passthrough-22-passthrough-request)
+7. <a id="walkthrough-settings-tls-passthrough-31-cleanup-settings"></a><a id="walkthrough-settings-tls-passthrough-32-cleanup-certificates"></a><a id="walkthrough-settings-tls-passthrough-33-mitm-off"></a>如果 MITM 仅为本次调试开启，返回 Certificates 关闭红框 1 的开关，保留原有 CA 与信任。
 
-   ![透传条目生效后的新 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-22-passthrough-request.png)
+   ![对特定主机保持 TLS 透传 · 7](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.annotated.png)
 
-7. 选择新增的 CONNECT，不继续查看前面的已解密 GET。[对应步骤图](#walkthrough-settings-tls-passthrough-23-passthrough-select)
+8. <a id="walkthrough-settings-tls-passthrough-34-origin-remove"></a>只移除本次添加的源站例外。第一张图红框 1 是 `localhost` 标签及右侧移除入口；移除后，第二张图红框 1 是空 Host 输入框，不是 CA 的 Remove。
 
-   ![选中实际透传的新连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-23-passthrough-select.png)
+   ![对特定主机保持 TLS 透传 · 8](../media/v0.1.1-alpha.1/tls-cleanup-english/step-041.annotated.png)
 
-8. 查看 Tunnel：主机与端口仍对应本机源站，协议为 `TLS passthrough`，没有 HTTP 正文；客户端仍成功收到响应。[对应步骤图](#walkthrough-settings-tls-passthrough-24-passthrough-tunnel)
+   ![对特定主机保持 TLS 透传 · 8](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.annotated.png)
 
-   ![全局 MITM 开启但该连接按名单透传](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
+9. 遇到 TLS interception may be incompatible 提示时，逐个核对失败主机。红框 1 示例只选精确主机，红框 2 示例选择父域通配范围；确认影响后才点击红框 3 的 Add 2 patterns，不默认勾选全部宽泛范围。
 
-9. 点击查看透传配置的入口，Settings 会定位并短暂高亮真实的 `localhost` 条目。[对应步骤图](#walkthrough-settings-tls-passthrough-25-locate)
+   ![对特定主机保持 TLS 透传 · 9](../media/v0.1.1-alpha.1/tls-compatibility-english/step-003.annotated.png)
 
-   ![从 Tunnel 跳转并高亮实际名单项](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-25-locate.png)
+10. 没有选中任何范围时，第一张图红框 1 的保存按钮不可用。暂时不改变设置时，点击第二张图红框 1 的 Not now；关闭提示不会添加名单。
 
-10. 删除本轮添加的 `localhost` 条目；删除立即保存。[对应步骤图](#walkthrough-settings-tls-passthrough-26-remove)
+    ![对特定主机保持 TLS 透传 · 10](../media/v0.1.1-alpha.1/tls-compatibility-english/step-002.annotated.png)
 
-    ![已删除本轮透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-26-remove.png)
+    ![对特定主机保持 TLS 透传 · 10](../media/v0.1.1-alpha.1/tls-compatibility-english/step-005.annotated.png)
 
-11. 返回 Capture；旧的 Tunnel 不会因此变成 HTTP。[对应步骤图](#walkthrough-settings-tls-passthrough-27-capture-restored)
+透传仍经过 Interceptor 和所选上游，只是不解密应用内容。客户端证书固定、源站证书例外与本机代理接入是不同问题；按实际症状处理，不把透传当作所有连接错误的通用修复。
 
-    ![删除配置后旧 Tunnel 仍保留](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-27-capture-restored.png)
-
-12. 用新连接再次请求同一地址。[对应步骤图](#walkthrough-settings-tls-passthrough-28-reconnect)
-
-    ![移除透传项后出现新的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-28-reconnect.png)
-
-13. 选择这条新 GET，核对同一主机与本次端口。[对应步骤图](#walkthrough-settings-tls-passthrough-29-restored-select)
-
-    ![选择恢复解密后的新请求](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-29-restored-select.png)
-
-14. 打开 Response，读取 `{"mode":"https-h1","secure":true}`；这是新连接的正文，不是给旧 Tunnel 补上正文。[对应步骤图](#walkthrough-settings-tls-passthrough-30-restored-body)
-
-    ![删除透传项后实际恢复的 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-30-restored-body.png)
-
-15. 演示结束后返回 Settings。[对应步骤图](#walkthrough-settings-tls-passthrough-31-cleanup-settings)
-
-    ![返回 Settings 清理本轮设置](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-31-cleanup-settings.png)
-
-16. 打开 Certificates，不执行 Generate、Uninstall 或 Delete。[对应步骤图](#walkthrough-settings-tls-passthrough-32-cleanup-certificates)
-
-    ![保持原 CA 进入 Certificates](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-32-cleanup-certificates.png)
-
-17. 关闭这次演示开启的 HTTPS 解密。[对应步骤图](#walkthrough-settings-tls-passthrough-33-mitm-off)
-
-    ![关闭本轮解密但保留 CA 与信任](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-33-mitm-off.png)
-
-18. 移除本轮自有源站的 `localhost` 证书例外，不修改其他配置。[对应步骤图](#walkthrough-settings-tls-passthrough-34-origin-remove)
-
-    ![本轮源站例外已移除](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-34-origin-remove.png)
-
-**待配图**：本次只添加精确 `localhost`，不代表 wildcard、复杂名单或首次系统授权已经录制。
-
-**预期结果**：新连接按名单透传，在途连接不会被强制转换为另一种模式。
-
-**关键说明**
-
-- 精确主机与通配域名范围不同，默认选择最小范围。
-- TLS 兼容性提示中的 Not now 不保存配置；勾选和保存才表示明确决定。
-- 遇到多个失败主机时逐项检查，不把全部加入广泛通配名单作为默认修复。
-- 从隧道跳转到 Settings 时，可以查看 App 定位的最具体匹配条目。
 
 <a id="insecure-hosts"></a>
 ## 区分源站证书例外
 
-**用途**：在受控测试环境里排查目标服务自身的证书问题，而不是处理客户端是否信任 Interceptor CA。
+源站例外处理目标服务的证书校验，不处理客户端是否信任 Interceptor CA。优先修复源站证书，只在有授权的受控环境对精确主机设置例外。
 
-1. 先确认错误来自源站证书，核对域名、有效期和你管理的信任链。
+1. 先检查服务域名、有效期与管理的信任链，确认确实是源站证书问题。
 
-   **待配图**：Capture 协议演示使用已知本机测试源站，没有录制证书报错、有效期与信任链的诊断过程。
+2. 在 Certificates → Per-host overrides 的红框 1 输入 `localhost`，点击红框 2 的 Add host。本例是自有本机源站，不代表应给任意公网地址添加例外。
 
-2. 优先修复服务证书；仅在有授权的受控测试中，到 Certificates > Per-host overrides 添加精确主机。下图来自 Capture，实际值为 `localhost`，不是 TLS passthrough。
+   ![区分源站证书例外 · 2](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
 
-   ![Capture 演示添加 localhost 源站例外](../media/v0.1.1-alpha.1/capture/capture-19-local-origin.png)
+3. 使用新连接访问 `/e2e/passthrough/http`，在红框 1 的 Response 检查实际正文。例外并没有关闭 MITM，本例仍能看到解密的 HTTP 内容。
 
-3. 建立新请求核对结果；本次为 `/playground/h2-json`。
+   ![区分源站证书例外 · 3](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
-   ![同次本机源站的实际新请求](../media/v0.1.1-alpha.1/capture/capture-22-http2.png)
+4. 结束后找到红框 1 的 `localhost` 标签，点击其右侧移除按钮，只删除本次添加的项。
 
-4. 演示结束移除本轮添加的 `localhost` 条目。
+   ![区分源站证书例外 · 4](../media/v0.1.1-alpha.1/tls-cleanup-english/step-041.annotated.png)
 
-   ![移除本次 localhost 例外](../media/v0.1.1-alpha.1/capture/capture-31-remove-exception.png)
+5. 确认标签消失；红框 1 剩下的是 Host 输入框。源站例外、透传名单及 CA 信任分别管理，不互相替代。
 
-**预期结果**：例外只作用于明确目标，不改变其他主机的校验策略。
+   ![区分源站证书例外 · 5](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.annotated.png)
 
-**关键说明**：源站证书例外与 TLS passthrough 不同，不能互换。前者可能仍解密但放宽源站校验，后者保持加密透传。不要对不明来源的真实业务使用全局绕过。
 
 <a id="app-containers"></a>
 ## Windows AppContainer 的本地代理访问
 
-**前提**：仅 Windows；目标应用确实受 AppContainer 网络隔离影响，且你有权修改相关系统设置。
-
-**步骤**
+仅 Windows；目标应用确实受 AppContainer 网络隔离影响，且你有权修改相关系统设置。
 
 1. 打开 App containers，搜索目标应用。
 
-   **待配图 / blocked**：当前素材均为 macOS，没有 Windows AppContainer 列表及搜索。
-
 2. 检查其 loopback access 是否启用，按需要使用单项开关并完成 UAC。
-
-   **待配图 / blocked**：需要 Windows 目标应用与真实 UAC，macOS 截图不能替代。
 
 3. 让该应用重新发起请求，检查是否到达本地代理。
 
-   **待配图 / blocked**：缺受 AppContainer 隔离影响的真实应用流量。
-
 4. 确实需要批量修改时使用 Enable all 或 Disable all，阅读目标数量、范围和后果后确认。
-
-   **待配图 / blocked**：Windows 枚举与批量授权操作未录制。
 
 5. 结束后撤销不再需要的例外，并核对系统实际状态。
 
-   **待配图 / blocked**：没有 Windows 例外恢复与系统状态证据图。
-
-**预期结果**：目标应用获准或被撤销访问本机 loopback 的例外；启用项稳定显示在列表前面。
-
-**关键说明**：AppContainer 放行不能解决证书固定；TLS passthrough 也不能解决应用根本无法连接本地代理。批量操作只针对当前枚举目标，不等于任意修改所有系统网络隔离状态。macOS 不提供同一 Windows 功能。
+AppContainer 放行不能解决证书固定；TLS passthrough 也不能解决应用根本无法连接本地代理。批量操作只针对当前枚举目标，不等于任意修改所有系统网络隔离状态。macOS 不提供同一 Windows 功能。
 
 <a id="appearance"></a>
 ## 语言和主题
@@ -466,114 +303,120 @@
 <a id="storage"></a>
 ## 查看用量并清理 Capture
 
-**步骤**
+先导出需要保留的数据，并确认备份文件已经保存；取消导出不会产生备份。Settings 的 Clear capture 与 Capture 顶部 Clear 清理同一份临时记录和正文，不删除已经导出的文件。只清理自己允许删除的流量。
 
-本段使用 `settings-storage-privacy`。完整录制先完成[下一节](#privacy)的默认值/单次覆盖检查并取消导出，再执行 Storage 清理。清理前 Recording 已暂停；Clear 只处理本流程的公共临时记录和正文，不涉及其他人的流量。需要保留自己的记录时，先按 [Transfer](transfer.md#har)完成导出；本次已取消的 HAR 草稿没有生成备份文件。
+1. <a id="walkthrough-settings-storage-privacy"></a><a id="walkthrough-settings-storage-privacy-01-record"></a>在 Capture 选中红框 1 的记录并核对正文。本例是 POST `/e2e/storage/first`，请求正文为 `storage-original-body`。确认要清理的是这批数据，再点击红框 2 的 Recording 暂停新录制。
 
-1. 核对要清理的是本次 `http://127.0.0.1:52747/guide/storage/before-clear` 记录，正文 `{"orderId":"guide-storage-001","message":"public example"}`。`52747` 是本次动态源站端口；图为同次录制的清理前准备状态。
+   ![查看用量并清理 Capture · 1](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-001.annotated.png)
 
-   ![本次清理前的真实公共演示记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-01-record.png)
+2. <a id="walkthrough-settings-storage-privacy-11-storage"></a>打开 Settings → Storage。红框 1 是右上角 Refresh，红框 2 是 Captured body data 用量；下方分别列出 Sessions、Exchanges 和 Stored bodies。
 
-2. 打开 Storage，查看 Captured body data 和 Session、Exchange、Body 数量。
+   ![查看用量并清理 Capture · 2](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-002.annotated.png)
 
-   ![本轮实际存储用量](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-11-storage.png)
+3. <a id="walkthrough-settings-storage-privacy-12-refresh"></a>点击 Refresh，等待统计更新。暂停录制时，同一批记录的统计应保持一致；Refresh 不会删除数据，也不是自动清理或配额开关。
 
-3. 点击 Refresh，核对统计更新而记录仍保留；Refresh 不是 Clear，也不是固定配额设置。
+   ![查看用量并清理 Capture · 3](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-003.png)
 
-   ![实际 Refresh，只刷新统计](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-12-refresh.png)
+4. <a id="walkthrough-settings-storage-privacy-13-clear-dialog"></a>点击 Clear capture 后先阅读清理说明。红框 1 是 Cancel，红框 2 是 Confirm clear；这次先点击红框 1，取消清理。
 
-4. 打开 Clear capture 确认，先阅读清理影响。
+   ![查看用量并清理 Capture · 4](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-004.annotated.png)
 
-   ![本轮真实 Clear 确认框](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-13-clear-dialog.png)
+5. <a id="walkthrough-settings-storage-privacy-14-cancel-clear"></a>返回 Capture，确认红框 1 的原记录和正文仍在，录制仍是 Paused。Cancel 不等于清理成功。
 
-5. 先 Cancel，核对临时数据没有被删除。
+   ![查看用量并清理 Capture · 5](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-005.annotated.png)
 
-   ![实际取消 Clear 后保留数据](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-14-cancel-clear.png)
+6. <a id="walkthrough-settings-storage-privacy-15-confirm-clear"></a>重新打开 Storage，再点击 Clear capture。这次确认可以删除后，点击红框 1 的 Confirm clear。
 
-6. 再次执行 Clear 并确认，清理本轮演示记录及正文；不能把上一步取消的画面当作清理成功。
+   ![查看用量并清理 Capture · 6](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-006.annotated.png)
 
-   ![实际确认清理本轮临时数据](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-15-confirm-clear.png)
+7. 等待清理结束，检查红框 1 的正文用量为 `0 B`、红框 2 的 Exchanges 为 `0`、红框 3 的 Stored bodies 为 `0`。Sessions 仍可为 `1`，不要把当前会话也必须消失当作清理条件。
 
-7. 回到 Capture，确认旧记录已清空，Recording 仍暂停。是保留了清理前的暂停状态，不是 Clear 自动暂停或恢复录制。
+   ![查看用量并清理 Capture · 7](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-007.annotated.png)
 
-   ![清理后实际空列表与仍暂停的 Recording](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-16-empty-capture.png)
+8. <a id="walkthrough-settings-storage-privacy-16-empty-capture"></a>回到 Capture，检查列表和详情都已清空，Recording 仍为 Paused。Clear 保持原来的录制状态，不会替你自动开始录制。
 
-8. 明确恢复 Recording。
+   ![查看用量并清理 Capture · 8](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-008.png)
 
-   ![Clear 后实际单独恢复录制](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-17-resume-after-clear.png)
+9. <a id="walkthrough-settings-storage-privacy-17-resume-after-clear"></a>需要继续捕获时，明确点击录制按钮，确认红框 1 变为 Recording。
 
-9. 经代理请求 `http://127.0.0.1:52747/guide/storage/after-clear`，核对新记录进入列表，不将旧记录回填当作新请求。
+   ![查看用量并清理 Capture · 9](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-009.annotated.png)
 
-   ![清理并恢复录制后实际捕获 after-clear](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-18-new-record.png)
+10. <a id="walkthrough-settings-storage-privacy-18-new-record"></a>从客户端经代理发送新的 POST `/e2e/storage/after-clear`，正文 `storage-new-body`。红框 1 是这次新请求生成的记录，不是把旧记录恢复回来。
 
-**预期结果**：与 Capture 的 Clear 清理同一份临时数据，不删除已导出的文件。
+    ![查看用量并清理 Capture · 10](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-010.annotated.png)
 
-**关键说明**：正文用量不是进程 RSS，也不是整个硬盘使用量。这里没有自动保留天数或配额设置；Refresh 不是后台持续轮询。文件任务未结束时清理可能被拒绝。
+11. 若这条新记录也无需保留，先暂停录制，再点击红框 1 的 Capture Clear。随后到 Storage 点击 Refresh，核对相同的正文用量和记录数量归零；两个清理入口操作的是同一份数据。
 
-文件任务未结束时不要强行Clear。[运行中归档取消实录](transfer.md#walkthrough-transfer-cancel)展示Cancel、等待终态、再Clear的用户流程；它不把点击禁用按钮或直接调用内部命令当作必要操作。
+    ![查看用量并清理 Capture · 11](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-011.annotated.png)
+
+    ![查看用量并清理 Capture · 11](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-012.png)
+
+正文用量不是进程 RSS，也不是整个硬盘的使用量。这里没有自动保留天数或配额设置，Refresh 不是持续轮询。文件任务尚未结束时不要强行 Clear；需要取消时先使用任务的 Cancel，等待任务结束和临时文件清理完成。
+
 
 <a id="privacy"></a>
 ## 设置后续导出的隐私默认值
 
-本节是 `settings-storage-privacy` 的前半段，实际发生在上节 Clear 之前。这里只演示 `maskCookies` 默认值与当前 HAR 草稿的覆盖关系，不声称所有隐私选项或已生成文件都完成了检查。
+Privacy 决定下一次新开 HAR 导出窗口的初始选项，不会追溯修改已经导出的文件。以下只用自己的无凭据测试记录；关闭遮罩不是推荐的分享方式。
 
-1. 选择本轮公共测试记录 `/guide/storage/before-clear`，其源站为 `http://127.0.0.1:52747`，端口仅属于录制环境。
+1. <a id="walkthrough-settings-storage-privacy-02-privacy"></a><a id="walkthrough-settings-privacy-export"></a><a id="walkthrough-settings-privacy-export-01-privacy"></a><a id="walkthrough-settings-privacy-export-02-auth-default"></a><a id="walkthrough-settings-privacy-export-09-warning-default"></a>打开 Settings → Privacy。红框 1 控制 Authorization 与 URL token 遮罩，红框 2 控制 Cookie/Set-Cookie 遮罩，红框 3 控制未遮罩导出前的警告。三个设置相互独立。
 
-   ![隐私示例实际选中的公共记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-01-record.png)
+   ![设置后续导出的隐私默认值 · 1](../media/v0.1.1-alpha.1/privacy-workspace-english/step-002.annotated.png)
 
-2. 打开 Privacy。
+2. <a id="walkthrough-settings-storage-privacy-03-cookie-default"></a><a id="walkthrough-settings-privacy-export-03-cookie-default"></a>按需要分别调整开关；本例关闭红框 1 的授权遮罩、开启红框 2 的 Cookie 遮罩，并保留警告。设置按各自点击保存，不必到 Rules 找 Save。
 
-   ![实际打开隐私默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-02-privacy.png)
+   ![设置后续导出的隐私默认值 · 2](../media/v0.1.1-alpha.1/privacy-workspace-english/step-003.annotated.png)
 
-3. 临时将 Cookie 遮罩默认值设为 `maskCookies=false`；这是对无凭据演示数据的检查，不是推荐公开未遮罩流量。
+3. <a id="walkthrough-settings-storage-privacy-04-new-export"></a><a id="walkthrough-settings-storage-privacy-05-filter-scope"></a><a id="walkthrough-settings-privacy-export-04-inherited-export"></a>Capture 有记录时，从 Export 打开 HAR 并核对范围。图中另一组设置是红框 1 的授权遮罩开启、红框 2 的 Cookie 遮罩关闭，Current filter 只选择 `/e2e/preferences/` 的记录。以当前窗口实际选项为准。
 
-   ![实际更改已保存的 Cookie 默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-03-cookie-default.png)
+   ![设置后续导出的隐私默认值 · 3](../media/v0.1.1-alpha.1/privacy-workspace-english/step-006.annotated.png)
 
-4. 新开 HAR 导出，核对新草稿继承 `maskCookies=false`。
+4. 如果已授权的 MCP 在此期间把默认值改为 `maskAuthorization=false`、`maskCookies=true`、`warnBeforeUnmasked=false`，当前窗口仍保留原选择：红框 1 开启、红框 2 关闭。正在编辑的导出草稿不会被外部默认值覆盖。
 
-   ![新 HAR 草稿实际继承修改后的默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-04-new-export.png)
+   ![设置后续导出的隐私默认值 · 4](../media/v0.1.1-alpha.1/privacy-workspace-english/step-007.annotated.png)
 
-5. 选择当前筛选结果范围，检查本次草稿的导出范围。
+5. <a id="walkthrough-settings-storage-privacy-08-cancel-export"></a>关闭本次导出窗口，再从 Export 重新打开 HAR。新窗口读取新默认值，红框 1 关闭、红框 2 开启；关闭草稿没有保存文件。
 
-   ![实际选择当前筛选范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-05-filter-scope.png)
+   ![设置后续导出的隐私默认值 · 5](../media/v0.1.1-alpha.1/privacy-workspace-english/step-008.annotated.png)
 
-6. 再查看全部记录范围；本例全部记录仍仅是本流程公共数据，不代表日常全部流量都可以分享。
+6. <a id="walkthrough-settings-storage-privacy-06-all-scope"></a>导出范围与隐私设置分开选择。第一张图中，红框 1 是 Current filter 的两条记录，红框 2 是 Export 2 requests；第二张图中，红框 1 的 All traffic 包含四条，红框 2 是 Export 4 requests。全部记录不等于全部都适合分享。
 
-   ![实际查看全部记录范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-06-all-scope.png)
+   ![设置后续导出的隐私默认值 · 6](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
 
-7. 仅在当前导出草稿把 Cookie 遮罩改成 `true`，与已保存默认值 `false` 区分。
+   ![设置后续导出的隐私默认值 · 6](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
 
-   ![实际仅覆盖本次导出的 Cookie 遮罩](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-07-one-export-override.png)
+7. <a id="walkthrough-settings-storage-privacy-07-one-export-override"></a><a id="walkthrough-settings-privacy-export-05-one-time-override"></a><a id="walkthrough-settings-privacy-export-06-save-override"></a><a id="walkthrough-settings-privacy-export-07-check-override"></a>只想改变一次导出时，在当前 HAR 窗口覆盖遮罩选项，再点击红框 1 的 Export 并选择保存位置。本例保存 `ui-override.har`；这种覆盖不会回写 Privacy 默认值。
 
-8. 取消本次导出。这是取消 HAR 草稿，没有保存文件，也不是取消已运行的文件任务。
+   ![设置后续导出的隐私默认值 · 7](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-023.annotated.png)
 
-   ![实际取消本次 HAR 导出草稿](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-08-cancel-export.png)
+   ![设置后续导出的隐私默认值 · 7](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-024.png)
 
-9. 返回 Privacy，核对已保存默认值仍为 `false`，没有被单次覆盖改成 `true`。
+8. <a id="walkthrough-settings-storage-privacy-09-default-unchanged"></a><a id="walkthrough-settings-privacy-export-08-defaults-unchanged"></a>回到 Privacy 核对保存的默认值。本图红框 1 的授权遮罩关闭、红框 2 的 Cookie 遮罩开启、红框 3 的警告关闭；单次导出文件与这些默认值是不同对象。
 
-   ![实际核对单次覆盖没有改默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-09-default-unchanged.png)
+   ![设置后续导出的隐私默认值 · 8](../media/v0.1.1-alpha.1/privacy-workspace-english/step-009.annotated.png)
 
-10. 将 Cookie 遮罩默认值恢复为 `true`，再继续 Storage 清理。
+9. 正常关闭并重新打开 App 后，再核对红框 1 的授权遮罩、红框 2 的 Cookie 遮罩和红框 3 的警告。它们保持关闭前的默认值，不以旧窗口还开着代替重启后的检查。
 
-    ![实际恢复 maskCookies=true](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-10-restore-privacy.png)
+   ![设置后续导出的隐私默认值 · 9](../media/v0.1.1-alpha.1/privacy-workspace-english/step-016.annotated.png)
 
-11. Authorization 遮罩和未遮罩导出警告仍按需要独立配置。
+10. <a id="walkthrough-settings-storage-privacy-10-restore-privacy"></a><a id="walkthrough-settings-privacy-export-13-restore-privacy"></a><a id="walkthrough-settings-privacy-export-14-restore-auth"></a><a id="walkthrough-settings-privacy-export-15-restore-cookies"></a><a id="walkthrough-settings-privacy-export-16-restore-warning"></a>如果只为测试临时关闭了保护，结束后重新开启红框 1 的授权遮罩、红框 2 的 Cookie 遮罩和红框 3 的未遮罩导出警告。
 
-    [完整隐私实录](#walkthrough-settings-privacy-export)另外逐项修改Authorization、Cookie与警告默认值，检查新草稿继承、单次覆盖和实际HAR，再恢复三项设置。
+    ![设置后续导出的隐私默认值 · 10](../media/v0.1.1-alpha.1/privacy-workspace-english/step-019.annotated.png)
 
-    ![单独修改Authorization默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-02-auth-default.png)
+11. <a id="walkthrough-settings-privacy-export-10-unmasked-draft"></a><a id="walkthrough-settings-privacy-export-11-save-public"></a><a id="walkthrough-settings-privacy-export-12-check-public"></a>确实需要未遮罩数据时，先确认范围和接收方。本图的授权与 Cookie 遮罩都未选中，红框 1 的 Export 会保存相应原始字段；示例文件为 `ui-plain.har`，不要把它当作已匿名化文件。
 
-    ![单独修改未遮罩导出警告](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-09-warning-default.png)
+    ![设置后续导出的隐私默认值 · 11](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-026.annotated.png)
 
-12. 分享前继续检查 URL、正文、自定义敏感字段和最终文件。
+    ![设置后续导出的隐私默认值 · 11](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-027.png)
 
-    ![实际检查按单次覆盖生成的HAR](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-07-check-override.png)
+12. <a id="walkthrough-settings-privacy-export-17-redacted-draft"></a><a id="walkthrough-settings-privacy-export-18-strip-bodies"></a><a id="walkthrough-settings-privacy-export-19-save-redacted"></a><a id="walkthrough-settings-privacy-export-20-check-redacted"></a><a id="walkthrough-settings-privacy-export-21-clear"></a><a id="walkthrough-settings-privacy-export-22-import"></a><a id="walkthrough-settings-privacy-export-23-open-redacted"></a><a id="walkthrough-settings-privacy-export-24-imported"></a>不需要正文时，选择 Strip request/response bodies，再点击红框 1 的 Export，保存 `ui-stripped.har`。检查最终文件确实不包含正文；以后导入这份文件也不能恢复已移除的字节。
 
-    新实录还[移除正文后导出再导入](#walkthrough-settings-privacy-export-18-strip-bodies)，核对真实文件与回载结果。演示值可公开，不把这些检查扩展为任意业务字段都已匿名化；分享前仍需自行审查。
+    ![设置后续导出的隐私默认值 · 12](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.annotated.png)
 
-**预期结果**：新开的 HAR 草稿继承当前默认值；本次草稿的覆盖不回写已保存默认值。默认值变化不修改已打开草稿、运行中任务或既有文件；本次实际配图只覆盖新草稿与单次覆盖的往返。
+    ![设置后续导出的隐私默认值 · 12](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-030.png)
 
-**关键说明**：原生归档仍按完整数据处理。默认遮罩不是全数据匿名化，详见[导出隐私](transfer.md#privacy)。
+分享前仍需检查 URL query、自定义 Header、业务标识、本地路径和文件正文；遮罩不是对任意业务数据的完整匿名化。原生归档保存完整数据，不默认套用这些 HAR 选项。取消文件草稿、取消正在运行的任务与删除已保存文件是不同操作，见[导出隐私](transfer.md#privacy)。
+
 
 <a id="agent-mcp"></a>
 ## 模型、Tool 和 MCP
@@ -587,737 +430,35 @@
 <a id="updates"></a>
 ## 检查、下载并打开更新
 
-**前提**：实际打包的 Windows/macOS App。源码开发运行可能显示不支持更新。
+在已安装的 Windows 或 macOS App 中操作；源码开发运行可能不支持更新。检查、下载和打开安装器是三个独立动作，发现版本不会自动下载。下面先演示检查失败后如何重试。
 
-**步骤**
+1. <a id="walkthrough-09-passthrough"></a><a id="walkthrough-10-privacy"></a><a id="walkthrough-11-storage"></a><a id="walkthrough-12-refresh"></a><a id="walkthrough-13-clear-confirm"></a><a id="walkthrough-14-cancel"></a><a id="walkthrough-15-updates"></a><a id="walkthrough-settings-update-check"></a><a id="walkthrough-settings-update-check-01-settings"></a><a id="walkthrough-settings-update-check-02-updates"></a>打开 Settings → Updates，查看 Current application、Latest GitHub release 和 Last update action。当前版本与能够下载的新版本是不同信息。
 
-1. 打开 Updates，查看当前版本和检查状态。
+   ![检查、下载并打开更新 · 1](../media/v0.1.1-alpha.1/settings-update-check-english/step-001.png)
 
-   ![真实发布 App 的版本与更新状态页](../media/v0.1.1-alpha.1/settings/settings-15-updates.png)
+2. <a id="walkthrough-settings-update-check-03-check"></a>点击红框 1 的 Check now，等待本次检查结束。没有必要登录 VS Code，也不要把 GitHub PAT 填进模型配置。
 
-2. 点击 Check；失败时先检查网络和发布源，不把失败理解成“已经是最新版”。
+   ![检查、下载并打开更新 · 2](../media/v0.1.1-alpha.1/settings-update-check-english/step-002.annotated.png)
 
-   [独立Check实录](#walkthrough-settings-update-check)使用原发布源，实际结果为`failed` / `GitHub returned HTTP 404`，没有下载或安装。这不是“已经是最新版”。
+3. <a id="walkthrough-settings-update-check-04-result"></a>本例显示 Failed 和 `GitHub returned HTTP 404`，表示发布源不可用，不是已经处于最新版，也没有下载或安装更新。
 
-   ![实际Check后的失败状态](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png)
+   ![检查、下载并打开更新 · 3](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 
-3. 有可用版本时阅读说明，明确点击 Download。
+4. 检查网络、发布地址和访问条件后，可再次点击红框 1 的 Check now。若发布源仍返回 404，页面仍显示失败，不会把重试变成成功。
 
-   **待配图 / blocked**：缺更新器可获取的受支持版本及真实下载步骤。
+   ![检查、下载并打开更新 · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-004.annotated.png)
 
-4. 等待下载及完整性校验完成，再点击 Open installer。
+   ![检查、下载并打开更新 · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-005.png)
 
-   **待配图 / blocked**：未执行下载校验与打开安装器，当前版本页不能证明完成。
+5. 正常关闭并重开 App 后，仍可在 Updates 点击红框 1 的 Check now。重启不会改变发布源的权限；继续按返回的实际状态处理。
 
-5. 在真实系统安装流程中完成必要操作；不要在文件尚未下载完成时自行运行临时文件。
+   ![检查、下载并打开更新 · 5](../media/v0.1.1-alpha.1/settings-update-check-english/step-007.annotated.png)
 
-   **待配图 / blocked**：缺 macOS/Windows 原生更新安装与授权录制。
+   ![检查、下载并打开更新 · 5](../media/v0.1.1-alpha.1/settings-update-check-english/step-008.png)
 
-**预期结果**：检查、下载、打开安装器是三个不同阶段，不会因为发现更新就自动开始下载。
+6. 只有页面发现可用版本时，才阅读版本说明并明确点击 Download。等待下载及完整性校验完成，再点击 Open installer；随后完成系统安装流程，不运行未完成的临时文件。
 
-**关键说明**
-
-- 更新匿名访问固定 GitHub 来源，不使用 VS Code 登录，也没有让用户输入 GitHub PAT 的 App 页面。
-- 当前私有发布源或没有可用稳定版本时，匿名检查可能失败；已发布 Alpha 不等于内置更新可获取。
-- 内置更新只接受对应平台、架构和受支持的安装格式；macOS ZIP-only 分发不等于支持内置更新。
-- 通知中的 Download/Open installer 与 Settings 对应同一状态，Dismiss 只是收起通知。
-- 退出会收尾正在进行的检查或下载，不以打开旧临时文件跳过产品校验。
-
-<!-- recorded-walkthrough:settings-storage-privacy:start -->
-<a id="walkthrough-settings-storage-privacy"></a>
-## 逐步骤实操：隐私默认值、存储取消与清理
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>firstUrl</code> | <code>http://127.0.0.1:52747/guide/storage/before-clear</code> |
-| <code>secondUrl</code> | <code>http://127.0.0.1:52747/guide/storage/after-clear</code> |
-| <code>body</code> | <code>{&quot;orderId&quot;:&quot;guide-storage-001&quot;,&quot;message&quot;:&quot;public example&quot;}</code> |
-| <code>privacyOverride</code> | <code>maskCookies true for one cancelled export; saved default remained false then restored true</code> |
-| <code>clearedData</code> | <code>only this workflow’s temporary records and bodies</code> |
-
-<a id="walkthrough-settings-storage-privacy-01-record"></a>
-### 01 · 选择本轮临时记录
-
-![01 · 选择本轮临时记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-01-record.png)
-
-<a id="walkthrough-settings-storage-privacy-02-privacy"></a>
-### 02 · 打开隐私默认值
-
-![02 · 打开隐私默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-02-privacy.png)
-
-<a id="walkthrough-settings-storage-privacy-03-cookie-default"></a>
-### 03 · 临时更改 Cookie 默认值
-
-![03 · 临时更改 Cookie 默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-03-cookie-default.png)
-
-<a id="walkthrough-settings-storage-privacy-04-new-export"></a>
-### 04 · 打开新的 HAR 导出检查继承
-
-![04 · 打开新的 HAR 导出检查继承](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-04-new-export.png)
-
-<a id="walkthrough-settings-storage-privacy-05-filter-scope"></a>
-### 05 · 选择当前筛选范围
-
-![05 · 选择当前筛选范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-05-filter-scope.png)
-
-<a id="walkthrough-settings-storage-privacy-06-all-scope"></a>
-### 06 · 查看全部记录范围
-
-![06 · 查看全部记录范围](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-06-all-scope.png)
-
-<a id="walkthrough-settings-storage-privacy-07-one-export-override"></a>
-### 07 · 只覆盖本次 Cookie 遮罩
-
-![07 · 只覆盖本次 Cookie 遮罩](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-07-one-export-override.png)
-
-<a id="walkthrough-settings-storage-privacy-08-cancel-export"></a>
-### 08 · 取消本次导出
-
-![08 · 取消本次导出](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-08-cancel-export.png)
-
-<a id="walkthrough-settings-storage-privacy-09-default-unchanged"></a>
-### 09 · 确认单次覆盖没有改默认值
-
-![09 · 确认单次覆盖没有改默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-09-default-unchanged.png)
-
-<a id="walkthrough-settings-storage-privacy-10-restore-privacy"></a>
-### 10 · 恢复 Cookie 遮罩默认值
-
-![10 · 恢复 Cookie 遮罩默认值](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-10-restore-privacy.png)
-
-<a id="walkthrough-settings-storage-privacy-11-storage"></a>
-### 11 · 查看实际存储用量
-
-![11 · 查看实际存储用量](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-11-storage.png)
-
-<a id="walkthrough-settings-storage-privacy-12-refresh"></a>
-### 12 · Refresh 只刷新统计
-
-![12 · Refresh 只刷新统计](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-12-refresh.png)
-
-<a id="walkthrough-settings-storage-privacy-13-clear-dialog"></a>
-### 13 · 检查 Clear 影响
-
-![13 · 检查 Clear 影响](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-13-clear-dialog.png)
-
-<a id="walkthrough-settings-storage-privacy-14-cancel-clear"></a>
-### 14 · 取消 Clear 不删除记录
-
-![14 · 取消 Clear 不删除记录](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-14-cancel-clear.png)
-
-<a id="walkthrough-settings-storage-privacy-15-confirm-clear"></a>
-### 15 · 确认清理本轮记录和正文
-
-![15 · 确认清理本轮记录和正文](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-15-confirm-clear.png)
-
-<a id="walkthrough-settings-storage-privacy-16-empty-capture"></a>
-### 16 · Capture 同步变空且仍暂停
-
-![16 · Capture 同步变空且仍暂停](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-16-empty-capture.png)
-
-<a id="walkthrough-settings-storage-privacy-17-resume-after-clear"></a>
-### 17 · Clear 后显式恢复录制
-
-![17 · Clear 后显式恢复录制](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-17-resume-after-clear.png)
-
-<a id="walkthrough-settings-storage-privacy-18-new-record"></a>
-### 18 · Clear 后捕获新请求
-
-![18 · Clear 后捕获新请求](../media/v0.1.1-alpha.1/settings-storage-privacy/settings-storage-privacy-18-new-record.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-storage-privacy:end -->
-
-<!-- recorded-walkthrough:settings-proxy-routing:start -->
-<a id="walkthrough-settings-proxy-routing"></a>
-## 逐步骤实操：系统代理恢复与 Recording 的边界
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-> 本段展示已有CA、设置入口和可放弃的草稿。Manual和PAC示例没有Apply；实操不证明这些示例地址可用，也没有重新生成或卸载日常CA。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>listener</code> | <code>127.0.0.1:8888</code> |
-| <code>explicitClientUrl</code> | <code>http://127.0.0.1:59429/guide/system-proxy/explicit-client</code> |
-| <code>purpose</code> | <code>System proxy routing and Recording are separate; Restore retains the listener</code> |
-| <code>authorizationScope</code> | <code>existing authorized helper; this is not first-time OS authorization footage</code> |
-
-<a id="walkthrough-settings-proxy-routing-01-owned"></a>
-### 01 · 查看系统代理接管状态
-
-![01 · 查看系统代理接管状态](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-01-owned.png)
-
-<a id="walkthrough-settings-proxy-routing-02-restore"></a>
-### 02 · Restore 恢复原路由
-
-![02 · Restore 恢复原路由](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-02-restore.png)
-
-<a id="walkthrough-settings-proxy-routing-03-listener"></a>
-### 03 · 确认监听器没有因此停止
-
-![03 · 确认监听器没有因此停止](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-03-listener.png)
-
-<a id="walkthrough-settings-proxy-routing-04-enable"></a>
-### 04 · 通过 Settings 重新 Enable
-
-![04 · 通过 Settings 重新 Enable](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-04-enable.png)
-
-<a id="walkthrough-settings-proxy-routing-05-recording"></a>
-### 05 · 返回 Capture 确认录制开启
-
-![05 · 返回 Capture 确认录制开启](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-05-recording.png)
-
-<a id="walkthrough-settings-proxy-routing-06-pause"></a>
-### 06 · 暂停 Recording
-
-![06 · 暂停 Recording](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-06-pause.png)
-
-<a id="walkthrough-settings-proxy-routing-07-still-owned"></a>
-### 07 · 暂停不等于 Restore
-
-![07 · 暂停不等于 Restore](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-07-still-owned.png)
-
-<a id="walkthrough-settings-proxy-routing-08-final-restore"></a>
-### 08 · 结束演示前恢复原路由
-
-![08 · 结束演示前恢复原路由](../media/v0.1.1-alpha.1/settings-proxy-routing/settings-proxy-routing-08-final-restore.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-proxy-routing:end -->
-
-<!-- recorded-walkthrough:settings-tls-passthrough:start -->
-<a id="walkthrough-settings-tls-passthrough"></a>
-## 逐步骤实操：TLS 透传与恢复解密
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>host</code> | <code>localhost</code> |
-| <code>filter</code> | <code>localhost</code> |
-| <code>url</code> | <code>https://localhost:63604/playground/tls/h1</code> |
-| <code>originPort</code> | <code>63604</code> |
-| <code>originException</code> | <code>localhost (owned self-signed test origin; removed after recording)</code> |
-| <code>passthrough</code> | <code>localhost (exact host; removed before reconnecting)</code> |
-| <code>certificateScope</code> | <code>existing trusted CA; no generation, install, uninstall or deletion</code> |
-
-<a id="walkthrough-settings-tls-passthrough-01-filter"></a>
-### 01 · 按 localhost 筛选
-
-![01 · 按 localhost 筛选](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-01-filter.png)
-
-<a id="walkthrough-settings-tls-passthrough-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-02-record.png)
-
-<a id="walkthrough-settings-tls-passthrough-03-opaque-request"></a>
-### 03 · 建立未解密 TLS 连接
-
-![03 · 建立未解密 TLS 连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png)
-
-<a id="walkthrough-settings-tls-passthrough-04-tunnel-select"></a>
-### 04 · 选择 CONNECT 隧道
-
-![04 · 选择 CONNECT 隧道](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png)
-
-<a id="walkthrough-settings-tls-passthrough-05-tunnel"></a>
-### 05 · 查看 Tunnel 而非 HTTP 正文
-
-![05 · 查看 Tunnel 而非 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
-
-<a id="walkthrough-settings-tls-passthrough-06-https-setup"></a>
-### 06 · 从 Tunnel 打开 HTTPS Setup
-
-![06 · 从 Tunnel 打开 HTTPS Setup](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-06-https-setup.png)
-
-<a id="walkthrough-settings-tls-passthrough-07-cancel-setup"></a>
-### 07 · 取消且保持未解密
-
-![07 · 取消且保持未解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-07-cancel-setup.png)
-
-<a id="walkthrough-settings-tls-passthrough-08-settings"></a>
-### 08 · 打开 Settings
-
-![08 · 打开 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-08-settings.png)
-
-<a id="walkthrough-settings-tls-passthrough-09-certificates"></a>
-### 09 · 检查已有受信任 CA
-
-![09 · 检查已有受信任 CA](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-09-certificates.png)
-
-<a id="walkthrough-settings-tls-passthrough-10-origin-host"></a>
-### 10 · 填写自有源站 localhost
-
-![10 · 填写自有源站 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-10-origin-host.png)
-
-<a id="walkthrough-settings-tls-passthrough-11-origin-add"></a>
-### 11 · 仅添加本轮源站例外
-
-![11 · 仅添加本轮源站例外](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-11-origin-add.png)
-
-<a id="walkthrough-settings-tls-passthrough-12-mitm-on"></a>
-### 12 · 开启 HTTPS 解密
-
-![12 · 开启 HTTPS 解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-12-mitm-on.png)
-
-<a id="walkthrough-settings-tls-passthrough-13-capture-decrypted"></a>
-### 13 · 返回 Capture
-
-![13 · 返回 Capture](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-13-capture-decrypted.png)
-
-<a id="walkthrough-settings-tls-passthrough-14-decrypted-request"></a>
-### 14 · 用新连接请求 HTTPS
-
-![14 · 用新连接请求 HTTPS](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-14-decrypted-request.png)
-
-<a id="walkthrough-settings-tls-passthrough-15-decrypted-select"></a>
-### 15 · 选择解密后的 GET
-
-![15 · 选择解密后的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-15-decrypted-select.png)
-
-<a id="walkthrough-settings-tls-passthrough-16-decrypted-body"></a>
-### 16 · 读取真实 HTTPS 正文
-
-![16 · 读取真实 HTTPS 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-16-decrypted-body.png)
-
-<a id="walkthrough-settings-tls-passthrough-17-settings-passthrough"></a>
-### 17 · 返回 Settings
-
-![17 · 返回 Settings](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-17-settings-passthrough.png)
-
-<a id="walkthrough-settings-tls-passthrough-18-passthrough"></a>
-### 18 · 打开 TLS passthrough
-
-![18 · 打开 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-18-passthrough.png)
-
-<a id="walkthrough-settings-tls-passthrough-19-host"></a>
-### 19 · 填写精确主机 localhost
-
-![19 · 填写精确主机 localhost](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-19-host.png)
-
-<a id="walkthrough-settings-tls-passthrough-20-add"></a>
-### 20 · 添加并保存透传条目
-
-![20 · 添加并保存透传条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-20-add.png)
-
-<a id="walkthrough-settings-tls-passthrough-21-capture-passthrough"></a>
-### 21 · 返回 Capture 检查新连接
-
-![21 · 返回 Capture 检查新连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-21-capture-passthrough.png)
-
-<a id="walkthrough-settings-tls-passthrough-22-passthrough-request"></a>
-### 22 · 重新建立同一源站 HTTPS 连接
-
-![22 · 重新建立同一源站 HTTPS 连接](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-22-passthrough-request.png)
-
-<a id="walkthrough-settings-tls-passthrough-23-passthrough-select"></a>
-### 23 · 选择新增 CONNECT
-
-![23 · 选择新增 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-23-passthrough-select.png)
-
-<a id="walkthrough-settings-tls-passthrough-24-passthrough-tunnel"></a>
-### 24 · 核对命中 TLS passthrough
-
-![24 · 核对命中 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
-
-<a id="walkthrough-settings-tls-passthrough-25-locate"></a>
-### 25 · 从 Tunnel 定位实际名单条目
-
-![25 · 从 Tunnel 定位实际名单条目](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-25-locate.png)
-
-<a id="walkthrough-settings-tls-passthrough-26-remove"></a>
-### 26 · 删除本轮 localhost 透传项
-
-![26 · 删除本轮 localhost 透传项](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-26-remove.png)
-
-<a id="walkthrough-settings-tls-passthrough-27-capture-restored"></a>
-### 27 · 返回 Capture 检查恢复
-
-![27 · 返回 Capture 检查恢复](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-27-capture-restored.png)
-
-<a id="walkthrough-settings-tls-passthrough-28-reconnect"></a>
-### 28 · 再次用新连接请求 HTTPS
-
-![28 · 再次用新连接请求 HTTPS](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-28-reconnect.png)
-
-<a id="walkthrough-settings-tls-passthrough-29-restored-select"></a>
-### 29 · 选择恢复解密的 GET
-
-![29 · 选择恢复解密的 GET](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-29-restored-select.png)
-
-<a id="walkthrough-settings-tls-passthrough-30-restored-body"></a>
-### 30 · 核对 HTTP 正文恢复
-
-![30 · 核对 HTTP 正文恢复](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-30-restored-body.png)
-
-<a id="walkthrough-settings-tls-passthrough-31-cleanup-settings"></a>
-### 31 · 返回 Settings 清理本轮配置
-
-![31 · 返回 Settings 清理本轮配置](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-31-cleanup-settings.png)
-
-<a id="walkthrough-settings-tls-passthrough-32-cleanup-certificates"></a>
-### 32 · 打开 Certificates
-
-![32 · 打开 Certificates](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-32-cleanup-certificates.png)
-
-<a id="walkthrough-settings-tls-passthrough-33-mitm-off"></a>
-### 33 · 关闭本轮解密
-
-![33 · 关闭本轮解密](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-33-mitm-off.png)
-
-<a id="walkthrough-settings-tls-passthrough-34-origin-remove"></a>
-### 34 · 移除自有源站例外
-
-![34 · 移除自有源站例外](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-34-origin-remove.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-tls-passthrough:end -->
-
-<!-- recorded-walkthrough:settings-upstream:start -->
-<a id="walkthrough-settings-upstream"></a>
-## 逐步骤实操：Manual、PAC、Direct与共享草稿
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>origin</code> | <code>http://127.0.0.1:51204/guide/upstream</code> |
-| <code>proxyHost</code> | <code>127.0.0.1</code> |
-| <code>proxyPort</code> | <code>51206</code> |
-| <code>pacUrl</code> | <code>http://127.0.0.1:51204/guide/upstream/route.pac</code> |
-| <code>pacChoice</code> | <code>127.0.0.1 uses the owned PROXY; localhost uses DIRECT</code> |
-| <code>draftBoundary</code> | <code>Cancel/Discard do not Apply; Open in Settings retains the same draft</code> |
-| <code>finalMode</code> | <code>system</code> |
-| <code>scope</code> | <code>Owned HTTP routes only; no WPAD, external credentials or system proxy preference writes</code> |
-
-<a id="walkthrough-settings-upstream-01-settings"></a>
-### 01 · 打开Settings
-
-![01 · 打开Settings](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-01-settings.png)
-
-<a id="walkthrough-settings-upstream-02-upstream"></a>
-### 02 · 打开Upstream proxy
-
-![02 · 打开Upstream proxy](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-02-upstream.png)
-
-<a id="walkthrough-settings-upstream-03-direct-draft"></a>
-### 03 · 选择Direct草稿
-
-![03 · 选择Direct草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-03-direct-draft.png)
-
-<a id="walkthrough-settings-upstream-04-discard"></a>
-### 04 · Discard草稿不改路线
-
-![04 · Discard草稿不改路线](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-04-discard.png)
-
-<a id="walkthrough-settings-upstream-05-manual"></a>
-### 05 · 选择Manual
-
-![05 · 选择Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-05-manual.png)
-
-<a id="walkthrough-settings-upstream-06-host"></a>
-### 06 · 填写自有上游Host
-
-![06 · 填写自有上游Host](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-06-host.png)
-
-<a id="walkthrough-settings-upstream-07-port"></a>
-### 07 · 填写实际上游端口
-
-![07 · 填写实际上游端口](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-07-port.png)
-
-<a id="walkthrough-settings-upstream-08-apply-manual"></a>
-### 08 · Apply Manual
-
-![08 · Apply Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-08-apply-manual.png)
-
-<a id="walkthrough-settings-upstream-09-manual-request"></a>
-### 09 · 用真实转发核对Manual
-
-![09 · 用真实转发核对Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-09-manual-request.png)
-
-<a id="walkthrough-settings-upstream-10-capture"></a>
-### 10 · 返回Capture查看生效路线
-
-![10 · 返回Capture查看生效路线](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-10-capture.png)
-
-<a id="walkthrough-settings-upstream-11-shortcut"></a>
-### 11 · 打开底栏快捷浮层
-
-![11 · 打开底栏快捷浮层](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-11-shortcut.png)
-
-<a id="walkthrough-settings-upstream-12-pac-draft"></a>
-### 12 · 在浮层选择PAC草稿
-
-![12 · 在浮层选择PAC草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-12-pac-draft.png)
-
-<a id="walkthrough-settings-upstream-13-pac-url"></a>
-### 13 · 填写自有PAC地址
-
-![13 · 填写自有PAC地址](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-13-pac-url.png)
-
-<a id="walkthrough-settings-upstream-14-cancel-draft"></a>
-### 14 · Cancel放弃本次浮层草稿
-
-![14 · Cancel放弃本次浮层草稿](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-14-cancel-draft.png)
-
-<a id="walkthrough-settings-upstream-15-reopen"></a>
-### 15 · 重开浮层核对仍为Manual
-
-![15 · 重开浮层核对仍为Manual](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-15-reopen.png)
-
-<a id="walkthrough-settings-upstream-16-pac-again"></a>
-### 16 · 重新选择PAC
-
-![16 · 重新选择PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-16-pac-again.png)
-
-<a id="walkthrough-settings-upstream-17-pac-url-again"></a>
-### 17 · 再次填写本轮PAC
-
-![17 · 再次填写本轮PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-17-pac-url-again.png)
-
-<a id="walkthrough-settings-upstream-18-open-settings"></a>
-### 18 · 把同一草稿带到Settings
-
-![18 · 把同一草稿带到Settings](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-18-open-settings.png)
-
-<a id="walkthrough-settings-upstream-19-apply-pac"></a>
-### 19 · Apply PAC
-
-![19 · Apply PAC](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-19-apply-pac.png)
-
-<a id="walkthrough-settings-upstream-20-pac-proxy"></a>
-### 20 · 核对PAC选择PROXY
-
-![20 · 核对PAC选择PROXY](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-20-pac-proxy.png)
-
-<a id="walkthrough-settings-upstream-21-pac-direct"></a>
-### 21 · 核对同一PAC选择DIRECT
-
-![21 · 核对同一PAC选择DIRECT](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-21-pac-direct.png)
-
-<a id="walkthrough-settings-upstream-22-direct"></a>
-### 22 · 显式选择Direct
-
-![22 · 显式选择Direct](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-22-direct.png)
-
-<a id="walkthrough-settings-upstream-23-apply-direct"></a>
-### 23 · Apply Direct
-
-![23 · Apply Direct](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-23-apply-direct.png)
-
-<a id="walkthrough-settings-upstream-24-direct-request"></a>
-### 24 · 核对Direct不经过上游
-
-![24 · 核对Direct不经过上游](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-24-direct-request.png)
-
-<a id="walkthrough-settings-upstream-25-system"></a>
-### 25 · 恢复System选择
-
-![25 · 恢复System选择](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-25-system.png)
-
-<a id="walkthrough-settings-upstream-26-apply-system"></a>
-### 26 · Apply System
-
-![26 · Apply System](../media/v0.1.1-alpha.1/settings-upstream/settings-upstream-26-apply-system.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-upstream:end -->
-
-<!-- recorded-walkthrough:settings-privacy-export:start -->
-<a id="walkthrough-settings-privacy-export"></a>
-## 逐步骤实操：隐私默认值、单次覆盖和实际HAR字段
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:61384/guide/privacy-export/record</code> |
-| <code>publicAuthorization</code> | <code>Bearer public-export-value</code> |
-| <code>publicCookie</code> | <code>guide-request=public</code> |
-| <code>publicResponseCookie</code> | <code>guide-response=public; Path=/</code> |
-| <code>retainedHeader</code> | <code>x-guide-note: public-note</code> |
-| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;public privacy example&quot;}</code> |
-| <code>firstFile</code> | <code>guide-auth-masked.har</code> |
-| <code>secondFile</code> | <code>guide-public-unmasked.har</code> |
-| <code>finalFile</code> | <code>guide-redacted-no-body.har</code> |
-| <code>safety</code> | <code>All authentication-like values are deliberately public loopback examples, not real credentials</code> |
-| <code>finalDefaults</code> | <code>Authorization, Cookie and warning enabled; existing files not rewritten</code> |
-
-<a id="walkthrough-settings-privacy-export-01-privacy"></a>
-### 01 · 查看三项Privacy默认值
-
-![01 · 查看三项Privacy默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-01-privacy.png)
-
-<a id="walkthrough-settings-privacy-export-02-auth-default"></a>
-### 02 · 更改Authorization默认值
-
-![02 · 更改Authorization默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-02-auth-default.png)
-
-<a id="walkthrough-settings-privacy-export-03-cookie-default"></a>
-### 03 · 更改Cookie默认值
-
-![03 · 更改Cookie默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-03-cookie-default.png)
-
-<a id="walkthrough-settings-privacy-export-04-inherited-export"></a>
-### 04 · 打开新HAR草稿核对继承
-
-![04 · 打开新HAR草稿核对继承](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-04-inherited-export.png)
-
-<a id="walkthrough-settings-privacy-export-05-one-time-override"></a>
-### 05 · 本次只遮罩Authorization
-
-![05 · 本次只遮罩Authorization](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-05-one-time-override.png)
-
-<a id="walkthrough-settings-privacy-export-06-save-override"></a>
-### 06 · 保存guide-auth-masked.har
-
-![06 · 保存guide-auth-masked.har](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-06-save-override.png)
-
-<a id="walkthrough-settings-privacy-export-07-check-override"></a>
-### 07 · 核对文件只遮罩指定字段
-
-![07 · 核对文件只遮罩指定字段](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-07-check-override.png)
-
-<a id="walkthrough-settings-privacy-export-08-defaults-unchanged"></a>
-### 08 · 核对单次覆盖没改全局默认值
-
-![08 · 核对单次覆盖没改全局默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-08-defaults-unchanged.png)
-
-<a id="walkthrough-settings-privacy-export-09-warning-default"></a>
-### 09 · 关闭未遮罩前的警示偏好
-
-![09 · 关闭未遮罩前的警示偏好](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-09-warning-default.png)
-
-<a id="walkthrough-settings-privacy-export-10-unmasked-draft"></a>
-### 10 · 查看新的公开数据导出草稿
-
-![10 · 查看新的公开数据导出草稿](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-10-unmasked-draft.png)
-
-<a id="walkthrough-settings-privacy-export-11-save-public"></a>
-### 11 · 只保存本轮公开测试值
-
-![11 · 只保存本轮公开测试值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-11-save-public.png)
-
-<a id="walkthrough-settings-privacy-export-12-check-public"></a>
-### 12 · 核对取消遮罩后文件的真实字段
-
-![12 · 核对取消遮罩后文件的真实字段](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-12-check-public.png)
-
-<a id="walkthrough-settings-privacy-export-13-restore-privacy"></a>
-### 13 · 返回Privacy恢复默认值
-
-![13 · 返回Privacy恢复默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-13-restore-privacy.png)
-
-<a id="walkthrough-settings-privacy-export-14-restore-auth"></a>
-### 14 · 恢复Authorization遮罩
-
-![14 · 恢复Authorization遮罩](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-14-restore-auth.png)
-
-<a id="walkthrough-settings-privacy-export-15-restore-cookies"></a>
-### 15 · 恢复Cookie遮罩
-
-![15 · 恢复Cookie遮罩](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-15-restore-cookies.png)
-
-<a id="walkthrough-settings-privacy-export-16-restore-warning"></a>
-### 16 · 恢复未遮罩警示
-
-![16 · 恢复未遮罩警示](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-16-restore-warning.png)
-
-<a id="walkthrough-settings-privacy-export-17-redacted-draft"></a>
-### 17 · 检查新草稿使用恢复后的默认值
-
-![17 · 检查新草稿使用恢复后的默认值](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-17-redacted-draft.png)
-
-<a id="walkthrough-settings-privacy-export-18-strip-bodies"></a>
-### 18 · 本次移除请求与响应正文
-
-![18 · 本次移除请求与响应正文](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-18-strip-bodies.png)
-
-<a id="walkthrough-settings-privacy-export-19-save-redacted"></a>
-### 19 · 保存guide-redacted-no-body.har
-
-![19 · 保存guide-redacted-no-body.har](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-19-save-redacted.png)
-
-<a id="walkthrough-settings-privacy-export-20-check-redacted"></a>
-### 20 · 逐字段核对真正的文件内容
-
-![20 · 逐字段核对真正的文件内容](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-20-check-redacted.png)
-
-<a id="walkthrough-settings-privacy-export-21-clear"></a>
-### 21 · 清空本轮临时记录再检查导入
-
-![21 · 清空本轮临时记录再检查导入](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-21-clear.png)
-
-<a id="walkthrough-settings-privacy-export-22-import"></a>
-### 22 · 从产品选择刚导出的HAR
-
-![22 · 从产品选择刚导出的HAR](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-22-import.png)
-
-<a id="walkthrough-settings-privacy-export-23-open-redacted"></a>
-### 23 · 打开本轮去正文HAR
-
-![23 · 打开本轮去正文HAR](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-23-open-redacted.png)
-
-<a id="walkthrough-settings-privacy-export-24-imported"></a>
-### 24 · 导入不会凭空恢复已移除正文
-
-![24 · 导入不会凭空恢复已移除正文](../media/v0.1.1-alpha.1/settings-privacy-export/settings-privacy-export-24-imported.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-privacy-export:end -->
-
-<!-- recorded-walkthrough:settings-update-check:start -->
-<a id="walkthrough-settings-update-check"></a>
-## 实际检查更新与失败状态
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>source</code> | <code>The actual Release update source zhxmt-xm/Interceptor, without injected credentials</code> |
-| <code>checkResult</code> | <code>failed</code> |
-| <code>lastCheckedAt</code> | <code>2026-10-16T12:57:32.772Z</code> |
-| <code>downloaded</code> | <code>false</code> |
-| <code>installerOpened</code> | <code>false</code> |
-| <code>boundary</code> | <code>Only the actual Check action/result is recorded; download and native installation require their own conditions</code> |
-
-<a id="walkthrough-settings-update-check-01-settings"></a>
-### 01 · 打开Settings
-
-![01 · 打开Settings](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-01-settings.png)
-
-<a id="walkthrough-settings-update-check-02-updates"></a>
-### 02 · 进入Updates查看真实状态
-
-![02 · 进入Updates查看真实状态](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-02-updates.png)
-
-<a id="walkthrough-settings-update-check-03-check"></a>
-### 03 · 真实点击Check
-
-![03 · 真实点击Check](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-03-check.png)
-
-<a id="walkthrough-settings-update-check-04-result"></a>
-### 04 · 核对这次检查的实际终态
-
-![04 · 核对这次检查的实际终态](../media/v0.1.1-alpha.1/settings-update-check/settings-update-check-04-result.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:settings-update-check:end -->
+- 更新使用匿名 GitHub 请求；私有发布源、没有合适稳定版本或缺少受支持安装包时，检查可能失败。
+- 已发布 Alpha 或只有 macOS ZIP，不等于内置更新已经有可用安装目标。
+- 平台、架构和安装格式必须匹配。通知中的 Download、Open installer 与 Settings 使用同一状态，Dismiss 只收起通知。
+- 正常退出会收尾正在进行的检查或下载，不用旧临时文件绕过校验。

@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-grpc-json-english",
+  "title": {
+    "zh-CN": "gRPC JSON请求与响应消息",
+    "en": "gRPC JSON request and response messages"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/grpc-scenarios.workflow.ts",
+    "test": "capture.scenarios.grpc preserves envelope payloads compression and error trailers",
+    "run": "2026-10-21T10-07-07-318Z-9Zv3yz",
+    "testDirectory": "capture-grpc-scenarios.wor-8400e-pression-and-error-trailers-macos",
+    "manifestSha256": "851e44a6e56e2e29aefa27020757055979f8a9a57eb1f88a684e0a46141bed0a",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-022",
+      "title": "grpc-unary-json打开gRPC页并核对状态 / Open gRPC and inspect the status for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-022.png",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2485.015625,
+            "y": 292,
+            "width": 171.84375,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.grpc"
+        }
+      ],
+      "bytes": 208775,
+      "sha256": "dd42c3c7ba9fa037c144b6d643666ee18ca1002429fa43b73297069104d90a50",
+      "rawBytes": 298982,
+      "rawSha256": "509daae4aa7b3c34a2ba8c984b2738e3d201322ea966ffc14b4cb98ddc354f31",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "grpc-unary-json选择request消息 / Select request messages for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-023.png",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 424.75,
+            "width": 131.078125,
+            "height": 44
+          },
+          "automationId": "capture.grpc.side.request"
+        }
+      ],
+      "bytes": 208076,
+      "sha256": "046b26eff0fdb2f2e256133bb962f38c252cb9878c57ca8f332908b6e46f75a7",
+      "rawBytes": 298836,
+      "rawSha256": "4c5b6524d7adf569ff8b052b0c2b96df1306c784d08c776447b14e1222c00f06",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "grpc-unary-json展开request消息 / Expand the request message for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-024.png",
+      "image": "step-024.annotated.png",
+      "rawImage": "step-024.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 500.75,
+            "width": 820,
+            "height": 76
+          },
+          "automationId": "capture.grpc.message.ex-mvhya18t-xu4n11nu.request.0"
+        }
+      ],
+      "bytes": 237399,
+      "sha256": "51633a0094ba3496ae0212ef61ddd6bdf69ce859d0b30957cc388fb2bf902b01",
+      "rawBytes": 326590,
+      "rawSha256": "067cb76e24aa919cc617fa9b3dc9379a88d6e7a6dd42960d46757cd9b43cc9e0",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-025",
+      "title": "grpc-unary-json复制request实际载荷 / Copy the actual request payload for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-025.png",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3078,
+            "y": 600.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.grpc.copy.ex-mvhya18t-xu4n11nu.request.0"
+        }
+      ],
+      "bytes": 245945,
+      "sha256": "762f85ce72138fb701b8801d209a90e4b90996c2379f4a92a1ac90cd1dc2d808",
+      "rawBytes": 342775,
+      "rawSha256": "f150fd870689f16c4ad6e887616921b603cccfa1bbaa4a0011b97a5b63739da4",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "grpc-unary-json选择response消息 / Select response messages for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-026.png",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2475.078125,
+            "y": 424.75,
+            "width": 150.390625,
+            "height": 44
+          },
+          "automationId": "capture.grpc.side.response"
+        }
+      ],
+      "bytes": 208381,
+      "sha256": "9bf299d62421c2e92d825175698d0d95c8c0e953b372b0f03a43163043839189",
+      "rawBytes": 299012,
+      "rawSha256": "8ca3407bf2c55ec0ba4601499a71987763144d2f45cf2f0c89e32e13877fcd2a",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-027",
+      "title": "grpc-unary-json展开response消息 / Expand the response message for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-027.png",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 500.75,
+            "width": 820,
+            "height": 76
+          },
+          "automationId": "capture.grpc.message.ex-mvhya18t-xu4n11nu.response.0"
+        }
+      ],
+      "bytes": 238199,
+      "sha256": "0b2fcc3ae03cb21a8a92659b5dc03bc2a40d4e1844b8f83b8b70bb22712d8bcc",
+      "rawBytes": 327605,
+      "rawSha256": "aba3fc4deb350d0cc3a8feccb1222626f64c9ce2b55fb1c0967d10b657c3c0fa",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-028",
+      "title": "grpc-unary-json复制response实际载荷 / Copy the actual response payload for grpc-unary-json",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-028.png",
+      "image": "step-028.annotated.png",
+      "rawImage": "step-028.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3078,
+            "y": 600.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.grpc.copy.ex-mvhya18t-xu4n11nu.response.0"
+        }
+      ],
+      "bytes": 246764,
+      "sha256": "6ca98c3fbccab0b0ad132c3f6e72cf76000d77f2b57e3e855d4171a09c6bad14",
+      "rawBytes": 343787,
+      "rawSha256": "2bbc4d297b583ed358bfb9dc22dc4fad3e4ce621f1a3885cceb85f37e8be4cc1",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

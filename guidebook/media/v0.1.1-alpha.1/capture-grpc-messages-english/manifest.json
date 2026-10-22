@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-grpc-messages-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/compact-message-layout.workflow.ts",
+    "test": "capture.messages.compact-layout grpc keeps long messages bounded and resizable",
+    "run": "2026-10-21T19-09-11-384Z-9vboiX",
+    "testDirectory": "capture-compact-message-la-221a4-sages-bounded-and-resizable-macos",
+    "manifestSha256": "6e4101b745d72b0deeea47c771f01cf685d21e09b2db79c190762545c7a56256",
+    "metadataSha256": "399b62eabdbdb33c14a32e6490664296ba1de7a037230d769d40468f7254c352",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "path": "/e2e/grpc/compact-message-layout",
+    "direction": "Response",
+    "shortBytes": 70,
+    "longBytes": 2538,
+    "longMessage": 2,
+    "longBodyCopy": "UTF-8 JSON",
+    "longMessageCopy": "UTF-8 JSON",
+    "descriptor": "No descriptor loaded",
+    "paginationPath": "/e2e/grpc/compact-message-layout/pagination",
+    "paginationDirectionCount": 205,
+    "lastIndex": 204,
+    "lastMessage": 205,
+    "lastBodyMode": "Raw",
+    "lastBody": "{\"index\":204,\"state\":\"complete\"}"
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "grpc展开短消息并选择Raw / Expand the short grpc message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "bytes": 289042,
+      "sha256": "e1c7e876897656d229f86a8abdb05f6799775ec1803923dff8db76510b1bd1e6",
+      "rawBytes": 392130,
+      "rawSha256": "b199b21361e1ee97d71304807c2c0baff9c4ecec4350e6dae060d971d112480d",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 696.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "grpc复制短消息的完整Raw文本 / Copy the complete short grpc message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "bytes": 306141,
+      "sha256": "c57d068d7d0c7124484ff8429efb56157659290b55cfa18891ec0d8db2035a3a",
+      "rawBytes": 421306,
+      "rawSha256": "d7670b3790a03ac74aee3893d20b6750aef498a2123e38ac0390b4935575dcf7",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3012,
+            "y": 688.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "grpc收起短消息 / Collapse the short grpc message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "bytes": 260130,
+      "sha256": "022c01637d7ef9191d2639d4c741224b3bb0e2a6a88f958696e0ac0777d3dcc8",
+      "rawBytes": 369223,
+      "rawSha256": "99a78270644229b7a4177b7765023ee1e4591cce6d21e24afbdf5bc7bca96726",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 500.75,
+            "width": 820,
+            "height": 76
+          },
+          "automationId": "capture.grpc.message.ex-mvihkix2-91khur6d.response.0"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "grpc展开长消息并选择Raw / Expand the long grpc message in Raw",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "bytes": 290032,
+      "sha256": "08b4b227f0fad1aff1967e21023257147b334c07d1ce13bc59a0e6f068738c88",
+      "rawBytes": 383926,
+      "rawSha256": "265061cf9f4ce4ff65f4884dfdb938d6f002557ecd1a8aedd9faf21ee7014898",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 774.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "grpc拖动正文右下角调整高度 / Drag the lower-right corner to resize the grpc body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "bytes": 290601,
+      "sha256": "3ecb85720e36aa78b9ef4b30d7c239199743e8ae964763c7f1deefdd7772419d",
+      "rawBytes": 384282,
+      "rawSha256": "80825fad2bdc541ed86c128e13f4c1e7c9e9c8f1c639c3b6e1529d8b85b55edf",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 764
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "grpc在长消息正文内滚动 / Scroll inside the long grpc message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "bytes": 289975,
+      "sha256": "65ee1bd9e621930a8eddf0dad044bea62287adf6bd69d61a665302f11a454635",
+      "rawBytes": 385197,
+      "rawSha256": "30af937c37e04f2db10eef57d196d5bac3895e4988432346270a23cbbf12ecfd",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 764
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "grpc用键盘到达compact-message-end / Use the keyboard to reach compact-message-end in grpc",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-008.png",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "bytes": 288550,
+      "sha256": "17b7c1fcc9ee3a123ef09c279df976ebf986a13cec725276ce94e8885e8481c2",
+      "rawBytes": 383624,
+      "rawSha256": "ba2d66e08a56f17ed57f2ce143edbf56174159b5f0902dcc7db5173618d6e7b4",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 856.75,
+            "width": 752,
+            "height": 764
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "grpc正文到底后滚动外层消息区 / Scroll the outer grpc message area after reaching the body end",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-009.png",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "bytes": 291421,
+      "sha256": "6699bba0d6b5838ad894f7852ef562a32f24b0d99b1854c2306679bff1ddbc13",
+      "rawBytes": 387927,
+      "rawSha256": "3cfc00005810b73c001de5ae366bbfe484fb4e2b8dd52328ef27fb4e8bc3b287",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2304,
+            "y": 374.75,
+            "width": 896,
+            "height": 1365.25
+          },
+          "automationId": "capture.inspector.scroll"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "grpc用正文Copy复制完整Raw文本 / Copy the complete grpc Raw text with the body Copy control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-010.png",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "bytes": 310306,
+      "sha256": "6f7b0013a535f55fbf4beb2a782e68fc4ceec8dbb00298af6e51f297932cc4ce",
+      "rawBytes": 416697,
+      "rawSha256": "707cceb07567d61871b111c78d5d8d5ef383375b108ffe926cd58050e9bfe3fc",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2992,
+            "y": 386.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.inspector.body-action.copy"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "grpc使用消息专用Copy / Use the grpc message-specific Copy control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-011.png",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "bytes": 313716,
+      "sha256": "b34dd81a949980d017c5106308f797b2e5b9086273bb0fc8dda894284f2d69b4",
+      "rawBytes": 415832,
+      "rawSha256": "9f00f92aa6a1c461efa8b2633172ff3562c7dda75253b77a8cfbba68ad1029ed",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3058,
+            "y": 678.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.grpc.copy.ex-mvihkix2-91khur6d.response.1"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "grpc切换长消息Hex / Select Hex for the long grpc message",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "bytes": 278715,
+      "sha256": "fb09c8efacaa403a8c40d07a2c3fefa0e24b5df87a99cd4d95a9c538f5634a52",
+      "rawBytes": 384454,
+      "rawSha256": "121cc08a69e137c97f0c079078dc5bf97918a6f9003ff7e1186ed652c9bb9782",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2657.46875,
+            "y": 774.75,
+            "width": 81.25,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.hex"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "grpc打开长消息全屏 / Open the long grpc message fullscreen",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-014.png",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "bytes": 303970,
+      "sha256": "244a9584b34556e812f4ab262de416fc62cf5fc7e5c36cbfb38613488b040cbf",
+      "rawBytes": 346781,
+      "rawSha256": "7c85b986cf5202150a99cf78a857db3b216b0e6fbc9140702e52052da4dd2bf2",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 542,
+            "y": 242,
+            "width": 2116,
+            "height": 118
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "grpc按Escape返回消息详情 / Press Escape to return to grpc message details",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "bytes": 301256,
+      "sha256": "fb148ad8006e4864baeccd0d3eefed68c6ae104b7def7330719f543740d5d7e9",
+      "rawBytes": 398234,
+      "rawSha256": "cc2086ac6a2dda23aa9671c88420e6026b66301293c0d6e8c92c2383416f08ce",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2568,
+            "y": 774.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "滚动加载后续grpc消息页 / Scroll to load later grpc message pages",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-016.png",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "bytes": 344320,
+      "sha256": "5ddd5e2463a9af4c8d40a58b84a5bbd20b50d0ffb25384bbdb306711c2d98b59",
+      "rawBytes": 476261,
+      "rawSha256": "a803514da5a2c74660da1ed505127c8625568e34ae629a9b21cc36500679d92e",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2304,
+            "y": 374.75,
+            "width": 896,
+            "height": 1365.25
+          },
+          "automationId": "capture.inspector.scroll"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "展开第205条grpc方向消息 / Expand message 205 in the selected grpc direction",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-017.png",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "bytes": 347307,
+      "sha256": "b3f3d4ac5cec3d776ab8ab15aae48de3b827b859ba95385af28396dfe6fe116a",
+      "rawBytes": 475608,
+      "rawSha256": "62e8f84dfc17af4e0aadfdc4cfd66802c0641dfc52971bd2cf91f415303c068e",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2342,
+            "y": 1508.75,
+            "width": 800,
+            "height": 76
+          },
+          "automationId": "capture.grpc.message.ex-mvihl4bx-4lg2z844.response.204"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "查看第205条grpc消息的完整Raw正文 / Inspect the complete Raw body of grpc message 205",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-018.png",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "bytes": 335962,
+      "sha256": "372dc59e56743732d29514fb2dbb947814d778f26b12ed9d338a73dda0f414d3",
+      "rawBytes": 457998,
+      "rawSha256": "b2a2476dd8deabfb4efdbf05269abb9e7c9dcb22544cd40ed57d95da3015b830",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1456.75,
+            "width": 752,
+            "height": 96
+          },
+          "automationId": "capture.inspector.body-pane"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "复制第205条grpc消息，JSON index为204 / Copy grpc message 205 with JSON index 204",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-019.png",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "bytes": 346997,
+      "sha256": "9a03bbff66fddd37a70cc2aff7e115850d12766362cadd34020efbeec1d4b1b3",
+      "rawBytes": 474822,
+      "rawSha256": "a85cb0804f9ee6ec713126a6fb37fc44199c600667a7336f40635a276b93d5bc",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3058,
+            "y": 1278.75,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.grpc.copy.ex-mvihl4bx-4lg2z844.response.204"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-headers-timing-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "published-reader-validation-pending",
+  "title": {
+    "zh-CN": "Headers独立折叠与Timing",
+    "en": "Independent Header sections and Timing"
+  },
+  "source": {
+    "workflow": "capture/section-collapse.workflow.ts",
+    "test": "capture.inspector.section-collapse keeps sections independent and accessible",
+    "run": "2026-10-21T10-01-02-443Z-34fQvO",
+    "testDirectory": "capture-section-collapse.w-f49e6--independent-and-accessible-macos",
+    "manifestSha256": "0a8b77b005995fc2fbb43e36a9a161c37029882fe23626294374a68dc1221eca",
+    "metadataSha256": "8e1134be2557d047bc594173a7618b87db161894bc2969a17f40c7ed4a86a36c",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "review": {
+    "individualAnnotatedFramesVisuallyReviewed": true,
+    "actualLanguage": "en",
+    "onlyOwnedTrafficDetailsVisible": true,
+    "rawAndAnnotatedHashesBytesPngDimensionsVerified": true,
+    "sourceFilesUnchanged": true
+  },
+  "notes": [
+    "All five frames show GET http://127.0.0.1:59682/e2e/capture/section-collapse, status 200, protocol H1.",
+    "This is separate from the JSON POST and the later /query request already published.",
+    "General and Response Headers collapse independently; reopening General leaves Response Headers collapsed.",
+    "Timing shows request bytes 0 B, response bytes 103 B, TTFB 12 ms, response bodies 4 ms, total 16 ms."
+  ],
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "查看展开的General与Response Headers / Inspect expanded General and Response Headers",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 418.75,
+            "width": 824,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.general"
+        }
+      ],
+      "bytes": 254169,
+      "sha256": "17489fec3a7dc9728a75c0d7323ece56ab48466d3fdfa07627698f191a2b25dc",
+      "rawBytes": 366636,
+      "rawSha256": "bff782035456ef321c2d8ba701da10fc8cffef5f2ca8b1e111cb60b4e7dcc3b6"
+    },
+    {
+      "id": "step-003",
+      "title": "折叠General，Response Headers保持展开 / Collapse General while keeping Response Headers expanded",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 418.75,
+            "width": 824,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.general"
+        }
+      ],
+      "bytes": 224891,
+      "sha256": "34a0153d4f14a4fae1feae6734eedc62748447422ade22bbbf0657c12844f9b0",
+      "rawBytes": 324319,
+      "rawSha256": "ff9a2e7900692701388ea352dcdf43673bdb1e57c825e5f87c9d8275eb13435d"
+    },
+    {
+      "id": "step-004",
+      "title": "再折叠Response Headers / Collapse Response Headers too",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 534.75,
+            "width": 824,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-headers"
+        }
+      ],
+      "bytes": 195941,
+      "sha256": "2df297f56ecba64fcac76b7884531895eb04904f939760e26774aa83eba893dc",
+      "rawBytes": 285168,
+      "rawSha256": "0a720fc1d4e107a1e0ef2457cea48cf901eedaf5e81ba6f0f8b779cf001fe439"
+    },
+    {
+      "id": "step-005",
+      "title": "重新展开General，不改变Response Headers / Reopen General without changing Response Headers",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 418.75,
+            "width": 824,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.general"
+        }
+      ],
+      "bytes": 225457,
+      "sha256": "11d5881a31f1a3e76df05dde2f233d182853767832d1729160aa95b1dbc79714",
+      "rawBytes": 325639,
+      "rawSha256": "a0d7a4a400cd677eedb344311e9aa4d02f98d51996e86b6a3946956d0bc50128"
+    },
+    {
+      "id": "step-006",
+      "title": "打开Timing查看本次请求时序 / Open Timing for this request",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2804.453125,
+            "y": 292,
+            "width": 131.03125,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.timing"
+        }
+      ],
+      "bytes": 205264,
+      "sha256": "ce4d0de52a38e23ec081cba8cf8ce7ee3e83cfbaecc2668e9aca6fb6ad7dd6d3",
+      "rawBytes": 295632,
+      "rawSha256": "3e46f7e48a43e789b1fa548dd80077e4c990eaa8a9959b45409dc4a3eb6d19c6"
+    }
+  ]
+}

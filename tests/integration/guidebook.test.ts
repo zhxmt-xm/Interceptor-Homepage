@@ -11,6 +11,93 @@ const chapters = readdirSync(sourceDirectory)
     source: readFileSync(path.join(sourceDirectory, name), 'utf8'),
   }));
 
+for (const locale of ['zh', 'en']) {
+  test(`guide pages contain only App guidance without publication metadata (${locale})`, async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    const query = locale === 'en' ? '?lang=en' : '';
+    for (const slug of ['', ...chapters.map((chapter) => chapter.slug)]) {
+      await page.goto(`/guide${slug ? `/${slug}` : ''}${query}`);
+      const root = page.getByTestId('guide.root');
+      const article = page.getByTestId('guide.article');
+      await expect(article).toBeVisible();
+      await expect(root.getByTestId('guide.draft')).toHaveCount(0);
+      expect(
+        (await root.innerText()).match(
+          /中文初稿|教程初稿|English draft|Draft for\s+(?:the implemented\s+)?v?\d|草稿，(?:面向|写作)|写作基线|阅读约定|版本、素材与访问|Reading conventions|Versions, media and access|逐步图文持续完善|Step-by-step images are being completed|配图|验收|素材|实录|实拍|item\s*9|release acceptance|image.pending|recording machine|this recording|the recording's|driver.executed/gi,
+        ),
+        `${locale}/${slug || 'overview'}: publication metadata`,
+      ).toBeNull();
+      await expect(
+        article.locator('strong').filter({
+          hasText:
+            /^(用途|前提|步骤|预期结果|关键说明|Purpose|Prerequisites|Steps|Expected result|Expected outcome|Key points|Important notes|Notes)[:：]?$/i,
+        }),
+      ).toHaveCount(0);
+      await expect(article.locator('h3').filter({ hasText: /^\s*[A-Z]?\d+\s*·/ })).toHaveCount(0);
+      expect(
+        await article.locator('img').evaluateAll((images) =>
+          images
+            .filter((image) => {
+              const step = image.closest('li');
+              return !step?.closest('ol') || !step.textContent?.trim();
+            })
+            .map((image) => image.getAttribute('alt')),
+        ),
+      ).toEqual([]);
+      await expect(page.locator('meta[name="description"]')).not.toHaveAttribute(
+        'content',
+        /初稿|draft|验收|acceptance/i,
+      );
+      await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+        'content',
+        (await page.locator('meta[name="description"]').getAttribute('content')) ?? '',
+      );
+      await expect(page.locator('h1')).not.toBeEmpty();
+      await expect(article.locator('h2').first()).toBeVisible();
+    }
+  });
+}
+
+test('guide overview preserves reading space after removing maintenance notices', async ({
+  page,
+}) => {
+  for (const width of [1600, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const locale of ['zh', 'en']) {
+      await page.goto(`/guide${locale === 'en' ? '?lang=en' : ''}`);
+      const firstGroup = page.getByTestId('guide.root').locator('section').first();
+      await expect(firstGroup).toBeVisible();
+      const spacing = await firstGroup.evaluate((group) => {
+        const introduction = group
+          .closest('[data-automation-id="guide.root"]')
+          ?.querySelector('h1 + p');
+        if (!introduction) throw new Error('Guide introduction is missing.');
+        return {
+          actual: group.getBoundingClientRect().top - introduction.getBoundingClientRect().bottom,
+          expected: Number.parseFloat(getComputedStyle(group).getPropertyValue('--space-8')),
+        };
+      });
+      expect(spacing.actual).toBe(spacing.expected);
+    }
+  }
+});
+
+test('walkthroughs use numbered instructions instead of screenshot-only headings', async ({
+  page,
+}) => {
+  for (const locale of ['zh', 'en']) {
+    await page.goto(`/guide/rules${locale === 'en' ? '?lang=en' : ''}`);
+    const article = page.getByTestId('guide.article');
+    await expect(article).toBeVisible();
+    await expect(article.locator('h3').filter({ hasText: /^\s*[A-Z]?\d+\s*·/ })).toHaveCount(0);
+    const firstStep = article.locator('ol > li').first();
+    await expect(firstStep).toContainText(/Rules/);
+    await expect(firstStep.locator('img')).toHaveCount(1);
+  }
+});
+
 test('step images reserve their natural dimensions for stable article anchors', async ({
   page,
 }) => {
@@ -97,8 +184,8 @@ test('guide steps display original screenshots without video players or timestam
       }),
     ).toEqual({ loaded: true, ...expectedSizes[index] });
   }
-  await expect(article).toContainText('x-interceptor-guide');
-  await expect(article).toContainText('composer-demo');
+  await expect(article).toContainText('x-e2e-current');
+  await expect(article).toContainText('response-sections');
 });
 
 test('the homepage step entry reaches illustrated chapters without another document load', async ({
@@ -147,21 +234,19 @@ test('all illustrated chapters expose PNG originals in both languages without vi
       await expect(article.locator('img')).toHaveCount(expectedImages);
       const originals = await article.locator('img').evaluateAll((images) =>
         images.map((image) => {
-          const anchor = image.parentElement;
+          const trigger = image.parentElement;
           return {
             src: image.getAttribute('src'),
-            href: anchor?.getAttribute('href'),
-            tag: anchor?.tagName,
-            target: anchor?.getAttribute('target'),
-            rel: anchor?.getAttribute('rel'),
-            nested: anchor?.parentElement?.closest('a') !== null,
+            source: trigger?.getAttribute('data-image-src'),
+            tag: trigger?.tagName,
+            popup: trigger?.getAttribute('aria-haspopup'),
+            nested: trigger?.parentElement?.closest('a, button') !== null,
           };
         }),
       );
       for (const original of originals) {
-        expect(original).toMatchObject({ tag: 'A', target: '_blank', nested: false });
-        expect(original.href).toBe(original.src);
-        expect(original.rel).toContain('noopener');
+        expect(original).toMatchObject({ tag: 'BUTTON', popup: 'dialog', nested: false });
+        expect(original.source).toBe(original.src);
       }
       checkedImages += originals.length;
     }
@@ -331,7 +416,7 @@ test('section links preserve the selected language without reloading the documen
   await section.click();
   await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en#.+$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await expect(page.getByTestId('guide.draft')).toContainText('English draft');
+  await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(100);
   expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
   await page.goBack();
@@ -404,7 +489,7 @@ test('guide language, themes, narrow tables and scrolling work through normal co
   await toggleHeaderLanguage(page);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
-  await expect(page.getByTestId('guide.draft')).toContainText('English');
+  await expect(page.locator('h1')).toHaveText('Tool reference');
   await page.getByTestId('guide.chapter.capture').click();
   await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');

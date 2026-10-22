@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-mixed-complete-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/queue-isolation.workflow.ts",
+    "manifestSha256": "fd70c3fc8eebeff59cf11dd023244ad6988971ec9a811ddee63a467ee8138f8c",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "先为当前连接启用Sent消息断点 / Enable Sent messages for the current connection first",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2709.65625,
+            "y": 625.921875,
+            "width": 88.96875,
+            "height": 44
+          },
+          "automationId": "capture.websocket.breakpoint.direction.sent"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2864.0625,
+            "y": 795.921875,
+            "width": 275.9375,
+            "height": 60
+          },
+          "automationId": "capture.websocket.breakpoint.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "准备：先建立真实 WebSocket 并通过产品 UI 启用断点，再创建 HTTP Rule，避免 Upgrade 被该 Rule 挂起。 / Arrange: establish the real WebSocket first, enable its product breakpoint, then create the HTTP Rule.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "断言sequence归属：后到且未挂起的入站历史帧必须排在出站pending帧之后。 / Assert sequence ownership: a later unpaused inbound frame stays after the pending outbound frame.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "为独立消息队列改选Both / Select Both for the independent message queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2616,
+            "y": 625.921875,
+            "width": 89.65625,
+            "height": 44
+          },
+          "automationId": "capture.websocket.breakpoint.direction.both"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "准备主场景：停用单向配置，再通过产品UI启用双向断点。 / Arrange the main scenario with both directions enabled.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "响应与请求共用HTTP队列，Queued响应只读 / Responses share the HTTP queue and a Queued response is read-only",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvic53yi-7kcreh76"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "构造 pending：挂起一条 HTTP 请求，再按顺序制造当前连接的出站与入站帧断点。 / Arrange pending traffic: hold one HTTP request, then create ordered outbound/inbound pending frames.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.png",
+      "rawImage": "step-007.png"
+    },
+    {
+      "id": "step-008",
+      "title": "断言筛选：方向控件同时筛选历史与pending行，但不改变逻辑队列位置。 / Assert filtering: direction controls filter history and pending rows without renumbering the queue.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "断言当前连接只有一个可编辑队首，第二条为可选择但不可编辑的 queued 行。 / Assert the current connection exposes one editable head and one queued non-editor row.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "断言列表完整性：同一pending帧不得与已捕获的历史行重复渲染。 / Assert list integrity: one pending frame must not duplicate its already-captured history row.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "HTTP队首先保留自己的Text草稿 / Keep the HTTP head’s own Text draft",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2332,
+            "y": 1401,
+            "width": 840,
+            "height": 188
+          },
+          "automationId": "breakpoints.body"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "断言草稿归属：HTTP与WebSocket队首在切换选择后分别保留自己的内存编辑。 / Assert draft ownership: HTTP and WebSocket heads retain separate in-memory edits across selection changes.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    },
+    {
+      "id": "step-013",
+      "title": "WebSocket队首使用独立草稿 / Keep a separate draft for the WebSocket head",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2368,
+            "y": 1302.75,
+            "width": 728,
+            "height": 164
+          },
+          "automationId": "breakpoints.body"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "布局断言：Original容器按实际正文定高，不保留旧185px下限。 / Layout assertion: the Original container follows its body instead of the old 185px minimum.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.png",
+      "rawImage": "step-014.png"
+    },
+    {
+      "id": "step-015",
+      "title": "只原样放行当前WebSocket队列 / Continue only the current WebSocket queue unchanged",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2894.84375,
+            "y": 873,
+            "width": 145.15625,
+            "height": 42
+          },
+          "automationId": "breakpoints.continue-queue"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "操作：只继续 WebSocket 队列；HTTP 队列以及命令开始后产生的未来 echo 必须继续等待。 / Act: continue the WebSocket queue only; the HTTP queue and a future echo must remain pending.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.png",
+      "rawImage": "step-016.png"
+    },
+    {
+      "id": "step-017",
+      "title": "最后单独原样放行HTTP队首 / Continue the HTTP head separately at the end",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "请求放行后单独继续响应队首 / Continue the response head after the request is released",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2781.546875,
+            "y": 1653,
+            "width": 136.53125,
+            "height": 60
+          },
+          "automationId": "breakpoints.continue-unmodified"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "操作与断言：释放未来 WebSocket 项，再单独释放 HTTP 队首，证明两个逻辑队列互不阻塞。 / Act and assert: release the future WebSocket item, then release HTTP through its own queue head.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.png",
+      "rawImage": "step-019.png"
+    },
+    {
+      "id": "step-020",
+      "title": "只丢弃当前WebSocket队列 / Drop only the current WebSocket queue",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2918.84375,
+            "y": 941,
+            "width": 94.140625,
+            "height": 42
+          },
+          "automationId": "breakpoints.drop-queue"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "两个队列都已处理，停用后新消息正常到达 / Both queues are resolved and new messages arrive after disabling",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352444,
+      "sha256": "ee5dc43e1bcf1163eefe01750cf186fe92436142658c858917b32ec18a92ec8d"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256304,
+      "sha256": "1466ba983735fcc25579e57e9cbe64a50fc9117e088f36b5d664b56aea2bbc5e"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 288214,
+      "sha256": "ad4843b833ff739fd1f5346de3a279e430a103f1ea58b3555969f5f5c73ee340"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298723,
+      "sha256": "529ae13877e55faf58146a7f612ea6e33a305abea31c1318416514bbe9d21088"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354524,
+      "sha256": "85e387df450ee7e4681d87604ec8ea5da69b694156877b35af97f3e72bf6ac90"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 258161,
+      "sha256": "7b220160392ef5d46f8f2286760c2e0c5a7a45e5c6c070d17a762a1077834e89"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 309693,
+      "sha256": "7e5cc41d61abf295288b5a5978c49c0d5b863820730710ac1e4b0e1652021402"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 327604,
+      "sha256": "0c75d9fc588862151779bced2808737be0dd4d4edc85d2c85e10196772a7f9e4"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 227102,
+      "sha256": "3567bb73220e8952ff478f54f667f3a22cb9a5c1f059269a70b78ded2cbdcb3d"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352506,
+      "sha256": "a819182bbb9491b7e387139a421f6ac3ac715ebc9a8bb7385242d74c2d8d4591"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352506,
+      "sha256": "a819182bbb9491b7e387139a421f6ac3ac715ebc9a8bb7385242d74c2d8d4591"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352506,
+      "sha256": "a819182bbb9491b7e387139a421f6ac3ac715ebc9a8bb7385242d74c2d8d4591"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352506,
+      "sha256": "a819182bbb9491b7e387139a421f6ac3ac715ebc9a8bb7385242d74c2d8d4591"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353854,
+      "sha256": "5bf25b97fefdd74b9b2f5d11d2b986f7bbca7570e8759e132e4ec3ad336dd6ed"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 254251,
+      "sha256": "5c08a53e9e93378d361a34c66e883eab2d557fd5d43f835a7cd6aceba4c946e9"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 350549,
+      "sha256": "232ec231e0efbfc7f431aa01f82fc5a7fcc42f2d067992ac4788f18dd5ff5add"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 346938,
+      "sha256": "f4a8db02c7d5eaf7c8c910215f617c184d64786d21254659dd7eb77877c09f8e"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251234,
+      "sha256": "83fde38a13c3c922e7593d5346c846e856cf47dbdddba7e733d4009b289cb4ba"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 309220,
+      "sha256": "f9ecf3109acde3651782b5cdf8339c8401263eb3cdbc5d08c4708bb2a74888a8"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 384013,
+      "sha256": "ad54b02f4f0959d7e4b0b99327de34289e1b62853e98949f3b23286d6db5d3c0"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276341,
+      "sha256": "09aa895f6844538c2998c100d1525afbef85c91b9771b537094773da15b61041"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354237,
+      "sha256": "80f75ce1d6b63428557343f8889389e22e441ccf5846dd777a3690e311e1d9a1"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353250,
+      "sha256": "34b2c8b54f2620daadde2c858b9c0350e73632ee8ae81eb49ae656b32211d414"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256829,
+      "sha256": "6382467ca2d4a35f09791bbfd4c02f641036ffa8058ab7c1d77a58f6674e7775"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 372640,
+      "sha256": "1f6e6ba19724933aafeb8a8c8d875d53fc2349b15605bd4abb8438790143f673"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 267980,
+      "sha256": "2625c12577dac41b52e2fb3b829366ecab588e94f5fb5f6a78c9aa4093e37615"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 376082,
+      "sha256": "bc84752b9544facd02f40424813bab44b27ae728b9b134219790dbe2cd2f9e5a"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 384473,
+      "sha256": "4d4505be5b23a0b84d7c1915577f432789d6f70b9ed8336d46eb1e9338e95ab5"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276874,
+      "sha256": "db183fc17f905654a1d2177fa9df5fafbfca79fa982d105c3e74e9ac8ef24a0a"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 354129,
+      "sha256": "9a52b2f987235ff922d5af63fbcb11df968836497aada8a696c1cf9c0269e837"
+    }
+  ]
+}

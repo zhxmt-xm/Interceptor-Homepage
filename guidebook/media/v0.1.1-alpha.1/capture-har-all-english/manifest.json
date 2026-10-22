@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-har-all-english",
+  "title": {
+    "zh-CN": "HAR全部记录导出",
+    "en": "HAR export: all records"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/tools-har-transfer.workflow.ts",
+    "test": "capture.tools.har-transfer exports and imports real HAR files through Agent and MCP",
+    "run": "2026-10-21T14-22-36-893Z-Oo9Ie8",
+    "testDirectory": "capture-tools-har-transfer-49de8-files-through-Agent-and-MCP-macos",
+    "manifestSha256": "ebec34dbbe59db9ecaef54745be03c149a73574b651867c6b2c76da92ef945d6",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "relaunchGracefulDestroyVerified": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-012",
+      "title": "从Capture Export菜单选择HAR / Choose HAR from the Capture Export menu",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-012.png",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2728,
+            "y": 188,
+            "width": 420,
+            "height": 80
+          },
+          "automationId": "capture.transfer.har-export"
+        }
+      ],
+      "bytes": 214092,
+      "sha256": "2f62c4f5e19b46f24276bf15af768230b52e46442c492a1f99ae26655f3128ed",
+      "rawBytes": 316422,
+      "rawSha256": "351f24f30f3fa1442a95ce9837b3949e54a7af3c36923a30bdf23a3cd2d9981a",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "HAR选择All并保留默认遮罩和正文，再Export / Choose All with default masking and retained bodies, then Export",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-013.png",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1130,
+            "y": 754.484375,
+            "width": 940,
+            "height": 76
+          },
+          "automationId": "capture.transfer.scope.all"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 1751.40625,
+            "y": 1308.5625,
+            "width": 318.59375,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "bytes": 278633,
+      "sha256": "9706254ba53a1c3d836bb208b6721828d99ca4e4dd2f74211bafa3d787440b05",
+      "rawBytes": 325738,
+      "rawSha256": "19a6ad30fa3a48b54ea0b430ae1d6ab3f7daa398553c8757d50bdbd4210a341e",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-014.png",
+      "image": "step-014.png",
+      "rawImage": "step-014.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [],
+      "bytes": 47387,
+      "sha256": "2399e434482fa9a558c4c7b1eb7ce179f1efe89662c064c78dfd088c66763dd6",
+      "rawBytes": 47387,
+      "rawSha256": "2399e434482fa9a558c4c7b1eb7ce179f1efe89662c064c78dfd088c66763dd6"
+    },
+    {
+      "id": "step-015",
+      "title": "四条HAR导出完成后返回Capture，保持暂停 / Return to Capture after exporting four HAR entries, still paused",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-015.png",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "coordinateSpace": "image-pixels",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3124,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.export-menu"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "bytes": 179399,
+      "sha256": "1bc8f13192ebce13f23ff698ae0dedf37e1a32eb2c1ab295ba9e71d9d6277882",
+      "rawBytes": 270811,
+      "rawSha256": "e0ffc399f68761207fe3f91a65a8806526d1085d9def3f68f7c8f4e2fa216c4a",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

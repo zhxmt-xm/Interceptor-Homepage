@@ -1,98 +1,6 @@
 # Rules: change subsequent matching traffic
 
-> Draft for `v0.1.1-alpha.1`. Recorded conditions, actions, ordering and file round trips have step images; missing branches remain explicit. Neither this chapter nor item9 is complete. Use your own endpoint and narrow conditions: Rules affect real traffic.
-
 [Guide directory](../README.en.md) · [Capture](capture.md) · [Breakpoints](breakpoints.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide test header</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/rules/order</code> |
-| <code>url</code> | <code>http://127.0.0.1:54561/guide/rules/order</code> |
-| <code>headerName</code> | <code>x-interceptor-guide</code> |
-| <code>headerValue</code> | <code>rules-demo</code> |
-
-<a id="walkthrough-01-open"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules/rules-01-open.png)
-
-<a id="walkthrough-02-create"></a>
-### 02 · Create a Rule
-
-![02 · Create a Rule](../media/v0.1.1-alpha.1/rules/rules-02-create.png)
-
-<a id="walkthrough-03-name"></a>
-### 03 · Name the Rule
-
-![03 · Name the Rule](../media/v0.1.1-alpha.1/rules/rules-03-name.png)
-
-<a id="walkthrough-04-host"></a>
-### 04 · Restrict the host
-
-![04 · Restrict the host](../media/v0.1.1-alpha.1/rules/rules-04-host.png)
-
-<a id="walkthrough-05-path-condition"></a>
-### 05 · Add a Path matcher
-
-![05 · Add a Path matcher](../media/v0.1.1-alpha.1/rules/rules-05-path-condition.png)
-
-<a id="walkthrough-06-path"></a>
-### 06 · Enter the test path
-
-![06 · Enter the test path](../media/v0.1.1-alpha.1/rules/rules-06-path.png)
-
-<a id="walkthrough-07-header-name"></a>
-### 07 · Enter the header name
-
-![07 · Enter the header name](../media/v0.1.1-alpha.1/rules/rules-07-header-name.png)
-
-<a id="walkthrough-08-header-value"></a>
-### 08 · Enter the header value
-
-![08 · Enter the header value](../media/v0.1.1-alpha.1/rules/rules-08-header-value.png)
-
-<a id="walkthrough-09-enable"></a>
-### 09 · Enable the Rule
-
-![09 · Enable the Rule](../media/v0.1.1-alpha.1/rules/rules-09-enable.png)
-
-<a id="walkthrough-10-apply"></a>
-### 10 · Apply the Rule
-
-![10 · Apply the Rule](../media/v0.1.1-alpha.1/rules/rules-10-apply.png)
-
-<a id="walkthrough-11-hit"></a>
-### 11 · Send a matching request
-
-![11 · Send a matching request](../media/v0.1.1-alpha.1/rules/rules-11-hit.png)
-
-<a id="walkthrough-12-capture"></a>
-### 12 · Inspect the actual Capture result
-
-![12 · Inspect the actual Capture result](../media/v0.1.1-alpha.1/rules/rules-12-capture.png)
-
-<a id="walkthrough-13-nonmatching"></a>
-### 13 · Verify an unmatched request
-
-![13 · Verify an unmatched request](../media/v0.1.1-alpha.1/rules/rules-13-nonmatching.png)
-
-<a id="walkthrough-14-disable"></a>
-### 14 · Disable and Apply
-
-![14 · Disable and Apply](../media/v0.1.1-alpha.1/rules/rules-14-disable.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="先区分规则与录制"></a>
 ## Rules and recording are separate
@@ -105,71 +13,65 @@ The complete reference follows. Only operations with matching real step images a
 <a id="first-rule"></a>
 ## Create, enable and apply your first rule
 
-**Goal:** add a harmless test header to a narrow set of requests.
+Add a harmless test header to a narrow set of requests.
 
-**Prerequisites:** proxy readiness is complete and Recording is enabled for inspection. Use an endpoint you are authorized to test.
+Have the proxy ready and enable Recording for inspection. Use an endpoint you are authorized to test. The pictured service is `http://127.0.0.1:62029`; the `E2E action variants` paths below are relative to this service. Replace its address and port with your own service's values.
 
-**Steps**
+1. <a id="walkthrough"></a><a id="walkthrough-01-open"></a>Open Rules.
 
-1. Open Rules & Map.
+   ![Rules before creating the first rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-002.png)
 
-   ![Rules opened](../media/v0.1.1-alpha.1/rules/rules-01-open.png)
+2. <a id="walkthrough-02-create"></a>Click the plus button above the rule list. You can also choose New rule from the list's empty-area menu; both create the same kind of rule.
 
-2. Create a rule in the root toolbar. The empty-area menu is another entry point; see its [separate menu and creation recording](#walkthrough-rules-response-evidence-02-root-menu). That recording creates `Guide response and body`, not this section's Rule.
+   ![The new rule is disabled with empty Host and Header fields](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-004.png)
 
-   ![Actual new rule](../media/v0.1.1-alpha.1/rules/rules-02-create.png)
+3. <a id="walkthrough-03-name"></a>Enter `E2E action variants` in the name field in box 1. The empty `New folder` in the list does not participate in matching.
 
-3. Name it `Guide test header`.
+   ![Naming the rule E2E action variants](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-006.annotated.png)
 
-   ![Entering Guide test header](../media/v0.1.1-alpha.1/rules/rules-03-name.png)
+4. <a id="walkthrough-04-host"></a>Enter `127.0.0.1` in the Host field in box 1, not a complete URL.
 
-4. Set Host to `127.0.0.1`, not a complete URL.
+   ![Restricting Host to the loopback address](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-007.annotated.png)
 
-   ![Actual Host value 127.0.0.1](../media/v0.1.1-alpha.1/rules/rules-04-host.png)
+5. <a id="walkthrough-05-path-condition"></a>Click Add condition, then choose Path in box 1 to add a path condition.
 
-5. Add a Path condition.
+   ![Path in the condition menu](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-008.annotated.png)
 
-   ![Intermediate state after adding Path](../media/v0.1.1-alpha.1/rules/rules-05-path-condition.png)
+6. <a id="walkthrough-06-path"></a>Enter `/e2e/rules/actions` in box 1 to restrict the rule to these test paths.
 
-6. Enter `/guide/rules/order`.
+   ![Entering the test path scope](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-010.annotated.png)
 
-   ![Completed test Path](../media/v0.1.1-alpha.1/rules/rules-06-path.png)
+7. <a id="walkthrough-07-header-name"></a>Keep the Header action in the `request` phase with operation `Set`. Enter `x-e2e-action` in the name field in box 1.
 
-7. Use request Header `set` and enter the name `x-interceptor-guide`.
+   ![Entering the request Header name](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-011.annotated.png)
 
-   ![Entering the Header name first](../media/v0.1.1-alpha.1/rules/rules-07-header-name.png)
+8. <a id="walkthrough-08-header-value"></a>Enter `from-rule` in the value field in box 1.
 
-8. Enter value `rules-demo`.
+   ![Entering Header value from-rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-012.annotated.png)
 
-   ![Entering Header value rules-demo](../media/v0.1.1-alpha.1/rules/rules-08-header-value.png)
+9. <a id="walkthrough-09-enable"></a>Complete the required fields, then turn on the rule switch in box 1. The rule says Enabled, but the bottom still says Unsaved changes; enabling is not saving.
 
-9. Resolve incomplete fields and enable the rule. The [separate validation recording](#walkthrough-rules-tree-10-invalid) first shows missing-field issue counts and disabled Apply, then completes each field. It owns `Guide nested priority`; an enabled complete rule is not used as a failure screenshot.
+   ![The rule is enabled but not yet saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-013.annotated.png)
 
-   ![Enabling the complete rule](../media/v0.1.1-alpha.1/rules/rules-09-enable.png)
+10. <a id="walkthrough-10-apply"></a>Click Save at the upper right. Wait for the bottom status in box 1 to become Rule set applied; the rule now applies to subsequent requests.
 
-10. Click Apply and wait for success.
+    ![Rule set applied after saving](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-018.annotated.png)
 
-    ![Actual rule state after Apply](../media/v0.1.1-alpha.1/rules/rules-10-apply.png)
+11. <a id="walkthrough-11-hit"></a>Use an external client to GET `/e2e/rules/actions/request-set` through the proxy with the original Header `x-e2e-action: original`. After the request finishes, inspect the `E2E action variants` row: its hit count increases from `0` to `1`.
 
-11. Send `http://127.0.0.1:54561/guide/rules/order` through the proxy with an external client and inspect its hit. `54561` is the recording's dynamic port; use your own service.
+    ![The rule has one hit after the first matching request](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-022.png)
 
-    ![Hit after the matching request](../media/v0.1.1-alpha.1/rules/rules-11-hit.png)
+12. <a id="walkthrough-12-capture"></a>Return to Capture, enter `/e2e/rules/actions/request-set` in Keyword in box 1, and select the new row in box 2. Do not use a historical row to judge the settings you just saved.
 
-12. Return to Capture and inspect the actual request header. [Header markers and returning to the Rule](#walkthrough-rules-tree-30-header-effect) have actual steps. The marker is a clickable inline source indicator, not a separate expandable panel.
+    ![Finding and selecting the first matching request by its path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-019.annotated.png)
 
-    ![Actual x-interceptor-guide request Header in Capture](../media/v0.1.1-alpha.1/rules/rules-12-capture.png)
+    Open Headers. In Request Headers in box 1 below, check for `x-e2e-action: from-rule` with Rule set. The original value `original` is struck through and marked Rule replaced: it was overwritten, not forwarded as a second value. Clickable inline source markers return to the rule; they are not a separate expandable panel.
 
-13. Send a nonmatching request and verify that it does not receive the same modification.
+    ![Request Headers show the replaced original and final Set value](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.annotated.png)
 
-    ![Actual nonmatching-request checkpoint](../media/v0.1.1-alpha.1/rules/rules-13-nonmatching.png)
+13. <a id="walkthrough-13-nonmatching"></a>Request a path that does not contain `/e2e/rules/actions` and check that it does not receive the same Header change. Do not inspect an already-completed request to judge new settings.
 
-14. Disable `Guide test header` and Apply after the exercise.
-
-    ![Disabling and applying this Header rule](../media/v0.1.1-alpha.1/rules/rules-14-disable.png)
-
-**Expected result:** the matching request changes while unrelated traffic does not.
-
-**Notes**
+14. <a id="walkthrough-14-disable"></a>If you are not continuing with the action exercises below, disable `E2E action variants` and Save. Send another request and check that the original Header behavior returns.
 
 - Ordinary new rules and Capture rewrite drafts start disabled. The Capture Breakpoint shortcut is different: it creates, enables and applies immediately.
 - Incomplete rules cannot be enabled, and incomplete fields prevent Apply. An empty condition list does not mean “match everything.”
@@ -179,93 +81,119 @@ The complete reference follows. Only operations with matching real step images a
 <a id="matchers"></a>
 ## Select matching conditions
 
-**Steps**
+This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all must match. The example service uses port `53161`; replace the full-URL condition and the client's URL together when using your own endpoint. Send only your own loopback test traffic during this exercise.
 
-This uses the separate `Guide matchers` recording. `59147` is its dynamic service port; replace the full-URL condition and the client's URL together, not just one of them.
+1. <a id="walkthrough-rules-matchers"></a><a id="walkthrough-rules-matchers-01-rules"></a><a id="walkthrough-rules-matchers-02-create"></a>Follow the [folder steps](#order) to create a rule in a third-level folder. Choose Rename in its node menu, enter `E2E hierarchy rule` in box 1, and press Enter.
 
-1. Create `Guide matchers`.
+   ![Naming E2E hierarchy rule inside the folders](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-014.annotated.png)
 
-   ![Creating the matcher rule](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-02-create.png)
+2. <a id="walkthrough-rules-matchers-03-host"></a>Enter `127.0.0.1` in the Host field in box 1 of the first image. Keep the default request Header action on `Set`, enter name `x-rules-e2e`, and enter `active` in the value field in box 1 of the second image. Enable and Save, then add the following conditions to the same rule.
 
-2. Set Host to `127.0.0.1`.
+   ![Entering the Host condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-017.annotated.png)
 
-   ![Host condition](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-03-host.png)
+   ![Completing the request Header value active](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-019.annotated.png)
 
-3. Add Method, then select `GET`.
+3. <a id="walkthrough-rules-matchers-04-method-add"></a><a id="walkthrough-rules-matchers-05-method"></a>Click Add condition, add Method, and enter `GET` in the method field in box 1.
 
-   ![Adding Method](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-04-method-add.png)
+   ![Entering GET for Method](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-033.annotated.png)
 
-   ![Selecting GET](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-05-method.png)
+4. <a id="walkthrough-rules-matchers-06-path-add"></a><a id="walkthrough-rules-matchers-07-path"></a>Add Path and enter `/e2e/rules/all-conditions` in box 1.
 
-4. Add Path and enter `/guide/matchers/order`.
+   ![Restricting the all-conditions path](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-037.annotated.png)
 
-   ![Adding Path](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-06-path-add.png)
+5. <a id="walkthrough-rules-matchers-08-url-add"></a><a id="walkthrough-rules-matchers-09-url"></a>Add URL and enter `http://127.0.0.1:53161/e2e/rules/all-conditions?case=and` in box 1.
 
-   ![Actual Path value](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-07-path.png)
+   ![Entering the complete URL condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-041.annotated.png)
 
-5. Add URL and enter `http://127.0.0.1:59147/guide/matchers/order?guide=matcher-demo`.
+6. <a id="walkthrough-rules-matchers-10-query-add"></a><a id="walkthrough-rules-matchers-11-query"></a>Add Query, enter name `case`, and enter `and` in the value field in box 1.
 
-   ![Adding URL](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-08-url-add.png)
+   ![Query condition case=and](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-046.annotated.png)
 
-   ![Actual complete URL](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-09-url.png)
+7. <a id="walkthrough-rules-matchers-12-header-add"></a><a id="walkthrough-rules-matchers-13-header"></a>Add a Header condition, choose `request`, enter name `x-e2e-matcher`, and enter `present` in box 1. This is a matching condition, not the rewrite action below.
 
-6. Add Query with name `guide` and value `matcher-demo`.
+   ![Request Header condition x-e2e-matcher](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-051.annotated.png)
 
-   ![Adding Query](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-10-query-add.png)
+8. <a id="walkthrough-rules-matchers-14-status-add"></a><a id="walkthrough-rules-matchers-15-status"></a>Add Status and set both limits to `200`. Box 1 marks the upper-limit field.
 
-   ![Actual Query name and value](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-11-query.png)
+   ![Response status range 200 to 200](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-056.annotated.png)
 
-7. Add request Header condition `x-guide-match` / `yes`.
+9. <a id="walkthrough-rules-matchers-16-mime-add"></a><a id="walkthrough-rules-matchers-17-mime"></a>Add MIME, choose `response`, and enter `application/json` in box 1.
 
-   ![Adding a Header condition](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-12-header-add.png)
+   ![Response MIME condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-060.annotated.png)
 
-   ![Actual request Header condition](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-13-header.png)
+10. <a id="walkthrough-rules-matchers-18-effect-phase"></a>Switch the Header action's phase control in box 1 to `response`. Status and response MIME are evaluated after response headers arrive; they cannot trigger an earlier request rewrite.
 
-8. Add Status with range `200` to `200`.
+    ![Switching the effect Header to response phase](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-062.annotated.png)
 
-   ![Adding Status](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-14-status-add.png)
+11. <a id="walkthrough-rules-matchers-19-effect-name"></a><a id="walkthrough-rules-matchers-20-effect-value"></a>Check that the action is still `Set x-rules-e2e: active`. Do not substitute the matching condition's `x-e2e-matcher: present`.
 
-   ![Response status range 200 to 200](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-15-status.png)
+12. <a id="walkthrough-rules-matchers-21-enable"></a><a id="walkthrough-rules-matchers-22-apply"></a>Keep the rule enabled and click Save. Wait for Rule set applied in box 1; all eight conditions and the response action now apply together.
 
-9. Add response MIME condition `application/json`.
+    ![All eight AND conditions saved](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-063.annotated.png)
 
-   ![Adding MIME](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-16-mime-add.png)
+13. <a id="walkthrough-rules-matchers-23-match"></a>Send GET to that URL with `x-e2e-matcher: present`. Filter Capture by `/e2e/rules/all-conditions` and select this GET. Response Headers in box 1 should show both `application/json` and `x-rules-e2e: active`.
 
-   ![Actual Response MIME value](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-17-mime.png)
+    ![Response Header when GET satisfies all conditions](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-065.annotated.png)
 
-10. Select response phase for the effect Header, rather than attempting a request rewrite before response conditions are known.
+14. <a id="walkthrough-rules-matchers-24-no-match"></a>Change only the method to POST and request the same URL. Select the new POST row in Capture, not the previous GET. Although the response is still `200`, Response Headers in box 1 has no `x-rules-e2e`.
 
-    ![Response phase for the effect action](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-18-effect-phase.png)
+    ![POST does not receive the rewrite when Method fails](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-068.annotated.png)
 
-11. Enter effect Header name `x-interceptor-guide` and value `matcher-demo`.
+15. <a id="walkthrough-rules-matching-modes"></a><a id="walkthrough-rules-matching-modes-01-rules"></a><a id="walkthrough-rules-matching-modes-02-create"></a><a id="walkthrough-rules-matching-modes-03-name"></a><a id="walkthrough-rules-matching-modes-04-host"></a><a id="walkthrough-rules-matching-modes-05-path-condition"></a><a id="walkthrough-rules-matching-modes-06-path-value"></a><a id="walkthrough-rules-matching-modes-07-header"></a><a id="walkthrough-rules-matching-modes-08-value"></a><a id="walkthrough-rules-matching-modes-09-enable"></a><a id="walkthrough-rules-matching-modes-10-contains"></a><a id="walkthrough-rules-matching-modes-contains-capture"></a><a id="walkthrough-rules-matching-modes-contains-request"></a><a id="walkthrough-rules-matching-modes-contains-headers"></a><a id="walkthrough-rules-matching-modes-contains-rules"></a><a id="walkthrough-rules-matching-modes-11-case-sensitive"></a><a id="walkthrough-rules-matching-modes-12-apply-case"></a><a id="walkthrough-rules-matching-modes-case-sensitive-capture"></a><a id="walkthrough-rules-matching-modes-case-sensitive-request"></a><a id="walkthrough-rules-matching-modes-case-sensitive-headers"></a><a id="walkthrough-rules-matching-modes-case-sensitive-rules"></a><a id="walkthrough-rules-matching-modes-13-exact"></a><a id="walkthrough-rules-matching-modes-14-apply-exact"></a><a id="walkthrough-rules-matching-modes-exact-negative-capture"></a><a id="walkthrough-rules-matching-modes-exact-negative-request"></a><a id="walkthrough-rules-matching-modes-exact-negative-headers"></a><a id="walkthrough-rules-matching-modes-exact-negative-rules"></a><a id="walkthrough-rules-matching-modes-exact-positive-capture"></a><a id="walkthrough-rules-matching-modes-exact-positive-request"></a><a id="walkthrough-rules-matching-modes-exact-positive-headers"></a><a id="walkthrough-rules-matching-modes-exact-positive-rules"></a><a id="walkthrough-rules-matching-modes-15-regex"></a><a id="walkthrough-rules-matching-modes-16-invalid-regex"></a><a id="walkthrough-rules-matching-modes-16a-apply-invalid"></a><a id="walkthrough-rules-matching-modes-invalid-regex-capture"></a><a id="walkthrough-rules-matching-modes-invalid-regex-request"></a><a id="walkthrough-rules-matching-modes-invalid-regex-headers"></a><a id="walkthrough-rules-matching-modes-invalid-regex-rules"></a><a id="walkthrough-rules-matching-modes-17-valid-regex"></a><a id="walkthrough-rules-matching-modes-18-apply-regex"></a><a id="walkthrough-rules-matching-modes-regex-positive-capture"></a><a id="walkthrough-rules-matching-modes-regex-positive-request"></a><a id="walkthrough-rules-matching-modes-regex-positive-headers"></a><a id="walkthrough-rules-matching-modes-regex-positive-rules"></a><a id="walkthrough-rules-matching-modes-regex-negative-capture"></a><a id="walkthrough-rules-matching-modes-regex-negative-request"></a><a id="walkthrough-rules-matching-modes-regex-negative-headers"></a><a id="walkthrough-rules-matching-modes-regex-negative-rules"></a><a id="walkthrough-rules-matching-modes-19-ignore-case"></a><a id="walkthrough-rules-matching-modes-20-apply-ignore-case"></a><a id="walkthrough-rules-matching-modes-regex-ignore-case-capture"></a><a id="walkthrough-rules-matching-modes-regex-ignore-case-request"></a><a id="walkthrough-rules-matching-modes-regex-ignore-case-headers"></a><a id="walkthrough-rules-matching-modes-regex-ignore-case-rules"></a><a id="walkthrough-rules-matching-modes-21-response-action"></a><a id="walkthrough-rules-matching-modes-22-mime-condition"></a><a id="walkthrough-rules-matching-modes-23-mime-wildcard"></a><a id="walkthrough-rules-matching-modes-24-apply-mime"></a><a id="walkthrough-rules-matching-modes-mime-json-capture"></a><a id="walkthrough-rules-matching-modes-mime-json-request"></a><a id="walkthrough-rules-matching-modes-mime-json-headers"></a><a id="walkthrough-rules-matching-modes-mime-json-rules"></a><a id="walkthrough-rules-matching-modes-mime-text-capture"></a><a id="walkthrough-rules-matching-modes-mime-text-request"></a><a id="walkthrough-rules-matching-modes-mime-text-headers"></a><a id="walkthrough-rules-matching-modes-mime-text-rules"></a><a id="walkthrough-rules-matching-modes-25-disable"></a><a id="walkthrough-rules-matching-modes-26-apply-disabled"></a>For other Host, Path or URL matching, select exact, contains or regex and check case sensitivity before testing.
 
-    ![Entering the effect Header name](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-19-effect-name.png)
+    1. Remove the other conditions, keeping Host and Path. Enter `/e2e/rules/modes/Case` in box 1 and retain the response Header action. Default contains matching ignores case. Save and request `/e2e/rules/modes/case/extra`; the response should contain `x-rules-e2e: active`.
 
-    ![Entering the effect Header value](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-20-effect-value.png)
+       ![Entering the Path for matching-mode comparisons](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-071.annotated.png)
 
-12. Enable the complete rule, then Apply.
+       Select this lowercase-path request in Capture. Response Headers in box 1 below includes `x-rules-e2e: active`.
 
-    ![Enabling Guide matchers](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-21-enable.png)
+       ![Contains matches the path without case sensitivity](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-073.annotated.png)
 
-    ![Applying the matcher rule](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-22-apply.png)
+    2. Turn on the Aa case-sensitivity option in box 1 and Save. The same lowercase `case/extra` request no longer matches.
 
-13. Send that GET with `x-guide-match: yes` and inspect the response Header when all conditions match.
+       ![Enabling Aa case sensitivity](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-076.annotated.png)
 
-    ![Positive GET matching all eight conditions](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-23-match.png)
+       Select the later request with the same path. Response Headers in box 1 below no longer includes `x-rules-e2e`; changing current settings does not overwrite the earlier historical request.
 
-14. Try POST as a negative case; inspect the absence of that effect when Method does not match.
+       ![A new lowercase request no longer matches with Aa enabled](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-078.annotated.png)
 
-    ![AND negative case: POST fails Method](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-24-no-match.png)
+    3. Click the exact-match button in box 1 and Save. `/e2e/rules/modes/Case` matches; adding `/extra` does not.
 
-15. For other Host, Path or URL matching, select exact, contains or regex and check case sensitivity before testing.
+       ![Enabling exact matching](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-081.annotated.png)
 
-    This example demonstrates eight-condition AND. The [separate matching-mode recording](#walkthrough-rules-matching-modes) compares actual positive/negative requests for contains, exact, regex, Aa case sensitivity and `application/*`. It uses `/guide/matching/Case` with case/suffix variants; `x-guide-case` distinguishes requests without adding query text to the Path being tested.
+       Select the two new requests in turn. Response Headers in box 1 of the first result has no `x-rules-e2e`; box 1 of the second has `active`.
 
-    ![Actually enabling exact Path matching](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-13-exact.png)
+       ![Exact matching rejects the extra path suffix](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-083.annotated.png)
 
-    ![Actual case-sensitive regex configuration](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-17-valid-regex.png)
+       ![Exact matching succeeds for the complete path](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-086.annotated.png)
 
-    This release permits applying invalid regex `[` but it never matches. [The recording shows that limitation and correction](#walkthrough-rules-matching-modes-16-invalid-regex); an applied/compiled label alone does not prove valid syntax. The tutorial does not modify that product behavior.
+    4. Select the regex button `.*`, enter `[` in Path, and Save. An invalid regex does not match requests; a successful save does not make the expression valid.
+
+       ![Entering an invalid regex](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-089.png)
+
+       Request `/e2e/rules/modes/Case` again and select the new record. Response Headers in box 1 of the result has no `x-rules-e2e`.
+
+       ![The saved invalid regex still does not match](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-091.annotated.png)
+
+    5. Correct box 1 to `^/e2e/rules/modes/Case/[0-9]+$` and Save. A `/123` suffix matches; `/letters` does not. Aa still controls case sensitivity; turn it off and save if you need case-insensitive matching.
+
+       ![Regex matching numeric path suffixes](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-094.annotated.png)
+
+       Select `/123` and `/letters` in Capture. Box 1 in each result marks Response Headers: the numeric path has `active`, while the alphabetic path has no such Header.
+
+       ![A numeric path matches the regex](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-096.annotated.png)
+
+       ![An alphabetic path does not match the regex](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-099.annotated.png)
+
+    6. Add a response MIME condition, enter `application/*` in box 1, and Save. Have `/Case/124` return `application/json` and `/Case/125` return `text/plain`: the former matches and the latter does not. Disable the rule and Save when finished.
+
+       ![Restricting response types with a MIME wildcard](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-102.annotated.png)
+
+       Response Headers in box 1 of each result shows the content type and matching outcome together: `application/json` gains `active`; `text/plain` does not.
+
+       ![application/json matches the MIME wildcard](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-104.annotated.png)
+
+       ![text/plain does not match the MIME wildcard](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-107.annotated.png)
 
 | Condition | Use | Important distinction |
 | --- | --- | --- |
@@ -278,490 +206,735 @@ This uses the separate `Guide matchers` recording. `59147` is its dynamic servic
 | Status | Match a response status range | Evaluated after response headers arrive |
 | MIME | Match content type, including supported wildcards | Select the appropriate phase |
 
-**Expected result:** all conditions in one rule must match: they are AND, not OR.
-
-**Notes:** response status, headers and MIME cannot be known before the response. A regex that cannot compile may simply not match; no missing-field warning is not a regex test.
+response status, headers and MIME cannot be known before the response. A regex that cannot compile may simply not match; no missing-field warning is not a regex test.
 
 <a id="headers-query"></a>
 ## Modify Header and Query
 
-1. Use the first rule's narrow scope and request Header `set`, with name `x-interceptor-guide` and value `rules-demo`. The response-phase example is `Guide matchers` above; do not mix the two walkthroughs' values.
+1. <a id="walkthrough-rules-operations"></a><a id="walkthrough-rules-operations-01-rules"></a><a id="walkthrough-rules-operations-02-new"></a><a id="walkthrough-rules-operations-03-scope"></a><a id="walkthrough-rules-operations-04-header-name"></a>Continue with the first section's `E2E action variants`: Host `127.0.0.1`, Path `/e2e/rules/actions`, request Header `x-e2e-action`, and value `from-rule`. Replace the current action for each exercise rather than adding unrelated actions.
 
-   ![Request Header name](../media/v0.1.1-alpha.1/rules/rules-07-header-name.png)
+2. <a id="walkthrough-rules-operations-05-append"></a><a id="walkthrough-rules-operations-06-enable"></a><a id="walkthrough-rules-operations-07-apply"></a><a id="walkthrough-rules-operations-08-appended"></a>Select Append in the operation control in box 1, retain `from-rule`, keep the rule enabled, and Save. Send `/e2e/rules/actions/request-append` with `x-e2e-action: original`. The origin should receive both `original` and `from-rule`, not just a replacement value.
 
-   ![Request Header value rules-demo](../media/v0.1.1-alpha.1/rules/rules-08-header-value.png)
+   ![Selecting Append for the request Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-024.annotated.png)
 
-2. Query setting uses a separate `Guide query` rule. After limiting its test endpoint, remove the default Header action and add Query.
+   Return to Capture and use Keyword to find and select the new request. In Request Headers in box 1 below, `original` remains without a strike-through and the added `from-rule` carries Rule appended.
 
-   ![Removing Guide query's default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-06-remove.png)
+   ![Request Headers retain the original and appended values](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-027.annotated.png)
 
-   ![Selecting Query](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-07-action.png)
+3. <a id="walkthrough-rules-operations-09-remove"></a><a id="walkthrough-rules-operations-10-apply-remove"></a><a id="walkthrough-rules-operations-11-removed"></a>Change box 1 to Remove and retain name `x-e2e-action`; no value is needed. Save and send `/e2e/rules/actions/request-remove` with that Header. The origin should no longer receive it.
 
-3. Set name `guide` and value `rewritten`; the incoming value was `original`. Query remove below is a separate example with different input.
+   ![Selecting Remove for the request Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-031.annotated.png)
 
-   ![Query rewrite guide=rewritten](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-08-values.png)
+   Select the new request in Capture and inspect Request Headers in box 1 below. The original `x-e2e-action` value is struck through and marked Rule removed. This history row does not mean the Header was still forwarded.
 
-4. Check action insertion order, enable and Apply. The editor currently provides add/remove controls, not independent action-card drag sorting. Rule-tree reordering is not action-card reordering. Add actions in the intended order and do not add unrelated actions to this exercise.
+   ![The original request Header value is marked Rule removed](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-034.annotated.png)
 
-   ![Enabling Guide query](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-09-enable.png)
+4. <a id="walkthrough-rules-actions"></a><a id="walkthrough-rules-actions-query-01-rules"></a><a id="walkthrough-rules-actions-query-02-create"></a><a id="walkthrough-rules-actions-query-03-name"></a><a id="walkthrough-rules-actions-query-04-host"></a><a id="walkthrough-rules-actions-query-05-path"></a><a id="walkthrough-rules-actions-query-06-remove"></a><a id="walkthrough-rules-actions-query-07-action"></a><a id="walkthrough-rules-operations-12-query-action"></a>For Query, retain the same rule's Host and Path. Remove the old Header action with its upper-right ×, open Add action, and select Rewrite query in box 1.
 
-   ![Applying the Query rewrite](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-10-apply.png)
+   ![Adding Rewrite query after removing the previous action](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-061.annotated.png)
 
-5. Send a new matching request and check the final `guide=rewritten` Query against your service's observation.
+5. <a id="walkthrough-rules-actions-query-08-values"></a>Choose Set, enter parameter name `entry`, and enter replacement value `rewritten` in box 1.
 
-   ![Actual final Query result](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-11-result.png)
+   ![Setting Query entry=rewritten](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-064.annotated.png)
 
-6. Header append/remove and Query remove use `rules-operations`. Open Rules; this is not continued editing of the preceding `Guide query`.
+6. <a id="walkthrough-rules-actions-query-09-enable"></a><a id="walkthrough-rules-actions-query-10-apply"></a><a id="walkthrough-rules-actions-query-11-result"></a>Keep the rule enabled and click Save. Wait for Rule set applied in box 1. Request `/e2e/rules/actions/query-set?entry=original` and check that the origin receives `/e2e/rules/actions/query-set?entry=rewritten`.
 
-   ![Actually opening Rules for the new operations example](../media/v0.1.1-alpha.1/rules-operations/rules-operations-01-rules.png)
+   ![Query Set saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-065.annotated.png)
 
-7. Create `Guide operations`.
+   Use Keyword in Capture to find the new request and open Request. Query String Parameters in box 1 below still shows the incoming `entry=original`, not the final forwarded value.
 
-   ![Actually creating Guide operations](../media/v0.1.1-alpha.1/rules-operations/rules-operations-02-new.png)
+   ![The Query panel preserves the client's incoming parameter](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-067.annotated.png)
 
-8. Limit Host to `127.0.0.1` and Path to `/guide/rule-operations`, affecting only your test traffic.
+   To see what the origin actually receives, have the test endpoint echo its received path in a response JSON `path` field. Open Response, choose Raw, and click Copy in box 1 below. The complete response's `path` should be `/e2e/rules/actions/query-set?entry=rewritten`.
 
-   ![Actual Host and Path scope](../media/v0.1.1-alpha.1/rules-operations/rules-operations-03-scope.png)
+   ![Copying the origin response to check the complete Query Set path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-068.annotated.png)
 
-9. Enter Header name `x-guide-list`.
+7. <a id="walkthrough-rules-operations-13-query-remove"></a>Select Remove in box 1 and retain parameter name `entry`. The value field disappears; deletion is not setting an empty string.
 
-   ![Actual Header name x-guide-list](../media/v0.1.1-alpha.1/rules-operations/rules-operations-04-header-name.png)
+   ![Switching Query to Remove](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-071.annotated.png)
 
-10. Select `append` with value `two`, rather than replacing the existing value with `two`.
+8. <a id="walkthrough-rules-operations-14-apply-query"></a><a id="walkthrough-rules-operations-15-query-result"></a>Click Save and check the applied status in box 1. Request `/e2e/rules/actions/query-remove?entry=original`; the origin should receive `/e2e/rules/actions/query-remove`.
 
-    ![Actual append action and additional value](../media/v0.1.1-alpha.1/rules-operations/rules-operations-05-append.png)
+   ![Query Remove saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-072.annotated.png)
 
-11. Enable this rule.
+   Select the new request in Capture and open Request. Box 1 below still shows the incoming `entry=original`; this does not mean Remove failed.
 
-    ![Actually enabling Guide operations](../media/v0.1.1-alpha.1/rules-operations/rules-operations-06-enable.png)
+   ![The original incoming Query remains inspectable after removal](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-074.annotated.png)
 
-12. Apply append.
+   Open Raw in Response and click Copy in box 1 below. Check that the response JSON's complete `path` is `/e2e/rules/actions/query-remove`, without the `entry` parameter. Return to the rule, disable it, and Save when finished.
 
-    ![Actually applying Header append](../media/v0.1.1-alpha.1/rules-operations/rules-operations-07-apply.png)
+   ![Copying the response to check entry was removed from the forwarded path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-075.annotated.png)
 
-13. Send a matching request with `x-guide-list: one` and check that `one` is retained and `two` appended; inspect the actual multi-value representation.
+Setting and appending are different operations. Later actions can overwrite earlier modifications of the same field.
 
-    ![Actual result retaining one and appending two](../media/v0.1.1-alpha.1/rules-operations/rules-operations-08-appended.png)
-
-14. Change the same Header action to `remove`.
-
-    ![Actually selecting Header remove](../media/v0.1.1-alpha.1/rules-operations/rules-operations-09-remove.png)
-
-15. Apply remove.
-
-    ![Actually applying Header remove](../media/v0.1.1-alpha.1/rules-operations/rules-operations-10-apply-remove.png)
-
-16. Send another matching request with that Header and verify `x-guide-list` is removed, not merely renamed in the editor.
-
-    ![Actual Header removal result](../media/v0.1.1-alpha.1/rules-operations/rules-operations-11-removed.png)
-
-17. Change this test rule's action to Query.
-
-    ![Actually switching to the Query action](../media/v0.1.1-alpha.1/rules-operations/rules-operations-12-query-action.png)
-
-18. Remove parameter `guide`. This incoming example is `guide=remove-me`, not the earlier `guide=original`.
-
-    ![Actual parameter name for Query remove](../media/v0.1.1-alpha.1/rules-operations/rules-operations-13-query-remove.png)
-
-19. Apply Query remove.
-
-    ![Actually applying Query removal](../media/v0.1.1-alpha.1/rules-operations/rules-operations-14-apply-query.png)
-
-20. Send again and verify the final request lacks that parameter. Request Body follows below; finish by [saving the disabled state](#order).
-
-    ![The guide parameter actually removed](../media/v0.1.1-alpha.1/rules-operations/rules-operations-15-query-result.png)
-
-**Expected result:** only explicitly configured changes are applied.
-
-**Notes:** setting and appending are different operations. Later actions can overwrite earlier modifications of the same field.
+The editor provides action add/remove controls, not independent action-card drag sorting. Add multiple actions in the intended sequence; dragging in the rule tree changes only rule order.
 
 <a id="response-header-evidence"></a>
 ### Response Header append/remove
 
-This procedure uses a separate `Guide response and body`, not the request Header above. First follow the [creation and Apply recording](#walkthrough-rules-response-evidence): Host `127.0.0.1`, Path `/guide/response-evidence`, Response Header `x-guide-list`, operation `append`, value `two`. The origin returns `x-guide-list: one`; use the actual port in this recording's example table.
+Keep using `E2E action variants` and the `/e2e/rules/actions` scope. The test service's original response Header is `x-e2e-action: original`. If the current action is Query or another type, remove it and add Rewrite header through Add action.
 
-1. Return to Capture after Apply. [Step image](#walkthrough-rules-response-evidence-14-capture)
+1. <a id="walkthrough-rules-response-evidence"></a><a id="walkthrough-rules-response-evidence-01-rules"></a><a id="walkthrough-rules-response-evidence-02-root-menu"></a><a id="walkthrough-rules-response-evidence-03-create"></a><a id="walkthrough-rules-response-evidence-04-name"></a><a id="walkthrough-rules-response-evidence-05-host"></a><a id="walkthrough-rules-response-evidence-06-add-path"></a><a id="walkthrough-rules-response-evidence-07-path"></a><a id="walkthrough-rules-response-evidence-08-response-phase"></a><a id="walkthrough-rules-response-evidence-09-header"></a><a id="walkthrough-rules-response-evidence-10-append"></a><a id="walkthrough-rules-response-evidence-11-value"></a><a id="walkthrough-rules-response-evidence-12-enable"></a><a id="walkthrough-rules-response-evidence-13-apply-append"></a><a id="walkthrough-rules-response-evidence-14-capture"></a>Select `response` in the phase control in box 1 of the first image, then Set in the operation control in box 1 of the second. Enter name `x-e2e-action` and value `from-rule`. Enable and Save, then request `/e2e/rules/actions/response-set`; the client should receive this Header as `from-rule`.
 
-   ![Returning to Capture with the example path filter](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-14-capture.png)
+   ![Switching the Header action to response](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-038.annotated.png)
 
-2. Request `/guide/response-evidence/append` again. [Step image](#walkthrough-rules-response-evidence-15-append-request)
+   ![Response Header Set configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-040.annotated.png)
 
-   ![A new append request appears in Capture](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-15-append-request.png)
+   Use Keyword in Capture to find the new request and open Headers. Response Headers in box 1 below shows `original` with Rule replaced and `from-rule` with Rule set; the latter is the final response value.
 
-3. Select that `append` request. [Step image](#walkthrough-rules-response-evidence-16-append-select)
+   ![Response Header Set replaces the original value](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-043.annotated.png)
 
-   ![Selecting the same append request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-16-append-select.png)
+2. <a id="walkthrough-rules-response-evidence-15-append-request"></a><a id="walkthrough-rules-response-evidence-16-append-select"></a><a id="walkthrough-rules-response-evidence-17-append-headers"></a>Select Append in box 1 and Save. Request `/e2e/rules/actions/response-append`, select the new request in Capture, and inspect its response Headers: `original` remains and `from-rule` is appended.
 
-4. Inspect the response in Headers: `one` is retained and `two` is appended, not substituted for it. [Step image](#walkthrough-rules-response-evidence-17-append-headers)
+   ![Response Header Append configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-047.annotated.png)
 
-   ![Response Headers show one and the appended two](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-17-append-headers.png)
+   Response Headers in box 1 below shows both the unstruck `original` and `from-rule` with Rule appended, unlike Set's replacement.
 
-5. Return to the same Rule. [Step image](#walkthrough-rules-response-evidence-18-edit-remove)
+   ![Response Headers retain the original and append from-rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-050.annotated.png)
 
-   ![Returning to Guide response and body](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-18-edit-remove.png)
+3. <a id="walkthrough-rules-response-evidence-18-edit-remove"></a><a id="walkthrough-rules-response-evidence-19-remove"></a><a id="walkthrough-rules-response-evidence-20-apply-remove"></a><a id="walkthrough-rules-response-evidence-21-capture-remove"></a><a id="walkthrough-rules-response-evidence-22-remove-request"></a><a id="walkthrough-rules-response-evidence-23-remove-select"></a>Return to the same rule, select Remove in box 1, retain the name, and Save. Request `/e2e/rules/actions/response-remove`, then select that new request in Capture. The client response should no longer contain `x-e2e-action`. Capture's removal marker explains the effect; it does not mean the field was still transmitted.
 
-6. Change the operation to `remove`, keeping `x-guide-list` as the name. No value is needed. [Step image](#walkthrough-rules-response-evidence-19-remove)
+   ![Response Header Remove configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-054.annotated.png)
 
-   ![The actual Response remove configuration](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-19-remove.png)
+   In Response Headers in box 1 below, `x-e2e-action: original` is struck through and marked Rule removed. The response received by the client no longer includes this field.
 
-7. Apply the configuration. [Step image](#walkthrough-rules-response-evidence-20-apply-remove)
+   ![Response Headers show the removal source marker](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-057.annotated.png)
 
-   ![Response remove has been applied](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-20-apply-remove.png)
-
-8. Return to Capture. [Step image](#walkthrough-rules-response-evidence-21-capture-remove)
-
-   ![Preparing to inspect the new request in Capture](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-21-capture-remove.png)
-
-9. Request `/guide/response-evidence/remove`; do not inspect the previously completed `append` as if it were new. [Step image](#walkthrough-rules-response-evidence-22-remove-request)
-
-   ![The separate remove request appears](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-22-remove-request.png)
-
-10. Select `remove` and inspect its response removal marker. The actual client response no longer contains `x-guide-list`; Capture may retain a removal marker to explain the rule effect, not to claim the field was still sent. [Step image](#walkthrough-rules-response-evidence-23-remove-select)
-
-    ![The actual response Header removal effect](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-23-remove-select.png)
-
-Continue with the [same Rule's body-version demonstration](#walkthrough-rules-response-evidence-24-edit-body), then [disable and Apply](#walkthrough-rules-response-evidence-52-disable). Do not delete the last Rule to bypass the documented release limitation.
+Disable the rule and Save when finished. The Body examples below use separate rules; disable this Header rule first so their effects do not overlap.
 
 <a id="body-status"></a>
 ## Replace a body or response status
 
-1. In the narrowly scoped `Guide body`, remove the default Header and add Body. Its full creation/condition sequence is in the [action recording](#walkthrough-rules-actions-body-02-create).
+1. <a id="walkthrough-rules-actions-body-01-rules"></a><a id="walkthrough-rules-actions-body-02-create"></a><a id="walkthrough-rules-actions-body-03-name"></a><a id="walkthrough-rules-actions-body-04-host"></a><a id="walkthrough-rules-actions-body-05-path"></a><a id="walkthrough-rules-actions-body-06-remove"></a><a id="walkthrough-rules-actions-body-07-action"></a>Disable the other test rules first. Create `E2E regular response body`, entering its name in box 1 of the first image and Host `127.0.0.1` in box 1 of the second. This example has only a Host condition and is for isolated loopback test traffic. Remove the default Header, open Add action, and select Rewrite body in box 1 of the third image. Body replaces the entire body, not a substring.
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-06-remove.png)
+   ![Naming the separate response Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-051.annotated.png)
 
-   ![Adding Body](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-07-action.png)
+   ![Host for the response Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-052.annotated.png)
 
-2. Select Response phase. The request example later in this section uses `Guide operations`; keep the two rules' bodies separate.
+   ![Adding Rewrite body](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-054.annotated.png)
 
-   ![Actual Response phase for Body](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-08-phase.png)
+2. <a id="walkthrough-rules-actions-body-08-phase"></a><a id="walkthrough-rules-response-evidence-44-response-body"></a>Select `response` in the phase control in box 1 and keep JSON format. Do not configure a response-body action as a request action.
 
-3. Enter the complete replacement `{"message":"guide-body"}`.
+   ![Selecting response phase for Body](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-056.annotated.png)
 
-   ![Replacement body entered before sending](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-08-content.png)
+3. <a id="walkthrough-rules-actions-body-08-content"></a><a id="walkthrough-rules-response-evidence-45-response-value"></a>Enter the complete replacement `{"stage":"response-final"}` in box 1.
 
-4. Explicitly configure related headers when required; changing Content-Type alone does not convert bytes.
+   ![Entering the response-body replacement](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-057.annotated.png)
 
-   The [encoding-boundary recording](#walkthrough-rules-response-controls-encoding-phase) owns `Guide response controls`: first it changes only Response `content-encoding` to `gzip`, while wire bytes remain `{"message":"guide-origin"}`. Only after explicitly replacing Body with `{"message":"guide-encoded-body"}` does the product generate actual gzip content using the final Headers.
+4. <a id="walkthrough-rules-response-controls-synthetic-edit-next"></a><a id="walkthrough-rules-response-controls-delay-remove"></a><a id="walkthrough-rules-response-controls-delay-add"></a><a id="walkthrough-rules-response-controls-delay-value"></a><a id="walkthrough-rules-response-controls-delay-enable"></a><a id="walkthrough-rules-response-controls-delay-apply"></a><a id="walkthrough-rules-response-controls-delay-result"></a><a id="walkthrough-rules-response-controls-delay-back"></a><a id="walkthrough-rules-response-controls-delay-disable"></a><a id="walkthrough-rules-response-controls-delay-apply-off"></a><a id="walkthrough-rules-response-controls-delay-restored"></a><a id="walkthrough-rules-response-controls-delay-edit-next"></a><a id="walkthrough-rules-response-controls-block-remove"></a><a id="walkthrough-rules-response-controls-block-add"></a><a id="walkthrough-rules-response-controls-block-reset"></a><a id="walkthrough-rules-response-controls-block-enable"></a><a id="walkthrough-rules-response-controls-block-apply"></a><a id="walkthrough-rules-response-controls-block-reset-result"></a><a id="walkthrough-rules-response-controls-block-edit-close"></a><a id="walkthrough-rules-response-controls-block-close"></a><a id="walkthrough-rules-response-controls-block-apply-close"></a><a id="walkthrough-rules-response-controls-block-close-result"></a><a id="walkthrough-rules-response-controls-block-back"></a><a id="walkthrough-rules-response-controls-block-disable"></a><a id="walkthrough-rules-response-controls-block-apply-off"></a><a id="walkthrough-rules-response-controls-block-restored"></a><a id="walkthrough-rules-response-controls-block-edit-next"></a><a id="walkthrough-rules-response-controls-encoding-remove"></a><a id="walkthrough-rules-response-controls-encoding-add"></a><a id="walkthrough-rules-response-controls-encoding-phase"></a><a id="walkthrough-rules-response-controls-encoding-name"></a><a id="walkthrough-rules-response-controls-encoding-value"></a><a id="walkthrough-rules-response-controls-encoding-enable"></a><a id="walkthrough-rules-response-controls-encoding-apply"></a><a id="walkthrough-rules-response-controls-encoding-header-only"></a><a id="walkthrough-rules-response-controls-encoding-edit-body"></a><a id="walkthrough-rules-response-controls-encoding-add-body"></a><a id="walkthrough-rules-response-controls-encoding-body-phase"></a><a id="walkthrough-rules-response-controls-encoding-body"></a><a id="walkthrough-rules-response-controls-encoding-apply-body"></a><a id="walkthrough-rules-response-controls-encoding-body-result"></a><a id="walkthrough-rules-response-controls-encoding-back"></a><a id="walkthrough-rules-response-controls-encoding-disable"></a><a id="walkthrough-rules-response-controls-encoding-apply-off"></a><a id="walkthrough-rules-response-controls-encoding-restored"></a><a id="walkthrough-rules-response-controls-encoding-edit-next"></a>Explicitly configure related headers when required; changing Content-Type alone does not convert bytes.
 
-   ![Header-only encoding produces an actual decode notice without changing bytes](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-header-only.png)
+   Changing only `content-encoding` to `gzip` does not compress the original body and may cause a client decoding failure. To generate gzip content, follow the [combined Header and Body steps](#message-editing), explicitly replace the body, and check actual bytes and length.
 
-   ![Explicit Body replacement produces real gzip content that can be read](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body-result.png)
+5. <a id="walkthrough-rules-actions-body-09-enable"></a><a id="walkthrough-rules-actions-body-10-apply"></a><a id="walkthrough-rules-response-evidence-46-apply-response"></a>Turn on the rule-row switch in box 1, then click Save at the upper right. The second image shows Rule set applied after saving.
 
-   Each Header/Body input has its own step. Actual client decompression, the existing Content-Length update and Capture body are checked together; text appearance is not substituted for wire encoding.
+   ![Enabling the response Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-058.annotated.png)
 
-5. Enable `Guide body`, then Apply.
+   ![Response Body rule saved](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-059.png)
 
-   ![Enabling the Body rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-09-enable.png)
+6. <a id="walkthrough-rules-actions-body-11-result"></a><a id="walkthrough-rules-response-evidence-47-capture-response"></a><a id="walkthrough-rules-response-evidence-48-response-request"></a><a id="walkthrough-rules-response-evidence-49-response-select"></a><a id="walkthrough-rules-response-evidence-50-unavailable"></a>Request `/e2e/body-effect-regular-response` through the proxy, select it in Capture, and open Response. Check Final `{"stage":"response-final"}`. Original is disabled with a notice that a headers-stage replacement made the original response body unavailable; unavailable is not empty.
 
-   ![Applying the Body rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-10-apply.png)
+   ![Response Final and unavailable Original](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-061.png)
 
-6. Request its matching endpoint and check Final `{"message":"guide-body"}`.
+   1. Keep Final selected and click Raw in box 1 of the first image to view unformatted `{"stage":"response-final"}`. Click Copy in box 1 of the second image; it copies the current Final, not the unavailable Original.
 
-   ![Actual Final body after replacement](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-11-result.png)
+      ![Selecting Raw for response Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-063.annotated.png)
 
-7. The status example uses a separate `Guide status` rule; add Status.
+      ![Copying the complete response Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-064.annotated.png)
 
-   ![Selecting the separate Status action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-07-action.png)
+   2. Click Fullscreen in the body toolbar to enlarge the same body. Box 1 of the second image marks Copy at the top of the dialog. After copying, close the dialog with its upper-right ×. Final in box 1 of the third image remains selected, and Raw is unchanged.
 
-8. Enter `418`, not the synthetic-response example's `503`.
+      ![Viewing response Final fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-065.png)
 
-   ![Actual Status value 418](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-08-value.png)
+      ![Copying response Final in the fullscreen dialog](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-066.annotated.png)
 
-9. Enable and Apply the Status rule, then send a matching request.
+      ![Response Final remains selected after closing fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-067.annotated.png)
 
-   ![Enabling the Status rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-09-enable.png)
+   3. Click Save body and save `body-effect-regular-response-final.json` in the system Save dialog. After returning, Final in box 1 of the second image remains selected. The file should contain the complete `{"stage":"response-final"}`, not a screenshot or an empty Original.
 
-   ![Applying the Status rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-10-apply.png)
+      ![Saving response Final in the native dialog](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-068.png)
 
-10. Verify the client receives `418`, and inspect headers/body rather than only the rule's name.
+      ![Keeping response Final selected after saving](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-069.annotated.png)
 
-    ![Actual status rewrite to 418](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-11-result.png)
+   4. <a id="walkthrough-rules-response-evidence-51-rule-again"></a><a id="walkthrough-rules-response-evidence-52-disable"></a><a id="walkthrough-rules-response-evidence-53-apply-disabled"></a><a id="walkthrough-rules-response-evidence-54-capture-restored"></a><a id="walkthrough-rules-response-evidence-55-restored-request"></a>Click Rule replaced in box 1 of the first image. Back in Rules, box 1 of the second image selects `E2E regular response body`. Disable this rule and Save when finished, then use a new request to confirm responses are no longer replaced. An earlier completed Final is not a disabled-rule result.
+
+      ![The response body's rule source marker](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-070.annotated.png)
+
+      ![The response-body marker returns to its rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-071.annotated.png)
+
+7. <a id="walkthrough-rules-actions-status-01-rules"></a><a id="walkthrough-rules-actions-status-02-create"></a><a id="walkthrough-rules-actions-status-03-name"></a><a id="walkthrough-rules-actions-status-04-host"></a><a id="walkthrough-rules-actions-status-05-path"></a><a id="walkthrough-rules-actions-status-06-remove"></a><a id="walkthrough-rules-actions-status-07-action"></a>For status changes, disable the other test rules and save them first. Return to `E2E action variants`, keeping Host `127.0.0.1` and Path `/e2e/rules/actions`. Remove its previous action, then choose Set status in box 1 from Add action.
+
+   ![Adding Set status](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-079.annotated.png)
+
+8. <a id="walkthrough-rules-actions-status-08-value"></a>Enter `418` in the Status code field in box 1, not the synthetic-response example's `503`.
+
+   ![Entering Status code 418](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-081.annotated.png)
+
+9. <a id="walkthrough-rules-actions-status-09-enable"></a><a id="walkthrough-rules-actions-status-10-apply"></a>Make sure the rule is enabled and Save. Check the Rule set applied status in box 1.
+
+   ![Status action saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-082.annotated.png)
+
+10. <a id="walkthrough-rules-actions-status-11-result"></a>Request `/e2e/rules/actions/status`, then use Keyword in Capture to find and select the new request. General in box 1 under Headers shows `418 I'm a Teapot`, matching the client's status. Continue checking Header and Body: Status changes the response status, not the entire response as Synthetic does.
+
+    ![Capture General shows the rewritten 418 status](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-084.annotated.png)
 
 11. Compare Original/Final where the product makes them available.
 
-    A separate `Guide response and body` demonstrates request-body versions: Original is `{"message":"guide-original"}` and Final is `{"message":"guide-final"}`. The [version switching, copying, fullscreen and saving steps](capture.md#区分原始内容与规则修改结果) all use that recording, not the original response from `Guide body`.
+    Select the required version before using Raw, Copy, Fullscreen, or Save body; those operations use the currently selected body. The request example below has observable Original and Final versions. Do not treat an unavailable response Original as empty content.
 
-    ![Actually selecting the request Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png)
+12. <a id="walkthrough-rules-operations-16-body-action"></a><a id="walkthrough-rules-response-evidence-24-edit-body"></a><a id="walkthrough-rules-response-evidence-25-remove-header"></a><a id="walkthrough-rules-response-evidence-26-add-body"></a>Disable the other test rules, then create `E2E regular request body`. Box 1 of the first image marks its name; enter Host `127.0.0.1` in box 1 of the second. Remove the default Header and select Rewrite body in box 1 of the third image from Add action. This example also has only a Host condition.
 
-    ![Switching the same request back to Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png)
+    ![Naming the separate request Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-017.annotated.png)
 
-    The new example then changes Body to the response phase. Final is `{"message":"guide-response-final"}` and Original is explicitly unavailable, not empty. [Step image](#walkthrough-rules-response-evidence-50-unavailable)
+    ![Host for the request Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-018.annotated.png)
 
-    ![Unavailable response Original and the actual Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png)
+    ![Adding the request-body rewrite action](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-020.annotated.png)
 
-12. Request phase uses the preceding section's `Guide operations`, Host `127.0.0.1`, Path `/guide/rule-operations`. Change its action to request Body, not the response of `Guide body`.
+13. <a id="walkthrough-rules-operations-17-body-value"></a><a id="walkthrough-rules-response-evidence-27-request-phase"></a><a id="walkthrough-rules-response-evidence-28-body-value"></a>Select `request` in box 1 of the first image and retain JSON format. Enter the complete replacement `{"stage":"regular-final"}` in box 1 of the second.
 
-    ![Actually selecting request-phase Body](../media/v0.1.1-alpha.1/rules-operations/rules-operations-16-body-action.png)
+    ![Selecting request phase](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-022.annotated.png)
 
-13. Enter complete replacement `{"message":"request-edited"}`; the client originally sends `{"message":"original"}`.
+    ![Entering the regular-final replacement](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-023.annotated.png)
 
-    ![Actual request-body replacement input](../media/v0.1.1-alpha.1/rules-operations/rules-operations-17-body-value.png)
+14. <a id="walkthrough-rules-operations-18-apply-body"></a><a id="walkthrough-rules-response-evidence-29-apply-body"></a>Turn on the rule-row switch in box 1 and Save. Check Rule set applied at the bottom of the second image.
 
-14. Apply request-body replacement.
+    ![Enabling the request Body rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-024.annotated.png)
 
-    ![Actually applying request-body replacement](../media/v0.1.1-alpha.1/rules-operations/rules-operations-18-apply-body.png)
+    ![Request Body rule saved](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-025.png)
 
-15. Send again and check the origin receives complete `{"message":"request-edited"}`. Finish with the [management steps](#order): rename, inspect name search, then disable and Apply, rather than deleting the last rule.
+15. <a id="walkthrough-rules-operations-19-body-result"></a><a id="walkthrough-rules-response-evidence-30-capture-body"></a><a id="walkthrough-rules-response-evidence-31-post"></a><a id="walkthrough-rules-response-evidence-32-body-select"></a><a id="walkthrough-rules-response-evidence-33-final"></a><a id="walkthrough-rules-response-evidence-34-original"></a>Send POST to `/e2e/body-effect-regular-request` with original body `{"stage":"regular-original"}`. Select it in Capture, open Request, and choose Final in box 1 of the first image. Check that the origin received the complete `{"stage":"regular-final"}` body. Then click Original in box 1 of the second image to see `regular-original`.
 
-    ![Origin actually receiving the complete replacement request](../media/v0.1.1-alpha.1/rules-operations/rules-operations-19-body-result.png)
+    ![Request Final after the rule replacement](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-027.annotated.png)
 
-**Expected result:** Body replaces the entire body; it is not an implicit search/replace over unknown source bytes. Status changes the response code.
+    ![Original for the same request](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-029.annotated.png)
 
-**Notes:** an original response body replaced at the header stage may never have been observed. Unavailable is not empty, and a full diff is not guaranteed.
+    1. <a id="walkthrough-rules-response-evidence-35-raw"></a>Keep Original selected and click Raw in box 1. The body shows `{"stage":"regular-original"}` without switching to Final.
+
+       ![Original body in Raw mode](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-030.annotated.png)
+
+    2. <a id="walkthrough-rules-response-evidence-36-copy-original"></a>Click Copy in box 1 to copy the complete Original. Pasted content should be `{"stage":"regular-original"}`, without the editor's visual line wrapping.
+
+       ![Copying request Original](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-031.annotated.png)
+
+    3. <a id="walkthrough-rules-response-evidence-37-fullscreen"></a><a id="walkthrough-rules-response-evidence-38-close-fullscreen"></a>Click Fullscreen to inspect the same Original. Copy in box 1 of the second image copies that body from the dialog. Close with the upper-right ×; Original in box 1 of the third image remains selected, and Raw is unchanged.
+
+       ![Viewing request Original fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-032.png)
+
+       ![Copying request Original from fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-033.annotated.png)
+
+       ![Original and Raw remain after closing fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-034.annotated.png)
+
+    4. Click Save body and use `body-effect-regular-request-original.json` in the system Save dialog. After returning, Original in box 1 of the second image remains selected. The saved file should contain the complete `{"stage":"regular-original"}`.
+
+       ![Saving request Original in the native dialog](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-035.png)
+
+       ![Request Original remains selected after saving](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-036.annotated.png)
+
+    5. <a id="walkthrough-rules-response-evidence-39-final-again"></a>Click Final in box 1. Raw remains selected and the body changes to `{"stage":"regular-final"}`. The Original copied or saved earlier is not the current content.
+
+       ![Switching the same request back to Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-037.annotated.png)
+
+    6. <a id="walkthrough-rules-response-evidence-40-copy-final"></a>Click Copy in box 1. The complete copied body should now be `{"stage":"regular-final"}`.
+
+       ![Copying request Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-039.annotated.png)
+
+    7. Open Fullscreen again to inspect Final and use the dialog's Copy in box 1 of the second image. After closing, Final in box 1 of the third image remains selected; the body has not reverted to Original.
+
+       ![Viewing request Final fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-040.png)
+
+       ![Copying request Final from fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-041.annotated.png)
+
+       ![Request Final remains after closing fullscreen](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-042.annotated.png)
+
+    8. <a id="walkthrough-rules-response-evidence-41-save-dialog"></a><a id="walkthrough-rules-response-evidence-42-saved"></a>Keep Final selected and use Save body to save `body-effect-regular-request-final.json`. Final in box 1 of the second image remains selected afterward. The file contains `{"stage":"regular-final"}`, distinct from the Original file.
+
+       ![Saving request Final in the native dialog](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-043.png)
+
+       ![Request Final remains selected after saving](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-044.annotated.png)
+
+    9. <a id="walkthrough-rules-response-evidence-43-body-rule"></a>Click Rule replaced in box 1 of the first image to return to Rules. Box 1 of the second image selects `E2E regular request body`; its editor still shows that rule's request Body action.
+
+       ![Following the regular request body's source marker](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-045.annotated.png)
+
+       ![The regular request-body marker returns to its rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-046.annotated.png)
+
+    Finish by turning off the rule-row switch in box 1 below and saving. The rule remains available but stops rewriting subsequent requests.
+
+    ![Request Body rule disabled and saved](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-048.annotated.png)
+
+an original response body replaced at the header stage may never have been observed. Unavailable is not empty, and a full diff is not guaranteed.
 
 <a id="mock-response"></a>
 ## Return a synthetic response
 
-**Goal:** test a fixed success, error or boundary response without changing the backend.
+Test a fixed success, error or boundary response without changing the backend.
 
-1. Create `Guide synthetic`, limit Host to `127.0.0.1` and use its test Path rather than all traffic.
+1. <a id="walkthrough-rules-actions-synthetic-01-rules"></a><a id="walkthrough-rules-actions-synthetic-02-create"></a><a id="walkthrough-rules-actions-synthetic-03-name"></a><a id="walkthrough-rules-actions-synthetic-04-host"></a><a id="walkthrough-rules-actions-synthetic-05-path"></a>Open `E2E action variants`, retaining Host `127.0.0.1` and Path `/e2e/rules/actions`, not everyday traffic. Disable other test rules that could also match.
 
-   ![Naming Guide synthetic](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-03-name.png)
+2. <a id="walkthrough-rules-actions-synthetic-06-remove"></a><a id="walkthrough-rules-actions-synthetic-07-action"></a>Remove the current action, open Add action, and select Synthetic in box 1.
 
-   ![Limiting the local Host](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-04-host.png)
+   ![Selecting Synthetic from the action menu](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-088.annotated.png)
 
-   ![Actual test Path for this rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-05-path.png)
+3. <a id="walkthrough-rules-actions-synthetic-08-status"></a>Enter `503` in the Status field in box 1.
 
-2. Remove the default Header and add Synthetic response.
+   ![Entering synthetic response status 503](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-090.annotated.png)
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-06-remove.png)
+4. <a id="walkthrough-rules-actions-synthetic-08-body"></a>Enter body `{"message":"synthetic-action-body"}` in box 1 of the first image. Click Add header, enter name `x-e2e-synthetic`, and enter value `present` in box 1 of the second image. Configure Headers explicitly inside this Synthetic action.
 
-   ![Adding Synthetic response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-07-action.png)
+   ![Entering the synthetic response body](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-091.annotated.png)
 
-3. Enter status `503`.
+   ![Entering the additional response Header value](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-094.annotated.png)
 
-   ![Synthetic response status 503](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-08-status.png)
+5. <a id="walkthrough-rules-actions-synthetic-09-enable"></a><a id="walkthrough-rules-actions-synthetic-10-apply"></a>Make sure the rule is enabled, click Save, and wait for Rule set applied in box 1.
 
-4. Enter body `{"message":"guide maintenance"}`. Add response Headers explicitly when needed. The [additional-Header recording](#walkthrough-rules-response-controls-synthetic-add-type) separately uses `Guide response controls`, adds `content-type: application/json` and `x-guide-maintenance: planned`, and uses `{"message":"guide-maintenance"}`. Keep the two examples' body spelling distinct.
+   ![Synthetic configuration saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-095.annotated.png)
 
-   ![Actual synthetic response body input](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-08-body.png)
+6. <a id="walkthrough-rules-actions-synthetic-11-result"></a>Request `/e2e/rules/actions/synthetic` through the proxy; the origin should not receive it. Use Keyword in Capture to find and select the new request, then open Headers. General in box 1 should show `503 Service Unavailable`.
 
-5. Enable and Apply.
+   ![Synthetic returns 503 on the original request](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-097.annotated.png)
 
-   ![Enabling the synthetic response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-09-enable.png)
+   In Response Headers in box 1 below, check for `x-e2e-synthetic: present`, supplied by the Synthetic action you configured.
 
-   ![Applying the synthetic response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-10-apply.png)
+   ![The synthetic response includes the explicitly configured Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-098.annotated.png)
 
-6. Access the matching endpoint through the proxy and check `503` with `guide maintenance`, not the normal origin result.
+   Open Response, choose Raw, and click Copy in box 1 below. The complete copied body should be `{"message":"synthetic-action-body"}`. The client's status, Header, and body should match as well.
 
-   ![Actual synthetic-response checkpoint](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-11-result.png)
+   ![Copying the complete synthetic response body](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-099.annotated.png)
 
-7. Disable the rule and Apply when finished, then verify the normal route again.
+7. <a id="walkthrough-rules-response-controls"></a><a id="walkthrough-rules-response-controls-01-rules"></a><a id="walkthrough-rules-response-controls-02-create"></a><a id="walkthrough-rules-response-controls-03-host"></a><a id="walkthrough-rules-response-controls-04-path-condition"></a><a id="walkthrough-rules-response-controls-05-path"></a><a id="walkthrough-rules-response-controls-synthetic-remove"></a><a id="walkthrough-rules-response-controls-synthetic-add"></a><a id="walkthrough-rules-response-controls-synthetic-status"></a><a id="walkthrough-rules-response-controls-synthetic-add-type"></a><a id="walkthrough-rules-response-controls-synthetic-type-name"></a><a id="walkthrough-rules-response-controls-synthetic-type-value"></a><a id="walkthrough-rules-response-controls-synthetic-add-extra"></a><a id="walkthrough-rules-response-controls-synthetic-extra-name"></a><a id="walkthrough-rules-response-controls-synthetic-extra-value"></a><a id="walkthrough-rules-response-controls-synthetic-body"></a><a id="walkthrough-rules-response-controls-synthetic-enable"></a><a id="walkthrough-rules-response-controls-synthetic-apply"></a><a id="walkthrough-rules-response-controls-synthetic-result"></a><a id="walkthrough-rules-response-controls-synthetic-back"></a><a id="walkthrough-rules-response-controls-synthetic-disable"></a><a id="walkthrough-rules-response-controls-synthetic-apply-off"></a><a id="walkthrough-rules-response-controls-synthetic-restored"></a>Disable the rule and Apply when finished, then verify the normal route again.
 
-   [Disabling Synthetic and observing recovery](#walkthrough-rules-response-controls-synthetic-back) has its own steps: disable and Apply, then send new `/guide/response-controls/synthetic-off` and receive origin status 200 with `{"message":"guide-origin"}`. It does not reuse Header-rule disabling.
+   Turn off the switch, click Save, and send a new matching request. Check that the response comes from your own origin again rather than returning the fixed `503`. Do not reuse the already-completed synthetic response for this check.
 
-   ![Actual origin response after Synthetic is disabled](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-restored.png)
-
-**Expected result:** the rule supplies a response without waiting for the origin's normal result.
-
-**Notes:** this short-circuits normal forwarding and subsequent applicable processing. Do not use the real origin response as proof of what a synthetic response should contain.
+this short-circuits normal forwarding and subsequent applicable processing. Do not use the real origin response as proof of what a synthetic response should contain.
 
 <a id="mapping"></a>
 ## Map a local file or another destination
 
 **Map Local**
 
-1. Capture public test text from your own service. This body is `Hello from guide-local.txt`; do not use credentials, private keys or personal files.
+1. <a id="walkthrough-rules-actions-map-local-00-capture"></a>Disable rules that could rewrite this request and Save. Request your test service's `/e2e/rules/actions/file-source`, select it in Capture, and open Response in box 1. Its public body is `{"message":"original-action-body"}`; do not use personal files or credentials.
 
-   ![Actual captured public test text](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-00-capture.png)
+   ![Inspecting the body to save in Response](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-144.annotated.png)
 
-2. Use product Save body to export `guide-local.txt` and note its chosen absolute path. This is the input file's source, not a hand-fabricated import.
+2. <a id="walkthrough-rules-actions-map-local-00-save"></a>Click Save body in the body toolbar. In the system Save dialog, save `rule-map-source.json` and note the absolute path you chose.
 
-   ![Real native Save panel exporting guide-local.txt](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-00-save.png)
+   ![System Save body dialog saving rule-map-source.json](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-145.png)
 
-3. Create `Guide map-local`, limiting Host to `127.0.0.1` and the test Path.
+3. <a id="walkthrough-rules-actions-map-local-01-rules"></a><a id="walkthrough-rules-actions-map-local-02-create"></a><a id="walkthrough-rules-actions-map-local-03-name"></a><a id="walkthrough-rules-actions-map-local-04-host"></a><a id="walkthrough-rules-actions-map-local-05-path"></a>Return to `E2E action variants` and check Host `127.0.0.1` and Path `/e2e/rules/actions`, retaining this test scope.
 
-   ![Naming the local mapping rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-03-name.png)
+4. <a id="walkthrough-rules-actions-map-local-06-remove"></a><a id="walkthrough-rules-actions-map-local-07-action"></a>Remove the previous action and select Map Local in box 1 from Add action.
 
-   ![Limiting Host](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-04-host.png)
+   ![Selecting Map Local](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-148.annotated.png)
 
-   ![Limiting the local-mapping test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-05-path.png)
+5. <a id="walkthrough-rules-actions-map-local-08-path"></a>Local path accepts an absolute path; it is not a file picker. The path in box 1 of the first image points to the nonexistent `rule-map-missing.json`. Enable the rule with the switch in box 1 of the second image and Save.
 
-4. Remove the default Header and add Map Local.
+   ![A nonexistent local file path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-150.annotated.png)
 
-   ![Removing the default action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-06-remove.png)
+   ![Enabling local-file mapping](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-151.annotated.png)
 
-   ![Adding Map Local](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-07-action.png)
+   Request `/e2e/rules/actions/local-missing`, then use Keyword in Capture to find and select the new request. General in box 1 below shows `404 Not Found`. Correct the file path rather than treating this as a normal origin response.
 
-5. Enter the just-exported file's absolute Local path; this is not a native file picker. The pictured directory belongs only to the recording machine, not a fixed path to copy.
+   ![A missing local file produces 404](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-154.annotated.png)
 
-   ![Local path points to that same product-exported guide-local.txt](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-08-path.png)
+   Return to the same rule and correct the path in box 1 below to the actual absolute path of the `rule-map-source.json` you saved, not the pictured machine's directory.
 
-6. Confirm the file remains readable, enable and Apply. Missing/unreadable-file failures remain image pending.
+   ![Correcting the path to the saved rule-map-source.json](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-156.annotated.png)
 
-   ![Enabling Map Local](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-09-enable.png)
+6. <a id="walkthrough-rules-actions-map-local-09-enable"></a><a id="walkthrough-rules-actions-map-local-10-apply"></a>Confirm the file remains readable, keep the rule enabled, and Save. Wait for Rule set applied in box 1.
 
-   ![Applying Map Local](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-10-apply.png)
+   ![Corrected Map Local configuration saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-157.annotated.png)
 
-7. Request the matching address and inspect `Hello from guide-local.txt` and its actual response type.
+7. <a id="walkthrough-rules-actions-map-local-11-result"></a>Request `/e2e/rules/actions/local-file`, select the new request in Capture, and check that General in box 1 is back to `200 OK`.
 
-   ![The exported file actually returned as the response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-11-result.png)
+   ![A new request returns 200 after the file path is corrected](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-159.annotated.png)
 
-**Expected result:** the specified file supplies the response.
+   Open Raw in Response and click Copy in box 1 below. The complete body should be the file's `{"message":"original-action-body"}`. This body comes from the local file, not another origin request. Return to the rule, disable it, and Save when finished.
+
+   ![Copying the file body returned by Map Local](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-160.annotated.png)
 
 **Map Remote**
 
 1. Prepare a destination service you are authorized to use.
 
-   Starting the service is a prerequisite, not an App operation. This example uses an owned loopback service with a recording-assigned port. The [cross-scheme recording](#walkthrough-rules-routing) also routes HTTPS `localhost` to HTTP `127.0.0.1` at a different port and path, then checks the original destination after disabling the rule.
+   Prepare a reachable source entry and destination endpoint before configuring Map Remote. Both are on `http://127.0.0.1:62029` in this example; destination path `/e2e/rules/actions/remote-target` returns `mapped-target-body`. To change scheme, Host, and port together, follow the [cross-scheme mapping steps](#walkthrough-rules-routing).
 
-2. In `Guide map-remote`, limit Host to `127.0.0.1` and source Path to `/guide/rule-actions/remote-source`; remove the default Header and add Map Remote.
+2. <a id="walkthrough-rules-actions-map-remote-01-rules"></a><a id="walkthrough-rules-actions-map-remote-02-create"></a><a id="walkthrough-rules-actions-map-remote-03-name"></a><a id="walkthrough-rules-actions-map-remote-04-host"></a><a id="walkthrough-rules-actions-map-remote-05-path"></a><a id="walkthrough-rules-actions-map-remote-06-remove"></a><a id="walkthrough-rules-actions-map-remote-07-action"></a>In `E2E action variants`, retain Host `127.0.0.1` and Path `/e2e/rules/actions`. Remove the current action, then choose Map Remote in box 1 from Add action.
 
-   ![Actual source Path condition](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-05-path.png)
+   ![Selecting Map Remote](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-132.annotated.png)
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-06-remove.png)
+3. <a id="walkthrough-rules-actions-map-remote-08-path"></a>Enter `/e2e/rules/actions/remote-target` in the destination Path field in box 1. Leave scheme on `keep` and Host and Port empty to retain their original values. Host does not accept a complete URL; the destination must not create a proxy loop.
 
-   ![Selecting Map Remote](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-07-action.png)
+   ![Changing only the destination Path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-134.annotated.png)
 
-3. This example changes only Path to `/guide/rule-actions/remote-target`, preserving scheme, host and port. Changing those other fields remains image pending. Never put a full URL in Host or create a loop.
+4. <a id="walkthrough-rules-actions-map-remote-09-enable"></a><a id="walkthrough-rules-actions-map-remote-10-apply"></a>Enable the rule and Save. Check Rule set applied in box 1.
 
-   ![Actual configuration changing only the destination Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-08-path.png)
+   ![Map Remote enabled and saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-136.annotated.png)
 
-4. Enable, then Apply.
+5. <a id="walkthrough-rules-actions-map-remote-11-result"></a>Request the original `/e2e/rules/actions/remote-source` entry and check that the service receives `/e2e/rules/actions/remote-target`. Use Keyword in Capture to select the original entry's request. General in box 1 retains the original URL with `200 OK`; you do not need to find a separate destination request row.
 
-   ![Enabling Map Remote](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-09-enable.png)
+   ![Map Remote retains the original entry's Capture record](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-138.annotated.png)
 
-   ![Applying Map Remote](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-10-apply.png)
+   Open Raw in Response and click Copy in box 1 below. The complete body should be the destination endpoint's `mapped-target-body`. Together with General's original URL, it shows the mapping result.
 
-5. Call the original `remote-source` entry and verify the destination receives `remote-target`.
+   ![The original entry receives mapped-target-body](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-139.annotated.png)
 
-   ![Actual destination-path change](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-11-result.png)
+   When finished, return to the rule, disable Map Remote, and Save. Box 1 below marks the saved status; a new request should use the original entry again.
 
-**Expected result:** the client uses its original entry point while the proxy changes the actual destination.
+   ![Map Remote disabled and saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-143.annotated.png)
 
-**Notes:** rules do not create files or services. A local path may not exist on another machine. Map Local consumes a file; Save body writes one.
+rules do not create files or services. A local path may not exist on another machine. Map Local consumes a file; Save body writes one.
+
+<a id="walkthrough-rules-routing"></a>
+## Map to another protocol address and correct a local file path
+
+### Map Remote: HTTPS to HTTP
+
+First complete [HTTPS decryption and trust](settings.md#https-decryption) for your own test service and prepare a reachable HTTP destination. This example's source service is `https://localhost:56535`; its destination is `http://127.0.0.1:56533/e2e/rules/mapped-http`. Replace the addresses and ports together with your own services, without creating a proxy loop.
+
+1. <a id="walkthrough-rules-routing-01-rules"></a><a id="walkthrough-rules-routing-02-create"></a>Create a rule in Rules and enter `E2E HTTPS to HTTP mapping` in the name field in box 1.
+
+   ![Naming the HTTPS-to-HTTP mapping rule](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-010.annotated.png)
+
+2. <a id="walkthrough-rules-routing-03-source-host"></a>Enter `localhost` in the Host matcher in box 1. This matches the original HTTPS request; it is not the HTTP destination field.
+
+   ![Matching localhost on the original request](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-011.annotated.png)
+
+3. <a id="walkthrough-rules-routing-04-add-path"></a><a id="walkthrough-rules-routing-05-path"></a>Add a Path condition and enter `/e2e/rules/tls-mapping` in box 1. It covers both the `/enabled` and `/disabled` test paths below.
+
+   ![Restricting the original HTTPS path prefix](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-012.annotated.png)
+
+4. <a id="walkthrough-rules-routing-06-remove-header"></a><a id="walkthrough-rules-routing-07-map-remote"></a>Remove the default Header action, open Add action, and choose Map Remote in box 1.
+
+   ![Selecting Map Remote from the action menu](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-013.annotated.png)
+
+5. <a id="walkthrough-rules-routing-08-http"></a>Inside the Map Remote card marked by box 1, select `http` in the leftmost scheme control.
+
+   ![Selecting http as the Map Remote destination scheme](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-014.annotated.png)
+
+6. <a id="walkthrough-rules-routing-09-target-host"></a>Enter `127.0.0.1` in the destination Host field in box 1, not a complete URL.
+
+   ![Entering the HTTP destination Host](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-015.annotated.png)
+
+7. <a id="walkthrough-rules-routing-10-target-port"></a>Enter destination port `56533` in box 1. It differs from the original HTTPS service's port `56535`.
+
+   ![Entering the destination HTTP service port](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-016.annotated.png)
+
+8. <a id="walkthrough-rules-routing-11-target-path"></a>Enter `/e2e/rules/mapped-http` in the destination Path field in box 1.
+
+   ![Entering the HTTP destination path](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-017.annotated.png)
+
+9. <a id="walkthrough-rules-routing-12-enable"></a>Check the destination scheme, Host, Port, and Path, then enable the rule switch in box 1. Enabled is still only a draft state.
+
+   ![Enabling the cross-scheme mapping draft](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-018.annotated.png)
+
+10. <a id="walkthrough-rules-routing-13-apply"></a>Click Save and wait for the bottom status in box 1 to become Rule set applied. The mapping now affects subsequent requests.
+
+    ![Saving and applying the cross-scheme mapping](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-019.annotated.png)
+
+11. <a id="walkthrough-rules-routing-14-remote-result"></a>Through the proxy, GET `https://localhost:56535/e2e/rules/tls-mapping/enabled`. Select the request in Capture and open Response in box 1. Check `200` and the target service's `owned-http-mapping-result`: the client still addresses HTTPS, while the body comes from the HTTP destination.
+
+    ![The original HTTPS request receives the HTTP destination response](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-020.annotated.png)
+
+12. <a id="walkthrough-rules-routing-15-edit"></a><a id="walkthrough-rules-routing-16-disable"></a>Return to the same rule and turn off the enabled switch in box 1.
+
+    ![Disabling the cross-scheme mapping rule](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-021.annotated.png)
+
+13. <a id="walkthrough-rules-routing-17-apply-off"></a>Click Save again. Check Rule set applied in box 1 and Disabled above. Turning off the switch without saving does not complete disabling.
+
+    ![Saving the disabled mapping state](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
+
+14. <a id="walkthrough-rules-routing-18-original-result"></a>Request another address on the same original HTTPS service: `https://localhost:56535/e2e/rules/tls-mapping/disabled`. The new row in box 1 receives the source service's `404`, not the HTTP destination body. Headers still shows the original HTTPS URL. This compares `/enabled` and `/disabled` on one service; it does not reuse a completed request.
+
+    ![A new request returns to the original HTTPS service after disabling](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
+
+After HTTPS debugging, use the [cleanup instructions](#walkthrough-rules-routing-37-certificates) at the end of this section to restore settings changed only for the test.
+
+### Map Local: save a file and correct its path
+
+This is a separate Local example. Its HTTPS service is `https://localhost:63644`, and the HTTP destination used to prepare the file is `http://127.0.0.1:63638/e2e/rules/mapped-http`; do not mix these ports with the previous example. First configure these addresses using the Map Remote steps above and Save, so `/e2e/rules/tls-mapping/enabled` returns the public body `owned-http-mapping-result`. Replace the request address and mapping destination together when using your own services.
+
+1. <a id="walkthrough-rules-routing-19-file-source"></a><a id="walkthrough-rules-routing-20-save-file"></a><a id="walkthrough-rules-routing-21-check-file"></a><a id="walkthrough-rules-routing-22-edit-local"></a><a id="walkthrough-rules-routing-23-local-host"></a><a id="walkthrough-rules-routing-24-remove-remote"></a><a id="walkthrough-rules-routing-25-local"></a>Save the body through the product, then change the mapping action to read that file.
+
+   1. Request `https://localhost:63644/e2e/rules/tls-mapping/enabled` through the proxy, select it in Capture, and open Response. Click Save body in the body toolbar. In the system dialog, save `https-map-local-response.txt`, note the absolute path you chose, and click Save.
+
+      ![Saving the HTTPS response body in the system dialog](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-021.png)
+
+   2. After the Save dialog closes, return to Response and check that its body is still `owned-http-mapping-result`, with a size of `25 B`. Box 1 marks the body toolbar's Save body control; the file is already saved, so do not click it again.
+
+      ![Checking the original response after returning from Save](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-022.annotated.png)
+
+   3. Return to Rules, disable this Map Remote rule and Save, then change the name in box 1 to `E2E HTTPS to local file mapping`. Retain Host `localhost` and Path `/e2e/rules/tls-mapping`, which match the client's HTTPS request.
+
+      ![Renaming the rule for local-file mapping](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-026.annotated.png)
+
+   4. Remove the old Map Remote action with its upper-right ×, open Add action, and choose Map Local in box 1. This replaces the action rather than retaining remote mapping alongside it.
+
+      ![Adding Map Local after removing Map Remote](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-027.annotated.png)
+
+2. <a id="walkthrough-rules-routing-26-missing-name"></a><a id="walkthrough-rules-routing-27-enable-local"></a><a id="walkthrough-rules-routing-28-apply-local"></a><a id="walkthrough-rules-routing-29-missing-result"></a>When checking a bad file path, distinguish Map Local's error from an origin response.
+
+   1. In Local path in box 1, enter the complete absolute path of a nonexistent `https-map-local-missing.txt`. This is a path input, not a file picker; do not copy the pictured machine's directory.
+
+      ![Entering a nonexistent local file path](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-028.annotated.png)
+
+   2. Turn on the rule switch in box 1. The top says Enabled, but the bottom still shows Unsaved changes: the configuration is not saved yet.
+
+      ![Enabling the unsaved Map Local draft](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-029.annotated.png)
+
+   3. Click Save at the upper right and wait for the bottom status in box 1 to become Rule set applied. Saving a rule does not create a missing file.
+
+      ![Saving the rule with the missing-file path](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
+
+   4. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing`. Use Keyword in Capture to find and select the new request, then open Response in box 1. Expect `404` and the `27 B` body `Map Local target not found.`. Check the file path instead of repeatedly toggling Recording.
+
+      ![The missing-file HTTPS request returns a specific error body](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
+
+3. <a id="walkthrough-rules-routing-30-correct-rule"></a><a id="walkthrough-rules-routing-31-correct-file"></a><a id="walkthrough-rules-routing-32-apply-correct"></a><a id="walkthrough-rules-routing-33-local-result"></a>Correct the path to the file you saved, then send a new request to check its content.
+
+   1. Return to `E2E HTTPS to local file mapping`. Change the path in box 1 to the complete absolute path of your saved `https-map-local-response.txt` and confirm that the file is still readable.
+
+      ![Correcting the path to the product-saved file](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-032.annotated.png)
+
+   2. Keep the rule enabled, click Save, and check the Rule set applied status in box 1.
+
+      ![Saving the corrected Map Local path](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
+
+   3. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`, select that new request in Capture, and open Response in box 1. Expect `200` with the file's `owned-http-mapping-result` body and size `25 B`. The client still addresses HTTPS, but the body comes from the local file.
+
+      ![HTTPS Map Local returns the product-saved file body](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
+
+4. <a id="walkthrough-rules-routing-34-final-rule"></a><a id="walkthrough-rules-routing-35-final-disable"></a><a id="walkthrough-rules-routing-36-final-apply"></a><a id="walkthrough-rules-routing-37-certificates"></a><a id="walkthrough-rules-routing-38-mitm-off"></a><a id="walkthrough-rules-routing-39-remove-exception"></a>Disable file mapping, verify the restored request behavior, then handle HTTPS settings separately.
+
+   1. Return to the same rule and turn off the enabled switch in box 1. This is only a Disabled draft until you save it.
+
+      ![Turning off the local-file mapping rule](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-035.annotated.png)
+
+   2. Click Save and check Rule set applied in box 1 and Disabled above.
+
+      ![The disabled Map Local state is saved](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
+
+   3. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`. The new Capture row in box 1 returns the source endpoint's `404` with `0 B`, unlike the missing file's `27 B` error. HTTPS decryption can remain enabled after the rule is disabled; these are separate switches.
+
+      ![A new HTTPS request returns to the source endpoint after Map Local is disabled](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
+
+   4. If you enabled decryption or added a `localhost` origin exception only for this HTTPS test, open Settings and choose Certificates in box 1. A disabled Rule does not mean its HTTPS settings have been cleaned up.
+
+      ![Open Certificates for this HTTPS cleanup](../media/v0.1.1-alpha.1/tls-cleanup-english/step-039.annotated.png)
+
+   5. Turn off Decrypt HTTPS (MITM) in box 1. This stops subsequent decryption; it does not delete or untrust your daily-use CA.
+
+      ![Turn off the HTTPS decryption enabled for this test](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.annotated.png)
+
+   6. Find the `localhost` origin exception in box 1 and use the removal button at the right of its tag. Remove only the entry added for this test, not unrelated everyday settings.
+
+      ![Locate the localhost exception and its removal control](../media/v0.1.1-alpha.1/tls-cleanup-english/step-041.annotated.png)
+
+   7. Confirm the `localhost` exception is gone and MITM remains disabled. Box 1 is the remaining Host input, not a delete button. There is no need to use the CA Remove action.
+
+      ![The localhost exception is removed while HTTPS decryption stays disabled](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.annotated.png)
 
 <a id="block-delay"></a>
 ## Block, delay or pause traffic
 
-1. Limit `Guide delay` to the local test endpoint, not everyday traffic.
+1. <a id="walkthrough-rules-actions-delay-01-rules"></a><a id="walkthrough-rules-actions-delay-02-create"></a><a id="walkthrough-rules-actions-delay-03-name"></a><a id="walkthrough-rules-actions-delay-04-host"></a><a id="walkthrough-rules-actions-delay-05-path"></a>Continue using `E2E action variants` with Host `127.0.0.1` and Path `/e2e/rules/actions`. Disable other test rules and keep everyday traffic out of scope.
 
-   ![Actual narrow conditions for Delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-05-path.png)
+2. <a id="walkthrough-rules-actions-delay-06-remove"></a><a id="walkthrough-rules-actions-delay-07-action"></a><a id="walkthrough-rules-actions-delay-08-value"></a>Remove the current action and choose Delay in box 1 of the first image. Select `response` phase and enter `500` in the Delay (ms) field in box 1 of the second.
 
-2. Remove the default Header, add Delay, check request/response phase and enter `500` milliseconds.
+   ![Selecting Delay in the menu](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-103.annotated.png)
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-06-remove.png)
+   ![Entering a 500 millisecond response delay](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-105.annotated.png)
 
-   ![Selecting Delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-07-action.png)
+3. <a id="walkthrough-rules-actions-delay-09-enable"></a><a id="walkthrough-rules-actions-delay-10-apply"></a>Make sure the rule is enabled and Save. Wait for Rule set applied in box 1.
 
-   ![Actual delay value 500 milliseconds](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-08-value.png)
+   ![Delay saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-106.annotated.png)
 
-3. Enable and Apply.
+4. <a id="walkthrough-rules-actions-delay-11-result"></a>Request `/e2e/rules/actions/delay`. Check that the original response is preserved with the configured `500` millisecond wait. Use Keyword in Capture to select the new request and open Timing. Box 1 shows this example's Waiting (TTFB) of `503 ms` and Total of `505 ms`. Total time also includes connection and service processing, so it need not equal exactly `500`.
 
-   ![Enabling Delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-09-enable.png)
+   ![Timing shows the delayed response's wait and total duration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-108.annotated.png)
 
-   ![Applying Delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-10-apply.png)
+5. <a id="walkthrough-rules-actions-block-01-rules"></a><a id="walkthrough-rules-actions-block-02-create"></a><a id="walkthrough-rules-actions-block-03-name"></a><a id="walkthrough-rules-actions-block-04-host"></a><a id="walkthrough-rules-actions-block-05-path"></a>For blocking, retain this same rule's Host and Path rather than widening the matching scope.
 
-4. Send again and inspect the actual wait; total elapsed time need not equal exactly `500`.
+6. <a id="walkthrough-rules-actions-block-06-remove"></a><a id="walkthrough-rules-actions-block-07-action"></a>Remove Delay, add Block through Add action, and leave Mode on `reset`. Save and request `/e2e/rules/actions/block-reset`. The client connection should fail and the origin should not receive the request.
 
-   ![Actual delayed-request result](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-11-result.png)
+   ![Block reset configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-113.png)
 
-5. Blocking uses a separate `Guide block` and its test Path.
+   Use Keyword in Capture to select this request. General in box 1 below has no HTTP status code and shows `—`. Response Headers is empty and the row's response size is `0 B`, not a normal `200` response.
 
-   ![Block conditions belong to a different rule from Delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-05-path.png)
+   ![The reset block produces no normal HTTP response](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-116.annotated.png)
 
-6. Remove the default Header and choose Block. The [separate response-control recording](#walkthrough-rules-response-controls-block-reset) individually selects, applies and sends new requests for `reset` and `close`. Each has an actual blocked result; one block is not used as both modes.
+7. <a id="walkthrough-rules-actions-block-09-enable"></a><a id="walkthrough-rules-actions-block-10-apply"></a>Select `close` in the Mode field in box 1, keep the rule enabled, and Save. Request `/e2e/rules/actions/block-close` and check that the connection closes without a normal origin response.
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-06-remove.png)
+   ![Switching Block to close](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-119.annotated.png)
 
-   ![Actual Block action configuration](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-07-action.png)
+   Select the new `/e2e/rules/actions/block-close` request in Capture, not the previous reset request. General in box 1 below also has no HTTP status code; response headers are empty and the size is `0 B`.
 
-7. Enable and Apply Block.
+   ![The new close-blocked request also has no HTTP response](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-122.annotated.png)
 
-   ![Enabling Block](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-09-enable.png)
+8. <a id="walkthrough-rules-actions-block-11-result"></a>After checking the blocked result, turn the rule off and Save. Check the applied status in box 1 and Disabled above. Request `/e2e/rules/actions/block-disabled`; the origin's `200` should return.
 
-   ![Applying Block](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-10-apply.png)
+   ![Block disabled and saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-126.annotated.png)
 
-8. Request again and inspect the client's actual blocked result.
+   Select the new `/e2e/rules/actions/block-disabled` request in Capture. General in box 1 below is back to `200 OK`; the two earlier blocked records do not change.
 
-   ![Actually blocked request](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-11-result.png)
+   ![A new request returns 200 after Block is disabled](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-128.annotated.png)
 
-9. Add Breakpoint when a human decision is required. This image comes from the separate `Guide request breakpoint`; follow [Breakpoints](breakpoints.md#http). It is not a renamed Block rule.
+9. Use Breakpoint when a human decision is required. This is a separate body example, not a renamed Block rule. See [Breakpoints](breakpoints.md#http) for the full queue workflow.
 
-   ![Adding the human breakpoint action in its own recording](../media/v0.1.1-alpha.1/breakpoints/breakpoints-08-add-breakpoint.png)
+   1. Disable other rules and create `E2E request body effect`, setting Host `127.0.0.1` in box 1. Send only your own loopback test requests in this example.
 
-10. Disable or remove actions and Apply after the exercise.
+      ![Request Breakpoint rule name and Host](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-001.annotated.png)
 
-    [Recovery after Delay](#walkthrough-rules-response-controls-delay-back) and [recovery after Block](#walkthrough-rules-response-controls-block-back) each use their own new request and origin result, not breakpoint cleanup pictures.
+   2. Remove the default Header and choose Breakpoint in box 1 from Add action.
 
-**Expected result:** the client experiences a real block, delay or pause, not just a UI marker.
+      ![Adding the Breakpoint action](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-003.annotated.png)
 
-**Notes:** Delay is not bandwidth throttling. Multiple delay actions follow the actual maximum-delay semantics rather than being blindly summed. Breakpoints do not have an automatic continuation timeout.
+   3. Keep Phase on Request, enable the rule-row switch in box 1, and Save.
+
+      ![Enabling the request Breakpoint](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-005.annotated.png)
+
+   4. POST `/e2e/body-effect-red` with `{"stage":"original"}`. Open the paused request, choose Text, replace the body with `{"stage":"final"}`, and submit the edit to continue. In Capture's Request tab, Final in box 1 should display `final` with a Text source.
+
+      ![Request Final after the Breakpoint edit](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-008.annotated.png)
+
+   5. Click Original in box 1 and check that the same request's original body is still `{"stage":"original"}`.
+
+      ![Original for the Breakpoint request](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-009.annotated.png)
+
+   6. Switch back to Final, then click Rule replaced beside the body heading to return to `E2E request body effect`. This marker identifies the final body-writing rule. Disable that rule and Save afterward.
+
+      ![The body marker returns to the final writer rule](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-011.png)
+
+   7. For a file-backed response, first request `/e2e/body-effect-file-source`. Open Response in box 1, inspect public body `{"stage":"breakpoint-file-final"}`, and use Save body to save `body-effect-response-file.json`.
+
+      ![Selecting the response body to save](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-083.annotated.png)
+
+      ![Saving the body for File replacement](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-084.png)
+
+   8. Create `E2E response body effect` with Host `127.0.0.1`, remove its default Header, and add Breakpoint. Select Response in box 1, then enable and Save.
+
+      ![Selecting a response Breakpoint for file replacement](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-090.annotated.png)
+
+   9. Request `/e2e/body-effect-response-file`, open the paused response, choose File, and use Choose file and the system Open dialog to select the file you just saved. Remove the original `transfer-encoding` Header, submit the edit, and continue. Capture's Response should show File as the source and Final `{"stage":"breakpoint-file-final"}`. Original is unavailable, and the marker does not expose the local absolute path.
+
+      ![File-backed response with unavailable Original](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-095.png)
+
+10. Disable the test rules and Save when finished, then send a fresh request to check recovery. When testing Delay alone, compare a new request's wait after disabling and saving. Turning off a rule does not resolve requests already paused at a Breakpoint; finish those queue items separately.
+
+Delay is not bandwidth throttling. Multiple delay actions follow the actual maximum-delay semantics rather than being blindly summed. Breakpoints do not have an automatic continuation timeout.
 
 <a id="order"></a>
 ## Organize, reorder, disable and delete rules
 
-This uses `rules-organization`. First follow its [creation steps](#walkthrough-rules-organization-first-01-new) for `Guide first` and `Guide second`: both use Host `127.0.0.1` and Path `/guide/rule-order`, setting `x-guide-order` to `first` and `second` respectively.
+This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` and `E2E hierarchy rule`. Visible rule order determines execution order; folders organize rules and are not matching groups.
 
-**Known alpha.1 limitation:** deleting the last rule so that the Rules tree becomes empty was observed to leave it dirty without an Apply entry. Persistent deletion cannot be completed through that state. This is an observed failure, not merely a missing image, and was not fixed here. The actual `rules-operations` cleanup retains the rule, disables it and applies; it is not described as successful deletion.
+**alpha.1 limitation:** after deleting the last rule, the empty tree has no available Save action. To stop the last rule, retain it, turn its switch off, and Save. An empty view is not proof that deletion was saved.
 
-1. Apply both rules.
+1. <a id="walkthrough-rules-tree"></a><a id="walkthrough-rules-tree-01-rules"></a><a id="walkthrough-rules-tree-02-root-folder"></a><a id="walkthrough-rules-tree-03-root-name"></a><a id="walkthrough-rules-organization-07-folder"></a>Open the rule list's empty-area menu and choose New folder in box 1 of the first image. Enter `E2E rules level 1` in box 1 of the second image and press Enter.
 
-   ![Applying the initial two-rule order](../media/v0.1.1-alpha.1/rules-organization/rules-organization-02-apply.png)
+   ![New folder in the root menu](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-002.annotated.png)
 
-2. Send a matching request and check that the later `second` value overwrites the earlier one.
+   ![Entering the first-level folder name](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-003.annotated.png)
 
-   ![Actual result second before reordering](../media/v0.1.1-alpha.1/rules-organization/rules-organization-03-before.png)
+2. <a id="walkthrough-rules-tree-04-child-folder"></a><a id="walkthrough-rules-tree-05-child-name"></a>Open that folder's node menu, choose New subfolder, enter `E2E rules level 2` in box 1, and press Enter.
 
-3. Drag `Guide second` before `Guide first` and inspect the visible tree order.
+   ![Entering the second-level folder name](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-006.annotated.png)
 
-   ![Actual order after dragging](../media/v0.1.1-alpha.1/rules-organization/rules-organization-04-reorder.png)
+3. <a id="walkthrough-rules-tree-06-third-folder"></a><a id="walkthrough-rules-tree-07-third-name"></a>Create a subfolder from the second-level folder's menu. Enter `E2E rules level 3` in box 1 and press Enter.
 
-4. Apply the new order.
+   ![Entering the third-level folder name](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-009.annotated.png)
 
-   ![Applying the new rule order](../media/v0.1.1-alpha.1/rules-organization/rules-organization-05-apply-order.png)
+4. <a id="walkthrough-rules-tree-08-depth-limit"></a><a id="walkthrough-rules-tree-09-nested-rule"></a>Open the third-level folder menu. New subfolder in box 1 is disabled, preventing a fourth level. New rule in box 2 remains available; click it to create a rule in this folder.
 
-5. Send again and check that the final value is now `first`.
+   ![A third-level folder allows new rules but no deeper subfolders](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-011.annotated.png)
 
-   ![Actual result first after reordering](../media/v0.1.1-alpha.1/rules-organization/rules-organization-06-after.png)
+5. <a id="walkthrough-rules-tree-11-rule-name"></a><a id="walkthrough-rules-operations-20-rename"></a>Open the new rule's node menu and choose Rename in box 1 of the first image. Enter `E2E hierarchy rule` in box 1 of the second image and press Enter.
 
-6. Create folder `Guide rules`.
+   ![Rename in the rule node menu](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-013.annotated.png)
 
-   ![Creating Guide rules](../media/v0.1.1-alpha.1/rules-organization/rules-organization-07-folder.png)
+   ![Entering the rule name inline](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-014.annotated.png)
 
-7. Move `Guide second` into it.
+6. <a id="walkthrough-rules-tree-10-invalid"></a>Inspect Validation errors at the bottom. While required Host and Header fields are incomplete, Save is unavailable and the rule cannot be enabled.
 
-   ![Moving Guide second first](../media/v0.1.1-alpha.1/rules-organization/rules-organization-08-move-second.png)
+   ![Validation state with missing required fields](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-016.png)
 
-8. Move `Guide first` into it. Folders support at most three levels. The [separate hierarchy recording](#walkthrough-rules-tree-02-root-folder) creates `Guide hierarchy > Guide API > Guide final` one level at a time and actually inspects the disabled fourth-level entry.
+7. <a id="walkthrough-rules-tree-12-host"></a><a id="walkthrough-rules-tree-15-header"></a><a id="walkthrough-rules-tree-16-header-value"></a>Complete box 1 in each image in sequence: Host `127.0.0.1`, request Header name `x-rules-e2e`, and value `active`. Keep operation Set. Send only your own loopback test traffic; continue with the [matching-condition steps](#matchers) when you need all eight condition types.
 
-   ![Moving Guide first next](../media/v0.1.1-alpha.1/rules-organization/rules-organization-09-move-first.png)
+   ![Completing the Host condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-017.annotated.png)
 
-9. Apply the folder structure.
+   ![Completing the request Header name](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-018.annotated.png)
 
-   ![Saving the actual folder hierarchy](../media/v0.1.1-alpha.1/rules-organization/rules-organization-10-apply-folder.png)
+   ![Completing the request Header value](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-019.annotated.png)
 
-10. Name management uses the separate `rules-operations` example: rename the edited `Guide operations` to `Guide operations done`. This renames a rule, not the preceding `Guide rules` folder.
+8. <a id="walkthrough-rules-tree-17-enable"></a><a id="walkthrough-rules-tree-18-apply"></a><a id="walkthrough-rules-organization-10-apply-folder"></a>Enable the rule. Selecting the folder row in box 1 of the second image keeps the current rule editor open; it does not turn the folder into a condition. Click Save and check Rule set applied at the bottom of the third image.
 
-    ![Actually renaming to Guide operations done](../media/v0.1.1-alpha.1/rules-operations/rules-operations-20-rename.png)
+   ![Enabling the rule after completing required fields](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-020.png)
 
-11. Locate that rule in name search, not by request URL.
+   ![Folder selection preserves the open rule editor](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-021.annotated.png)
 
-    ![Actually locating the demonstration rule by name](../media/v0.1.1-alpha.1/rules-operations/rules-operations-21-search.png)
+   ![Folders and rule saved](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-022.png)
 
-    [Renaming and searching a folder](#walkthrough-rules-tree-19-rename-folder) use a separate explicit example: `Guide API` becomes `Guide routes`, followed by name search and collapsing/expanding `Guide hierarchy`. The existing child Rule retains its identity.
+9. <a id="walkthrough-rules-organization"></a><a id="walkthrough-rules-organization-01-open"></a><a id="walkthrough-rules-organization-first-01-new"></a><a id="walkthrough-rules-organization-first-02-host"></a><a id="walkthrough-rules-organization-first-03-path"></a><a id="walkthrough-rules-organization-first-04-header"></a><a id="walkthrough-rules-organization-first-05-enable"></a><a id="walkthrough-rules-tree-13-path-condition"></a><a id="walkthrough-rules-tree-14-path"></a>To compare order, keep only Host and Path in `E2E hierarchy rule`, adding or changing Path to `/e2e/rules/priority`. Switch its Header action back to `request`, retain name `x-rules-e2e`, and set the value in box 1 to `nested`. Keep it enabled and Save.
 
-    ![Actually searching the Guide routes folder name](../media/v0.1.1-alpha.1/rules-tree/rules-tree-22-folder-search.png)
+   ![The nested rule writes nested](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-110.annotated.png)
 
-12. Retain but disable `Guide operations done` after the demonstration.
+10. <a id="walkthrough-rules-organization-second-01-new"></a><a id="walkthrough-rules-organization-second-02-host"></a><a id="walkthrough-rules-organization-second-03-path"></a><a id="walkthrough-rules-organization-second-04-header"></a><a id="walkthrough-rules-organization-second-05-enable"></a><a id="walkthrough-rules-organization-02-apply"></a><a id="walkthrough-rules-tree-32-root-menu"></a><a id="walkthrough-rules-tree-33-root-rule"></a><a id="walkthrough-rules-tree-34-root-name"></a><a id="walkthrough-rules-tree-35-root-host"></a><a id="walkthrough-rules-tree-36-root-path-condition"></a><a id="walkthrough-rules-tree-37-root-path"></a><a id="walkthrough-rules-tree-38-root-header"></a><a id="walkthrough-rules-tree-39-root-value"></a><a id="walkthrough-rules-tree-40-root-enable"></a><a id="walkthrough-rules-tree-41-root-apply"></a>Create `E2E root priority` from the root menu. Box 1 of the first image marks the name. Enter Host `127.0.0.1` and Path `/e2e/rules/priority` in box 1 of the second. Use request Header Set `x-rules-e2e`, entering `root` in box 1 of the third image. Enable the switch in box 1 of the fourth image and Save. The saved rule follows the folder branch.
 
-    ![Actually retaining and disabling the demo rule](../media/v0.1.1-alpha.1/rules-operations/rules-operations-22-disable.png)
+    ![Naming the competing root rule](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-112.annotated.png)
 
-13. Apply its disabled state.
+    ![The competing rule uses the same Path](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-114.annotated.png)
 
-    ![Actually saving the disabled state, not deletion](../media/v0.1.1-alpha.1/rules-operations/rules-operations-23-apply-disabled.png)
+    ![The competing rule writes root](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-116.annotated.png)
 
-14. Before deleting nodes, distinguish the empty-tree limitation above. An empty view after deleting the last rule is not a saved result.
+    ![Enabling the competing rule](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-117.annotated.png)
 
-    **Blocked — product limitation:** alpha.1 leaves an empty tree dirty without Apply; persistent last-rule deletion failed in the actual run and is neither fixed nor bypassed here. The [non-last deletion recording](#walkthrough-rules-tree-43-delete-nested-menu) uses two Rules that actually demonstrate later-write precedence. It deletes only `Guide nested priority` and the emptied folders, applies them, then proves `Guide root priority` still works on a new request. The final Rule remains disabled; this is not successful empty-tree deletion.
+    ![Saved two-rule order before dragging](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-121.png)
 
-    ![The actual saved state after deleting a non-last Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-45-apply-deletion.png)
+11. <a id="walkthrough-rules-organization-03-before"></a><a id="walkthrough-rules-tree-42-precedence"></a>Request `/e2e/rules/priority/before-drag` and check that the origin receives `x-rules-e2e: root`: the later root rule overwrites `nested`.
 
-    ![Deleting empty folders while retaining the used root Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-48-apply-folders.png)
+    Select this request in Capture. Request Headers in box 1 retains the write and replacement history. The final Rule set row has value `root`; the earlier `nested` is not the final value.
 
-**Expected result:** visible leaf order determines execution order; folder structure is organizational.
+    ![Request Header with root as the final writer before reordering](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-119.annotated.png)
 
-**Notes**
+12. <a id="walkthrough-rules-organization-04-reorder"></a><a id="walkthrough-rules-organization-05-apply-order"></a><a id="walkthrough-rules-organization-06-after"></a><a id="walkthrough-rules-organization-08-move-second"></a><a id="walkthrough-rules-organization-09-move-first"></a>Drag `E2E root priority` before `E2E hierarchy rule`. The rule in box 1 now belongs to the same third-level folder. Save and request `/e2e/rules/priority/after-drag`; the final value should now be `nested`.
+
+    ![Moving the competing rule into the folder and ahead of the other rule](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-122.annotated.png)
+
+    ![The new order after saving](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-126.png)
+
+    Return to Capture and select the new `after-drag` request. The final Rule set row in box 1 now has value `nested`, while the replacement of `root` remains traceable.
+
+    ![Request Header with nested as the final writer after reordering](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-124.annotated.png)
+
+13. <a id="walkthrough-rules-operations-21-search"></a>Enter `E2E root priority` in the name-search field in box 1. Only the matching rule remains, with its parent-folder path. This is not a request-URL search. Clear the input to restore the full tree.
+
+    ![Rule-name search retaining the parent-folder path](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-127.annotated.png)
+
+14. <a id="walkthrough-rules-tree-19-rename-folder"></a><a id="walkthrough-rules-tree-20-folder-name"></a><a id="walkthrough-rules-tree-21-apply-rename"></a><a id="walkthrough-rules-tree-22-folder-search"></a>Choose Rename in the first-level folder's menu. Enter `E2E renamed hierarchy` in box 1 of the first image and press Enter. You can also locate it by its folder name, then clear search. Click the arrow in box 1 of the second image to collapse it: child rules are hidden, not removed, and reappear when expanded. Save when finished editing the folder.
+
+    ![Renaming the folder inline](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-129.annotated.png)
+
+    ![Collapsing the folder without deleting child rules](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-131.annotated.png)
+
+15. <a id="walkthrough-rules-tree-43-delete-nested-menu"></a><a id="walkthrough-rules-tree-44-delete-nested"></a><a id="walkthrough-rules-tree-45-apply-deletion"></a>Expand the folder and select Delete rule in box 1 from `E2E root priority`'s menu. It is not the last rule: `E2E hierarchy rule` remains afterward. Save after completing the following tree edits.
+
+    ![The menu for deleting the competing rule](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-133.annotated.png)
+
+    ![The nested rule remains after deletion](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-134.png)
+
+16. Drag the retained `E2E hierarchy rule` to the root-level empty area. Box 1 shows its position outside the folders.
+
+    ![Moving the retained rule back to the root](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-135.annotated.png)
+
+17. <a id="walkthrough-rules-tree-46-delete-folder-menu"></a><a id="walkthrough-rules-tree-47-delete-folders"></a><a id="walkthrough-rules-tree-48-apply-folders"></a><a id="walkthrough-rules-tree-49-after-delete"></a>Check that `E2E renamed hierarchy` contains only empty subfolders, choose Delete folder in box 1, and Save. The second image retains the root rule; its applied status confirms that deletion and movement were saved together.
+
+    ![Deleting the folder branch that no longer contains rules](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-136.annotated.png)
+
+    ![Folder deletion and rule movement saved](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-140.png)
+
+    Request `/e2e/rules/priority/after-deletion` and select the new record. Request Headers in box 1 shows only the retained rule's `x-rules-e2e: nested`. Deleting a rule does not erase its effects from historical requests.
+
+    ![A new request is still rewritten by the retained rule after deletion](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-138.annotated.png)
+
+18. <a id="walkthrough-rules-operations-22-disable"></a><a id="walkthrough-rules-operations-23-apply-disabled"></a><a id="walkthrough-rules-tree-50-disable"></a><a id="walkthrough-rules-tree-51-apply-disabled"></a>Finish by retaining the last rule, disabling it, and saving. Send another request and check that it no longer gains `x-rules-e2e`. Do not delete the final rule simply to stop its effect.
 
 - Several rules can act on one request; the first match does not always stop evaluation.
 - Row action tags are only a summary. Hover the summary to inspect the complete ordered actions.
@@ -772,78 +945,112 @@ This uses `rules-organization`. First follow its [creation steps](#walkthrough-r
 <a id="effects"></a>
 ## Verify effects and handle conflicts
 
-1. Send a new proxied request after Apply and inspect its hit. This reuses the actual `Guide test header` case.
+1. Use the folder exercise's initial `E2E hierarchy rule` configuration: Host `127.0.0.1`, request Header Set `x-rules-e2e: active`, and no additional conditions yet. Save and request `/e2e/rules/hierarchy-status` through the proxy. The hit count in box 1 becomes `1`.
 
-   ![Actual matching request and rule hit](../media/v0.1.1-alpha.1/rules/rules-11-hit.png)
+   ![A matching request raises the rule hit count to 1](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-024.annotated.png)
 
-2. Use the rule menu to find related Capture records where available.
+2. <a id="walkthrough-rules-tree-23-search-clear"></a><a id="walkthrough-rules-tree-24-collapse"></a><a id="walkthrough-rules-tree-25-expand"></a><a id="walkthrough-rules-tree-26-request"></a><a id="walkthrough-rules-tree-27-rule-menu"></a><a id="walkthrough-rules-tree-28-show-requests"></a>Clear name search, expand the folders, open the rule menu, and click Show matching requests in box 1. The command is unavailable before a hit; afterward it opens the matching Capture group.
 
-   [Rule-menu navigation to Capture](#walkthrough-rules-tree-27-rule-menu) uses an actual `Guide nested priority` hit. Its Rule facet is selected on arrival, and the matched request can be inspected.
+   ![Show matching requests after a hit](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-025.annotated.png)
 
-   ![Opening the corresponding Capture request from the Rule menu](../media/v0.1.1-alpha.1/rules-tree/rules-tree-28-show-requests.png)
+   In Capture, enter `/e2e/rules/hierarchy-status` in the Keyword field in box 1 below and select this request in box 2. The Rule group on the left still identifies the same rule.
 
-3. Inspect actual Header/Body results. These images belong to the Header example and separate `Guide body`, not one request. The Header marker is an inline clickable control; [following it back to the same Rule](#walkthrough-rules-tree-30-header-effect) has actual footage. There is no separate marker expansion panel.
+   ![Using Keyword to select the same matching request explicitly](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-027.annotated.png)
 
-   ![Actual request header from the Header example](../media/v0.1.1-alpha.1/rules/rules-12-capture.png)
+3. <a id="walkthrough-rules-tree-28a-rule-facet"></a><a id="walkthrough-rules-tree-29-select-request"></a><a id="walkthrough-rules-tree-30-header-effect"></a><a id="walkthrough-rules-tree-31-return-rule"></a>Check that the Rule group selects `E2E hierarchy rule`. Request Headers shows `x-rules-e2e: active`; box 1 of the first image marks its inline Rule set source. Click it to return to Rules, where box 1 of the second image still selects `E2E hierarchy rule`. There is no separate expansion panel. Inspect body results with the [Original/Final steps](#body-status).
 
-   ![Actual Final from the Body example](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-11-result.png)
+   ![Rule group, matching request, and inline Header source marker](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-028.annotated.png)
 
-4. On a revision conflict, preserve needed edits before choosing Reload. Reload discards the local draft and loads the latest tree.
+   ![Following the Header source back to the same rule](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-030.annotated.png)
 
-   The [conflict recording](#walkthrough-rules-conflict) retains a local draft while an approved MCP caller writes another revision through the same App, then explicitly uses Reload. It does not fabricate a conflict response or automatically overwrite the other writer.
+   1. A rule that also contains a same-phase Breakpoint remains traceable after continuing unmodified. The separate `E2E request header layout` example uses Host `127.0.0.1`, request Header Set `x-effect-layout: from-rule`, and a Request Breakpoint. Send `/e2e/header-effect-layout-request` with `x-effect-layout: client` and continue unmodified at the breakpoint. Rule set in box 1 of the first image identifies `from-rule`, while `client` retains a replacement marker. Click the source: box 1 of the second image selects that rule, and its editor still shows both Header and Breakpoint actions.
 
-   ![Local draft retained after the second writer commits](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-15-draft-retained.png)
+      ![Request Header source after continuing unmodified](../media/v0.1.1-alpha.1/rules-header-effects-workflow-en/step-002.annotated.png)
 
-   ![Explicitly reloading the latest rules](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-17-reload.png)
+      ![The request Header marker returns to its rule](../media/v0.1.1-alpha.1/rules-header-effects-workflow-en/step-003.annotated.png)
 
-5. Reapply intentional changes and verify; do not repeatedly submit a stale tree over another writer's changes.
+   2. Disable the previous rule and Save. The response example uses `E2E response header layout`: Host `127.0.0.1`, response Header Append `x-effect-layout: from-rule`, and a Response Breakpoint. Have `/e2e/header-effect-layout-response` originally return `x-effect-layout: origin`, then continue unmodified at the breakpoint. Rule appended in box 1 of the first image identifies the added `from-rule`, not a replacement of `origin`. Click it: box 1 of the second image selects the corresponding response rule. Disable and Save when finished.
 
-   ![Editing the latest revision and applying](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-20-apply-merged.png)
+      ![Appended response Header source after continuing unmodified](../media/v0.1.1-alpha.1/rules-header-effects-workflow-en/step-008.annotated.png)
 
-   ![A new request verifies the merged Header](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-21-merged-request.png)
+      ![The response Header marker returns to its rule](../media/v0.1.1-alpha.1/rules-header-effects-workflow-en/step-009.annotated.png)
 
-**Expected result:** confirm actual effects rather than guessing bytes from a rule name or count.
+4. <a id="walkthrough-rules-conflict"></a><a id="walkthrough-rules-conflict-01-rules"></a><a id="walkthrough-rules-conflict-02-create"></a><a id="walkthrough-rules-conflict-03-name"></a><a id="walkthrough-rules-conflict-04-host"></a><a id="walkthrough-rules-conflict-05-add-path"></a><a id="walkthrough-rules-conflict-06-path"></a><a id="walkthrough-rules-conflict-07-header"></a><a id="walkthrough-rules-conflict-08-value"></a><a id="walkthrough-rules-conflict-09-enable"></a><a id="walkthrough-rules-conflict-10-apply"></a><a id="walkthrough-rules-conflict-11-local-name"></a><a id="walkthrough-rules-conflict-12-local-value"></a><a id="walkthrough-rules-conflict-13-second-writer"></a><a id="walkthrough-rules-conflict-14-allow"></a><a id="walkthrough-rules-conflict-15-draft-retained"></a><a id="walkthrough-rules-conflict-16-core-remote"></a><a id="walkthrough-rules-conflict-17-reload"></a>When editing alongside MCP or another caller, distinguish your local draft from saved rules. This example uses an authorized MCP Client. Complete Client and Rules-tool authorization first, and do not share its credentials.
 
-**Notes:** Rules still act while Recording is paused, but no new Capture evidence is created. Saved revision, current draft and validity are distinct.
+   1. Open the rule saved through MCP. Its name in box 1 is `MCP updated header`, with Host `127.0.0.1` and Path `/e2e/mcp/rules`. The request Header Set name is `x-mcp-rules` and its value in box 2 is `updated`. The bottom shows Rule set applied and `rev 2`.
+
+      ![The rule name and Header value saved through MCP](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-017.annotated.png)
+
+   2. In Rules, change the name in box 1 to `MCP local draft` and the Header value in box 2 to `unapplied-local-value`, without clicking Save. The bottom becomes Unsaved changes while the saved revision remains `rev 2`.
+
+      ![Editing the local name and value without saving](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-018.annotated.png)
+
+   3. Have the authorized MCP Client save the tree again using the saved revision, still with `MCP updated header` and `updated`. Rules does not silently overwrite your input: the name in box 1 remains `MCP local draft`, the Header value remains `unapplied-local-value`, and the bottom says Changed elsewhere · draft kept. Retaining the editor draft does not mean Core is using its unsaved value.
+
+      ![The local draft is retained after another writer saves](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-019.annotated.png)
+
+   4. Note the edits you want to keep, then click Reload in box 1 at the upper right of the editor. This discards the current local draft and reads the latest rules; it does not resubmit the old revision.
+
+      ![Explicitly discarding the local draft with Reload](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-020.annotated.png)
+
+   5. Check that the name returns to `MCP updated header`, the Header value returns to `updated`, and the bottom shows Rule set applied with `rev 3`. `MCP local draft` and `unapplied-local-value` were discarded; Reload does not automatically merge those local edits.
+
+      ![Reload reads the saved rev 3](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-021.png)
+
+5. <a id="walkthrough-rules-conflict-18-merged-name"></a><a id="walkthrough-rules-conflict-19-merged-value"></a><a id="walkthrough-rules-conflict-20-apply-merged"></a><a id="walkthrough-rules-conflict-21-merged-request"></a><a id="walkthrough-rules-conflict-22-disable"></a><a id="walkthrough-rules-conflict-23-apply-disabled"></a><a id="walkthrough-rules-conflict-24-mcp-settings"></a><a id="walkthrough-rules-conflict-25-stop-server"></a>To keep your changes, re-edit the same rule you just reloaded, Save, and verify with a new request. Do not repeatedly submit a stale tree over another writer's changes.
+
+   1. On the latest `rev 3`, change the name in box 1 to `MCP merged header` and the Header value in box 2 to `merged`. Retain Host `127.0.0.1`, Path `/e2e/mcp/rules`, and request Header name `x-mcp-rules`, then click Save in box 3.
+
+      ![Re-editing the name and value on the latest revision and saving](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-023.annotated.png)
+
+   2. Wait for Rule set applied at the bottom. Check that this example advances to `rev 4` and retains name `MCP merged header` and Header value `merged`. This is the result of editing and saving again, not an automatic merge by Reload.
+
+      ![The manually merged rule is saved as rev 4](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-024.png)
+
+   3. Use an external client to GET `http://127.0.0.1:54222/e2e/mcp/rules/merged` through the proxy, replacing the port with your own test service's port. Enter `/e2e/mcp/` in Capture's Keyword and select the new request row in box 2. Open Headers and scroll to Request Headers: the Header row in box 1 should show `x-mcp-rules: merged` with Rule set. Do not use the earlier `/updated` request to judge this save.
+
+      ![The new request Header uses the manually merged value](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-025.annotated.png)
+
+Rules still act while Recording is paused, but no new Capture evidence is created. Saved revision, current draft and validity are distinct.
 
 <a id="import-export"></a>
 ## Import and export rules
 
-1. Review addresses, bodies and local paths for sensitive data.
+1. Review addresses, bodies, and local paths before sharing; export does not promise automatic redaction. Prepare two separate rules with Host `127.0.0.1`: enable `E2E enabled rule` with request Header `x-e2e-enabled-rule: active`; configure `E2E disabled rule` with `x-e2e-disabled-rule: active` but leave it disabled. Create a folder, enter `E2E imported folder` in box 1 of the first image, drag the disabled rule into the folder at the position in box 1 of the second image, and Save. The original tree has two rules, one folder, and one enabled rule.
 
-   Review addresses, bodies and local paths before sharing; this is a safety requirement, not a promise of automatic redaction. The following file operation uses the public ordered examples in `Guide rules`, not other rules, and does not send files to a third party.
+   ![Entering the export example's folder name](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-002.annotated.png)
 
-2. Use Export and save `guide-rules.json` in the real native dialog.
+   ![Moving the disabled rule into the folder](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-003.annotated.png)
 
-   ![Actual native Rules Export save panel](../media/v0.1.1-alpha.1/rules-organization/rules-organization-11-export.png)
+   ![The saved source tree for export](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-004.png)
 
-3. Inspect the actual exported tree.
+2. <a id="walkthrough-rules-organization-11-export"></a>Click Export rules in the rule-list toolbar and save `rules-roundtrip.json` in the system Save dialog.
 
-   ![Checking product-exported guide-rules.json](../media/v0.1.1-alpha.1/rules-organization/rules-organization-12-exported.png)
+   ![Export rules saving rules-roundtrip.json](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
 
-4. Use Import and select that same file in the native open dialog.
+3. <a id="walkthrough-rules-organization-12-exported"></a>Confirm that the file was saved. Its top-level `nodes` array preserves the current editor tree's folders, order, and enabled state. Export does not apply rules or delete the original tree.
 
-   ![Selecting the just-exported rule file](../media/v0.1.1-alpha.1/rules-organization/rules-organization-13-import-file.png)
+4. <a id="walkthrough-rules-organization-13-import-file"></a>Click Import rules, select the just-exported `rules-roundtrip.json` in the system Open dialog, and click Open to reach the preview.
 
-5. Review rule/folder counts, enabled rules and skipped items; enabled rules can immediately affect traffic.
+5. <a id="walkthrough-rules-organization-14-preview"></a>Check the preview: Rules `2`, Folders `1`, Enabled `1`, Skipped `0`. Cancel in box 1 cancels this import. Import 2 rules in box 2 appends and saves both rules, with one beginning to match traffic immediately. Consider the effect of matching the same traffic twice before confirming.
 
-   ![Actual preview warning about enabled rules](../media/v0.1.1-alpha.1/rules-organization/rules-organization-14-preview.png)
+   ![Import preview with counts, enabled warning, cancel and confirmation controls](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.annotated.png)
 
-6. Cancel first and check that the original tree remains.
+6. <a id="walkthrough-rules-organization-15-cancel"></a>Click Cancel first. Check that the original tree still has two rules and one folder, with only `E2E enabled rule` enabled. Cancelling the preview adds no nodes and saves no new revision.
 
-   ![Original tree after actually cancelling preview](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
+   ![The original tree is unchanged after cancelling import](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
-7. Import again and select the same `guide-rules.json`.
+7. <a id="walkthrough-rules-organization-16-import-again"></a>Click Import rules again, select the same `rules-roundtrip.json`, and review the counts and enabled-rule warning once more.
 
-   ![Selecting the same file again](../media/v0.1.1-alpha.1/rules-organization/rules-organization-16-import-again.png)
+8. <a id="walkthrough-rules-organization-17-confirm"></a>After accepting the effects, click Import 2 rules. New nodes append at the end of the root instead of replacing same-named items. There are now four rules, two folders, and two enabled rules. Confirmation saves the import immediately; another Save click is not required.
 
-8. Accept the effects, confirm and inspect the appended root tree and enabled state; do not expect existing items to be overwritten.
+   ![Imported nodes appended after the original tree](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-011.png)
 
-   ![Actual appended result after confirmation](../media/v0.1.1-alpha.1/rules-organization/rules-organization-17-confirm.png)
+9. Importing and confirming the same file again appends another copy: six rules, three folders, and three enabled rules. Names are not merged. When finished, disable unneeded rules or delete extra copies and Save to avoid repeated actions.
 
-**Expected result:** import creates new local identities and appends, without overwriting, merging or deduplicating names. Confirmation saves the result; imported enabled rules can immediately affect subsequent traffic.
+   ![Repeated import appends again without replacing existing nodes](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-013.png)
 
-**Notes:** UI export uses the current editor tree; Agent/MCP export uses the saved tree. Repeated import appends again and can cause repeated matches. File-level errors reject the file; invalid nodes are reported individually.
+UI export uses the current editor tree; Agent/MCP export uses the saved tree. Repeated import appends again and can cause repeated matches. File-level errors reject the file; invalid nodes are reported individually.
 
 <a id="message-editing"></a>
 ## Coordinate headers and bodies
@@ -858,2607 +1065,42 @@ The same core principles apply to related HTTP Breakpoint and Composer editing:
 
 Start with a simple header and small text body, then add encoding changes one at a time.
 
-<!-- recorded-walkthrough:rules-actions:start -->
-<a id="walkthrough-rules-actions"></a>
-## Recorded walkthrough: rewrite, mock, delay, block and map
+1. Open `E2E action variants`, retaining Host `127.0.0.1` and Path `/e2e/rules/actions`. Remove the previous action and add response Header Set `content-encoding`. Enter `gzip` in box 1, enable, and Save. Request `/e2e/rules/actions/header-only`: the original bytes remain `{"message":"original-action-body"}`, not automatically compressed just because the Header changed.
 
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
+   ![Setting only the response Content-Encoding](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-168.annotated.png)
 
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
+   Use Keyword in Capture to find and select the new request, then open Headers. Response Headers in box 1 below shows `content-encoding: gzip` with Rule set, while `content-length` remains the original `34`.
 
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>pathPrefix</code> | <code>/guide/rule-actions</code> |
-| <code>queryName</code> | <code>guide</code> |
-| <code>queryBefore</code> | <code>original</code> |
-| <code>queryAfter</code> | <code>rewritten</code> |
-| <code>replacementBody</code> | <code>{&quot;message&quot;:&quot;guide-body&quot;}</code> |
-| <code>status</code> | <code>418</code> |
-| <code>mockStatus</code> | <code>503</code> |
-| <code>mockBody</code> | <code>{&quot;message&quot;:&quot;guide maintenance&quot;}</code> |
-| <code>delayMs</code> | <code>500</code> |
-| <code>remoteSource</code> | <code>/guide/rule-actions/remote-source</code> |
-| <code>remoteTarget</code> | <code>/guide/rule-actions/remote-target</code> |
-| <code>localFile</code> | <code>/tmp/interceptor-guidebook-map-ctzevx/guide-local.txt</code> |
-| <code>localBody</code> | <code>Hello from guide-local.txt</code> |
+   ![Changing only the encoding Header leaves the body length at 34](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-171.annotated.png)
 
-<a id="walkthrough-rules-actions-query-01-rules"></a>
-### 01 · Return to Rules
+   Open Raw in Response. The body pane says `Failed to decode gzip body; showing raw bytes.` Click Copy in box 1 below: the complete body is still `{"message":"original-action-body"}`. The notice explains a mismatch between the Header and bytes, not automatic compression.
 
-![01 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-01-rules.png)
+   ![The decode notice and copied body show the original bytes are unchanged](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-172.annotated.png)
 
-<a id="walkthrough-rules-actions-query-02-create"></a>
-### 02 · Create a query Rule
+2. Retain that Header action, open Add action, and select Rewrite body in box 1. This adds a second action rather than removing the Header.
 
-![02 · Create a query Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-02-create.png)
+   ![Adding Body after the encoding Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-175.annotated.png)
 
-<a id="walkthrough-rules-actions-query-03-name"></a>
-### 03 · Name the Rule Guide query
+3. Select `response` and JSON for Body, and enter `{"message":"encoded-action-body"}` in box 1.
 
-![03 · Name the Rule Guide query](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-03-name.png)
+   ![Explicitly entering the new body to encode](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-178.annotated.png)
 
-<a id="walkthrough-rules-actions-query-04-host"></a>
-### 04 · Restrict Host to 127.0.0.1
+4. Click Save and check the applied status in box 1. Request `/e2e/rules/actions/body-encoded`; after decompression, the client should receive `{"message":"encoded-action-body"}`. Also check that the pre-existing, unedited `Content-Length` now matches the actual gzip byte length.
 
-![04 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-04-host.png)
+   ![Saving the Header and Body actions together](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-179.annotated.png)
 
-<a id="walkthrough-rules-actions-query-05-path"></a>
-### 05 · Enter this action’s test Path
+   Select the new `/e2e/rules/actions/body-encoded` request in Capture. Response Headers in box 1 below shows `content-encoding: gzip` and `content-length` updated to this example's compressed length of `53` bytes.
 
-![05 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-05-path.png)
+   ![After explicit Body replacement, Content-Length matches the gzip bytes](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-181.annotated.png)
 
-<a id="walkthrough-rules-actions-query-06-remove"></a>
-### 06 · Remove the default Header action
+   Open Final in Response, choose Raw, and click Copy in box 1 below. The complete decoded body should be `{"message":"encoded-action-body"}`. This response was replaced at the headers stage, so Original is explicitly unavailable; it does not mean the original body was empty.
 
-![06 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-06-remove.png)
+   ![Final displays and copies the decoded replacement body](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-182.annotated.png)
 
-<a id="walkthrough-rules-actions-query-07-action"></a>
-### 07 · Select the query action
+5. Finish by disabling the rule and saving. Check the applied status in box 1 and Disabled above. Request `/e2e/rules/actions/all-disabled`; the origin's `200` and `{"message":"original-action-body"}` should return.
 
-![07 · Select the query action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-07-action.png)
+   ![Body and encoding rewrites disabled and saved](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-186.annotated.png)
 
-<a id="walkthrough-rules-actions-query-08-values"></a>
-### 08 · Set guide=rewritten
+   Select the new `/e2e/rules/actions/all-disabled` request in Capture, open Raw in Response, and click Copy in box 1 below. Check that the complete body is back to `{"message":"original-action-body"}` and the row shows `200` with the original `34 B`.
 
-![08 · Set guide=rewritten](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-08-values.png)
-
-<a id="walkthrough-rules-actions-query-09-enable"></a>
-### 09 · Enable the current Rule
-
-![09 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-09-enable.png)
-
-<a id="walkthrough-rules-actions-query-10-apply"></a>
-### 10 · Apply to the real proxy
-
-![10 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-10-apply.png)
-
-<a id="walkthrough-rules-actions-query-11-result"></a>
-### 11 · Verify the final Query
-
-![11 · Verify the final Query](../media/v0.1.1-alpha.1/rules-actions/rules-actions-query-11-result.png)
-
-<a id="walkthrough-rules-actions-body-01-rules"></a>
-### 12 · Return to Rules
-
-![12 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-01-rules.png)
-
-<a id="walkthrough-rules-actions-body-02-create"></a>
-### 13 · Create a body Rule
-
-![13 · Create a body Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-02-create.png)
-
-<a id="walkthrough-rules-actions-body-03-name"></a>
-### 14 · Name the Rule Guide body
-
-![14 · Name the Rule Guide body](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-03-name.png)
-
-<a id="walkthrough-rules-actions-body-04-host"></a>
-### 15 · Restrict Host to 127.0.0.1
-
-![15 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-04-host.png)
-
-<a id="walkthrough-rules-actions-body-05-path"></a>
-### 16 · Enter this action’s test Path
-
-![16 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-05-path.png)
-
-<a id="walkthrough-rules-actions-body-06-remove"></a>
-### 17 · Remove the default Header action
-
-![17 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-06-remove.png)
-
-<a id="walkthrough-rules-actions-body-07-action"></a>
-### 18 · Select the body action
-
-![18 · Select the body action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-07-action.png)
-
-<a id="walkthrough-rules-actions-body-08-phase"></a>
-### 19 · Select the response phase
-
-![19 · Select the response phase](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-08-phase.png)
-
-<a id="walkthrough-rules-actions-body-08-content"></a>
-### 20 · Enter the guide-body replacement
-
-![20 · Enter the guide-body replacement](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-08-content.png)
-
-<a id="walkthrough-rules-actions-body-09-enable"></a>
-### 21 · Enable the current Rule
-
-![21 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-09-enable.png)
-
-<a id="walkthrough-rules-actions-body-10-apply"></a>
-### 22 · Apply to the real proxy
-
-![22 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-10-apply.png)
-
-<a id="walkthrough-rules-actions-body-11-result"></a>
-### 23 · Inspect the Final body
-
-![23 · Inspect the Final body](../media/v0.1.1-alpha.1/rules-actions/rules-actions-body-11-result.png)
-
-<a id="walkthrough-rules-actions-status-01-rules"></a>
-### 24 · Return to Rules
-
-![24 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-01-rules.png)
-
-<a id="walkthrough-rules-actions-status-02-create"></a>
-### 25 · Create a status Rule
-
-![25 · Create a status Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-02-create.png)
-
-<a id="walkthrough-rules-actions-status-03-name"></a>
-### 26 · Name the Rule Guide status
-
-![26 · Name the Rule Guide status](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-03-name.png)
-
-<a id="walkthrough-rules-actions-status-04-host"></a>
-### 27 · Restrict Host to 127.0.0.1
-
-![27 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-04-host.png)
-
-<a id="walkthrough-rules-actions-status-05-path"></a>
-### 28 · Enter this action’s test Path
-
-![28 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-05-path.png)
-
-<a id="walkthrough-rules-actions-status-06-remove"></a>
-### 29 · Remove the default Header action
-
-![29 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-06-remove.png)
-
-<a id="walkthrough-rules-actions-status-07-action"></a>
-### 30 · Select the status action
-
-![30 · Select the status action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-07-action.png)
-
-<a id="walkthrough-rules-actions-status-08-value"></a>
-### 31 · Set status 418
-
-![31 · Set status 418](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-08-value.png)
-
-<a id="walkthrough-rules-actions-status-09-enable"></a>
-### 32 · Enable the current Rule
-
-![32 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-09-enable.png)
-
-<a id="walkthrough-rules-actions-status-10-apply"></a>
-### 33 · Apply to the real proxy
-
-![33 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-10-apply.png)
-
-<a id="walkthrough-rules-actions-status-11-result"></a>
-### 34 · Verify HTTP 418
-
-![34 · Verify HTTP 418](../media/v0.1.1-alpha.1/rules-actions/rules-actions-status-11-result.png)
-
-<a id="walkthrough-rules-actions-synthetic-01-rules"></a>
-### 35 · Return to Rules
-
-![35 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-01-rules.png)
-
-<a id="walkthrough-rules-actions-synthetic-02-create"></a>
-### 36 · Create a synthetic Rule
-
-![36 · Create a synthetic Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-02-create.png)
-
-<a id="walkthrough-rules-actions-synthetic-03-name"></a>
-### 37 · Name the Rule Guide synthetic
-
-![37 · Name the Rule Guide synthetic](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-03-name.png)
-
-<a id="walkthrough-rules-actions-synthetic-04-host"></a>
-### 38 · Restrict Host to 127.0.0.1
-
-![38 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-04-host.png)
-
-<a id="walkthrough-rules-actions-synthetic-05-path"></a>
-### 39 · Enter this action’s test Path
-
-![39 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-05-path.png)
-
-<a id="walkthrough-rules-actions-synthetic-06-remove"></a>
-### 40 · Remove the default Header action
-
-![40 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-06-remove.png)
-
-<a id="walkthrough-rules-actions-synthetic-07-action"></a>
-### 41 · Select the synthetic action
-
-![41 · Select the synthetic action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-07-action.png)
-
-<a id="walkthrough-rules-actions-synthetic-08-status"></a>
-### 42 · Set mock status 503
-
-![42 · Set mock status 503](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-08-status.png)
-
-<a id="walkthrough-rules-actions-synthetic-08-body"></a>
-### 43 · Enter the mock response
-
-![43 · Enter the mock response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-08-body.png)
-
-<a id="walkthrough-rules-actions-synthetic-09-enable"></a>
-### 44 · Enable the current Rule
-
-![44 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-09-enable.png)
-
-<a id="walkthrough-rules-actions-synthetic-10-apply"></a>
-### 45 · Apply to the real proxy
-
-![45 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-10-apply.png)
-
-<a id="walkthrough-rules-actions-synthetic-11-result"></a>
-### 46 · Verify the origin was not called
-
-![46 · Verify the origin was not called](../media/v0.1.1-alpha.1/rules-actions/rules-actions-synthetic-11-result.png)
-
-<a id="walkthrough-rules-actions-delay-01-rules"></a>
-### 47 · Return to Rules
-
-![47 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-01-rules.png)
-
-<a id="walkthrough-rules-actions-delay-02-create"></a>
-### 48 · Create a delay Rule
-
-![48 · Create a delay Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-02-create.png)
-
-<a id="walkthrough-rules-actions-delay-03-name"></a>
-### 49 · Name the Rule Guide delay
-
-![49 · Name the Rule Guide delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-03-name.png)
-
-<a id="walkthrough-rules-actions-delay-04-host"></a>
-### 50 · Restrict Host to 127.0.0.1
-
-![50 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-04-host.png)
-
-<a id="walkthrough-rules-actions-delay-05-path"></a>
-### 51 · Enter this action’s test Path
-
-![51 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-05-path.png)
-
-<a id="walkthrough-rules-actions-delay-06-remove"></a>
-### 52 · Remove the default Header action
-
-![52 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-06-remove.png)
-
-<a id="walkthrough-rules-actions-delay-07-action"></a>
-### 53 · Select the delay action
-
-![53 · Select the delay action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-07-action.png)
-
-<a id="walkthrough-rules-actions-delay-08-value"></a>
-### 54 · Set 500 milliseconds
-
-![54 · Set 500 milliseconds](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-08-value.png)
-
-<a id="walkthrough-rules-actions-delay-09-enable"></a>
-### 55 · Enable the current Rule
-
-![55 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-09-enable.png)
-
-<a id="walkthrough-rules-actions-delay-10-apply"></a>
-### 56 · Apply to the real proxy
-
-![56 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-10-apply.png)
-
-<a id="walkthrough-rules-actions-delay-11-result"></a>
-### 57 · Verify the actual delay
-
-![57 · Verify the actual delay](../media/v0.1.1-alpha.1/rules-actions/rules-actions-delay-11-result.png)
-
-<a id="walkthrough-rules-actions-block-01-rules"></a>
-### 58 · Return to Rules
-
-![58 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-01-rules.png)
-
-<a id="walkthrough-rules-actions-block-02-create"></a>
-### 59 · Create a block Rule
-
-![59 · Create a block Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-02-create.png)
-
-<a id="walkthrough-rules-actions-block-03-name"></a>
-### 60 · Name the Rule Guide block
-
-![60 · Name the Rule Guide block](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-03-name.png)
-
-<a id="walkthrough-rules-actions-block-04-host"></a>
-### 61 · Restrict Host to 127.0.0.1
-
-![61 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-04-host.png)
-
-<a id="walkthrough-rules-actions-block-05-path"></a>
-### 62 · Enter this action’s test Path
-
-![62 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-05-path.png)
-
-<a id="walkthrough-rules-actions-block-06-remove"></a>
-### 63 · Remove the default Header action
-
-![63 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-06-remove.png)
-
-<a id="walkthrough-rules-actions-block-07-action"></a>
-### 64 · Select the block action
-
-![64 · Select the block action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-07-action.png)
-
-<a id="walkthrough-rules-actions-block-09-enable"></a>
-### 65 · Enable the current Rule
-
-![65 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-09-enable.png)
-
-<a id="walkthrough-rules-actions-block-10-apply"></a>
-### 66 · Apply to the real proxy
-
-![66 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-10-apply.png)
-
-<a id="walkthrough-rules-actions-block-11-result"></a>
-### 67 · Verify the blocked request
-
-![67 · Verify the blocked request](../media/v0.1.1-alpha.1/rules-actions/rules-actions-block-11-result.png)
-
-<a id="walkthrough-rules-actions-map-remote-01-rules"></a>
-### 68 · Return to Rules
-
-![68 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-01-rules.png)
-
-<a id="walkthrough-rules-actions-map-remote-02-create"></a>
-### 69 · Create a map-remote Rule
-
-![69 · Create a map-remote Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-02-create.png)
-
-<a id="walkthrough-rules-actions-map-remote-03-name"></a>
-### 70 · Name the Rule Guide map-remote
-
-![70 · Name the Rule Guide map-remote](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-03-name.png)
-
-<a id="walkthrough-rules-actions-map-remote-04-host"></a>
-### 71 · Restrict Host to 127.0.0.1
-
-![71 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-04-host.png)
-
-<a id="walkthrough-rules-actions-map-remote-05-path"></a>
-### 72 · Enter this action’s test Path
-
-![72 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-05-path.png)
-
-<a id="walkthrough-rules-actions-map-remote-06-remove"></a>
-### 73 · Remove the default Header action
-
-![73 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-06-remove.png)
-
-<a id="walkthrough-rules-actions-map-remote-07-action"></a>
-### 74 · Select the map-remote action
-
-![74 · Select the map-remote action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-07-action.png)
-
-<a id="walkthrough-rules-actions-map-remote-08-path"></a>
-### 75 · Change only the destination Path
-
-![75 · Change only the destination Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-08-path.png)
-
-<a id="walkthrough-rules-actions-map-remote-09-enable"></a>
-### 76 · Enable the current Rule
-
-![76 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-09-enable.png)
-
-<a id="walkthrough-rules-actions-map-remote-10-apply"></a>
-### 77 · Apply to the real proxy
-
-![77 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-10-apply.png)
-
-<a id="walkthrough-rules-actions-map-remote-11-result"></a>
-### 78 · Verify the mapped destination
-
-![78 · Verify the mapped destination](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-remote-11-result.png)
-
-<a id="walkthrough-rules-actions-map-local-00-capture"></a>
-### 79 · Capture public example text
-
-![79 · Capture public example text](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-00-capture.png)
-
-<a id="walkthrough-rules-actions-map-local-00-save"></a>
-### 80 · Export guide-local.txt
-
-![80 · Export guide-local.txt](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-00-save.png)
-
-<a id="walkthrough-rules-actions-map-local-01-rules"></a>
-### 81 · Return to Rules
-
-![81 · Return to Rules](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-01-rules.png)
-
-<a id="walkthrough-rules-actions-map-local-02-create"></a>
-### 82 · Create a map-local Rule
-
-![82 · Create a map-local Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-02-create.png)
-
-<a id="walkthrough-rules-actions-map-local-03-name"></a>
-### 83 · Name the Rule Guide map-local
-
-![83 · Name the Rule Guide map-local](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-03-name.png)
-
-<a id="walkthrough-rules-actions-map-local-04-host"></a>
-### 84 · Restrict Host to 127.0.0.1
-
-![84 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-04-host.png)
-
-<a id="walkthrough-rules-actions-map-local-05-path"></a>
-### 85 · Enter this action’s test Path
-
-![85 · Enter this action’s test Path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-05-path.png)
-
-<a id="walkthrough-rules-actions-map-local-06-remove"></a>
-### 86 · Remove the default Header action
-
-![86 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-06-remove.png)
-
-<a id="walkthrough-rules-actions-map-local-07-action"></a>
-### 87 · Select the map-local action
-
-![87 · Select the map-local action](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-07-action.png)
-
-<a id="walkthrough-rules-actions-map-local-08-path"></a>
-### 88 · Enter the product-exported file path
-
-![88 · Enter the product-exported file path](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-08-path.png)
-
-<a id="walkthrough-rules-actions-map-local-09-enable"></a>
-### 89 · Enable the current Rule
-
-![89 · Enable the current Rule](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-09-enable.png)
-
-<a id="walkthrough-rules-actions-map-local-10-apply"></a>
-### 90 · Apply to the real proxy
-
-![90 · Apply to the real proxy](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-10-apply.png)
-
-<a id="walkthrough-rules-actions-map-local-11-result"></a>
-### 91 · Verify the local-file response
-
-![91 · Verify the local-file response](../media/v0.1.1-alpha.1/rules-actions/rules-actions-map-local-11-result.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-actions:end -->
-
-<!-- recorded-walkthrough:rules-matchers:start -->
-<a id="walkthrough-rules-matchers"></a>
-## Recorded walkthrough: all eight conditions and AND matching
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide matchers</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>method</code> | <code>GET</code> |
-| <code>path</code> | <code>/guide/matchers/order</code> |
-| <code>url</code> | <code>http://127.0.0.1:59147/guide/matchers/order?guide=matcher-demo</code> |
-| <code>query</code> | <code>guide=matcher-demo</code> |
-| <code>requestHeader</code> | <code>x-guide-match: yes</code> |
-| <code>statusRange</code> | <code>200–200</code> |
-| <code>responseMime</code> | <code>application/json</code> |
-| <code>effectHeader</code> | <code>x-interceptor-guide: matcher-demo</code> |
-
-<a id="walkthrough-rules-matchers-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-01-rules.png)
-
-<a id="walkthrough-rules-matchers-02-create"></a>
-### 02 · Create Guide matchers
-
-![02 · Create Guide matchers](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-02-create.png)
-
-<a id="walkthrough-rules-matchers-03-host"></a>
-### 03 · Set Host to 127.0.0.1
-
-![03 · Set Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-03-host.png)
-
-<a id="walkthrough-rules-matchers-04-method-add"></a>
-### 04 · Add Method
-
-![04 · Add Method](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-04-method-add.png)
-
-<a id="walkthrough-rules-matchers-05-method"></a>
-### 05 · Set Method to GET
-
-![05 · Set Method to GET](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-05-method.png)
-
-<a id="walkthrough-rules-matchers-06-path-add"></a>
-### 06 · Add Path
-
-![06 · Add Path](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-06-path-add.png)
-
-<a id="walkthrough-rules-matchers-07-path"></a>
-### 07 · Enter the endpoint Path
-
-![07 · Enter the endpoint Path](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-07-path.png)
-
-<a id="walkthrough-rules-matchers-08-url-add"></a>
-### 08 · Add URL
-
-![08 · Add URL](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-08-url-add.png)
-
-<a id="walkthrough-rules-matchers-09-url"></a>
-### 09 · Enter the complete example URL
-
-![09 · Enter the complete example URL](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-09-url.png)
-
-<a id="walkthrough-rules-matchers-10-query-add"></a>
-### 10 · Add Query
-
-![10 · Add Query](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-10-query-add.png)
-
-<a id="walkthrough-rules-matchers-11-query"></a>
-### 11 · Set the Query pair
-
-![11 · Set the Query pair](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-11-query.png)
-
-<a id="walkthrough-rules-matchers-12-header-add"></a>
-### 12 · Add Header
-
-![12 · Add Header](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-12-header-add.png)
-
-<a id="walkthrough-rules-matchers-13-header"></a>
-### 13 · Set the request Header pair
-
-![13 · Set the request Header pair](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-13-header.png)
-
-<a id="walkthrough-rules-matchers-14-status-add"></a>
-### 14 · Add Status
-
-![14 · Add Status](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-14-status-add.png)
-
-<a id="walkthrough-rules-matchers-15-status"></a>
-### 15 · Set range 200 to 200
-
-![15 · Set range 200 to 200](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-15-status.png)
-
-<a id="walkthrough-rules-matchers-16-mime-add"></a>
-### 16 · Add MIME
-
-![16 · Add MIME](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-16-mime-add.png)
-
-<a id="walkthrough-rules-matchers-17-mime"></a>
-### 17 · Set the response MIME
-
-![17 · Set the response MIME](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-17-mime.png)
-
-<a id="walkthrough-rules-matchers-18-effect-phase"></a>
-### 18 · Select response Header editing
-
-![18 · Select response Header editing](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-18-effect-phase.png)
-
-<a id="walkthrough-rules-matchers-19-effect-name"></a>
-### 19 · Enter the effect Header name
-
-![19 · Enter the effect Header name](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-19-effect-name.png)
-
-<a id="walkthrough-rules-matchers-20-effect-value"></a>
-### 20 · Enter the effect value
-
-![20 · Enter the effect value](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-20-effect-value.png)
-
-<a id="walkthrough-rules-matchers-21-enable"></a>
-### 21 · Enable the complete Rule
-
-![21 · Enable the complete Rule](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-21-enable.png)
-
-<a id="walkthrough-rules-matchers-22-apply"></a>
-### 22 · Apply
-
-![22 · Apply](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-22-apply.png)
-
-<a id="walkthrough-rules-matchers-23-match"></a>
-### 23 · Send a GET satisfying every condition
-
-![23 · Send a GET satisfying every condition](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-23-match.png)
-
-<a id="walkthrough-rules-matchers-24-no-match"></a>
-### 24 · A POST does not satisfy Method
-
-![24 · A POST does not satisfy Method](../media/v0.1.1-alpha.1/rules-matchers/rules-matchers-24-no-match.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-matchers:end -->
-
-<!-- recorded-walkthrough:rules-organization:start -->
-<a id="walkthrough-rules-organization"></a>
-## Recorded walkthrough: precedence, folders and Rule files
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>firstRule</code> | <code>Guide first</code> |
-| <code>secondRule</code> | <code>Guide second</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/rule-order</code> |
-| <code>header</code> | <code>x-guide-order</code> |
-| <code>firstValue</code> | <code>first</code> |
-| <code>secondValue</code> | <code>second</code> |
-| <code>folder</code> | <code>Guide rules</code> |
-| <code>exportFile</code> | <code>guide-rules.json</code> |
-
-<a id="walkthrough-rules-organization-01-open"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-organization/rules-organization-01-open.png)
-
-<a id="walkthrough-rules-organization-first-01-new"></a>
-### 02 · Create Guide first
-
-![02 · Create Guide first](../media/v0.1.1-alpha.1/rules-organization/rules-organization-first-01-new.png)
-
-<a id="walkthrough-rules-organization-first-02-host"></a>
-### 03 · Enter Host
-
-![03 · Enter Host](../media/v0.1.1-alpha.1/rules-organization/rules-organization-first-02-host.png)
-
-<a id="walkthrough-rules-organization-first-03-path"></a>
-### 04 · Restrict the example Path
-
-![04 · Restrict the example Path](../media/v0.1.1-alpha.1/rules-organization/rules-organization-first-03-path.png)
-
-<a id="walkthrough-rules-organization-first-04-header"></a>
-### 05 · Enter x-guide-order
-
-![05 · Enter x-guide-order](../media/v0.1.1-alpha.1/rules-organization/rules-organization-first-04-header.png)
-
-<a id="walkthrough-rules-organization-first-05-enable"></a>
-### 06 · Enable this Rule
-
-![06 · Enable this Rule](../media/v0.1.1-alpha.1/rules-organization/rules-organization-first-05-enable.png)
-
-<a id="walkthrough-rules-organization-second-01-new"></a>
-### 07 · Create Guide second
-
-![07 · Create Guide second](../media/v0.1.1-alpha.1/rules-organization/rules-organization-second-01-new.png)
-
-<a id="walkthrough-rules-organization-second-02-host"></a>
-### 08 · Enter Host
-
-![08 · Enter Host](../media/v0.1.1-alpha.1/rules-organization/rules-organization-second-02-host.png)
-
-<a id="walkthrough-rules-organization-second-03-path"></a>
-### 09 · Restrict the example Path
-
-![09 · Restrict the example Path](../media/v0.1.1-alpha.1/rules-organization/rules-organization-second-03-path.png)
-
-<a id="walkthrough-rules-organization-second-04-header"></a>
-### 10 · Enter x-guide-order
-
-![10 · Enter x-guide-order](../media/v0.1.1-alpha.1/rules-organization/rules-organization-second-04-header.png)
-
-<a id="walkthrough-rules-organization-second-05-enable"></a>
-### 11 · Enable this Rule
-
-![11 · Enable this Rule](../media/v0.1.1-alpha.1/rules-organization/rules-organization-second-05-enable.png)
-
-<a id="walkthrough-rules-organization-02-apply"></a>
-### 12 · Apply both Rules
-
-![12 · Apply both Rules](../media/v0.1.1-alpha.1/rules-organization/rules-organization-02-apply.png)
-
-<a id="walkthrough-rules-organization-03-before"></a>
-### 13 · Verify second wins initially
-
-![13 · Verify second wins initially](../media/v0.1.1-alpha.1/rules-organization/rules-organization-03-before.png)
-
-<a id="walkthrough-rules-organization-04-reorder"></a>
-### 14 · Drag second before first
-
-![14 · Drag second before first](../media/v0.1.1-alpha.1/rules-organization/rules-organization-04-reorder.png)
-
-<a id="walkthrough-rules-organization-05-apply-order"></a>
-### 15 · Apply the new order
-
-![15 · Apply the new order](../media/v0.1.1-alpha.1/rules-organization/rules-organization-05-apply-order.png)
-
-<a id="walkthrough-rules-organization-06-after"></a>
-### 16 · Verify first now wins
-
-![16 · Verify first now wins](../media/v0.1.1-alpha.1/rules-organization/rules-organization-06-after.png)
-
-<a id="walkthrough-rules-organization-07-folder"></a>
-### 17 · Create the Guide rules folder
-
-![17 · Create the Guide rules folder](../media/v0.1.1-alpha.1/rules-organization/rules-organization-07-folder.png)
-
-<a id="walkthrough-rules-organization-08-move-second"></a>
-### 18 · Move second into the folder
-
-![18 · Move second into the folder](../media/v0.1.1-alpha.1/rules-organization/rules-organization-08-move-second.png)
-
-<a id="walkthrough-rules-organization-09-move-first"></a>
-### 19 · Move first into the folder
-
-![19 · Move first into the folder](../media/v0.1.1-alpha.1/rules-organization/rules-organization-09-move-first.png)
-
-<a id="walkthrough-rules-organization-10-apply-folder"></a>
-### 20 · Apply the folder structure
-
-![20 · Apply the folder structure](../media/v0.1.1-alpha.1/rules-organization/rules-organization-10-apply-folder.png)
-
-<a id="walkthrough-rules-organization-11-export"></a>
-### 21 · Save guide-rules.json
-
-![21 · Save guide-rules.json](../media/v0.1.1-alpha.1/rules-organization/rules-organization-11-export.png)
-
-<a id="walkthrough-rules-organization-12-exported"></a>
-### 22 · Verify the product-exported tree
-
-![22 · Verify the product-exported tree](../media/v0.1.1-alpha.1/rules-organization/rules-organization-12-exported.png)
-
-<a id="walkthrough-rules-organization-13-import-file"></a>
-### 23 · Select the exported Rules file
-
-![23 · Select the exported Rules file](../media/v0.1.1-alpha.1/rules-organization/rules-organization-13-import-file.png)
-
-<a id="walkthrough-rules-organization-14-preview"></a>
-### 24 · Inspect the enabled-rule import warning
-
-![24 · Inspect the enabled-rule import warning](../media/v0.1.1-alpha.1/rules-organization/rules-organization-14-preview.png)
-
-<a id="walkthrough-rules-organization-15-cancel"></a>
-### 25 · Cancel and retain the original tree
-
-![25 · Cancel and retain the original tree](../media/v0.1.1-alpha.1/rules-organization/rules-organization-15-cancel.png)
-
-<a id="walkthrough-rules-organization-16-import-again"></a>
-### 26 · Select the same file again
-
-![26 · Select the same file again](../media/v0.1.1-alpha.1/rules-organization/rules-organization-16-import-again.png)
-
-<a id="walkthrough-rules-organization-17-confirm"></a>
-### 27 · Confirm append without overwrite
-
-![27 · Confirm append without overwrite](../media/v0.1.1-alpha.1/rules-organization/rules-organization-17-confirm.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-organization:end -->
-
-<!-- recorded-walkthrough:rules-operations:start -->
-<a id="walkthrough-rules-operations"></a>
-## Recorded walkthrough: remove, append, request bodies and search
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/rule-operations</code> |
-| <code>header</code> | <code>x-guide-list</code> |
-| <code>originalHeader</code> | <code>one</code> |
-| <code>appendedHeader</code> | <code>two</code> |
-| <code>removedQuery</code> | <code>guide=remove-me</code> |
-| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;original&quot;}</code> |
-| <code>replacementBody</code> | <code>{&quot;message&quot;:&quot;request-edited&quot;}</code> |
-| <code>initialName</code> | <code>Guide operations</code> |
-| <code>renamed</code> | <code>Guide operations done</code> |
-| <code>deletionLimit</code> | <code>The released empty Rules tree has no Apply entry; this recording does not claim a saved last-rule deletion.</code> |
-
-<a id="walkthrough-rules-operations-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-operations/rules-operations-01-rules.png)
-
-<a id="walkthrough-rules-operations-02-new"></a>
-### 02 · Create Guide operations
-
-![02 · Create Guide operations](../media/v0.1.1-alpha.1/rules-operations/rules-operations-02-new.png)
-
-<a id="walkthrough-rules-operations-03-scope"></a>
-### 03 · Restrict Host and Path
-
-![03 · Restrict Host and Path](../media/v0.1.1-alpha.1/rules-operations/rules-operations-03-scope.png)
-
-<a id="walkthrough-rules-operations-04-header-name"></a>
-### 04 · Enter x-guide-list
-
-![04 · Enter x-guide-list](../media/v0.1.1-alpha.1/rules-operations/rules-operations-04-header-name.png)
-
-<a id="walkthrough-rules-operations-05-append"></a>
-### 05 · Choose append
-
-![05 · Choose append](../media/v0.1.1-alpha.1/rules-operations/rules-operations-05-append.png)
-
-<a id="walkthrough-rules-operations-06-enable"></a>
-### 06 · Enable the Rule
-
-![06 · Enable the Rule](../media/v0.1.1-alpha.1/rules-operations/rules-operations-06-enable.png)
-
-<a id="walkthrough-rules-operations-07-apply"></a>
-### 07 · Apply append
-
-![07 · Apply append](../media/v0.1.1-alpha.1/rules-operations/rules-operations-07-apply.png)
-
-<a id="walkthrough-rules-operations-08-appended"></a>
-### 08 · Verify one is retained and two appended
-
-![08 · Verify one is retained and two appended](../media/v0.1.1-alpha.1/rules-operations/rules-operations-08-appended.png)
-
-<a id="walkthrough-rules-operations-09-remove"></a>
-### 09 · Choose remove
-
-![09 · Choose remove](../media/v0.1.1-alpha.1/rules-operations/rules-operations-09-remove.png)
-
-<a id="walkthrough-rules-operations-10-apply-remove"></a>
-### 10 · Apply remove
-
-![10 · Apply remove](../media/v0.1.1-alpha.1/rules-operations/rules-operations-10-apply-remove.png)
-
-<a id="walkthrough-rules-operations-11-removed"></a>
-### 11 · Verify the Header was removed
-
-![11 · Verify the Header was removed](../media/v0.1.1-alpha.1/rules-operations/rules-operations-11-removed.png)
-
-<a id="walkthrough-rules-operations-12-query-action"></a>
-### 12 · Switch to a Query action
-
-![12 · Switch to a Query action](../media/v0.1.1-alpha.1/rules-operations/rules-operations-12-query-action.png)
-
-<a id="walkthrough-rules-operations-13-query-remove"></a>
-### 13 · Remove the guide parameter
-
-![13 · Remove the guide parameter](../media/v0.1.1-alpha.1/rules-operations/rules-operations-13-query-remove.png)
-
-<a id="walkthrough-rules-operations-14-apply-query"></a>
-### 14 · Apply Query removal
-
-![14 · Apply Query removal](../media/v0.1.1-alpha.1/rules-operations/rules-operations-14-apply-query.png)
-
-<a id="walkthrough-rules-operations-15-query-result"></a>
-### 15 · Verify the parameter is removed
-
-![15 · Verify the parameter is removed](../media/v0.1.1-alpha.1/rules-operations/rules-operations-15-query-result.png)
-
-<a id="walkthrough-rules-operations-16-body-action"></a>
-### 16 · Switch to request Body replacement
-
-![16 · Switch to request Body replacement](../media/v0.1.1-alpha.1/rules-operations/rules-operations-16-body-action.png)
-
-<a id="walkthrough-rules-operations-17-body-value"></a>
-### 17 · Enter request-edited
-
-![17 · Enter request-edited](../media/v0.1.1-alpha.1/rules-operations/rules-operations-17-body-value.png)
-
-<a id="walkthrough-rules-operations-18-apply-body"></a>
-### 18 · Apply request-body replacement
-
-![18 · Apply request-body replacement](../media/v0.1.1-alpha.1/rules-operations/rules-operations-18-apply-body.png)
-
-<a id="walkthrough-rules-operations-19-body-result"></a>
-### 19 · Verify the complete replacement at the origin
-
-![19 · Verify the complete replacement at the origin](../media/v0.1.1-alpha.1/rules-operations/rules-operations-19-body-result.png)
-
-<a id="walkthrough-rules-operations-20-rename"></a>
-### 20 · Rename the Rule
-
-![20 · Rename the Rule](../media/v0.1.1-alpha.1/rules-operations/rules-operations-20-rename.png)
-
-<a id="walkthrough-rules-operations-21-search"></a>
-### 21 · Search by name
-
-![21 · Search by name](../media/v0.1.1-alpha.1/rules-operations/rules-operations-21-search.png)
-
-<a id="walkthrough-rules-operations-22-disable"></a>
-### 22 · Retain and disable the demo Rule
-
-![22 · Retain and disable the demo Rule](../media/v0.1.1-alpha.1/rules-operations/rules-operations-22-disable.png)
-
-<a id="walkthrough-rules-operations-23-apply-disabled"></a>
-### 23 · Apply the disabled state
-
-![23 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-operations/rules-operations-23-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-operations:end -->
-
-<!-- recorded-walkthrough:rules-response-evidence:start -->
-<a id="walkthrough-rules-response-evidence"></a>
-## Recorded walkthrough: response Headers and body-version evidence
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide response and body</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/response-evidence</code> |
-| <code>origin</code> | <code>http://127.0.0.1:62520/guide/response-evidence</code> |
-| <code>responseHeader</code> | <code>x-guide-list</code> |
-| <code>originalHeader</code> | <code>one</code> |
-| <code>appendedHeader</code> | <code>two</code> |
-| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;guide-original&quot;}</code> |
-| <code>requestFinal</code> | <code>{&quot;message&quot;:&quot;guide-final&quot;}</code> |
-| <code>responseFinal</code> | <code>{&quot;message&quot;:&quot;guide-response-final&quot;}</code> |
-| <code>savedFile</code> | <code>guide-final.json</code> |
-| <code>responseOriginal</code> | <code>unavailable; not an empty response body</code> |
-
-<a id="walkthrough-rules-response-evidence-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-01-rules.png)
-
-<a id="walkthrough-rules-response-evidence-02-root-menu"></a>
-### 02 · Open the empty-area menu
-
-![02 · Open the empty-area menu](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-02-root-menu.png)
-
-<a id="walkthrough-rules-response-evidence-03-create"></a>
-### 03 · Create a Rule
-
-![03 · Create a Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-03-create.png)
-
-<a id="walkthrough-rules-response-evidence-04-name"></a>
-### 04 · Name the Rule Guide response and body
-
-![04 · Name the Rule Guide response and body](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-04-name.png)
-
-<a id="walkthrough-rules-response-evidence-05-host"></a>
-### 05 · Restrict Host to 127.0.0.1
-
-![05 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-05-host.png)
-
-<a id="walkthrough-rules-response-evidence-06-add-path"></a>
-### 06 · Add a Path condition
-
-![06 · Add a Path condition](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-06-add-path.png)
-
-<a id="walkthrough-rules-response-evidence-07-path"></a>
-### 07 · Restrict the example Path
-
-![07 · Restrict the example Path](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-07-path.png)
-
-<a id="walkthrough-rules-response-evidence-08-response-phase"></a>
-### 08 · Choose Response for the Header
-
-![08 · Choose Response for the Header](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-08-response-phase.png)
-
-<a id="walkthrough-rules-response-evidence-09-header"></a>
-### 09 · Enter x-guide-list
-
-![09 · Enter x-guide-list](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-09-header.png)
-
-<a id="walkthrough-rules-response-evidence-10-append"></a>
-### 10 · Choose append
-
-![10 · Choose append](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-10-append.png)
-
-<a id="walkthrough-rules-response-evidence-11-value"></a>
-### 11 · Enter the appended value two
-
-![11 · Enter the appended value two](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-11-value.png)
-
-<a id="walkthrough-rules-response-evidence-12-enable"></a>
-### 12 · Enable the example Rule
-
-![12 · Enable the example Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-12-enable.png)
-
-<a id="walkthrough-rules-response-evidence-13-apply-append"></a>
-### 13 · Apply response append
-
-![13 · Apply response append](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-13-apply-append.png)
-
-<a id="walkthrough-rules-response-evidence-14-capture"></a>
-### 14 · Return to Capture
-
-![14 · Return to Capture](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-14-capture.png)
-
-<a id="walkthrough-rules-response-evidence-15-append-request"></a>
-### 15 · Send a new append request
-
-![15 · Send a new append request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-15-append-request.png)
-
-<a id="walkthrough-rules-response-evidence-16-append-select"></a>
-### 16 · Select the append request
-
-![16 · Select the append request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-16-append-select.png)
-
-<a id="walkthrough-rules-response-evidence-17-append-headers"></a>
-### 17 · Verify the response retains one and appends two
-
-![17 · Verify the response retains one and appends two](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-17-append-headers.png)
-
-<a id="walkthrough-rules-response-evidence-18-edit-remove"></a>
-### 18 · Return to the same Rule
-
-![18 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-18-edit-remove.png)
-
-<a id="walkthrough-rules-response-evidence-19-remove"></a>
-### 19 · Switch to remove
-
-![19 · Switch to remove](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-19-remove.png)
-
-<a id="walkthrough-rules-response-evidence-20-apply-remove"></a>
-### 20 · Apply response removal
-
-![20 · Apply response removal](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-20-apply-remove.png)
-
-<a id="walkthrough-rules-response-evidence-21-capture-remove"></a>
-### 21 · Return to Capture to inspect removal
-
-![21 · Return to Capture to inspect removal](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-21-capture-remove.png)
-
-<a id="walkthrough-rules-response-evidence-22-remove-request"></a>
-### 22 · Send a new remove request
-
-![22 · Send a new remove request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-22-remove-request.png)
-
-<a id="walkthrough-rules-response-evidence-23-remove-select"></a>
-### 23 · Select the remove request
-
-![23 · Select the remove request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-23-remove-select.png)
-
-<a id="walkthrough-rules-response-evidence-24-edit-body"></a>
-### 24 · Return to Rules to edit the body action
-
-![24 · Return to Rules to edit the body action](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-24-edit-body.png)
-
-<a id="walkthrough-rules-response-evidence-25-remove-header"></a>
-### 25 · Remove the Header action
-
-![25 · Remove the Header action](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-25-remove-header.png)
-
-<a id="walkthrough-rules-response-evidence-26-add-body"></a>
-### 26 · Add a Body action
-
-![26 · Add a Body action](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-26-add-body.png)
-
-<a id="walkthrough-rules-response-evidence-27-request-phase"></a>
-### 27 · Choose Request for the Body
-
-![27 · Choose Request for the Body](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-27-request-phase.png)
-
-<a id="walkthrough-rules-response-evidence-28-body-value"></a>
-### 28 · Enter the guide-final body
-
-![28 · Enter the guide-final body](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-28-body-value.png)
-
-<a id="walkthrough-rules-response-evidence-29-apply-body"></a>
-### 29 · Apply request-body replacement
-
-![29 · Apply request-body replacement](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-29-apply-body.png)
-
-<a id="walkthrough-rules-response-evidence-30-capture-body"></a>
-### 30 · Return to Capture to inspect the body
-
-![30 · Return to Capture to inspect the body](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-30-capture-body.png)
-
-<a id="walkthrough-rules-response-evidence-31-post"></a>
-### 31 · Send a POST containing guide-original
-
-![31 · Send a POST containing guide-original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-31-post.png)
-
-<a id="walkthrough-rules-response-evidence-32-body-select"></a>
-### 32 · Select the request-body request
-
-![32 · Select the request-body request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-32-body-select.png)
-
-<a id="walkthrough-rules-response-evidence-33-final"></a>
-### 33 · Request initially shows Final
-
-![33 · Request initially shows Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-33-final.png)
-
-<a id="walkthrough-rules-response-evidence-34-original"></a>
-### 34 · Switch to Original
-
-![34 · Switch to Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png)
-
-<a id="walkthrough-rules-response-evidence-35-raw"></a>
-### 35 · Choose Raw
-
-![35 · Choose Raw](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-35-raw.png)
-
-<a id="walkthrough-rules-response-evidence-36-copy-original"></a>
-### 36 · Copy Original
-
-![36 · Copy Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-36-copy-original.png)
-
-<a id="walkthrough-rules-response-evidence-37-fullscreen"></a>
-### 37 · View Original fullscreen
-
-![37 · View Original fullscreen](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-37-fullscreen.png)
-
-<a id="walkthrough-rules-response-evidence-38-close-fullscreen"></a>
-### 38 · Return to details with Escape
-
-![38 · Return to details with Escape](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-38-close-fullscreen.png)
-
-<a id="walkthrough-rules-response-evidence-39-final-again"></a>
-### 39 · Switch back to Final
-
-![39 · Switch back to Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png)
-
-<a id="walkthrough-rules-response-evidence-40-copy-final"></a>
-### 40 · Copy Final
-
-![40 · Copy Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-40-copy-final.png)
-
-<a id="walkthrough-rules-response-evidence-41-save-dialog"></a>
-### 41 · Save Final as guide-final.json
-
-![41 · Save Final as guide-final.json](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-41-save-dialog.png)
-
-<a id="walkthrough-rules-response-evidence-42-saved"></a>
-### 42 · Confirm the saved body is Final
-
-![42 · Confirm the saved body is Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-42-saved.png)
-
-<a id="walkthrough-rules-response-evidence-43-body-rule"></a>
-### 43 · Follow the body effect to its Rule
-
-![43 · Follow the body effect to its Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-43-body-rule.png)
-
-<a id="walkthrough-rules-response-evidence-44-response-body"></a>
-### 44 · Change the Body phase to Response
-
-![44 · Change the Body phase to Response](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-44-response-body.png)
-
-<a id="walkthrough-rules-response-evidence-45-response-value"></a>
-### 45 · Enter guide-response-final
-
-![45 · Enter guide-response-final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-45-response-value.png)
-
-<a id="walkthrough-rules-response-evidence-46-apply-response"></a>
-### 46 · Apply response-body replacement
-
-![46 · Apply response-body replacement](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-46-apply-response.png)
-
-<a id="walkthrough-rules-response-evidence-47-capture-response"></a>
-### 47 · Return to Capture to inspect the response
-
-![47 · Return to Capture to inspect the response](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-47-capture-response.png)
-
-<a id="walkthrough-rules-response-evidence-48-response-request"></a>
-### 48 · Send a new response-body request
-
-![48 · Send a new response-body request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-48-response-request.png)
-
-<a id="walkthrough-rules-response-evidence-49-response-select"></a>
-### 49 · Select the response-body request
-
-![49 · Select the response-body request](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-49-response-select.png)
-
-<a id="walkthrough-rules-response-evidence-50-unavailable"></a>
-### 50 · Verify response Original is unavailable
-
-![50 · Verify response Original is unavailable](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png)
-
-<a id="walkthrough-rules-response-evidence-51-rule-again"></a>
-### 51 · Return to the response writer Rule
-
-![51 · Return to the response writer Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-51-rule-again.png)
-
-<a id="walkthrough-rules-response-evidence-52-disable"></a>
-### 52 · Disable this example Rule
-
-![52 · Disable this example Rule](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-52-disable.png)
-
-<a id="walkthrough-rules-response-evidence-53-apply-disabled"></a>
-### 53 · Apply the disabled state
-
-![53 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-53-apply-disabled.png)
-
-<a id="walkthrough-rules-response-evidence-54-capture-restored"></a>
-### 54 · Return to Capture to verify restoration
-
-![54 · Return to Capture to verify restoration](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-54-capture-restored.png)
-
-<a id="walkthrough-rules-response-evidence-55-restored-request"></a>
-### 55 · Verify a new request is unmodified
-
-![55 · Verify a new request is unmodified](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-55-restored-request.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-response-evidence:end -->
-
-<!-- recorded-walkthrough:rules-tree:start -->
-<a id="walkthrough-rules-tree"></a>
-## Recorded walkthrough: hierarchy, validation, matched-request navigation and non-last deletion
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/rule-tree</code> |
-| <code>header</code> | <code>x-guide-tree</code> |
-| <code>nestedRule</code> | <code>Guide nested priority</code> |
-| <code>rootRule</code> | <code>Guide root priority</code> |
-| <code>initialFolders</code> | <code>Guide hierarchy &gt; Guide API &gt; Guide final</code> |
-| <code>renamedFolder</code> | <code>Guide routes</code> |
-| <code>firstValue</code> | <code>nested</code> |
-| <code>laterValue</code> | <code>root</code> |
-| <code>deletionScope</code> | <code>One of two precedence Rules and the emptied folder tree; the last Rule remains disabled</code> |
-
-<a id="walkthrough-rules-tree-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-tree/rules-tree-01-rules.png)
-
-<a id="walkthrough-rules-tree-02-root-folder"></a>
-### 02 · Create a root folder
-
-![02 · Create a root folder](../media/v0.1.1-alpha.1/rules-tree/rules-tree-02-root-folder.png)
-
-<a id="walkthrough-rules-tree-03-root-name"></a>
-### 03 · Name it Guide hierarchy
-
-![03 · Name it Guide hierarchy](../media/v0.1.1-alpha.1/rules-tree/rules-tree-03-root-name.png)
-
-<a id="walkthrough-rules-tree-04-child-folder"></a>
-### 04 · Create a child through the folder menu
-
-![04 · Create a child through the folder menu](../media/v0.1.1-alpha.1/rules-tree/rules-tree-04-child-folder.png)
-
-<a id="walkthrough-rules-tree-05-child-name"></a>
-### 05 · Name it Guide API
-
-![05 · Name it Guide API](../media/v0.1.1-alpha.1/rules-tree/rules-tree-05-child-name.png)
-
-<a id="walkthrough-rules-tree-06-third-folder"></a>
-### 06 · Create the third folder level
-
-![06 · Create the third folder level](../media/v0.1.1-alpha.1/rules-tree/rules-tree-06-third-folder.png)
-
-<a id="walkthrough-rules-tree-07-third-name"></a>
-### 07 · Name it Guide final
-
-![07 · Name it Guide final](../media/v0.1.1-alpha.1/rules-tree/rules-tree-07-third-name.png)
-
-<a id="walkthrough-rules-tree-08-depth-limit"></a>
-### 08 · Verify a fourth folder level is unavailable
-
-![08 · Verify a fourth folder level is unavailable](../media/v0.1.1-alpha.1/rules-tree/rules-tree-08-depth-limit.png)
-
-<a id="walkthrough-rules-tree-09-nested-rule"></a>
-### 09 · Create a Rule in the third-level folder
-
-![09 · Create a Rule in the third-level folder](../media/v0.1.1-alpha.1/rules-tree/rules-tree-09-nested-rule.png)
-
-<a id="walkthrough-rules-tree-10-invalid"></a>
-### 10 · Inspect missing fields and disabled Apply
-
-![10 · Inspect missing fields and disabled Apply](../media/v0.1.1-alpha.1/rules-tree/rules-tree-10-invalid.png)
-
-<a id="walkthrough-rules-tree-11-rule-name"></a>
-### 11 · Name the Rule Guide nested priority
-
-![11 · Name the Rule Guide nested priority](../media/v0.1.1-alpha.1/rules-tree/rules-tree-11-rule-name.png)
-
-<a id="walkthrough-rules-tree-12-host"></a>
-### 12 · Restrict Host to 127.0.0.1
-
-![12 · Restrict Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-tree/rules-tree-12-host.png)
-
-<a id="walkthrough-rules-tree-13-path-condition"></a>
-### 13 · Add a Path condition
-
-![13 · Add a Path condition](../media/v0.1.1-alpha.1/rules-tree/rules-tree-13-path-condition.png)
-
-<a id="walkthrough-rules-tree-14-path"></a>
-### 14 · Restrict this run’s Rule path
-
-![14 · Restrict this run’s Rule path](../media/v0.1.1-alpha.1/rules-tree/rules-tree-14-path.png)
-
-<a id="walkthrough-rules-tree-15-header"></a>
-### 15 · Enter x-guide-tree
-
-![15 · Enter x-guide-tree](../media/v0.1.1-alpha.1/rules-tree/rules-tree-15-header.png)
-
-<a id="walkthrough-rules-tree-16-header-value"></a>
-### 16 · Enter nested
-
-![16 · Enter nested](../media/v0.1.1-alpha.1/rules-tree/rules-tree-16-header-value.png)
-
-<a id="walkthrough-rules-tree-17-enable"></a>
-### 17 · Enable the completed Rule
-
-![17 · Enable the completed Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-17-enable.png)
-
-<a id="walkthrough-rules-tree-18-apply"></a>
-### 18 · Apply the folders and Rule
-
-![18 · Apply the folders and Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-18-apply.png)
-
-<a id="walkthrough-rules-tree-19-rename-folder"></a>
-### 19 · Rename the folder through its menu
-
-![19 · Rename the folder through its menu](../media/v0.1.1-alpha.1/rules-tree/rules-tree-19-rename-folder.png)
-
-<a id="walkthrough-rules-tree-20-folder-name"></a>
-### 20 · Rename Guide API to Guide routes
-
-![20 · Rename Guide API to Guide routes](../media/v0.1.1-alpha.1/rules-tree/rules-tree-20-folder-name.png)
-
-<a id="walkthrough-rules-tree-21-apply-rename"></a>
-### 21 · Apply the folder name
-
-![21 · Apply the folder name](../media/v0.1.1-alpha.1/rules-tree/rules-tree-21-apply-rename.png)
-
-<a id="walkthrough-rules-tree-22-folder-search"></a>
-### 22 · Search by folder name
-
-![22 · Search by folder name](../media/v0.1.1-alpha.1/rules-tree/rules-tree-22-folder-search.png)
-
-<a id="walkthrough-rules-tree-23-search-clear"></a>
-### 23 · Clear Rules search
-
-![23 · Clear Rules search](../media/v0.1.1-alpha.1/rules-tree/rules-tree-23-search-clear.png)
-
-<a id="walkthrough-rules-tree-24-collapse"></a>
-### 24 · Collapse the root folder
-
-![24 · Collapse the root folder](../media/v0.1.1-alpha.1/rules-tree/rules-tree-24-collapse.png)
-
-<a id="walkthrough-rules-tree-25-expand"></a>
-### 25 · Expand the same folder again
-
-![25 · Expand the same folder again](../media/v0.1.1-alpha.1/rules-tree/rules-tree-25-expand.png)
-
-<a id="walkthrough-rules-tree-26-request"></a>
-### 26 · Send a matching request and verify nested
-
-![26 · Send a matching request and verify nested](../media/v0.1.1-alpha.1/rules-tree/rules-tree-26-request.png)
-
-<a id="walkthrough-rules-tree-27-rule-menu"></a>
-### 27 · Open the matched Rule menu
-
-![27 · Open the matched Rule menu](../media/v0.1.1-alpha.1/rules-tree/rules-tree-27-rule-menu.png)
-
-<a id="walkthrough-rules-tree-28-show-requests"></a>
-### 28 · Navigate to this Rule’s requests
-
-![28 · Navigate to this Rule’s requests](../media/v0.1.1-alpha.1/rules-tree/rules-tree-28-show-requests.png)
-
-<a id="walkthrough-rules-tree-28a-rule-facet"></a>
-### 29 · Expand and verify the selected Rule facet
-
-![29 · Expand and verify the selected Rule facet](../media/v0.1.1-alpha.1/rules-tree/rules-tree-28a-rule-facet.png)
-
-<a id="walkthrough-rules-tree-29-select-request"></a>
-### 30 · Inspect the matched request selected by navigation
-
-![30 · Inspect the matched request selected by navigation](../media/v0.1.1-alpha.1/rules-tree/rules-tree-29-select-request.png)
-
-<a id="walkthrough-rules-tree-30-header-effect"></a>
-### 31 · Inspect the Header set marker
-
-![31 · Inspect the Header set marker](../media/v0.1.1-alpha.1/rules-tree/rules-tree-30-header-effect.png)
-
-<a id="walkthrough-rules-tree-31-return-rule"></a>
-### 32 · Follow the marker to the same Rule
-
-![32 · Follow the marker to the same Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-31-return-rule.png)
-
-<a id="walkthrough-rules-tree-32-root-menu"></a>
-### 33 · Open the root-level menu
-
-![33 · Open the root-level menu](../media/v0.1.1-alpha.1/rules-tree/rules-tree-32-root-menu.png)
-
-<a id="walkthrough-rules-tree-33-root-rule"></a>
-### 34 · Create a precedence comparison Rule at the root
-
-![34 · Create a precedence comparison Rule at the root](../media/v0.1.1-alpha.1/rules-tree/rules-tree-33-root-rule.png)
-
-<a id="walkthrough-rules-tree-34-root-name"></a>
-### 35 · Name it Guide root priority
-
-![35 · Name it Guide root priority](../media/v0.1.1-alpha.1/rules-tree/rules-tree-34-root-name.png)
-
-<a id="walkthrough-rules-tree-35-root-host"></a>
-### 36 · Enter the same Host
-
-![36 · Enter the same Host](../media/v0.1.1-alpha.1/rules-tree/rules-tree-35-root-host.png)
-
-<a id="walkthrough-rules-tree-36-root-path-condition"></a>
-### 37 · Add Path to the root Rule
-
-![37 · Add Path to the root Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-36-root-path-condition.png)
-
-<a id="walkthrough-rules-tree-37-root-path"></a>
-### 38 · Enter the same example path
-
-![38 · Enter the same example path](../media/v0.1.1-alpha.1/rules-tree/rules-tree-37-root-path.png)
-
-<a id="walkthrough-rules-tree-38-root-header"></a>
-### 39 · Enter the same Header
-
-![39 · Enter the same Header](../media/v0.1.1-alpha.1/rules-tree/rules-tree-38-root-header.png)
-
-<a id="walkthrough-rules-tree-39-root-value"></a>
-### 40 · Enter root as the later value
-
-![40 · Enter root as the later value](../media/v0.1.1-alpha.1/rules-tree/rules-tree-39-root-value.png)
-
-<a id="walkthrough-rules-tree-40-root-enable"></a>
-### 41 · Enable the root precedence Rule
-
-![41 · Enable the root precedence Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-40-root-enable.png)
-
-<a id="walkthrough-rules-tree-41-root-apply"></a>
-### 42 · Apply both Rules
-
-![42 · Apply both Rules](../media/v0.1.1-alpha.1/rules-tree/rules-tree-41-root-apply.png)
-
-<a id="walkthrough-rules-tree-42-precedence"></a>
-### 43 · Verify the root Rule writes root last
-
-![43 · Verify the root Rule writes root last](../media/v0.1.1-alpha.1/rules-tree/rules-tree-42-precedence.png)
-
-<a id="walkthrough-rules-tree-43-delete-nested-menu"></a>
-### 44 · Open deletion for the non-last Rule
-
-![44 · Open deletion for the non-last Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-43-delete-nested-menu.png)
-
-<a id="walkthrough-rules-tree-44-delete-nested"></a>
-### 45 · Delete only Guide nested priority
-
-![45 · Delete only Guide nested priority](../media/v0.1.1-alpha.1/rules-tree/rules-tree-44-delete-nested.png)
-
-<a id="walkthrough-rules-tree-45-apply-deletion"></a>
-### 46 · Apply the non-last deletion
-
-![46 · Apply the non-last deletion](../media/v0.1.1-alpha.1/rules-tree/rules-tree-45-apply-deletion.png)
-
-<a id="walkthrough-rules-tree-46-delete-folder-menu"></a>
-### 47 · Open deletion for the empty folder tree
-
-![47 · Open deletion for the empty folder tree](../media/v0.1.1-alpha.1/rules-tree/rules-tree-46-delete-folder-menu.png)
-
-<a id="walkthrough-rules-tree-47-delete-folders"></a>
-### 48 · Delete the empty three-level folder tree
-
-![48 · Delete the empty three-level folder tree](../media/v0.1.1-alpha.1/rules-tree/rules-tree-47-delete-folders.png)
-
-<a id="walkthrough-rules-tree-48-apply-folders"></a>
-### 49 · Apply empty-folder deletion
-
-![49 · Apply empty-folder deletion](../media/v0.1.1-alpha.1/rules-tree/rules-tree-48-apply-folders.png)
-
-<a id="walkthrough-rules-tree-49-after-delete"></a>
-### 50 · Verify the remaining Rule still matches
-
-![50 · Verify the remaining Rule still matches](../media/v0.1.1-alpha.1/rules-tree/rules-tree-49-after-delete.png)
-
-<a id="walkthrough-rules-tree-50-disable"></a>
-### 51 · Retain and disable the last Rule
-
-![51 · Retain and disable the last Rule](../media/v0.1.1-alpha.1/rules-tree/rules-tree-50-disable.png)
-
-<a id="walkthrough-rules-tree-51-apply-disabled"></a>
-### 52 · Apply the disabled state
-
-![52 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-tree/rules-tree-51-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-tree:end -->
-
-<!-- recorded-walkthrough:rules-matching-modes:start -->
-<a id="walkthrough-rules-matching-modes"></a>
-## Recorded walkthrough: contains, exact, regex, case and MIME matching
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide matching modes</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/matching/Case</code> |
-| <code>header</code> | <code>x-guide-mode: matched</code> |
-| <code>containsInput</code> | <code>/guide/matching/case/extra</code> |
-| <code>exactInput</code> | <code>/guide/matching/Case</code> |
-| <code>regex</code> | <code>^/guide/matching/[A-Z]+$</code> |
-| <code>regexUpper</code> | <code>/guide/matching/READY</code> |
-| <code>regexLower</code> | <code>/guide/matching/ready</code> |
-| <code>mime</code> | <code>application/*</code> |
-| <code>positiveMime</code> | <code>application/json</code> |
-| <code>negativeMime</code> | <code>text/plain</code> |
-| <code>invalidRegex</code> | <code>[</code> |
-| <code>invalidRegexLimit</code> | <code>This release permits Apply but the invalid regex never matches; fix the expression rather than trusting the applied label</code> |
-
-<a id="walkthrough-rules-matching-modes-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-01-rules.png)
-
-<a id="walkthrough-rules-matching-modes-02-create"></a>
-### 02 · Create the matching-mode Rule
-
-![02 · Create the matching-mode Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-02-create.png)
-
-<a id="walkthrough-rules-matching-modes-03-name"></a>
-### 03 · Name it Guide matching modes
-
-![03 · Name it Guide matching modes](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-03-name.png)
-
-<a id="walkthrough-rules-matching-modes-04-host"></a>
-### 04 · Enter 127.0.0.1
-
-![04 · Enter 127.0.0.1](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-04-host.png)
-
-<a id="walkthrough-rules-matching-modes-05-path-condition"></a>
-### 05 · Add a Path condition
-
-![05 · Add a Path condition](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-05-path-condition.png)
-
-<a id="walkthrough-rules-matching-modes-06-path-value"></a>
-### 06 · Enter the example Path with mixed case
-
-![06 · Enter the example Path with mixed case](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-06-path-value.png)
-
-<a id="walkthrough-rules-matching-modes-07-header"></a>
-### 07 · Enter x-guide-mode
-
-![07 · Enter x-guide-mode](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-07-header.png)
-
-<a id="walkthrough-rules-matching-modes-08-value"></a>
-### 08 · Enter matched
-
-![08 · Enter matched](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-08-value.png)
-
-<a id="walkthrough-rules-matching-modes-09-enable"></a>
-### 09 · Enable the Rule
-
-![09 · Enable the Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-09-enable.png)
-
-<a id="walkthrough-rules-matching-modes-10-contains"></a>
-### 10 · Apply the default contains mode
-
-![10 · Apply the default contains mode](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-10-contains.png)
-
-<a id="walkthrough-rules-matching-modes-contains-capture"></a>
-### 11 · Return to Capture to inspect the input
-
-![11 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-capture.png)
-
-<a id="walkthrough-rules-matching-modes-contains-request"></a>
-### 12 · Send the contains request
-
-![12 · Send the contains request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-request.png)
-
-<a id="walkthrough-rules-matching-modes-contains-headers"></a>
-### 13 · Inspect the actually matched Header
-
-![13 · Inspect the actually matched Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-headers.png)
-
-<a id="walkthrough-rules-matching-modes-contains-rules"></a>
-### 14 · Return to the same Rule
-
-![14 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-contains-rules.png)
-
-<a id="walkthrough-rules-matching-modes-11-case-sensitive"></a>
-### 15 · Enable Aa case sensitivity
-
-![15 · Enable Aa case sensitivity](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-11-case-sensitive.png)
-
-<a id="walkthrough-rules-matching-modes-12-apply-case"></a>
-### 16 · Apply the case setting
-
-![16 · Apply the case setting](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-12-apply-case.png)
-
-<a id="walkthrough-rules-matching-modes-case-sensitive-capture"></a>
-### 17 · Return to Capture to inspect the input
-
-![17 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-capture.png)
-
-<a id="walkthrough-rules-matching-modes-case-sensitive-request"></a>
-### 18 · Send the case-sensitive request
-
-![18 · Send the case-sensitive request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-request.png)
-
-<a id="walkthrough-rules-matching-modes-case-sensitive-headers"></a>
-### 19 · Verify this input did not rewrite the Header
-
-![19 · Verify this input did not rewrite the Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-headers.png)
-
-<a id="walkthrough-rules-matching-modes-case-sensitive-rules"></a>
-### 20 · Return to the same Rule
-
-![20 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-case-sensitive-rules.png)
-
-<a id="walkthrough-rules-matching-modes-13-exact"></a>
-### 21 · Enable exact matching
-
-![21 · Enable exact matching](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-13-exact.png)
-
-<a id="walkthrough-rules-matching-modes-14-apply-exact"></a>
-### 22 · Apply exact matching
-
-![22 · Apply exact matching](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-14-apply-exact.png)
-
-<a id="walkthrough-rules-matching-modes-exact-negative-capture"></a>
-### 23 · Return to Capture to inspect the input
-
-![23 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-capture.png)
-
-<a id="walkthrough-rules-matching-modes-exact-negative-request"></a>
-### 24 · Send the exact-negative request
-
-![24 · Send the exact-negative request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-request.png)
-
-<a id="walkthrough-rules-matching-modes-exact-negative-headers"></a>
-### 25 · Verify this input did not rewrite the Header
-
-![25 · Verify this input did not rewrite the Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-headers.png)
-
-<a id="walkthrough-rules-matching-modes-exact-negative-rules"></a>
-### 26 · Return to the same Rule
-
-![26 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-negative-rules.png)
-
-<a id="walkthrough-rules-matching-modes-exact-positive-capture"></a>
-### 27 · Return to Capture to inspect the input
-
-![27 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-capture.png)
-
-<a id="walkthrough-rules-matching-modes-exact-positive-request"></a>
-### 28 · Send the exact-positive request
-
-![28 · Send the exact-positive request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-request.png)
-
-<a id="walkthrough-rules-matching-modes-exact-positive-headers"></a>
-### 29 · Inspect the actually matched Header
-
-![29 · Inspect the actually matched Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-headers.png)
-
-<a id="walkthrough-rules-matching-modes-exact-positive-rules"></a>
-### 30 · Return to the same Rule
-
-![30 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-exact-positive-rules.png)
-
-<a id="walkthrough-rules-matching-modes-15-regex"></a>
-### 31 · Switch to regex mode
-
-![31 · Switch to regex mode](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-15-regex.png)
-
-<a id="walkthrough-rules-matching-modes-16-invalid-regex"></a>
-### 32 · Enter an invalid regex
-
-![32 · Enter an invalid regex](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-16-invalid-regex.png)
-
-<a id="walkthrough-rules-matching-modes-16a-apply-invalid"></a>
-### 33 · Observe that this release still allows Apply
-
-![33 · Observe that this release still allows Apply](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-16a-apply-invalid.png)
-
-<a id="walkthrough-rules-matching-modes-invalid-regex-capture"></a>
-### 34 · Return to Capture to inspect the input
-
-![34 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-capture.png)
-
-<a id="walkthrough-rules-matching-modes-invalid-regex-request"></a>
-### 35 · Send the invalid-regex request
-
-![35 · Send the invalid-regex request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-request.png)
-
-<a id="walkthrough-rules-matching-modes-invalid-regex-headers"></a>
-### 36 · Verify this input did not rewrite the Header
-
-![36 · Verify this input did not rewrite the Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-headers.png)
-
-<a id="walkthrough-rules-matching-modes-invalid-regex-rules"></a>
-### 37 · Return to the same Rule
-
-![37 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-invalid-regex-rules.png)
-
-<a id="walkthrough-rules-matching-modes-17-valid-regex"></a>
-### 38 · Fix the regex to match an uppercase segment
-
-![38 · Fix the regex to match an uppercase segment](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-17-valid-regex.png)
-
-<a id="walkthrough-rules-matching-modes-18-apply-regex"></a>
-### 39 · Apply the valid regex
-
-![39 · Apply the valid regex](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-18-apply-regex.png)
-
-<a id="walkthrough-rules-matching-modes-regex-positive-capture"></a>
-### 40 · Return to Capture to inspect the input
-
-![40 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-capture.png)
-
-<a id="walkthrough-rules-matching-modes-regex-positive-request"></a>
-### 41 · Send the regex-positive request
-
-![41 · Send the regex-positive request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-request.png)
-
-<a id="walkthrough-rules-matching-modes-regex-positive-headers"></a>
-### 42 · Inspect the actually matched Header
-
-![42 · Inspect the actually matched Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-headers.png)
-
-<a id="walkthrough-rules-matching-modes-regex-positive-rules"></a>
-### 43 · Return to the same Rule
-
-![43 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-positive-rules.png)
-
-<a id="walkthrough-rules-matching-modes-regex-negative-capture"></a>
-### 44 · Return to Capture to inspect the input
-
-![44 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-capture.png)
-
-<a id="walkthrough-rules-matching-modes-regex-negative-request"></a>
-### 45 · Send the regex-negative request
-
-![45 · Send the regex-negative request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-request.png)
-
-<a id="walkthrough-rules-matching-modes-regex-negative-headers"></a>
-### 46 · Verify this input did not rewrite the Header
-
-![46 · Verify this input did not rewrite the Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-headers.png)
-
-<a id="walkthrough-rules-matching-modes-regex-negative-rules"></a>
-### 47 · Return to the same Rule
-
-![47 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-negative-rules.png)
-
-<a id="walkthrough-rules-matching-modes-19-ignore-case"></a>
-### 48 · Disable Aa for case-insensitive regex
-
-![48 · Disable Aa for case-insensitive regex](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-19-ignore-case.png)
-
-<a id="walkthrough-rules-matching-modes-20-apply-ignore-case"></a>
-### 49 · Apply the regex case setting
-
-![49 · Apply the regex case setting](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-20-apply-ignore-case.png)
-
-<a id="walkthrough-rules-matching-modes-regex-ignore-case-capture"></a>
-### 50 · Return to Capture to inspect the input
-
-![50 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-capture.png)
-
-<a id="walkthrough-rules-matching-modes-regex-ignore-case-request"></a>
-### 51 · Send the regex-ignore-case request
-
-![51 · Send the regex-ignore-case request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-request.png)
-
-<a id="walkthrough-rules-matching-modes-regex-ignore-case-headers"></a>
-### 52 · Inspect the actually matched Header
-
-![52 · Inspect the actually matched Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-headers.png)
-
-<a id="walkthrough-rules-matching-modes-regex-ignore-case-rules"></a>
-### 53 · Return to the same Rule
-
-![53 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-regex-ignore-case-rules.png)
-
-<a id="walkthrough-rules-matching-modes-21-response-action"></a>
-### 54 · Change the Header action to Response
-
-![54 · Change the Header action to Response](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-21-response-action.png)
-
-<a id="walkthrough-rules-matching-modes-22-mime-condition"></a>
-### 55 · Add a response MIME condition
-
-![55 · Add a response MIME condition](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-22-mime-condition.png)
-
-<a id="walkthrough-rules-matching-modes-23-mime-wildcard"></a>
-### 56 · Enter the application/* wildcard
-
-![56 · Enter the application/* wildcard](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-23-mime-wildcard.png)
-
-<a id="walkthrough-rules-matching-modes-24-apply-mime"></a>
-### 57 · Apply the response MIME condition
-
-![57 · Apply the response MIME condition](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-24-apply-mime.png)
-
-<a id="walkthrough-rules-matching-modes-mime-json-capture"></a>
-### 58 · Return to Capture to inspect the input
-
-![58 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-capture.png)
-
-<a id="walkthrough-rules-matching-modes-mime-json-request"></a>
-### 59 · Send the mime-json request
-
-![59 · Send the mime-json request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-request.png)
-
-<a id="walkthrough-rules-matching-modes-mime-json-headers"></a>
-### 60 · Inspect the actually matched Header
-
-![60 · Inspect the actually matched Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-headers.png)
-
-<a id="walkthrough-rules-matching-modes-mime-json-rules"></a>
-### 61 · Return to the same Rule
-
-![61 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-json-rules.png)
-
-<a id="walkthrough-rules-matching-modes-mime-text-capture"></a>
-### 62 · Return to Capture to inspect the input
-
-![62 · Return to Capture to inspect the input](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-capture.png)
-
-<a id="walkthrough-rules-matching-modes-mime-text-request"></a>
-### 63 · Send the mime-text request
-
-![63 · Send the mime-text request](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-request.png)
-
-<a id="walkthrough-rules-matching-modes-mime-text-headers"></a>
-### 64 · Verify this input did not rewrite the Header
-
-![64 · Verify this input did not rewrite the Header](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-headers.png)
-
-<a id="walkthrough-rules-matching-modes-mime-text-rules"></a>
-### 65 · Return to the same Rule
-
-![65 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-mime-text-rules.png)
-
-<a id="walkthrough-rules-matching-modes-25-disable"></a>
-### 66 · Disable the demonstration Rule
-
-![66 · Disable the demonstration Rule](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-25-disable.png)
-
-<a id="walkthrough-rules-matching-modes-26-apply-disabled"></a>
-### 67 · Apply the disabled state
-
-![67 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-matching-modes/rules-matching-modes-26-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-matching-modes:end -->
-
-<!-- recorded-walkthrough:rules-response-controls:start -->
-<a id="walkthrough-rules-response-controls"></a>
-## Recorded walkthrough: response Headers, action recovery and body encoding
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide response controls</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/response-controls</code> |
-| <code>original</code> | <code>{&quot;message&quot;:&quot;guide-origin&quot;}</code> |
-| <code>mockStatus</code> | <code>503</code> |
-| <code>mockBody</code> | <code>{&quot;message&quot;:&quot;guide-maintenance&quot;}</code> |
-| <code>mockHeader</code> | <code>x-guide-maintenance: planned</code> |
-| <code>delayMs</code> | <code>2000</code> |
-| <code>blockModes</code> | <code>reset, close</code> |
-| <code>encoding</code> | <code>gzip</code> |
-| <code>bodyReplacement</code> | <code>{&quot;message&quot;:&quot;guide-encoded-body&quot;}</code> |
-| <code>encodingBoundary</code> | <code>Header-only keeps original bytes; explicit Body replacement is encoded using the final Headers</code> |
-
-<a id="walkthrough-rules-response-controls-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-01-rules.png)
-
-<a id="walkthrough-rules-response-controls-02-create"></a>
-### 02 · Create Guide response controls
-
-![02 · Create Guide response controls](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-02-create.png)
-
-<a id="walkthrough-rules-response-controls-03-host"></a>
-### 03 · Restrict to 127.0.0.1
-
-![03 · Restrict to 127.0.0.1](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-03-host.png)
-
-<a id="walkthrough-rules-response-controls-04-path-condition"></a>
-### 04 · Add Path
-
-![04 · Add Path](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-04-path-condition.png)
-
-<a id="walkthrough-rules-response-controls-05-path"></a>
-### 05 · Restrict this run’s action paths
-
-![05 · Restrict this run’s action paths](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-05-path.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-remove"></a>
-### 06 · Remove the previous action
-
-![06 · Remove the previous action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-remove.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-add"></a>
-### 07 · Add this action
-
-![07 · Add this action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-status"></a>
-### 08 · Set mock status 503
-
-![08 · Set mock status 503](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-status.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-add-type"></a>
-### 09 · Add a Header to the synthetic response
-
-![09 · Add a Header to the synthetic response](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add-type.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-type-name"></a>
-### 10 · Enter content-type
-
-![10 · Enter content-type](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-type-name.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-type-value"></a>
-### 11 · Enter application/json
-
-![11 · Enter application/json](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-type-value.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-add-extra"></a>
-### 12 · Add the second synthetic Header
-
-![12 · Add the second synthetic Header](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-add-extra.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-extra-name"></a>
-### 13 · Enter x-guide-maintenance
-
-![13 · Enter x-guide-maintenance](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-extra-name.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-extra-value"></a>
-### 14 · Enter planned
-
-![14 · Enter planned](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-extra-value.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-body"></a>
-### 15 · Enter the synthetic JSON body
-
-![15 · Enter the synthetic JSON body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-body.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-enable"></a>
-### 16 · Enable the current action
-
-![16 · Enable the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-enable.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-apply"></a>
-### 17 · Apply the current action
-
-![17 · Apply the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-apply.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-result"></a>
-### 18 · Verify status 503, Headers and the mock body
-
-![18 · Verify status 503, Headers and the mock body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-result.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-back"></a>
-### 19 · Return to the same Rule
-
-![19 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-back.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-disable"></a>
-### 20 · Disable this Rule
-
-![20 · Disable this Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-disable.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-apply-off"></a>
-### 21 · Apply the disabled state
-
-![21 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-apply-off.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-restored"></a>
-### 22 · Verify origin recovery with a new request
-
-![22 · Verify origin recovery with a new request](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-restored.png)
-
-<a id="walkthrough-rules-response-controls-synthetic-edit-next"></a>
-### 23 · Return to Rules to continue editing
-
-![23 · Return to Rules to continue editing](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-synthetic-edit-next.png)
-
-<a id="walkthrough-rules-response-controls-delay-remove"></a>
-### 24 · Remove the previous action
-
-![24 · Remove the previous action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-remove.png)
-
-<a id="walkthrough-rules-response-controls-delay-add"></a>
-### 25 · Add this action
-
-![25 · Add this action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-add.png)
-
-<a id="walkthrough-rules-response-controls-delay-value"></a>
-### 26 · Set a 2000ms delay
-
-![26 · Set a 2000ms delay](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-value.png)
-
-<a id="walkthrough-rules-response-controls-delay-enable"></a>
-### 27 · Enable the current action
-
-![27 · Enable the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-enable.png)
-
-<a id="walkthrough-rules-response-controls-delay-apply"></a>
-### 28 · Apply the current action
-
-![28 · Apply the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-apply.png)
-
-<a id="walkthrough-rules-response-controls-delay-result"></a>
-### 29 · Verify the real wait still reaches the origin
-
-![29 · Verify the real wait still reaches the origin](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-result.png)
-
-<a id="walkthrough-rules-response-controls-delay-back"></a>
-### 30 · Return to the same Rule
-
-![30 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-back.png)
-
-<a id="walkthrough-rules-response-controls-delay-disable"></a>
-### 31 · Disable this Rule
-
-![31 · Disable this Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-disable.png)
-
-<a id="walkthrough-rules-response-controls-delay-apply-off"></a>
-### 32 · Apply the disabled state
-
-![32 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-apply-off.png)
-
-<a id="walkthrough-rules-response-controls-delay-restored"></a>
-### 33 · Verify origin recovery with a new request
-
-![33 · Verify origin recovery with a new request](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-restored.png)
-
-<a id="walkthrough-rules-response-controls-delay-edit-next"></a>
-### 34 · Return to Rules to continue editing
-
-![34 · Return to Rules to continue editing](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-delay-edit-next.png)
-
-<a id="walkthrough-rules-response-controls-block-remove"></a>
-### 35 · Remove the previous action
-
-![35 · Remove the previous action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-remove.png)
-
-<a id="walkthrough-rules-response-controls-block-add"></a>
-### 36 · Add this action
-
-![36 · Add this action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-add.png)
-
-<a id="walkthrough-rules-response-controls-block-reset"></a>
-### 37 · Select reset mode
-
-![37 · Select reset mode](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-reset.png)
-
-<a id="walkthrough-rules-response-controls-block-enable"></a>
-### 38 · Enable the current action
-
-![38 · Enable the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-enable.png)
-
-<a id="walkthrough-rules-response-controls-block-apply"></a>
-### 39 · Apply the current action
-
-![39 · Apply the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply.png)
-
-<a id="walkthrough-rules-response-controls-block-reset-result"></a>
-### 40 · Verify reset blocking
-
-![40 · Verify reset blocking](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-reset-result.png)
-
-<a id="walkthrough-rules-response-controls-block-edit-close"></a>
-### 41 · Return to the Rule to change blocking mode
-
-![41 · Return to the Rule to change blocking mode](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-edit-close.png)
-
-<a id="walkthrough-rules-response-controls-block-close"></a>
-### 42 · Select close mode
-
-![42 · Select close mode](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-close.png)
-
-<a id="walkthrough-rules-response-controls-block-apply-close"></a>
-### 43 · Apply close mode
-
-![43 · Apply close mode](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply-close.png)
-
-<a id="walkthrough-rules-response-controls-block-close-result"></a>
-### 44 · Verify close blocking
-
-![44 · Verify close blocking](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-close-result.png)
-
-<a id="walkthrough-rules-response-controls-block-back"></a>
-### 45 · Return to the same Rule
-
-![45 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-back.png)
-
-<a id="walkthrough-rules-response-controls-block-disable"></a>
-### 46 · Disable this Rule
-
-![46 · Disable this Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-disable.png)
-
-<a id="walkthrough-rules-response-controls-block-apply-off"></a>
-### 47 · Apply the disabled state
-
-![47 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-apply-off.png)
-
-<a id="walkthrough-rules-response-controls-block-restored"></a>
-### 48 · Verify origin recovery with a new request
-
-![48 · Verify origin recovery with a new request](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-restored.png)
-
-<a id="walkthrough-rules-response-controls-block-edit-next"></a>
-### 49 · Return to Rules to continue editing
-
-![49 · Return to Rules to continue editing](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-block-edit-next.png)
-
-<a id="walkthrough-rules-response-controls-encoding-remove"></a>
-### 50 · Remove the previous action
-
-![50 · Remove the previous action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-remove.png)
-
-<a id="walkthrough-rules-response-controls-encoding-add"></a>
-### 51 · Add this action
-
-![51 · Add this action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-add.png)
-
-<a id="walkthrough-rules-response-controls-encoding-phase"></a>
-### 52 · Select Response for the Header
-
-![52 · Select Response for the Header](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-phase.png)
-
-<a id="walkthrough-rules-response-controls-encoding-name"></a>
-### 53 · Enter content-encoding
-
-![53 · Enter content-encoding](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-name.png)
-
-<a id="walkthrough-rules-response-controls-encoding-value"></a>
-### 54 · Enter gzip
-
-![54 · Enter gzip](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-value.png)
-
-<a id="walkthrough-rules-response-controls-encoding-enable"></a>
-### 55 · Enable the current action
-
-![55 · Enable the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-enable.png)
-
-<a id="walkthrough-rules-response-controls-encoding-apply"></a>
-### 56 · Apply the current action
-
-![56 · Apply the current action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply.png)
-
-<a id="walkthrough-rules-response-controls-encoding-header-only"></a>
-### 57 · Header-only editing does not compress the original body
-
-![57 · Header-only editing does not compress the original body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-header-only.png)
-
-<a id="walkthrough-rules-response-controls-encoding-edit-body"></a>
-### 58 · Return to add an explicit Body replacement
-
-![58 · Return to add an explicit Body replacement](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-edit-body.png)
-
-<a id="walkthrough-rules-response-controls-encoding-add-body"></a>
-### 59 · Add the Body action
-
-![59 · Add the Body action](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-add-body.png)
-
-<a id="walkthrough-rules-response-controls-encoding-body-phase"></a>
-### 60 · Select Response for Body
-
-![60 · Select Response for Body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body-phase.png)
-
-<a id="walkthrough-rules-response-controls-encoding-body"></a>
-### 61 · Enter guide-encoded-body
-
-![61 · Enter guide-encoded-body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body.png)
-
-<a id="walkthrough-rules-response-controls-encoding-apply-body"></a>
-### 62 · Apply Header and Body
-
-![62 · Apply Header and Body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply-body.png)
-
-<a id="walkthrough-rules-response-controls-encoding-body-result"></a>
-### 63 · Verify gzipped wire bytes and the readable body
-
-![63 · Verify gzipped wire bytes and the readable body](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-body-result.png)
-
-<a id="walkthrough-rules-response-controls-encoding-back"></a>
-### 64 · Return to the same Rule
-
-![64 · Return to the same Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-back.png)
-
-<a id="walkthrough-rules-response-controls-encoding-disable"></a>
-### 65 · Disable this Rule
-
-![65 · Disable this Rule](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-disable.png)
-
-<a id="walkthrough-rules-response-controls-encoding-apply-off"></a>
-### 66 · Apply the disabled state
-
-![66 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-apply-off.png)
-
-<a id="walkthrough-rules-response-controls-encoding-restored"></a>
-### 67 · Verify origin recovery with a new request
-
-![67 · Verify origin recovery with a new request](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-restored.png)
-
-<a id="walkthrough-rules-response-controls-encoding-edit-next"></a>
-### 68 · Return to Rules to continue editing
-
-![68 · Return to Rules to continue editing](../media/v0.1.1-alpha.1/rules-response-controls/rules-response-controls-encoding-edit-next.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-response-controls:end -->
-
-<!-- recorded-walkthrough:rules-conflict:start -->
-<a id="walkthrough-rules-conflict"></a>
-## Recorded walkthrough: a real second writer, retained conflicting drafts and Reload recovery
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>path</code> | <code>/guide/rules-conflict</code> |
-| <code>header</code> | <code>x-guide-conflict</code> |
-| <code>initial</code> | <code>Guide initial / initial</code> |
-| <code>localDraft</code> | <code>Guide local draft / local</code> |
-| <code>externalSaved</code> | <code>Guide remote / remote</code> |
-| <code>afterReloadEdit</code> | <code>Guide merged / merged</code> |
-| <code>writer</code> | <code>Official SDK on localhost, named Guide rules writer; not a commercial Host</code> |
-| <code>conflict</code> | <code>Local draft is retained; Reload deliberately discards it before editing the latest revision</code> |
-
-<a id="walkthrough-rules-conflict-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-01-rules.png)
-
-<a id="walkthrough-rules-conflict-02-create"></a>
-### 02 · Create the initial Rule
-
-![02 · Create the initial Rule](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-02-create.png)
-
-<a id="walkthrough-rules-conflict-03-name"></a>
-### 03 · Name it Guide initial
-
-![03 · Name it Guide initial](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-03-name.png)
-
-<a id="walkthrough-rules-conflict-04-host"></a>
-### 04 · Restrict to 127.0.0.1
-
-![04 · Restrict to 127.0.0.1](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-04-host.png)
-
-<a id="walkthrough-rules-conflict-05-add-path"></a>
-### 05 · Add a Path condition
-
-![05 · Add a Path condition](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-05-add-path.png)
-
-<a id="walkthrough-rules-conflict-06-path"></a>
-### 06 · Restrict the conflict example paths
-
-![06 · Restrict the conflict example paths](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-06-path.png)
-
-<a id="walkthrough-rules-conflict-07-header"></a>
-### 07 · Enter x-guide-conflict
-
-![07 · Enter x-guide-conflict](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-07-header.png)
-
-<a id="walkthrough-rules-conflict-08-value"></a>
-### 08 · Enter initial
-
-![08 · Enter initial](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-08-value.png)
-
-<a id="walkthrough-rules-conflict-09-enable"></a>
-### 09 · Enable the initial Rule
-
-![09 · Enable the initial Rule](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-09-enable.png)
-
-<a id="walkthrough-rules-conflict-10-apply"></a>
-### 10 · Apply the initial revision
-
-![10 · Apply the initial revision](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-10-apply.png)
-
-<a id="walkthrough-rules-conflict-11-local-name"></a>
-### 11 · Leave a local name draft
-
-![11 · Leave a local name draft](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-11-local-name.png)
-
-<a id="walkthrough-rules-conflict-12-local-value"></a>
-### 12 · Leave an unapplied local value
-
-![12 · Leave an unapplied local value](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-12-local-value.png)
-
-<a id="walkthrough-rules-conflict-13-second-writer"></a>
-### 13 · Inspect the second writer’s actual Ask approval
-
-![13 · Inspect the second writer’s actual Ask approval](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-13-second-writer.png)
-
-<a id="walkthrough-rules-conflict-14-allow"></a>
-### 14 · Allow the second writer to save remote
-
-![14 · Allow the second writer to save remote](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-14-allow.png)
-
-<a id="walkthrough-rules-conflict-15-draft-retained"></a>
-### 15 · Verify the local draft was not silently overwritten
-
-![15 · Verify the local draft was not silently overwritten](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-15-draft-retained.png)
-
-<a id="walkthrough-rules-conflict-16-core-remote"></a>
-### 16 · Verify new traffic actually uses remote
-
-![16 · Verify new traffic actually uses remote](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-16-core-remote.png)
-
-<a id="walkthrough-rules-conflict-17-reload"></a>
-### 17 · Explicitly Reload and discard the local draft
-
-![17 · Explicitly Reload and discard the local draft](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-17-reload.png)
-
-<a id="walkthrough-rules-conflict-18-merged-name"></a>
-### 18 · Enter Guide merged based on the new revision
-
-![18 · Enter Guide merged based on the new revision](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-18-merged-name.png)
-
-<a id="walkthrough-rules-conflict-19-merged-value"></a>
-### 19 · Enter the merged value
-
-![19 · Enter the merged value](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-19-merged-value.png)
-
-<a id="walkthrough-rules-conflict-20-apply-merged"></a>
-### 20 · Apply the new edits
-
-![20 · Apply the new edits](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-20-apply-merged.png)
-
-<a id="walkthrough-rules-conflict-21-merged-request"></a>
-### 21 · Verify a new request uses merged
-
-![21 · Verify a new request uses merged](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-21-merged-request.png)
-
-<a id="walkthrough-rules-conflict-22-disable"></a>
-### 22 · Disable the example Rule
-
-![22 · Disable the example Rule](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-22-disable.png)
-
-<a id="walkthrough-rules-conflict-23-apply-disabled"></a>
-### 23 · Apply the disabled state
-
-![23 · Apply the disabled state](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-23-apply-disabled.png)
-
-<a id="walkthrough-rules-conflict-24-mcp-settings"></a>
-### 24 · Return to MCP settings for cleanup
-
-![24 · Return to MCP settings for cleanup](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-24-mcp-settings.png)
-
-<a id="walkthrough-rules-conflict-25-stop-server"></a>
-### 25 · Stop this run’s MCP Server
-
-![25 · Stop this run’s MCP Server](../media/v0.1.1-alpha.1/rules-conflict/rules-conflict-25-stop-server.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-conflict:end -->
-
-<!-- recorded-walkthrough:rules-routing:start -->
-<a id="walkthrough-rules-routing"></a>
-## Cross-scheme routing and missing Map Local recovery
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide mapping</code> |
-| <code>pathPrefix</code> | <code>/guide/map-routing</code> |
-| <code>source</code> | <code>https://localhost:64268/guide/map-routing/remote-source</code> |
-| <code>destination</code> | <code>HTTP 127.0.0.1:64265/guide/map-routing/remote-target</code> |
-| <code>file</code> | <code>guide-map-local.json</code> |
-| <code>fileBody</code> | <code>{&quot;message&quot;:&quot;guide-local-file&quot;}</code> |
-| <code>missingFile</code> | <code>guide-missing.json (never created)</code> |
-| <code>missingStatus</code> | <code>404</code> |
-| <code>safety</code> | <code>Owned origins and product-created file only; daily CA retained</code> |
-| <code>afterRemoteDisabled</code> | <code>The original HTTPS endpoint returns 404 for the unconfigured example path; the mapped HTTP target is not used</code> |
-
-<a id="walkthrough-rules-routing-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/rules-routing/rules-routing-01-rules.png)
-
-<a id="walkthrough-rules-routing-02-create"></a>
-### 02 · Create Guide mapping
-
-![02 · Create Guide mapping](../media/v0.1.1-alpha.1/rules-routing/rules-routing-02-create.png)
-
-<a id="walkthrough-rules-routing-03-source-host"></a>
-### 03 · Restrict the original Host to localhost
-
-![03 · Restrict the original Host to localhost](../media/v0.1.1-alpha.1/rules-routing/rules-routing-03-source-host.png)
-
-<a id="walkthrough-rules-routing-04-add-path"></a>
-### 04 · Add a Path condition
-
-![04 · Add a Path condition](../media/v0.1.1-alpha.1/rules-routing/rules-routing-04-add-path.png)
-
-<a id="walkthrough-rules-routing-05-path"></a>
-### 05 · Restrict the example prefix
-
-![05 · Restrict the example prefix](../media/v0.1.1-alpha.1/rules-routing/rules-routing-05-path.png)
-
-<a id="walkthrough-rules-routing-06-remove-header"></a>
-### 06 · Remove the default Header action
-
-![06 · Remove the default Header action](../media/v0.1.1-alpha.1/rules-routing/rules-routing-06-remove-header.png)
-
-<a id="walkthrough-rules-routing-07-map-remote"></a>
-### 07 · Add Map Remote
-
-![07 · Add Map Remote](../media/v0.1.1-alpha.1/rules-routing/rules-routing-07-map-remote.png)
-
-<a id="walkthrough-rules-routing-08-http"></a>
-### 08 · Explicitly set the target scheme to http
-
-![08 · Explicitly set the target scheme to http](../media/v0.1.1-alpha.1/rules-routing/rules-routing-08-http.png)
-
-<a id="walkthrough-rules-routing-09-target-host"></a>
-### 09 · Change target Host to 127.0.0.1
-
-![09 · Change target Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-routing/rules-routing-09-target-host.png)
-
-<a id="walkthrough-rules-routing-10-target-port"></a>
-### 10 · Enter the other actual HTTP service port
-
-![10 · Enter the other actual HTTP service port](../media/v0.1.1-alpha.1/rules-routing/rules-routing-10-target-port.png)
-
-<a id="walkthrough-rules-routing-11-target-path"></a>
-### 11 · Enter the remote-target path
-
-![11 · Enter the remote-target path](../media/v0.1.1-alpha.1/rules-routing/rules-routing-11-target-path.png)
-
-<a id="walkthrough-rules-routing-12-enable"></a>
-### 12 · Enable the mapping Rule
-
-![12 · Enable the mapping Rule](../media/v0.1.1-alpha.1/rules-routing/rules-routing-12-enable.png)
-
-<a id="walkthrough-rules-routing-13-apply"></a>
-### 13 · Apply mapping
-
-![13 · Apply mapping](../media/v0.1.1-alpha.1/rules-routing/rules-routing-13-apply.png)
-
-<a id="walkthrough-rules-routing-14-remote-result"></a>
-### 14 · Verify HTTPS input reaches the actual HTTP destination
-
-![14 · Verify HTTPS input reaches the actual HTTP destination](../media/v0.1.1-alpha.1/rules-routing/rules-routing-14-remote-result.png)
-
-<a id="walkthrough-rules-routing-15-edit"></a>
-### 15 · Return to the mapping Rule
-
-![15 · Return to the mapping Rule](../media/v0.1.1-alpha.1/rules-routing/rules-routing-15-edit.png)
-
-<a id="walkthrough-rules-routing-16-disable"></a>
-### 16 · Disable Map Remote
-
-![16 · Disable Map Remote](../media/v0.1.1-alpha.1/rules-routing/rules-routing-16-disable.png)
-
-<a id="walkthrough-rules-routing-17-apply-off"></a>
-### 17 · Apply disabling
-
-![17 · Apply disabling](../media/v0.1.1-alpha.1/rules-routing/rules-routing-17-apply-off.png)
-
-<a id="walkthrough-rules-routing-18-original-result"></a>
-### 18 · Restore the original HTTPS endpoint’s 404 after disabling
-
-![18 · Restore the original HTTPS endpoint’s 404 after disabling](../media/v0.1.1-alpha.1/rules-routing/rules-routing-18-original-result.png)
-
-<a id="walkthrough-rules-routing-19-file-source"></a>
-### 19 · Fetch the public body the product can save
-
-![19 · Fetch the public body the product can save](../media/v0.1.1-alpha.1/rules-routing/rules-routing-19-file-source.png)
-
-<a id="walkthrough-rules-routing-20-save-file"></a>
-### 20 · Save guide-map-local.json through the product
-
-![20 · Save guide-map-local.json through the product](../media/v0.1.1-alpha.1/rules-routing/rules-routing-20-save-file.png)
-
-<a id="walkthrough-rules-routing-21-check-file"></a>
-### 21 · Verify the actual product-created file
-
-![21 · Verify the actual product-created file](../media/v0.1.1-alpha.1/rules-routing/rules-routing-21-check-file.png)
-
-<a id="walkthrough-rules-routing-22-edit-local"></a>
-### 22 · Return to prepare Map Local
-
-![22 · Return to prepare Map Local](../media/v0.1.1-alpha.1/rules-routing/rules-routing-22-edit-local.png)
-
-<a id="walkthrough-rules-routing-23-local-host"></a>
-### 23 · Set this example’s original Host to 127.0.0.1
-
-![23 · Set this example’s original Host to 127.0.0.1](../media/v0.1.1-alpha.1/rules-routing/rules-routing-23-local-host.png)
-
-<a id="walkthrough-rules-routing-24-remove-remote"></a>
-### 24 · Remove the Map Remote action
-
-![24 · Remove the Map Remote action](../media/v0.1.1-alpha.1/rules-routing/rules-routing-24-remove-remote.png)
-
-<a id="walkthrough-rules-routing-25-local"></a>
-### 25 · Add Map Local
-
-![25 · Add Map Local](../media/v0.1.1-alpha.1/rules-routing/rules-routing-25-local.png)
-
-<a id="walkthrough-rules-routing-26-missing-name"></a>
-### 26 · Enter the owned missing-file name
-
-![26 · Enter the owned missing-file name](../media/v0.1.1-alpha.1/rules-routing/rules-routing-26-missing-name.png)
-
-<a id="walkthrough-rules-routing-27-enable-local"></a>
-### 27 · Enable Map Local
-
-![27 · Enable Map Local](../media/v0.1.1-alpha.1/rules-routing/rules-routing-27-enable-local.png)
-
-<a id="walkthrough-rules-routing-28-apply-local"></a>
-### 28 · Apply local mapping
-
-![28 · Apply local mapping](../media/v0.1.1-alpha.1/rules-routing/rules-routing-28-apply-local.png)
-
-<a id="walkthrough-rules-routing-29-missing-result"></a>
-### 29 · Verify the actual missing-file 404
-
-![29 · Verify the actual missing-file 404](../media/v0.1.1-alpha.1/rules-routing/rules-routing-29-missing-result.png)
-
-<a id="walkthrough-rules-routing-30-correct-rule"></a>
-### 30 · Return to correct the path
-
-![30 · Return to correct the path](../media/v0.1.1-alpha.1/rules-routing/rules-routing-30-correct-rule.png)
-
-<a id="walkthrough-rules-routing-31-correct-file"></a>
-### 31 · Enter the actual path saved by this workflow
-
-![31 · Enter the actual path saved by this workflow](../media/v0.1.1-alpha.1/rules-routing/rules-routing-31-correct-file.png)
-
-<a id="walkthrough-rules-routing-32-apply-correct"></a>
-### 32 · Apply the correct path
-
-![32 · Apply the correct path](../media/v0.1.1-alpha.1/rules-routing/rules-routing-32-apply-correct.png)
-
-<a id="walkthrough-rules-routing-33-local-result"></a>
-### 33 · Verify file replacement without calling the origin
-
-![33 · Verify file replacement without calling the origin](../media/v0.1.1-alpha.1/rules-routing/rules-routing-33-local-result.png)
-
-<a id="walkthrough-rules-routing-34-final-rule"></a>
-### 34 · Return to the Rule for cleanup
-
-![34 · Return to the Rule for cleanup](../media/v0.1.1-alpha.1/rules-routing/rules-routing-34-final-rule.png)
-
-<a id="walkthrough-rules-routing-35-final-disable"></a>
-### 35 · Disable the mapping Rule
-
-![35 · Disable the mapping Rule](../media/v0.1.1-alpha.1/rules-routing/rules-routing-35-final-disable.png)
-
-<a id="walkthrough-rules-routing-36-final-apply"></a>
-### 36 · Apply final disabling
-
-![36 · Apply final disabling](../media/v0.1.1-alpha.1/rules-routing/rules-routing-36-final-apply.png)
-
-<a id="walkthrough-rules-routing-37-certificates"></a>
-### 37 · Open Certificates to restore this run’s TLS settings
-
-![37 · Open Certificates to restore this run’s TLS settings](../media/v0.1.1-alpha.1/rules-routing/rules-routing-37-certificates.png)
-
-<a id="walkthrough-rules-routing-38-mitm-off"></a>
-### 38 · Disable this run’s decryption
-
-![38 · Disable this run’s decryption](../media/v0.1.1-alpha.1/rules-routing/rules-routing-38-mitm-off.png)
-
-<a id="walkthrough-rules-routing-39-remove-exception"></a>
-### 39 · Remove the localhost origin exception
-
-![39 · Remove the localhost origin exception](../media/v0.1.1-alpha.1/rules-routing/rules-routing-39-remove-exception.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:rules-routing:end -->
+   ![Copying the new request's original response after disabling the rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-188.annotated.png)

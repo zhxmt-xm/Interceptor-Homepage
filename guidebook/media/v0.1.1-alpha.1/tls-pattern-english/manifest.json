@@ -1,0 +1,553 @@
+{
+  "schemaVersion": 1,
+  "chapter": "tls-pattern-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "capture/navigate-tls-passthrough.workflow.ts",
+    "manifestSha256": "e7926ab248d35a0cb34a875dc093313efcc0a0d4c9b9cdb21be6f11d42d625d9",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "检查已有CA与信任状态 / Inspect the existing CA and trust state",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "通过Certificates启用HTTPS解密 / Enable HTTPS decryption through Certificates",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3046,
+            "y": 1128.28125,
+            "width": 68,
+            "height": 40
+          },
+          "automationId": "settings.certificates.mitm-toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "打开TLS passthrough名单 / Open the TLS passthrough list",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "填写精确透传主机后Add / Enter an exact passthrough host before Add",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 648,
+            "y": 315.3125,
+            "width": 2304.96875,
+            "height": 29.515625
+          },
+          "automationId": "settings.tls-passthrough.host-input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2994.96875,
+            "y": 296.078125,
+            "width": 153.03125,
+            "height": 68
+          },
+          "automationId": "settings.tls-passthrough.add-host"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "精确透传主机已经保存 / The exact passthrough host is saved",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 626,
+            "y": 462.078125,
+            "width": 2520,
+            "height": 132
+          },
+          "automationId": "settings.tls-passthrough.host.127.0.0.1"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "中文：全部系统副作用均由产品UI创建，随后建立测试自产CONNECT tunnel。 / English: Create every system side effect through product UI, then open a test-owned CONNECT tunnel.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "从Tunnel定位匹配的透传配置 / Locate the matching passthrough setting from Tunnel",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2458,
+            "y": 568.1875,
+            "width": 313.546875,
+            "height": 52
+          },
+          "automationId": "capture.tls-tunnel.view-passthrough-pattern"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "中文：从真实Capture行进入Tunnel Inspector，只通过公开导航命令跳转。 / English: Open the Tunnel Inspector from the real Capture row and navigate only through the public command.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "中文：目标必须是实际持久化row，自动滚入视口并带短暂公开高亮状态。 / English: The target must be the persisted row, scrolled into view with a short public highlight state.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.png",
+      "rawImage": "step-009.png"
+    },
+    {
+      "id": "step-010",
+      "title": "中文：重复导航必须重新产生高亮，而不是持久保存旧状态。 / English: Repeating navigation must restart the highlight instead of persisting stale state.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.png",
+      "rawImage": "step-010.png"
+    },
+    {
+      "id": "step-011",
+      "title": "仅为自有localhost源站添加证书例外 / Add a certificate exception only for the owned localhost origin",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2533.578125,
+            "y": 1233.28125,
+            "width": 350,
+            "height": 68
+          },
+          "automationId": "settings.certificates.insecure-host-input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2901.578125,
+            "y": 1233.28125,
+            "width": 212.421875,
+            "height": 68
+          },
+          "automationId": "settings.certificates.insecure-host-add"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "透传名单添加前的新连接可以解密 / A new connection decrypts before adding passthrough",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "将localhost加入精确透传名单 / Add localhost to the exact passthrough list",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 648,
+            "y": 315.3125,
+            "width": 2304.96875,
+            "height": 29.515625
+          },
+          "automationId": "settings.tls-passthrough.host-input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2994.96875,
+            "y": 296.078125,
+            "width": 153.03125,
+            "height": 68
+          },
+          "automationId": "settings.tls-passthrough.add-host"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "客户端仍收到响应，Capture只看到透传Tunnel / The client receives its response while Capture sees only the passthrough Tunnel",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 352,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvih2rjp-8bioclvz"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2458,
+            "y": 568.1875,
+            "width": 313.546875,
+            "height": 52
+          },
+          "automationId": "capture.tls-tunnel.view-passthrough-pattern"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "定位localhost条目并准备移除 / Locate the localhost entry before removing it",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3054,
+            "y": 497.078125,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "settings.tls-passthrough.remove-host.localhost"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "移除透传后新连接恢复HTTP正文 / A new connection exposes its HTTP body after passthrough is removed",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2634.703125,
+            "y": 292,
+            "width": 167.15625,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.response"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 377447,
+      "sha256": "f5b1cf044e82473f943eff92f600090e0461bafc612b3acad1db8e5c74c808cf"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 382834,
+      "sha256": "df756254ac26cc1bcd80b02eee38694a054efc2b3b4cf49ffd1d85074a3b6ca1"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256696,
+      "sha256": "5e3970c62c3472e179f5efb69470f847ada4fb6e7d71b9059bc313535e42b307"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294414,
+      "sha256": "43bc65f5edff36897b2be58cfed3eab819b803cbadd0f0ce3a16d1bbd56720bd"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 293179,
+      "sha256": "de62f2344d61eac078577cc8646515835dcd7ba2f7f10a5227f02ed819f1ae40"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 186969,
+      "sha256": "6684dc3bc8f8af0faa10bf0b035a9bd3123c9888e1d1939fac3fd5b13bcfcf10"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294278,
+      "sha256": "406e8d5826072052c9008cd852e804e8e37b1bf1d8cd12528e230af82da5dfd4"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 184965,
+      "sha256": "8669390c51e89cd42f0a2f2040f594bed014c81bc8896b674ee4b108346e43b6"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 233257,
+      "sha256": "ea2b5520bd0b4df70c209dabb6b9c02e55a36b34403477363a77144380eff5bb"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 333973,
+      "sha256": "15d00cb05727ab19f8451481404432c9d673be27f623e7b12e61e6dab22adfde"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238254,
+      "sha256": "c3b8eba7a10fb00e884ab751beed7257b7ce248a305c1ea37a7ecfb7f1c24c1c"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294084,
+      "sha256": "140474c5d9e5cdb7b7295fbb7f2a21c71a4d6ab320951f10a5b77290f101a579"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294020,
+      "sha256": "09d5bcfa477cc30bb593941be06f5f59dfb9055361f6ed15763d86fca355b4b4"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294084,
+      "sha256": "140474c5d9e5cdb7b7295fbb7f2a21c71a4d6ab320951f10a5b77290f101a579"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 383021,
+      "sha256": "fb93cc5f77b164e6e68471ae87483f0a5abab04a29cc6ef37ab10dc875d25cc0"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256998,
+      "sha256": "b614a43fcf2e6310890b183bafa624f57674c740d3990156090c8d8565555f5c"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 320352,
+      "sha256": "1d30ef79e4323034e47a09ebe59a25c0d5286da015f041142f445ebaf914047a"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 239852,
+      "sha256": "8a5fc68f65ed76a52cc0897df4d977628df925e204bfcf860ca888ce8edbb22f"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 308349,
+      "sha256": "242a3788a569ffb88768f1c66710dfc3385cbde9a6e18ec94aec8a2c1321e48a"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 195628,
+      "sha256": "7fdb36065001e8822d29ea1b005c49381103198ac447888fe2e2ad1f0726a590"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 352576,
+      "sha256": "666a7c016bb759d8236504d9aed7dddef84f3a696739846ad4e77276726f7d6c"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251228,
+      "sha256": "c63dfad84672a6cea3a5ceb7d8392dc1aeb53f51d96b08aa57f1bf237d219e92"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 294435,
+      "sha256": "3d8b94b1cb3604436c232dcc7ac9957525ac4c463f9bd0fcc1cefc0ba4443cec"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 190441,
+      "sha256": "07504a872b0e4f0a8c7d897a00bd61fd96680788fef7b10a279c66716e1ff2e9"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 335454,
+      "sha256": "03a1282515986f998a58f9e9c60dc18f0c1ba3d1bd143086451161c8f4106715"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 251522,
+      "sha256": "e1cac6df13c39e870b29cfa19605d07e308c27948e5648cc3f73892edc6a8aad"
+    }
+  ]
+}

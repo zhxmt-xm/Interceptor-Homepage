@@ -171,9 +171,6 @@ export const GUIDE_UI = {
     eyebrow: 'INTERCEPTOR 使用指南',
     directory: '教程目录',
     onPage: '本章内容',
-    draft: '中文初稿',
-    notice: '面向 v0.1.1-alpha.1。已验证实操附逐步图，其他分支和平台仍待验收。',
-    sidebarNote: '逐步图文持续完善',
     overviewTitle: '让每一步，都有清楚的答案。',
     overviewSummary:
       '从第一次抓包开始，按你要完成的事情查找教程。无需阅读源码，也不需要先配置 AI。',
@@ -191,10 +188,6 @@ export const GUIDE_UI = {
     eyebrow: 'INTERCEPTOR USER GUIDE',
     directory: 'All chapters',
     onPage: 'On this page',
-    draft: 'English draft',
-    notice:
-      'Written for v0.1.1-alpha.1. Verified walkthroughs include step images; other branches and platforms still need acceptance.',
-    sidebarNote: 'Step-by-step images are being completed',
     overviewTitle: 'A clear answer for every step.',
     overviewSummary:
       'Find a guide for the task you want to complete. Start with your first request; no source-code knowledge or AI setup required.',

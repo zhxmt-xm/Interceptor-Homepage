@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-body-save-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "published-reader-validation-pending",
+  "source": {
+    "workflow": "capture/body-scenarios.workflow.ts",
+    "test": "capture.scenarios.bodies displays the captured text document and form bodies",
+    "run": "2026-10-21T11-41-43-389Z-EK2OdV",
+    "testDirectory": "capture-body-scenarios.wor-fa26a-xt-document-and-form-bodies-macos",
+    "manifestSha256": "06e46d7690efc0979c6ac7d6b4aeb3d2c425d2bd0ea2b461fea158691a4b6511",
+    "metadataSha256": "3405e4f10841e863b15a607667b9098c4e69a410b1f3e17d236576f9bedcf10c",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "review": {
+    "individualFramesVisuallyReviewed": true,
+    "actualLanguage": "en",
+    "rawShaBytesAndPngDimensionsVerified": true,
+    "nativeDialogEnglishAndOwnedDirectory": true,
+    "sourceImagesUnchanged": true
+  },
+  "notes": [
+    "The file is saved from GET /e2e/body-preview/four-byte, a separate response with text/javascript; charset=utf-8.",
+    "This response is 2097166 bytes (2 MiB + 14), not the old 3 MiB JSON example or the 1.25 MiB manual-Format body.",
+    "The response consists of 2097149 ASCII a characters, the complete four-byte character 🙂, and after-preview.",
+    "The passed original workflow compares the actual product-saved file SHA-256 with the complete response, then removes the file during its cleanup. No saved-file attachment is claimed.",
+    "step-049 is the real English native Save body dialog for utf8-full-body.txt. It is not an Open dialog.",
+    "step-050 is the return to the Capture list after closing the Inspector. Do not describe it as a selected Response or a completion badge.",
+    "Both source images are unannotated; their raw bytes were copied unchanged. There are no numbered boxes to invent."
+  ],
+  "steps": [
+    {
+      "id": "step-049",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "image": "step-049.png",
+      "window": "native-dialog",
+      "language": "en",
+      "theme": "light",
+      "bytes": 53870,
+      "sha256": "0b27ff3b9a35c3019f50395854242889e65c49672f0f11d9555370c40a380bed",
+      "width": 860,
+      "height": 390,
+      "sourceImage": "step-049.png",
+      "rawImage": "step-049.png",
+      "rawBytes": 53870,
+      "rawSha256": "0b27ff3b9a35c3019f50395854242889e65c49672f0f11d9555370c40a380bed",
+      "highlights": []
+    },
+    {
+      "id": "step-050",
+      "title": "原始保存：文件由产品Save产生，包含完整尾字符和预览范围以外的字节。 / Raw export: the product Save action must retain the complete character and bytes beyond the preview limit.",
+      "image": "step-050.png",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "bytes": 233427,
+      "sha256": "3384762afad3f958f2f47ba3823cfc9792e4af3094d30d1498e8d42345b1dac3",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-050.png",
+      "rawImage": "step-050.png",
+      "rawBytes": 233427,
+      "rawSha256": "3384762afad3f958f2f47ba3823cfc9792e4af3094d30d1498e8d42345b1dac3",
+      "highlights": []
+    }
+  ]
+}

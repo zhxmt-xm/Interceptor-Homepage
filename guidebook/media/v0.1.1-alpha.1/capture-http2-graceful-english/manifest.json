@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-http2-graceful-english",
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "source": {
+    "workflow": "capture/http2-origin-goaway.workflow.ts",
+    "test": "capture.http2-origin-goaway drains a paused response before retiring its upstream session",
+    "run": "2026-10-21T19-20-21-252Z-OBUvxl",
+    "testDirectory": "capture-http2-origin-goawa-b9549-tiring-its-upstream-session-macos",
+    "manifestSha256": "5e358758d3e3b659aefe374cb335d1d9e68da4c1f26c5546b3716aea22f42fec",
+    "metadataSha256": "8c1fe203f04395bbcaaa97686aa40f97d385ac237119d9b29ed458b63914a305",
+    "status": "passed",
+    "hostRestored": true,
+    "gracefulDestroyVerified": true,
+    "target": "macos-signed-app",
+    "capture": "native-window"
+  },
+  "facts": {
+    "origin": "https://localhost:56511",
+    "method": "POST",
+    "pausedPath": "/e2e/h2/origin-goaway/paused",
+    "completedResponseBytes": 4194304,
+    "trailer": "x-goaway-complete",
+    "nextPath": "/e2e/h2/origin-goaway/next",
+    "nextMethod": "POST",
+    "nextResponseBytes": 62,
+    "note": "step-002 is after the real Continue; do not present it as a paused editor"
+  },
+  "review": {
+    "eachFrameVisuallyReviewed": true,
+    "rawAndAnnotatedShaBytesDimensionsVerified": true,
+    "sourceImagesUnchanged": true,
+    "unrelatedModalFramesExcluded": true
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "正常GOAWAY后原样放行，完整响应trailer仍保留 / Continue after graceful GOAWAY and retain the complete response trailer",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "bytes": 275975,
+      "sha256": "e449efcc3a1c734b60e7c45e249aeedb33b481c96266889b67868cff8fef099f",
+      "rawBytes": 399218,
+      "rawSha256": "acedfb0323b9ab2122a816d199fc691b475b8401bc1c6199964b6cd3bcbd1587",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2340,
+            "y": 1499.75,
+            "width": 804,
+            "height": 72
+          },
+          "automationId": "capture.inspector.section.response-trailers"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "新上游连接的独立POST返回可读JSON / A separate POST on the new origin connection returns readable JSON",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "bytes": 232051,
+      "sha256": "fb046584c88ee52df503ee72360985811c959c2afc537147f93a86a5fd59265f",
+      "rawBytes": 310481,
+      "rawSha256": "4a5fb5759852ae379cacdd3f431d332d551d93376a1ced634f707d51fe91c7ef",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2542,
+            "y": 532.75,
+            "width": 85.46875,
+            "height": 44
+          },
+          "automationId": "capture.inspector.body-mode.raw"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ]
+}

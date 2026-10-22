@@ -1,275 +1,34 @@
 # Capture：找到并读懂流量
 
-> 草稿，写作基线为 `v0.1.1-alpha.1`。已录制的操作按步骤配图，未录分支保留待配图说明；不代表全章或 item9 完成，协议和平台专项不能仅凭本文视为验收通过。
-
 [教程目录](../README.md) · [快速上手](getting-started.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## 逐步骤实操：真实产品录制
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>filter</code> | <code>/guide/capture</code> |
-| <code>url</code> | <code>http://127.0.0.1:58377/guide/capture/orders</code> |
-| <code>response</code> | <code>{&quot;orderId&quot;:&quot;guide-001&quot;,&quot;message&quot;:&quot;Hello Interceptor&quot;,&quot;status&quot;:&quot;ready&quot;}</code> |
-| <code>protocolFilter</code> | <code>/playground</code> |
-| <code>h2Path</code> | <code>/playground/h2-json</code> |
-| <code>websocketPath</code> | <code>/playground/ws/text</code> |
-| <code>websocketPayload</code> | <code>hello from client</code> |
-| <code>grpcPath</code> | <code>/playground.Capture/UnaryJson</code> |
-| <code>grpcRequest</code> | <code>{&quot;message&quot;:&quot;hello&quot;}</code> |
-| <code>grpcResponse</code> | <code>{&quot;message&quot;:&quot;world&quot;}</code> |
-| <code>originException</code> | <code>localhost (removed after the demonstration)</code> |
-
-<a id="walkthrough-01-filter"></a>
-### 01 · 输入 /guide/capture 筛选
-
-![01 · 输入 /guide/capture 筛选](../media/v0.1.1-alpha.1/capture/capture-01-filter.png)
-
-<a id="walkthrough-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture/capture-02-record.png)
-
-<a id="walkthrough-03-request"></a>
-### 03 · 发送演示 GET
-
-![03 · 发送演示 GET](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
-
-<a id="walkthrough-04-select"></a>
-### 04 · 选择 orders 请求
-
-![04 · 选择 orders 请求](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
-
-<a id="walkthrough-05-headers"></a>
-### 05 · 检查 Headers
-
-![05 · 检查 Headers](../media/v0.1.1-alpha.1/capture/capture-05-headers.png)
-
-<a id="walkthrough-06-response"></a>
-### 06 · 读取 JSON 正文
-
-![06 · 读取 JSON 正文](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
-
-<a id="walkthrough-07-tree"></a>
-### 07 · 切换 Tree
-
-![07 · 切换 Tree](../media/v0.1.1-alpha.1/capture/capture-07-tree.png)
-
-<a id="walkthrough-08-raw"></a>
-### 08 · 切换 Raw
-
-![08 · 切换 Raw](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
-
-<a id="walkthrough-08a-fullscreen"></a>
-### 09 · 全屏查看正文
-
-![09 · 全屏查看正文](../media/v0.1.1-alpha.1/capture/capture-08a-fullscreen.png)
-
-<a id="walkthrough-08b-close-fullscreen"></a>
-### 10 · Escape 返回详情
-
-![10 · Escape 返回详情](../media/v0.1.1-alpha.1/capture/capture-08b-close-fullscreen.png)
-
-<a id="walkthrough-09-hex"></a>
-### 11 · 查看 Hex 字节
-
-![11 · 查看 Hex 字节](../media/v0.1.1-alpha.1/capture/capture-09-hex.png)
-
-<a id="walkthrough-10-timing"></a>
-### 12 · 检查请求时序
-
-![12 · 检查请求时序](../media/v0.1.1-alpha.1/capture/capture-10-timing.png)
-
-<a id="walkthrough-11-pause"></a>
-### 13 · 暂停录制
-
-![13 · 暂停录制](../media/v0.1.1-alpha.1/capture/capture-11-pause.png)
-
-<a id="walkthrough-12-paused-request"></a>
-### 14 · 暂停时请求仍转发
-
-![14 · 暂停时请求仍转发](../media/v0.1.1-alpha.1/capture/capture-12-paused-request.png)
-
-<a id="walkthrough-13-resume"></a>
-### 15 · 恢复录制
-
-![15 · 恢复录制](../media/v0.1.1-alpha.1/capture/capture-13-resume.png)
-
-<a id="walkthrough-14-new-request"></a>
-### 16 · 恢复后捕获新请求
-
-![16 · 恢复后捕获新请求](../media/v0.1.1-alpha.1/capture/capture-14-new-request.png)
-
-<a id="walkthrough-15-keyword"></a>
-### 17 · 只查找 orders
-
-![17 · 只查找 orders](../media/v0.1.1-alpha.1/capture/capture-15-keyword.png)
-
-<a id="walkthrough-16-restore-filter"></a>
-### 18 · 恢复演示范围
-
-![18 · 恢复演示范围](../media/v0.1.1-alpha.1/capture/capture-16-restore-filter.png)
-
-<a id="walkthrough-17-clear"></a>
-### 19 · 清空不需保留的演示记录
-
-![19 · 清空不需保留的演示记录](../media/v0.1.1-alpha.1/capture/capture-17-clear.png)
-
-<a id="walkthrough-18-certificates"></a>
-### 20 · 检查现有受信任 CA
-
-![20 · 检查现有受信任 CA](../media/v0.1.1-alpha.1/capture/capture-18-certificates.png)
-
-<a id="walkthrough-19-local-origin"></a>
-### 21 · 只为演示 localhost 添加源站例外
-
-![21 · 只为演示 localhost 添加源站例外](../media/v0.1.1-alpha.1/capture/capture-19-local-origin.png)
-
-<a id="walkthrough-20-decryption"></a>
-### 22 · 开启 HTTPS 解密
-
-![22 · 开启 HTTPS 解密](../media/v0.1.1-alpha.1/capture/capture-20-decryption.png)
-
-<a id="walkthrough-21-protocol-scope"></a>
-### 23 · 限定协议演示请求
-
-![23 · 限定协议演示请求](../media/v0.1.1-alpha.1/capture/capture-21-protocol-scope.png)
-
-<a id="walkthrough-22-http2"></a>
-### 24 · 捕获真实 HTTP/2
-
-![24 · 捕获真实 HTTP/2](../media/v0.1.1-alpha.1/capture/capture-22-http2.png)
-
-<a id="walkthrough-23-trailers"></a>
-### 25 · 展开 HTTP/2 trailers
-
-![25 · 展开 HTTP/2 trailers](../media/v0.1.1-alpha.1/capture/capture-23-trailers.png)
-
-<a id="walkthrough-24-h2-body"></a>
-### 26 · 读取 HTTP/2 JSON
-
-![26 · 读取 HTTP/2 JSON](../media/v0.1.1-alpha.1/capture/capture-24-h2-body.png)
-
-<a id="walkthrough-25-websocket"></a>
-### 27 · 捕获 WebSocket 文本
-
-![27 · 捕获 WebSocket 文本](../media/v0.1.1-alpha.1/capture/capture-25-websocket.png)
-
-<a id="walkthrough-26-message"></a>
-### 28 · 查看发送方向的载荷
-
-![28 · 查看发送方向的载荷](../media/v0.1.1-alpha.1/capture/capture-26-message.png)
-
-<a id="walkthrough-27-grpc"></a>
-### 29 · 捕获 gRPC JSON
-
-![29 · 捕获 gRPC JSON](../media/v0.1.1-alpha.1/capture/capture-27-grpc.png)
-
-<a id="walkthrough-28-grpc-response"></a>
-### 30 · 查看 gRPC response 消息
-
-![30 · 查看 gRPC response 消息](../media/v0.1.1-alpha.1/capture/capture-28-grpc-response.png)
-
-<a id="walkthrough-29-body-html"></a>
-### 31 · HTML代码
-
-![31 · HTML代码](../media/v0.1.1-alpha.1/capture/capture-29-body-html.png)
-
-<a id="walkthrough-29-body-markdown"></a>
-### 32 · Markdown预览
-
-![32 · Markdown预览](../media/v0.1.1-alpha.1/capture/capture-29-body-markdown.png)
-
-<a id="walkthrough-29-body-form"></a>
-### 33 · Form字段
-
-![33 · Form字段](../media/v0.1.1-alpha.1/capture/capture-29-body-form.png)
-
-<a id="walkthrough-29-body-png"></a>
-### 34 · PNG图片
-
-![34 · PNG图片](../media/v0.1.1-alpha.1/capture/capture-29-body-png.png)
-
-<a id="walkthrough-29-body-binary"></a>
-### 35 · 二进制Hex
-
-![35 · 二进制Hex](../media/v0.1.1-alpha.1/capture/capture-29-body-binary.png)
-
-<a id="walkthrough-29-body-audio"></a>
-### 36 · 音频元信息
-
-![36 · 音频元信息](../media/v0.1.1-alpha.1/capture/capture-29-body-audio.png)
-
-### 37 · 视频元信息
-
-![37 · 视频元信息](../media/v0.1.1-alpha.1/capture/capture-29-body-video.png)
-
-<a id="walkthrough-29-encoding-gzip"></a>
-### 38 · gzip解码
-
-![38 · gzip解码](../media/v0.1.1-alpha.1/capture/capture-29-encoding-gzip.png)
-
-<a id="walkthrough-29-encoding-corrupt-gzip"></a>
-### 39 · 损坏编码的实际提示
-
-![39 · 损坏编码的实际提示](../media/v0.1.1-alpha.1/capture/capture-29-encoding-corrupt-gzip.png)
-
-<a id="walkthrough-30-decryption-off"></a>
-### 40 · 关闭本轮 HTTPS 解密
-
-![40 · 关闭本轮 HTTPS 解密](../media/v0.1.1-alpha.1/capture/capture-30-decryption-off.png)
-
-<a id="walkthrough-31-remove-exception"></a>
-### 41 · 移除演示源站例外
-
-![41 · 移除演示源站例外](../media/v0.1.1-alpha.1/capture/capture-31-remove-exception.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:end -->
 
 ## 开始与暂停录制
 
-**用途与前提**
-
 记录经过代理的请求。先按快速上手完成代理就绪，再在外部客户端产生有权检查的流量。
 
-**步骤**
+1. <a id="walkthrough-02-record"></a>打开 Capture，点击红框 1 的录制开关，确认显示 Recording。本段用 `/e2e/recording-boundary` 下的 HTTP 请求和 WebSocket 连接比较录制状态；接口主机和端口请使用自己的服务，并按[路径搜索](#walkthrough-01-filter)限定显示范围。
 
-1. 打开 Capture，开启 Recording。本节沿用 `capture` 实拍；目标 `http://127.0.0.1:58377/guide/capture/orders` 中的 `58377` 只是录制环境的动态端口，实际使用自己的测试服务。
+   ![Recording已开启](../media/v0.1.1-alpha.1/capture-recording-english/step-002.annotated.png)
 
-   ![开启 Recording](../media/v0.1.1-alpha.1/capture/capture-02-record.png)
+2. <a id="walkthrough-03-request"></a>通过代理发送 `GET /e2e/recording-boundary/http-before`。示例还连接了 `/e2e/recording-boundary/ws-before`，并发送 `recorded-before-pause`。选中这条 WebSocket，打开红框 1 的 Messages，可看到发送与回显消息；左侧也保留着 HTTP 的 `200` 记录。这些流量来自外部客户端，不是 Composer Send。
 
-2. 让外部客户端通过代理发送该 GET，等待它进入列表；这不是 Composer Send。
+   ![捕获HTTP请求与WebSocket消息](../media/v0.1.1-alpha.1/capture-recording-english/step-003.annotated.png)
 
-   ![演示 GET 到达 Capture](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
+3. <a id="walkthrough-11-pause"></a>点击红框 1 的录制开关，暂停记录新请求。按钮变为 Paused，但代理仍继续转发。
 
-3. 点击 Recording 暂停。
+   ![录制开关显示Paused](../media/v0.1.1-alpha.1/capture-recording-english/step-004.annotated.png)
 
-   ![暂停后的 Recording 状态](../media/v0.1.1-alpha.1/capture/capture-11-pause.png)
+4. <a id="walkthrough-12-paused-request"></a>暂停期间发送 `GET /e2e/recording-boundary/http-paused`，比较客户端仍收到响应与筛选列表没有新增该记录。向原 WebSocket 发送 `recorded-during-pause` 时，原连接的消息仍继续记录。红框 1 保持 Paused，列表仍是暂停前的两条记录。
 
-4. 暂停期间再发请求，比较客户端仍可收到结果与列表不新增记录。
+   ![暂停不阻断转发，已录制连接继续记录消息](../media/v0.1.1-alpha.1/capture-recording-english/step-005.annotated.png)
 
-   ![暂停期间请求仍转发的实拍检查点](../media/v0.1.1-alpha.1/capture/capture-12-paused-request.png)
+5. <a id="walkthrough-13-resume"></a>再次点击红框 1 的开关，恢复 Recording。
 
-5. 恢复 Recording。
+   ![恢复Recording](../media/v0.1.1-alpha.1/capture-recording-english/step-006.annotated.png)
 
-   ![恢复录制](../media/v0.1.1-alpha.1/capture/capture-13-resume.png)
+6. <a id="walkthrough-14-new-request"></a>再发送 `GET /e2e/recording-boundary/http-after`，并新建 `/e2e/recording-boundary/ws-after` 连接。选中红框 1 的新连接，查看 `recorded-after-resume` 的发送和回显消息；新 HTTP 与 WebSocket 都进入列表，不是补录暂停期间的请求。
 
-6. 再发一条新请求，检查新的记录，而不是等待暂停期间的请求补录。
-
-   ![恢复后捕获新请求](../media/v0.1.1-alpha.1/capture/capture-14-new-request.png)
-
-**预期结果**
-
-暂停前的记录仍在；暂停期间开始的新请求不补录，恢复后开始的新请求重新出现。
-
-**关键说明**
+   ![恢复后捕获新请求和新连接](../media/v0.1.1-alpha.1/capture-recording-english/step-007.annotated.png)
 
 - 暂停不停止代理转发，也不恢复系统代理。
 - 已开始的请求会继续收尾，暂停不等于截断响应。
@@ -277,89 +36,123 @@
 
 ## 搜索和组合筛选
 
-**用途**
-
 从大量流量中找到目标请求，而不删除原始记录。
 
-**步骤**
+1. <a id="walkthrough"></a><a id="walkthrough-01-filter"></a>在红框 1 的搜索框输入 `/e2e/recording-boundary`，只查看上面录制状态示例的请求。
 
-1. 在搜索框输入 `/guide/capture`，限定本章的演示路径。
+   ![按自产路径限定Capture列表](../media/v0.1.1-alpha.1/capture-recording-english/step-001.annotated.png)
 
-   ![实际搜索值 /guide/capture](../media/v0.1.1-alpha.1/capture/capture-01-filter.png)
+2. <a id="walkthrough-15-keyword"></a>检查下面的 JSON 示例时，把红框 1 的搜索词改为 `/playground/body/json`。搜索只限定显示范围，不会发送请求。
 
-2. 要进一步缩小范围时改为 `orders`。
+   ![按JSON示例路径搜索](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.annotated.png)
 
-   ![只查找 orders 的实际结果](../media/v0.1.1-alpha.1/capture/capture-15-keyword.png)
+3. <a id="walkthrough-capture-filters"></a><a id="walkthrough-capture-filters-01-records"></a>下面改用已经捕获的五条 `/e2e/facets/` 记录：GET三条、POST两条，状态200四条、503一条。先保留全部记录，不要点击红框 1 的 Clear；它是删除记录的入口，不是解除筛选。
 
-3. 组合筛选使用另一段 `capture-filters` 实拍：搜索范围为 `/guide/filters`，开始时有四条演示记录，不是把上面的 orders 改名。
+   ![五条记录齐备后开始组合筛选](../media/v0.1.1-alpha.1/capture-filters-english/step-010.annotated.png)
 
-   ![组合筛选开始前的四条真实记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-01-records.png)
+4. <a id="walkthrough-capture-filters-02-methods"></a><a id="walkthrough-capture-filters-03-get"></a>点击 Method 标题展开分组，再选择红框 1 的 GET。本例显示3 of 5。
 
-4. 展开 Method 分组。
+   ![展开Method并只选择GET](../media/v0.1.1-alpha.1/capture-filters-english/step-011.annotated.png)
 
-   ![展开实际 Method 分组](../media/v0.1.1-alpha.1/capture-filters/capture-filters-02-methods.png)
+5. <a id="walkthrough-capture-filters-04-get-post"></a>同组再选择红框 1 的 POST。GET与POST按OR组合，恢复5 of 5。
 
-5. 先选择 `GET`。
+   ![同组选择GET或POST](../media/v0.1.1-alpha.1/capture-filters-english/step-012.annotated.png)
 
-   ![只选 GET 的实际结果](../media/v0.1.1-alpha.1/capture-filters/capture-filters-03-get.png)
+6. <a id="walkthrough-capture-filters-05-status"></a><a id="walkthrough-capture-filters-06-and-status"></a>展开 Status，保留 Method 的两项选择，再选择红框 1 的200。跨组按AND组合，显示4 of 5，503那条被隐藏但没有删除。
 
-6. 同组再选择 `POST`，两种方法是 OR，本次显示三条记录。
+   ![Method与Status跨组取交集](../media/v0.1.1-alpha.1/capture-filters-english/step-013.annotated.png)
 
-   ![GET 与 POST 同组多选后显示三条](../media/v0.1.1-alpha.1/capture-filters/capture-filters-04-get-post.png)
+7. <a id="walkthrough-capture-filters-07-search"></a>在红框 1 的搜索框输入 `/e2e/facets/post`。路径条件再与分组相交，只显示两条POST。
 
-7. 展开 Status 分组，不取消 Method 条件。
+   ![叠加路径搜索后显示两条POST](../media/v0.1.1-alpha.1/capture-filters-english/step-014.annotated.png)
 
-   ![保留 Method 条件并展开 Status](../media/v0.1.1-alpha.1/capture-filters/capture-filters-05-status.png)
+8. <a id="walkthrough-capture-filters-08-search-back"></a>只想扩大路径范围时，可将红框 1 中的值改回 `/e2e/facets/`，保留 Method 和 Status 条件。图中是修改前的 `/e2e/facets/post`，不是修改后的结果。
 
-8. 选择状态 `200`，与 Method 跨组 AND，本次剩两条。
+   ![在现有搜索框中修改路径范围](../media/v0.1.1-alpha.1/capture-filters-english/step-014.annotated.png)
 
-   ![GET 或 POST，同时状态为 200 的两条记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-06-and-status.png)
+9. <a id="walkthrough-capture-filters-13-clear-search"></a>不再需要搜索词时，点击搜索框内的 ×。红框 1 标出清空后的搜索框：Method仍选GET+POST，Status仍选200，因此显示4 of 5，不是清空全部筛选或清空记录。
 
-9. 将搜索改为 `/guide/filters/post-ok`，叠加路径条件后只剩一条。
+   ![清空搜索但保留Method和Status条件](../media/v0.1.1-alpha.1/capture-filters-english/step-015.annotated.png)
 
-   ![搜索与分组条件共同作用后的一条记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-07-search.png)
+10. <a id="walkthrough-capture-filters-09-remove-status"></a>再次点击红框 1 的200，取消Status限制。503记录重新可见，恢复5 of 5。
 
-10. 搜索改回 `/guide/filters`，保留当前 Method 与 Status 条件。
+    ![取消Status条件后五条记录均可见](../media/v0.1.1-alpha.1/capture-filters-english/step-016.annotated.png)
 
-    ![恢复演示路径搜索，而非清空记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-08-search-back.png)
+11. <a id="walkthrough-capture-filters-10-remove-post"></a>取消红框 1 的POST，只保留GET，列表变为3 of 5。
 
-11. 取消 Status 的 `200` 条件。
+    ![取消POST但保留GET](../media/v0.1.1-alpha.1/capture-filters-english/step-017.annotated.png)
 
-    ![实际取消 Status 条件](../media/v0.1.1-alpha.1/capture-filters/capture-filters-09-remove-status.png)
+12. <a id="walkthrough-capture-filters-11-remove-get"></a>再取消红框 1 的GET。Method恢复All，原有五条记录全部可见。
 
-12. 取消 Method 中的 `POST`。
+    ![取消最后一个Method条件](../media/v0.1.1-alpha.1/capture-filters-english/step-018.annotated.png)
 
-    ![实际取消 POST，仍保留 GET](../media/v0.1.1-alpha.1/capture-filters/capture-filters-10-remove-post.png)
+13. <a id="walkthrough-capture-filters-12-collapse"></a>只想折叠分组时，点击 Method 标题或其左侧箭头，再点可展开。图中保留展开状态方便定位；红框 1 是已取消的GET值，不是折叠控件，点击它会重新筛选。
 
-13. 再取消 `GET`，恢复 `/guide/filters` 范围内原有四条记录；这些记录没有被删除。
+    ![区分Method标题与GET筛选项](../media/v0.1.1-alpha.1/capture-filters-english/step-018.annotated.png)
 
-    ![取消最后一个 Method 条件后恢复四条](../media/v0.1.1-alpha.1/capture-filters/capture-filters-11-remove-get.png)
+14. 查看 Pending 时，先展开 Application。红框 1 的Pending表示应用归属仍待确定；空列表中计数为0。以下几图展示上述请求到达期间的不同状态，不是筛选操作删除了记录。
 
-14. 点击分组标题折叠，只改变展开状态。
+    ![空列表中Application Pending的入口](../media/v0.1.1-alpha.1/capture-filters-english/step-001.annotated.png)
 
-    ![折叠组标题，不执行 Capture Clear](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
+15. 在已有两条记录、归属均为Unknown时，选择红框 1 的Application Pending会显示0 of 2。Unknown与Pending不是同一个状态。
 
-15. 点击搜索框右侧的清空按钮，移除 `/guide/filters`，而不是点击 Capture Clear。本次搜索框已空，仍保留全部四条记录，Recording 仍为暂停。[对应步骤图](#walkthrough-capture-filters-13-clear-search)
+    ![选择Application Pending后没有匹配行](../media/v0.1.1-alpha.1/capture-filters-english/step-004.annotated.png)
 
-    ![清空搜索后保留四条已暂停的演示记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
+16. 再次点击红框 1 的Application Pending取消条件，原来的两条记录恢复可见。
 
-16. 需要其他维度时选择 Application、Host、Protocol、Content type 或 Rule。
+    ![取消Application Pending恢复原记录](../media/v0.1.1-alpha.1/capture-filters-english/step-005.annotated.png)
 
-    [独立的全部分组实录](#walkthrough-capture-facets)从两条已捕获的公开请求开始：`/guide/facets/selected-json` 与 `/guide/facets/other-text`；已应用的 `Guide facets` 只命中前者，准备规则的方法见[Rules](rules.md#first-rule)。这不是前面四条请求的同一次操作。
+17. 有请求仍在等待响应时，在 Status 选择红框 1 的Pending。本图只保留尚未完成的 `/e2e/facets/pending`，显示1 of 4。
 
-    按实录逐项[展开并选择 Application](#walkthrough-capture-facets-01-application)、[Host](#walkthrough-capture-facets-03-host-group)、[Protocol](#walkthrough-capture-facets-05-protocol-group)、[Content type](#walkthrough-capture-facets-07-type-group)与[Rule](#walkthrough-capture-facets-09-rule-group)，每次展开和选择都有独立步骤图。macOS本次归属为Unknown，不冒充Windows应用识别。
+    ![按Status Pending找到等待响应的请求](../media/v0.1.1-alpha.1/capture-filters-english/step-007.annotated.png)
 
-    ![只保留json且命中Guide facets的实际结果](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
+18. 取消Status Pending后，在Content type选择红框 1 的Pending，查找尚未确定内容类型的请求。本例仍是同一条等待中的GET。
 
-    取消json后仍由Rule保留一条；使用[清除分组筛选](#walkthrough-capture-facets-12-clear-facets)后恢复两条，但搜索词`/guide/facets`不变。筛选栏的[收起与显示](#walkthrough-capture-facets-13-hide-filters)也不删除记录。演示结束按实录停用并Apply `Guide facets`。
+    ![按Content type Pending查看尚未确定的类型](../media/v0.1.1-alpha.1/capture-filters-english/step-008.annotated.png)
 
-**预期结果**
+19. 响应结束后取消Pending限制，核对红框 1 的200计数变为4，Pending归零。稍后新增503记录才形成前面用于组合筛选的五条记录。
 
-同一组内多个选项是“满足任意一个”；不同组之间，以及搜索与分组之间，是“同时满足”。
+    ![响应完成后Pending转为确定状态](../media/v0.1.1-alpha.1/capture-filters-english/step-009.annotated.png)
 
-搜索匹配 Host 与 Path，不包含端口。需要找本机 TLS 示例时输入 `localhost`，再在详情中核对本次端口；不要把 `localhost:63604` 当作同等搜索。
+20. <a id="walkthrough-capture-facets"></a><a id="walkthrough-capture-facets-01-application"></a><a id="walkthrough-capture-facets-02-unknown"></a>需要按应用归属筛选时，展开Application并选择所需值。下面是五条记录的选择前状态，Unknown计数为5；选择Unknown只表示没有识别出具体应用，不能据此推断进程名称。
 
-**关键说明**
+    ![Application展开后可选择Unknown](../media/v0.1.1-alpha.1/capture-filters-english/step-010.png)
+
+21. <a id="walkthrough-capture-facets-03-host-group"></a><a id="walkthrough-capture-facets-04-host-select"></a>按主机缩小范围时，展开Host并选择目标。这个独立GET示例的主机为 `127.0.0.1`；图中是展开Host前的核对状态，Headers显示完整URL `http://127.0.0.1:64755/e2e/capture/clear-facets`，端口在详情中确认。
+
+    ![在Headers核对主机后选择Host分组](../media/v0.1.1-alpha.1/capture-clear-state-english/step-002.png)
+
+22. <a id="walkthrough-capture-facets-05-protocol-group"></a><a id="walkthrough-capture-facets-06-protocol-select"></a>按协议筛选时，展开Protocol，选择红框 1 的HTTP/2；下图是独立H2示例的选中状态。再次点击可取消，完整操作见[HTTP/2](#http2)。
+
+    ![Protocol中选择HTTP2的实际状态](../media/v0.1.1-alpha.1/capture-http2-english/step-003.annotated.png)
+
+23. <a id="walkthrough-capture-facets-07-type-group"></a><a id="walkthrough-capture-facets-08-json"></a><a id="walkthrough-capture-facets-11-remove-type"></a>需要按内容类型筛选时，展开Content type，选择json；再次点击已选的json可单独取消这个维度，不取消其他已选分组。下图是五条记录中选择前的All状态，json计数为5。类型分组不等于逐条验证正文都是合法JSON。
+
+    ![查看Content type中的json选项](../media/v0.1.1-alpha.1/capture-filters-english/step-010.png)
+
+24. <a id="walkthrough-capture-facets-09-rule-group"></a><a id="walkthrough-capture-facets-10-rule-select"></a>按规则命中筛选时，展开Rule并选择目标规则。这个独立示例选中了 `E2E hierarchy rule`；红框 1 是搜索词 `/e2e/rules/hierarchy-status`，红框 2 是符合条件的GET，当前1 of 2。
+
+    ![Rule筛选与路径搜索共同找到命中记录](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-027.annotated.png)
+
+    <a id="walkthrough-capture-facets-15-rules"></a><a id="walkthrough-capture-facets-16-disable"></a><a id="walkthrough-capture-facets-17-apply-disabled"></a>检查结束后进入Rules，找到本次练习规则，关闭其开关并Save。选择或取消Rule筛选只改变列表显示，不会启用或停用规则；保存步骤见 [Rules](rules.md)。
+
+25. <a id="walkthrough-capture-facets-12-clear-facets"></a>想一次取消分组选项时，点击搜索框外侧红框 1 的Clear all filters。这里另用单条 `/e2e/capture/clear-facets` GET演示，Method的GET当前已选中；不是要删除该记录。
+
+    ![清除分组筛选前的Clear all filters按钮](../media/v0.1.1-alpha.1/capture-clear-state-english/step-003.annotated.png)
+
+26. 检查分组恢复All，原记录和右侧Inspector仍保留。红框 1 是清除分组选项后的Clear all filters按钮，列表仍为1 of 1。
+
+    ![清除筛选后保留记录和Inspector](../media/v0.1.1-alpha.1/capture-clear-state-english/step-004.annotated.png)
+
+27. <a id="walkthrough-capture-facets-13-hide-filters"></a><a id="walkthrough-capture-facets-14-show-filters"></a>只想临时隐藏筛选侧栏时，点击Recording左侧的面板图标，再点一次显示。图中是侧栏展开时的位置；隐藏侧栏不会删除记录或关闭已选请求的Inspector。
+
+    ![筛选侧栏展开时的面板开关位置](../media/v0.1.1-alpha.1/capture-clear-state-english/step-002.png)
+
+28. 只有确定不要记录时才点击Recording右侧的Capture Clear。图中红框 1 是清空后已禁用的Clear按钮；列表、详情和记录计数一起清空，不能用这项操作代替解除筛选。
+
+    ![Capture Clear清空记录而不是只清筛选](../media/v0.1.1-alpha.1/capture-clear-state-english/step-005.annotated.png)
+
+搜索匹配Host与Path，不包含端口。本章TLS示例可输入 `localhost`，再在详情核对端口；`localhost:52139` 不是同等搜索。上面的分组示例在系统代理Restore后显示Paused；Restore恢复的是系统代理，不能仅凭这个标签判断显式代理客户端是否还在产生新记录。
 
 - 搜索匹配 Host 和 Path，不是全文检索正文或请求头。
 - 分组计数来自当前录制的完整记录，不应直接当成当前筛选结果的行数。
@@ -370,41 +163,67 @@
 
 ## 检查请求详情
 
-**步骤**
+1. <a id="walkthrough-04-select"></a>本段用 `POST http://127.0.0.1:59696/playground/body/json` 举例，请替换成自己的服务地址。让外部客户端经代理发送 `Content-Type: application/json`、正文 `{"ready":true}`。第一张图红框 1 是进入列表的 `200` 记录；点击它后，第二张图红框 1 显示选中状态，右侧出现 URL、方法、协议和状态概要。
 
-1. 选中 `/guide/capture/orders`，检查 URL、方法、协议、状态和大小等概要。
+   ![同一POST进入Capture列表](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
-   ![选中 orders 后的实际请求概要](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
+   ![选中同一POST检查概要](../media/v0.1.1-alpha.1/capture-json-example-english/step-003.annotated.png)
 
-2. 打开 Headers，查看请求与响应头；按需展开对应分组。
+2. <a id="walkthrough-05-headers"></a>打开红框 1 的 Headers，查看同一请求的请求头与响应头。此例两侧使用 `application/json`，响应 Content-Length 为 `30`。
 
-   ![orders 的 Headers](../media/v0.1.1-alpha.1/capture/capture-05-headers.png)
+   ![同一JSON请求的Headers](../media/v0.1.1-alpha.1/capture-json-example-english/step-004.annotated.png)
 
-3. 打开 Response，核对 `orderId: guide-001`、`message: Hello Interceptor`、`status: ready`。
+3. <a id="walkthrough-06-response"></a>打开 Response，选择红框 1 的 Raw，读取 `{"ready":true,"items":[1,2,3]}`。这是该 POST 的响应，不是请求正文。
 
-   ![orders 的实际 JSON 响应](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
+   ![同一POST的JSON响应](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-4. 打开 Timing 查看本次时序。
+4. <a id="walkthrough-capture-inspection-06-headers"></a>需要比较详情分组时，另选 `GET http://127.0.0.1:59682/e2e/capture/section-collapse` 并打开 Headers；端口请替换成自己的服务端口。红框 1 的 General 已展开，下面的 Response Headers 也展开。这条记录为 `H1`、`200`，不是前面的 JSON POST。
 
-   ![同一请求的 Timing](../media/v0.1.1-alpha.1/capture/capture-10-timing.png)
+   ![独立 GET 的 General 与 Response Headers 同时展开](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-001.annotated.png)
 
-5. 有请求正文时打开 Request。另一个[正文检查实录](#walkthrough-capture-inspection)使用 `POST /guide/inspection/body`，请求包含`requestId: guide-request`、96条entries及24个Query字段，不把它当成前面的GET。[对应步骤图](#walkthrough-capture-inspection-09-request)
+5. <a id="walkthrough-capture-inspection-07-collapse"></a>点击红框 1 的 General 标题将其收起。Response Headers 仍展开，不会随 General 一起折叠。
 
-   ![实际POST的Request与查询字段](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
+   ![只折叠 General，保留响应头](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-003.annotated.png)
 
-6. 选择 Raw，读取相同的请求正文。[对应步骤图](#walkthrough-capture-inspection-10-raw)
+6. <a id="walkthrough-capture-response-headers-collapse"></a>再点击红框 1 的 Response Headers 标题收起响应头。此时 General 和 Response Headers 均折叠，Request Headers 仍可查看。
 
-   ![请求正文的Raw模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
+   ![独立折叠 Response Headers](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-004.annotated.png)
 
-7. 拖动列表与详情之间的分隔轨道，扩大详情区域；本次向左拖240px，并在结束时恢复。[对应步骤图](#walkthrough-capture-inspection-11-widen)
+7. <a id="walkthrough-capture-inspection-08-expand"></a>点击红框 1 重新展开 General。Response Headers 仍保持折叠；每个标题只控制自己的分组。
 
-   ![实际拖动后变宽的详情](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
+   ![重新展开 General，不改变响应头分组](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-005.annotated.png)
 
-**预期结果**
+8. <a id="walkthrough-10-timing"></a>在这条 GET 中打开红框 1 的 Timing。本例 Waiting (TTFB) 为 `12 ms`，Response bodies 为 `4 ms`，Total 为 `16 ms`；请求正文为 `0 B`，响应正文为 `103 B`。这些是当前记录的数值，不是固定性能指标。
 
-切换详情只改变查看方式，不会重发请求或修改流量；折叠一个分组不影响其他分组。
+   ![检查同一 GET 的 Timing](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-006.annotated.png)
 
-**关键说明**
+9. <a id="walkthrough-capture-inspection"></a><a id="walkthrough-capture-inspection-01-filter"></a><a id="walkthrough-capture-inspection-02-record"></a><a id="walkthrough-capture-inspection-03-post"></a><a id="walkthrough-capture-inspection-04-pause"></a><a id="walkthrough-capture-inspection-05-select"></a><a id="walkthrough-capture-inspection-09-request"></a>查看请求正文时，重新选中前面的 `POST /playground/body/json`，打开 Request，再选择红框 1 的 Raw。此例请求正文为 `{"ready":true}`，共 `14` 字节，Query 参数为空。
+
+   ![同一POST的Request Raw正文](../media/v0.1.1-alpha.1/capture-json-example-english/step-005.annotated.png)
+
+10. <a id="walkthrough-capture-inspection-10-raw"></a>返回 Response 后也可在红框 1 选择 Raw。比较请求的 `{"ready":true}` 与响应的 `{"ready":true,"items":[1,2,3]}`，不要把两侧正文混为一份。
+
+    ![区分请求与响应Raw正文](../media/v0.1.1-alpha.1/capture-json-example-english/step-011.annotated.png)
+
+11. <a id="walkthrough-capture-query"></a>URL 查询参数与请求正文分开查看。下面改用 `GET /e2e/capture/section-collapse/query`，查询字符串为 `orderId=ord_42&tag=books&tag=featured&message=hello%20capture`。打开 Request，在红框 1 的 Query String Parameters 下查看四项参数：两个 `tag` 都被保留，`message` 显示为 `hello capture`。
+
+    ![检查重复Query参数与空格解码](../media/v0.1.1-alpha.1/capture-query-layout-english/step-007.annotated.png)
+
+12. <a id="walkthrough-capture-query-collapse"></a>点击红框 1 的 Query String Parameters 标题折叠分组。只是收起显示，不会删除 URL 参数或请求。
+
+    ![折叠Query分组](../media/v0.1.1-alpha.1/capture-query-layout-english/step-008.annotated.png)
+
+13. <a id="walkthrough-capture-query-expand"></a>再次点击红框 1，展开同一分组，核对参数及两个 `tag` 的值仍在。
+
+    ![重新展开同一请求的Query](../media/v0.1.1-alpha.1/capture-query-layout-english/step-009.annotated.png)
+
+14. <a id="walkthrough-capture-inspection-11-widen"></a>在同一条 Query 请求中，向左拖动红框 1 的列表与 Inspector 分隔轨道。这里移动 `120px`，详情区域变宽，参数内容不变。
+
+    ![向左拖动分栏扩大Inspector](../media/v0.1.1-alpha.1/capture-query-layout-english/step-010.annotated.png)
+
+15. <a id="walkthrough-capture-inspection-27-restore-width"></a>把红框 1 的分隔轨道拖回原位，恢复初始宽度；仍然是同一条 Query 请求。
+
+    ![恢复Inspector宽度并保留Query](../media/v0.1.1-alpha.1/capture-query-layout-english/step-011.annotated.png)
 
 - 请求可能在响应尚未结束时已经出现在列表中。流式请求的大小和状态会继续更新。
 - 服务器先返回响应、客户端稍后发送完正文，也是可能出现的真实情况。
@@ -412,49 +231,75 @@
 
 ## 选择正文查看方式
 
-**步骤**
+不同模式呈现同一份正文，不会把 HTML 或 SVG 当成可执行页面，也不会因为切换模式重新发请求。
 
-1. 打开上述 JSON 的 Response。
+1. 继续查看同一个 `POST /playground/body/json`。红框 1 的 Response 显示该请求的 JSON 返回值。
 
-   ![JSON 响应正文](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
+   ![同一JSON请求的Response状态](../media/v0.1.1-alpha.1/capture-json-example-english/step-016.annotated.png)
 
-2. 选择 Tree 检查字段层级。
+2. <a id="walkthrough-07-tree"></a>选择第一张图红框 1 的 Tree，查看 `ready` 与 `items` 数组层级。点击第二张图红框 1 的根节点折叠控件，再点击第三张图红框 1 重新展开；内容没有被删除。第四张图红框 1 的 Copy 复制同一份 JSON 原文。
 
-   ![同一 JSON 的 Tree 模式](../media/v0.1.1-alpha.1/capture/capture-07-tree.png)
+   ![选择Tree查看JSON层级](../media/v0.1.1-alpha.1/capture-json-example-english/step-007.annotated.png)
 
-3. 切换 Raw 查看文本原貌；其他内容若提供 Source，可用它查看源码。
+   ![折叠JSON根节点](../media/v0.1.1-alpha.1/capture-json-example-english/step-008.annotated.png)
 
-   ![同一 JSON 的 Raw 模式，未声称是 Source](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
+   ![重新展开JSON根节点](../media/v0.1.1-alpha.1/capture-json-example-english/step-009.annotated.png)
 
-   Markdown使用独立的`/guide/inspection/body`响应，标题为`Guide response source`。从[Preview](#walkthrough-capture-inspection-17-preview)聚焦模式控件后，按右方向键选择[Split](#walkthrough-capture-inspection-18-split)，再右移一次选择[Source](#walkthrough-capture-inspection-19-source)；这三个操作各有图片，不把JSON Raw当作Markdown Source。
+   ![在Tree中复制同一份JSON](../media/v0.1.1-alpha.1/capture-json-example-english/step-010.annotated.png)
 
-   ![Markdown的实际Split模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
+3. <a id="walkthrough-08-raw"></a><a id="walkthrough-capture-inspection-16-copy-request"></a>切换红框 1 的 Raw 查看同一 JSON 的文本原貌。Markdown 使用单独的 Preview、Split 和 Source，见下方[Markdown 示例](#walkthrough-capture-markdown-viewer)。
 
-   ![Markdown的实际Source模式](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
+   ![同一JSON从Tree返回Raw](../media/v0.1.1-alpha.1/capture-json-example-english/step-011.annotated.png)
 
-   [Copy Source](#walkthrough-capture-inspection-20-copy-source)复制原始Markdown；全屏及Escape返回也保持Source，完整步骤在同一实录中。
+4. <a id="walkthrough-fullscreen-response"></a>下面继续用 `POST /playground/body/json` 的同一份响应演示字节和全屏。红框 1 的 Response 仍显示 `{"ready":true,"items":[1,2,3]}`。
 
-4. 使用全屏入口放大当前正文。
+   ![保持同一JSON响应](../media/v0.1.1-alpha.1/capture-json-example-english/step-016.annotated.png)
 
-   ![正文全屏已打开](../media/v0.1.1-alpha.1/capture/capture-08a-fullscreen.png)
+5. <a id="walkthrough-fullscreen-raw"></a>点击红框 1 的 Raw，先查看同一响应的原文。
 
-5. 按 Escape 返回详情。
+   ![全屏之前选择Raw](../media/v0.1.1-alpha.1/capture-json-example-english/step-011.annotated.png)
 
-   ![退出全屏后的详情](../media/v0.1.1-alpha.1/capture/capture-08b-close-fullscreen.png)
+6. <a id="walkthrough-09-hex"></a>选择红框 1 的 Hex，检查同一 JSON 的字节；开头的 `7b 22` 对应 `{"`。切换视图不会重发请求。
 
-6. 切换 Hex，精确检查字节。
+   ![同一JSON切换Hex](../media/v0.1.1-alpha.1/capture-json-example-english/step-012.annotated.png)
 
-   ![同一正文的 Hex 字节](../media/v0.1.1-alpha.1/capture/capture-09-hex.png)
+7. <a id="walkthrough-08a-fullscreen"></a>点击正文工具栏右端的 Fullscreen。红框 1 的 Hex 在全屏中保持选中，仍是同一条 POST 的响应。
 
-7. 需要访问溢出内容时滚动或拖动分栏。
+   ![同一JSON以Hex打开全屏](../media/v0.1.1-alpha.1/capture-json-example-english/step-013.annotated.png)
 
-   长请求正文先用[真实滚轮](#walkthrough-capture-inspection-12-inner-scroll)滚动，再用`Command+ArrowDown`到达`guide-request-end`；在详情边缘向上滚动后，把鼠标移回已到底的正文，继续滚轮可移动外层详情。[内外层交接步骤](#walkthrough-capture-inspection-14-outer-up)
+8. <a id="walkthrough-fullscreen-copy"></a>在全屏中切回 Raw，再点击标题栏红框 1 的 Copy，复制 `{"ready":true,"items":[1,2,3]}` 原文，而不是 Hex 显示文本。
 
-   ![键盘到达真实请求末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
+   ![全屏复制同一JSON原文](../media/v0.1.1-alpha.1/capture-json-example-english/step-014.annotated.png)
 
-   ![正文到底后继续滚动外层](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
+9. <a id="walkthrough-08b-close-fullscreen"></a>点击弹窗内 Raw 模式按钮，让焦点离开 Copy 提示后按 Escape。返回详情时，红框 1 的 Raw 仍被选中，JSON 内容不变。
 
-   Markdown Source同样有[滚轮与键盘到末尾](#walkthrough-capture-inspection-21-source-scroll)的实录，末尾为`guide-response-end`。滚动和拖拽不重发该POST，也不修改线上正文。
+   ![Escape返回同一JSON的Raw视图](../media/v0.1.1-alpha.1/capture-json-example-english/step-015.annotated.png)
+
+10. <a id="walkthrough-fullscreen-close"></a>也可点击全屏标题栏的 Close（×）返回详情。下面的独立 `POST /e2e/fullscreen-json` 示例使用这一方式；红框 1 的 Raw 保持选中，响应为 `{"source":"fullscreen-response","values":[1,2,3]}`。
+
+    ![使用Close返回详情并保留Raw](../media/v0.1.1-alpha.1/capture-fullscreen-english/step-016.annotated.png)
+
+11. <a id="walkthrough-fullscreen-copy-again"></a>在这个独立的 `/e2e/fullscreen-json` 示例中，切回 Raw 再点击红框 1 的 Copy，复制的仍是 `{"source":"fullscreen-response","values":[1,2,3]}`，不是 Hex 显示文本。
+
+    ![返回Raw后复制同一份原文](../media/v0.1.1-alpha.1/capture-fullscreen-english/step-019.annotated.png)
+
+12. <a id="walkthrough-capture-body-scroll"></a>浏览长正文时，先选中对应请求。下面使用 `POST /e2e/detail-body-fill`，请求正文包含 200 条 `entries`；点击红框 1 的 Request，先查看正文开头。
+
+    ![打开含200条entries的请求正文](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-002.annotated.png)
+
+13. <a id="walkthrough-capture-inspection-12-inner-scroll"></a>红框 1 是 Inspector 的内容区域，其中正文有独立的滚动条。把鼠标移入正文编辑区，用滚轮向下浏览，不必重新发送请求。
+
+    ![在正文内部使用滚轮](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-003.annotated.png)
+
+14. <a id="walkthrough-capture-inspection-13-request-end"></a>拖动红框 1 区域内正文自己的滚动条到最下方，检查最后一项 `index: 199`、`value: entry-199`。
+
+    ![拖动正文滚动条查看最后一项](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-004.annotated.png)
+
+15. <a id="walkthrough-capture-inspection-14-outer-up"></a><a id="walkthrough-capture-inspection-15-scroll-chain"></a>正文已经到底后，把鼠标留在正文中继续向下滚动。红框 1 的外层详情会继续移动，正文仍停在最后一项。
+
+    ![正文到边界后继续滚动外层详情](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-005.annotated.png)
+
+    需要键盘定位时，先让正文获得焦点，再使用相应的首尾快捷键；也可参考[长消息中的键盘操作](#walkthrough-capture-websocket-messages-14-keyboard-end)。滚动和拖动分栏不会修改请求或响应内容。
 
 **可用模式**
 
@@ -469,87 +314,179 @@
 | 二进制 | Hex，必要时尝试 Text |
 | 音频、视频 | 查看元信息，再通过 Save body 保存 |
 
-**预期结果**
-
-不同模式呈现同一份正文，不会把 HTML 或 SVG 当成可执行页面，也不会因为切换模式重新发请求。
-
-**关键说明**
-
 - 文本、WebSocket 和 gRPC 的只读预览最多 `2 MiB`；图片读取与解码使用独立的 `16 MiB` 上限。
 - 完整正文不超过 `1 MiB` 时可以自动格式化；`1–2 MiB` 需要手动点击 Format。截断预览或捕获不完整的正文不应格式化。
-- [大正文逐步实录](#walkthrough-capture-body-limits)分别演示超过1MiB后的[手动Format](#walkthrough-capture-body-limits-07-format)、3MiB数据只显示/Copy前2MiB的[截断预览](#walkthrough-capture-body-limits-11-preview)，以及通过原生Save保存完整`guide-full-response.json`。输入范围、实际总字节和每一步图片都在该实录中，不拿普通小JSON图替代。
+- 超过自动格式化阈值时手动点击 Format；超过 `2 MiB` 时，Copy 只取当前预览。需要完整文件时按[大正文保存](#walkthrough-capture-body-limits)使用 Save body。
 - Format 只改变显示；失败时保留原文。没有 Format 按钮的模式，不代表该响应无法读取。
 - Copy 复制当前查看器提供的内容，不应当作完整大文件导出的替代。
 - 需要保存捕获到的完整正文时用 Save body。它不受只读预览上限替代，但无法恢复网络中断时从未捕获到的字节。
 - `multipart/form-data` 当前不是结构化的文件上传列表，不要按普通 Form 视图理解。
 
+<a id="walkthrough-capture-markdown-viewer"></a>
+### Markdown 预览、源码与全屏
+
+下面是独立的 `GET /playground/body/markdown`，不是前面的 JSON 请求。搜索该路径、选中记录并打开 Response；这份 Markdown 共 `36` 字节。
+
+1. <a id="walkthrough-capture-inspection-17-preview"></a>红框 1 的 Preview 显示渲染结果：标题为 `Capture Lab`，列表包含 `request` 和 `response`。
+
+   ![Markdown Preview显示标题与列表](../media/v0.1.1-alpha.1/capture-markdown-english/step-033.annotated.png)
+
+2. <a id="walkthrough-capture-inspection-18-split"></a>聚焦 Preview 模式按钮后，按一次右方向键选择红框 1 的 Split。上方保留渲染预览，下方同时显示带 `#` 和 `-` 的源码。
+
+   ![Markdown Split同时显示预览和源码](../media/v0.1.1-alpha.1/capture-markdown-english/step-034.annotated.png)
+
+3. <a id="walkthrough-capture-inspection-19-source"></a>再按一次右方向键选择红框 1 的 Source，只查看原始 Markdown 文本。
+
+   ![Markdown Source显示原文](../media/v0.1.1-alpha.1/capture-markdown-english/step-035.annotated.png)
+
+4. <a id="walkthrough-capture-inspection-20-copy-source"></a>点击正文工具栏红框 1 的 Copy，复制包含 Markdown 标记和换行的完整原文，不是渲染后的标题与列表文字。
+
+   ![从Markdown Source复制完整原文](../media/v0.1.1-alpha.1/capture-markdown-english/step-036.annotated.png)
+
+5. <a id="walkthrough-capture-inspection-23-fullscreen"></a>点击正文工具栏右端的 Fullscreen。弹窗中红框 1 的 Source 仍被选中，显示同一份 Markdown；红框并不是打开全屏的按钮。
+
+   ![全屏保留Markdown Source](../media/v0.1.1-alpha.1/capture-markdown-english/step-037.annotated.png)
+
+6. <a id="walkthrough-capture-inspection-24-return"></a>按 Escape 返回详情。红框 1 的 Source 仍被选中，正文没有改变，也没有重发请求。
+
+   ![Escape返回后保留Markdown Source](../media/v0.1.1-alpha.1/capture-markdown-english/step-038.annotated.png)
+
+7. <a id="walkthrough-capture-inspection-25-preview-again"></a>点击红框 1 的 Preview，回到同一份 Markdown 的渲染预览。
+
+   ![Markdown返回Preview](../media/v0.1.1-alpha.1/capture-markdown-english/step-039.annotated.png)
+
+<a id="walkthrough-capture-inspection-21-source-scroll"></a><a id="walkthrough-capture-inspection-22-source-end"></a>较长的 Markdown Source 可使用滚轮或正文滚动条浏览到末尾；上面这份短正文已完整显示。<a id="walkthrough-capture-inspection-26-hex"></a>需要检查字节时也可选择 Hex，查看方式参见[Hex 示例](#walkthrough-09-hex)。
+
+<a id="walkthrough-capture-audio-metadata"></a>
+### 查看音频元信息并保存
+
+1. 选中 `GET /playground/body/audio` 并打开 Response。本例显示 `audio/wav`、`48 B`；App 不加载音频播放器。红框 1 是 Save body，不是播放按钮。
+
+   ![查看音频 MIME、大小与 Save body](../media/v0.1.1-alpha.1/capture-audio-metadata-english/step-007.annotated.png)
+
+2. 点击 Save body，在系统 Save 窗口选择自己的目录，保存为 `body-audio.wav`。
+
+   ![保存捕获的 body-audio.wav](../media/v0.1.1-alpha.1/capture-audio-metadata-english/step-008.png)
+
+3. 保存后仍是同一条 Response，MIME 和 `48 B` 不变，红框 1 的 Save body 仍可用。保存的是已捕获字节，不会启动 App 内播放。
+
+   ![音频保存后仍保留原元信息](../media/v0.1.1-alpha.1/capture-audio-metadata-english/step-009.annotated.png)
+
+<a id="walkthrough-capture-video-metadata"></a>
+### 查看视频元信息并保存
+
+1. 另选 `GET /playground/body/video` 并打开 Response。这个小示例显示 `video/mp4`、`24 B`，只说明元信息和保存操作，不代表完整视频可播放，也不展示时长或 codec。红框 1 是 Save body。
+
+   ![查看视频 MIME、大小与 Save body](../media/v0.1.1-alpha.1/capture-video-metadata-english/step-011.annotated.png)
+
+2. 点击 Save body，在系统 Save 窗口保存为 `body-video.mp4`。
+
+   ![保存捕获的 body-video.mp4](../media/v0.1.1-alpha.1/capture-video-metadata-english/step-012.png)
+
+3. 保存后核对同一条 Response 仍为 `video/mp4`、`24 B`，红框 1 的 Save body 仍可用。导出不会把不完整的媒体内容补成完整文件。
+
+   ![视频保存后仍保留原元信息](../media/v0.1.1-alpha.1/capture-video-metadata-english/step-013.annotated.png)
+
+<a id="walkthrough-capture-body-limits"></a>
+## 格式化大正文并保存完整文件
+
+先开启 Recording，让自己的客户端通过代理请求测试接口。下面分别用 `/e2e/body-limits/manual` 与 `/e2e/body-limits/truncated` 比较手动格式化和预览上限；请按实际接口路径搜索。正文预览与完整保存文件不是同一份数据范围。
+
+1. <a id="walkthrough-capture-body-limits-01-scope"></a><a id="walkthrough-capture-body-limits-02-record"></a><a id="walkthrough-capture-body-limits-03-manual-request"></a><a id="walkthrough-capture-body-limits-04-manual-select"></a><a id="walkthrough-capture-body-limits-05-unformatted"></a>选中 `GET /e2e/body-limits/manual`，打开 Response。约 `1.25 MiB` 的完整 JSON 超过自动格式化阈值，会先保留原文；长字符串可以自动折行。红框 1 是可手动使用的 Format。
+
+   ![查看大正文的手动Format入口](../media/v0.1.1-alpha.1/capture-body-manual-english/step-001.annotated.png)
+
+2. <a id="walkthrough-capture-body-limits-06-copy-before"></a>先点击红框 1 的 Copy，查看尚未格式化的原文。这份正文未超过 `2 MiB` 预览上限，当前可复制完整文本。
+
+   ![格式化之前复制原文](../media/v0.1.1-alpha.1/capture-body-manual-english/step-002.annotated.png)
+
+3. <a id="walkthrough-capture-body-limits-07-format"></a>点击红框 1 的 Format，为当前 JSON 增加缩进和换行；不会重新发送请求或修改捕获到的响应。
+
+   ![手动格式化同一JSON正文](../media/v0.1.1-alpha.1/capture-body-manual-english/step-003.annotated.png)
+
+4. <a id="walkthrough-capture-body-limits-08-copy-formatted"></a>再次点击红框 1 的 Copy，比较格式化后的显示文本。字段和值不变，变化的是查看格式。
+
+   ![复制格式化后的显示文本](../media/v0.1.1-alpha.1/capture-body-manual-english/step-004.annotated.png)
+
+5. <a id="walkthrough-capture-body-limits-09-large-request"></a><a id="walkthrough-capture-body-limits-10-large-select"></a><a id="walkthrough-capture-body-limits-11-preview"></a>再查看 `GET /e2e/body-limits/truncated`。约 `3 MiB` 的响应只预览前 `2 MiB`，界面提示完整正文仍被保留用于导出。红框 1 的 Format 已禁用；预览截断不等于网络响应丢失。
+
+   ![预览上限提示与禁用的Format](../media/v0.1.1-alpha.1/capture-body-truncated-english/step-001.annotated.png)
+
+6. <a id="walkthrough-capture-body-limits-12-copy-preview"></a>点击红框 1 的 Copy，只会复制当前 `2 MiB` 预览，不能把这份文本当成完整响应。
+
+   ![Copy只复制当前预览](../media/v0.1.1-alpha.1/capture-body-truncated-english/step-002.annotated.png)
+
+7. <a id="walkthrough-capture-body-limits-format-disabled"></a>复制后，红框 1 的 Format 仍不可用。不要通过格式化或 Copy 替代完整正文保存。
+
+   ![截断预览仍不能格式化](../media/v0.1.1-alpha.1/capture-body-truncated-english/step-003.annotated.png)
+
+8. <a id="walkthrough-capture-body-limits-13-save-dialog"></a>需要完整内容时使用 Save body。下面另用 `GET /e2e/body-preview/four-byte` 的 UTF-8 响应，总长为 `2097166` 字节，即 `2 MiB + 14`；它不是上面的 `3 MiB` JSON。选中它，打开 Response 并点击正文工具栏的 Save body。在系统 Save 窗口选择自己的目录，保存为 `utf8-full-body.txt`。
+
+   ![通过 Save body 保存完整 utf8-full-body.txt](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
+
+9. <a id="walkthrough-capture-body-limits-14-saved-complete"></a>等待保存完成，再关闭 Inspector 返回 Capture 列表。该 GET 仍为 `200`、`H1`，列表大小取整显示为 `2 MB`。保存的完整文件应以 `🙂after-preview` 结尾；这些尾部字节超出当前预览，不能通过 Copy 预览恢复。
+
+   ![完整正文保存后返回原请求列表](../media/v0.1.1-alpha.1/capture-body-save-english/step-050.png)
+
 ## 区分原始内容与规则修改结果
 
-**用途**
+下面检查已由 `E2E regular request body` 改写的 `/e2e/body-effect-regular-request`。Original 为 `{"stage":"regular-original"}`，Final 为 `{"stage":"regular-final"}`；规则配置见 [Rules](rules.md#walkthrough-rules-response-evidence)。
 
-确定当前看到的正文是否被 Rules 或断点编辑改变。
+1. 在 Capture 搜索并选择这条 POST，打开 Request。红框 1 的 Final 是当前正文版本；上方 Rule replaced 和 Text 说明正文经过规则替换。
 
-**步骤**
+   ![选中改写后的POST并检查Final版本](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-027.annotated.png)
 
-本节使用[独立 Rules 实录](rules.md#walkthrough-rules-response-evidence)里的 `Guide response and body`。先完成其中的创建、Apply 和 POST；请求为 `/guide/response-evidence/request-body`，客户端原文是 `{"message":"guide-original"}`，实际发送给源站的是 `{"message":"guide-final"}`。
+2. 点击红框 1 的 Original，读取客户端最初发送的 `regular-original`。
 
-1. 在 Capture 选择这条 `request-body` 请求。[对应步骤图](rules.md#walkthrough-rules-response-evidence-32-body-select)
+   ![切换同一请求的Original版本](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-029.annotated.png)
 
-   ![选中正文改写对应的 POST](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-32-body-select.png)
+3. 选择红框 1 的 Raw。显示模式改变，Original 版本不变。
 
-2. 打开 Request，检查正文旁的规则效果和 Text 来源；默认显示 Final `guide-final`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-33-final)
+   ![Original版本切换到Raw](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-030.annotated.png)
 
-   ![Request 中实际的 Final 与规则效果](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-33-final.png)
+4. 点击正文工具栏红框 1 的 Copy，复制当前 Original。
 
-3. 切换 Original，读取 `guide-original`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-34-original)
+   ![复制Original的原始JSON](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-031.annotated.png)
 
-   ![同一请求的 Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-34-original.png)
+5. 点击正文工具栏的 Fullscreen，在弹窗中放大查看同一份 Original；正文仍为 `{"stage":"regular-original"}`。
 
-4. 选择 Raw，仍应看到 Original，不因显示模式改变版本。[对应步骤图](rules.md#walkthrough-rules-response-evidence-35-raw)
+   ![全屏查看Original正文](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-032.png)
 
-   ![Raw 模式保留 Original 选择](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-35-raw.png)
+6. 点击弹窗标题栏红框 1 的 Copy，仍复制这份 Original，而不是另一个版本。
 
-5. 点击 Copy，复制当前 Original。[对应步骤图](rules.md#walkthrough-rules-response-evidence-36-copy-original)
+   ![在全屏中复制Original](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-033.annotated.png)
 
-   ![Original 的实际复制操作](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-36-copy-original.png)
+7. 按 Escape 返回详情。红框 1 的 Original 仍选中，显示模式仍为 Raw。
 
-6. 点击 Fullscreen，放大后的正文仍为 `guide-original`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-37-fullscreen)
+   ![关闭全屏后保留Original与Raw](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-034.annotated.png)
 
-   ![Original 的真实全屏正文](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-37-fullscreen.png)
+8. 点击红框 1 的 Final，改为查看 `{"stage":"regular-final"}`。
 
-7. 按 Escape 返回详情，移开鼠标后继续选择版本。[对应步骤图](rules.md#walkthrough-rules-response-evidence-38-close-fullscreen)
+   ![切回同一请求的Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-037.annotated.png)
 
-   ![返回详情后仍保留 Original](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-38-close-fullscreen.png)
+9. 点击正文工具栏红框 1 的 Copy。现在复制的是 Final，不是上一份 Original。
 
-8. 切回 Final，确认显示 `guide-final`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-39-final-again)
+   ![复制Final的原始JSON](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-039.annotated.png)
 
-   ![同一请求再次显示 Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-39-final-again.png)
+10. 点击 Save body，在原生 Save 面板选择目录，保存为 `body-effect-regular-request-final.json`。
 
-9. 点击 Copy，此时复制的是 Final，不是上一份 Original。[对应步骤图](rules.md#walkthrough-rules-response-evidence-40-copy-final)
+    ![保存当前Final版本的真实Save面板](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-043.png)
 
-   ![Final 的实际复制操作](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-40-copy-final.png)
+11. 保存后回到同一请求。红框 1 的 Final 仍选中；保存的是25字节 `{"stage":"regular-final"}`，不是 Pretty 展示时增加的缩进。
 
-10. 点击 Save body，在原生面板选择自己的演示目录，保存为 `guide-final.json`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-41-save-dialog)
+    ![保存后仍显示Final版本](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-044.annotated.png)
 
-    ![仅包含本轮文件名的真实 Save 面板](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-41-save-dialog.png)
+12. 点击红框 1 的 Rule replaced 来源标记，定位产生这份正文的规则。
 
-11. 保存后回到同一请求，当前仍是 Final；本次文件内容已核对为 `{"message":"guide-final"}`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-42-saved)
+    ![点击正文旁的规则来源标记](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-045.annotated.png)
 
-    ![保存后仍显示同一 Final](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-42-saved.png)
+13. 在 Rules 核对红框 1 的 `E2E regular request body`。它的 request JSON 动作写入 `regular-final`；检查完毕后停用本次练习规则并 Save。
 
-12. 点击正文的规则效果标记，跳回产生这份正文的 `Guide response and body`。[对应步骤图](rules.md#walkthrough-rules-response-evidence-43-body-rule)
+    ![正文来源定位到同一条Rules规则](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-046.annotated.png)
 
-    ![效果标记实际定位到对应规则](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-43-body-rule.png)
+14. 检查响应替换时，另选 `/e2e/body-effect-regular-response` 的 GET 并打开 Response。本例 Final 为26字节 `{"stage":"response-final"}`，Original 禁用并显示 unavailable 提示；它不是空正文。响应规则的配置与停用见 [Rules](rules.md#walkthrough-rules-response-evidence-44-response-body)。
 
-响应方向另见[同一实录的后续步骤](rules.md#walkthrough-rules-response-evidence-44-response-body)：这时 Final 是 `{"message":"guide-response-final"}`，Original 明确不可用，不是空原文。演示结束后[停用并 Apply](rules.md#walkthrough-rules-response-evidence-52-disable)。
-
-![响应替换后原文不可用的实际提示](../media/v0.1.1-alpha.1/rules-response-evidence/rules-response-evidence-50-unavailable.png)
-
-**预期结果**
-
-操作作用于当前选择的正文版本，不把修改后的内容误认为客户端或源站的原始内容。
-
-**关键说明**
+    ![响应替换后的Original不可用提示与Final](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-061.png)
 
 - Original 可能为空，也可能不可用；两者含义不同。
 - 源站响应在头部阶段被整体替换时，原始响应正文可能根本没有被观察到。不可用不等于空响应。
@@ -557,171 +494,453 @@
 
 ## HTTPS 与 TLS tunnel
 
-**前提**
-
 只检查你有权访问的 HTTPS 流量。HTTPS 解密需要正确的 CA、系统信任和解密设置。
 
-**步骤**
+1. <a id="walkthrough-18-certificates"></a>进入 Settings → Certificates，检查 CA 的 Generated 与 Trusted 状态。尚未信任时，先按 [Settings](settings.md#https-decryption)完成安装和系统授权；不要重新生成已有的有效 CA。
 
-1. 让目标客户端通过代理发起 HTTPS 请求。若只看到 TLS tunnel，先区分“已经经过代理”和“可以解密”。
+   ![检查已有CA和系统信任](../media/v0.1.1-alpha.1/tls-pattern-english/step-001.png)
 
-   [TLS 实录](settings.md#walkthrough-settings-tls-passthrough)先按 `localhost` 搜索，再开启 Recording；本次端口为 `63604`，读者使用自己的实际端口。下面是同一连接的[发送](settings.md#walkthrough-settings-tls-passthrough-03-opaque-request)、[选中](settings.md#walkthrough-settings-tls-passthrough-04-tunnel-select)和[Tunnel 详情](settings.md#walkthrough-settings-tls-passthrough-05-tunnel)，不借用普通 HTTP 成功图。
+2. <a id="walkthrough-20-decryption"></a>在信任就绪后，打开红框 1 的 Decrypt HTTPS (MITM)。
 
-   ![未解密的真实 CONNECT 进入列表](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-03-opaque-request.png)
+   ![通过Certificates开启MITM](../media/v0.1.1-alpha.1/tls-pattern-english/step-002.annotated.png)
 
-   ![选择本轮 CONNECT](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-04-tunnel-select.png)
+3. <a id="walkthrough-19-local-origin"></a>仅当自己控制的演示源站使用不受信任证书时，在红框 1 的 Per-host overrides 输入 `localhost`，点击红框 2 的 Add host。这里添加的是源站证书例外，不是 TLS passthrough，也不应照搬到普通公网主机。
 
-   ![真实 Tunnel 元信息，没有 HTTP 正文](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-05-tunnel.png)
+   ![只为自有localhost添加源站证书例外](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
 
-2. 到 Settings 检查现有 CA 信任；下图是录制机器已有的受信任 CA，不是首次安装或系统授权。
+4. 在 Capture 搜索 `/e2e/passthrough/http`，检查客户端对 `https://localhost:52139/e2e/passthrough/http` 建立的新连接。选中 GET，打开红框 1 的 Response：本例是 H1、200、42 B JSON，包含 `mode: https-h1` 和 `secure: true`。
 
-   ![录制环境已有的受信任 CA](../media/v0.1.1-alpha.1/capture/capture-18-certificates.png)
+   ![添加透传前新HTTPS连接可以查看HTTP正文](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
-3. 在具备信任条件后启用 HTTPS 解密。本次仅对自己控制的 `localhost` 演示源站添加了证书例外；不要照抄为普通公网配置。
+5. 需要让该主机保持加密转发时，进入 Settings → TLS passthrough，在红框 1 输入精确的 `localhost`，点击红框 2 的 Add。
 
-   ![只为本机演示源站添加 localhost 例外](../media/v0.1.1-alpha.1/capture/capture-19-local-origin.png)
+   ![添加精确的localhost透传项](../media/v0.1.1-alpha.1/tls-pattern-english/step-013.annotated.png)
 
-   ![开启 HTTPS 解密](../media/v0.1.1-alpha.1/capture/capture-20-decryption.png)
+6. 让客户端重新连接同一 HTTPS 地址，在 Capture 搜索 `localhost`，选择红框 1 的新 CONNECT。右侧 TLS tunnel 显示主机、端口 `52139` 和加密转发状态，不提供 HTTP 路径、Headers 或 Body。红框 2 的 View passthrough pattern 可定位匹配项；即使显示 MITM active，此连接仍按透传处理。
 
-4. 核对 TLS passthrough 是否排除了你的目标；需要调整时按 [Settings](settings.md#tls-passthrough)操作。
+   ![新CONNECT的Tunnel详情与透传定位入口](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
-   新增实录已按[Settings 的完整步骤](settings.md#tls-passthrough)添加精确 `localhost`、重新连接、查看命中、定位并删除条目，再建立新连接恢复解密。图中全局 MITM 开启，但这个匹配连接仍只显示 Tunnel；不能因此断言解密故障。
+7. 点击上述 View passthrough pattern 进入名单，核对 `localhost`，再点击红框 1 的移除按钮。此处删除的是透传项，不是 Certificates 中的源站证书例外。
 
-   ![启用 MITM 时实际命中 TLS passthrough](../media/v0.1.1-alpha.1/settings-tls-passthrough/settings-tls-passthrough-24-passthrough-tunnel.png)
+   ![定位并移除本次localhost透传项](../media/v0.1.1-alpha.1/tls-pattern-english/step-015.annotated.png)
 
-5. 让客户端建立新连接，再观察后续请求。下图是这次录制的 `/playground/h2-json` HTTP/2 请求，不是此前的 HTTP orders。
+8. 再让客户端建立新连接，搜索 `/e2e/passthrough/http` 并选择新 GET。红框 1 的 Response 恢复42字节 JSON；旧 CONNECT 不会因此变成已解密记录。
 
-   ![启用解密后的新 HTTP/2 请求](../media/v0.1.1-alpha.1/capture/capture-22-http2.png)
+   ![移除透传后新HTTPS连接恢复正文](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
-6. 演示结束关闭本轮启用的解密，再移除本轮添加的 `localhost` 例外；保留原有 CA，不改他人的设置。
+9. <a id="walkthrough-22-http2"></a>检查支持 HTTP/2 的另一请求时，搜索 `/playground/h2-json` 并选择红框 1 的记录。此例使用 `https://localhost:56588`，协议是 H2，不是前面 H1 连接的继续。
 
-   ![关闭本轮 HTTPS 解密](../media/v0.1.1-alpha.1/capture/capture-30-decryption-off.png)
+   ![选择独立的已解密HTTP2请求](../media/v0.1.1-alpha.1/capture-http2-english/step-001.annotated.png)
 
-   ![移除本轮 localhost 源站例外](../media/v0.1.1-alpha.1/capture/capture-31-remove-exception.png)
+10. <a id="walkthrough-29-body-html"></a><a id="walkthrough-29-body-markdown"></a><a id="walkthrough-29-body-form"></a><a id="walkthrough-29-body-png"></a><a id="walkthrough-29-body-binary"></a><a id="walkthrough-29-body-audio"></a><a id="walkthrough-29-encoding-gzip"></a><a id="walkthrough-29-encoding-corrupt-gzip"></a><a id="walkthrough-30-decryption-off"></a>练习结束，在 Certificates 关闭红框 1 的 Decrypt HTTPS (MITM)。以下清理图展示同样的设置入口；只撤销自己本轮开启的设置。
 
-**预期结果**
+    ![通过Certificates关闭本轮MITM](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.annotated.png)
 
-不解密时可以观察隧道元信息，但不能读取加密后的 HTTP 正文；满足解密条件的新连接才可能展示 HTTP 详情。
+11. <a id="walkthrough-31-remove-exception"></a>若本轮添加过源站证书例外，点击红框 1 的 `localhost` 标签右侧 ×。保留原有 CA 和他人的例外。
 
-**关键说明**
+    ![移除Certificates中的localhost源站例外](../media/v0.1.1-alpha.1/tls-cleanup-english/step-041.annotated.png)
+
+12. 核对 `localhost` 标签已消失。红框 1 是恢复为空的 Per-host overrides 输入框，不是删除按钮。
+
+    ![源站例外移除后输入框恢复为空](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.annotated.png)
 
 - 证书固定、独立信任库或显式 TLS passthrough 都可能导致无法按普通方式解密。
 - TLS passthrough 保持加密转发，不是“已经抓到了明文但隐藏了正文”。
 - 可从明确标记为 passthrough 的隧道跳到对应配置；不要为了看到正文就放宽所有主机的证书检查。
-- 证书安装、卸载、首次授权和平台差异见 [Settings](settings.md#https-decryption)；本小节不替代这些专项验收。
+- 证书安装、卸载与系统授权的操作见 [Settings](settings.md#https-decryption)。
+
+### 核对 HTTPS 到 HTTP 的映射结果
+
+先按 [Rules 跨协议映射](rules.md#walkthrough-rules-routing)配置自己的源服务和目标服务，并满足本章的 HTTPS 解密前提。下面使用规则 `E2E HTTPS to HTTP mapping`，把 `https://localhost:56535/e2e/rules/tls-mapping/enabled` 转到 `http://127.0.0.1:56533/e2e/rules/mapped-http`；端口是示例服务端口。
+
+1. <a id="walkthrough-capture-mapping-response"></a>规则保存生效后，通过代理请求原 HTTPS 地址。在 Capture 搜索 `/e2e/rules/`，选择 `/enabled` 记录并打开红框 1 的 Response。实际返回 `owned-http-mapping-result`，而不是只有 Tunnel 元信息。
+
+   ![HTTPS请求获得HTTP映射目标的实际响应](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-020.annotated.png)
+
+2. <a id="walkthrough-capture-mapping-disable"></a>回到 Rules 停用该规则，再点击 Save。红框 1 的 Rule set applied 表示停用状态已经保存，不能只关闭开关而不保存。
+
+   ![映射停用状态已保存](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
+
+3. <a id="walkthrough-capture-mapping-restored"></a>新发起 `GET https://localhost:56535/e2e/rules/tls-mapping/disabled`。红框 1 是这个新请求的 `404` 记录：它回到了没有该路径的原 HTTPS 服务。`/disabled` 与上面的 `/enabled` 是不同的完整 URL，不是对旧记录改名。
+
+   ![停用后新请求回到原HTTPS服务](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
+
+### 用 HTTPS 请求读取本地文件
+
+这是独立的本地文件示例，使用 HTTPS 服务 `localhost:63644` 和提供原始响应的 HTTP 服务 `127.0.0.1:63638`，不要沿用上一例的端口。下面的文件先由 Capture 保存，再供 Map Local 使用；请替换成自己的服务地址和保存路径。
+
+1. <a id="walkthrough-capture-local-save-dialog"></a>在本例 `/e2e/rules/tls-mapping/enabled` 的 Response 工具栏点击 Save。在系统 Save body 对话框选择自己的目录，以 `https-map-local-response.txt` 保存。
+
+   ![通过产品Save保存本轮响应文件](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-021.png)
+
+2. <a id="walkthrough-capture-local-saved"></a>保存后返回 Capture。红框 1 是正文工具栏的 Save；当前正文仍为 `owned-http-mapping-result`，保存的文件包含相同的 `25` 字节。
+
+   ![保存后返回同一Response](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-022.annotated.png)
+
+3. <a id="walkthrough-capture-local-name"></a>在 Rules 中选中本例已停用的匹配规则，将红框 1 的名称改为 `E2E HTTPS to local file mapping`。保留 Host `localhost`、Path `/e2e/rules/tls-mapping`。
+
+   ![命名本地文件映射规则](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-026.annotated.png)
+
+4. <a id="walkthrough-capture-local-action"></a>移除原 Map Remote 动作，打开 Add action，选择红框 1 的 Map Local。未添加新动作时出现的校验提示会在配置有效后消失。
+
+   ![选择Map Local动作](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-027.annotated.png)
+
+5. <a id="walkthrough-capture-local-missing-path"></a>为观察路径错误，先在红框 1 输入同目录下不存在的 `https-map-local-missing.txt` 的完整路径，不创建该文件。
+
+   ![填写不存在的本地文件路径](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-028.annotated.png)
+
+6. <a id="walkthrough-capture-local-enable"></a>打开红框 1 的规则开关。此时只改变了草稿，下一步还需要保存。
+
+   ![启用Map Local草稿](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-029.annotated.png)
+
+7. <a id="walkthrough-capture-local-save-missing"></a>点击右上方 Save。页脚红框 1 的 Rule set applied 表示规则已保存生效。
+
+   ![缺失文件路径的规则已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
+
+8. <a id="walkthrough-capture-local-missing-result"></a>通过代理请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing`，在 Capture 搜索该路径并打开红框 1 的 Response。实际结果是 `404`，正文为 `Map Local target not found.`。
+
+   ![HTTPS请求返回缺失文件提示](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
+
+9. <a id="walkthrough-capture-local-correct-path"></a>回到规则，在红框 1 将路径修正为第 1 步产品保存的 `https-map-local-response.txt`。这里直接编辑路径，不是重新创建文件。
+
+   ![修正为产品保存的文件](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-032.annotated.png)
+
+10. <a id="walkthrough-capture-local-save-corrected"></a>再次点击 Save，确认红框 1 的 Rule set applied；输入框变化本身不代表规则已经应用。
+
+    ![修正后的文件路径已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
+
+11. <a id="walkthrough-capture-local-file-result"></a>新请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`。在 Capture 打开红框 1 的 Response，确认 `200` 和本地文件的 `owned-http-mapping-result`。
+
+    ![HTTPS响应实际来自本地文件](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
+
+12. <a id="walkthrough-capture-local-disable"></a>回到 Rules 关闭红框 1 的规则开关。这只停用 Map Local 规则，不是关闭 HTTPS 解密。
+
+    ![停用Map Local规则](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-035.annotated.png)
+
+13. <a id="walkthrough-capture-local-save-disabled"></a>点击 Save，确认红框 1 的 Rule set applied，保存停用状态。
+
+    ![Map Local停用状态已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
+
+14. <a id="walkthrough-capture-local-origin-restored"></a>再请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`。红框 1 的新记录回到原 HTTPS 服务的 `404`，正文为 `0 B`，不再是缺失文件提示或保存的文本。这三个后缀对应不同的新请求。
+
+    ![停用后新请求恢复原HTTPS结果](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
 
 <a id="http2"></a>
 ## 检查 HTTP/2 与连接结束
 
-**前提**：目标与客户端实际使用 HTTP/2；若连接经过 HTTPS，先具备所需解密条件。
+客户端和源站必须实际使用 HTTP/2；HTTPS 还需要前述解密条件。下面先检查 `https://localhost:56588` 的已捕获请求。
 
-**步骤**
+1. <a id="walkthrough-21-protocol-scope"></a>搜索 `/playground/h2-json`，选择红框 1 的 GET。在 Headers → General 核对 H2、200 与实际 URL，不从路径名称猜测协议。
 
-1. 在搜索框输入 `/playground`，限定本次协议演示范围。
+   ![搜索并选择真实H2请求](../media/v0.1.1-alpha.1/capture-http2-english/step-001.annotated.png)
 
-   ![实际协议演示搜索值 /playground](../media/v0.1.1-alpha.1/capture/capture-21-protocol-scope.png)
+2. <a id="walkthrough-capture-http2-10-protocol-group"></a>点击红框 1 的 Protocol 标题展开分组。
 
-2. 让支持 HTTP/2 的外部客户端请求 `/playground/h2-json`，选中结果并查看协议值。
+   ![展开Protocol分组](../media/v0.1.1-alpha.1/capture-http2-english/step-002.annotated.png)
 
-   ![真实 HTTP/2 请求，不是从名称猜测协议](../media/v0.1.1-alpha.1/capture/capture-22-http2.png)
+3. <a id="walkthrough-capture-http2-11-http2-filter"></a>选择红框 1 的 HTTP/2，只保留该协议；搜索条件仍然生效。
 
-3. 需要时在 Protocol 中选择 HTTP/2。
+   ![选择HTTP2协议筛选](../media/v0.1.1-alpha.1/capture-http2-english/step-003.annotated.png)
 
-   [HTTP/2独立实录](#walkthrough-capture-http2-10-protocol-group)实际展开Protocol并选择HTTP/2；它使用自己的`/guide/h2`请求，不是把旧的`/playground`录制改名。
+4. 再点击红框 1 的 HTTP/2 取消这个条件。Protocol 恢复 All，不会删除请求或清空搜索。
 
-   ![真实选择HTTP/2协议分组](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
+   ![取消HTTP2筛选并保留记录](../media/v0.1.1-alpha.1/capture-http2-english/step-004.annotated.png)
 
-4. 在 Headers 展开实际可用的 trailers。
+5. <a id="walkthrough-23-trailers"></a>在 Headers 向下滚动，展开红框 1 的 Response Trailers，读取 `x-playground-trailer: h2-complete`。
 
-   ![HTTP/2 trailers 展开状态](../media/v0.1.1-alpha.1/capture/capture-23-trailers.png)
+   ![HTTP2响应trailer完整可见](../media/v0.1.1-alpha.1/capture-http2-english/step-007.annotated.png)
 
-5. 打开 Response 查看本次 HTTP/2 JSON。
+6. <a id="walkthrough-24-h2-body"></a>打开 Response，选择红框 1 的 Raw，查看55字节 JSON 中的 `protocol: h2` 和 `/playground/h2-json`。
 
-   ![HTTP/2 JSON 正文](../media/v0.1.1-alpha.1/capture/capture-24-h2-body.png)
+   ![查看同一H2请求的JSON响应](../media/v0.1.1-alpha.1/capture-http2-english/step-008.annotated.png)
 
-6. 对较长或流式响应，观察同一记录的接收进度和最终状态，不因已看到一部分文本就提前判断完整。
+7. <a id="walkthrough-capture-http2"></a><a id="walkthrough-capture-http2-01-scope"></a><a id="walkthrough-capture-http2-02-record"></a><a id="walkthrough-capture-http2-03-first-part"></a><a id="walkthrough-capture-http2-04-select"></a><a id="walkthrough-capture-http2-06-partial-body"></a>检查流式响应时，改搜 `/e2e/h2/body-progress`，选择红框 1 的 GET 并打开 Response。此时已收到65,536字节，列表显示64 KB，Time 仍为 `…`；正文尚不可读，不代表请求绕过了代理。
 
-   新实录的`/guide/h2/stream`先收到第一段，再收到第二段，最后才结束；[完整进度步骤](#walkthrough-capture-http2-03-first-part)逐步核对真实字节。接收中行数、大小会更新，但此版本的普通HTTP正文还没有可读视图，不能把“未捕获响应正文”误当作没有经过代理。
+   ![同一H2流收到第一段64KB](../media/v0.1.1-alpha.1/capture-http2-english/step-009.annotated.png)
 
-   ![正在接收64KB，但正文暂未可读](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
+8. <a id="walkthrough-capture-http2-07-second-part"></a>保持选择同一记录，观察红框 1 的大小增至128 KB。响应还未结束，不能把进度增长当作完整正文已经可用。
 
-   ![第二段到达后实际进度增加](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
+   ![同一H2流收到第二段后仍在接收](../media/v0.1.1-alpha.1/capture-http2-english/step-010.annotated.png)
 
-   ![结束后完整正文才可读取和复制](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
+9. <a id="walkthrough-capture-http2-08-complete"></a>等待响应结束，再选择红框 1 的 Text。现在可以读取完整131,072字节：先是65,536个 `a`，后是65,536个 `b`。
 
-   结束时还可查看`x-guide-end: complete`，见[trailer步骤](#walkthrough-capture-http2-09-trailers)。这是分段接收的同一GET，不是反复发起请求。
+   ![H2响应结束后读取完整Text](../media/v0.1.1-alpha.1/capture-http2-english/step-011.annotated.png)
 
-7. 若连接关闭，比较该请求是否正常结束、客户端实际收到的内容和后续新请求能否建立连接。
+10. 点击红框 1 的 Copy，复制完整正文，不是当前窗口显示的前几行。
 
-   [客户端错误GOAWAY](#walkthrough-capture-http2-client-01-interrupt)和[源站错误GOAWAY](#walkthrough-capture-http2-origin-01-interrupt)各有真实操作：原POST的Header声明`524288`字节，实际只捕获`262144`字节，随后是新连接上的独立`/recovered` GET；并非重放原POST。实验只影响自有源站，不能用来故意中断别人的服务。
+    ![复制完整的128KiB响应](../media/v0.1.1-alpha.1/capture-http2-english/step-012.annotated.png)
 
-   ![原请求Header仍声明512KiB](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
+11. <a id="walkthrough-capture-http2-05-headers"></a><a id="walkthrough-capture-http2-09-trailers"></a>返回 Headers，核对 Response Headers 的 `content-length: 131072`，再滚动到红框 1 的 Response Trailers，读取 `x-capture-end: complete`。这些阶段属于同一 GET。
 
-   ![真正捕获到的部分正文为256KiB](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
+    ![完整响应的长度与结束trailer](../media/v0.1.1-alpha.1/capture-http2-english/step-013.annotated.png)
 
-   ![独立恢复GET实际返回正常正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
+12. 正常 GOAWAY 的另一例使用 `https://localhost:56511/e2e/h2/origin-goaway/paused`。若停在响应断点，点击 Continue 原样放行；完成后打开该 POST 的 Headers。下图是放行后的结果：响应完整4 MiB，红框 1 的 Response Trailers 中有 `x-goaway-complete`。
 
-   本段不把两个错误GOAWAY扩成正常GOAWAY下所有多流收尾、每种reset和重试策略均已实拍。
+    ![正常GOAWAY后原POST完整结束并保留trailer](../media/v0.1.1-alpha.1/capture-http2-graceful-english/step-002.annotated.png)
 
-**预期结果**：分别判断每条请求的结果，不把共享连接的一个事件等同于全部请求成功或失败。
+13. 选择随后独立的 `/e2e/h2/origin-goaway/next` POST，打开 Response → 红框 1 的 Raw。它在新上游连接上返回62字节 JSON，不是重放上一条 POST。
 
-**关键说明**：正常 GOAWAY 可以让已经接收的流结束后再使用新连接，不等于响应必然被截断。真实的重置、中断与正常结束需要区分；Diagnostics 也不是完整 HTTP/2 帧分析器。需要保留 trailer 等细节时，不使用 HAR 作为无损备份。
+    ![正常GOAWAY后新POST获得独立响应](../media/v0.1.1-alpha.1/capture-http2-graceful-english/step-003.annotated.png)
+
+14. <a id="walkthrough-capture-http2-origin-01-interrupt"></a><a id="walkthrough-capture-http2-origin-02-original"></a><a id="walkthrough-capture-http2-origin-03-length"></a>检查源站错误 GOAWAY 的记录时，搜索 `/e2e/h2/error-goaway-origin`，选择 `/interrupted` POST。在红框 1 的 Response Headers 核对声明长度524,288字节。这里是响应长度，不是 POST 上传正文。
+
+    ![源站错误GOAWAY原POST声明的响应长度](../media/v0.1.1-alpha.1/capture-http2-english/step-039.annotated.png)
+
+15. <a id="walkthrough-capture-http2-origin-04-partial"></a>打开同一 POST 的 Response → 红框 1 的 Text。实际只捕获262,144字节，界面显示256 KB；响应头中的200不能证明正文完整。
+
+    ![源站错误GOAWAY后实际保留的部分响应](../media/v0.1.1-alpha.1/capture-http2-english/step-040.annotated.png)
+
+16. <a id="walkthrough-capture-http2-origin-05-recovered"></a><a id="walkthrough-capture-http2-origin-06-recovery-body"></a>选择新连接上的 `/e2e/h2/error-goaway-origin/recovered` GET，打开 Response → 红框 1 的 Raw。73字节 JSON 属于这条新 GET，不是原 POST 剩余的响应。
+
+    ![源站错误GOAWAY后独立GET恢复](../media/v0.1.1-alpha.1/capture-http2-english/step-042.annotated.png)
+
+17. <a id="walkthrough-capture-http2-client-01-interrupt"></a><a id="walkthrough-capture-http2-client-02-original"></a><a id="walkthrough-capture-http2-client-03-length"></a>检查客户端错误 GOAWAY 时，另搜 `/e2e/h2/error-goaway-client`，选择 `/interrupted` POST。红框 1 的 Response Headers 同样声明524,288字节。
+
+    ![客户端错误GOAWAY原POST声明的响应长度](../media/v0.1.1-alpha.1/capture-http2-english/step-044.annotated.png)
+
+18. <a id="walkthrough-capture-http2-client-04-partial"></a>切到同一记录的 Response → 红框 1 的 Text，比较实际保留的262,144字节。
+
+    ![客户端错误GOAWAY后保留的256KiB响应](../media/v0.1.1-alpha.1/capture-http2-english/step-045.annotated.png)
+
+19. <a id="walkthrough-capture-http2-client-05-recovered"></a><a id="walkthrough-capture-http2-client-06-recovery-body"></a>再选择独立的 `/e2e/h2/error-goaway-client/recovered` GET，打开 Response → 红框 1 的 Raw，核对新的73字节 JSON。
+
+    ![客户端错误GOAWAY后独立GET恢复](../media/v0.1.1-alpha.1/capture-http2-english/step-047.annotated.png)
+
+20. <a id="walkthrough-capture-http2-24-settings"></a><a id="walkthrough-capture-http2-25-certificates"></a><a id="walkthrough-capture-http2-26-mitm-off"></a><a id="walkthrough-capture-http2-27-origin-remove"></a>结束后按[解密清理步骤](#walkthrough-30-decryption-off)返回 Settings → Certificates，关闭本轮 MITM，并移除自己添加的源站例外。图中红框 1 是 MITM 开关，不是 CA 的 Remove 按钮。
+
+    ![结束HTTP2检查后关闭本轮解密](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.annotated.png)
+
+正常 GOAWAY、错误 GOAWAY 和重置不是同一种结束。只检查自己有权访问的服务；不要为复现错误而中断他人的连接。Diagnostics 不是完整 HTTP/2 帧分析器，HAR 也不是 trailer 的无损备份。
 
 ## 查看 WebSocket 与 gRPC 消息
 
-**步骤**
+### WebSocket 文本消息
 
-1. 保持 Recording 开启，让客户端连接自己的 `/playground/ws/text` 演示服务，找到对应连接并打开 Messages。
+保持 Recording 开启，让客户端经代理连接自己的 `/playground/ws/text` 服务并发送 `hello from client`。本例收到相同的回显后正常关闭连接，下面检查保留的消息记录。
 
-   ![本次 WebSocket 文本连接与 Messages](../media/v0.1.1-alpha.1/capture/capture-25-websocket.png)
+1. <a id="walkthrough-25-websocket"></a>按路径搜索并选择红框 1 的连接。它的状态为 `101`、协议为 `WS`；`closed` 表示连接已经关闭，不代表消息记录被删除。
 
-2. 选择发送方向的消息，核对载荷 `hello from client` 及方向、类型和时间。
+   ![选择本次WebSocket文本连接](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-008.annotated.png)
 
-   ![客户端发送的 hello from client](../media/v0.1.1-alpha.1/capture/capture-26-message.png)
+2. 打开红框 1 的 Messages，查看发送和接收两个方向的消息。
 
-3. 用 gRPC 客户端调用 `/playground.Capture/UnaryJson`，请求 JSON 为 `{"message":"hello"}`，选中对应记录。
+   ![打开WebSocket Messages](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-009.annotated.png)
 
-   ![真实 gRPC JSON 请求记录](../media/v0.1.1-alpha.1/capture/capture-27-grpc.png)
+3. 选择红框 1 的 Sent，仅显示客户端发送的那条 Text 消息。
 
-4. 选择 gRPC response 消息，核对 `{"message":"world"}`。
+   ![筛选WebSocket发送方向](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-010.annotated.png)
 
-   ![gRPC 响应消息 world](../media/v0.1.1-alpha.1/capture/capture-28-grpc-response.png)
+4. <a id="walkthrough-26-message"></a>点击消息行展开正文，核对 `hello from client`。红框 1 的 Sent text 是展开后的方向和类型标题，不是展开按钮。
 
-5. 长消息按需展开、复制或全屏查看。
+   ![展开WebSocket发送文本](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-011.annotated.png)
 
-   [WebSocket消息实录](#walkthrough-capture-websocket-messages)另用`/guide/messages/websocket/detail`：`guide-short`、`guide-long`及后续消息均为本轮公开数据。展开后[缩放高度](#walkthrough-capture-websocket-messages-12-resize)、滚轮/键盘到底、[继续滚动列表](#walkthrough-capture-websocket-messages-15-scroll-out)、Copy和Fullscreen均有各自步骤图。
+5. 点击消息标题行红框 1 的 Copy payload，复制 `hello from client`。它与下方正文工具栏的 Copy 是不同入口。
 
-   ![真实WebSocket长消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
+   ![复制WebSocket发送消息的载荷](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-012.annotated.png)
 
-   ![消息自身的实际全屏](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
+6. 选择红框 1 的 Received，切换到服务端返回的消息。
 
-   这段长消息是binary JSON：正文Raw的Copy得到UTF-8，而[消息专用Copy](#walkthrough-capture-websocket-messages-17-payload-copy)仍给原binary的Hex。不要把两种复制内容当成同一个格式。
+   ![筛选WebSocket接收方向](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-014.annotated.png)
 
-   gRPC有自己的[完整消息实录](#walkthrough-capture-grpc-messages)，使用`/guide/messages/grpc/detail`的六条JSON消息，独立演示展开、Raw、复制、拖动高度、内外滚动及全屏；已有CA和自有localhost例外的准备按[HTTPS步骤](settings.md#https-decryption)，不是新的CA安装实操。
+7. 点击接收消息行展开。红框 1 的 Received text 标题说明当前方向；本例回显仍为 `hello from client`。
 
-   ![gRPC长消息的实际正文与控制](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
+   ![展开WebSocket接收文本](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-015.annotated.png)
 
-   ![gRPC消息自己的全屏查看](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
+8. 点击接收消息标题行红框 1 的 Copy payload，复制这条回显。
 
-6. 消息较多时使用列表滚动或分页，避免把当前屏幕当成完整会话。
+   ![复制WebSocket接收消息的载荷](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-016.annotated.png)
 
-   WebSocket另建`/guide/messages/websocket/pages`，实际发送205条text消息；[切连接和滚动加载](#walkthrough-capture-websocket-messages-20-paged-input)后展开并复制最后一条`{"index":204,"message":"guide-page-204"}`。列表序号205与示例JSON的零起始index 204是不同编号。
+9. 选择红框 1 的 All，同时查看一条 Sent 和一条 Received。每条载荷为 `17 B`；左侧连接行的 `0 B` 是 HTTP 正文大小，不是消息总字节数。
 
-   ![实际滚动到后续WebSocket消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
+   ![同时查看WebSocket两个方向](../media/v0.1.1-alpha.1/capture-websocket-text-english/step-018.annotated.png)
 
-   ![实际复制第205条text消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
+### gRPC JSON 消息
 
-   gRPC也有独立的`/guide/messages/grpc/pages`：从[205条消息的输入](#walkthrough-capture-grpc-messages-20-paged-input)到滚动分页、展开末条、切Raw并继续滚动到正文完全可见，再Copy核对相同的index 204。不能仅凭页码或已经挂载的DOM断言文字在当前窗口可读。
+用 gRPC 客户端调用自己的 `/playground.Capture/UnaryJson`。本例使用 `application/grpc+json`，请求载荷为 `{"message":"hello"}`，响应为 `{"message":"world"}`；需要解密时先完成 HTTPS 前提。
 
-   ![gRPC第205条的正文完整显示在窗口内](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
+1. <a id="walkthrough-27-grpc"></a>选中对应的 `POST`、`H2`、`200` 记录，打开红框 1 的 Messages。消息区同时显示 `grpc-status: 0`，它与 HTTP 状态码不是同一个字段。
 
-   ![复制同一条gRPC末尾消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
+   ![打开gRPC的Messages与状态](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-022.annotated.png)
 
-**预期结果**
+2. 选择红框 1 的 Request，查看客户端的请求消息。
 
-能够区分客户端发送和服务端返回的数据，并观察消息随连接继续到达。
+   ![切换gRPC Request消息](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-023.annotated.png)
 
-**关键说明**
+3. 点击红框 1 的 Message 1 行展开，核对 JSON 中的 `message: hello`。
+
+   ![展开gRPC JSON请求载荷](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-024.annotated.png)
+
+4. 点击请求消息标题行红框 1 的 Copy payload，复制原始 `{"message":"hello"}`，而不是 Pretty 显示的缩进文本。
+
+   ![复制gRPC请求原始载荷](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-025.annotated.png)
+
+5. 选择红框 1 的 Response，查看服务端响应消息。
+
+   ![切换gRPC Response消息](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-026.annotated.png)
+
+6. <a id="walkthrough-28-grpc-response"></a>点击红框 1 的响应 Message 1 行展开，核对 JSON 中的 `message: world`。
+
+   ![展开gRPC JSON响应载荷](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-027.annotated.png)
+
+7. 点击响应消息标题行红框 1 的 Copy payload，复制 `{"message":"world"}`。这份载荷为 `19 B`，不包含前面的 5 字节 envelope header。
+
+   ![复制gRPC响应原始载荷](../media/v0.1.1-alpha.1/capture-grpc-json-english/step-028.annotated.png)
+
+本例载荷本身是 JSON，可以直接显示；界面仍保留 No descriptor loaded 提示，不能据此认为普通 protobuf 已按 schema 解码。
+
+### 长消息与分页
+
+#### WebSocket：短正文、长正文与分页
+
+下面的 `/e2e/websocket/compact-message-layout` 含六条 Sent Binary JSON 及回显：短正文70字节，长正文2,538字节。长正文包含28个 `entries`，末尾为 `end: compact-message-end`。
+
+1. <a id="walkthrough-capture-websocket-messages"></a><a id="walkthrough-capture-websocket-messages-01-filter"></a><a id="walkthrough-capture-websocket-messages-02-record"></a><a id="walkthrough-capture-websocket-messages-03-messages"></a><a id="walkthrough-capture-websocket-messages-04-select"></a><a id="walkthrough-capture-websocket-messages-05-tab"></a><a id="walkthrough-capture-websocket-messages-06-direction"></a>搜索这条路径，选择连接并打开 Messages，点击红框 1 的 Sent，只检查客户端发送方向。
+
+   ![选择长短消息示例的Sent方向](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-001.annotated.png)
+
+2. <a id="walkthrough-capture-websocket-messages-07-short"></a><a id="walkthrough-capture-websocket-messages-08-short-raw"></a>展开第一条70 B消息，选择红框 1 的 Raw，读取 `requestId: short-message`、`status: ready` 和 `count: 18`。
+
+   ![展开短Binary JSON并选择Raw](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-002.annotated.png)
+
+3. <a id="walkthrough-capture-websocket-messages-09-copy-short"></a>点击正文工具栏红框 1 的 Copy，复制完整短 JSON。
+
+   ![复制短消息Raw正文](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-003.annotated.png)
+
+4. <a id="walkthrough-capture-websocket-messages-10-collapse-short"></a>再次点击红框 1 的第一条消息行，收起短正文。
+
+   ![收起短消息但保留消息行](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-004.annotated.png)
+
+5. <a id="walkthrough-capture-websocket-messages-11-long"></a>展开第二条 Sent 消息，选择红框 1 的 Raw。它是 `requestId: long-message`，详情中的连接序号为 message 3，不是 Sent 列表中的第三条。
+
+   ![展开第二条Sent长消息](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-005.annotated.png)
+
+6. <a id="walkthrough-capture-websocket-messages-12-resize"></a>拖动红框 1 正文区域右下角的尺寸手柄，调整阅读高度；这不会修改消息内容。
+
+   ![调整WebSocket长正文高度](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-006.annotated.png)
+
+7. <a id="walkthrough-capture-websocket-messages-13-wheel"></a>把指针放在红框 1 的正文内，用滚轮或触控板浏览内部内容。
+
+   ![在WebSocket正文内部滚动](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-007.annotated.png)
+
+8. <a id="walkthrough-capture-websocket-messages-14-keyboard-end"></a>点击红框 1 的正文使其获得焦点，在 macOS 按 Command+↓，其他平台按 Ctrl+End，读取末尾的 `compact-message-end`。
+
+   ![使用键盘到达WebSocket正文末尾](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-008.annotated.png)
+
+9. <a id="walkthrough-capture-websocket-messages-15-scroll-out"></a>正文已经到末尾后继续向下滚动。红框 1 的外层 Messages 面板继续移动，后续消息行进入视野。
+
+   ![内层到边界后继续滚动Messages面板](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-009.annotated.png)
+
+10. <a id="walkthrough-capture-websocket-messages-16-copy-long"></a>点击正文工具栏红框 1 的 Copy，得到完整2,538字节 UTF-8 JSON，而不是屏幕中可见的尾部片段。
+
+    ![复制完整WebSocket长正文](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-010.annotated.png)
+
+11. <a id="walkthrough-capture-websocket-messages-17-payload-copy"></a>点击消息标题行红框 1 的 Copy payload。因为本条是 Binary，这个入口复制空格分隔的十六进制字节，与上一项 Raw Copy 的 UTF-8 格式不同。
+
+    ![使用Binary消息自身的Copy payload](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-011.annotated.png)
+
+12. 选择红框 1 的 Hex，查看同一消息的字节、偏移和字符栏。
+
+    ![切换WebSocket长消息的Hex视图](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-013.annotated.png)
+
+13. <a id="walkthrough-capture-websocket-messages-18-fullscreen"></a>先切回 Raw，再点击正文工具栏的 Fullscreen。红框 1 是打开后弹窗的 Payload 标题栏；放大的是这条消息，不是整个连接。
+
+    ![全屏查看同一条WebSocket消息](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-014.annotated.png)
+
+14. <a id="walkthrough-capture-websocket-messages-19-return"></a>按 Escape 返回消息详情，核对红框 1 的 Raw 仍选中。
+
+    ![关闭消息全屏后保留Raw](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-015.annotated.png)
+
+15. <a id="walkthrough-capture-websocket-messages-20-paged-input"></a><a id="walkthrough-capture-websocket-messages-21-paged-select"></a><a id="walkthrough-capture-websocket-messages-22-paged-tab"></a><a id="walkthrough-capture-websocket-messages-23-load-pages"></a>在当前搜索结果中选择独立的 `/e2e/websocket/compact-message-layout/pagination` 连接。它有205条 Sent Text 消息及回显；打开 Messages、选择 Sent，在红框 1 的面板内向下滚动，加载后续消息。
+
+    ![滚动加载WebSocket后续消息页](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-016.annotated.png)
+
+16. <a id="walkthrough-capture-websocket-messages-24-last-message"></a>继续到末尾，点击红框 1 的第205条 Sent 消息，JSON 的零起始 `index` 为204。
+
+    ![选择第205条Sent消息](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-017.annotated.png)
+
+17. 继续向下滚动，使红框 1 中整条 `{"index":204,"state":"complete"}` 可读。这条消息使用 Text，不提供 Raw；详情的 message 409 是包含收发两个方向的连接序号。
+
+    ![完整显示最后一条WebSocket Text正文](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-018.annotated.png)
+
+18. <a id="walkthrough-capture-websocket-messages-25-copy-last"></a>点击消息标题行红框 1 的 Copy payload，复制完整32字节 Text。这次不是前面 Binary 消息的十六进制复制。
+
+    ![复制最后一条完整Text消息](../media/v0.1.1-alpha.1/capture-websocket-messages-english/step-019.annotated.png)
+
+#### gRPC：长正文与205条响应消息
+
+本例 `/e2e/grpc/compact-message-layout` 有六条 Response JSON。界面仍显示 No descriptor loaded，不把这些 JSON 示例当作已经载入 Protobuf 描述文件的解码结果。
+
+1. <a id="walkthrough-capture-grpc-messages"></a><a id="walkthrough-capture-grpc-messages-01-filter"></a><a id="walkthrough-capture-grpc-messages-02-record"></a><a id="walkthrough-capture-grpc-messages-03-messages"></a><a id="walkthrough-capture-grpc-messages-04-select"></a><a id="walkthrough-capture-grpc-messages-05-tab"></a><a id="walkthrough-capture-grpc-messages-06-direction"></a><a id="walkthrough-capture-grpc-messages-07-short"></a><a id="walkthrough-capture-grpc-messages-08-short-raw"></a>搜索该路径，选择 POST，打开 Messages → Response。展开70 B的 Message 1，选择红框 1 的 Raw，查看 `short-message`、`ready` 和 `count: 18`。
+
+   ![选择gRPC Response并读取短消息Raw](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-002.annotated.png)
+
+2. <a id="walkthrough-capture-grpc-messages-09-copy-short"></a>点击正文工具栏红框 1 的 Copy，复制完整短 JSON。
+
+   ![复制gRPC短消息正文](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-003.annotated.png)
+
+3. <a id="walkthrough-capture-grpc-messages-10-collapse-short"></a>再次点击红框 1 的 Message 1 行收起正文。
+
+   ![收起gRPC短消息](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-004.annotated.png)
+
+4. <a id="walkthrough-capture-grpc-messages-11-long"></a>展开 Message 2，选择红框 1 的 Raw。这条 `long-message` 也是2,538字节 JSON，包含28个 `entries`。
+
+   ![展开gRPC长消息并查看Raw](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-005.annotated.png)
+
+5. <a id="walkthrough-capture-grpc-messages-12-resize"></a>拖动红框 1 正文区域右下角的尺寸手柄，调整高度。
+
+   ![调整gRPC长正文高度](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-006.annotated.png)
+
+6. <a id="walkthrough-capture-grpc-messages-13-wheel"></a>在红框 1 的正文内部使用滚轮或触控板浏览。
+
+   ![滚动gRPC消息内部正文](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-007.annotated.png)
+
+7. <a id="walkthrough-capture-grpc-messages-14-keyboard-end"></a>点击红框 1 的正文取得焦点，在 macOS 按 Command+↓，其他平台按 Ctrl+End，核对末尾的 `compact-message-end`。
+
+   ![用键盘到达gRPC长正文末尾](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-008.annotated.png)
+
+8. <a id="walkthrough-capture-grpc-messages-15-scroll-out"></a>到达内部边界后继续滚动，让红框 1 的外层 Messages 面板显示后面的消息及 Response Trailers。
+
+   ![从gRPC正文继续滚动到外层消息区](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-009.annotated.png)
+
+9. <a id="walkthrough-capture-grpc-messages-16-copy-long"></a>点击正文工具栏红框 1 的 Copy，复制完整2,538字节 JSON。
+
+   ![复制完整gRPC长正文](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-010.annotated.png)
+
+10. <a id="walkthrough-capture-grpc-messages-17-payload-copy"></a>点击消息标题行红框 1 的 Copy payload。本例同样得到完整 JSON UTF-8，不是前面 WebSocket Binary 的空格分隔 Hex。
+
+    ![从gRPC消息标题行复制载荷](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-011.annotated.png)
+
+11. 选择红框 1 的 Hex，检查该消息的原始字节。
+
+    ![查看gRPC长消息Hex](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-013.annotated.png)
+
+12. <a id="walkthrough-capture-grpc-messages-18-fullscreen"></a>先切回 Raw，再点击正文工具栏的 Fullscreen。红框 1 是打开后的 Payload 标题栏，弹窗仍显示这条 `long-message`。
+
+    ![全屏查看gRPC长消息](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-014.annotated.png)
+
+13. <a id="walkthrough-capture-grpc-messages-19-return"></a>按 Escape 返回，核对红框 1 的 Raw 模式仍保留。
+
+    ![关闭gRPC消息全屏后返回Raw](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-015.annotated.png)
+
+14. <a id="walkthrough-capture-grpc-messages-20-paged-input"></a><a id="walkthrough-capture-grpc-messages-21-paged-select"></a><a id="walkthrough-capture-grpc-messages-22-paged-tab"></a><a id="walkthrough-capture-grpc-messages-23-load-pages"></a>另选 `/e2e/grpc/compact-message-layout/pagination`，打开 Messages → Response。在红框 1 的面板内向下滚动，加载这条调用的后续消息；总共205条。
+
+    ![滚动加载gRPC后续响应消息](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-016.annotated.png)
+
+15. <a id="walkthrough-capture-grpc-messages-24-last-message"></a>继续到末尾，点击红框 1 的 Message 205 展开。
+
+    ![展开gRPC的Message 205](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-017.annotated.png)
+
+16. <a id="walkthrough-capture-grpc-messages-24a-last-raw"></a><a id="walkthrough-capture-grpc-messages-24b-last-visible"></a>选择 Raw 并继续滚动，使红框 1 内的完整正文可见：`{"index":204,"state":"complete"}`。Message 205 与零起始 index 204不是同一种编号。
+
+    ![完整显示gRPC末条Raw正文](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-018.annotated.png)
+
+17. <a id="walkthrough-capture-grpc-messages-25-copy-last"></a>点击消息标题行红框 1 的 Copy payload，复制这条完整32字节 JSON。
+
+    ![复制gRPC最后一条完整响应消息](../media/v0.1.1-alpha.1/capture-grpc-messages-english/step-019.annotated.png)
+
+18. <a id="walkthrough-capture-grpc-messages-26-settings"></a><a id="walkthrough-capture-grpc-messages-27-certificates"></a><a id="walkthrough-capture-grpc-messages-28-mitm-off"></a><a id="walkthrough-capture-grpc-messages-29-origin-remove"></a>如果为这次加密调用开启过 MITM，结束后进入 Settings → Certificates，关闭图中红框 1 的 MITM 开关，再按[源站例外清理步骤](#walkthrough-31-remove-exception)移除自己添加的例外；不要移除原有 CA。
+
+    ![消息检查结束后清理本轮解密设置](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.annotated.png)
 
 - WSS 或加密的 gRPC 若没有解密，只能看到相应隧道，不能据此声称协议消息被完整解析。
 - gRPC 使用 HTTP/2；不要把 Protocol 筛选中的 HTTP/2 与内容类型混成同一个条件。
@@ -730,39 +949,109 @@
 
 ## 保存记录与正文
 
-**步骤**
+先选择适合的格式：HAR 用于交换 HTTP 记录，Native Archive 保留更多 Interceptor 流量信息，Save body 只保存单份正文。原生归档和正文文件的完整操作见[导入导出](transfer.md)。
 
-下面准确复用 [Transfer](transfer.md#har) 的文件操作；其请求是 `http://127.0.0.1:55059/guide/transfer/order`，`55059` 是那次录制的动态端口，不是把上面的 orders 请求换了名字。
+下面是独立的四条记录：`POST /e2e/har-tools/text` 和 `POST /e2e/har-tools/binary` 各有两份。它们不是前面的 JSON 请求。先检查自己实际要保留的记录，再选择导出范围。
 
-1. 打开 Export。
+<a id="capture-har-all"></a>
+### 导出全部记录
 
-   ![Transfer 录制中实际打开的 Export 菜单](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
+1. 打开 Capture 右上角的 Export 菜单，选择红框 1 中的 Export HAR。
 
-2. 选择 HAR；需要更多原生流量信息时选择 Native Archive，单独正文则使用 Save body，三者用途不同。
+   ![从 Export 菜单选择 HAR](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
-   ![选择 HAR 后的选项](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
+2. 选择红框 1 中的 All traffic，确认数量为 `4`。检查下方隐私选项：本例遮罩 Authorization、Cookie/Set-Cookie，保留正文。确认后点击红框 2 中的 Export 4 requests。本例没有预先选中一条请求，所以 Selected request 不可用。
 
-3. 选择实际要保存的范围。本次选择当前请求；[三种范围的独立实录](transfer.md#walkthrough-transfer-scopes)另用三条`/guide/export-scopes`请求，实际导出并核对全部3条、筛选2条和选中1条的文件，不用同一张单请求图代表三种范围。
+   ![核对全部四条和隐私选项后导出](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![选择当前请求的范围](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+3. 在系统 Save 窗口选择自己的目录，保存为 `ui.har`。
 
-4. 检查正文与隐私选项。
+   ![保存全部四条记录到 ui.har](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
-   ![HAR 的实际隐私选项](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+4. 等待导出结束后回到 Capture。四条记录仍在，红框 1 是重新可用的 Export 入口，红框 2 仍显示 Paused；保存不会自动恢复 Recording。确认文件任务结束后再 Clear 或退出。
 
-5. 在真实保存窗口保存为 `guide-recording.har`。
+   ![保存后回到四条记录，Recording 仍暂停](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   ![macOS 原生 Save 面板中的 guide-recording.har](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
+<a id="capture-har-scopes"></a>
+### 只导出筛选结果或选中记录
 
-6. 等待任务完成再 Clear 或退出；原生归档与正文保存的逐步操作见[对应章节](transfer.md#archive)。
+下面的独立范围示例也有 text/binary 各两条记录。选择范围不会改变 Capture 数据；随后导入时仍选择[全部导出](#capture-har-all)保存的四条 `ui.har`，不要选这里的两条或一条文件。
 
-   ![本次 HAR 已保存的实际检查点](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+1. 在红框 1 的搜索框输入 `/e2e/har-tools/text`，列表只显示两条文本记录。点击红框 2 中的第一条，将它选中；筛选和选择都不会删除其他记录。
 
-**预期结果**
+   ![筛选两条文本记录并选中一条](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-016.annotated.png)
 
-得到明确选择的文件，而不是只有一张截断正文的截图或剪贴板内容。
+2. 再次打开 Export → Export HAR，选择红框 1 中的 Current filter，核对数量为 `2`。保留所需正文及遮罩选项，点击红框 2 中的 Export 2 requests。
 
-**关键说明**
+   ![按当前筛选导出两条记录](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
+
+3. 在 Save 窗口保存为 `ui-filter.har`，不要覆盖刚才的 `ui.har`。
+
+   ![保存当前筛选到 ui-filter.har](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-018.png)
+
+4. 等待保存结束后回到 Capture。红框 1 标出 Export 入口；列表仍显示原来的两条筛选结果，`ui-filter.har` 包含这两条。
+
+   ![筛选范围保存后保留原列表](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-019.annotated.png)
+
+5. 保持第一条文本记录选中，再次打开 Export → Export HAR。选择红框 1 中的 Selected request，确认数量为 `1`，点击红框 2 中的 Export 1 request。
+
+   ![只导出当前选中的一条记录](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-020.annotated.png)
+
+6. 在 Save 窗口保存为 `ui-selected.har`。
+
+   ![保存当前选中记录到 ui-selected.har](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-021.png)
+
+7. 等待保存结束。红框 1 是返回 Capture 后的 Export 入口。文件只有一条，但列表仍显示两条；导出选中项不会把列表筛选成一条。
+
+   ![选中项保存后仍保留两条筛选结果](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-022.annotated.png)
+
+<a id="capture-har-privacy"></a>
+### 遮罩指定字段并去除正文
+
+1. 保持同一条文本记录选中，打开 Export → Export HAR，并选择 Selected request。按本次需要勾选遮罩 Authorization、Cookie/Set-Cookie 和 Strip bodies，逐项核对后点击红框 1 中的 Export 1 request。这里的选项只用于本次文件，不会改写 Settings → Privacy 的默认设置。
+
+   ![核对遮罩与去正文选项后导出](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.annotated.png)
+
+2. 在 Save 窗口保存为 `ui-stripped.har`，保留之前带正文的文件以便区分。
+
+   ![保存去除正文的 ui-stripped.har](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-030.png)
+
+3. 保存结束后回到 Capture，红框 1 标出 Export 入口。当前请求的正文仍可查看：Strip bodies 只去除导出文件中的正文，不清空 Capture。遮罩也不涵盖任意 Query、业务字段或其他 Header，分享前仍要检查文件。
+
+   ![去正文导出不会删除 Capture 中的正文](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-031.annotated.png)
+
+<a id="capture-har-import"></a>
+### 将已导出的 HAR 追加到 Capture
+
+回到[导出全部记录](#capture-har-all)的同一组示例，选择刚才由 Capture Export 保存的 `ui.har`。文件包含四条记录；导入会追加这四条，不替换当前记录，也不需要先通过 Agent 导出另一份文件。
+
+1. 清除搜索内容，确认导入前仍有四条记录。打开 Import 菜单，选择红框 1 中的 Import HAR。
+
+   ![从 Capture 的 Import 菜单选择 HAR](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-032.annotated.png)
+
+2. 在 App 对话框中点击红框 1 的 Import HAR，打开系统文件选择窗口。
+
+   ![从 App 启动 HAR 文件选择](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-033.annotated.png)
+
+3. 在系统 Open 窗口进入自己的保存目录，选择刚才的 `ui.har` 并点击 Open。完成后，Capture 从四条追加到八条，原四条保留。红框 1 标出新追加但尚未选中的 `/e2e/har-tools/binary` 行；此时右侧仍是此前文本记录的正文。
+
+   ![同一 ui.har 追加四条到八条](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-035.annotated.png)
+
+4. 选择这条新增的 binary 路径记录并打开 Request。它的请求仍是 Text、`16 B`，内容为 `HAR request body`。点击红框 1 的 Copy 复制请求正文；binary 是这里的响应类型，不是请求类型。
+
+   ![新增 binary 记录的 Request 仍为 Text](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-036.annotated.png)
+
+5. 切到同一记录的 Response 并选择 Hex，核对完整六字节 `00 01 7f 80 fe ff`。点击红框 1 的 Copy 得到含偏移、十六进制和 ASCII 列的文本 dump；这不是原二进制文件。
+
+   ![新增 binary 记录的完整六字节响应](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-037.annotated.png)
+
+6. 再选一条新增的 `/e2e/har-tools/text`，打开 Request。红框 1 的 Copy 复制 `16 B` 的 `HAR request body`。
+
+   ![新增 text 记录的完整请求正文](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-038.annotated.png)
+
+7. 切到这条记录的 Response。红框 1 的 Copy 复制 `17 B` 的 `HAR response body`，不要把它与上一步请求正文混淆。
+
+   ![新增 text 记录的完整响应正文](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.annotated.png)
 
 - HAR 不能无损保存 HTTP/2 pseudo-header、trailer、WebSocket 消息、TLS 详情和规则历史等信息。
 - HAR 可选择遮罩 Authorization、Cookie，也可移除正文；这不等于所有 URL、业务字段和任意 Header 都会自动脱敏。
@@ -772,47 +1061,45 @@
 
 ## 清空记录
 
-**步骤**
+1. 确认需要保留的数据已经导出。下图是 `ui.har` 保存四条记录后的状态：红框 1 为 Export 入口，红框 2 仍为 Paused。若随后已导入到八条或录制了新请求，应重新导出需要保留的当前数据；旧 `ui.har` 不会自动增加内容。
 
-1. 确认需要保留的数据已经导出。
+   ![清空前确认要保留的记录已有对应导出文件](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   下图引用 Transfer 的 `guide-recording.har` 完成检查点，不表示其他录制已经自动保存。
+2. 等待正文保存、HAR 或归档任务完成。若要中止正在运行的任务，点击红框 1 的 Cancel transfer。本例是 `cancel-ui.iarchive` 的运行进度，不是原生 Save 面板的 Cancel；完整启动过程见[任务取消步骤](transfer.md#walkthrough-transfer-cancel)。
 
-   ![先确认需要的 HAR 已保存](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
+   ![取消正在运行的Native Archive任务](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-019.annotated.png)
 
-2. 等待 Capture 的正文保存、HAR 或归档文件任务结束；若仍在取消清理中，也要等待完成。
+3. <a id="walkthrough-16-restore-filter"></a><a id="walkthrough-17-clear"></a>等待取消及文件清理结束，返回 Capture。原来的 `/e2e/transfer-jobs/large-source`、128 MB 记录仍在；确认不需要保留后，再点击红框 1 的 Capture Clear。
 
-   [运行中归档取消实录](transfer.md#walkthrough-transfer-cancel)使用本轮自有128MiB响应，拍到实际running进度、真实Cancel、取消后原记录保留及文件清理完成，再执行Clear；不是原生文件面板取消。
+   ![取消清理完成后才点击Capture Clear](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-020.annotated.png)
 
-   ![实际运行中的归档进度](../media/v0.1.1-alpha.1/transfer-cancel/transfer-cancel-05-running.png)
+4. 检查列表为空、计数归零。取消导出本身不会删除原记录，刚才独立点击 Clear 才执行清空。
 
-   **待配图**：这段证明取消清理完成后可Clear，尚未在运行中通过其他入口发起Clear并展示拒绝结果，也不替代退出等待专项。
+   ![归档取消后明确Clear得到空列表](../media/v0.1.1-alpha.1/capture-cancel-ui-english/step-021.png)
 
-3. 使用 Clear 清空不需保留的演示记录，按实际界面完成确认并检查列表、选择和计数。下图回到 `capture` 录制的清空操作。
+5. <a id="walkthrough-capture-inspection-28-close-details"></a>需要清空后保持暂停时，先单独暂停录制。以下是另一份 `/e2e/storage/` 记录的完整操作：核对红框 1 的记录，点击红框 2 的 Recording 暂停，不把系统代理 Restore 当作暂停操作。
 
-   ![Capture 清空演示记录后的实际列表](../media/v0.1.1-alpha.1/capture/capture-17-clear.png)
+   ![清理前单独暂停这份记录的Recording](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-001.annotated.png)
 
-4. Clear之后的完整对照使用另一段[正文检查实录](#walkthrough-capture-inspection-29-clear)：它先暂停并清空本轮临时记录，清理后仍暂停，不把之前的Resume画面挪到这里。
+6. <a id="walkthrough-capture-inspection-29-clear"></a>进入 Settings → Storage，点击 Clear capture，再点击红框 1 的 Confirm clear。这个入口与 Capture Clear 清理同一份临时记录和正文；已保存文件不受影响。
 
-   ![本次真正Clear后的空列表与暂停状态](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
+   ![在Storage明确确认清理Capture](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-006.annotated.png)
 
-5. 重新开启Recording。[对应步骤图](#walkthrough-capture-inspection-30-resume)
+7. 回到 Capture，确认列表、详情和计数已清空，顶部仍为 Paused。搜索词 `/e2e/storage/` 可以保留，清空记录不等于清空搜索。
 
-   ![Clear之后重新开启Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
+   ![清理后保持Paused且列表与详情为空](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-008.png)
 
-6. 发送新的`/guide/inspection/after-clear`，确认新记录出现。[对应步骤图](#walkthrough-capture-inspection-31-new-request)
+8. <a id="walkthrough-capture-inspection-30-resume"></a>点击 Paused 手动恢复录制。红框 1 显示恢复后的 Recording；此时还没有新记录。
 
-   ![Clear之后实际捕获的新请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
+   ![清理后单独恢复Recording](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-009.annotated.png)
 
-7. 选择新请求并打开Response，核对`{"afterClear":"guide-visible"}`。[对应步骤图](#walkthrough-capture-inspection-32-new-body)
+9. <a id="walkthrough-capture-inspection-31-new-request"></a>让客户端发送新的 `/e2e/storage/after-clear` POST，在红框 1 核对新记录的200、H1和115 B。它不是清空前的旧记录恢复出现。
 
-   ![新请求的真实正文仍可读取](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
+   ![恢复录制后出现新的after-clear请求](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-010.annotated.png)
 
-**预期结果**
+10. <a id="walkthrough-capture-inspection-32-new-body"></a>选择红框 1 的这条新 POST，再打开 Response 读取本次返回的正文，按[正文查看步骤](#walkthrough-06-response)切换显示或复制。图中标出的是打开详情前的新记录，不是已经展开的 Response。
 
-旧记录被移除，清理前的数据不会迟到回填；如果仍在录制，清理后开始的新请求可以进入列表。
-
-**关键说明**
+    ![选择清理后新记录以继续读取Response](../media/v0.1.1-alpha.1/settings-storage-usage-english/step-010.annotated.png)
 
 - Clear 不等于暂停录制，也不等于停止转发。
 - 在途文件任务可能使 Clear 被拒绝；不能绕过提示直接删除存储目录。
@@ -820,1139 +1107,80 @@
 
 ## 从流量进入阻断与断点
 
-本段来自 `capture-shortcuts`，实际地址为 `http://127.0.0.1:52315/guide/shortcuts/order`；`52315` 是录制环境动态端口，不是 App 固定端口。Block 与 Breakpoint 的保存行为不同，不能把下列两个流程合并。
+本例使用 `http://127.0.0.1:59192/e2e/capture/breakpoint-menu-hierarchy`。`59192` 是示例服务端口，不是 App 固定端口。Block 先生成草稿；This endpoint 则直接创建并启用断点规则。
 
-1. 选中已经捕获的示例请求；选择历史记录不会重发。
+1. <a id="walkthrough-capture-shortcuts"></a><a id="walkthrough-capture-shortcuts-01-source"></a>按路径搜索，选中红框 1 的历史 GET。选择记录只打开详情，不会重新发送请求。
 
-   ![选中实际历史请求](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-01-source.png)
+   ![选择快捷规则的历史请求来源](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-001.annotated.png)
 
-2. 打开该请求的右键菜单。
+2. <a id="walkthrough-capture-shortcuts-02-context"></a>在这条记录上打开右键菜单，点击 Control 下红框 1 的 Block。
 
-   ![Capture 的真实右键菜单](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-02-context.png)
+   ![从Capture右键菜单选择Block](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-002.annotated.png)
 
-3. 在 Control 中选择 Block，检查生成的未启用草稿。
+3. <a id="walkthrough-capture-shortcuts-03-block-draft"></a>在 Rules 检查生成的草稿：URL 精确匹配这条地址，Block 的 Mode 为 `reset`，红框 1 的规则开关默认关闭。
 
-   ![Block 快捷入口生成未启用草稿](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-03-block-draft.png)
+   ![检查默认停用的Block草稿](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-004.annotated.png)
 
-4. 将草稿命名为 `Guide quick block`。
+4. <a id="walkthrough-capture-shortcuts-04-name"></a>点击名称，在红框 1 输入 `Capture quick block`。
 
-   ![实际命名 Guide quick block](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-04-name.png)
+   ![为Block草稿命名](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-005.annotated.png)
 
-5. 启用该规则。
+5. <a id="walkthrough-capture-shortcuts-05-enable"></a>打开红框 1 的规则开关。Enabled 只表示当前编辑状态，接下来仍需保存。
 
-   ![启用 Block，仍需 Apply](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-05-enable.png)
+   ![启用当前Block草稿](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-006.annotated.png)
 
-6. 点击 Apply，等待生效。
+6. <a id="walkthrough-capture-shortcuts-06-apply"></a>点击右上角 Save，等待红框 1 的 Rule set applied。此时 Block 才按保存的配置生效。
 
-   ![实际 Apply Block 草稿](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-06-apply.png)
+   ![保存启用状态并确认规则已应用](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-007.annotated.png)
 
-7. 让外部客户端重新请求同一测试地址，核对新请求确实被阻断。
+7. <a id="walkthrough-capture-shortcuts-07-blocked"></a>让客户端再次请求同一地址，在 Capture 选择红框 1 的新行。它被 reset，状态为 `—`、大小0 B，没有响应头；不要把上面原有的200记录当成这次结果。
 
-   ![新请求的真实阻断结果](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-07-blocked.png)
+   ![检查新请求被reset后的记录](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-008.annotated.png)
 
-8. 停用 `Guide quick block`，避免影响后面的断点练习。
+8. <a id="walkthrough-capture-shortcuts-08-disable"></a>回到 Rules，关闭红框 1 的 `Capture quick block` 开关，避免影响后面的断点练习。
 
-   ![停用本轮快捷 Block](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-08-disable.png)
+   ![停用本轮快捷Block](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-009.annotated.png)
 
-9. Apply 停用状态。
+9. <a id="walkthrough-capture-shortcuts-09-disable-apply"></a>点击 Save，核对红框 1 再次显示 Rule set applied。
 
-   ![保存 Block 停用状态](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-09-disable-apply.png)
+   ![保存Block停用状态](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-010.annotated.png)
 
-10. 返回示例请求的右键菜单，展开 Breakpoint 子菜单。
+10. 再发送一条同地址请求，在列表红框 1 核对新行恢复200和112 B。图中详情仍选着旧 reset 记录；要读新正文，应另选这条新行。
 
-    ![真实 Breakpoint 子菜单](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-10-breakpoint-menu.png)
+    ![停用Block后新请求恢复200](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-011.annotated.png)
 
-11. 选择 Endpoint。此快捷操作从当前请求生成条件，**同时创建 request 与 response 阶段的断点，启用并立即 Apply**，不再执行普通草稿的启用/Apply 步骤。
+11. <a id="walkthrough-capture-shortcuts-10-breakpoint-menu"></a>在原来的历史请求上再次打开右键菜单，移到 Breakpoint，查看红框 1 的 This endpoint。
 
-    ![实际选择 Endpoint 并立即应用](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-11-endpoint.png)
+    ![打开Breakpoint并查看This endpoint](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-012.annotated.png)
 
-12. 重新发出匹配请求，观察第一次 request 阶段等待。
+12. <a id="walkthrough-capture-shortcuts-11-endpoint"></a>点击 This endpoint，核对红框 1 的 Breakpoint created 提示。这会创建一条包含 request、response 两个断点动作的规则，并立即启用、保存；不要重复草稿的 Enable/Save 步骤。提示中的 Undo 可撤销本次创建。
 
-    ![新请求在 request 阶段实际挂起](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-12-paused.png)
+    ![Endpoint断点创建后立即生效](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-013.annotated.png)
 
-13. 原样放行 request 阶段。请求继续后，response 阶段还会再挂起一次，不要以为点击一次就结束了整笔请求。
+13. <a id="walkthrough-capture-shortcuts-12-paused"></a><a id="walkthrough-capture-shortcuts-13-continue-request"></a>让客户端发起新的匹配请求。首次等待为 Request paused；检查 Request Headers 后，点击红框 1 的 Continue 原样放行请求。创建规则不会追溯暂停历史记录。
 
-    ![放行 request 后继续处理 response 等待](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-13-continue-request.png)
+    ![原样放行新请求的request阶段](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-014.annotated.png)
 
-14. 核对当前阶段为 response，再原样放行，检查客户端完成结果。
+14. <a id="walkthrough-capture-shortcuts-14-continue-response"></a>同一请求随后停在 Response paused。核对 Status 200 和 Response Headers，再点击红框 1 的 Continue 原样放行响应；只放行 request 阶段还不算完成。
 
-    ![第二次放行实际 response 阶段](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-14-continue-response.png)
+    ![原样放行同一请求的response阶段](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-015.annotated.png)
 
-15. 结束练习后检查并停用本轮快捷生成的断点匹配。
+15. 两阶段均处理后，检查红框 1 的记录已恢复200、112 B，不再处于暂停状态。
 
-    **待配图**：此片段结束于两阶段放行，没有快捷断点规则的停用画面；处理等待项不等于停用规则。其他作用范围及菜单左右展开的分支也仍未录制。
+    ![两次Continue后请求完成](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-016.annotated.png)
 
-**预期结果**：Block 需启用并 Apply 才影响后续流量；本例 Endpoint 断点立即生效，同一新请求需要分别处理 request、response 两次等待。
+16. 进入 Rules，关闭红框 1 的本次 Breakpoint 规则。右侧仍可看到同一条规则中的 Request 和 Response 两个动作。
 
-**关键说明**：菜单在右侧空间不足时可向左展开；Escape 或点击外部关闭菜单，不等于取消已经生效的规则。关闭匹配或处理挂起项分别按 [Breakpoints](breakpoints.md)操作。
+    ![停用本轮Endpoint断点规则](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-017.annotated.png)
+
+17. 点击 Save，等待红框 1 的 Rule set applied，保存停用状态。
+
+    ![保存Endpoint断点停用状态](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-018.annotated.png)
+
+18. 再次请求相同地址，在红框 1 的新行检查直接返回200。图中详情仍属于上一条记录；需要看这次响应时再选择新行。单条规则、全局 Break on match、Undo 和挂起队列的管理见 [Breakpoints](breakpoints.md)。
+
+    ![停用断点后新请求直接完成](../media/v0.1.1-alpha.1/capture-shortcuts-english/step-019.annotated.png)
+
+菜单在右侧空间不足时可向左展开；Escape 或点击外部关闭菜单，不等于取消已经生效的规则。关闭匹配或处理挂起项分别按 [Breakpoints](breakpoints.md)操作。
 
 继续阅读：[Composer：手工构造请求](composer.md)。
-
-<!-- recorded-walkthrough:capture-filters:start -->
-<a id="walkthrough-capture-filters"></a>
-## 逐步骤实操：同组 OR、跨组 AND 与搜索恢复
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>search</code> | <code>/guide/filters</code> |
-| <code>methods</code> | <code>GET + POST</code> |
-| <code>status</code> | <code>200</code> |
-| <code>addedSearch</code> | <code>/guide/filters/post-ok</code> |
-| <code>initialRecords</code> | <code>4</code> |
-| <code>afterOr</code> | <code>3</code> |
-| <code>afterAnd</code> | <code>2</code> |
-| <code>afterSearch</code> | <code>1</code> |
-| <code>finalRecords</code> | <code>4</code> |
-| <code>finalSearch</code> | <code>(empty; cleared through the search control, not Capture Clear)</code> |
-
-<a id="walkthrough-capture-filters-01-records"></a>
-### 01 · 查看四条演示请求
-
-![01 · 查看四条演示请求](../media/v0.1.1-alpha.1/capture-filters/capture-filters-01-records.png)
-
-<a id="walkthrough-capture-filters-02-methods"></a>
-### 02 · 展开 Method
-
-![02 · 展开 Method](../media/v0.1.1-alpha.1/capture-filters/capture-filters-02-methods.png)
-
-<a id="walkthrough-capture-filters-03-get"></a>
-### 03 · 只选 GET
-
-![03 · 只选 GET](../media/v0.1.1-alpha.1/capture-filters/capture-filters-03-get.png)
-
-<a id="walkthrough-capture-filters-04-get-post"></a>
-### 04 · 同组再选 POST
-
-![04 · 同组再选 POST](../media/v0.1.1-alpha.1/capture-filters/capture-filters-04-get-post.png)
-
-<a id="walkthrough-capture-filters-05-status"></a>
-### 05 · 展开 Status
-
-![05 · 展开 Status](../media/v0.1.1-alpha.1/capture-filters/capture-filters-05-status.png)
-
-<a id="walkthrough-capture-filters-06-and-status"></a>
-### 06 · 再选 200，跨组 AND
-
-![06 · 再选 200，跨组 AND](../media/v0.1.1-alpha.1/capture-filters/capture-filters-06-and-status.png)
-
-<a id="walkthrough-capture-filters-07-search"></a>
-### 07 · 叠加 post-ok 搜索
-
-![07 · 叠加 post-ok 搜索](../media/v0.1.1-alpha.1/capture-filters/capture-filters-07-search.png)
-
-<a id="walkthrough-capture-filters-08-search-back"></a>
-### 08 · 恢复演示搜索范围
-
-![08 · 恢复演示搜索范围](../media/v0.1.1-alpha.1/capture-filters/capture-filters-08-search-back.png)
-
-<a id="walkthrough-capture-filters-09-remove-status"></a>
-### 09 · 取消 Status 条件
-
-![09 · 取消 Status 条件](../media/v0.1.1-alpha.1/capture-filters/capture-filters-09-remove-status.png)
-
-<a id="walkthrough-capture-filters-10-remove-post"></a>
-### 10 · 取消 POST
-
-![10 · 取消 POST](../media/v0.1.1-alpha.1/capture-filters/capture-filters-10-remove-post.png)
-
-<a id="walkthrough-capture-filters-11-remove-get"></a>
-### 11 · 取消 GET，保留原记录
-
-![11 · 取消 GET，保留原记录](../media/v0.1.1-alpha.1/capture-filters/capture-filters-11-remove-get.png)
-
-<a id="walkthrough-capture-filters-12-collapse"></a>
-### 12 · 只折叠组标题
-
-![12 · 只折叠组标题](../media/v0.1.1-alpha.1/capture-filters/capture-filters-12-collapse.png)
-
-<a id="walkthrough-capture-filters-13-clear-search"></a>
-### 13 · 清空搜索但不删除请求
-
-![13 · 清空搜索但不删除请求](../media/v0.1.1-alpha.1/capture-filters/capture-filters-13-clear-search.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-filters:end -->
-
-<!-- recorded-walkthrough:capture-shortcuts:start -->
-<a id="walkthrough-capture-shortcuts"></a>
-## 逐步骤实操：Capture 快捷 Block 与双阶段断点
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:52315/guide/shortcuts/order</code> |
-| <code>blockName</code> | <code>Guide quick block</code> |
-| <code>breakpointScope</code> | <code>endpoint</code> |
-| <code>blockBehavior</code> | <code>disabled draft; enable and Apply required</code> |
-| <code>breakpointBehavior</code> | <code>created, enabled and applied immediately for request and response phases</code> |
-
-<a id="walkthrough-capture-shortcuts-01-source"></a>
-### 01 · 选择实际历史请求
-
-![01 · 选择实际历史请求](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-01-source.png)
-
-<a id="walkthrough-capture-shortcuts-02-context"></a>
-### 02 · 打开右键菜单
-
-![02 · 打开右键菜单](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-02-context.png)
-
-<a id="walkthrough-capture-shortcuts-03-block-draft"></a>
-### 03 · Block 创建未启用草稿
-
-![03 · Block 创建未启用草稿](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-03-block-draft.png)
-
-<a id="walkthrough-capture-shortcuts-04-name"></a>
-### 04 · 命名 Guide quick block
-
-![04 · 命名 Guide quick block](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-04-name.png)
-
-<a id="walkthrough-capture-shortcuts-05-enable"></a>
-### 05 · 启用 Block
-
-![05 · 启用 Block](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-05-enable.png)
-
-<a id="walkthrough-capture-shortcuts-06-apply"></a>
-### 06 · Apply 后才生效
-
-![06 · Apply 后才生效](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-06-apply.png)
-
-<a id="walkthrough-capture-shortcuts-07-blocked"></a>
-### 07 · 发送新请求验证阻断
-
-![07 · 发送新请求验证阻断](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-07-blocked.png)
-
-<a id="walkthrough-capture-shortcuts-08-disable"></a>
-### 08 · 停用本轮 Block
-
-![08 · 停用本轮 Block](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-08-disable.png)
-
-<a id="walkthrough-capture-shortcuts-09-disable-apply"></a>
-### 09 · Apply 停用状态
-
-![09 · Apply 停用状态](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-09-disable-apply.png)
-
-<a id="walkthrough-capture-shortcuts-10-breakpoint-menu"></a>
-### 10 · 打开真实 Breakpoint 子菜单
-
-![10 · 打开真实 Breakpoint 子菜单](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-10-breakpoint-menu.png)
-
-<a id="walkthrough-capture-shortcuts-11-endpoint"></a>
-### 11 · 选择 Endpoint 并立即 Apply
-
-![11 · 选择 Endpoint 并立即 Apply](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-11-endpoint.png)
-
-<a id="walkthrough-capture-shortcuts-12-paused"></a>
-### 12 · 发送新请求并观察等待
-
-![12 · 发送新请求并观察等待](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-12-paused.png)
-
-<a id="walkthrough-capture-shortcuts-13-continue-request"></a>
-### 13 · 请求阶段原样放行
-
-![13 · 请求阶段原样放行](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-13-continue-request.png)
-
-<a id="walkthrough-capture-shortcuts-14-continue-response"></a>
-### 14 · 响应阶段再次放行
-
-![14 · 响应阶段再次放行](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-14-continue-response.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-shortcuts:end -->
-
-<!-- recorded-walkthrough:capture-inspection:start -->
-<a id="walkthrough-capture-inspection"></a>
-## 逐步骤实操：请求正文、Markdown Source与滚动
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:55601/guide/inspection/body?detail0=guide-0&amp;detail1=guide-1&amp;detail2=guide-2&amp;detail3=guide-3&amp;detail4=guide-4&amp;detail5=guide-5&amp;detail6=guide-6&amp;detail7=guide-7&amp;detail8=guide-8&amp;detail9=guide-9&amp;detail10=guide-10&amp;detail11=guide-11&amp;detail12=guide-12&amp;detail13=guide-13&amp;detail14=guide-14&amp;detail15=guide-15&amp;detail16=guide-16&amp;detail17=guide-17&amp;detail18=guide-18&amp;detail19=guide-19&amp;detail20=guide-20&amp;detail21=guide-21&amp;detail22=guide-22&amp;detail23=guide-23</code> |
-| <code>search</code> | <code>/guide/inspection</code> |
-| <code>requestId</code> | <code>guide-request</code> |
-| <code>requestEntries</code> | <code>request-000 through request-095</code> |
-| <code>queryFields</code> | <code>detail0=guide-0 through detail23=guide-23</code> |
-| <code>requestEnd</code> | <code>guide-request-end</code> |
-| <code>responseTitle</code> | <code>Guide response source</code> |
-| <code>responseEntries</code> | <code>response-000 through response-159</code> |
-| <code>responseEnd</code> | <code>guide-response-end</code> |
-| <code>responseMime</code> | <code>text/markdown</code> |
-| <code>inspectorDrag</code> | <code>240px wider, then restored</code> |
-| <code>afterClearPath</code> | <code>/guide/inspection/after-clear</code> |
-| <code>afterClearBody</code> | <code>{&quot;afterClear&quot;:&quot;guide-visible&quot;}</code> |
-
-<a id="walkthrough-capture-inspection-01-filter"></a>
-### 01 · 限定本轮检查路径
-
-![01 · 限定本轮检查路径](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-01-filter.png)
-
-<a id="walkthrough-capture-inspection-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-02-record.png)
-
-<a id="walkthrough-capture-inspection-03-post"></a>
-### 03 · 发送长正文 POST
-
-![03 · 发送长正文 POST](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-03-post.png)
-
-<a id="walkthrough-capture-inspection-04-pause"></a>
-### 04 · 暂停后检查已捕获请求
-
-![04 · 暂停后检查已捕获请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-04-pause.png)
-
-<a id="walkthrough-capture-inspection-05-select"></a>
-### 05 · 选择 body 请求
-
-![05 · 选择 body 请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-05-select.png)
-
-<a id="walkthrough-capture-inspection-06-headers"></a>
-### 06 · 查看 Headers
-
-![06 · 查看 Headers](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-06-headers.png)
-
-<a id="walkthrough-capture-inspection-07-collapse"></a>
-### 07 · 折叠 General
-
-![07 · 折叠 General](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-07-collapse.png)
-
-<a id="walkthrough-capture-inspection-08-expand"></a>
-### 08 · 重新展开 General
-
-![08 · 重新展开 General](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-08-expand.png)
-
-<a id="walkthrough-capture-inspection-09-request"></a>
-### 09 · 打开 Request 正文
-
-![09 · 打开 Request 正文](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-09-request.png)
-
-<a id="walkthrough-capture-inspection-10-raw"></a>
-### 10 · 选择请求 Raw
-
-![10 · 选择请求 Raw](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-10-raw.png)
-
-<a id="walkthrough-capture-inspection-11-widen"></a>
-### 11 · 拖动分栏扩大详情
-
-![11 · 拖动分栏扩大详情](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-11-widen.png)
-
-<a id="walkthrough-capture-inspection-12-inner-scroll"></a>
-### 12 · 在正文内使用滚轮
-
-![12 · 在正文内使用滚轮](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-12-inner-scroll.png)
-
-<a id="walkthrough-capture-inspection-13-request-end"></a>
-### 13 · 用键盘到达请求末尾
-
-![13 · 用键盘到达请求末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-13-request-end.png)
-
-<a id="walkthrough-capture-inspection-14-outer-up"></a>
-### 14 · 在详情边缘向上滚动
-
-![14 · 在详情边缘向上滚动](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-14-outer-up.png)
-
-<a id="walkthrough-capture-inspection-15-scroll-chain"></a>
-### 15 · 正文到底后继续滚动外层
-
-![15 · 正文到底后继续滚动外层](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-15-scroll-chain.png)
-
-<a id="walkthrough-capture-inspection-16-copy-request"></a>
-### 16 · 复制完整请求正文
-
-![16 · 复制完整请求正文](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-16-copy-request.png)
-
-<a id="walkthrough-capture-inspection-17-preview"></a>
-### 17 · 打开 Markdown Preview
-
-![17 · 打开 Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-17-preview.png)
-
-<a id="walkthrough-capture-inspection-18-split"></a>
-### 18 · 右方向键切换 Split
-
-![18 · 右方向键切换 Split](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-18-split.png)
-
-<a id="walkthrough-capture-inspection-19-source"></a>
-### 19 · 再次右移切换 Source
-
-![19 · 再次右移切换 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-19-source.png)
-
-<a id="walkthrough-capture-inspection-20-copy-source"></a>
-### 20 · 复制 Markdown Source
-
-![20 · 复制 Markdown Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-20-copy-source.png)
-
-<a id="walkthrough-capture-inspection-21-source-scroll"></a>
-### 21 · 滚动长 Source
-
-![21 · 滚动长 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-21-source-scroll.png)
-
-<a id="walkthrough-capture-inspection-22-source-end"></a>
-### 22 · 用键盘查看 Source 末尾
-
-![22 · 用键盘查看 Source 末尾](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-22-source-end.png)
-
-<a id="walkthrough-capture-inspection-23-fullscreen"></a>
-### 23 · 全屏查看 Source
-
-![23 · 全屏查看 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-23-fullscreen.png)
-
-<a id="walkthrough-capture-inspection-24-return"></a>
-### 24 · Escape 返回 Source
-
-![24 · Escape 返回 Source](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-24-return.png)
-
-<a id="walkthrough-capture-inspection-25-preview-again"></a>
-### 25 · 返回 Markdown Preview
-
-![25 · 返回 Markdown Preview](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-25-preview-again.png)
-
-<a id="walkthrough-capture-inspection-26-hex"></a>
-### 26 · 查看同一响应的 Hex
-
-![26 · 查看同一响应的 Hex](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-26-hex.png)
-
-<a id="walkthrough-capture-inspection-27-restore-width"></a>
-### 27 · 拖回原来的详情宽度
-
-![27 · 拖回原来的详情宽度](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-27-restore-width.png)
-
-<a id="walkthrough-capture-inspection-28-close-details"></a>
-### 28 · 关闭详情回到列表
-
-![28 · 关闭详情回到列表](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-28-close-details.png)
-
-<a id="walkthrough-capture-inspection-29-clear"></a>
-### 29 · Clear 本轮临时记录
-
-![29 · Clear 本轮临时记录](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-29-clear.png)
-
-<a id="walkthrough-capture-inspection-30-resume"></a>
-### 30 · 清理后重新开启 Recording
-
-![30 · 清理后重新开启 Recording](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-30-resume.png)
-
-<a id="walkthrough-capture-inspection-31-new-request"></a>
-### 31 · 发送清理后的新请求
-
-![31 · 发送清理后的新请求](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-31-new-request.png)
-
-<a id="walkthrough-capture-inspection-32-new-body"></a>
-### 32 · 确认新请求正文可读
-
-![32 · 确认新请求正文可读](../media/v0.1.1-alpha.1/capture-inspection/capture-inspection-32-new-body.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-inspection:end -->
-
-<!-- recorded-walkthrough:capture-facets:start -->
-<a id="walkthrough-capture-facets"></a>
-## 逐步骤实操：Application、Host、Protocol、Type与Rule筛选
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>search</code> | <code>/guide/facets</code> |
-| <code>ruleName</code> | <code>Guide facets</code> |
-| <code>rulePath</code> | <code>/guide/facets/selected-json</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>protocol</code> | <code>HTTP/1.1</code> |
-| <code>application</code> | <code>Unknown (actual macOS result, not Windows attribution)</code> |
-| <code>prerequisite</code> | <code>Two captured owned requests and one applied Guide facets Rule; recording is paused before filming</code> |
-| <code>jsonPath</code> | <code>/guide/facets/selected-json</code> |
-| <code>textPath</code> | <code>/guide/facets/other-text</code> |
-| <code>header</code> | <code>x-guide-facet: selected</code> |
-| <code>initialRecords</code> | <code>2</code> |
-| <code>afterJson</code> | <code>1</code> |
-| <code>afterRule</code> | <code>1</code> |
-| <code>afterClearFacets</code> | <code>2</code> |
-
-<a id="walkthrough-capture-facets-01-application"></a>
-### 01 · 展开 Application
-
-![01 · 展开 Application](../media/v0.1.1-alpha.1/capture-facets/capture-facets-01-application.png)
-
-<a id="walkthrough-capture-facets-02-unknown"></a>
-### 02 · 选择本次 Unknown 归属
-
-![02 · 选择本次 Unknown 归属](../media/v0.1.1-alpha.1/capture-facets/capture-facets-02-unknown.png)
-
-<a id="walkthrough-capture-facets-03-host-group"></a>
-### 03 · 展开 Host
-
-![03 · 展开 Host](../media/v0.1.1-alpha.1/capture-facets/capture-facets-03-host-group.png)
-
-<a id="walkthrough-capture-facets-04-host-select"></a>
-### 04 · 选择 127.0.0.1
-
-![04 · 选择 127.0.0.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-04-host-select.png)
-
-<a id="walkthrough-capture-facets-05-protocol-group"></a>
-### 05 · 展开 Protocol
-
-![05 · 展开 Protocol](../media/v0.1.1-alpha.1/capture-facets/capture-facets-05-protocol-group.png)
-
-<a id="walkthrough-capture-facets-06-protocol-select"></a>
-### 06 · 选择 HTTP/1.1
-
-![06 · 选择 HTTP/1.1](../media/v0.1.1-alpha.1/capture-facets/capture-facets-06-protocol-select.png)
-
-<a id="walkthrough-capture-facets-07-type-group"></a>
-### 07 · 展开 Content type
-
-![07 · 展开 Content type](../media/v0.1.1-alpha.1/capture-facets/capture-facets-07-type-group.png)
-
-<a id="walkthrough-capture-facets-08-json"></a>
-### 08 · 选择 json，剩一条请求
-
-![08 · 选择 json，剩一条请求](../media/v0.1.1-alpha.1/capture-facets/capture-facets-08-json.png)
-
-<a id="walkthrough-capture-facets-09-rule-group"></a>
-### 09 · 展开 Rule
-
-![09 · 展开 Rule](../media/v0.1.1-alpha.1/capture-facets/capture-facets-09-rule-group.png)
-
-<a id="walkthrough-capture-facets-10-rule-select"></a>
-### 10 · 选择实际命中的 Guide facets
-
-![10 · 选择实际命中的 Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-10-rule-select.png)
-
-<a id="walkthrough-capture-facets-11-remove-type"></a>
-### 11 · 取消 json，仍按规则保留一条
-
-![11 · 取消 json，仍按规则保留一条](../media/v0.1.1-alpha.1/capture-facets/capture-facets-11-remove-type.png)
-
-<a id="walkthrough-capture-facets-12-clear-facets"></a>
-### 12 · 清除分组筛选但保留搜索
-
-![12 · 清除分组筛选但保留搜索](../media/v0.1.1-alpha.1/capture-facets/capture-facets-12-clear-facets.png)
-
-<a id="walkthrough-capture-facets-13-hide-filters"></a>
-### 13 · 收起筛选栏
-
-![13 · 收起筛选栏](../media/v0.1.1-alpha.1/capture-facets/capture-facets-13-hide-filters.png)
-
-<a id="walkthrough-capture-facets-14-show-filters"></a>
-### 14 · 重新显示筛选栏
-
-![14 · 重新显示筛选栏](../media/v0.1.1-alpha.1/capture-facets/capture-facets-14-show-filters.png)
-
-<a id="walkthrough-capture-facets-15-rules"></a>
-### 15 · 返回示例规则
-
-![15 · 返回示例规则](../media/v0.1.1-alpha.1/capture-facets/capture-facets-15-rules.png)
-
-<a id="walkthrough-capture-facets-16-disable"></a>
-### 16 · 停用 Guide facets
-
-![16 · 停用 Guide facets](../media/v0.1.1-alpha.1/capture-facets/capture-facets-16-disable.png)
-
-<a id="walkthrough-capture-facets-17-apply-disabled"></a>
-### 17 · Apply 停用状态
-
-![17 · Apply 停用状态](../media/v0.1.1-alpha.1/capture-facets/capture-facets-17-apply-disabled.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-facets:end -->
-
-<!-- recorded-walkthrough:capture-websocket-messages:start -->
-<a id="walkthrough-capture-websocket-messages"></a>
-## 逐步骤实操：WebSocket消息展开、复制、全屏与分页
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>protocol</code> | <code>websocket</code> |
-| <code>filter</code> | <code>/guide/messages/websocket</code> |
-| <code>detailPath</code> | <code>/guide/messages/websocket/detail</code> |
-| <code>pagePath</code> | <code>/guide/messages/websocket/pages</code> |
-| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
-| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
-| <code>firstCount</code> | <code>6</code> |
-| <code>pagedCount</code> | <code>205</code> |
-| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
-| <code>detailEncoding</code> | <code>binary JSON; body Copy is text, message Copy is Hex</code> |
-| <code>pagedEncoding</code> | <code>WebSocket text</code> |
-| <code>tlsScope</code> | <code>plain WebSocket; no CA changes</code> |
-
-<a id="walkthrough-capture-websocket-messages-01-filter"></a>
-### 01 · 限定本轮消息路径
-
-![01 · 限定本轮消息路径](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-01-filter.png)
-
-<a id="walkthrough-capture-websocket-messages-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-02-record.png)
-
-<a id="walkthrough-capture-websocket-messages-03-messages"></a>
-### 03 · 发送六条公开消息
-
-![03 · 发送六条公开消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-03-messages.png)
-
-<a id="walkthrough-capture-websocket-messages-04-select"></a>
-### 04 · 选择本轮连接
-
-![04 · 选择本轮连接](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-04-select.png)
-
-<a id="walkthrough-capture-websocket-messages-05-tab"></a>
-### 05 · 打开消息页
-
-![05 · 打开消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-05-tab.png)
-
-<a id="walkthrough-capture-websocket-messages-06-direction"></a>
-### 06 · 选择 Sent 消息
-
-![06 · 选择 Sent 消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-06-direction.png)
-
-<a id="walkthrough-capture-websocket-messages-07-short"></a>
-### 07 · 展开 guide-short
-
-![07 · 展开 guide-short](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-07-short.png)
-
-<a id="walkthrough-capture-websocket-messages-08-short-raw"></a>
-### 08 · 选择 Raw 查看原文
-
-![08 · 选择 Raw 查看原文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-08-short-raw.png)
-
-<a id="walkthrough-capture-websocket-messages-09-copy-short"></a>
-### 09 · 复制当前短消息正文
-
-![09 · 复制当前短消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-09-copy-short.png)
-
-<a id="walkthrough-capture-websocket-messages-10-collapse-short"></a>
-### 10 · 收起短消息
-
-![10 · 收起短消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-10-collapse-short.png)
-
-<a id="walkthrough-capture-websocket-messages-11-long"></a>
-### 11 · 展开 guide-long
-
-![11 · 展开 guide-long](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-11-long.png)
-
-<a id="walkthrough-capture-websocket-messages-12-resize"></a>
-### 12 · 拖动正文右下角缩小高度
-
-![12 · 拖动正文右下角缩小高度](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-12-resize.png)
-
-<a id="walkthrough-capture-websocket-messages-13-wheel"></a>
-### 13 · 在长消息中滚动
-
-![13 · 在长消息中滚动](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-13-wheel.png)
-
-<a id="walkthrough-capture-websocket-messages-14-keyboard-end"></a>
-### 14 · 用键盘到达消息末尾
-
-![14 · 用键盘到达消息末尾](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-14-keyboard-end.png)
-
-<a id="walkthrough-capture-websocket-messages-15-scroll-out"></a>
-### 15 · 到底后继续滚动消息列表
-
-![15 · 到底后继续滚动消息列表](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-15-scroll-out.png)
-
-<a id="walkthrough-capture-websocket-messages-16-copy-long"></a>
-### 16 · 复制完整长消息正文
-
-![16 · 复制完整长消息正文](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-16-copy-long.png)
-
-<a id="walkthrough-capture-websocket-messages-17-payload-copy"></a>
-### 17 · 复制 binary 消息的原始 Hex
-
-![17 · 复制 binary 消息的原始 Hex](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-17-payload-copy.png)
-
-<a id="walkthrough-capture-websocket-messages-18-fullscreen"></a>
-### 18 · 全屏查看这条消息
-
-![18 · 全屏查看这条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-18-fullscreen.png)
-
-<a id="walkthrough-capture-websocket-messages-19-return"></a>
-### 19 · Escape 返回同一消息
-
-![19 · Escape 返回同一消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-19-return.png)
-
-<a id="walkthrough-capture-websocket-messages-20-paged-input"></a>
-### 20 · 在新连接发送205条消息
-
-![20 · 在新连接发送205条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-20-paged-input.png)
-
-<a id="walkthrough-capture-websocket-messages-21-paged-select"></a>
-### 21 · 选择新的 pages 连接
-
-![21 · 选择新的 pages 连接](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-21-paged-select.png)
-
-<a id="walkthrough-capture-websocket-messages-22-paged-tab"></a>
-### 22 · 打开新连接的消息
-
-![22 · 打开新连接的消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-22-paged-tab.png)
-
-<a id="walkthrough-capture-websocket-messages-23-load-pages"></a>
-### 23 · 滚动加载后续消息页
-
-![23 · 滚动加载后续消息页](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-23-load-pages.png)
-
-<a id="walkthrough-capture-websocket-messages-24-last-message"></a>
-### 24 · 展开第205条消息
-
-![24 · 展开第205条消息](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-24-last-message.png)
-
-<a id="walkthrough-capture-websocket-messages-25-copy-last"></a>
-### 25 · 复制最后一条并核对 index 204
-
-![25 · 复制最后一条并核对 index 204](../media/v0.1.1-alpha.1/capture-websocket-messages/capture-websocket-messages-25-copy-last.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-websocket-messages:end -->
-
-<!-- recorded-walkthrough:capture-http2:start -->
-<a id="walkthrough-capture-http2"></a>
-## 逐步骤实操：HTTP/2接收进度、中断与新连接恢复
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>filter</code> | <code>/guide/h2</code> |
-| <code>streamPath</code> | <code>/guide/h2/stream</code> |
-| <code>firstPartBytes</code> | <code>65559</code> |
-| <code>twoPartBytes</code> | <code>131119</code> |
-| <code>completeBytes</code> | <code>131141</code> |
-| <code>firstMarker</code> | <code>part-one: guide-start</code> |
-| <code>secondMarker</code> | <code>part-two: guide-middle</code> |
-| <code>finalMarker</code> | <code>part-three: guide-end</code> |
-| <code>trailer</code> | <code>x-guide-end: complete</code> |
-| <code>errorGoawayCode</code> | <code>2</code> |
-| <code>declaredBytes</code> | <code>524288</code> |
-| <code>capturedPartialBytes</code> | <code>262144</code> |
-| <code>recovery</code> | <code>separate GET on a new connection; original POST not replayed</code> |
-| <code>inflightBody</code> | <code>Received byte counts update before the normal HTTP response body becomes readable</code> |
-
-<a id="walkthrough-capture-http2-01-scope"></a>
-### 01 · 限定本轮 HTTP/2 路径
-
-![01 · 限定本轮 HTTP/2 路径](../media/v0.1.1-alpha.1/capture-http2/capture-http2-01-scope.png)
-
-<a id="walkthrough-capture-http2-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-http2/capture-http2-02-record.png)
-
-<a id="walkthrough-capture-http2-03-first-part"></a>
-### 03 · 接收第一段但保持连接未结束
-
-![03 · 接收第一段但保持连接未结束](../media/v0.1.1-alpha.1/capture-http2/capture-http2-03-first-part.png)
-
-<a id="walkthrough-capture-http2-04-select"></a>
-### 04 · 选择仍在接收的 stream
-
-![04 · 选择仍在接收的 stream](../media/v0.1.1-alpha.1/capture-http2/capture-http2-04-select.png)
-
-<a id="walkthrough-capture-http2-05-headers"></a>
-### 05 · 核对声明的完整长度
-
-![05 · 核对声明的完整长度](../media/v0.1.1-alpha.1/capture-http2/capture-http2-05-headers.png)
-
-<a id="walkthrough-capture-http2-06-partial-body"></a>
-### 06 · 区分接收进度与正文可读性
-
-![06 · 区分接收进度与正文可读性](../media/v0.1.1-alpha.1/capture-http2/capture-http2-06-partial-body.png)
-
-<a id="walkthrough-capture-http2-07-second-part"></a>
-### 07 · 继续接收第二段
-
-![07 · 继续接收第二段](../media/v0.1.1-alpha.1/capture-http2/capture-http2-07-second-part.png)
-
-<a id="walkthrough-capture-http2-08-complete"></a>
-### 08 · 结束响应并核对完整正文
-
-![08 · 结束响应并核对完整正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-08-complete.png)
-
-<a id="walkthrough-capture-http2-09-trailers"></a>
-### 09 · 查看结束时的 trailer
-
-![09 · 查看结束时的 trailer](../media/v0.1.1-alpha.1/capture-http2/capture-http2-09-trailers.png)
-
-<a id="walkthrough-capture-http2-10-protocol-group"></a>
-### 10 · 展开 Protocol 分组
-
-![10 · 展开 Protocol 分组](../media/v0.1.1-alpha.1/capture-http2/capture-http2-10-protocol-group.png)
-
-<a id="walkthrough-capture-http2-11-http2-filter"></a>
-### 11 · 选择实际 HTTP/2 协议
-
-![11 · 选择实际 HTTP/2 协议](../media/v0.1.1-alpha.1/capture-http2/capture-http2-11-http2-filter.png)
-
-<a id="walkthrough-capture-http2-client-01-interrupt"></a>
-### 12 · 观察客户端中断与新连接
-
-![12 · 观察客户端中断与新连接](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-01-interrupt.png)
-
-<a id="walkthrough-capture-http2-client-02-original"></a>
-### 13 · 选择原来的 POST
-
-![13 · 选择原来的 POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-02-original.png)
-
-<a id="walkthrough-capture-http2-client-03-length"></a>
-### 14 · 查看仍声明 524288 的 Header
-
-![14 · 查看仍声明 524288 的 Header](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-03-length.png)
-
-<a id="walkthrough-capture-http2-client-04-partial"></a>
-### 15 · 读取真正捕获到的部分正文
-
-![15 · 读取真正捕获到的部分正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-04-partial.png)
-
-<a id="walkthrough-capture-http2-client-05-recovered"></a>
-### 16 · 选择独立的 recovered GET
-
-![16 · 选择独立的 recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-05-recovered.png)
-
-<a id="walkthrough-capture-http2-client-06-recovery-body"></a>
-### 17 · 读取新连接的正常响应
-
-![17 · 读取新连接的正常响应](../media/v0.1.1-alpha.1/capture-http2/capture-http2-client-06-recovery-body.png)
-
-<a id="walkthrough-capture-http2-origin-01-interrupt"></a>
-### 18 · 观察源站中断与新连接
-
-![18 · 观察源站中断与新连接](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-01-interrupt.png)
-
-<a id="walkthrough-capture-http2-origin-02-original"></a>
-### 19 · 选择原来的 POST
-
-![19 · 选择原来的 POST](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-02-original.png)
-
-<a id="walkthrough-capture-http2-origin-03-length"></a>
-### 20 · 查看仍声明 524288 的 Header
-
-![20 · 查看仍声明 524288 的 Header](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-03-length.png)
-
-<a id="walkthrough-capture-http2-origin-04-partial"></a>
-### 21 · 读取真正捕获到的部分正文
-
-![21 · 读取真正捕获到的部分正文](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-04-partial.png)
-
-<a id="walkthrough-capture-http2-origin-05-recovered"></a>
-### 22 · 选择独立的 recovered GET
-
-![22 · 选择独立的 recovered GET](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-05-recovered.png)
-
-<a id="walkthrough-capture-http2-origin-06-recovery-body"></a>
-### 23 · 读取新连接的正常响应
-
-![23 · 读取新连接的正常响应](../media/v0.1.1-alpha.1/capture-http2/capture-http2-origin-06-recovery-body.png)
-
-<a id="walkthrough-capture-http2-24-settings"></a>
-### 24 · 返回 Settings
-
-![24 · 返回 Settings](../media/v0.1.1-alpha.1/capture-http2/capture-http2-24-settings.png)
-
-<a id="walkthrough-capture-http2-25-certificates"></a>
-### 25 · 打开 Certificates
-
-![25 · 打开 Certificates](../media/v0.1.1-alpha.1/capture-http2/capture-http2-25-certificates.png)
-
-<a id="walkthrough-capture-http2-26-mitm-off"></a>
-### 26 · 关闭本轮 HTTPS 解密
-
-![26 · 关闭本轮 HTTPS 解密](../media/v0.1.1-alpha.1/capture-http2/capture-http2-26-mitm-off.png)
-
-<a id="walkthrough-capture-http2-27-origin-remove"></a>
-### 27 · 移除本轮源站例外
-
-![27 · 移除本轮源站例外](../media/v0.1.1-alpha.1/capture-http2/capture-http2-27-origin-remove.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-http2:end -->
-
-<!-- recorded-walkthrough:capture-body-limits:start -->
-<a id="walkthrough-capture-body-limits"></a>
-## 逐步骤实操：大正文格式化、预览上限与完整保存
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>search</code> | <code>/guide/body-limits</code> |
-| <code>manualPath</code> | <code>/guide/body-limits/manual</code> |
-| <code>largePath</code> | <code>/guide/body-limits/large</code> |
-| <code>manualDataBytes</code> | <code>1310720</code> |
-| <code>manualWireBytes</code> | <code>1310785</code> |
-| <code>largeDataBytes</code> | <code>3145728</code> |
-| <code>largeWireBytes</code> | <code>3145791</code> |
-| <code>previewBytes</code> | <code>2097152</code> |
-| <code>manualStart</code> | <code>guide-manual-start</code> |
-| <code>largeStart</code> | <code>guide-large-start</code> |
-| <code>savedEnd</code> | <code>guide-large-end</code> |
-| <code>savedFile</code> | <code>guide-full-response.json</code> |
-
-<a id="walkthrough-capture-body-limits-01-scope"></a>
-### 01 · 限定本轮正文路径
-
-![01 · 限定本轮正文路径](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-01-scope.png)
-
-<a id="walkthrough-capture-body-limits-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-02-record.png)
-
-<a id="walkthrough-capture-body-limits-03-manual-request"></a>
-### 03 · 请求超过1MiB的JSON
-
-![03 · 请求超过1MiB的JSON](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-03-manual-request.png)
-
-<a id="walkthrough-capture-body-limits-04-manual-select"></a>
-### 04 · 选择 manual 请求
-
-![04 · 选择 manual 请求](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-04-manual-select.png)
-
-<a id="walkthrough-capture-body-limits-05-unformatted"></a>
-### 05 · 查看尚未自动格式化的正文
-
-![05 · 查看尚未自动格式化的正文](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-05-unformatted.png)
-
-<a id="walkthrough-capture-body-limits-06-copy-before"></a>
-### 06 · 复制并核对原始文本
-
-![06 · 复制并核对原始文本](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-06-copy-before.png)
-
-<a id="walkthrough-capture-body-limits-07-format"></a>
-### 07 · 手动点击 Format
-
-![07 · 手动点击 Format](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-07-format.png)
-
-<a id="walkthrough-capture-body-limits-08-copy-formatted"></a>
-### 08 · 核对格式化只改变显示
-
-![08 · 核对格式化只改变显示](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-08-copy-formatted.png)
-
-<a id="walkthrough-capture-body-limits-09-large-request"></a>
-### 09 · 请求超过2MiB的完整JSON
-
-![09 · 请求超过2MiB的完整JSON](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-09-large-request.png)
-
-<a id="walkthrough-capture-body-limits-10-large-select"></a>
-### 10 · 选择 large 请求
-
-![10 · 选择 large 请求](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-10-large-select.png)
-
-<a id="walkthrough-capture-body-limits-11-preview"></a>
-### 11 · 查看有上限的正文预览
-
-![11 · 查看有上限的正文预览](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-11-preview.png)
-
-<a id="walkthrough-capture-body-limits-12-copy-preview"></a>
-### 12 · Copy只取当前2MiB预览
-
-![12 · Copy只取当前2MiB预览](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-12-copy-preview.png)
-
-<a id="walkthrough-capture-body-limits-13-save-dialog"></a>
-### 13 · 保存完整 guide-full-response.json
-
-![13 · 保存完整 guide-full-response.json](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-13-save-dialog.png)
-
-<a id="walkthrough-capture-body-limits-14-saved-complete"></a>
-### 14 · 核对保存文件没有按预览截断
-
-![14 · 核对保存文件没有按预览截断](../media/v0.1.1-alpha.1/capture-body-limits/capture-body-limits-14-saved-complete.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-body-limits:end -->
-
-<!-- recorded-walkthrough:capture-grpc-messages:start -->
-<a id="walkthrough-capture-grpc-messages"></a>
-## 逐步骤实操：gRPC消息正文、复制、全屏与分页
-
-以下图片来自已发布的 <code>0.1.1-alpha.1</code>、macOS x64，App保持<code>zh-CN</code>。每个步骤都有对应原生窗口截图，可点击查看原尺寸。
-
-本机地址、端口和生成ID来自这次真实录制，不是公开服务；使用时替换成自己的已授权测试环境。下面先列本次实际数据，再按相同顺序操作。未出现在本组步骤图中的进阶分支仍待逐步配图与验收。
-
-| 示例字段 | 录制中的实际值 |
-| --- | --- |
-| <code>protocol</code> | <code>grpc</code> |
-| <code>filter</code> | <code>/guide/messages/grpc</code> |
-| <code>detailPath</code> | <code>/guide/messages/grpc/detail</code> |
-| <code>pagePath</code> | <code>/guide/messages/grpc/pages</code> |
-| <code>firstMessage</code> | <code>{&quot;message&quot;:&quot;guide-short&quot;,&quot;state&quot;:&quot;ready&quot;}</code> |
-| <code>longMessage</code> | <code>guide-long with 28 entries; ending guide-message-end</code> |
-| <code>firstCount</code> | <code>6</code> |
-| <code>pagedCount</code> | <code>205</code> |
-| <code>finalMessage</code> | <code>{&quot;index&quot;:204,&quot;message&quot;:&quot;guide-page-204&quot;}</code> |
-| <code>detailEncoding</code> | <code>gRPC JSON</code> |
-| <code>pagedEncoding</code> | <code>gRPC JSON</code> |
-| <code>tlsScope</code> | <code>existing CA; localhost exception removed, decryption stopped</code> |
-
-<a id="walkthrough-capture-grpc-messages-01-filter"></a>
-### 01 · 限定本轮消息路径
-
-![01 · 限定本轮消息路径](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-01-filter.png)
-
-<a id="walkthrough-capture-grpc-messages-02-record"></a>
-### 02 · 开启 Recording
-
-![02 · 开启 Recording](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-02-record.png)
-
-<a id="walkthrough-capture-grpc-messages-03-messages"></a>
-### 03 · 发送六条公开消息
-
-![03 · 发送六条公开消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-03-messages.png)
-
-<a id="walkthrough-capture-grpc-messages-04-select"></a>
-### 04 · 选择本轮连接
-
-![04 · 选择本轮连接](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-04-select.png)
-
-<a id="walkthrough-capture-grpc-messages-05-tab"></a>
-### 05 · 打开消息页
-
-![05 · 打开消息页](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-05-tab.png)
-
-<a id="walkthrough-capture-grpc-messages-06-direction"></a>
-### 06 · 选择 Response 消息
-
-![06 · 选择 Response 消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-06-direction.png)
-
-<a id="walkthrough-capture-grpc-messages-07-short"></a>
-### 07 · 展开 guide-short
-
-![07 · 展开 guide-short](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-07-short.png)
-
-<a id="walkthrough-capture-grpc-messages-08-short-raw"></a>
-### 08 · 选择 Raw 查看原文
-
-![08 · 选择 Raw 查看原文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-08-short-raw.png)
-
-<a id="walkthrough-capture-grpc-messages-09-copy-short"></a>
-### 09 · 复制当前短消息正文
-
-![09 · 复制当前短消息正文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-09-copy-short.png)
-
-<a id="walkthrough-capture-grpc-messages-10-collapse-short"></a>
-### 10 · 收起短消息
-
-![10 · 收起短消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-10-collapse-short.png)
-
-<a id="walkthrough-capture-grpc-messages-11-long"></a>
-### 11 · 展开 guide-long
-
-![11 · 展开 guide-long](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-11-long.png)
-
-<a id="walkthrough-capture-grpc-messages-12-resize"></a>
-### 12 · 拖动正文右下角缩小高度
-
-![12 · 拖动正文右下角缩小高度](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-12-resize.png)
-
-<a id="walkthrough-capture-grpc-messages-13-wheel"></a>
-### 13 · 在长消息中滚动
-
-![13 · 在长消息中滚动](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-13-wheel.png)
-
-<a id="walkthrough-capture-grpc-messages-14-keyboard-end"></a>
-### 14 · 用键盘到达消息末尾
-
-![14 · 用键盘到达消息末尾](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-14-keyboard-end.png)
-
-<a id="walkthrough-capture-grpc-messages-15-scroll-out"></a>
-### 15 · 到底后继续滚动消息列表
-
-![15 · 到底后继续滚动消息列表](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-15-scroll-out.png)
-
-<a id="walkthrough-capture-grpc-messages-16-copy-long"></a>
-### 16 · 复制完整长消息正文
-
-![16 · 复制完整长消息正文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-16-copy-long.png)
-
-<a id="walkthrough-capture-grpc-messages-17-payload-copy"></a>
-### 17 · 使用消息专用 Copy
-
-![17 · 使用消息专用 Copy](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-17-payload-copy.png)
-
-<a id="walkthrough-capture-grpc-messages-18-fullscreen"></a>
-### 18 · 全屏查看这条消息
-
-![18 · 全屏查看这条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-18-fullscreen.png)
-
-<a id="walkthrough-capture-grpc-messages-19-return"></a>
-### 19 · Escape 返回同一消息
-
-![19 · Escape 返回同一消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-19-return.png)
-
-<a id="walkthrough-capture-grpc-messages-20-paged-input"></a>
-### 20 · 在新连接发送205条消息
-
-![20 · 在新连接发送205条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-20-paged-input.png)
-
-<a id="walkthrough-capture-grpc-messages-21-paged-select"></a>
-### 21 · 选择新的 pages 连接
-
-![21 · 选择新的 pages 连接](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-21-paged-select.png)
-
-<a id="walkthrough-capture-grpc-messages-22-paged-tab"></a>
-### 22 · 打开新连接的消息
-
-![22 · 打开新连接的消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-22-paged-tab.png)
-
-<a id="walkthrough-capture-grpc-messages-23-load-pages"></a>
-### 23 · 滚动加载后续消息页
-
-![23 · 滚动加载后续消息页](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-23-load-pages.png)
-
-<a id="walkthrough-capture-grpc-messages-24-last-message"></a>
-### 24 · 展开第205条消息
-
-![24 · 展开第205条消息](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24-last-message.png)
-
-<a id="walkthrough-capture-grpc-messages-24a-last-raw"></a>
-### 25 · 切到 Raw 查看末条原文
-
-![25 · 切到 Raw 查看末条原文](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24a-last-raw.png)
-
-<a id="walkthrough-capture-grpc-messages-24b-last-visible"></a>
-### 26 · 继续滚动使末条正文完整可见
-
-![26 · 继续滚动使末条正文完整可见](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-24b-last-visible.png)
-
-<a id="walkthrough-capture-grpc-messages-25-copy-last"></a>
-### 27 · 复制最后一条并核对 index 204
-
-![27 · 复制最后一条并核对 index 204](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-25-copy-last.png)
-
-<a id="walkthrough-capture-grpc-messages-26-settings"></a>
-### 28 · 返回 Settings
-
-![28 · 返回 Settings](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-26-settings.png)
-
-<a id="walkthrough-capture-grpc-messages-27-certificates"></a>
-### 29 · 打开 Certificates
-
-![29 · 打开 Certificates](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-27-certificates.png)
-
-<a id="walkthrough-capture-grpc-messages-28-mitm-off"></a>
-### 30 · 关闭本轮解密
-
-![30 · 关闭本轮解密](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-28-mitm-off.png)
-
-<a id="walkthrough-capture-grpc-messages-29-origin-remove"></a>
-### 31 · 移除自有localhost例外
-
-![31 · 移除自有localhost例外](../media/v0.1.1-alpha.1/capture-grpc-messages/capture-grpc-messages-29-origin-remove.png)
-
-下面保留完整功能参考。只有已经附上真实步骤图、核对过变量和值的操作才能计入图文验收。
-<!-- recorded-walkthrough:capture-grpc-messages:end -->

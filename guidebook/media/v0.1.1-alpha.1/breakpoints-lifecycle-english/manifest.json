@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "chapter": "breakpoints-lifecycle-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "breakpoints/lifecycle-release.workflow.ts",
+    "manifestSha256": "aaafee58728247003fe9978326abe4256f3663c42020123454674a6c454c23b3",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：启用真实WebSocket断点，再通过产品UI创建只匹配POST的HTTP断点规则。 / Arrange: enable one real WebSocket breakpoint, then create a POST-only HTTP breakpoint Rule.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "构造pending：在用户未执行命令时，HTTP与WebSocket均不得抵达origin。 / Arrange pending traffic: neither HTTP nor WebSocket may reach origin while no user command runs.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "客户端断开只解除所属WebSocket等待 / A client disconnect releases only its WebSocket pending items",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "准备Core关闭生命周期：建立第二条真实连接并再次挂起一帧。 / Arrange shutdown lifecycle: create a second real connection and hold one new frame.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "有等待项时通过App Close正常退出 / Exit normally through App Close while items are pending",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 820.109375,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.breakpoint-manager"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3124,
+            "y": 15,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "shell.window.close"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 278721,
+      "sha256": "7368d48db4f80c143fd2a9ac8b4dc877acc48ec7069becdb0b5f806fa1d1c474"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 339466,
+      "sha256": "78191accee8046db840490ba05b6a9f121d47796327ff315ff0c53caf3ef562c"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 278749,
+      "sha256": "7fae1301a2257bcb4b494c70e05c162fe9c75ae65fe601748eb862343715dc93"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353512,
+      "sha256": "642c6489c63f91fca3c75681c3ca09cfcbdb5e44990b1c3fb05cca3f2c9d68b0"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 353512,
+      "sha256": "642c6489c63f91fca3c75681c3ca09cfcbdb5e44990b1c3fb05cca3f2c9d68b0"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 256843,
+      "sha256": "9a55d4b27b8869d89adf1595e73d6b156039bc893193ff4927eb42cb9f563ec4"
+    }
+  ]
+}

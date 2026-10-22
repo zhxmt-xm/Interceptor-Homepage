@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-cancel-ui-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "capture/tools-transfer-jobs.workflow.ts",
+    "manifestSha256": "45a554c732d8349a8c278a79e356c92e1ff3803f516916687a30ac4f33f4e7e2",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-004",
+      "title": "准备可以取消的大正文归档 / Prepare a large-body archive that can be cancelled",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvigylep-ckdwg3ic"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "从Export启动Native Archive / Start Native Archive from Export",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2728,
+            "y": 268,
+            "width": 420,
+            "height": 80
+          },
+          "automationId": "capture.transfer.archive-save"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "阅读归档提示后选择保存位置 / Read the archive warning before choosing a save location",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1803.8125,
+            "y": 1100,
+            "width": 266.1875,
+            "height": 68
+          },
+          "automationId": "capture.transfer.start"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
+      "window": "native-dialog",
+      "image": "step-018.png",
+      "rawImage": "step-018.png"
+    },
+    {
+      "id": "step-019",
+      "title": "运行中的Archive任务及Cancel入口 / Inspect the running Archive job and its Cancel action",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1824,
+            "y": 1210,
+            "width": 246,
+            "height": 68
+          },
+          "automationId": "capture.transfer.cancel"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-020",
+      "title": "任务取消后原记录仍保留，可以再明确Clear / The original record remains after cancellation and can be explicitly cleared",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.annotated.png",
+      "rawImage": "step-020.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 860.125,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-021",
+      "title": "等待取消清理后Capture已清空 / Capture is cleared after cancellation cleanup has finished",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.png",
+      "rawImage": "step-021.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 228378,
+      "sha256": "9962c21fa04ab945a4d789599bf88cd781a79e523bf3188d663e0f0ab98b4701"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 148715,
+      "sha256": "79ec90ac4fe92dd9a707cc8c6ae9697f1615cd3aa73ad3114c874bd043327c1d"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 270980,
+      "sha256": "bf255323dc75df54cd69f35dc9669d10a6b6252b58251f7c9d4d02c87a39a5ba"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 181578,
+      "sha256": "11d2f4e3d564f7099a26f4c15cc428610db5764f8a9fff8dc6a5753623615646"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 260853,
+      "sha256": "3b69cf0b05e74e5c035e43a18199420452dfac1fa9e240b2c0966c6634fabeed"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 233586,
+      "sha256": "fe259456bf0252f664b480f8c856306553b0ea3c9a980e921ae9c9f37d10d25f"
+    },
+    {
+      "file": "step-018.png",
+      "width": 860,
+      "height": 390,
+      "bytes": 54207,
+      "sha256": "6cd46b40b32aecdb76123e86052f7f99f3ca2955101d272240833c94397d4321"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230396,
+      "sha256": "5f9b4250f5aeda306b2a985ae2cc99a86c8279611c4ff076dfc801c2bbb80ffa"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 208689,
+      "sha256": "e097ba3b2409ff8a9cb62a834e51a45ab620a8e5a53d7ae7a67be0c5cef82750"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 227780,
+      "sha256": "1ef4a8c11b7bc55bf635a3b2d495e4f975c8cb19e5d3bacaf97de20d6e9abf4a"
+    },
+    {
+      "file": "step-020.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 147494,
+      "sha256": "55f5e17739b6d15988385d08301cf7c7b8e37e53927e5ae8770e2ad48e736753"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230013,
+      "sha256": "1a4b25188d7399cb31b49ab03cf2ab615c515c95a3f53c961fb708e9bb414369"
+    }
+  ]
+}

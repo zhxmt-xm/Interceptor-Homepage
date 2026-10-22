@@ -1,7 +1,5 @@
 # 快速上手：看到第一条请求
 
-> 草稿，写作基线为 `v0.1.1-alpha.1`。请求检查与保存步骤准确引用相关章节实拍，安装、首次授权和退出恢复仍待配图；不代表所有平台或 item9 已验收。
-
 [教程目录](../README.md) · [继续阅读 Capture](capture.md)
 
 ## 先了解你要完成什么
@@ -12,215 +10,168 @@
 
 ## 准备应用
 
-**前提**
-
 - 使用 Windows 或 macOS，取得适合本机系统和架构的安装包。
 - 允许安装和运行可信软件；设备上的管理策略可能限制证书或代理设置。
 - 确认本机 `127.0.0.1:8888` 没有被其他代理实例占用。
 
-**步骤**
-
 1. 在 [GitHub Releases](https://github.com/zhxmt-xm/Interceptor/releases) 查看实际附件、版本说明及 Pre-release 标记，不把 `Source code` 当作安装包。
-
-   **待配图 / blocked**：现有素材从运行中的发布 App 开始，没有真实 Release 下载页；私有仓库仍需要对应访问权限。
 
 2. macOS 用户选择对应芯片架构的 DMG 或 ZIP，将 App 放到 Applications 后打开。
 
-   **待配图**：没有下载、解压/挂载、放入 Applications 和 Gatekeeper 打开流程，不用运行后的 App 图代替安装步骤。
-
 3. Windows 用户选择 Release 实际提供的安装器或 ZIP；使用 ZIP 时完整解压，不单独取出其中的 EXE 运行。
-
-   **待配图 / blocked**：当前录制均为 macOS，缺 Windows 安装与启动素材。
 
 4. 首次启动时阅读系统提示，只授权确认可信的 Interceptor 操作；等待启动准备结束再使用功能。
 
-   **待配图 / blocked**：录制环境已有 CA 和授权状态，未拍首次系统授权；不删除日常 CA 制造首装场景。
-
-**预期结果**
-
-App 打开并进入工作区。遇到启动错误时先保留错误信息，不反复启动多个实例。
-
-**关键说明**
-
 - 当前源码仓库仍是私有仓库，下载需要有访问权限的 GitHub 账号；教程不会提供可绕过权限的下载地址。
-- 该版本的 macOS 包为 ad-hoc 签名、未公证，Windows 包未签名。下载产物的各平台实机安装验收仍有缺口。
+- macOS 包使用 ad-hoc 签名且未公证，Windows 安装器未签名。仅从可信发布入口下载安装。
 - 受 Gatekeeper 或企业策略阻止时，按操作系统针对可信应用提供的正式流程处理；不删除 quarantine、不关闭全局安全保护。
 - 证书与系统组件可能在首次启动时准备。不要为了重现“首次启动”删除日常使用的共享 CA。
 - 完整的系统授权、证书信任和解密步骤见 [Settings](settings.md#https-decryption)。
 
 ## 确认代理与录制就绪
 
-**用途**
+先确认客户端能连接代理，并且 Capture 正在录制。仅看到 App 窗口，不代表这两项都已就绪。
 
-先确认请求能够经过代理，并且 Capture 正在记录；仅看到 App 窗口不代表这两项都已就绪。
+1. 从左侧导航点击红框 1 的 Capture，查看顶部录制按钮和底部代理状态。列表是否为空还取决于搜索与筛选条件。
 
-**步骤**
+   ![确认代理与录制就绪 · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.annotated.png)
 
-1. 打开 Capture，查看 Recording 状态和代理就绪提示。
+2. App 启动会尝试接管系统代理。出现就绪提示时，阅读缺失条件，再使用 Enable 或 Proxy settings 处理；需要系统授权时先完成授权。
 
-   下图引用 Workspace 的真实 Capture 导航，仅展示工作区，不代表出现或完成了授权。
+3. 确认红框 1 显示 Recording。若当前为 Paused，点击录制按钮并完成提示，再发送请求；取消就绪提示不等于录制已开启。
 
-   ![Workspace 录制中实际打开 Capture](../media/v0.1.1-alpha.1/workspace/workspace-02-capture.png)
+   ![确认代理与录制就绪 · 3](../media/v0.1.1-alpha.1/capture-recording-english/step-002.annotated.png)
 
-2. App 启动会尝试接管系统代理；如果出现就绪提示，阅读当前缺失条件，使用其中的 Enable 或 Proxy settings 入口处理。
-
-   **待配图**：当前素材没有就绪提示、Enable 或 Proxy settings 跳转操作。
-
-3. 代理就绪后点击 Recording 开始录制，确认开启再发请求。下面引用 Capture 的实际开启操作；如果出现原生授权仍须完成，该分支待配图。
-
-   ![代理已就绪时实际开启 Recording](../media/v0.1.1-alpha.1/capture/capture-02-record.png)
-
-**预期结果**
-
-Capture 可以接收经过本地代理的新请求。
-
-**关键说明**
-
-- 取消就绪提示不等于已开启录制。
-- 遵循系统代理的应用会使用系统设置；不遵循系统代理的客户端需要单独配置代理。
-- 不要用“暂停 Recording”代替恢复系统代理。暂停只控制新流量是否被记录。
-- 如果已有其他代理或上游网络工具，不要盲目覆盖它的配置；先核对 Settings 中的系统代理和上游设置。
+- 遵循系统代理的应用会使用系统设置；其他客户端需要单独指定代理。
+- Pause 只影响新流量的录制，不代替系统代理 Restore。
+- 已有其他代理时先检查 Settings 的系统代理和上游配置，不盲目覆盖。
 
 ## 发出第一条 HTTP 请求
 
-**前提**
+先开启 Recording，并准备自己有权使用、可以安全接收 POST 的测试接口。下面使用 `http://127.0.0.1:59696/playground/body/json`，请求正文为 `{"ready":true}`；该服务不会由 App 自动创建，操作时将地址换成自己的接口，不向生产接口随意发送写入请求。
 
-Recording 已开启。以下图文准确复用 Capture 的 `http://127.0.0.1:58377/guide/capture/orders`；`58377` 是录制环境动态端口，不是 App 固定端口。该演示服务不会随 App 启动，读者必须换成自己已运行、获授权的 HTTP 测试服务。无本机服务时也可用公共 HTTP 地址，但它不属于下面的实拍，结果和配图需另行核对。
+1. 在红框 1 的 Capture 搜索框输入 `/playground/body/json`。使用自己的地址时，改为相应的 Host 或 Path 搜索词。
 
-**步骤**
+   ![发出第一条 HTTP 请求 · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.annotated.png)
 
-1. 先在 Capture 搜索框输入 `/guide/capture`；使用自己的地址时，相应换成自己的 Host/Path 搜索词。
-
-   ![本次实际搜索值 /guide/capture](../media/v0.1.1-alpha.1/capture/capture-01-filter.png)
-
-2. 在终端通过显式代理请求同一地址。以下命令是读者复现该 GET 的方式，不表示步骤图中展示了终端输入。
-
-   macOS：
+2. 从终端通过 `127.0.0.1:8888` 发送下面的 JSON。macOS 命令中的 `--noproxy ""` 仅对本次调用取消绕过，避免本机地址被 `NO_PROXY` 排除；Windows 使用 PowerShell 的显式 Proxy 参数。
+   macOS:
 
    ```sh
-   curl --proxy http://127.0.0.1:8888 --max-time 20 "http://127.0.0.1:58377/guide/capture/orders"
+   curl --proxy http://127.0.0.1:8888 --noproxy "" --max-time 20 \
+     --header "Content-Type: application/json" \
+     --data-raw '{"ready":true}' \
+     "http://127.0.0.1:59696/playground/body/json"
    ```
 
-   Windows PowerShell：
+   Windows PowerShell:
 
    ```powershell
-   curl.exe --proxy http://127.0.0.1:8888 --max-time 20 "http://127.0.0.1:58377/guide/capture/orders"
+   Invoke-WebRequest -UseBasicParsing -Method Post `
+     -Proxy "http://127.0.0.1:8888" `
+     -Uri "http://127.0.0.1:59696/playground/body/json" `
+     -ContentType "application/json" `
+     -Body '{"ready":true}'
    ```
 
-   **待配图**：没有 macOS 终端输入或 Windows PowerShell 操作图；下一张只展示请求进入 Capture，不冒充终端截图。
+3. 返回 Capture，等待红框 1 的 POST 进入列表。先确认记录出现，再选择它，不用模型或内部接口代替客户端发请求。
 
-3. 回到 Capture，等待新 GET 进入列表。
+   ![发出第一条 HTTP 请求 · 3](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
-   ![实际外部 GET 到达 Capture](../media/v0.1.1-alpha.1/capture/capture-03-request.png)
+4. 点击红框 1 的记录，在详情核对方法 POST、Host `127.0.0.1` 和 Path `/playground/body/json`。使用自己的接口时核对自己的地址。
 
-4. 选中 orders，确认 Host 为 `127.0.0.1`、Path 为 `/guide/capture/orders`。
+   ![发出第一条 HTTP 请求 · 4](../media/v0.1.1-alpha.1/capture-json-example-english/step-003.annotated.png)
 
-   ![选中与地址一致的 orders 请求](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
+5. 打开 Response，选择红框 1 的 Raw。示例返回 `{"ready":true,"items":[1,2,3]}`，状态为 `200`；其他服务以实际状态为准，不要求必须 `200` 才算捕获。
 
-5. 打开响应，核对本次 JSON 中的 `orderId: guide-001`、`message: Hello Interceptor`、`status: ready`。其他服务以实际状态码为准，不要求必须 `200` 才算捕获。
+   ![发出第一条 HTTP 请求 · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-   ![本次实际 JSON 响应，而非 example.com 页面](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
-
-**预期结果**
-
-能找到本次 GET 请求，并且选中后可以检查详情。HTTP 错误响应仍可能是一次成功捕获；连接失败则需要按实际错误继续排查。
-
-**关键说明**
-
-- 示例不发送登录信息，不需要关闭 TLS 校验，也不会修改服务端数据。
-- 若终端配置了 `NO_PROXY` 等绕过规则，确认目标没有绕过显式代理。
-- 需要在无外网环境下演练时，改用自己运行的本地 HTTP 服务；教程本身不启动隐藏的测试服务。
-- Composer 是直接发送请求的工具，它的请求不会自动出现在 Capture 中；本例因此使用外部客户端。
+- 本例不发送登录凭据，也不需要关闭 TLS 校验。
+- 请求没有出现时，先检查代理地址、Recording 和绕过规则，不直接 Clear 现有录制。
+- Composer 直接发送请求，不会自动进入 Capture，因此这里使用外部客户端。
 
 ## 读懂这条请求
 
-**步骤**
+继续查看同一个 POST，不重新发送，也不混入其他请求的正文。
 
-1. 在请求详情中查看 URL、方法、状态和协议。
+1. 点击红框 1 的 Headers，核对完整 URL、方法、状态和协议，再展开需要的请求头、响应头分组。
 
-   ![本次 orders 请求的概要](../media/v0.1.1-alpha.1/capture/capture-04-select.png)
+   ![读懂这条请求 · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-004.annotated.png)
 
-2. 打开 Headers，分别检查请求头和响应头；内容折叠时展开对应分组。
+2. 打开 Request，选择红框 1 的 Raw，检查已发送的 `{"ready":true}`。这里是请求正文，不是服务器回复。
 
-   ![本次实际请求与响应 Headers](../media/v0.1.1-alpha.1/capture/capture-05-headers.png)
+   ![读懂这条请求 · 2](../media/v0.1.1-alpha.1/capture-json-example-english/step-005.annotated.png)
 
-3. 打开 Response 查看 JSON；其他内容按 MIME 使用 Code、Text 等可用模式，不能把本次 JSON 当成 HTML。
+3. 切回 Response，在红框 1 的 Raw 阅读服务器返回的 `ready` 和 `items`。请求与响应分别查看，不按相同字段名推断两者相同。
 
-   ![本次 Response JSON](../media/v0.1.1-alpha.1/capture/capture-06-response.png)
+   ![读懂这条请求 · 3](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-4. 选择 Tree 阅读字段层级。
+4. 选择红框 1 的 Tree，按对象和数组层级阅读 JSON。
 
-   ![实际 JSON Tree](../media/v0.1.1-alpha.1/capture/capture-07-tree.png)
+   ![读懂这条请求 · 4](../media/v0.1.1-alpha.1/capture-json-example-english/step-007.annotated.png)
 
-5. 选择 Raw 阅读文本原貌。
+5. 点击红框 1 的根节点箭头收起，再点击同一位置展开。这里只改变显示层级，不修改正文内容。
 
-   ![实际 JSON Raw](../media/v0.1.1-alpha.1/capture/capture-08-raw.png)
+   ![读懂这条请求 · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-008.annotated.png)
 
-6. 使用正文全屏入口。
+   ![读懂这条请求 · 5](../media/v0.1.1-alpha.1/capture-json-example-english/step-009.annotated.png)
 
-   ![实际打开放大的正文](../media/v0.1.1-alpha.1/capture/capture-08a-fullscreen.png)
+6. 需要复制时点击红框 1 的 Copy。复制的是这条响应的正文，不是重新请求源站。
 
-7. 按 Escape 返回详情。
+   ![读懂这条请求 · 6](../media/v0.1.1-alpha.1/capture-json-example-english/step-010.annotated.png)
 
-   ![实际退出正文全屏](../media/v0.1.1-alpha.1/capture/capture-08b-close-fullscreen.png)
+7. 选择红框 1 的 Raw 回到文本原貌；同一响应和选择对象保持不变。
 
-8. 需要检查字节时切换 Hex。
+   ![读懂这条请求 · 7](../media/v0.1.1-alpha.1/capture-json-example-english/step-011.annotated.png)
 
-   ![同一正文的实际 Hex](../media/v0.1.1-alpha.1/capture/capture-09-hex.png)
+8. 需要检查字节时选择红框 1 的 Hex。显示形式改变，不代表重新获取了另一份正文。
 
-**预期结果**
+   ![读懂这条请求 · 8](../media/v0.1.1-alpha.1/capture-json-example-english/step-012.annotated.png)
 
-你能够区分“客户端请求了什么”和“目标返回了什么”，而不是只看到一行请求名称。
+9. 点击正文的全屏入口放大查看。红框 1 显示 Hex 仍被选中，全屏沿用当前查看模式。
 
-**关键说明**
+   ![读懂这条请求 · 9](../media/v0.1.1-alpha.1/capture-json-example-english/step-013.annotated.png)
 
-不同内容类型提供不同查看模式。HTML 显示为代码不代表错误，也不会被当成一个网页执行。
+10. 在全屏中切回 Raw，也可通过标题栏红框 1 的 Copy 复制同一份 JSON。
+
+    ![读懂这条请求 · 10](../media/v0.1.1-alpha.1/capture-json-example-english/step-014.annotated.png)
+
+11. 复制后先点回 Raw 收起 Copy 提示，再按 Escape 返回详情。红框 1 表明内联正文仍使用 Raw。
+
+    ![读懂这条请求 · 11](../media/v0.1.1-alpha.1/capture-json-example-english/step-015.annotated.png)
+
+12. 最后核对红框 1 的 Response 和当前记录仍对应原 POST。以上查看、复制和全屏操作都没有重新 Send。
+
+    ![读懂这条请求 · 12](../media/v0.1.1-alpha.1/capture-json-example-english/step-016.annotated.png)
+
+不同内容类型提供不同查看模式。HTML 以代码显示时不会作为网页执行；全屏也不会解除正文预览上限。
 
 ## 保存需要的记录并正常退出
 
-**步骤**
+导出前先确认要保留哪些流量。下面使用独立的 `/e2e/har-tools/` 文本与二进制请求，当前共有四条记录，并非前面那一个 JSON 请求；操作时按自己的记录选择范围。
 
-以下保存操作的图来自独立的 [Transfer 实拍](transfer.md)，其请求是 `http://127.0.0.1:55059/guide/transfer/order`，`55059` 也是录制环境动态端口；不是声称上面的 Capture 请求已自动导出。实际练习应选中自己要保留的流量。
+1. 先暂停 Recording，再打开 Capture 顶部 Export 菜单，点击红框 1 的 Export HAR。需要保留更多原生流量细节时，改按 [Native Archive](transfer.md#archive) 操作。
 
-1. 打开 Capture Export。
+   ![保存需要的记录并正常退出 · 1](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
-   ![Transfer 中实际打开的 Export 菜单](../media/v0.1.1-alpha.1/transfer/transfer-01-export-menu.png)
+2. 选择红框 1 的 All traffic，核对数量为 4。保留正文，并检查 Authorization、Cookie 和 Set-Cookie 的遮罩选项，再点击红框 2 的 Export 4 requests。自己的录制数量可能不同，不照抄示例数量。
 
-2. 选择 HAR 交换 HTTP 数据；要保留更多原生流量细节，按 [Native Archive](transfer.md#archive)的独立步骤操作。
+   ![保存需要的记录并正常退出 · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![实际 HAR 导出配置](../media/v0.1.1-alpha.1/transfer/transfer-02-har-options.png)
+3. 在系统 Save 窗口选择自己要保存的位置，文件名填 `ui.har`，点击 Save。要取消时使用 Cancel，不把取消当作已经导出。
 
-3. 核对范围，本次选择当前演示请求。
+   ![保存需要的记录并正常退出 · 3](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
-   ![实际导出当前请求的范围](../media/v0.1.1-alpha.1/transfer/transfer-03-scope.png)
+4. 等待导出完成并返回 Capture。红框 1 是可再次使用的 Export 入口，红框 2 显示录制仍为 Paused；确认文件已保存后再退出。
 
-4. 检查正文与隐私选项。
+   ![保存需要的记录并正常退出 · 4](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.annotated.png)
 
-   ![实际 HAR 隐私选项](../media/v0.1.1-alpha.1/transfer/transfer-04-privacy.png)
+5. 点击 App 窗口的正常关闭按钮，等待系统操作和代理恢复；若仍显示忙状态，先等当前操作完成，不强制结束进程。
 
-5. 在真实系统窗口保存 `guide-recording.har`。
-
-   ![实际原生 Save 面板](../media/v0.1.1-alpha.1/transfer/transfer-05-har-save-dialog.png)
-
-6. 等待保存完成，再准备关闭 App。
-
-   ![HAR 保存完成的实际检查点](../media/v0.1.1-alpha.1/transfer/transfer-06-har-complete.png)
-
-7. 使用 App 正常关闭入口，等待系统操作和代理恢复；忙状态时等操作结束再关闭。
-
-   **待配图**：现有片段没有 App Close、进程结束和系统代理恢复的逐步画面；导出完成或关闭 Agent 面板不能代替退出验收。
-
-**预期结果**
-
-需要保留的记录已经成为你选择的文件，App 正常退出并处理自己接管的代理设置。
-
-**关键说明**
-
-- Capture 属于当前运行中的临时数据，Core 退出或重启会释放它，不应当作持久历史使用。
-- 正常关闭不会卸载共享 CA。停用解密、恢复代理、移除证书信任是不同操作。
-- 会话期间若其他软件修改了系统代理，Interceptor 不应覆盖对方的新设置；遇到冲突时按实际状态处理。
-- 不用强制结束进程代替正常退出。
-- 导出范围、取消和各格式差异见[导入导出](transfer.md)；退出后仍有网络问题时，按[恢复步骤](troubleshooting.md#proxy-recovery)排查。
+- Capture 是当前运行中的临时数据，Core 退出或重启会释放它，不应当作持久历史。
+- 正常关闭不会卸载共享 CA；停用解密、恢复代理和移除证书信任是不同操作。
+- 若其他软件在会话期间修改了系统代理，Interceptor 不应覆盖对方的新设置，按实际冲突状态处理。
+- 各种范围、格式和取消操作见[导入导出](transfer.md)；退出后仍有网络问题时按[恢复步骤](troubleshooting.md#proxy-recovery)排查。
 
 ## 没有看到请求时
 

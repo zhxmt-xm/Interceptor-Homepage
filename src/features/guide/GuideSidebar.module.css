@@ -39,12 +39,6 @@
   opacity: 0.75;
 }
 
-.note {
-  margin-top: var(--space-6);
-  color: var(--text-2);
-  font-size: 11px;
-}
-
 @media (max-width: 1000px) {
   .sidebar {
     max-height: calc(100vh - var(--header-height) - var(--space-12));

@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "chapter": "settings-storage-usage-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "settings/storage-refresh-clear.workflow.ts",
+    "manifestSha256": "d5a6beb905c4b8c236b31c467d2441eee99901f008f5fe7bcc434367d8941290",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "核对自己的记录，再暂停新录制 / Inspect the owned record before pausing new recording",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi9piww-znmoph69"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "准备：真实POST经代理进入Capture，暂停新录制使统计不受系统背景流量影响。 / Arrange: proxy a real POST into Capture and pause new recording to keep background traffic out of the measurement.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3088,
+            "y": 136,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "settings.storage.refresh"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 626,
+            "y": 340.578125,
+            "width": 2520,
+            "height": 114
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "布局：Refresh归属于标题，单项用量保留真实Core值，不用新增API或文案选择器。 / Layout: Refresh belongs to the heading and the single usage measure retains Core values without extra APIs or translated selectors.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "清理前阅读确认，先选择Cancel / Review Clear confirmation and choose Cancel first",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2683.296875,
+            "y": 951.234375,
+            "width": 143.96875,
+            "height": 68
+          },
+          "automationId": "settings.storage.clear-cancel"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2845.265625,
+            "y": 951.234375,
+            "width": 268.734375,
+            "height": 68
+          },
+          "automationId": "settings.storage.clear-confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "取消Clear后记录和正文仍在 / Cancel preserves the record and its body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi9piww-znmoph69"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "再次请求清理后明确确认 / Explicitly confirm the new Clear request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2845.265625,
+            "y": 951.234375,
+            "width": 268.734375,
+            "height": 68
+          },
+          "automationId": "settings.storage.clear-confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "清理后正文用量和记录计数归零 / Body usage and record counts reach zero after Clear",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 626,
+            "y": 340.578125,
+            "width": 2520,
+            "height": 114
+          },
+          "automationId": null
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 626,
+            "y": 642.40625,
+            "width": 2520,
+            "height": 84
+          },
+          "automationId": null
+        },
+        {
+          "label": "3",
+          "bounds": {
+            "x": 626,
+            "y": 726.40625,
+            "width": 2520,
+            "height": 82
+          },
+          "automationId": null
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "用户操作：Cancel不清理；确认后清理记录和正文，列表与Inspector收到同一reset通知。 / User actions: Cancel preserves data; confirmation clears records and bodies and resets both the list and Inspector.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    },
+    {
+      "id": "step-009",
+      "title": "清理后单独恢复Recording / Resume Recording explicitly after Clear",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "恢复后由新请求生成新记录 / A new request creates a new record after resuming",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvi9pxle-ysum8ol6"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "从Capture清理同一份临时数据 / Clear the same temporary data from Capture",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 860.125,
+            "y": 105,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "capture.clear"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "再录制与反向清理：新请求可见，Capture列表Clear后Storage刷新得到相同的空状态。 / Record again and clear from the other entry: new traffic is captured and list Clear produces the same empty Storage state.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 315199,
+      "sha256": "53c0eeec7f172a09c188a9006721302349cabeb8f121918c590060e8674c4877"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238071,
+      "sha256": "1eb3d8159c748a3b72508200ab3b5ed541fb7cc1309ab6100aabe52126a6260c"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 302197,
+      "sha256": "db442684caeb6a1dac44604c54a824ba7b25335cab4f0ee90883e84d41ef529f"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 198800,
+      "sha256": "cd92ea7a00491c585046a152ba7525b3629e23833a293236adc3bc21581b3f0c"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314706,
+      "sha256": "9f142496a405a7806835de5097debf5c38432d3907709826b457a7052a009bb3"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 305056,
+      "sha256": "774a7d29c79137e056d9b8bc5f29c7464a30a13603efac77ed4a2414014ddc79"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 200842,
+      "sha256": "4bb3b68dd7f304c960aa0e22320be9e25dc0c23204cff0b60139d00abd07c7bb"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314961,
+      "sha256": "88939d24899e24c81ba72f54b1a0d52d7bc2cd6e0880fad50e31be303560ef06"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238780,
+      "sha256": "83618e7c4a1a99b5e345f210a217d701ffbdca5052fd3f44322047322272c519"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 305056,
+      "sha256": "774a7d29c79137e056d9b8bc5f29c7464a30a13603efac77ed4a2414014ddc79"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 200511,
+      "sha256": "b75d13554c6be740f32fa2e82f45411e6c7e0e5bbe395413c3d6e29846261bfb"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 301449,
+      "sha256": "595433d311b03f1c420f5b1a1f2b469a5d7b919ae7ff7b216344657b47fff286"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 199726,
+      "sha256": "a7ad653ad2490d5b5650c5e8f5c5f9c27a97a7175b726a32074f0a76d4e8129b"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 222400,
+      "sha256": "b8d1a189dfb4403442b407e25eac1004aa2c147a5c4e8f8e4b2528950b1d8baf"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241195,
+      "sha256": "52216dce8cdd5f987fe8708fcc3acb6d8ee3dbac9edc3468f9b0baec431fdad7"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 154393,
+      "sha256": "3ae25ec82c7254b9e426f9928d0a69a0bb225751c33057a25c07836883778366"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 249846,
+      "sha256": "dc4ec59cbf4f21173fa14cbd72656348fbb8bc309da4b482a476123563ef4acf"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 163831,
+      "sha256": "d7a1d61aa41d6c585fe3dba3356f822e507ee6f5ced11300f2cc5fe0cc258ead"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 249111,
+      "sha256": "9a4136fe64afdff72d67ca7b4fffccbd522908f953c31976cf202fc63cfcf456"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 162873,
+      "sha256": "7cd1af73bb810c7d72e940437f016d45b0f2e4e82a2ebc393b9febd78ed108c3"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 314055,
+      "sha256": "4d4d60cac3c0d12f829fa3e9045b1b5a5c26f1b634924790c68da41c8b773c99"
+    }
+  ]
+}

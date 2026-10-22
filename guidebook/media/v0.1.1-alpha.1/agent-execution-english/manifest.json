@@ -1,0 +1,1033 @@
+{
+  "schemaVersion": 1,
+  "chapter": "agent-execution-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "agent/execution-modes.workflow.ts",
+    "manifestSha256": "5b98cc8c9c23400e51928667c5475319f576cd9d52a6dbf2737f5803bf0643d3",
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "准备：通过真实Settings配置本地Provider，经Capture UI开始Recording，再创建默认Ask的Chat。 / Arrange: configure a local Provider in real Settings, start Recording in Capture, then create a default-Ask Chat.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "选择当前Chat的auto模式 / Select auto for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2857.546875,
+            "y": 1530,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.auto"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "新Chat默认使用Ask，不继承另一个会话的Auto / A new Chat starts in Ask instead of inheriting another Chat’s Auto",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "选择当前Chat的ask模式 / Select ask for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2773.390625,
+            "y": 1530,
+            "width": 80.15625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.ask"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "填写限定范围的Tool请求并发送 / Enter and send the scoped Tool request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "Ask中的暂停操作先等待审批 / A pause requested in Ask first waits for approval",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2871.640625,
+            "y": 834.859375,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.deny-stop"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3017.046875,
+            "y": 834.859375,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.deny-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "选择当前Chat的auto模式 / Select auto for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2857.546875,
+            "y": 1530,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.auto"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "切到Auto也不会批准已经等待的请求 / Switching to Auto does not approve an already pending request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2420,
+            "y": 528.5,
+            "width": 752,
+            "height": 374.359375
+          },
+          "automationId": "agent.tools.approval.deny-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "回到原Chat，审批仍等待用户决定 / Return to the original Chat with its approval still pending",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2871.640625,
+            "y": 834.859375,
+            "width": 131.40625,
+            "height": 52
+          },
+          "automationId": "agent.tools.deny.deny-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "Deny后记录仍在开启，拒绝结果保留 / Recording remains enabled after Deny and the denied result is retained",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2420,
+            "y": 528.5,
+            "width": 752,
+            "height": 76
+          },
+          "automationId": "agent.tools.approval.deny-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "用户操作：Ask下change Tool先进入pending；切Auto不处置它，跨Chat返回后Deny也不改变Recording。 / User actions: Ask makes the change Tool pending; switching Auto does not resolve it, and Deny after Chat switching keeps Recording.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.png",
+      "rawImage": "step-011.png"
+    },
+    {
+      "id": "step-012",
+      "title": "选择当前Chat的ask模式 / Select ask for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2773.390625,
+            "y": 1530,
+            "width": 80.15625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.ask"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "填写限定范围的Tool请求并发送 / Enter and send the scoped Tool request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-014",
+      "title": "新的暂停请求需要新的Allow / A new pause request requires its own Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-014.annotated.png",
+      "rawImage": "step-014.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 3017.046875,
+            "y": 1122.15625,
+            "width": 134.953125,
+            "height": 52
+          },
+          "automationId": "agent.tools.allow.allow-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-015",
+      "title": "Allow后Recording与实际暂停结果同步 / Recording reflects the actual pause after Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-015.annotated.png",
+      "rawImage": "step-015.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2420,
+            "y": 815.796875,
+            "width": 752,
+            "height": 76
+          },
+          "automationId": "agent.tools.approval.allow-stop"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-016",
+      "title": "通过Capture按钮恢复Recording / Resume Recording through its Capture control",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-016.annotated.png",
+      "rawImage": "step-016.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-017",
+      "title": "选择当前Chat的auto模式 / Select auto for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-017.annotated.png",
+      "rawImage": "step-017.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2857.546875,
+            "y": 1530,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.auto"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-018",
+      "title": "填写限定范围的Tool请求并发送 / Enter and send the scoped Tool request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-018.annotated.png",
+      "rawImage": "step-018.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "Auto中的后续调用直接暂停录制 / A subsequent call in Auto pauses Recording without another approval",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-019.png",
+      "rawImage": "step-019.png"
+    },
+    {
+      "id": "step-020",
+      "title": "用户操作：Ask中Allow执行正式stop命令；Auto下后续调用不显示问询并直接暂停Capture。 / User actions: Allow in Ask executes the formal stop command; a later Auto call pauses Capture without an approval.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-020.png",
+      "rawImage": "step-020.png"
+    },
+    {
+      "id": "step-021",
+      "title": "只关闭暂停录制Tool的Agent权限 / Disable only Agent access to the pause-recording Tool",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-021.annotated.png",
+      "rawImage": "step-021.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1353.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_stop_recording"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 2144,
+            "y": 1353.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.mcp.capture_stop_recording"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-022",
+      "title": "填写限定范围的Tool请求并发送 / Enter and send the scoped Tool request",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-022.annotated.png",
+      "rawImage": "step-022.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2366,
+            "y": 1624,
+            "width": 722,
+            "height": 80
+          },
+          "automationId": "agent.message.input"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 3102,
+            "y": 1628,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "agent.message.send"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-023",
+      "title": "权限关闭后返回unknown_tool，Recording不变 / Disabled access returns unknown_tool without changing Recording",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-023.annotated.png",
+      "rawImage": "step-023.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-024",
+      "title": "用户操作：Settings关闭项优先于Auto；schema移除，猜测调用返回unknown_tool且不触达Recording。 / User actions: a Settings disable overrides Auto; schema disappears and a guessed call returns unknown_tool without touching Recording.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
+    },
+    {
+      "id": "step-025",
+      "title": "重启后保留关闭的Tool权限 / The disabled Tool permission persists after a restart",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-025.annotated.png",
+      "rawImage": "step-025.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1353.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_stop_recording"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-026",
+      "title": "需要再次使用时恢复Agent权限 / Restore Agent permission when the Tool is needed again",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-026.annotated.png",
+      "rawImage": "step-026.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2016,
+            "y": 1353.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "agent.tools.agent.capture_stop_recording"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-027",
+      "title": "选择当前Chat的ask模式 / Select ask for the current Chat",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-027.annotated.png",
+      "rawImage": "step-027.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2773.390625,
+            "y": 1530,
+            "width": 80.15625,
+            "height": 44
+          },
+          "automationId": "agent.execution-mode.ask"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263372,
+      "sha256": "2f5ddb7253caf71f7edf692eec26dd6d3404d7e439ad1f16fb98f0e950870348"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 247711,
+      "sha256": "a66972bab908765ddd2103c65a33bd17ad0a236f410d7fd344b6d046cc07306d"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167501,
+      "sha256": "d8767fee551499cf208638bcbac10a5e624c7ade4dd8414767c9d319f11f7d18"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 263372,
+      "sha256": "2f5ddb7253caf71f7edf692eec26dd6d3404d7e439ad1f16fb98f0e950870348"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 247674,
+      "sha256": "87ab4e4474bce3ae58a4c3aee9adeb4fcc75c836c4658b9e7e68fb158ec3c9bf"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 167431,
+      "sha256": "037d3ab0c59758d299442967611e3e572b75388fa75dfca366a0a2f759181cf7"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 252808,
+      "sha256": "ee1e4e7104f89e0766726931cc729ebea0c9a127bfee7d88deb480bfdb078c30"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 171155,
+      "sha256": "504a70e4544ba6b8642cdd437b55fa729cf7ebdf272e701bec70a443648ea38b"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 338488,
+      "sha256": "6b97022683aa5350c5c5b83fee5cf9b2f1a9cba7e3a2bf1591a0afc4f31a9ecc"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 238713,
+      "sha256": "ea472f5d51e82681712ec611c538b5fed9f27522406fca8482c2e8eb039187fb"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 325904,
+      "sha256": "ded6491d1e73a8a51d8960aafbd501433a209c8e631c380d3245c705c2103c95"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230909,
+      "sha256": "2977890ec12b5db18304de0f9a446ca92840c150bee5cf3d04570844b8fe05a2"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 325904,
+      "sha256": "ded6491d1e73a8a51d8960aafbd501433a209c8e631c380d3245c705c2103c95"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 231642,
+      "sha256": "65f9f6873abc4249b67d6ff45c1b76e0bafbf76472a2289ce958794cff8c8eb1"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 325829,
+      "sha256": "e99018ca5591aa28b3fac45d74aee9c1be20e9c7a72e077c5093a3c98cb79b7f"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 231025,
+      "sha256": "1bb21302040e76c9ba98d1a898eb3e419674ea74494c7e6a6df77a837ac99354"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296432,
+      "sha256": "7752e744f6f43966f6b50d07b5756a268f6a36a9f044aaef08b30a8f786c8a52"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 208243,
+      "sha256": "f4dbe31982ac5f310739d0c5a6cd111139b5aa2229b3e41339ad4991b2783ce8"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296432,
+      "sha256": "7752e744f6f43966f6b50d07b5756a268f6a36a9f044aaef08b30a8f786c8a52"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296309,
+      "sha256": "fffe8e61f1ee0905527a52fab7375c98cec0733dfeb5ff0a1944aa04281bae07"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 206893,
+      "sha256": "dcd0afc24253d8078a240814be009d383a7a0c07a8d4263c73a95ba8d4f6660d"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 299388,
+      "sha256": "36d0eddb787f08635200cc4bdc7e92bda4160f7691ded4b86b2006d4e16cf08c"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 209811,
+      "sha256": "f6e4fc7b1a25bc2f35418f3b3f97645f447ddccd624f4c3001bd7d745d62b826"
+    },
+    {
+      "file": "step-014.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 362969,
+      "sha256": "c56e00da57a25c8f56ead42ab46acf2e0d8917a5baa011487e67af30a948df09"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 257438,
+      "sha256": "f4fb6840f5628ed8c1d2671a2090125c9f137e153f4756a74f998f53f197751b"
+    },
+    {
+      "file": "step-015.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 328689,
+      "sha256": "f6fc707b018fdcfe3317aac4314dbe4af7145b804c9e36dbaeed2ec0a395b414"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 232478,
+      "sha256": "7244e07e0549b1465af9ab087285778e9ca1b0a8dfa4a9442081e6ea114b3b43"
+    },
+    {
+      "file": "step-016.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 347731,
+      "sha256": "91190b3bfe7c241a18415374a87cf61bcf987eec562a0e5697b8d2ed99231b7b"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241700,
+      "sha256": "2e6daa340b042eb016392de98b1a7597740d4bfd465f038369fd7949aff9298a"
+    },
+    {
+      "file": "step-017.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 329745,
+      "sha256": "1ab34fee764337b3c298c946a7c2b5058690bda0c772294be46383bc4a0620b1"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 231922,
+      "sha256": "4bf59ac1aa0642f12027ccb07b6b9c523da3cb94c438a385d406010ee7b5b9ac"
+    },
+    {
+      "file": "step-018.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 336403,
+      "sha256": "870ceb7f28c007cfa7416a0ecb87b33c481e80a2a7cf320cb0db71cdae921cb3"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 235913,
+      "sha256": "a1490ccf01746f65ef7a44e6b51e9044c742afcfc607223b46d6a8a3b40e7cf6"
+    },
+    {
+      "file": "step-019.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 386892,
+      "sha256": "0984cd285a633ed69675aea469988b3f315efc2889c3aa0010bd2a242a06646f"
+    },
+    {
+      "file": "step-020.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 386892,
+      "sha256": "0984cd285a633ed69675aea469988b3f315efc2889c3aa0010bd2a242a06646f"
+    },
+    {
+      "file": "step-021.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 543112,
+      "sha256": "c6ad3032780a5715d77312220d899eea491d0db94ab56586c21eee1405b1f7ac"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 385439,
+      "sha256": "924b5766fbe45f5eb7b92e31ceacce97e94f3c3d6b1e00cd9526a7a09a6e4d4f"
+    },
+    {
+      "file": "step-022.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 379025,
+      "sha256": "5755448ad44592866b8066b09add557a3c6001024daeb5144b50255baec731f6"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 271493,
+      "sha256": "9b3c461360ece1b19cef9c2787da8454d97a028108f48a30391c3da297f957ac"
+    },
+    {
+      "file": "step-023.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 400160,
+      "sha256": "69d8561b4b1e091fd0d1f88071748a13ae751ab08b84a7c3d3f606fc640b7d3e"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 285280,
+      "sha256": "2579b855c044b65f78db6e8389e409cafacb1bb61267bc4da7d284f235da5de3"
+    },
+    {
+      "file": "step-024.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 400160,
+      "sha256": "69d8561b4b1e091fd0d1f88071748a13ae751ab08b84a7c3d3f606fc640b7d3e"
+    },
+    {
+      "file": "step-025.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 555700,
+      "sha256": "df6a8e84a11acc5080e2146aa8e6075ebc2dd6f890939beb35e7c2d85a5caaa2"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 393461,
+      "sha256": "609c42a6f3c141beb5c4645a9891ff3f06559c792982d69d54412bc7ba3e7a98"
+    },
+    {
+      "file": "step-026.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 555600,
+      "sha256": "c49341554888e1e764b7cb72ac0ce03ae4a5ce36c21265fbea6dfa68c3bbd7fa"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 393782,
+      "sha256": "4f9aa7fc5957edd61dd2e8f205dcf0d2d7762b30d3ac6451b7d617cfcbbe2c81"
+    },
+    {
+      "file": "step-027.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 393743,
+      "sha256": "2e0867a527f09b1170ae8854499c21eb0cfbdd72af484d4b25b45c50aed44b5f"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 280843,
+      "sha256": "d884355eb0360cba4da7e09bf236ca68b8f8c950b1804daa8d5906b7cd2b800a"
+    }
+  ]
+}

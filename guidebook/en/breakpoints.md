@@ -1,703 +1,680 @@
 # Breakpoints: pause traffic before deciding
 
-> Draft for `v0.1.1-alpha.1`; request-breakpoint steps have real images, while response, queue and frame gaps are marked individually. Neither this chapter nor item9 is complete. Pausing affects real clients; use only authorized traffic.
-
 [Guide directory](../README.en.md) · [Rules](rules.md) · [Capture](capture.md)
-
-<!-- recorded-walkthrough:start -->
-<a id="walkthrough"></a>
-## Recorded walkthrough: actual product steps
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide request breakpoint</code> |
-| <code>host</code> | <code>127.0.0.1</code> |
-| <code>path</code> | <code>/guide/breakpoints</code> |
-| <code>url</code> | <code>http://127.0.0.1:51191/guide/breakpoints/edited</code> |
-| <code>original</code> | <code>{&quot;message&quot;:&quot;original&quot;}</code> |
-| <code>replacement</code> | <code>{&quot;message&quot;:&quot;edited-by-guide&quot;}</code> |
-
-<a id="walkthrough-01-rules"></a>
-### 01 · Open Rules
-
-![01 · Open Rules](../media/v0.1.1-alpha.1/breakpoints/breakpoints-01-rules.png)
-
-<a id="walkthrough-02-create"></a>
-### 02 · Create the breakpoint Rule
-
-![02 · Create the breakpoint Rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-02-create.png)
-
-<a id="walkthrough-03-name"></a>
-### 03 · Name the Rule
-
-![03 · Name the Rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-03-name.png)
-
-<a id="walkthrough-04-host"></a>
-### 04 · Set the local test Host
-
-![04 · Set the local test Host](../media/v0.1.1-alpha.1/breakpoints/breakpoints-04-host.png)
-
-<a id="walkthrough-05-path-condition"></a>
-### 05 · Add a Path condition
-
-![05 · Add a Path condition](../media/v0.1.1-alpha.1/breakpoints/breakpoints-05-path-condition.png)
-
-<a id="walkthrough-06-path"></a>
-### 06 · Restrict the breakpoint path
-
-![06 · Restrict the breakpoint path](../media/v0.1.1-alpha.1/breakpoints/breakpoints-06-path.png)
-
-<a id="walkthrough-07-remove-header"></a>
-### 07 · Remove the default Header action
-
-![07 · Remove the default Header action](../media/v0.1.1-alpha.1/breakpoints/breakpoints-07-remove-header.png)
-
-<a id="walkthrough-08-add-breakpoint"></a>
-### 08 · Add a Breakpoint action
-
-![08 · Add a Breakpoint action](../media/v0.1.1-alpha.1/breakpoints/breakpoints-08-add-breakpoint.png)
-
-<a id="walkthrough-09-enable"></a>
-### 09 · Enable the Rule
-
-![09 · Enable the Rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-09-enable.png)
-
-<a id="walkthrough-10-apply"></a>
-### 10 · Apply the Rule
-
-![10 · Apply the Rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-10-apply.png)
-
-<a id="walkthrough-11-capture"></a>
-### 11 · Return to Capture
-
-![11 · Return to Capture](../media/v0.1.1-alpha.1/breakpoints/breakpoints-11-capture.png)
-
-<a id="walkthrough-12-pending"></a>
-### 12 · Send and select the paused request
-
-![12 · Send and select the paused request](../media/v0.1.1-alpha.1/breakpoints/breakpoints-12-pending.png)
-
-<a id="walkthrough-13-text"></a>
-### 13 · Choose Text replacement
-
-![13 · Choose Text replacement](../media/v0.1.1-alpha.1/breakpoints/breakpoints-13-text.png)
-
-<a id="walkthrough-14-replacement"></a>
-### 14 · Enter the replacement body
-
-![14 · Enter the replacement body](../media/v0.1.1-alpha.1/breakpoints/breakpoints-14-replacement.png)
-
-<a id="walkthrough-15-forward"></a>
-### 15 · Forward edited and verify the origin
-
-![15 · Forward edited and verify the origin](../media/v0.1.1-alpha.1/breakpoints/breakpoints-15-forward.png)
-
-<a id="walkthrough-16-next"></a>
-### 16 · Send the next request
-
-![16 · Send the next request](../media/v0.1.1-alpha.1/breakpoints/breakpoints-16-next.png)
-
-<a id="walkthrough-17-unmodified"></a>
-### 17 · Continue unmodified
-
-![17 · Continue unmodified](../media/v0.1.1-alpha.1/breakpoints/breakpoints-17-unmodified.png)
-
-<a id="walkthrough-18-drop-target"></a>
-### 18 · Select a disposable request
-
-![18 · Select a disposable request](../media/v0.1.1-alpha.1/breakpoints/breakpoints-18-drop-target.png)
-
-<a id="walkthrough-19-drop"></a>
-### 19 · Drop and inspect the client error
-
-![19 · Drop and inspect the client error](../media/v0.1.1-alpha.1/breakpoints/breakpoints-19-drop.png)
-
-<a id="walkthrough-20-disable"></a>
-### 20 · Disable the test Rule
-
-![20 · Disable the test Rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-20-disable.png)
-
-<a id="walkthrough-21-apply-disabled"></a>
-### 21 · Apply the disabled state
-
-![21 · Apply the disabled state](../media/v0.1.1-alpha.1/breakpoints/breakpoints-21-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:end -->
 
 <a id="http"></a>
 ## Create a request or response breakpoint
 
-**Purpose:** inspect a request before forwarding, or a response before returning it to the client.
+A request breakpoint pauses before the request continues; a response breakpoint pauses before delivery to the client. Enable Recording and send through the proxy to a service you control. The request and response examples are independent: disable another Rule covering the same path when switching unless both phases should pause.
 
-**Prerequisites:** an external client uses the proxy. Enable Recording to observe the flow.
+1. <a id="walkthrough"></a><a id="walkthrough-01-rules"></a>Open Rules from the sidebar.
 
-1. For the Capture shortcut, open the request's Breakpoint submenu and select Endpoint. These images reuse the separate `capture-shortcuts` example, `http://127.0.0.1:52315/guide/shortcuts/order`; `52315` is its dynamic recording port. The shortcut creates both request and response phases, enabled and applied immediately. The same new request pauses twice and needs both decisions; see the complete [Capture sequence](capture.md#从流量进入阻断与断点). The manual Rules path below is a separate operation.
+   ![Create a request or response breakpoint · 1](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-001.png)
 
-   ![Actually opening the Capture Breakpoint submenu](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-10-breakpoint-menu.png)
+2. <a id="walkthrough-02-create"></a>Right-click the empty Rule tree and choose New rule in box 1.
 
-   ![Endpoint immediately applies request and response phases](../media/v0.1.1-alpha.1/capture-shortcuts/capture-shortcuts-11-endpoint.png)
+   ![Create a request or response breakpoint · 2](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-002.annotated.png)
 
-2. For the manual path, open Rules.
+3. <a id="walkthrough-03-name"></a>Enter `E2E request breakpoint` in box 1. Keep the Rule disabled while completing its match and action.
 
-   ![Actual Rules view](../media/v0.1.1-alpha.1/breakpoints/breakpoints-01-rules.png)
+   ![Create a request or response breakpoint · 3](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-003.annotated.png)
 
-3. Create a rule and name it `Guide request breakpoint`.
+4. <a id="walkthrough-04-host"></a>Enter `127.0.0.1` in the Host field, box 1. For another service, use its authorized exact Host rather than broadening scope unnecessarily.
 
-   ![Creating a breakpoint rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-02-create.png)
+   ![Create a request or response breakpoint · 4](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-004.annotated.png)
 
-   ![Entering Guide request breakpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-03-name.png)
+5. <a id="walkthrough-05-path-condition"></a><a id="walkthrough-06-path"></a>Add a Path condition through Add condition and enter `/e2e/` in box 1. Restrict it further to your test endpoint when appropriate.
 
-4. Set Host to `127.0.0.1`.
+   ![Create a request or response breakpoint · 5](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-005.annotated.png)
 
-   ![Limiting the local Host](../media/v0.1.1-alpha.1/breakpoints/breakpoints-04-host.png)
+6. <a id="walkthrough-07-remove-header"></a><a id="walkthrough-08-add-breakpoint"></a>Remove the default Header action, then choose Breakpoint in box 1 of Add action. Do not save the Rule with no action in between.
 
-5. Add Path and limit it to `/guide/breakpoints`.
+   ![Create a request or response breakpoint · 6](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-006.png)
 
-   ![Adding the Path condition](../media/v0.1.1-alpha.1/breakpoints/breakpoints-05-path-condition.png)
+   ![Create a request or response breakpoint · 6](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-007.annotated.png)
 
-   ![Actual Path scope](../media/v0.1.1-alpha.1/breakpoints/breakpoints-06-path.png)
+7. Confirm Phase is Request. A response breakpoint requires selecting Response, not merely renaming the Rule.
 
-6. Remove the default Header and add a request-phase Breakpoint.
+   ![Create a request or response breakpoint · 7](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-008.png)
 
-   ![Removing the default Header](../media/v0.1.1-alpha.1/breakpoints/breakpoints-07-remove-header.png)
+8. <a id="walkthrough-09-enable"></a><a id="walkthrough-10-apply"></a>Enable the Rule and click Save in box 1. Wait for Rule set applied before sending new traffic; resolve validation errors first.
 
-   ![Adding the Breakpoint action](../media/v0.1.1-alpha.1/breakpoints/breakpoints-08-add-breakpoint.png)
+   ![Create a request or response breakpoint · 8](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-009.annotated.png)
 
-7. Complete the fields and enable the rule.
+   ![Create a request or response breakpoint · 8](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-010.png)
 
-   ![Enabling the request breakpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-09-enable.png)
+9. <a id="walkthrough-11-capture"></a><a id="walkthrough-12-pending"></a>Return to Capture, ensure Break on match is enabled and send a matching POST from the client. Box 1 selects the `/e2e/header-only` Request paused record and its current head.
 
-8. Apply and wait for success. Apply failures caused by incomplete fields remain image pending.
+   ![Create a request or response breakpoint · 9](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-011.annotated.png)
 
-   ![Applying the manual breakpoint rule](../media/v0.1.1-alpha.1/breakpoints/breakpoints-10-apply.png)
+10. <a id="walkthrough-breakpoints-response-06-rules"></a>For the response example, separately configure `E2E response edits`. Box 1 is its name and box 2 sets Path `/e2e/response-edits/`. Before a File replacement, save your own response file as described in [body editing](#edit).
 
-9. Return to Capture and inspect Break on match. The [manager recording](#walkthrough-breakpoints-manager) operates global and individual Rule switches. Disabling a Rule is not resolving every waiting item.
+    ![Create a request or response breakpoint · 10](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-004.annotated.png)
 
-   ![Returning to Capture before sending](../media/v0.1.1-alpha.1/breakpoints/breakpoints-11-capture.png)
+11. <a id="walkthrough-breakpoints-response-07-phase-menu"></a><a id="walkthrough-breakpoints-response-08-response-phase"></a>Open Phase and select Response in box 1.
 
-10. Send through the proxy to `http://127.0.0.1:51191/guide/breakpoints/edited` and select its wait. `51191` is the recording's dynamic port. The original sent body was `{"message":"original"}`; this does not guarantee a body snapshot at the HTTP header pause.
+    ![Create a request or response breakpoint · 11](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-005.annotated.png)
 
-    ![New matching request actually paused](../media/v0.1.1-alpha.1/breakpoints/breakpoints-12-pending.png)
+12. <a id="walkthrough-breakpoints-response-09-apply"></a>Enable and save the Rule, then confirm Rule set applied in box 1. Subsequent matches will wait at the response phase.
 
-11. The response example uses a separate `Guide response breakpoint`, Path scope `/guide/response` and origin `http://127.0.0.1:59309/`; `59309` is another dynamic recording port. Open the rule, expand its phase menu and select `response`. For File, finish the [next section's](#edit) file-saving preparation before enabling this rule.
+    ![Create a request or response breakpoint · 12](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-006.annotated.png)
 
-    ![Opening the separate Guide response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-06-rules.png)
+13. <a id="walkthrough-breakpoints-response-10-capture"></a><a id="walkthrough-breakpoints-response-11-header-paused"></a><a id="walkthrough-breakpoints-response-12-select-header"></a>Request `/e2e/response-edits/header` from the client and select the wait in box 1. Check Response paused and the response-status editor rather than treating it as a request-phase pause.
 
-    ![Expanding the phase menu](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-07-phase-menu.png)
+    ![Create a request or response breakpoint · 13](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-007.annotated.png)
 
-    ![Actually selecting response phase](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-08-response-phase.png)
+14. Alternatively, use Breakpoint → This endpoint from a Capture row’s context menu. It enables and immediately saves both request and response phases, potentially pausing twice. See [shortcut breakpoints](#walkthrough-breakpoints-manager) for operation and Undo; this differs from a Request-only manual Rule.
 
-12. Apply the response breakpoint.
+HTTP can pause at headers before the complete body arrives. An unavailable Original does not mean the message has no body. The current head is actionable; subsequent Queued entries are read-only.
 
-    ![Actually applying response phase](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-09-apply.png)
-
-13. Return to Capture, then send a matching `POST` with request body `{"request":"guide-response"}`.
-
-    ![Returning to Capture for the response demonstration](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-10-capture.png)
-
-    ![The header-only example waiting in response phase](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-11-header-paused.png)
-
-14. Select the response wait, confirm it is not request phase and continue with the editing steps below.
-
-    ![Actually selected response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-12-select-header.png)
-
-**Expected result:** the client waits for your decision. Historical requests are not replayed.
-
-**Notes:** HTTP breakpoints pause at headers without buffering the full original body. A missing body snapshot does not mean the original request has no body.
 
 <a id="continue-drop"></a>
 ## Continue, edit or drop
 
-1. Confirm the selected wait belongs to the request and phase above.
+Check the phase, path and current wait before each action. This example uses the preceding section’s separate response Rule. The three decisions also apply to the corresponding request head; do not repeat an action on an already resolved target.
 
-   ![Selecting the actual paused request](../media/v0.1.1-alpha.1/breakpoints/breakpoints-12-pending.png)
+1. Select the `/e2e/response-edits/header` response wait in box 1.
 
-2. This recording edits first: select Text.
+   ![Continue, edit or drop · 1](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-007.annotated.png)
 
-   ![Selecting Text replacement, not unchanged continuation](../media/v0.1.1-alpha.1/breakpoints/breakpoints-13-text.png)
+2. <a id="walkthrough-13-text"></a><a id="walkthrough-14-replacement"></a><a id="walkthrough-15-forward"></a>For an edited forward, add `x-response-edited: header-only` in Response headers, leave the body Off and click Forward edited in box 1. For Text or File, provide the complete replacement as shown in [the next section](#edit) before using this command.
 
-3. Enter complete replacement `{"message":"edited-by-guide"}`.
+   ![Continue, edit or drop · 2](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-008.annotated.png)
 
-   ![edited-by-guide draft before submission](../media/v0.1.1-alpha.1/breakpoints/breakpoints-14-replacement.png)
+3. Check the client receives the added Header. Response in box 1 still shows `{"action":"header","source":"origin"}`; a Header-only edit did not replace its body.
 
-4. Choose Forward edited and inspect what the origin receives.
+   ![Continue, edit or drop · 3](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-009.annotated.png)
 
-   ![Actual edited-forward checkpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-15-forward.png)
+4. <a id="walkthrough-16-next"></a>Request `/e2e/response-edits/unmodified` and select the new wait in box 1, not the response already forwarded.
 
-5. Send another test request and select its new wait, not the already-resolved target.
+   ![Continue, edit or drop · 4](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-018.annotated.png)
 
-   ![Next waiting request](../media/v0.1.1-alpha.1/breakpoints/breakpoints-16-next.png)
+5. <a id="walkthrough-17-unmodified"></a>Even with a `not-forwarded` Text draft in box 1, Continue in box 2 forwards unchanged without submitting it.
 
-6. Choose Continue unmodified and inspect its result.
+   ![Continue, edit or drop · 5](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-019.annotated.png)
 
-   ![Actual unchanged continuation](../media/v0.1.1-alpha.1/breakpoints/breakpoints-17-unmodified.png)
+6. Inspect `{"action":"unmodified","source":"origin"}` in Response, box 1. The client did not receive the draft.
 
-7. Send another disposable test request and confirm the target to drop.
+   ![Continue, edit or drop · 6](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-020.annotated.png)
 
-   ![Selecting this Drop target](../media/v0.1.1-alpha.1/breakpoints/breakpoints-18-drop-target.png)
+7. <a id="walkthrough-18-drop-target"></a>Request `/e2e/response-edits/drop` and deliberately select this wait in box 1.
 
-8. Choose Drop and inspect the client error and Capture state; this is not a successful response.
+   ![Continue, edit or drop · 7](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-021.annotated.png)
 
-   ![Actual Drop result checkpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-19-drop.png)
+8. <a id="walkthrough-19-drop"></a>Click Drop in box 1 and check the client error or connection termination, not a successful response. This is a response-phase pause: Drop cannot undo the request already received by the origin.
 
-**Expected result**
+   ![Continue, edit or drop · 8](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-022.annotated.png)
 
-- Continue unmodified ignores the current unsent editing draft.
-- Forward edited applies that draft.
-- Drop aborts that wait; it does not invent a successful HTTP response.
+   ![Continue, edit or drop · 8](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-023.png)
 
-**Notes:** rules may already have modified the message. “Unmodified” means no additional breakpoint draft, not necessarily the client's earliest original bytes.
+Continue ignores local unsubmitted drafts, Forward edited applies them, and Drop terminates the wait. Earlier Rules may already have changed the message, so unchanged does not necessarily mean the original client bytes. For another attempt, create a new request and select its current valid wait.
+
 
 <a id="edit"></a>
 ## Edit headers, Text or File
 
-This complete sequence uses `breakpoints-response`: save the file first, then configure response interception. Origin `http://127.0.0.1:59309/` belongs only to this recording. Request-phase `edited-by-guide` remains in the [preceding section](#continue-drop); do not mix its data with these responses.
+Use the separate `E2E response edits` response Rule with Path `/e2e/response-edits/`. Save the source file before enabling the Rule so that the source request is not intercepted. Off retains the original body, Text uses explicit input and File uses all bytes of the selected file.
 
-1. Before the response rule takes effect, obtain this example's source response for saving.
+1. <a id="walkthrough-breakpoints-response"></a><a id="walkthrough-breakpoints-response-01-source"></a><a id="walkthrough-breakpoints-response-02-select-source"></a><a id="walkthrough-breakpoints-response-03-response-body"></a>Before enabling the Rule, request `/e2e/response-edits/file-source`, select the record and open Response. Check `{"message":"file-response"}` and click Save body in box 1.
 
-   ![Actually obtaining the saveable example response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-01-source.png)
+   ![Edit headers, Text or File · 1](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-001.annotated.png)
 
-2. Select that source request.
+2. <a id="walkthrough-breakpoints-response-04-save-dialog"></a><a id="walkthrough-breakpoints-response-05-saved-body"></a>Save `response-body.json` in the system dialog and wait for the file. The later File replacement must select this saved file, not merely enter a name or use a different file with the same name.
 
-   ![Selecting the actual source request](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-02-select-source.png)
+   ![Edit headers, Text or File · 2](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-002.png)
 
-3. Open Response and check the JSON to save: `message` is `file-from-product`, `orderId` is `guide-response-001`.
+   ![Edit headers, Text or File · 2](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-003.png)
 
-   ![Actual file body available in the product](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-03-response-body.png)
+3. Create and save the response Rule as described earlier. Its name in box 1 is `E2E response edits`, Path in box 2 is `/e2e/response-edits/`, and Phase is Response.
 
-4. Use Save body and the real native panel to create `guide-response.json`. Do not hand-write a substitute or use Transfer's same-named file with different contents.
+   ![Edit headers, Text or File · 3](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-004.annotated.png)
 
-   ![Real Save panel creating this exercise's guide-response.json](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-04-save-dialog.png)
+4. Request `/e2e/response-edits/header`, select the Response paused record in box 1 and inspect its response status and Headers.
 
-5. Wait for completion and retain the complete product-exported bytes. This file contains the following JSON, not the later header-only request's `origin-response`.
+   ![Edit headers, Text or File · 4](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-007.annotated.png)
 
-   ```json
-   {
-     "message": "file-from-product",
-     "orderId": "guide-response-001"
-   }
-   ```
+5. <a id="walkthrough-breakpoints-response-13-body-off"></a><a id="walkthrough-breakpoints-response-14-header-value"></a><a id="walkthrough-breakpoints-response-15-header-forward"></a>For a Header-only edit, leave Body Off, use Add header to add `x-response-edited: header-only`, then click Forward edited in box 1.
 
-   ![Actual checkpoint for saving the complete body](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-05-saved-body.png)
+   ![Edit headers, Text or File · 5](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-008.annotated.png)
 
-6. Open `Guide response breakpoint`.
+6. Check the client receives the added Header while Response in box 1 remains `{"action":"header","source":"origin"}`. Editing a Header did not automatically replace the body.
 
-   ![Opening this response rule](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-06-rules.png)
+   ![Edit headers, Text or File · 6](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-009.annotated.png)
 
-7. Expand the phase menu and select `response`.
+7. <a id="walkthrough-breakpoints-response-16-text-paused"></a><a id="walkthrough-breakpoints-response-17-select-text"></a>Request `/e2e/response-edits/text` separately and select its new wait in box 1. Collapse Response headers and Original body by their titles when more space is needed.
 
-   ![Expanding phase choices](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-07-phase-menu.png)
+   ![Edit headers, Text or File · 7](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-010.annotated.png)
 
-   ![Selecting response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-08-response-phase.png)
+8. <a id="walkthrough-breakpoints-response-18-text-mode"></a><a id="walkthrough-breakpoints-response-19-text-value"></a><a id="walkthrough-breakpoints-response-20-text-forward"></a>Set Status in box 1 to `201`, select Text, enter the complete `{"message":"response-edited"}` in box 2 and click Forward edited in box 3. Leave Status unchanged when only replacing the body.
 
-8. Apply before sending matching requests.
+   ![Edit headers, Text or File · 8](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-011.annotated.png)
 
-   ![Applying this response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-09-apply.png)
+9. Open Response in box 1, choose Final and Raw and inspect `201` and the new JSON. This is the final response, not the original request body.
 
-9. Return to Capture to observe waits.
+   ![Edit headers, Text or File · 9](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-012.annotated.png)
 
-   ![Actually returning to Capture](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-10-capture.png)
+10. <a id="walkthrough-breakpoints-response-21-file-paused"></a><a id="walkthrough-breakpoints-response-22-select-file"></a>Request `/e2e/response-edits/file` and select its new response wait in box 1, not the resolved Text target.
 
-10. Send the header-only `POST`, request body `{"request":"guide-response"}`, and wait in response phase.
+    ![Edit headers, Text or File · 10](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-013.annotated.png)
 
-    ![Actual header-only response pause](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-11-header-paused.png)
+11. <a id="walkthrough-breakpoints-response-23-file-mode"></a><a id="walkthrough-breakpoints-response-24-open-dialog"></a>Collapse Headers and Original to make room, select File and use Choose file in box 1. Select the `response-body.json` saved earlier in the system Open dialog.
 
-11. Select its response breakpoint and inspect the queue-head fields; request and response fields differ.
+    ![Edit headers, Text or File · 11](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-014.annotated.png)
 
-    ![Actual response-phase editor fields](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-12-select-header.png)
+12. <a id="walkthrough-breakpoints-response-25-file-preview"></a><a id="walkthrough-breakpoints-response-26-file-forward"></a>Check the filename, `27 B` size and `file-response` preview in box 1, then click Forward edited in box 2. The complete file is sent, not selected preview text.
 
-12. Keep Body Off for a header-only edit.
+    ![Edit headers, Text or File · 12](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-016.annotated.png)
 
-    ![Explicitly keeping Body Off](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-13-body-off.png)
+13. Inspect `{"message":"file-response"}` in Response → Final → Raw, box 1, and verify the complete content actually received by the client.
 
-13. Change `x-guide-response` to `header-only-guide`, without entering a replacement body.
+    ![Edit headers, Text or File · 13](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-017.annotated.png)
 
-    ![Editing only the actual response Header](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-14-header-value.png)
+14. <a id="walkthrough-breakpoints-response-27-cleanup-rule"></a><a id="walkthrough-breakpoints-response-28-disable"></a>After resolving the waits, return to this response Rule and disable its switch in box 1.
 
-14. Forward edited; verify the Header changed while the body remains `{"message":"origin-response","orderId":"guide-response-001"}`.
+    ![Edit headers, Text or File · 14](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-027.annotated.png)
 
-    ![Actual header-only forwarding result](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-15-header-forward.png)
+15. <a id="walkthrough-breakpoints-response-29-apply-disabled"></a>Click Save in box 1 of the first image, then confirm Rule set applied in box 1 of the second. Disabling matches and resolving existing waits remain separate operations.
 
-15. Send a separate Text example request and wait for its response, not the already-resolved target.
+    ![Edit headers, Text or File · 15](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-028.annotated.png)
 
-    ![New Text example response wait](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-16-text-paused.png)
+    ![Edit headers, Text or File · 15](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-029.annotated.png)
 
-16. Select the Text example.
+- Read-only File text previews are bounded at `2 MiB`, with complete image previews up to `16 MiB`. Unknown binary data, audio, video or oversized images may show only file information.
+- Empty Text can retain the original HTTP body when the headers-stage snapshot has no body; a WebSocket message snapshot can instead be explicitly replaced by an empty message. Do not mix these cases.
+- A later Capture preview does not change whether a snapshot existed at pause time.
+- See [message editing](rules.md#message-editing) for Header, charset, compression and body interactions, and [the next section](#walkthrough-breakpoints-request-variants) for File and empty-Text variants.
 
-    ![Selecting the actual Text response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-17-select-text.png)
 
-17. Switch the body source to Text.
+<a id="walkthrough-breakpoints-request-variants"></a>
+## Change only request headers, use a body file or edit response status
 
-    ![Selecting Text replacement](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-18-text-mode.png)
+These are separate request and response examples. Check the Rule phase and Path, enable only the needed Rule and send a new request for each case. Resolved waits cannot be submitted again. The JSON File example uses `/e2e/body-file/`; other request variants use the `/e2e/` scope of `E2E request breakpoint`.
 
-18. Enter complete replacement `{"message":"text-from-guide","orderId":"guide-response-001"}`.
+1. <a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>Send POST `/e2e/header-only` with body `{"stage":"header-only"}` and Header `x-edit-stage: original`. Select its new wait in box 1.
 
-    ![Actual text-from-guide draft before submission](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-19-text-value.png)
+   ![Change only request headers, use a body file or edit response status · 1](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-014.annotated.png)
 
-19. Forward edited and inspect the replaced Text received by the client.
+2. <a id="walkthrough-breakpoints-request-variants-header-02-off"></a><a id="walkthrough-breakpoints-request-variants-header-03-add"></a><a id="walkthrough-breakpoints-request-variants-header-04-name"></a><a id="walkthrough-breakpoints-request-variants-header-05-value"></a><a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>Leave Body Off. Set Content-Type in box 1 to `application/x-header-only`, change `x-edit-stage` in box 2 to `edited` and use Forward edited in box 3. The origin still receives the original JSON bytes; a Header change does not automatically convert the body.
 
-    ![Actual Text replacement forwarding result](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-20-text-forward.png)
+   ![Change only request headers, use a body file or edit response status · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-015.annotated.png)
 
-20. Send the separate File example and wait for its response.
+   ![Change only request headers, use a body file or edit response status · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-016.png)
 
-    ![Independent File example response wait](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-21-file-paused.png)
+3. For an explicit text replacement, send a separate `/e2e/body-only` request with `{"stage":"body-original"}`. Select Text, enter the complete `{"stage":"body-edited"}` in box 1 and use Forward edited in box 2.
 
-21. Select the File example.
+   ![Change only request headers, use a body file or edit response status · 3](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-019.annotated.png)
 
-    ![Selecting the actual File response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-22-select-file.png)
+4. In Request, check the Text source badge in box 1, choose Final below it and inspect `{"stage":"body-edited"}` in Raw. Also check the complete content actually received by the origin.
 
-22. Switch the body source to File.
+   ![Change only request headers, use a body file or edit response status · 4](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-021.annotated.png)
 
-    ![Selecting File rather than Text or Off](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-23-file-mode.png)
+5. <a id="walkthrough-breakpoints-request-variants-empty-01-pending"></a><a id="walkthrough-breakpoints-request-variants-empty-02-text"></a><a id="walkthrough-breakpoints-request-variants-empty-03-forward"></a>Send `/e2e/empty-text` with `{"stage":"empty-keeps-original"}`. Box 1 in the first image selects the new request. In the second, choose Text in box 1 but leave it empty, then use Forward edited in box 2. At HTTP headers without a body snapshot, this retains the original body rather than behaving like an empty WebSocket message.
 
-23. In the real native Open panel, select the same `guide-response.json` saved in step 4 of this section.
+   ![Change only request headers, use a body file or edit response status · 5](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-031.annotated.png)
 
-    ![Real Open panel selecting this exercise's product-exported file](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-24-open-dialog.png)
+   ![Change only request headers, use a body file or edit response status · 5](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-032.annotated.png)
 
-24. Collapse response headers and inspect filename, displayed size and preview, confirming `file-from-product`.
+6. Choose Raw in Request, box 1, and verify `{"stage":"empty-keeps-original"}` remains. Without a body replacement, do not look for an Original/Final comparison that is not offered.
 
-    ![Actual file source and preview fully visible](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-25-file-preview.png)
+   ![Change only request headers, use a body file or edit response status · 6](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-033.annotated.png)
 
-25. Forward edited and verify that the client receives the complete saved file bytes, not just its preview.
+7. <a id="walkthrough-breakpoints-request-variants-json-01-source"></a><a id="walkthrough-breakpoints-request-variants-json-02-select"></a><a id="walkthrough-breakpoints-request-variants-json-03-save"></a><a id="walkthrough-breakpoints-request-variants-json-04-saved"></a>For the separate JSON File example, use the `/e2e/body-file/source` response with `begin: file-preview-start`, `cartId: cart-123` and `end: complete-file-end`. Use Save body in box 1 and save `exported-body.json`, an `89 B` file in this example.
 
-    ![Actual complete-file replacement result](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-26-file-forward.png)
+   ![Change only request headers, use a body file or edit response status · 7](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-001.annotated.png)
 
-26. Return to the response rule to end the exercise.
+   ![Change only request headers, use a body file or edit response status · 7](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-002.png)
 
-    ![Returning to Guide response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-27-cleanup-rule.png)
+8. <a id="walkthrough-breakpoints-request-variants-json-file-01-pending"></a>Enable the corresponding request breakpoint for POST `/e2e/body-file/target` and select the wait in box 1. Collapse a long Original by its heading to make room for File.
 
-27. Disable that response breakpoint.
+   ![Change only request headers, use a body file or edit response status · 8](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-004.annotated.png)
 
-    ![Actually disabling the response rule](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-28-disable.png)
+   ![Change only request headers, use a body file or edit response status · 8](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-005.png)
 
-28. Apply the disabled state and check this exercise's requests have all been handled.
+9. <a id="walkthrough-breakpoints-request-variants-json-file-02-mode"></a><a id="walkthrough-breakpoints-request-variants-json-file-03-open"></a><a id="walkthrough-breakpoints-request-variants-json-file-04-preview"></a>Choose File, use Choose file in box 1 and select the saved `exported-body.json` in the system dialog. Back in the App, inspect its filename, size and preview rather than merely entering a filename.
 
-    ![Saving the disabled response-breakpoint state](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-29-apply-disabled.png)
+   ![Change only request headers, use a body file or edit response status · 9](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-006.annotated.png)
 
-**Expected result:** Off preserves the body, Text uses intentional replacement text, and File sends the complete file rather than its preview.
+   ![Change only request headers, use a body file or edit response status · 9](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-008.png)
 
-**Notes**
+10. <a id="walkthrough-breakpoints-request-variants-json-file-05-forward"></a>Use Forward edited in box 1 and check complete JSON delivery at the client or origin. Preview height, scrolling and text selection do not limit the transmitted file length.
 
-- File previews are limited to `2 MiB` text or `16 MiB` complete images. Binary, media or oversized images may show an explanation instead.
-- At a normal HTTP header breakpoint without a body snapshot, empty Text still means Using original.
-- If a snapshot has a body, such as a WebSocket message, clearing Text can mean an empty replacement. Whitespace is real content.
-- A later Capture preview does not change whether the breakpoint snapshot originally contained a body.
-- See [header/body semantics](rules.md#message-editing).
-- The [request variants recording](#walkthrough-breakpoints-request-variants) separately shows Header-only, HTTP empty Text preserving the original body, product-saved JSON and a six-byte binary File, and response status changed to 202. A header-stage breakpoint lacking a complete body snapshot does not prevent a later Capture preview. Binary File shows metadata, not a fabricated text preview. See [Capture body limits](capture.md#walkthrough-capture-body-limits) for large previews and full saving.
+    ![Change only request headers, use a body file or edit response status · 10](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-011.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 10](../media/v0.1.1-alpha.1/breakpoints-short-file-english/step-012.png)
+
+11. <a id="walkthrough-breakpoints-request-variants-binary-01-source"></a><a id="walkthrough-breakpoints-request-variants-binary-02-select"></a><a id="walkthrough-breakpoints-request-variants-binary-03-save"></a><a id="walkthrough-breakpoints-request-variants-binary-04-saved"></a>For binary data, first use Save body in box 1 of `/e2e/request-file/source` to save `request-body.bin`. It contains seven bytes, `00 01 02 7f 80 fe ff`, not a substitute text file.
+
+    ![Change only request headers, use a body file or edit response status · 11](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-001.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 11](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-002.png)
+
+12. <a id="walkthrough-breakpoints-request-variants-binary-file-01-pending"></a><a id="walkthrough-breakpoints-request-variants-binary-file-04a-type"></a>Send a separate POST `/e2e/binary-file`. Box 1 in the first image selects the wait. Set Content-Type in box 1 of the second image to `application/octet-stream` as required by this endpoint.
+
+    ![Change only request headers, use a body file or edit response status · 12](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-034.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 12](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-035.annotated.png)
+
+13. <a id="walkthrough-breakpoints-request-variants-binary-file-02-mode"></a><a id="walkthrough-breakpoints-request-variants-binary-file-03-open"></a>Collapse Headers and Original, choose File and use Choose file in box 1 to select the saved `request-body.bin`.
+
+    ![Change only request headers, use a body file or edit response status · 13](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-036.annotated.png)
+
+14. <a id="walkthrough-breakpoints-request-variants-binary-file-04-preview"></a><a id="walkthrough-breakpoints-request-variants-binary-file-05-forward"></a>Check the filename and full `7 B` size in box 1, then use Forward edited in box 2. The origin should receive all seven bytes; the absence of a text preview does not mean an empty file.
+
+    ![Change only request headers, use a body file or edit response status · 14](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-038.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 14](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-039.png)
+
+15. <a id="walkthrough-breakpoints-request-variants-status-01-rule"></a><a id="walkthrough-breakpoints-request-variants-status-02-phase"></a><a id="walkthrough-breakpoints-request-variants-status-03-apply"></a><a id="walkthrough-breakpoints-request-variants-status-04-capture"></a><a id="walkthrough-breakpoints-request-variants-status-05-pending"></a><a id="walkthrough-breakpoints-request-variants-status-06-code"></a><a id="walkthrough-breakpoints-request-variants-status-07-forward"></a>For a status-only response edit, separately enable the Response Rule and request `/e2e/response-edits/status`. Leave Body Off, set Status in box 1 to `202` and use Forward edited in box 2.
+
+    ![Change only request headers, use a body file or edit response status · 15](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-025.annotated.png)
+
+16. In Response, box 1, verify status `202` and the unchanged `{"action":"status","source":"origin"}` body. No Text or File replacement occurred.
+
+    ![Change only request headers, use a body file or edit response status · 16](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-026.annotated.png)
+
+17. <a id="walkthrough-breakpoints-request-variants-finish-01-rule"></a><a id="walkthrough-breakpoints-request-variants-finish-02-disable"></a><a id="walkthrough-breakpoints-request-variants-finish-03-apply"></a>Finish by disabling `E2E request breakpoint` in box 1 of the first image. If you also configured the example’s `E2E later rewrite` Header Rule, disable its switch in box 1 of the second image, then use Save in box 1 of the third. Disable and save the response Rule as described above as well, so later traffic does not keep waiting.
+
+    ![Change only request headers, use a body file or edit response status · 17](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-040.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 17](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-041.annotated.png)
+
+    ![Change only request headers, use a body file or edit response status · 17](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-042.annotated.png)
+
 
 <a id="queues"></a>
 ## Handle multiple waiting items
 
-This is `breakpoints-queue`, using origin `http://127.0.0.1:56242/`; the port belongs only to this recording. Prepared rules `Guide POST queue` and `Guide PUT queue` both limit `/guide/queue`, matching POST and PUT respectively in the shared `http` queue. The clip begins by inspecting existing rules, not demonstrating their initial creation.
+Use a test service you control that accepts POST and PUT. Replace the example base URL `http://127.0.0.1:57756` with your service. Both Rules below use Host `127.0.0.1`, Path `/e2e/queue-` and the Request phase. HTTP waits with different methods still enter the same queue.
 
-1. Inspect both rules in Rules.
+1. <a id="walkthrough-breakpoints-queue"></a><a id="walkthrough-breakpoints-queue-01-rules"></a><a id="walkthrough-breakpoints-queue-02-post-rule"></a>Create a request breakpoint in Rules. Enter `E2E POST queue commands` in the name field, box 1, and select POST in Method, box 2. Set the Host, Path and Breakpoint action described above, enable the Rule and click Save.
 
-   ![The two actual Method rules](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-01-rules.png)
+   ![Handle multiple waiting items · 1](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-001.annotated.png)
 
-2. Select `Guide POST queue` and check its POST condition.
+2. <a id="walkthrough-breakpoints-queue-03-put-rule"></a>Create another Rule named `E2E PUT queue commands` in box 1 and choose PUT in box 2. Keep the same scope and phase, enable it and Save. Two Rules do not create two HTTP queues.
 
-   ![Actual Guide POST queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-02-post-rule.png)
+   ![Handle multiple waiting items · 2](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-002.annotated.png)
 
-3. Select `Guide PUT queue` and check PUT. Two rules do not mean two independent HTTP queues.
+3. <a id="walkthrough-breakpoints-queue-04-capture"></a>Return to Capture, enable Recording and search for `/e2e/queue-`. Open the breakpoint manager at the top. Check Break on match in box 1 and both Rule switches are enabled, then close the manager.
 
-   ![Actual Guide PUT queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-03-put-rule.png)
+   ![Handle multiple waiting items · 3](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-003.annotated.png)
 
-4. Return to Capture.
+4. <a id="walkthrough-breakpoints-queue-05-post-head"></a><a id="walkthrough-breakpoints-queue-06-post-queued"></a><a id="walkthrough-breakpoints-queue-07-put-queued"></a>Send POST `/e2e/queue-rule-post-a`, POST `/e2e/queue-rule-post-b` and PUT `/e2e/queue-rule-put-a` through the proxy, in that order, with bodies `post-a-original`, `post-b-original` and `put-a-original`. Do not continue them yet. Box 1 shows three waits: the first is Head and the other two are Queued.
 
-   ![Returning to Capture before queuing requests](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-04-capture.png)
+   ![Handle multiple waiting items · 4](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-005.annotated.png)
 
-5. Send POST-A through the proxy, body `{"order":"POST-A","source":"original"}`; it becomes Head.
+5. <a id="walkthrough-breakpoints-queue-08-select-head"></a><a id="walkthrough-breakpoints-queue-09-text-draft"></a><a id="walkthrough-breakpoints-queue-10-enter-draft"></a>Select the first POST, choose Text under Replacement body and enter `post-draft-must-not-forward` in box 1. Do not click Forward edited; this remains a draft for the selected wait.
 
-   ![POST-A becomes the actual head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-05-post-head.png)
+   ![Handle multiple waiting items · 5](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-006.annotated.png)
 
-6. Without resolving the head, send POST-B, body `{"order":"POST-B","source":"original"}`, and inspect Queued.
+6. <a id="walkthrough-breakpoints-queue-11-post-queued-detail"></a>Click the second POST in box 1. Its details show Queued and are read-only; this is not an editor for another queue head.
 
-   ![POST-B waiting in the same queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-06-post-queued.png)
+   ![Handle multiple waiting items · 6](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-007.annotated.png)
 
-7. Send PUT-A, body `{"order":"PUT-A","source":"original"}`. The `http` queue now has three items; different methods do not bypass the queue.
+7. <a id="walkthrough-breakpoints-queue-12-put-queued-detail"></a>Select the PUT in box 1. Although it matches the other Rule, it is still waiting in the same HTTP queue and cannot be edited ahead of the head.
 
-   ![PUT-A joins the actual three-item HTTP queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-07-put-queued.png)
+   ![Handle multiple waiting items · 7](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-008.annotated.png)
 
-8. Select the editable POST-A head.
+8. <a id="walkthrough-breakpoints-queue-13-restore-draft"></a>Return to the first POST and confirm box 1 still contains its own `post-draft-must-not-forward` draft. Selecting other rows does not copy this draft to them.
 
-   ![Selecting POST-A Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-08-select-head.png)
+   ![Handle multiple waiting items · 8](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-009.annotated.png)
 
-9. Choose Text for the head.
+9. <a id="walkthrough-breakpoints-queue-15-continue-rule"></a>All three requests are still waiting. Continue with [batch commands](#batch) to choose a Rule or queue scope; do not resend requests that are already paused.
 
-   ![Selecting a Text draft for the head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-09-text-draft.png)
+- Search and filters change visible rows, not hidden waits or queue order.
+- A timeout or client disconnect can remove a wait. Do not apply its stale draft to the next request.
+- A long queue does not automatically continue traffic and can exhaust client connections.
+- HTTP requests and responses share the HTTP queue. Established WebSocket connections have their own message queues; see [mixed queues](#walkthrough-breakpoints-mixed-queues).
 
-10. Enter `{"order":"POST-A","source":"draft-not-submitted"}` without Forward edited.
-
-    ![Actual unsubmitted POST-A draft](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-10-enter-draft.png)
-
-11. Select POST-B and inspect its ordinary, read-only Queued details.
-
-    ![Actual read-only POST-B Queued details](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-11-post-queued-detail.png)
-
-12. Select PUT-A and confirm it is still waiting too.
-
-    ![Actual PUT-A waiting details](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-12-put-queued-detail.png)
-
-13. Return to POST-A Head and check that its `draft-not-submitted` draft remains. Do not apply it to a later item.
-
-    ![Actual draft retained when returning to the head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-13-restore-draft.png)
-
-14. After Continue rule in the next section, inspect POST-A/POST-B resolved and PUT-A retained as the next head. This advances existing waits; it is not a newly sent request impersonating queue progress.
-
-    ![PUT wait remaining after the POST rule was continued](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-15-continue-rule.png)
-
-**Expected result:** HTTP requests, responses and WebSocket upgrades share the HTTP queue. Each WebSocket connection has a separate message queue, preserving arrival order in both directions.
-
-**Notes**
-
-- Filters hide rows, not waits, and do not reorder queues.
-- Each waiting item keeps its own draft while selected elsewhere.
-- Client timeouts/disconnects can remove items. Never reuse a stale ID against a different request.
-- There is no hidden queue-size limit that automatically continues traffic.
-- If you selected another request, continue deliberately. The [mixed-queue recording](#walkthrough-breakpoints-mixed-queues) checks a shared HTTP request/response queue and an independent connection-message queue; actual client cancellation is also in the manager recording. The tested Release establishes Upgrade without an HTTP pending item, so no Queued state is fabricated from architectural expectations. Removed IDs are not forcibly reused through an internal API.
 
 <a id="batch"></a>
 ## Use batch commands and the manager
 
-Continue from the preceding `http` queue containing POST-A, POST-B and PUT-A, with POST-A's unsubmitted draft. Execute each command separately; do not act again on an already-resolved target.
+Continue with the three waits from the preceding section. A batch command handles the selected scope at the time of the click, not every future request. Continuing unchanged does not submit the editor’s Text draft.
 
-1. Open the batch menu and check that the rule target is `Guide POST queue`.
+1. <a id="walkthrough-breakpoints-queue-14-rule-menu"></a>Open Queue actions at the top right of the first POST’s paused details. Continue all from this rule in box 1 targets the current Rule, Continue all in box 2 targets the HTTP queue, and Drop all in box 3 drops that queue. Click box 1 first.
 
-   ![Actual batch menu and rule target](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-14-rule-menu.png)
+   ![Use batch commands and the manager · 1](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-010.annotated.png)
 
-2. Choose Continue rule. It continues POST-A/POST-B unchanged and retains PUT-A. It does not submit `draft-not-submitted`; POST-A still uses `source: original`.
+2. Check that both POST requests continued while the PUT in box 1 remains as the new head. The origin receives `post-a-original` and `post-b-original`, not the unsubmitted `post-draft-must-not-forward`.
 
-   ![Actually continuing only POST while PUT remains waiting](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-15-continue-rule.png)
+   ![Use batch commands and the manager · 2](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-011.annotated.png)
 
-3. Send PUT-B, body `{"order":"PUT-B","source":"original"}`, leaving PUT-A and PUT-B in the queue.
+3. <a id="walkthrough-breakpoints-queue-16-put-b"></a><a id="walkthrough-breakpoints-queue-18-drop-menu"></a>Send PUT `/e2e/queue-drop-put-b` with body `put-b-original`. Confirm it queues behind the existing PUT, then click Drop all in box 1 of the current HTTP queue menu.
 
-   ![Actually adding PUT-B](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-16-put-b.png)
+   ![Use batch commands and the manager · 3](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-013.annotated.png)
 
-4. Open the current `http` queue menu.
+4. <a id="walkthrough-breakpoints-queue-19-drop-queue"></a>Check that neither PUT remains waiting. Their clients end or report errors, and neither request reaches the origin. Drop does not produce a successful response.
 
-   ![Actual queue menu for the remaining PUT waits](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-18-drop-menu.png)
+   ![Use batch commands and the manager · 4](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-014.png)
 
-5. Choose Drop queue and inspect both drops and actual client errors/end states, not a successful response.
+5. <a id="walkthrough-breakpoints-queue-20-new-post"></a><a id="walkthrough-breakpoints-queue-21-new-put"></a><a id="walkthrough-breakpoints-queue-22-select-new-head"></a>Send two new POST requests: `/e2e/queue-continue-a` with `queue-a-original` and `/e2e/queue-continue-b` with `queue-b-original`. Select the new head in box 1. These are new requests, not previously continued or dropped targets.
 
-   ![Drop queue actually resolves the two remaining waits](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-19-drop-queue.png)
+   ![Use batch commands and the manager · 5](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-015.annotated.png)
 
-6. Send new POST-C, body `{"order":"POST-C","source":"original"}`, to create a new head.
+6. <a id="walkthrough-breakpoints-queue-23-continue-menu"></a><a id="walkthrough-breakpoints-queue-24-continue-queue"></a>Open Queue actions and click Continue all in box 1. Check both new POST requests complete with `queue-a-original` and `queue-b-original` unchanged. This command selects the whole current queue, not one Rule.
 
-   ![New POST-C head, not a reused old request](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-20-new-post.png)
+   ![Use batch commands and the manager · 6](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-016.annotated.png)
 
-7. Send new PUT-C, body `{"order":"PUT-C","source":"original"}`, into the same `http` queue.
+   ![Use batch commands and the manager · 6](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-017.png)
 
-   ![PUT-C joins the new HTTP queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-21-new-put.png)
+7. <a id="walkthrough-breakpoints-queue-25-cleanup-rules"></a><a id="walkthrough-breakpoints-queue-26-select-post-rule"></a><a id="walkthrough-breakpoints-queue-27-disable-post"></a>After resolving the waits, return to Rules, select `E2E POST queue commands` and disable its switch in box 1. The change is not saved yet.
 
-8. Select the new head.
+   ![Use batch commands and the manager · 7](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-018.annotated.png)
 
-   ![Selecting the actual new Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-22-select-new-head.png)
+8. <a id="walkthrough-breakpoints-queue-28-select-put-rule"></a><a id="walkthrough-breakpoints-queue-29-disable-put"></a>Select `E2E PUT queue commands` and disable its switch in box 1 as well. Disabling future matches and resolving existing waits are separate operations.
 
-9. Open the whole-queue menu and distinguish Continue queue from Continue rule.
+   ![Use batch commands and the manager · 8](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-019.annotated.png)
 
-   ![Actual whole-queue menu](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-23-continue-menu.png)
+9. <a id="walkthrough-breakpoints-queue-30-apply-disabled"></a>Click Save in box 1. Wait for the applied state at the bottom and for Save to become disabled. Verify both Rules remain disabled; keep them rather than deleting them.
 
-10. Choose Continue queue to continue current POST-C and PUT-C unchanged, across both rules rather than POST only.
+   ![Use batch commands and the manager · 9](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-020.annotated.png)
 
-    ![Actually continuing both POST and PUT unchanged](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-24-continue-queue.png)
+   ![Use batch commands and the manager · 9](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-021.png)
 
-11. Return to Rules to clean up future matching.
+A switch or Undo in the breakpoint manager applies immediately; ordinary Rules edits still require Save. Use the [manager](#walkthrough-breakpoints-manager) for global or per-Rule switches, Undo of a shortcut creation, or navigation to Rules. A disabled Rule does not prove its waiting clients were released.
 
-    ![Returning to Rules after resolving waits](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-25-cleanup-rules.png)
 
-12. Select and disable `Guide POST queue`.
+<a id="walkthrough-breakpoints-manager"></a>
+## Undo a shortcut breakpoint or temporarily disable matching
 
-    ![Selecting the POST rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-26-select-post-rule.png)
+Find a historical Capture request you are authorized to debug. This section uses GET `http://127.0.0.1:60784/e2e/capture/breakpoint-submenu-lifecycle`; replace it with your service. Send each new request to that same endpoint. Creating a Rule does not resend the historical record.
 
-    ![Actually disabling the POST rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-27-disable-post.png)
+1. <a id="walkthrough-breakpoints-manager-01-source"></a><a id="walkthrough-breakpoints-manager-02-menu"></a>Right-click the request, open the Breakpoint submenu and choose This endpoint in box 1. This path prefix and This host cover broader scopes; do not choose them when only one endpoint is intended.
 
-13. Select and disable `Guide PUT queue`.
+   ![Undo a shortcut breakpoint or temporarily disable matching · 1](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-002.annotated.png)
 
-    ![Selecting the PUT rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-28-select-put-rule.png)
+2. <a id="walkthrough-breakpoints-manager-03-create"></a>When the creation message in box 1 appears, the shortcut Rule is enabled and saved without another Save in Rules. Closing this message does not remove the Rule; Undo is the removal action.
 
-    ![Actually disabling the PUT rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-29-disable-put.png)
+   ![Undo a shortcut breakpoint or temporarily disable matching · 2](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-005.annotated.png)
 
-14. Apply both disabled states. This recording retains the rules rather than deleting them.
+3. Send a new request to the endpoint. Continue in box 1 of the first image releases Request. When Response pauses next, use Continue in box 1 of the second image. This endpoint includes both phases; these are distinct waits, not repeated actions on one target.
 
-    ![Actually applying both disabled rules](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-30-apply-disabled.png)
+   ![Undo a shortcut breakpoint or temporarily disable matching · 3](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-006.annotated.png)
 
-**Expected result:** the action uses the target snapshot at its start, not an unbounded set of future arrivals.
+   ![Undo a shortcut breakpoint or temporarily disable matching · 3](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-007.annotated.png)
 
-**Notes:** manager rule toggles/removal apply immediately; ordinary Rules editing follows its own Apply flow. Batch Continue ignores editor drafts. Disabling matching does not prove all existing clients have been released.
+4. <a id="walkthrough-breakpoints-manager-08-manager"></a>Open the Manager from the breakpoint control at the top of Capture. Box 1 controls only this Rule, while Break on match in box 2 controls all new breakpoint matches. Neither is Recording.
 
-The [manager recording](#walkthrough-breakpoints-manager) independently demonstrates manager switches, removal, subsequent matching and the corresponding rule. Concurrent arrivals are an operational boundary; a fixed-batch walkthrough is not exhaustive coverage of every internal race.
+   ![Undo a shortcut breakpoint or temporarily disable matching · 4](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-008.annotated.png)
+
+5. <a id="walkthrough-breakpoints-manager-21-rule-manager"></a><a id="walkthrough-breakpoints-manager-22-rule-off"></a>To disable only this endpoint, turn off the Rule switch in box 1 and leave Break on match on. This change saves immediately; any existing waits still need their own decisions.
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 5](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-009.annotated.png)
+
+6. <a id="walkthrough-breakpoints-manager-25-open-rule"></a>Use View rule on the same Manager row to open Rules. Check Disabled and Rule set applied in box 1; no extra Save is needed here. Later manual edits to match conditions or actions still require Save.
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 6](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-010.annotated.png)
+
+7. <a id="walkthrough-breakpoints-manager-23-close-manager"></a><a id="walkthrough-breakpoints-manager-24-rule-disabled"></a>Return to Capture and send the same GET again. The new record in box 1 completes with `200` without pausing. Check new traffic rather than inferring switch behavior from an old record.
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 7](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-011.annotated.png)
+
+8. To resume debugging, reopen the Manager and enable the Rule in box 1 of the first image. Send a new request, release Request with box 1 of the second image and Response with box 1 of the third, then wait for the client to finish.
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 8](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-012.annotated.png)
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 8](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-013.annotated.png)
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 8](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-014.annotated.png)
+
+9. <a id="walkthrough-breakpoints-manager-09-global-off"></a>To suspend all new matches temporarily, turn off Break on match in box 1 while leaving the Rule itself enabled. This is not a substitute for Continue, Drop or client cancellation.
+
+   ![Undo a shortcut breakpoint or temporarily disable matching · 9](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-015.annotated.png)
+
+10. <a id="walkthrough-breakpoints-manager-10-close-manager"></a><a id="walkthrough-breakpoints-manager-11-not-paused"></a>Close the Manager and send another request. Check the record in box 1 completes directly. Capture is still recording; no system-proxy change is needed.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 10](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-016.annotated.png)
+
+11. <a id="walkthrough-breakpoints-manager-12-manager-again"></a><a id="walkthrough-breakpoints-manager-13-global-on"></a><a id="walkthrough-breakpoints-manager-14-close-manager"></a>Reopen the Manager and enable Break on match in box 1. After closing the Manager, newly sent matching requests pause again.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 11](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-017.annotated.png)
+
+12. <a id="walkthrough-breakpoints-manager-15-abort-pending"></a><a id="walkthrough-breakpoints-manager-16-select-pending"></a><a id="walkthrough-breakpoints-manager-17-client-abort"></a>Box 1 in the first image marks the new Request head. Cancel this request in its client, for example with Ctrl+C in the terminal. Back in the App, the breakpoint control in box 1 of the second image has no pending count. The historical record may remain, but its ended wait is no longer actionable.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 12](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-018.annotated.png)
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 12](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-019.annotated.png)
+
+13. <a id="walkthrough-breakpoints-manager-18-new-wait"></a><a id="walkthrough-breakpoints-manager-19-continue-request"></a><a id="walkthrough-breakpoints-manager-20-continue-response"></a>Sending again creates a new wait. Box 1 of the first image continues Request unmodified, and box 1 of the second continues Response separately. This does not revive the cancelled request.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 13](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-020.annotated.png)
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 13](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-021.annotated.png)
+
+14. <a id="walkthrough-breakpoints-manager-04-undo"></a><a id="walkthrough-breakpoints-manager-06-recreate-menu"></a><a id="walkthrough-breakpoints-manager-07-recreate"></a>If a shortcut was created by mistake, use Undo in box 1 of its creation message. The message is brief and stays while hovered. Here the original Rule was disabled before a second one was created; Undo targets that new second Rule, not the entire tree.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 14](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-022.annotated.png)
+
+15. <a id="walkthrough-breakpoints-manager-05-after-undo"></a>After Undo, the new Rule disappears while the original in box 1 remains disabled and saved. If the message has expired, manage the Rule through the Manager or Rules; dismissing a message is not Undo.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 15](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-023.annotated.png)
+
+16. Send to the same endpoint once more and check the new record in box 1 completes with `200` without pausing. Keep the configuration you need, disable unused matches and exit normally.
+
+    ![Undo a shortcut breakpoint or temporarily disable matching · 16](../media/v0.1.1-alpha.1/breakpoints-manager-english/step-024.annotated.png)
+
+
+<a id="walkthrough-breakpoints-mixed-queues"></a>
+## Handle HTTP and WebSocket wait queues separately
+
+HTTP requests and responses share one queue; each established WebSocket connection has its own message queue. This example uses a request breakpoint for POST `/e2e/queue-isolation-http`, a response breakpoint for GET `/e2e/queue-isolation-response`, and the `/e2e/queue-isolation-ws` connection. Create the Rules as described earlier and establish WebSocket before working with its messages; an Upgrade request is not an established-connection message.
+
+1. <a id="walkthrough-breakpoints-mixed-queues-03-upgrade-result"></a><a id="walkthrough-breakpoints-mixed-queues-04-live-connection"></a>Select the WebSocket connection, open Messages and choose Both in box 1 of its breakpoint settings, with only Messages enabled.
+
+   ![Handle HTTP and WebSocket wait queues separately · 1](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-004.annotated.png)
+
+2. <a id="walkthrough-breakpoints-mixed-queues-01-http-head"></a><a id="walkthrough-breakpoints-mixed-queues-02-response-queued"></a><a id="walkthrough-breakpoints-mixed-queues-08-inspect-response"></a>Send the POST through the proxy with body `http-queue` so it becomes the HTTP head. Then send the GET so its response queues behind it. Select the response record in box 1: Queued and `2 of 2` identify a read-only queued response, not an editable head.
+
+   ![Handle HTTP and WebSocket wait queues separately · 2](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-006.annotated.png)
+
+3. <a id="walkthrough-breakpoints-mixed-queues-05-ws-head"></a>Send `client-queue-head` from the WebSocket client, then `server-queue-follower` from the service. The message queue has its own Head and Queued entries while HTTP remains waiting.
+
+   ![Handle HTTP and WebSocket wait queues separately · 3](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-007.png)
+
+4. <a id="walkthrough-breakpoints-mixed-queues-07-http-draft"></a>Return to the HTTP head and enter `http-draft` in the Text field in box 1. Do not use Forward edited yet.
+
+   ![Handle HTTP and WebSocket wait queues separately · 4](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-011.annotated.png)
+
+5. Select the WebSocket head and enter a separate `websocket-draft` in box 1. Switch between the heads and verify each keeps its own draft.
+
+   ![Handle HTTP and WebSocket wait queues separately · 5](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-013.annotated.png)
+
+6. <a id="walkthrough-breakpoints-mixed-queues-06-ws-queued"></a><a id="walkthrough-breakpoints-mixed-queues-09-inspect-upgrade"></a>Selecting `server-queue-follower` shows Queued information without Forward edited. Return to the current message head before executing a command.
+
+   ![Handle HTTP and WebSocket wait queues separately · 6](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-014.png)
+
+7. Open the WebSocket queue menu and click Continue all in box 1. It forwards the two current message frames unchanged, without submitting `websocket-draft` or releasing HTTP.
+
+   ![Handle HTTP and WebSocket wait queues separately · 7](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-015.annotated.png)
+
+8. <a id="walkthrough-breakpoints-mixed-queues-12-ws-still-pending"></a>The echo subsequently produced by the service is a new Received wait, not automatically included in the earlier batch command. Return to this connection and continue that echo unchanged. The HTTP request and response remain in their own queue.
+
+   ![Handle HTTP and WebSocket wait queues separately · 8](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-016.png)
+
+9. <a id="walkthrough-breakpoints-mixed-queues-10-http-menu"></a><a id="walkthrough-breakpoints-mixed-queues-11-continue-http"></a>Return to the HTTP head and click Continue in box 1. The origin receives the original `http-queue`, not the unsubmitted `http-draft`.
+
+   ![Handle HTTP and WebSocket wait queues separately · 9](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-017.annotated.png)
+
+10. The previously queued response is now Head. Select it, use Continue in box 1 and check the request completes. Requests and responses do not occupy separate HTTP queues.
+
+    ![Handle HTTP and WebSocket wait queues separately · 10](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-018.annotated.png)
+
+    ![Handle HTTP and WebSocket wait queues separately · 10](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-019.png)
+
+11. <a id="walkthrough-breakpoints-mixed-queues-13-drop-ws"></a>To try queue dropping, create new `mixed-queue-drop-sent` and `mixed-queue-drop-received` messages, confirm the current scope is the WebSocket queue and click Drop all in box 1.
+
+    ![Handle HTTP and WebSocket wait queues separately · 11](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-020.annotated.png)
+
+12. Confirm the waits are removed, disable this connection’s breakpoint and send `mixed-queue-after-drop`. Normal delivery of a new message does not replay previously dropped frames.
+
+    ![Handle HTTP and WebSocket wait queues separately · 12](../media/v0.1.1-alpha.1/breakpoints-mixed-complete-english/step-021.png)
+
+13. <a id="walkthrough-breakpoints-mixed-queues-14-exit-http"></a><a id="walkthrough-breakpoints-mixed-queues-15-exit-ws"></a><a id="walkthrough-breakpoints-mixed-queues-16-before-close"></a>Another way to finish is normal App exit. Box 1 indicates remaining waits and box 2 is Close. Closing cancels pending clients instead of submitting drafts or automatically forwarding them. Resolve traffic you need to retain first.
+
+    ![Handle HTTP and WebSocket wait queues separately · 13](../media/v0.1.1-alpha.1/breakpoints-lifecycle-english/step-005.annotated.png)
+
 
 <a id="websocket"></a>
 ## Pause and edit WebSocket frames
 
-**Prerequisites:** a readable connection; WSS needs appropriate decryption.
+Connect an authorized WebSocket client through the proxy and enable Recording. These examples use ordinary text messages on `/e2e/websocket-controls`; WSS also needs the decryption prerequisites. Operate on each new paused frame, not a historical message or a wait in the other direction.
 
-This separate example uses `ws://127.0.0.1:58082/guide/websocket/text`; `58082` is a dynamic recording port. Every example is a JSON text frame of type `message`, first Sent and then Received to cover each direction separately. This is neither Capture's ordinary hello from client nor simultaneous Both mode.
+1. <a id="walkthrough-breakpoints-websocket"></a><a id="walkthrough-breakpoints-websocket-01-connect"></a><a id="walkthrough-breakpoints-websocket-02-select-connection"></a><a id="walkthrough-breakpoints-websocket-03-messages"></a>Select the connection in Capture and open Messages. Existing history can remain; you do not need to Clear it first.
 
-1. Connect the external client through the proxy.
+2. <a id="walkthrough-breakpoints-websocket-04-sent-setup"></a><a id="walkthrough-breakpoints-websocket-05-sent-direction"></a><a id="walkthrough-breakpoints-websocket-06-enable-sent"></a>Open the connection breakpoint settings at the top right of Messages. Select Sent in box 1, select only Messages and click Enable breakpoint in box 2. Sent intercepts only that direction.
 
-   ![Actually establishing this WebSocket connection](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-01-connect.png)
+   ![Pause and edit WebSocket frames · 2](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-020.annotated.png)
 
-2. Select that connection.
+3. <a id="walkthrough-breakpoints-websocket-07-sent-original"></a><a id="walkthrough-breakpoints-websocket-08-sent-unmodified"></a>Send from the client: `e2e-sent-original`. Select the new paused frame, keep Replacement Off and click Continue in box 1 to forward it unchanged.
 
-   ![Selecting the actual WebSocket record](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-02-select-connection.png)
+   ![Pause and edit WebSocket frames · 3](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-021.annotated.png)
 
-3. Open Messages.
+4. Check that the frame is no longer waiting and the client receives `e2e-sent-original`. The service echoes the sent-direction example; the received-direction example is delivered directly to the client.
 
-   ![Actual Messages entry](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-03-messages.png)
+   ![Pause and edit WebSocket frames · 4](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-022.png)
 
-4. Open breakpoint settings for this connection.
+5. <a id="walkthrough-breakpoints-websocket-09-sent-edit-target"></a><a id="walkthrough-breakpoints-websocket-10-sent-text"></a><a id="walkthrough-breakpoints-websocket-11-sent-edit"></a><a id="walkthrough-breakpoints-websocket-12-sent-forward"></a>Send from the client: `e2e-sent-before-edit`. When it pauses, select Text in box 1, enter the complete replacement `e2e-sent-edited` in box 2 and click Forward edited in box 3.
 
-   ![Actual connection breakpoint settings](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-04-sent-setup.png)
+   ![Pause and edit WebSocket frames · 5](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-023.annotated.png)
 
-5. Select Sent to pause only client-to-server messages in this phase.
+6. Check that the client actually receives `e2e-sent-edited`, not `e2e-sent-before-edit`. Capture history can retain the original frame; its summary alone does not establish the bytes delivered to the client.
 
-   ![Actually selecting Sent](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-05-sent-direction.png)
+   ![Pause and edit WebSocket frames · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-024.png)
 
-6. Enable Sent text interception.
+7. <a id="walkthrough-breakpoints-websocket-13-sent-drop-target"></a><a id="walkthrough-breakpoints-websocket-14-sent-drop"></a>Send from the client: a separate `e2e-sent-drop` message. Select it and click Drop in box 1. This discards the current frame rather than delivering it successfully, and does not delete its history.
 
-   ![Actually enabling sent-direction interception](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-06-enable-sent.png)
+   ![Pause and edit WebSocket frames · 7](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-025.annotated.png)
 
-7. Send `{"type":"chat","message":"hello-original"}` from the client and inspect its pause.
+8. <a id="walkthrough-breakpoints-websocket-15-disable-sent"></a>Disable the current interception with the Messages breakpoint button, then send `e2e-sent-after-disable`. Confirm this new message arrives and the previously dropped frame is not replayed.
 
-   ![hello-original actually paused](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-07-sent-original.png)
+   ![Pause and edit WebSocket frames · 8](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-026.png)
 
-8. Continue unmodified and check unchanged sending.
+9. <a id="walkthrough-breakpoints-websocket-16-received-setup"></a><a id="walkthrough-breakpoints-websocket-17-received-direction"></a><a id="walkthrough-breakpoints-websocket-18-enable-received"></a>Open the connection breakpoint settings at the top right of Messages. Select Received in box 1, select only Messages and click Enable breakpoint in box 2. Received intercepts only that direction.
 
-   ![Actually continuing the sent frame unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-08-sent-unmodified.png)
+   ![Pause and edit WebSocket frames · 9](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-027.annotated.png)
 
-9. Send a separate `{"type":"chat","message":"edit-this"}` and wait for its new frame.
+10. <a id="walkthrough-breakpoints-websocket-19-received-original"></a><a id="walkthrough-breakpoints-websocket-20-received-unmodified"></a>Have the service send or echo: `e2e-received-original`. Select the new paused frame, keep Replacement Off and click Continue in box 1 to forward it unchanged.
 
-   ![Separate edit-this paused frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-09-sent-edit-target.png)
+    ![Pause and edit WebSocket frames · 10](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-028.annotated.png)
 
-10. Select Text in that frame's inline editor.
+11. Check that the frame is no longer waiting and the client receives `e2e-received-original`. The service echoes the sent-direction example; the received-direction example is delivered directly to the client.
 
-    ![Selecting Text for the sent frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-10-sent-text.png)
+    ![Pause and edit WebSocket frames · 11](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-029.png)
 
-11. Enter complete replacement `{"type":"chat","message":"edited-by-guide"}`.
+12. <a id="walkthrough-breakpoints-websocket-21-received-edit-target"></a><a id="walkthrough-breakpoints-websocket-22-received-text"></a><a id="walkthrough-breakpoints-websocket-23-received-edit"></a><a id="walkthrough-breakpoints-websocket-24-received-forward"></a>Have the service send or echo: `e2e-received-before-edit`. When it pauses, select Text in box 1, enter the complete replacement `e2e-received-edited` in box 2 and click Forward edited in box 3.
 
-    ![Actual sent-frame replacement draft](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-11-sent-edit.png)
+    ![Pause and edit WebSocket frames · 12](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-030.annotated.png)
 
-12. Forward edited and check the replacement at the origin and in its echo.
+13. Check that the client actually receives `e2e-received-edited`, not `e2e-received-before-edit`. Capture history can retain the original frame; its summary alone does not establish the bytes delivered to the client.
 
-    ![Actual edited sending and echo checkpoint](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-12-sent-forward.png)
+    ![Pause and edit WebSocket frames · 13](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-031.png)
 
-13. Send `{"type":"chat","message":"do-not-forward"}` separately and confirm this Drop target.
+14. <a id="walkthrough-breakpoints-websocket-25-received-drop-target"></a><a id="walkthrough-breakpoints-websocket-26-received-drop"></a>Have the service send or echo: a separate `e2e-received-drop` message. Select it and click Drop in box 1. This discards the current frame rather than delivering it successfully, and does not delete its history.
 
-    ![Actual sent frame to drop](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-13-sent-drop-target.png)
+    ![Pause and edit WebSocket frames · 14](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-032.annotated.png)
 
-14. Drop that sent frame, rather than treating it as delivered to the origin.
+15. <a id="walkthrough-breakpoints-websocket-27-disable-received"></a><a id="walkthrough-breakpoints-websocket-28-after-disabled"></a>Disable the current interception with the Messages breakpoint button, then have the service send `e2e-received-after-disable`. Confirm this new message arrives and the previously dropped frame is not replayed.
 
-    ![Actually dropping the sent-direction frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-14-sent-drop.png)
+    ![Pause and edit WebSocket frames · 15](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-033.png)
 
-15. Disable Sent to finish that direction's exercise.
+16. <a id="walkthrough-breakpoints-websocket-29-close-client"></a>Close the connection normally from the client when finished. For both directions, an empty replacement or control frames, continue with [empty messages, Ping/Pong and close codes](#walkthrough-breakpoints-websocket-controls).
 
-    ![Actually disabling Sent](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-15-disable-sent.png)
+Moving configuration to another connection does not resolve existing waits on the old one. Check each connection’s queue. Forward edited submits Text; Continue ignores unsubmitted drafts. Pausing Ping, Pong or Close can affect keepalive and shutdown.
 
-16. Reopen settings for the same connection.
 
-    ![Reopening actual connection settings](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-16-received-setup.png)
+<a id="walkthrough-breakpoints-websocket-controls"></a>
+## Edit empty WebSocket messages, Ping/Pong and close codes
 
-17. Select Received for server-to-client traffic.
+Use a WebSocket service you control, connect through the proxy and enable Capture Recording. First use `/e2e/websocket-close` for the close-code example, then another connection at `/e2e/websocket-controls` for empty messages and Ping/Pong. Resolve the old connection’s waits before moving the configuration.
 
-    ![Actually selecting Received](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-17-received-direction.png)
+1. <a id="walkthrough-breakpoints-websocket-controls-18-close-setup"></a>Select `/e2e/websocket-close`, open Messages and click the connection breakpoint button in box 1.
 
-18. Enable Received text interception.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 1](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-001.annotated.png)
 
-    ![Actually enabling received-direction interception](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-18-enable-received.png)
+2. <a id="walkthrough-breakpoints-websocket-controls-19-close-sent"></a><a id="walkthrough-breakpoints-websocket-controls-20-message-off"></a><a id="walkthrough-breakpoints-websocket-controls-20-ping-off"></a><a id="walkthrough-breakpoints-websocket-controls-20-pong-off"></a><a id="walkthrough-breakpoints-websocket-controls-21-close-on"></a><a id="walkthrough-breakpoints-websocket-controls-22-enable-close"></a>Select Close in box 1 and click Enable breakpoint in box 2. This example uses Both. Choose Sent or Received for a single direction; Both does not mean one action continues both directions.
 
-19. Have the origin send `{"type":"chat","message":"server-original"}` and inspect the received-direction pause.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 2](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-002.annotated.png)
 
-    ![server-original actually paused](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-19-received-original.png)
+3. <a id="walkthrough-breakpoints-websocket-controls-23-close-request"></a>Have the client send a Close frame with code `1000`, then select the paused Close. Box 1 shows its current code; confirm the direction and target first.
 
-20. Continue unmodified and check the client receives the original.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 3](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-004.annotated.png)
 
-    ![Actually continuing the received frame unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-20-received-unmodified.png)
+4. Use the arrow at the right of Replacement message to collapse or expand its contents when you need more space. This changes neither Off to Text nor the close code.
 
-21. Have the origin send a separate `{"type":"chat","message":"server-edit-this"}`.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 4](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-007.png)
 
-    ![Separate server-edit-this paused frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-21-received-edit-target.png)
+5. <a id="walkthrough-breakpoints-websocket-controls-24-close-code"></a><a id="walkthrough-breakpoints-websocket-controls-25-close-forward"></a>Change the close code in box 1 to `1001`, keep Replacement message Off and click Forward edited in box 2. A close-code-only edit does not require a Text replacement.
 
-22. Select Text for that received frame.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 5](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-008.annotated.png)
 
-    ![Actually selecting Text for the received frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-22-received-text.png)
+6. Both also pauses the returning Close. Confirm the current frame is Received close and click Continue in box 1 to forward that direction unchanged. Wait for the connection to show closed and the paused editor to disappear. Editing the sent direction does not resolve the return direction.
 
-23. Enter complete replacement `{"type":"chat","message":"server-edited-by-guide"}`.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-010.annotated.png)
 
-    ![Actual received-frame replacement draft](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-23-received-edit.png)
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-011.png)
 
-24. Forward edited and inspect the replacement text received by the client.
+7. <a id="walkthrough-breakpoints-websocket-controls-01-connect"></a><a id="walkthrough-breakpoints-websocket-controls-02-select"></a><a id="walkthrough-breakpoints-websocket-controls-03-messages"></a><a id="walkthrough-breakpoints-websocket-controls-04-setup"></a><a id="walkthrough-breakpoints-websocket-controls-05-both"></a><a id="walkthrough-breakpoints-websocket-controls-06-ping"></a><a id="walkthrough-breakpoints-websocket-controls-07-pong"></a><a id="walkthrough-breakpoints-websocket-controls-08-enable"></a>Open and select a new `/e2e/websocket-controls` connection, then open its Messages breakpoint settings. Choose Both in box 1, select Messages, Ping and Pong, clear Close and click Enable breakpoint in box 2.
 
-    ![Actual edited receiving result](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-24-received-forward.png)
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 7](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-012.annotated.png)
 
-25. Have the origin send `{"type":"chat","message":"server-do-not-forward"}` and confirm this Drop target.
+8. <a id="walkthrough-breakpoints-websocket-controls-09-text"></a><a id="walkthrough-breakpoints-websocket-controls-10-empty-mode"></a><a id="walkthrough-breakpoints-websocket-controls-11-empty-value"></a><a id="walkthrough-breakpoints-websocket-controls-12-empty-forward"></a>After the client sends `e2e-before-empty` and it pauses, choose Text in box 1, explicitly empty the replacement in box 2 and click Forward edited in box 3. Empty Text sends an empty message; Off preserves the original.
 
-    ![Actual received frame to drop](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-25-received-drop-target.png)
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 8](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-013.annotated.png)
 
-26. Drop that received frame without delivering it to the client.
+9. <a id="walkthrough-breakpoints-websocket-controls-13-empty-echo"></a>The empty return message pauses separately. Confirm the Received message has a `0 B` Original, then click Continue in box 1 so the client receives it.
 
-    ![Actually dropping the received-direction frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-26-received-drop.png)
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 9](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-014.png)
 
-27. Disable Received interception for the connection.
+   ![Edit empty WebSocket messages, Ping/Pong and close codes · 9](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-015.annotated.png)
 
-    ![Actually disabling the connection breakpoint](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-27-disable-received.png)
+10. <a id="walkthrough-breakpoints-websocket-controls-14-send-ping"></a><a id="walkthrough-breakpoints-websocket-controls-15-continue-ping"></a>Send a Ping containing `e2e-control-ping` from the client. Confirm the current wait is Sent ping, then click Continue in box 1 without changing its content.
 
-28. Send `{"type":"chat","message":"after-disabled"}` and check normal echo without a manual wait.
+    ![Edit empty WebSocket messages, Ping/Pong and close codes · 10](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-016.annotated.png)
 
-    ![Normal echo actually restored after disabling](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-28-after-disabled.png)
+11. <a id="walkthrough-breakpoints-websocket-controls-16-continue-pong"></a>The returning Pong also pauses. Click Continue in box 1 and confirm this connection has no remaining wait and the client receives its Pong. Do not stop after continuing only the Ping.
 
-29. Close this demonstration client connection normally.
+    ![Edit empty WebSocket messages, Ping/Pong and close codes · 11](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-017.annotated.png)
 
-    ![Actually closing the example connection, not intercepting a close frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-29-close-client.png)
+    ![Edit empty WebSocket messages, Ping/Pong and close codes · 11](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-018.png)
 
-30. For simultaneous Both or ping/pong/close interception, select those directions/types and verify them separately.
+12. <a id="walkthrough-breakpoints-websocket-controls-17-disable-both"></a>Disable interception with the breakpoint button at the top right of Messages, then send `e2e-controls-disabled`. Check the sent and returned messages appear without waiting for another manual decision.
 
-    The [control-frame recording](#walkthrough-breakpoints-websocket-controls) independently selects Both, actually intercepts ping, pong and close, and edits the close code. It also verifies empty Text forwards zero bytes when the WebSocket payload is known. Code 1001 is what the origin side actually receives; the client-side close acknowledgement can remain 1000, so do not conflate the two connections.
+    ![Edit empty WebSocket messages, Ping/Pong and close codes · 12](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-019.png)
 
-**Expected result:** frames wait within that connection's Messages view rather than a reused HTTP editor.
+Pausing Ping, Pong or Close can affect keepalive and shutdown. Interpret close codes, errors and terminal events separately for what the client and origin actually receive; completion on one side does not establish completion on the other.
 
-**Notes**
-
-- There is one current active WebSocket configuration, not persistent independent configuration for unlimited connections.
-- Moving configuration to another connection does not resolve existing waits on the old one.
-- A close frame can be forwarded with only an allowed close-code edit; text editing is not required.
-- Pausing ping/pong/close can disrupt keepalive or shutdown.
 
 <a id="lifecycle"></a>
 ## End a debugging session
 
-1. Resolve needed waits and save the disabling of unwanted future matching.
+A user decision, client disconnect or App/Core shutdown resolves the corresponding waits. There is no fixed timeout that automatically forwards them.
 
-   These images disable and Apply `Guide request breakpoint` after the three requests above were handled; they do not show batch release:
+1. <a id="walkthrough-20-disable"></a>Resolve traffic you need to retain, then disable Rules no longer needed. Box 1 in each image is the enabled switch for the POST and PUT example Rules respectively. Disabling matching does not resolve existing waits.
 
-   ![Disabling this request breakpoint](../media/v0.1.1-alpha.1/breakpoints/breakpoints-20-disable.png)
+   ![End a debugging session · 1](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-018.annotated.png)
 
-   ![Applying the disabled state](../media/v0.1.1-alpha.1/breakpoints/breakpoints-21-apply-disabled.png)
+   ![End a debugging session · 1](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-019.annotated.png)
 
-2. Check whether clients continued, failed or disconnected.
+2. <a id="walkthrough-21-apply-disabled"></a>Click Save in box 1 and wait for the applied state. Keep Rules for future use if needed; ending a session does not require deleting the tree.
 
-   Check each example you actually ran. These show the queue clip's POST-C/PUT-C continuation and the separate WebSocket clip's normal close, not a global summary of one set of connections.
+   ![End a debugging session · 2](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-020.annotated.png)
 
-   ![This HTTP queue actually resolved](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-24-continue-queue.png)
+   ![End a debugging session · 2](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-021.png)
 
-   ![The example WebSocket connection actually closed](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-29-close-client.png)
+3. A client disconnect removes only its own waits. The WebSocket `disconnect-must-not-forward` wait is removed here while independent HTTP remains Head. Do not resubmit an edit to a wait that has disappeared.
 
-3. Quit normally and wait for proxy/process cleanup.
+   ![End a debugging session · 3](../media/v0.1.1-alpha.1/breakpoints-lifecycle-english/step-002.png)
 
-   The independent [Workspace Close/restart recording](workspace.md#saved-data) now includes a real driver-executed Close. This image shows the saved state before closing, not the Close click or system-proxy recovery.
+   ![End a debugging session · 3](../media/v0.1.1-alpha.1/breakpoints-lifecycle-english/step-003.png)
 
-   ![Workspace state before the actual Close](../media/v0.1.1-alpha.1/workspace-close/workspace-close-06-before-close.png)
+4. Check the wait count in box 1 and decide whether that traffic should continue. Use Close in box 2 to exit. Remaining requests and messages are cancelled rather than delivered as successful responses.
 
-   [Normal Close with pending traffic](#walkthrough-breakpoints-mixed-queues-16-before-close) actually retains HTTP and WS waits before closing, separately verifying client cancellation, no forwarding and host recovery. Its image is the pre-close state, not an exited-process image. No Core force-kill or desktop recording is used to manufacture footage.
+   ![End a debugging session · 4](../media/v0.1.1-alpha.1/breakpoints-lifecycle-english/step-004.png)
 
-**Expected result:** a user decision, client disconnection or Core lifecycle event resolves waits. No fixed timeout automatically continues them.
+   ![End a debugging session · 4](../media/v0.1.1-alpha.1/breakpoints-lifecycle-english/step-005.annotated.png)
 
-**Notes:** App shutdown or Core restart aborts waits; it is not successful forwarding. Check waits hidden by filters instead of force-killing.
+Restarting does not restore waits from old connections. Check the client’s actual error and App recovery state. If the system proxy remains incorrect, follow [recovery steps](troubleshooting.md#proxy-recovery) rather than repeatedly force-killing processes or deleting recovery records.
+
 
 <a id="tools"></a>
 ## Use Agent or MCP
@@ -705,1145 +682,3 @@ This separate example uses `ws://127.0.0.1:58082/guide/websocket/text`; `58082` 
 Read current waits before approving a specific item, queue or rule. If the target has disappeared, query again instead of guessing an ID.
 
 Tool editing is deliberately narrower than the full UI. It does not accept arbitrary local paths or every Header/close-code edit. Use the native editor for those operations; see the [Tool reference](tool-reference.md#breakpoints).
-
-<!-- recorded-walkthrough:breakpoints-response:start -->
-<a id="walkthrough-breakpoints-response"></a>
-## Recorded walkthrough: response Headers, Text and File
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>rule</code> | <code>Guide response breakpoint</code> |
-| <code>path</code> | <code>/guide/response</code> |
-| <code>method</code> | <code>POST</code> |
-| <code>phase</code> | <code>response</code> |
-| <code>requestBody</code> | <code>{&quot;request&quot;:&quot;guide-response&quot;}</code> |
-| <code>originBody</code> | <code>{&quot;message&quot;:&quot;origin-response&quot;,&quot;orderId&quot;:&quot;guide-response-001&quot;}</code> |
-| <code>headerName</code> | <code>x-guide-response</code> |
-| <code>headerValue</code> | <code>header-only-guide</code> |
-| <code>textReplacement</code> | <code>{&quot;message&quot;:&quot;text-from-guide&quot;,&quot;orderId&quot;:&quot;guide-response-001&quot;}</code> |
-| <code>fileName</code> | <code>guide-response.json</code> |
-| <code>fileBody</code> | <code>{&#10;  &quot;message&quot;: &quot;file-from-product&quot;,&#10;  &quot;orderId&quot;: &quot;guide-response-001&quot;&#10;}</code> |
-| <code>origin</code> | <code>http://127.0.0.1:59309/</code> |
-
-<a id="walkthrough-breakpoints-response-01-source"></a>
-### 01 · Fetch the source response
-
-![01 · Fetch the source response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-01-source.png)
-
-<a id="walkthrough-breakpoints-response-02-select-source"></a>
-### 02 · Select the source request
-
-![02 · Select the source request](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-02-select-source.png)
-
-<a id="walkthrough-breakpoints-response-03-response-body"></a>
-### 03 · Open the Response body
-
-![03 · Open the Response body](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-03-response-body.png)
-
-<a id="walkthrough-breakpoints-response-04-save-dialog"></a>
-### 04 · Save body as guide-response.json
-
-![04 · Save body as guide-response.json](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-04-save-dialog.png)
-
-<a id="walkthrough-breakpoints-response-05-saved-body"></a>
-### 05 · Verify the product-saved body
-
-![05 · Verify the product-saved body](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-05-saved-body.png)
-
-<a id="walkthrough-breakpoints-response-06-rules"></a>
-### 06 · Open the response Rule
-
-![06 · Open the response Rule](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-06-rules.png)
-
-<a id="walkthrough-breakpoints-response-07-phase-menu"></a>
-### 07 · Open the breakpoint phase options
-
-![07 · Open the breakpoint phase options](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-07-phase-menu.png)
-
-<a id="walkthrough-breakpoints-response-08-response-phase"></a>
-### 08 · Select response phase
-
-![08 · Select response phase](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-08-response-phase.png)
-
-<a id="walkthrough-breakpoints-response-09-apply"></a>
-### 09 · Apply the response breakpoint
-
-![09 · Apply the response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-09-apply.png)
-
-<a id="walkthrough-breakpoints-response-10-capture"></a>
-### 10 · Return to Capture
-
-![10 · Return to Capture](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-10-capture.png)
-
-<a id="walkthrough-breakpoints-response-11-header-paused"></a>
-### 11 · Pause the header-only response
-
-![11 · Pause the header-only response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-11-header-paused.png)
-
-<a id="walkthrough-breakpoints-response-12-select-header"></a>
-### 12 · Select the paused response
-
-![12 · Select the paused response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-12-select-header.png)
-
-<a id="walkthrough-breakpoints-response-13-body-off"></a>
-### 13 · Keep body replacement Off
-
-![13 · Keep body replacement Off](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-13-body-off.png)
-
-<a id="walkthrough-breakpoints-response-14-header-value"></a>
-### 14 · Edit only x-guide-response
-
-![14 · Edit only x-guide-response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-14-header-value.png)
-
-<a id="walkthrough-breakpoints-response-15-header-forward"></a>
-### 15 · Forward the Header edit without changing body
-
-![15 · Forward the Header edit without changing body](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-15-header-forward.png)
-
-<a id="walkthrough-breakpoints-response-16-text-paused"></a>
-### 16 · Pause the Text example response
-
-![16 · Pause the Text example response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-16-text-paused.png)
-
-<a id="walkthrough-breakpoints-response-17-select-text"></a>
-### 17 · Select the Text example
-
-![17 · Select the Text example](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-17-select-text.png)
-
-<a id="walkthrough-breakpoints-response-18-text-mode"></a>
-### 18 · Choose Text replacement
-
-![18 · Choose Text replacement](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-18-text-mode.png)
-
-<a id="walkthrough-breakpoints-response-19-text-value"></a>
-### 19 · Enter text-from-guide
-
-![19 · Enter text-from-guide](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-19-text-value.png)
-
-<a id="walkthrough-breakpoints-response-20-text-forward"></a>
-### 20 · Forward and verify the Text bytes
-
-![20 · Forward and verify the Text bytes](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-20-text-forward.png)
-
-<a id="walkthrough-breakpoints-response-21-file-paused"></a>
-### 21 · Pause the File example response
-
-![21 · Pause the File example response](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-21-file-paused.png)
-
-<a id="walkthrough-breakpoints-response-22-select-file"></a>
-### 22 · Select the File example
-
-![22 · Select the File example](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-22-select-file.png)
-
-<a id="walkthrough-breakpoints-response-23-file-mode"></a>
-### 23 · Choose File replacement
-
-![23 · Choose File replacement](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-23-file-mode.png)
-
-<a id="walkthrough-breakpoints-response-24-open-dialog"></a>
-### 24 · Select the product-saved guide-response.json
-
-![24 · Select the product-saved guide-response.json](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-24-open-dialog.png)
-
-<a id="walkthrough-breakpoints-response-25-file-preview"></a>
-### 25 · Collapse Headers to read the File preview
-
-![25 · Collapse Headers to read the File preview](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-25-file-preview.png)
-
-<a id="walkthrough-breakpoints-response-26-file-forward"></a>
-### 26 · Forward and verify the complete file bytes
-
-![26 · Forward and verify the complete file bytes](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-26-file-forward.png)
-
-<a id="walkthrough-breakpoints-response-27-cleanup-rule"></a>
-### 27 · Return to the response Rule
-
-![27 · Return to the response Rule](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-27-cleanup-rule.png)
-
-<a id="walkthrough-breakpoints-response-28-disable"></a>
-### 28 · Disable the response breakpoint
-
-![28 · Disable the response breakpoint](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-28-disable.png)
-
-<a id="walkthrough-breakpoints-response-29-apply-disabled"></a>
-### 29 · Apply the disabled state
-
-![29 · Apply the disabled state](../media/v0.1.1-alpha.1/breakpoints-response/breakpoints-response-29-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-response:end -->
-
-<!-- recorded-walkthrough:breakpoints-queue:start -->
-<a id="walkthrough-breakpoints-queue"></a>
-## Recorded walkthrough: queue heads, drafts and batch scope
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>postRule</code> | <code>Guide POST queue</code> |
-| <code>putRule</code> | <code>Guide PUT queue</code> |
-| <code>path</code> | <code>/guide/queue</code> |
-| <code>queueKey</code> | <code>http</code> |
-| <code>postA</code> | <code>{&quot;order&quot;:&quot;POST-A&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>postB</code> | <code>{&quot;order&quot;:&quot;POST-B&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>putA</code> | <code>{&quot;order&quot;:&quot;PUT-A&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>putB</code> | <code>{&quot;order&quot;:&quot;PUT-B&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>postC</code> | <code>{&quot;order&quot;:&quot;POST-C&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>putC</code> | <code>{&quot;order&quot;:&quot;PUT-C&quot;,&quot;source&quot;:&quot;original&quot;}</code> |
-| <code>draft</code> | <code>{&quot;order&quot;:&quot;POST-A&quot;,&quot;source&quot;:&quot;draft-not-submitted&quot;}</code> |
-| <code>origin</code> | <code>http://127.0.0.1:56242/</code> |
-
-<a id="walkthrough-breakpoints-queue-01-rules"></a>
-### 01 · Review the two Method Rules
-
-![01 · Review the two Method Rules](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-01-rules.png)
-
-<a id="walkthrough-breakpoints-queue-02-post-rule"></a>
-### 02 · Inspect Guide POST queue
-
-![02 · Inspect Guide POST queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-02-post-rule.png)
-
-<a id="walkthrough-breakpoints-queue-03-put-rule"></a>
-### 03 · Inspect Guide PUT queue
-
-![03 · Inspect Guide PUT queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-03-put-rule.png)
-
-<a id="walkthrough-breakpoints-queue-04-capture"></a>
-### 04 · Return to Capture
-
-![04 · Return to Capture](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-04-capture.png)
-
-<a id="walkthrough-breakpoints-queue-05-post-head"></a>
-### 05 · Send POST-A as the Head
-
-![05 · Send POST-A as the Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-05-post-head.png)
-
-<a id="walkthrough-breakpoints-queue-06-post-queued"></a>
-### 06 · Send POST-B into Queued
-
-![06 · Send POST-B into Queued](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-06-post-queued.png)
-
-<a id="walkthrough-breakpoints-queue-07-put-queued"></a>
-### 07 · Send PUT-A into the same HTTP queue
-
-![07 · Send PUT-A into the same HTTP queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-07-put-queued.png)
-
-<a id="walkthrough-breakpoints-queue-08-select-head"></a>
-### 08 · Select the POST-A Head
-
-![08 · Select the POST-A Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-08-select-head.png)
-
-<a id="walkthrough-breakpoints-queue-09-text-draft"></a>
-### 09 · Choose Text for the Head draft
-
-![09 · Choose Text for the Head draft](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-09-text-draft.png)
-
-<a id="walkthrough-breakpoints-queue-10-enter-draft"></a>
-### 10 · Enter an unsubmitted draft
-
-![10 · Enter an unsubmitted draft](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-10-enter-draft.png)
-
-<a id="walkthrough-breakpoints-queue-11-post-queued-detail"></a>
-### 11 · Inspect POST-B as read-only Queued
-
-![11 · Inspect POST-B as read-only Queued](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-11-post-queued-detail.png)
-
-<a id="walkthrough-breakpoints-queue-12-put-queued-detail"></a>
-### 12 · Inspect PUT-A while it waits
-
-![12 · Inspect PUT-A while it waits](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-12-put-queued-detail.png)
-
-<a id="walkthrough-breakpoints-queue-13-restore-draft"></a>
-### 13 · Return to the Head with its draft intact
-
-![13 · Return to the Head with its draft intact](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-13-restore-draft.png)
-
-<a id="walkthrough-breakpoints-queue-14-rule-menu"></a>
-### 14 · Open the batch actions menu
-
-![14 · Open the batch actions menu](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-14-rule-menu.png)
-
-<a id="walkthrough-breakpoints-queue-15-continue-rule"></a>
-### 15 · Continue the POST Rule and leave PUT pending
-
-![15 · Continue the POST Rule and leave PUT pending](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-15-continue-rule.png)
-
-<a id="walkthrough-breakpoints-queue-16-put-b"></a>
-### 16 · Add PUT-B to the remaining queue
-
-![16 · Add PUT-B to the remaining queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-16-put-b.png)
-
-<a id="walkthrough-breakpoints-queue-18-drop-menu"></a>
-### 17 · Open the PUT queue menu
-
-![17 · Open the PUT queue menu](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-18-drop-menu.png)
-
-<a id="walkthrough-breakpoints-queue-19-drop-queue"></a>
-### 18 · Drop both remaining HTTP items
-
-![18 · Drop both remaining HTTP items](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-19-drop-queue.png)
-
-<a id="walkthrough-breakpoints-queue-20-new-post"></a>
-### 19 · Start a new POST Head
-
-![19 · Start a new POST Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-20-new-post.png)
-
-<a id="walkthrough-breakpoints-queue-21-new-put"></a>
-### 20 · Add PUT to the same HTTP queue
-
-![20 · Add PUT to the same HTTP queue](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-21-new-put.png)
-
-<a id="walkthrough-breakpoints-queue-22-select-new-head"></a>
-### 21 · Select the new Head
-
-![21 · Select the new Head](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-22-select-new-head.png)
-
-<a id="walkthrough-breakpoints-queue-23-continue-menu"></a>
-### 22 · Open the whole-queue menu
-
-![22 · Open the whole-queue menu](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-23-continue-menu.png)
-
-<a id="walkthrough-breakpoints-queue-24-continue-queue"></a>
-### 23 · Continue both Methods without edits
-
-![23 · Continue both Methods without edits](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-24-continue-queue.png)
-
-<a id="walkthrough-breakpoints-queue-25-cleanup-rules"></a>
-### 24 · Return to Rules for cleanup
-
-![24 · Return to Rules for cleanup](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-25-cleanup-rules.png)
-
-<a id="walkthrough-breakpoints-queue-26-select-post-rule"></a>
-### 25 · Select the POST Rule
-
-![25 · Select the POST Rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-26-select-post-rule.png)
-
-<a id="walkthrough-breakpoints-queue-27-disable-post"></a>
-### 26 · Disable the POST Rule
-
-![26 · Disable the POST Rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-27-disable-post.png)
-
-<a id="walkthrough-breakpoints-queue-28-select-put-rule"></a>
-### 27 · Select the PUT Rule
-
-![27 · Select the PUT Rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-28-select-put-rule.png)
-
-<a id="walkthrough-breakpoints-queue-29-disable-put"></a>
-### 28 · Disable the PUT Rule
-
-![28 · Disable the PUT Rule](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-29-disable-put.png)
-
-<a id="walkthrough-breakpoints-queue-30-apply-disabled"></a>
-### 29 · Apply both disabled Rules
-
-![29 · Apply both disabled Rules](../media/v0.1.1-alpha.1/breakpoints-queue/breakpoints-queue-30-apply-disabled.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-queue:end -->
-
-<!-- recorded-walkthrough:breakpoints-websocket:start -->
-<a id="walkthrough-breakpoints-websocket"></a>
-## Recorded walkthrough: WebSocket text breakpoints
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>path</code> | <code>/guide/websocket/text</code> |
-| <code>original</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;hello-original&quot;}</code> |
-| <code>editOriginal</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;edit-this&quot;}</code> |
-| <code>replacement</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;edited-by-guide&quot;}</code> |
-| <code>dropped</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;do-not-forward&quot;}</code> |
-| <code>serverOriginal</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;server-original&quot;}</code> |
-| <code>serverEditOriginal</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;server-edit-this&quot;}</code> |
-| <code>serverReplacement</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;server-edited-by-guide&quot;}</code> |
-| <code>serverDropped</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;server-do-not-forward&quot;}</code> |
-| <code>afterDisabled</code> | <code>{&quot;type&quot;:&quot;chat&quot;,&quot;message&quot;:&quot;after-disabled&quot;}</code> |
-| <code>origin</code> | <code>ws://127.0.0.1:58082/guide/websocket/text</code> |
-| <code>directions</code> | <code>client-to-server, server-to-client</code> |
-| <code>frames</code> | <code>message</code> |
-
-<a id="walkthrough-breakpoints-websocket-01-connect"></a>
-### 01 · Connect the text example client
-
-![01 · Connect the text example client](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-01-connect.png)
-
-<a id="walkthrough-breakpoints-websocket-02-select-connection"></a>
-### 02 · Select the WebSocket connection
-
-![02 · Select the WebSocket connection](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-02-select-connection.png)
-
-<a id="walkthrough-breakpoints-websocket-03-messages"></a>
-### 03 · Open Messages
-
-![03 · Open Messages](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-03-messages.png)
-
-<a id="walkthrough-breakpoints-websocket-04-sent-setup"></a>
-### 04 · Open connection breakpoint settings
-
-![04 · Open connection breakpoint settings](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-04-sent-setup.png)
-
-<a id="walkthrough-breakpoints-websocket-05-sent-direction"></a>
-### 05 · Choose Sent messages
-
-![05 · Choose Sent messages](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-05-sent-direction.png)
-
-<a id="walkthrough-breakpoints-websocket-06-enable-sent"></a>
-### 06 · Enable Sent message breakpoints
-
-![06 · Enable Sent message breakpoints](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-06-enable-sent.png)
-
-<a id="walkthrough-breakpoints-websocket-07-sent-original"></a>
-### 07 · Pause hello-original
-
-![07 · Pause hello-original](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-07-sent-original.png)
-
-<a id="walkthrough-breakpoints-websocket-08-sent-unmodified"></a>
-### 08 · Continue the sent text unmodified
-
-![08 · Continue the sent text unmodified](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-08-sent-unmodified.png)
-
-<a id="walkthrough-breakpoints-websocket-09-sent-edit-target"></a>
-### 09 · Pause edit-this
-
-![09 · Pause edit-this](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-09-sent-edit-target.png)
-
-<a id="walkthrough-breakpoints-websocket-10-sent-text"></a>
-### 10 · Choose Text for the sent frame
-
-![10 · Choose Text for the sent frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-10-sent-text.png)
-
-<a id="walkthrough-breakpoints-websocket-11-sent-edit"></a>
-### 11 · Enter edited-by-guide
-
-![11 · Enter edited-by-guide](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-11-sent-edit.png)
-
-<a id="walkthrough-breakpoints-websocket-12-sent-forward"></a>
-### 12 · Forward the edited text and verify its echo
-
-![12 · Forward the edited text and verify its echo](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-12-sent-forward.png)
-
-<a id="walkthrough-breakpoints-websocket-13-sent-drop-target"></a>
-### 13 · Pause do-not-forward
-
-![13 · Pause do-not-forward](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-13-sent-drop-target.png)
-
-<a id="walkthrough-breakpoints-websocket-14-sent-drop"></a>
-### 14 · Drop the sent frame
-
-![14 · Drop the sent frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-14-sent-drop.png)
-
-<a id="walkthrough-breakpoints-websocket-15-disable-sent"></a>
-### 15 · Disable the Sent configuration
-
-![15 · Disable the Sent configuration](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-15-disable-sent.png)
-
-<a id="walkthrough-breakpoints-websocket-16-received-setup"></a>
-### 16 · Reopen connection settings
-
-![16 · Reopen connection settings](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-16-received-setup.png)
-
-<a id="walkthrough-breakpoints-websocket-17-received-direction"></a>
-### 17 · Choose Received messages
-
-![17 · Choose Received messages](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-17-received-direction.png)
-
-<a id="walkthrough-breakpoints-websocket-18-enable-received"></a>
-### 18 · Enable Received message breakpoints
-
-![18 · Enable Received message breakpoints](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-18-enable-received.png)
-
-<a id="walkthrough-breakpoints-websocket-19-received-original"></a>
-### 19 · Pause server-original from the origin
-
-![19 · Pause server-original from the origin](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-19-received-original.png)
-
-<a id="walkthrough-breakpoints-websocket-20-received-unmodified"></a>
-### 20 · Continue the received text unmodified
-
-![20 · Continue the received text unmodified](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-20-received-unmodified.png)
-
-<a id="walkthrough-breakpoints-websocket-21-received-edit-target"></a>
-### 21 · Pause server-edit-this
-
-![21 · Pause server-edit-this](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-21-received-edit-target.png)
-
-<a id="walkthrough-breakpoints-websocket-22-received-text"></a>
-### 22 · Choose Text for the received frame
-
-![22 · Choose Text for the received frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-22-received-text.png)
-
-<a id="walkthrough-breakpoints-websocket-23-received-edit"></a>
-### 23 · Enter server-edited-by-guide
-
-![23 · Enter server-edited-by-guide](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-23-received-edit.png)
-
-<a id="walkthrough-breakpoints-websocket-24-received-forward"></a>
-### 24 · Forward the replacement to the client
-
-![24 · Forward the replacement to the client](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-24-received-forward.png)
-
-<a id="walkthrough-breakpoints-websocket-25-received-drop-target"></a>
-### 25 · Pause server-do-not-forward
-
-![25 · Pause server-do-not-forward](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-25-received-drop-target.png)
-
-<a id="walkthrough-breakpoints-websocket-26-received-drop"></a>
-### 26 · Drop the received frame
-
-![26 · Drop the received frame](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-26-received-drop.png)
-
-<a id="walkthrough-breakpoints-websocket-27-disable-received"></a>
-### 27 · Disable connection breakpoints
-
-![27 · Disable connection breakpoints](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-27-disable-received.png)
-
-<a id="walkthrough-breakpoints-websocket-28-after-disabled"></a>
-### 28 · Verify normal echo after disabling
-
-![28 · Verify normal echo after disabling](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-28-after-disabled.png)
-
-<a id="walkthrough-breakpoints-websocket-29-close-client"></a>
-### 29 · Close the example connection normally
-
-![29 · Close the example connection normally](../media/v0.1.1-alpha.1/breakpoints-websocket/breakpoints-websocket-29-close-client.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-websocket:end -->
-
-<!-- recorded-walkthrough:breakpoints-manager:start -->
-<a id="walkthrough-breakpoints-manager"></a>
-## Recorded walkthrough: shortcut undo, global and Rule switches, and client abort
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>url</code> | <code>http://127.0.0.1:63537/guide/breakpoint-manager/request</code> |
-| <code>shortcutScope</code> | <code>endpoint</code> |
-| <code>generatedRuleName</code> | <code>断点 · 127.0.0.1/guide/breakpoint-manager/request</code> |
-| <code>abortHeader</code> | <code>x-guide-attempt: abort</code> |
-| <code>resumedHeader</code> | <code>x-guide-attempt: after-abort</code> |
-| <code>finalState</code> | <code>Break on match enabled; this endpoint Rule disabled and applied; no pending item remains</code> |
-
-<a id="walkthrough-breakpoints-manager-01-source"></a>
-### 01 · Inspect the captured shortcut source
-
-![01 · Inspect the captured shortcut source](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-01-source.png)
-
-<a id="walkthrough-breakpoints-manager-02-menu"></a>
-### 02 · Open the Breakpoint scope menu
-
-![02 · Open the Breakpoint scope menu](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-02-menu.png)
-
-<a id="walkthrough-breakpoints-manager-03-create"></a>
-### 03 · Choose Endpoint and apply immediately
-
-![03 · Choose Endpoint and apply immediately](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-03-create.png)
-
-<a id="walkthrough-breakpoints-manager-04-undo"></a>
-### 04 · Use Undo in the creation notice
-
-![04 · Use Undo in the creation notice](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-04-undo.png)
-
-<a id="walkthrough-breakpoints-manager-05-after-undo"></a>
-### 05 · Send a new request to verify undo
-
-![05 · Send a new request to verify undo](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-05-after-undo.png)
-
-<a id="walkthrough-breakpoints-manager-06-recreate-menu"></a>
-### 06 · Reopen the same Endpoint menu
-
-![06 · Reopen the same Endpoint menu](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-06-recreate-menu.png)
-
-<a id="walkthrough-breakpoints-manager-07-recreate"></a>
-### 07 · Recreate this example Breakpoint
-
-![07 · Recreate this example Breakpoint](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-07-recreate.png)
-
-<a id="walkthrough-breakpoints-manager-08-manager"></a>
-### 08 · Open the Breakpoint manager
-
-![08 · Open the Breakpoint manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-08-manager.png)
-
-<a id="walkthrough-breakpoints-manager-09-global-off"></a>
-### 09 · Turn off global Break on match
-
-![09 · Turn off global Break on match](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-09-global-off.png)
-
-<a id="walkthrough-breakpoints-manager-10-close-manager"></a>
-### 10 · Close the manager
-
-![10 · Close the manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-10-close-manager.png)
-
-<a id="walkthrough-breakpoints-manager-11-not-paused"></a>
-### 11 · Verify new requests do not pause while globally disabled
-
-![11 · Verify new requests do not pause while globally disabled](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-11-not-paused.png)
-
-<a id="walkthrough-breakpoints-manager-12-manager-again"></a>
-### 12 · Open the manager again
-
-![12 · Open the manager again](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-12-manager-again.png)
-
-<a id="walkthrough-breakpoints-manager-13-global-on"></a>
-### 13 · Enable Break on match again
-
-![13 · Enable Break on match again](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-13-global-on.png)
-
-<a id="walkthrough-breakpoints-manager-14-close-manager"></a>
-### 14 · Return to the request list
-
-![14 · Return to the request list](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-14-close-manager.png)
-
-<a id="walkthrough-breakpoints-manager-15-abort-pending"></a>
-### 15 · Send a request that the client will cancel
-
-![15 · Send a request that the client will cancel](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-15-abort-pending.png)
-
-<a id="walkthrough-breakpoints-manager-16-select-pending"></a>
-### 16 · Inspect this Head item
-
-![16 · Inspect this Head item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-16-select-pending.png)
-
-<a id="walkthrough-breakpoints-manager-17-client-abort"></a>
-### 17 · Let the client abort and release the pending item
-
-![17 · Let the client abort and release the pending item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-17-client-abort.png)
-
-<a id="walkthrough-breakpoints-manager-18-new-wait"></a>
-### 18 · Send again to obtain a new pending item
-
-![18 · Send again to obtain a new pending item](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-18-new-wait.png)
-
-<a id="walkthrough-breakpoints-manager-19-continue-request"></a>
-### 19 · Continue the request phase unchanged
-
-![19 · Continue the request phase unchanged](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-19-continue-request.png)
-
-<a id="walkthrough-breakpoints-manager-20-continue-response"></a>
-### 20 · Continue the response phase unchanged
-
-![20 · Continue the response phase unchanged](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-20-continue-response.png)
-
-<a id="walkthrough-breakpoints-manager-21-rule-manager"></a>
-### 21 · Open the manager to disable one Rule
-
-![21 · Open the manager to disable one Rule](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-21-rule-manager.png)
-
-<a id="walkthrough-breakpoints-manager-22-rule-off"></a>
-### 22 · Disable only this Endpoint Rule
-
-![22 · Disable only this Endpoint Rule](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-22-rule-off.png)
-
-<a id="walkthrough-breakpoints-manager-23-close-manager"></a>
-### 23 · Return to the list to inspect disabling
-
-![23 · Return to the list to inspect disabling](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-23-close-manager.png)
-
-<a id="walkthrough-breakpoints-manager-24-rule-disabled"></a>
-### 24 · Verify the disabled Rule no longer pauses new requests
-
-![24 · Verify the disabled Rule no longer pauses new requests](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-24-rule-disabled.png)
-
-<a id="walkthrough-breakpoints-manager-25-open-rule"></a>
-### 25 · Open the corresponding Rule from the manager
-
-![25 · Open the corresponding Rule from the manager](../media/v0.1.1-alpha.1/breakpoints-manager/breakpoints-manager-25-open-rule.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-manager:end -->
-
-<!-- recorded-walkthrough:breakpoints-websocket-controls:start -->
-<a id="walkthrough-breakpoints-websocket-controls"></a>
-## Recorded walkthrough: Both, empty Text, Ping/Pong and close-code editing
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>path</code> | <code>/guide/websocket-controls</code> |
-| <code>originalMessage</code> | <code>guide-before-empty</code> |
-| <code>replacement</code> | <code>empty Text produces an empty WebSocket message</code> |
-| <code>directions</code> | <code>Both for message and ping/pong; Sent only for close</code> |
-| <code>ping</code> | <code>guide-ping</code> |
-| <code>afterDisabled</code> | <code>guide-unpaused is delivered without any pending item</code> |
-| <code>originalClose</code> | <code>1000, guide-close</code> |
-| <code>forwardedClose</code> | <code>1001, guide-close</code> |
-| <code>clientAcknowledgement</code> | <code>The client-side close acknowledgement is 1000; do not equate both connection directions</code> |
-
-<a id="walkthrough-breakpoints-websocket-controls-01-connect"></a>
-### 01 · Open the control-frame example connection
-
-![01 · Open the control-frame example connection](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-01-connect.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-02-select"></a>
-### 02 · Select this connection
-
-![02 · Select this connection](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-02-select.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-03-messages"></a>
-### 03 · Open Messages
-
-![03 · Open Messages](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-03-messages.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-04-setup"></a>
-### 04 · Open connection breakpoint settings
-
-![04 · Open connection breakpoint settings](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-04-setup.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-05-both"></a>
-### 05 · Select Both directions
-
-![05 · Select Both directions](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-05-both.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-06-ping"></a>
-### 06 · Include ping frames
-
-![06 · Include ping frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-06-ping.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-07-pong"></a>
-### 07 · Include pong frames
-
-![07 · Include pong frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-07-pong.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-08-enable"></a>
-### 08 · Enable Both message and ping/pong breakpoints
-
-![08 · Enable Both message and ping/pong breakpoints](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-08-enable.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-09-text"></a>
-### 09 · Send and pause a non-empty message
-
-![09 · Send and pause a non-empty message](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-09-text.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-10-empty-mode"></a>
-### 10 · Choose Text replacement
-
-![10 · Choose Text replacement](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-10-empty-mode.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-11-empty-value"></a>
-### 11 · Explicitly leave Text empty
-
-![11 · Explicitly leave Text empty](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-11-empty-value.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-12-empty-forward"></a>
-### 12 · Forward an empty message instead of keeping the original
-
-![12 · Forward an empty message instead of keeping the original](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-12-empty-forward.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-13-empty-echo"></a>
-### 13 · Continue the return direction in Both mode
-
-![13 · Continue the return direction in Both mode](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-13-empty-echo.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-14-send-ping"></a>
-### 14 · Send and pause guide-ping
-
-![14 · Send and pause guide-ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-14-send-ping.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-15-continue-ping"></a>
-### 15 · Continue ping unchanged
-
-![15 · Continue ping unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-15-continue-ping.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-16-continue-pong"></a>
-### 16 · Continue the returning pong unchanged
-
-![16 · Continue the returning pong unchanged](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-16-continue-pong.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-17-disable-both"></a>
-### 17 · Disable the current Both settings
-
-![17 · Disable the current Both settings](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-17-disable-both.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-18-close-setup"></a>
-### 18 · Open connection settings again
-
-![18 · Open connection settings again](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-18-close-setup.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-19-close-sent"></a>
-### 19 · Select Sent for the close example
-
-![19 · Select Sent for the close example](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-19-close-sent.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-20-message-off"></a>
-### 20 · Stop pausing message
-
-![20 · Stop pausing message](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-message-off.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-20-ping-off"></a>
-### 21 · Stop pausing ping
-
-![21 · Stop pausing ping](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-ping-off.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-20-pong-off"></a>
-### 22 · Stop pausing pong
-
-![22 · Stop pausing pong](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-20-pong-off.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-21-close-on"></a>
-### 23 · Select close control frames
-
-![23 · Select close control frames](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-21-close-on.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-22-enable-close"></a>
-### 24 · Enable the Sent close breakpoint
-
-![24 · Enable the Sent close breakpoint](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-22-enable-close.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-23-close-request"></a>
-### 25 · Ask the client to close with code 1000
-
-![25 · Ask the client to close with code 1000](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-23-close-request.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-24-close-code"></a>
-### 26 · Change only the close code to 1001
-
-![26 · Change only the close code to 1001](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-24-close-code.png)
-
-<a id="walkthrough-breakpoints-websocket-controls-25-close-forward"></a>
-### 27 · Verify the origin edit and the actual client close acknowledgement
-
-![27 · Verify the origin edit and the actual client close acknowledgement](../media/v0.1.1-alpha.1/breakpoints-websocket-controls/breakpoints-websocket-controls-25-close-forward.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-websocket-controls:end -->
-
-<!-- recorded-walkthrough:breakpoints-request-variants:start -->
-<a id="walkthrough-breakpoints-request-variants"></a>
-## Request Headers, empty Text, Files and response status
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>ruleName</code> | <code>Guide request variants</code> |
-| <code>path</code> | <code>/guide/request-variants</code> |
-| <code>originalRequest</code> | <code>{&quot;message&quot;:&quot;guide-original-request&quot;}</code> |
-| <code>requestHeader</code> | <code>x-guide-request: header-only</code> |
-| <code>jsonFile</code> | <code>guide-request.json</code> |
-| <code>jsonFileBody</code> | <code>{&quot;message&quot;:&quot;guide-file-request&quot;,&quot;count&quot;:2}</code> |
-| <code>binaryFile</code> | <code>guide-request.bin</code> |
-| <code>binaryHex</code> | <code>00010203feff</code> |
-| <code>responseStatus</code> | <code>202</code> |
-| <code>retainedResponseBody</code> | <code>{&quot;message&quot;:&quot;guide-origin-response&quot;}</code> |
-| <code>binaryPreview</code> | <code>The release shows file metadata without a text preview; forwarding still sends all six bytes</code> |
-| <code>httpSnapshot</code> | <code>HTTP suspension is at the head stage; Capture may independently provide a readable original preview</code> |
-| <code>source</code> | <code>Both replacement files are generated by this workflow’s real Save body</code> |
-
-<a id="walkthrough-breakpoints-request-variants-json-01-source"></a>
-### 01 · Fetch the public json source body
-
-![01 · Fetch the public json source body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-01-source.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-02-select"></a>
-### 02 · Select the source response
-
-![02 · Select the source response](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-02-select.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-03-save"></a>
-### 03 · Save guide-request.json through the product
-
-![03 · Save guide-request.json through the product](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-03-save.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-04-saved"></a>
-### 04 · Verify the actually saved bytes
-
-![04 · Verify the actually saved bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-04-saved.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-01-source"></a>
-### 05 · Fetch the public binary source body
-
-![05 · Fetch the public binary source body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-01-source.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-02-select"></a>
-### 06 · Select the source response
-
-![06 · Select the source response](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-02-select.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-03-save"></a>
-### 07 · Save guide-request.bin through the product
-
-![07 · Save guide-request.bin through the product](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-03-save.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-04-saved"></a>
-### 08 · Verify the actually saved bytes
-
-![08 · Verify the actually saved bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-04-saved.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>
-### 09 · Send and select the Header-only pending request
-
-![09 · Send and select the Header-only pending request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-01-pending.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-02-off"></a>
-### 10 · Keep Body explicitly Off
-
-![10 · Keep Body explicitly Off](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-02-off.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-03-add"></a>
-### 11 · Add a request Header row
-
-![11 · Add a request Header row](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-03-add.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-04-name"></a>
-### 12 · Enter x-guide-request
-
-![12 · Enter x-guide-request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-04-name.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-05-value"></a>
-### 13 · Enter header-only
-
-![13 · Enter header-only](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-05-value.png)
-
-<a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>
-### 14 · Forward edited while retaining the original body
-
-![14 · Forward edited while retaining the original body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-header-06-forward.png)
-
-<a id="walkthrough-breakpoints-request-variants-empty-01-pending"></a>
-### 15 · Send the empty-Text example
-
-![15 · Send the empty-Text example](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-01-pending.png)
-
-<a id="walkthrough-breakpoints-request-variants-empty-02-text"></a>
-### 16 · Choose Text without entering a replacement
-
-![16 · Choose Text without entering a replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-02-text.png)
-
-<a id="walkthrough-breakpoints-request-variants-empty-03-forward"></a>
-### 17 · Verify empty Text at the HTTP head stage retains the original body
-
-![17 · Verify empty Text at the HTTP head stage retains the original body](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-empty-03-forward.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-file-01-pending"></a>
-### 18 · Send the File replacement request
-
-![18 · Send the File replacement request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-01-pending.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-file-02-mode"></a>
-### 19 · Choose File replacement
-
-![19 · Choose File replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-02-mode.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-file-03-open"></a>
-### 20 · Select the product-saved guide-request.json
-
-![20 · Select the product-saved guide-request.json](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-03-open.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-file-04-preview"></a>
-### 21 · Inspect the actually selected file
-
-![21 · Inspect the actually selected file](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-04-preview.png)
-
-<a id="walkthrough-breakpoints-request-variants-json-file-05-forward"></a>
-### 22 · Verify the origin received the complete file bytes
-
-![22 · Verify the origin received the complete file bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-json-file-05-forward.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-01-pending"></a>
-### 23 · Send the File replacement request
-
-![23 · Send the File replacement request](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-01-pending.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-02-mode"></a>
-### 24 · Choose File replacement
-
-![24 · Choose File replacement](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-02-mode.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-03-open"></a>
-### 25 · Select the product-saved guide-request.bin
-
-![25 · Select the product-saved guide-request.bin](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-03-open.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-04-preview"></a>
-### 26 · Inspect the actually selected file
-
-![26 · Inspect the actually selected file](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04-preview.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-04a-type"></a>
-### 27 · Explicitly change Content-Type to binary
-
-![27 · Explicitly change Content-Type to binary](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-04a-type.png)
-
-<a id="walkthrough-breakpoints-request-variants-binary-file-05-forward"></a>
-### 28 · Verify the origin received the complete file bytes
-
-![28 · Verify the origin received the complete file bytes](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-binary-file-05-forward.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-01-rule"></a>
-### 29 · Return to the same Rule
-
-![29 · Return to the same Rule](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-01-rule.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-02-phase"></a>
-### 30 · Switch to the response phase
-
-![30 · Switch to the response phase](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-02-phase.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-03-apply"></a>
-### 31 · Apply the response phase
-
-![31 · Apply the response phase](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-03-apply.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-04-capture"></a>
-### 32 · Return to Capture
-
-![32 · Return to Capture](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-04-capture.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-05-pending"></a>
-### 33 · Send and wait for response headers
-
-![33 · Send and wait for response headers](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-05-pending.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-06-code"></a>
-### 34 · Change response status to 202
-
-![34 · Change response status to 202](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-06-code.png)
-
-<a id="walkthrough-breakpoints-request-variants-status-07-forward"></a>
-### 35 · Verify the status changes while the response body is retained
-
-![35 · Verify the status changes while the response body is retained](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-status-07-forward.png)
-
-<a id="walkthrough-breakpoints-request-variants-finish-01-rule"></a>
-### 36 · Return to the Rule for cleanup
-
-![36 · Return to the Rule for cleanup](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-01-rule.png)
-
-<a id="walkthrough-breakpoints-request-variants-finish-02-disable"></a>
-### 37 · Disable this Rule
-
-![37 · Disable this Rule](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-02-disable.png)
-
-<a id="walkthrough-breakpoints-request-variants-finish-03-apply"></a>
-### 38 · Apply the disabled state
-
-![38 · Apply the disabled state](../media/v0.1.1-alpha.1/breakpoints-request-variants/breakpoints-request-variants-finish-03-apply.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-request-variants:end -->
-
-<!-- recorded-walkthrough:breakpoints-mixed-queues:start -->
-<a id="walkthrough-breakpoints-mixed-queues"></a>
-## Recorded walkthrough: mixed queues, actual Upgrade behavior and shutdown with pending traffic
-
-These images show the published <code>0.1.1-alpha.1</code> on macOS x64, retaining the App language <code>zh-CN</code>. Every recorded step has its own native-window screenshot; open an image at full size to inspect values.
-
-Loopback addresses, ports and generated IDs belong to this recording, not a public service. Use your own authorized test environment. The actual values below match the screenshots. Advanced branches not shown here still need their own step images and acceptance.
-
-| Example field | Actual recorded value |
-| --- | --- |
-| <code>requestPath</code> | <code>/guide/mixed/request-head</code> |
-| <code>responsePath</code> | <code>/guide/mixed/response-queued</code> |
-| <code>upgradePath</code> | <code>/guide/mixed/upgrade-queued</code> |
-| <code>livePath</code> | <code>/guide/mixed/live</code> |
-| <code>exitPath</code> | <code>/guide/mixed/request-exit</code> |
-| <code>originalBody</code> | <code>{&quot;message&quot;:&quot;guide-original-http&quot;}</code> |
-| <code>unsentDraft</code> | <code>{&quot;message&quot;:&quot;guide-unsubmitted-draft&quot;}</code> |
-| <code>firstFrame</code> | <code>guide-ws-head</code> |
-| <code>secondFrame</code> | <code>guide-ws-queued</code> |
-| <code>exitFrame</code> | <code>guide-ws-exit-must-not-forward</code> |
-| <code>httpScope</code> | <code>Request and response waits share queueKey=http</code> |
-| <code>upgradeBoundary</code> | <code>The released App established this real Upgrade without a pending item despite the configured narrow GET Rule; no queued Upgrade is claimed</code> |
-| <code>wsScope</code> | <code>Established connection frames have a separate ws:* queue</code> |
-| <code>closeImage</code> | <code>Before the actual Close; post-close cancellation and host restoration are separate evidence, not a desktop recording</code> |
-
-<a id="walkthrough-breakpoints-mixed-queues-01-http-head"></a>
-### 01 · Send an HTTP request as queue head
-
-![01 · Send an HTTP request as queue head](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-01-http-head.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-02-response-queued"></a>
-### 02 · Queue a response in the same HTTP queue
-
-![02 · Queue a response in the same HTTP queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-02-response-queued.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-03-upgrade-result"></a>
-### 03 · Observe Upgrade connecting without joining this queue
-
-![03 · Observe Upgrade connecting without joining this queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-03-upgrade-result.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-04-live-connection"></a>
-### 04 · Select the established WS connection
-
-![04 · Select the established WS connection](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-04-live-connection.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-05-ws-head"></a>
-### 05 · Send the first WS frame as its own queue head
-
-![05 · Send the first WS frame as its own queue head](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-05-ws-head.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-06-ws-queued"></a>
-### 06 · Queue an origin frame in the same WS queue
-
-![06 · Queue an origin frame in the same WS queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-06-ws-queued.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-07-http-draft"></a>
-### 07 · Enter an HTTP head draft without submitting it
-
-![07 · Enter an HTTP head draft without submitting it](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-07-http-draft.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-08-inspect-response"></a>
-### 08 · Select the queued response for read-only inspection
-
-![08 · Select the queued response for read-only inspection](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-08-inspect-response.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-09-inspect-upgrade"></a>
-### 09 · Select the established connection without claiming Queued
-
-![09 · Select the established connection without claiming Queued](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-09-inspect-upgrade.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-10-http-menu"></a>
-### 10 · Return to the HTTP head and open batch actions
-
-![10 · Return to the HTTP head and open batch actions](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-10-http-menu.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-11-continue-http"></a>
-### 11 · Continue only HTTP without applying the draft
-
-![11 · Continue only HTTP without applying the draft](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-11-continue-http.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-12-ws-still-pending"></a>
-### 12 · Return to WS and confirm its waits remain
-
-![12 · Return to WS and confirm its waits remain](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-12-ws-still-pending.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-13-drop-ws"></a>
-### 13 · Drop only the current WS queue
-
-![13 · Drop only the current WS queue](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-13-drop-ws.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-14-exit-http"></a>
-### 14 · Hold a new HTTP request for the exit scenario
-
-![14 · Hold a new HTTP request for the exit scenario](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-14-exit-http.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-15-exit-ws"></a>
-### 15 · Retain a WS wait at the same time
-
-![15 · Retain a WS wait at the same time](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-15-exit-ws.png)
-
-<a id="walkthrough-breakpoints-mixed-queues-16-before-close"></a>
-### 16 · Record both waits before the actual Close
-
-![16 · Record both waits before the actual Close](../media/v0.1.1-alpha.1/breakpoints-mixed-queues/breakpoints-mixed-queues-16-before-close.png)
-
-The complete reference follows. Only operations with matching real step images and checked input values count as illustrated acceptance.
-<!-- recorded-walkthrough:breakpoints-mixed-queues:end -->

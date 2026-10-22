@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "chapter": "capture-recording-english",
+  "title": {
+    "zh-CN": "Capture录制、暂停与恢复",
+    "en": "Capture recording, pause and resume"
+  },
+  "appVersion": "0.1.1-alpha.1",
+  "platform": "darwin",
+  "appLanguage": "en",
+  "source": {
+    "workflow": "capture/recording-pause-resume.workflow.ts",
+    "test": "capture.recording.pause-resume fixes recording at request and WebSocket upgrade start",
+    "run": "2026-10-21T09-22-01-498Z-8pTCmx",
+    "testDirectory": "capture-recording-pause-re-7ed23-and-WebSocket-upgrade-start-macos",
+    "manifestSha256": "0c5a8c9f672dcb11196592632ee8e9e9b99d52c41ee30f4a7ac6be3ba5356cb2",
+    "status": "passed",
+    "hostRestored": true,
+    "capture": "native-window",
+    "target": "macos-signed-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "搜索本轮录制路径 / Search for this recording path",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-001.png",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        }
+      ],
+      "bytes": 142440,
+      "sha256": "25d5c5ec2b12a1bc5983e8049495b4a2b5d4d174c09134b22628992f3c1bc0c4",
+      "rawBytes": 219568,
+      "rawSha256": "d8e1b8dd7bf6d2edb6ccaf9bce260c4372712ee2982d480853cabe213f483409"
+    },
+    {
+      "id": "step-002",
+      "title": "确认Recording已开启 / Confirm Recording is enabled",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-002.png",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "bytes": 142593,
+      "sha256": "f34088a67d78fafe90525318ec1a9eb624b23eb54b713691f7047f234c38d813",
+      "rawBytes": 219568,
+      "rawSha256": "d8e1b8dd7bf6d2edb6ccaf9bce260c4372712ee2982d480853cabe213f483409"
+    },
+    {
+      "id": "step-003",
+      "title": "选择已录制连接并打开Messages / Select the recorded connection and open Messages",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-003.png",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2485.015625,
+            "y": 292,
+            "width": 171.84375,
+            "height": 82.75
+          },
+          "automationId": "capture.inspector.tab.messages"
+        }
+      ],
+      "bytes": 217896,
+      "sha256": "d77c4e40341a8d4afce8a2e98214309c74124ed916cb63f5dd6a02b4b81f9df1",
+      "rawBytes": 306486,
+      "rawSha256": "102b7420a10738a224286b5cf57ef3e4e2d7bb26ad4a1817e27a76d370a775a0"
+    },
+    {
+      "id": "step-004",
+      "title": "点击Recording暂停新请求录制 / Pause recording new requests",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-004.png",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "bytes": 227651,
+      "sha256": "fc40676f4e4b73bc0b6fef80555c88ba1126ef32bfc8303305787c88f93b93c2",
+      "rawBytes": 323762,
+      "rawSha256": "299782bf5a472809abe72efc8a5262e735516a54dc981fafdbb915b781d0430a"
+    },
+    {
+      "id": "step-005",
+      "title": "暂停期间旧连接继续记录消息，新请求不新增记录 / The recorded connection keeps its messages while new requests remain uncaptured",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-005.png",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "bytes": 242180,
+      "sha256": "505e2eb43006ea872c219c561bd6ec1b100fd86b23656cfc9a2e28ef412f92f3",
+      "rawBytes": 343543,
+      "rawSha256": "5f5a97e9024a0b0b1b9ec721f1ec6967f7e707d40451e742a19271b2abb85dd0"
+    },
+    {
+      "id": "step-006",
+      "title": "恢复Recording / Resume Recording",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-006.png",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "bytes": 242514,
+      "sha256": "d2b3943cd13d4199e23e7143910fbf1ac7480d5334deb880f3a046d593734a92",
+      "rawBytes": 344310,
+      "rawSha256": "5056859d3f7910cfdb77809cb8fe31cd45d44d551f7f607d604e217a92c4cdb6"
+    },
+    {
+      "id": "step-007",
+      "title": "恢复后查看新连接，暂停期间流量不补录 / Inspect a new connection after resuming without backfilling paused traffic",
+      "window": "app",
+      "language": "en",
+      "theme": "light",
+      "width": 3200,
+      "height": 1800,
+      "sourceImage": "step-007.png",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      },
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 522,
+            "y": 560,
+            "width": 1780,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvhwn5v8-dsfld6bx"
+        }
+      ],
+      "bytes": 240391,
+      "sha256": "64cc3090506b6277df359bd3be87e00e27b97febff8586d9be039b8703425625",
+      "rawBytes": 339139,
+      "rawSha256": "da8dd1eccc2227a0729805f09e97c5db849f23c284f646f7126a72b0c994d590"
+    }
+  ]
+}

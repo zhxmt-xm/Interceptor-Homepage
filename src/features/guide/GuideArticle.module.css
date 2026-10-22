@@ -78,7 +78,8 @@
   height: auto;
 }
 
-.link {
+.link,
+.imageLink {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -86,8 +87,17 @@
   overflow-wrap: anywhere;
 }
 
-.link:hover {
+.link:hover,
+.imageLink:hover {
   text-decoration-color: currentColor;
+}
+
+.imageLink {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: inherit;
+  cursor: zoom-in;
 }
 
 .anchor {
@@ -96,7 +106,12 @@
 
 .image {
   display: block;
+  width: 100%;
+  padding: 0;
   margin-block: var(--space-4);
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
 }
 
 .image img {

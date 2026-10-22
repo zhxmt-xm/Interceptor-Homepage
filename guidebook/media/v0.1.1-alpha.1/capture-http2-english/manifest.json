@@ -26,18 +26,12 @@
       "x-playground-trailer": "h2-complete"
     },
     "progressPath": "/e2e/h2/body-progress",
-    "progressBytes": [
-      65536,
-      131072
-    ],
+    "progressBytes": [65536, 131072],
     "completedResponseBytes": 131072,
     "completedTrailer": {
       "x-capture-end": "complete"
     },
-    "errorPaths": [
-      "/e2e/h2/error-goaway-origin",
-      "/e2e/h2/error-goaway-client"
-    ],
+    "errorPaths": ["/e2e/h2/error-goaway-origin", "/e2e/h2/error-goaway-client"],
     "interruptedMethod": "POST",
     "declaredResponseBytes": 524288,
     "actualResponseBytes": 262144,

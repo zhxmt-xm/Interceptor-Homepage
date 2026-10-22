@@ -6,13 +6,16 @@
   "platform": "macOS x64",
   "source": {
     "workflow": "agent/model-configuration.workflow.ts",
-    "manifestSha256": "f3538a9f48d8071699d2d8d3875ccdb49f21e564baf011ee9227218edc31fcb8",
+    "test": "agent.settings.model-configuration persists verified redacted Providers",
+    "manifestSha256": "aac7a3daa2749d2d554def8d38b54993c9c331ecb2cf08c24f1ca074aedf257a",
+    "workflowSha256": "392a142ea03f01d65ba9aa33c79974aba7f8658217b246a11b2387ff255f32e2",
     "capture": "native-window",
     "target": "macos-signed-app"
   },
   "steps": [
     {
       "id": "step-001",
+      "checkpointKey": "arrange-a-fresh-profile-opens-settings-agent-with-an-honest-empty-list",
       "title": "准备：fresh profile进入Settings > Agent，只能看到诚实空列表。 / Arrange: a fresh profile opens Settings > Agent with an honest empty list.",
       "language": "en",
       "theme": "light",
@@ -22,6 +25,7 @@
     },
     {
       "id": "step-002",
+      "checkpointKey": "add-a-model-and-choose-custom-keyed-lab",
       "title": "添加模型并选择Custom：Keyed lab / Add a model and choose Custom: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -48,6 +52,7 @@
     },
     {
       "id": "step-003",
+      "checkpointKey": "open-custom-model-configuration-keyed-lab",
       "title": "打开Custom模型配置：Keyed lab / Open Custom model configuration: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -57,6 +62,7 @@
     },
     {
       "id": "step-004",
+      "checkpointKey": "enter-the-model-profile-name-keyed-lab",
       "title": "填写模型配置名称：Keyed lab / Enter the model profile name: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -83,6 +89,7 @@
     },
     {
       "id": "step-005",
+      "checkpointKey": "enter-the-local-model-endpoint-keyed-lab",
       "title": "填写本机模型服务地址：Keyed lab / Enter the local model endpoint: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -109,6 +116,7 @@
     },
     {
       "id": "step-006",
+      "checkpointKey": "enter-the-model-id-keyed-lab",
       "title": "填写Model ID：Keyed lab / Enter the Model ID: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -135,6 +143,7 @@
     },
     {
       "id": "step-007",
+      "checkpointKey": "enter-context-and-output-limits-keyed-lab",
       "title": "填写模型上下文与输出上限：Keyed lab / Enter context and output limits: Keyed lab",
       "language": "en",
       "theme": "light",
@@ -171,6 +180,7 @@
     },
     {
       "id": "step-008",
+      "checkpointKey": "the-first-connection-test-succeeds-for-the-current-fields",
       "title": "首次测试通过，当前字段可以保存 / The first connection test succeeds for the current fields",
       "language": "en",
       "theme": "light",
@@ -197,6 +207,7 @@
     },
     {
       "id": "step-009",
+      "checkpointKey": "changing-the-model-id-requires-another-connection-test",
       "title": "修改Model ID后需要重新Test / Changing the Model ID requires another connection test",
       "language": "en",
       "theme": "light",
@@ -233,6 +244,7 @@
     },
     {
       "id": "step-010",
+      "checkpointKey": "test-the-current-connection-before-save-becomes-available",
       "title": "测试当前模型连接，尚不能Save / Test the current connection before Save becomes available",
       "language": "en",
       "theme": "light",
@@ -259,6 +271,7 @@
     },
     {
       "id": "step-011",
+      "checkpointKey": "save-becomes-available-after-a-successful-connection-test",
       "title": "连接验证成功后可以Save / Save becomes available after a successful connection test",
       "language": "en",
       "theme": "light",
@@ -285,6 +298,7 @@
     },
     {
       "id": "step-012",
+      "checkpointKey": "inspect-the-saved-model-in-configured-models",
       "title": "在Configured models查看已保存的模型 / Inspect the saved model in Configured models",
       "language": "en",
       "theme": "light",
@@ -294,6 +308,7 @@
     },
     {
       "id": "step-013",
+      "checkpointKey": "add-a-model-and-choose-custom-keyless-lab",
       "title": "添加模型并选择Custom：Keyless lab / Add a model and choose Custom: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -320,6 +335,7 @@
     },
     {
       "id": "step-014",
+      "checkpointKey": "open-custom-model-configuration-keyless-lab",
       "title": "打开Custom模型配置：Keyless lab / Open Custom model configuration: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -329,6 +345,7 @@
     },
     {
       "id": "step-015",
+      "checkpointKey": "enter-the-model-profile-name-keyless-lab",
       "title": "填写模型配置名称：Keyless lab / Enter the model profile name: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -355,6 +372,7 @@
     },
     {
       "id": "step-016",
+      "checkpointKey": "enter-the-local-model-endpoint-keyless-lab",
       "title": "填写本机模型服务地址：Keyless lab / Enter the local model endpoint: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -381,6 +399,7 @@
     },
     {
       "id": "step-017",
+      "checkpointKey": "enter-the-model-id-keyless-lab",
       "title": "填写Model ID：Keyless lab / Enter the Model ID: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -407,6 +426,7 @@
     },
     {
       "id": "step-018",
+      "checkpointKey": "enter-context-and-output-limits-keyless-lab",
       "title": "填写模型上下文与输出上限：Keyless lab / Enter context and output limits: Keyless lab",
       "language": "en",
       "theme": "light",
@@ -443,6 +463,7 @@
     },
     {
       "id": "step-019",
+      "checkpointKey": "test-the-current-connection-before-save-becomes-available-2",
       "title": "测试当前模型连接，尚不能Save / Test the current connection before Save becomes available",
       "language": "en",
       "theme": "light",
@@ -469,6 +490,7 @@
     },
     {
       "id": "step-020",
+      "checkpointKey": "save-becomes-available-after-a-successful-connection-test-2",
       "title": "连接验证成功后可以Save / Save becomes available after a successful connection test",
       "language": "en",
       "theme": "light",
@@ -495,6 +517,7 @@
     },
     {
       "id": "step-021",
+      "checkpointKey": "inspect-the-saved-model-in-configured-models-2",
       "title": "在Configured models查看已保存的模型 / Inspect the saved model in Configured models",
       "language": "en",
       "theme": "light",
@@ -504,6 +527,7 @@
     },
     {
       "id": "step-022",
+      "checkpointKey": "choose-set-default-for-the-second-model",
       "title": "为第二个模型选择Set default / Choose Set default for the second model",
       "language": "en",
       "theme": "light",
@@ -519,7 +543,7 @@
             "width": 150.234375,
             "height": 56
           },
-          "automationId": "agent.model.set-default.e9e6479a-2b99-47b7-a89a-539c153b18a3"
+          "automationId": "agent.model.set-default.1481c7fd-a0bf-49c4-a7da-beaae1c4b897"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -530,6 +554,7 @@
     },
     {
       "id": "step-023",
+      "checkpointKey": "the-default-changes-without-reordering-the-models",
       "title": "默认模型已改变，配置顺序保持不变 / The default changes without reordering the models",
       "language": "en",
       "theme": "light",
@@ -545,7 +570,7 @@
             "width": 1636,
             "height": 124
           },
-          "automationId": "agent.model.row.e9e6479a-2b99-47b7-a89a-539c153b18a3"
+          "automationId": "agent.model.row.1481c7fd-a0bf-49c4-a7da-beaae1c4b897"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -556,6 +581,7 @@
     },
     {
       "id": "step-024",
+      "checkpointKey": "edit-the-model-id-while-retaining-the-stored-credential",
       "title": "编辑Model ID并保留已存凭据 / Edit the Model ID while retaining the stored credential",
       "language": "en",
       "theme": "light",
@@ -592,6 +618,7 @@
     },
     {
       "id": "step-025",
+      "checkpointKey": "test-the-current-connection-before-save-becomes-available-3",
       "title": "测试当前模型连接，尚不能Save / Test the current connection before Save becomes available",
       "language": "en",
       "theme": "light",
@@ -618,6 +645,7 @@
     },
     {
       "id": "step-026",
+      "checkpointKey": "save-becomes-available-after-a-successful-connection-test-3",
       "title": "连接验证成功后可以Save / Save becomes available after a successful connection test",
       "language": "en",
       "theme": "light",
@@ -644,6 +672,7 @@
     },
     {
       "id": "step-027",
+      "checkpointKey": "inspect-the-saved-model-in-configured-models-3",
       "title": "在Configured models查看已保存的模型 / Inspect the saved model in Configured models",
       "language": "en",
       "theme": "light",
@@ -652,16 +681,8 @@
       "rawImage": "step-027.png"
     },
     {
-      "id": "step-028",
-      "title": "业务断言：default切换不重排；编辑已有项时Key不回到Renderer，keep仍可真实重测。 / Business assertions: default changes do not reorder; editing never returns the key to Renderer and keep can retest.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-028.png",
-      "rawImage": "step-028.png"
-    },
-    {
       "id": "step-029",
+      "checkpointKey": "close-the-app-normally-after-saving-the-models",
       "title": "保存模型后正常关闭App / Close the App normally after saving the models",
       "language": "en",
       "theme": "light",
@@ -688,6 +709,7 @@
     },
     {
       "id": "step-030",
+      "checkpointKey": "restore-model-order-and-the-default-after-a-real-restart",
       "title": "真实重启后保留模型顺序和默认项 / Restore model order and the default after a real restart",
       "language": "en",
       "theme": "light",
@@ -697,6 +719,7 @@
     },
     {
       "id": "step-031",
+      "checkpointKey": "choose-to-remove-the-stored-key-and-disable-its-input",
       "title": "选择移除已存Key，输入框停用 / Choose to remove the stored key and disable its input",
       "language": "en",
       "theme": "light",
@@ -706,6 +729,7 @@
     },
     {
       "id": "step-032",
+      "checkpointKey": "test-the-current-connection-before-save-becomes-available-4",
       "title": "测试当前模型连接，尚不能Save / Test the current connection before Save becomes available",
       "language": "en",
       "theme": "light",
@@ -732,6 +756,7 @@
     },
     {
       "id": "step-033",
+      "checkpointKey": "save-becomes-available-after-a-successful-connection-test-4",
       "title": "连接验证成功后可以Save / Save becomes available after a successful connection test",
       "language": "en",
       "theme": "light",
@@ -758,6 +783,7 @@
     },
     {
       "id": "step-034",
+      "checkpointKey": "inspect-the-saved-model-in-configured-models-4",
       "title": "在Configured models查看已保存的模型 / Inspect the saved model in Configured models",
       "language": "en",
       "theme": "light",
@@ -766,16 +792,8 @@
       "rawImage": "step-034.png"
     },
     {
-      "id": "step-035",
-      "title": "用户操作：显式移除已存Key并重新Test；同一endpoint不得再收到Authorization。 / User actions: explicitly remove the saved key and retest; the endpoint must no longer receive Authorization.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-035.png",
-      "rawImage": "step-035.png"
-    },
-    {
       "id": "step-036",
+      "checkpointKey": "review-the-confirmation-before-removing-a-model",
       "title": "删除模型前核对确认窗口 / Review the confirmation before removing a model",
       "language": "en",
       "theme": "light",
@@ -812,6 +830,7 @@
     },
     {
       "id": "step-037",
+      "checkpointKey": "inspect-the-remaining-models-after-confirming-removal",
       "title": "确认删除后查看剩余模型 / Inspect the remaining models after confirming removal",
       "language": "en",
       "theme": "light",
@@ -821,6 +840,7 @@
     },
     {
       "id": "step-038",
+      "checkpointKey": "review-the-confirmation-before-removing-a-model-2",
       "title": "删除模型前核对确认窗口 / Review the confirmation before removing a model",
       "language": "en",
       "theme": "light",
@@ -857,21 +877,13 @@
     },
     {
       "id": "step-039",
+      "checkpointKey": "inspect-the-remaining-models-after-confirming-removal-2",
       "title": "确认删除后查看剩余模型 / Inspect the remaining models after confirming removal",
       "language": "en",
       "theme": "light",
       "window": "app",
       "image": "step-039.png",
       "rawImage": "step-039.png"
-    },
-    {
-      "id": "step-040",
-      "title": "用户操作：删除default后首项接管；删除最后一项回到未配置态。 / User actions: removing the default promotes the first model; removing the last returns to unconfigured.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-040.png",
-      "rawImage": "step-040.png"
     }
   ],
   "assets": [
@@ -900,120 +912,120 @@
       "file": "step-003.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 431726,
-      "sha256": "16a38b46fdef21c8f742677125385d240ae539350252e25f099ddbf7424f51f4"
+      "bytes": 431728,
+      "sha256": "7e16634099231347b9523dc40eaabb46f5a6cc65bcef3e1de671fcd70822986d"
     },
     {
       "file": "step-004.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 431658,
-      "sha256": "8ad3bd06a7ac215b5b0c86bfb6039371e7b22a86a179e2d397f22a2cb102da80"
+      "bytes": 431657,
+      "sha256": "c6f1516b6e5438438f0f5bad179dfc7c79e4b5628a67c5ed7f9b9f7e2de5b668"
     },
     {
       "file": "step-004.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 323324,
-      "sha256": "0c07a6c7035bc3b1913d78ba0db0b5632e8017f1251fff8115adf823d092cd20"
+      "bytes": 323319,
+      "sha256": "dff14eb030277aeabe7083e1929e17a76187c0b4a0bde9d83b99001fdf568f44"
     },
     {
       "file": "step-005.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 434669,
-      "sha256": "3527127df825640d46a44e9391c5ccd2a33a7fd59573a90afb43fff9997110c0"
+      "bytes": 434070,
+      "sha256": "494380cd1ad05ef067260dffd0e90c3894f016b88b2f463734911201bbd3922f"
     },
     {
       "file": "step-005.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 325678,
-      "sha256": "65484d4cefe158105dc8028b784bc218e74e4725fc52116c383d9ec6d628ce86"
+      "bytes": 325269,
+      "sha256": "1f3089f4782cd8cf30e41b8453e06ef26a7c5ca9ba1925266cada7c19aae8bba"
     },
     {
       "file": "step-006.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 434270,
-      "sha256": "127ea608b93cbb6bd57ae2e4ad516e7f0451bd3d8dc4f7780642336cd5118717"
+      "bytes": 433606,
+      "sha256": "135c079ad2a85bc311aa6a6c5713a735d0f75ea28b096f8365f439e8c5d10f7f"
     },
     {
       "file": "step-006.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 325484,
-      "sha256": "7b05d819bc92f1f49a3efb2001ccddbdb226fc63e9d1fddd17b608867217b1b0"
+      "bytes": 325136,
+      "sha256": "a566a1b5b24b2844f7a6d8ce004b901404c1f24b1f6ab9cbe341be9cd74fffb6"
     },
     {
       "file": "step-007.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 436053,
-      "sha256": "077babca77ffce233ca52e3c1ce2735f5a65e8ca330482d0f837d06c7c6a7708"
+      "bytes": 435363,
+      "sha256": "37e8f70ef0131e18c9f4299a6e5120b74b183837ac543bf1bd8daf6806d95f44"
     },
     {
       "file": "step-007.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 326883,
-      "sha256": "9daeb80f895e0ef5479bc8064f86f8cb0dcbccb419c55ba15a496d440c06003b"
+      "bytes": 326594,
+      "sha256": "4999cf57957b9e180d71e415baefaef1fc02f8ab25dec16d77aef6efb90b2751"
     },
     {
       "file": "step-008.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 439427,
-      "sha256": "c764e3711f1c3698f5ae0d61604f7c4e3d2c28bbb49401ec725db5ef37702a41"
+      "bytes": 438910,
+      "sha256": "6614d07432a41730de51523ee8d86bb405a63a129a7fcd7f851566d5b67f4d7b"
     },
     {
       "file": "step-008.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 335031,
-      "sha256": "904b7ac0bc04da9a1fdb9c66eb874c4c6be947fbd1ca2ebc9758aa2be0ac24dc"
+      "bytes": 334628,
+      "sha256": "fe905120428110d5964d2574bf39467bfe8293572d88d91a2adc58d234443931"
     },
     {
       "file": "step-009.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 436838,
-      "sha256": "d339abf4c699584f7cc6ad86e5c034e9851420e612545d2c2c90b11389905c3a"
+      "bytes": 436238,
+      "sha256": "38f98191f4b2cb58eadf880f7e49d1e02d2713fa8bb42615b419d4f455ed76d3"
     },
     {
       "file": "step-009.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 328502,
-      "sha256": "1901d43c252dc48c5a39ee61a5c5152831ffe7d0df1b049599724137c1ff844a"
+      "bytes": 328331,
+      "sha256": "101b3f8540f1f7cb779bfd8eddccd2c0848031c7a98226e2fe7d2f797c1370e3"
     },
     {
       "file": "step-010.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 436864,
-      "sha256": "51cef0d5ad842f03362bc6cdb180abf861a76af2bd81cd1d55ff335a48d9e73a"
+      "bytes": 434836,
+      "sha256": "3a3f27580bb8b5d908a0e53d6f54ac27a71eb8ca01dd53917b0d58482b8d61bc"
     },
     {
       "file": "step-010.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 328332,
-      "sha256": "8a4511c0ca3e064f315b55549b422f6133ec3a3003b56734c2afba3e3bb47de2"
+      "bytes": 326784,
+      "sha256": "7f40461b43796051d2cbcf18d8df651c8688840c4dca5a52acdf6f79685fef72"
     },
     {
       "file": "step-011.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 440817,
-      "sha256": "ea8fe9786bc73b22c1a7e550cb72e11a89cae4c5b680ae9d294da58fbfa77b40"
+      "bytes": 440210,
+      "sha256": "1396bbaf909126ced2c28840301197ac417ed57181482991a36c0e3d6833d577"
     },
     {
       "file": "step-011.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 335736,
-      "sha256": "c7c90e07f07508fcdfddb2958839c8330e705efe5efa62d69d938061e77ef59c"
+      "bytes": 335341,
+      "sha256": "c87e7601ea2f439f4b5110a5bacf8f19fb37a4abb6bf0d717e8414f295dcff33"
     },
     {
       "file": "step-012.png",
@@ -1040,92 +1052,92 @@
       "file": "step-014.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 442466,
-      "sha256": "e27841bca5c8626566d7e1172c1b540b239557ebb0e5b1207e379cf840ba896c"
+      "bytes": 432644,
+      "sha256": "cd3e631dd346bbd085a861c4f239ee28e1b87578fd7abbd84c09765cc667a182"
     },
     {
       "file": "step-015.png",
       "width": 3200,
       "height": 1800,
       "bytes": 442894,
-      "sha256": "8fdd1ad563f2a4b12536396c237346e5766b9c126637de4a2423eac3ffcf6161"
+      "sha256": "3ba43ca3ae6415cc142984c58784d2d8f997b077ecff5cee82de27b754a12886"
     },
     {
       "file": "step-015.annotated.png",
       "width": 3200,
       "height": 1800,
       "bytes": 334234,
-      "sha256": "e23bba2711184b155ef07c04a8faeef8ce153bb5543ba7340e5d03ec0f4cc5a9"
+      "sha256": "82f50e6f1e3daeb1ba3c6eb0ceb98f553478ac85a5bbdd101d610b3b06c916b0"
     },
     {
       "file": "step-016.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 447000,
-      "sha256": "c55519f451148fb153bf74b481e1c9952e8526d39ea733f512ffb79af66e5f44"
+      "bytes": 446333,
+      "sha256": "13969a643e790ffb3b1d7f53a95c6d496d4fd4abc4974580fafe8c035c6bd303"
     },
     {
       "file": "step-016.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 336805,
-      "sha256": "1679dcbf03a64d5fb5a2faeceb095b216089b674e1055490db5971c61762c0e8"
+      "bytes": 336439,
+      "sha256": "60df70c71ff2f215b4f3a559c8ffff1ab2e63f58363189a9fc27ec5fefb48a58"
     },
     {
       "file": "step-017.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 448812,
-      "sha256": "6c4625cbc593a530f7eb648a570c677345bd35ec81232d58587682d6a1d8079c"
+      "bytes": 448176,
+      "sha256": "be61fd28213a9eedc7d806f77dae34631ed3c1e6fcf5f9188fce99f9c76e9072"
     },
     {
       "file": "step-017.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 338167,
-      "sha256": "e117bba0422560d4c295cc544649e6505ca0287a2bc7124f043fa0198867cb63"
+      "bytes": 337828,
+      "sha256": "914680ff11050eb56d045f1950e5d8e7a8e2de087bc5451c7db0ef461fe8de0d"
     },
     {
       "file": "step-018.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 450413,
-      "sha256": "6f82712bec5f6c12cff851955bed917fdcf693274035303dbbc99d9d255b81f4"
+      "bytes": 449943,
+      "sha256": "7a0f4fbbb467d9dba635e0f23627c392a6907ce75767b508b6057f7fa0b26099"
     },
     {
       "file": "step-018.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 339016,
-      "sha256": "5f8dfd4c0193389a995bfab27068b8c254a01962bc65a68c765b7e207ca770e5"
+      "bytes": 338634,
+      "sha256": "cdc29e67c95cfe47bc2900ebf424059a0d5861f629adce48143e8964cc3f6cc9"
     },
     {
       "file": "step-019.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 450413,
-      "sha256": "6f82712bec5f6c12cff851955bed917fdcf693274035303dbbc99d9d255b81f4"
+      "bytes": 449919,
+      "sha256": "009c22eb434636cd9b6e72c2132b9a2c6a988d936c849053dda54818dc4bead3"
     },
     {
       "file": "step-019.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 340201,
-      "sha256": "76828ac525ad5085aa01f7e9aa9a7cb08bd3a1ef11c091286e4dde13b6020071"
+      "bytes": 339742,
+      "sha256": "ff000235a1719a17b0b39b2d54d00d7537df55d834bf0f381157c0ca683bd640"
     },
     {
       "file": "step-020.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 445843,
-      "sha256": "c6d6eb121e55a99c1a783d9c00700f0188376e6267aed187dfb9381f2b959b4b"
+      "bytes": 445260,
+      "sha256": "16373de93366fc6076b53c13441510c142310fc930ae0a83259d0c7cc9e8d91b"
     },
     {
       "file": "step-020.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 337839,
-      "sha256": "64d853ced41ea4698a59be0ee109a185bd62edd29a9e11e70b3a39da63de0a6e"
+      "bytes": 337500,
+      "sha256": "ba14d15e8d8df41440ff0eb57756fe162cb5c29c0d097a42c67b2fbbc07f67a9"
     },
     {
       "file": "step-021.png",
@@ -1166,53 +1178,46 @@
       "file": "step-024.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 455527,
-      "sha256": "9e2b4b29349800ae3df7af893a6b28a5883d7ab94097245e355a49257212c060"
+      "bytes": 454998,
+      "sha256": "a79770f96e555826e9be850eb5a6307a1e21b1cba34f3e0ea85ac125146775b1"
     },
     {
       "file": "step-024.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 342405,
-      "sha256": "3197a3d1bb3804bfd251e4255ed262982f9e1c71bb295bdc8b3085960000824c"
+      "bytes": 342046,
+      "sha256": "68de8ccc70cf6f448b4bd13c47159696c2cb2862fa368d4195d1c4039d53cf6f"
     },
     {
       "file": "step-025.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 455527,
-      "sha256": "9e2b4b29349800ae3df7af893a6b28a5883d7ab94097245e355a49257212c060"
+      "bytes": 454998,
+      "sha256": "a79770f96e555826e9be850eb5a6307a1e21b1cba34f3e0ea85ac125146775b1"
     },
     {
       "file": "step-025.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 342603,
-      "sha256": "eb2a140281564e96959d67ea766718ebbaf2f8591b2c8568b004cea059fc1b76"
+      "bytes": 342206,
+      "sha256": "66ed8193c7d545e967aad41d9891ebfbb63fbc989690e03571d0d7cbaec3c8c5"
     },
     {
       "file": "step-026.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 453152,
-      "sha256": "deeb3ef922452717eb8a4efbe6cc9d611ed3bb4e7756a1f723793ad168ab920a"
+      "bytes": 452451,
+      "sha256": "b2e7047eb6108121593ac32da1a672c92222ee74261ca0010ca3171369a145d3"
     },
     {
       "file": "step-026.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 342843,
-      "sha256": "f335a52741923f91aeabbdee3eee6eb55532ac2d9308c2a2a1f4a9bd1b62c8d5"
+      "bytes": 342538,
+      "sha256": "47212d4f3d6516e76451674b7249cef9d502f11559fb742852b9a37d5dbf8321"
     },
     {
       "file": "step-027.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 445137,
-      "sha256": "5d13bb4f3e95c6446bdcfcd3e6d891d465465793297712fc83417c52dffcc941"
-    },
-    {
-      "file": "step-028.png",
       "width": 3200,
       "height": 1800,
       "bytes": 445137,
@@ -1243,36 +1248,36 @@
       "file": "step-031.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 445081,
-      "sha256": "d4d93812d822e322e3b09a227e557589c956e4ad59b679fba9dba4893af6cd1f"
+      "bytes": 444575,
+      "sha256": "7295cda1f27fca70d320969676223327332d820c455026d8e1bc2a2079afc2e7"
     },
     {
       "file": "step-032.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 445081,
-      "sha256": "d4d93812d822e322e3b09a227e557589c956e4ad59b679fba9dba4893af6cd1f"
+      "bytes": 444575,
+      "sha256": "7295cda1f27fca70d320969676223327332d820c455026d8e1bc2a2079afc2e7"
     },
     {
       "file": "step-032.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 333697,
-      "sha256": "d1fa6d9b69e58ce7f5edfd0c829af2da83df0ee43c08efbcc1aa2486c9c556c7"
+      "bytes": 333176,
+      "sha256": "8c87ee101b4eb0cda803f104e3f4d71bf795e8e966dc7deba81ebc31ac9c4ae4"
     },
     {
       "file": "step-033.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 453447,
-      "sha256": "7bc28a27f45742b76d67cc882da45b79cf328918006d5e8c002d9717513d75fc"
+      "bytes": 452714,
+      "sha256": "9e700de9694d52e659bcab0972aea335eef436ee7541de27567c39125173be28"
     },
     {
       "file": "step-033.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 343062,
-      "sha256": "63f71efad8799331156be2470f2d6003d039829af6c0d12ac2aeb39716582be8"
+      "bytes": 342739,
+      "sha256": "8f1d6bb900aa735cf42d6441f8e52e2e909179b62541c1e4f84ef97936802ca4"
     },
     {
       "file": "step-034.png",
@@ -1282,25 +1287,18 @@
       "sha256": "cd68962d53b538a4bcdaf0e17ab5a1d97b52bab055d40da226ab0cfc859f0956"
     },
     {
-      "file": "step-035.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 444361,
-      "sha256": "cd68962d53b538a4bcdaf0e17ab5a1d97b52bab055d40da226ab0cfc859f0956"
-    },
-    {
       "file": "step-036.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 393284,
-      "sha256": "f93979b7f73dd3bc425fa98142bf231fb589a7d033fcd401868fa42d2b202760"
+      "bytes": 393282,
+      "sha256": "fb84a9c39d2ae663a645fef212ece76f327a1c38cb68a8ed679271bccd0218e0"
     },
     {
       "file": "step-036.annotated.png",
       "width": 3200,
       "height": 1800,
       "bytes": 280604,
-      "sha256": "0d22f7911d41a97a3e46846ca8a62b97698ef34a477fb74f4bc8749c7ecc663e"
+      "sha256": "dbf3bd1d8591f0df4a8db1cf6b024322d3138c2d72460477fdb307af9e0304bb"
     },
     {
       "file": "step-037.png",
@@ -1313,25 +1311,18 @@
       "file": "step-038.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 397217,
-      "sha256": "eae9219d64316b12765eac238808765a00f59d218755e5f47fbd5bf07ed9d3af"
+      "bytes": 397218,
+      "sha256": "b2bc4023f178efdde009e75edc50e4fb12f01a7398d29cfbc7a7818ed1c41069"
     },
     {
       "file": "step-038.annotated.png",
       "width": 3200,
       "height": 1800,
-      "bytes": 280617,
-      "sha256": "0fdf406537d62ed606efabdf0277472f0dba130a8b6d30858480d486a4d88e12"
+      "bytes": 280612,
+      "sha256": "c0ca8dd0cf253ff722ab85ef5c4b7f494b1f4e1611fdee4d54ea4d4fd7f79dca"
     },
     {
       "file": "step-039.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 432045,
-      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
-    },
-    {
-      "file": "step-040.png",
       "width": 3200,
       "height": 1800,
       "bytes": 432045,

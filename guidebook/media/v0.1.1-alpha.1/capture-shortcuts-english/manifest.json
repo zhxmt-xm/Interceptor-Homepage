@@ -26,10 +26,7 @@
     "blockMode": "reset",
     "draftEnabled": false,
     "endpointRuleCount": 1,
-    "endpointActionPhases": [
-      "request",
-      "response"
-    ],
+    "endpointActionPhases": ["request", "response"],
     "endpointImmediatelyApplied": true,
     "note": "New result rows in steps 011 and 019 are not selected; Inspector belongs to the previous record"
   },

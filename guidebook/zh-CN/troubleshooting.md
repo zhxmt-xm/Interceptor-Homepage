@@ -199,7 +199,7 @@
 <a id="agent"></a>
 ## 模型连接、对话或 Tool 失败
 
-1. 打开 Settings → Agent，编辑需要检查的模型。核对红框 1 的 Base URL；图中的 `Keyed lab` 使用本机服务 `http://127.0.0.1:64325/keyed/v1`，App 不会创建这个服务。使用自己的服务地址，不向示例地址发送真实凭据。
+1. 打开 Settings → Agent，编辑需要检查的模型。核对红框 1 的 Base URL；图中的 `Keyed lab` 使用本机服务 `http://127.0.0.1:64170/keyed/v1`，App 不会创建这个服务。使用自己的服务地址，不向示例地址发送真实凭据。
 
    ![检查模型的 Base URL](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 

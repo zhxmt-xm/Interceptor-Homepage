@@ -22501,63 +22501,35 @@
       "key": "agent.model-configuration.7c82c1b6.model-origin.64325",
       "source": "agent.model-configuration.7c82c1b6",
       "example": "model-origin",
-      "port": "64325",
+      "port": "64170",
       "documents": [
         {
           "file": "guidebook/zh-CN/agent.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-agent-management",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-agent-management-guide-one-03-endpoint",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-agent-management-guide-two-03-endpoint",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-agent-management", "occurrences": 1 },
+            { "anchor": "walkthrough-agent-management-guide-one-03-endpoint", "occurrences": 1 },
+            { "anchor": "walkthrough-agent-management-guide-two-03-endpoint", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "agent",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "agent", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/agent.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-agent-management",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-agent-management-guide-one-03-endpoint",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-agent-management-guide-two-03-endpoint",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-agent-management", "occurrences": 1 },
+            { "anchor": "walkthrough-agent-management-guide-one-03-endpoint", "occurrences": 1 },
+            { "anchor": "walkthrough-agent-management-guide-two-03-endpoint", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "agent",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "agent", "occurrences": 1 }]
         }
       ]
     },
@@ -22570,42 +22542,22 @@
         {
           "file": "guidebook/zh-CN/breakpoints.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "queues",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "queues", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "waiting",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "waiting", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/breakpoints.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "queues",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "queues", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "waiting",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "waiting", "occurrences": 1 }]
         }
       ]
     },
@@ -22618,22 +22570,12 @@
         {
           "file": "guidebook/zh-CN/breakpoints.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-breakpoints-manager",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-breakpoints-manager", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/breakpoints.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-breakpoints-manager",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-breakpoints-manager", "occurrences": 1 }]
         }
       ]
     },
@@ -22646,22 +22588,12 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-facets-04-host-select",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-facets-04-host-select", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-facets-04-host-select",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-facets-04-host-select", "occurrences": 1 }]
         }
       ]
     },
@@ -22675,69 +22607,37 @@
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-capture-facets-14-show-filters",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-19-local-origin",
-              "occurrences": 2
-            }
+            { "anchor": "walkthrough-capture-facets-14-show-filters", "occurrences": 1 },
+            { "anchor": "walkthrough-19-local-origin", "occurrences": 2 }
           ]
         },
         {
           "file": "guidebook/zh-CN/settings.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "tls-passthrough",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "tls-passthrough", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 2,
-          "regions": [
-            {
-              "anchor": "tls",
-              "occurrences": 2
-            }
-          ]
+          "regions": [{ "anchor": "tls", "occurrences": 2 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-capture-facets-14-show-filters",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-19-local-origin",
-              "occurrences": 2
-            }
+            { "anchor": "walkthrough-capture-facets-14-show-filters", "occurrences": 1 },
+            { "anchor": "walkthrough-19-local-origin", "occurrences": 2 }
           ]
         },
         {
           "file": "guidebook/en/settings.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "tls-passthrough",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "tls-passthrough", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 2,
-          "regions": [
-            {
-              "anchor": "tls",
-              "occurrences": 2
-            }
-          ]
+          "regions": [{ "anchor": "tls", "occurrences": 2 }]
         }
       ]
     },
@@ -22750,62 +22650,32 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-04-select",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-04-select", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/getting-started.md",
           "occurrences": 3,
-          "regions": [
-            {
-              "anchor": null,
-              "occurrences": 3
-            }
-          ]
+          "regions": [{ "anchor": null, "occurrences": 3 }]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "no-traffic",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "no-traffic", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-04-select",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-04-select", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/getting-started.md",
           "occurrences": 3,
-          "regions": [
-            {
-              "anchor": "发出第一条-http-请求",
-              "occurrences": 3
-            }
-          ]
+          "regions": [{ "anchor": "发出第一条-http-请求", "occurrences": 3 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "no-traffic",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "no-traffic", "occurrences": 1 }]
         }
       ]
     },
@@ -22818,22 +22688,12 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-inspection-06-headers",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-inspection-06-headers", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-inspection-06-headers",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-inspection-06-headers", "occurrences": 1 }]
         }
       ]
     },
@@ -22847,28 +22707,16 @@
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-22-http2",
-              "occurrences": 1
-            },
-            {
-              "anchor": "http2",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-22-http2", "occurrences": 1 },
+            { "anchor": "http2", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-22-http2",
-              "occurrences": 1
-            },
-            {
-              "anchor": "http2",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-22-http2", "occurrences": 1 },
+            { "anchor": "http2", "occurrences": 1 }
           ]
         }
       ]
@@ -22883,72 +22731,36 @@
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-31-remove-exception",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-31-remove-exception", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 4,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-10-target-port",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-14-remote-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-10-target-port", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-14-remote-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-31-remove-exception",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-31-remove-exception", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 4,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-10-target-port",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-14-remote-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-10-target-port", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-14-remote-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 }
           ]
         }
       ]
@@ -22962,49 +22774,27 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-31-remove-exception",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-31-remove-exception", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-10-target-port",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-10-target-port", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-31-remove-exception",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-31-remove-exception", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-10-target-port",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-10-target-port", "occurrences": 1 }
           ]
         }
       ]
@@ -23019,96 +22809,42 @@
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 4,
           "regions": [
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-missing-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-file-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-origin-restored",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-missing-result", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-file-result", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-origin-restored", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 5,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-25-local",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-29-missing-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-33-local-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-39-remove-exception",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-25-local", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-29-missing-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-33-local-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-39-remove-exception", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 4,
           "regions": [
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-missing-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-file-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-capture-local-origin-restored",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-missing-result", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-file-result", "occurrences": 1 },
+            { "anchor": "walkthrough-capture-local-origin-restored", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 5,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-25-local",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-29-missing-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-33-local-result",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-routing-39-remove-exception",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-25-local", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-29-missing-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-33-local-result", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-routing-39-remove-exception", "occurrences": 1 }
           ]
         }
       ]
@@ -23122,41 +22858,25 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-mapping-restored",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-mapping-restored", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-rules-routing-18-original-result",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-rules-routing-18-original-result", "occurrences": 1 }
           ]
         }
       ]
@@ -23170,22 +22890,12 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-http2-09-trailers",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-http2-09-trailers", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-http2-09-trailers",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-http2-09-trailers", "occurrences": 1 }]
         }
       ]
     },
@@ -23198,22 +22908,12 @@
         {
           "file": "guidebook/zh-CN/capture.md",
           "occurrences": 2,
-          "regions": [
-            {
-              "anchor": "walkthrough-capture-inspection-32-new-body",
-              "occurrences": 2
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-capture-inspection-32-new-body", "occurrences": 2 }]
         },
         {
           "file": "guidebook/en/capture.md",
           "occurrences": 2,
-          "regions": [
-            {
-              "anchor": "从流量进入阻断与断点",
-              "occurrences": 2
-            }
-          ]
+          "regions": [{ "anchor": "从流量进入阻断与断点", "occurrences": 2 }]
         }
       ]
     },
@@ -23226,42 +22926,22 @@
         {
           "file": "guidebook/zh-CN/composer.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": null,
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": null, "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "no-traffic",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "no-traffic", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/composer.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "发送第一个请求",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "发送第一个请求", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "no-traffic",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "no-traffic", "occurrences": 1 }]
         }
       ]
     },
@@ -23275,36 +22955,18 @@
           "file": "guidebook/zh-CN/composer.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-composer-replay",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-composer-editing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-composer-collection-06-rename-folder",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-composer-replay", "occurrences": 1 },
+            { "anchor": "walkthrough-composer-editing", "occurrences": 1 },
+            { "anchor": "walkthrough-composer-collection-06-rename-folder", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/composer.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-composer-replay",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-composer-editing",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-composer-collection-06-rename-folder",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-composer-replay", "occurrences": 1 },
+            { "anchor": "walkthrough-composer-editing", "occurrences": 1 },
+            { "anchor": "walkthrough-composer-collection-06-rename-folder", "occurrences": 1 }
           ]
         }
       ]
@@ -23318,22 +22980,12 @@
         {
           "file": "guidebook/zh-CN/composer.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-composer-editing-21-none",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-composer-editing-21-none", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/composer.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-composer-editing-21-none",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-composer-editing-21-none", "occurrences": 1 }]
         }
       ]
     },
@@ -23347,20 +22999,14 @@
           "file": "guidebook/zh-CN/composer.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-composer-persistence-save-05-protocol",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-composer-persistence-save-05-protocol", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/composer.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-composer-persistence-save-05-protocol",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-composer-persistence-save-05-protocol", "occurrences": 1 }
           ]
         }
       ]
@@ -23374,42 +23020,22 @@
         {
           "file": "guidebook/zh-CN/mcp.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-03-enable",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-03-enable", "occurrences": 1 }]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "mcp",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "mcp", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/mcp.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-03-enable",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-03-enable", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "mcp",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "mcp", "occurrences": 1 }]
         }
       ]
     },
@@ -23423,36 +23049,18 @@
           "file": "guidebook/zh-CN/mcp.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-18-port-conflict",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-19-release-port",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-mcp-endpoint-04-note-new-address",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-18-port-conflict", "occurrences": 1 },
+            { "anchor": "walkthrough-19-release-port", "occurrences": 1 },
+            { "anchor": "walkthrough-mcp-endpoint-04-note-new-address", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/mcp.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "walkthrough-18-port-conflict",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-19-release-port",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-mcp-endpoint-04-note-new-address",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-18-port-conflict", "occurrences": 1 },
+            { "anchor": "walkthrough-19-release-port", "occurrences": 1 },
+            { "anchor": "walkthrough-mcp-endpoint-04-note-new-address", "occurrences": 1 }
           ]
         }
       ]
@@ -23467,20 +23075,14 @@
           "file": "guidebook/zh-CN/mcp.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-mcp-endpoint-04-note-new-address",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-mcp-endpoint-04-note-new-address", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/mcp.md",
           "occurrences": 1,
           "regions": [
-            {
-              "anchor": "walkthrough-mcp-endpoint-04-note-new-address",
-              "occurrences": 1
-            }
+            { "anchor": "walkthrough-mcp-endpoint-04-note-new-address", "occurrences": 1 }
           ]
         }
       ]
@@ -23495,49 +23097,27 @@
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "first-rule",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-actions-map-local-11-result",
-              "occurrences": 1
-            }
+            { "anchor": "first-rule", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-actions-map-local-11-result", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "rules",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "rules", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "first-rule",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-actions-map-local-11-result",
-              "occurrences": 1
-            }
+            { "anchor": "first-rule", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-actions-map-local-11-result", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "rules",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "rules", "occurrences": 1 }]
         }
       ]
     },
@@ -23551,49 +23131,27 @@
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "matchers",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-matchers-09-url",
-              "occurrences": 1
-            }
+            { "anchor": "matchers", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-matchers-09-url", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "rules",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "rules", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "matchers",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-rules-matchers-09-url",
-              "occurrences": 1
-            }
+            { "anchor": "matchers", "occurrences": 1 },
+            { "anchor": "walkthrough-rules-matchers-09-url", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "rules",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "rules", "occurrences": 1 }]
         }
       ]
     },
@@ -23606,22 +23164,12 @@
         {
           "file": "guidebook/zh-CN/rules.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-rules-conflict-25-stop-server",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-rules-conflict-25-stop-server", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/rules.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-rules-conflict-25-stop-server",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-rules-conflict-25-stop-server", "occurrences": 1 }]
         }
       ]
     },
@@ -23635,28 +23183,16 @@
           "file": "guidebook/zh-CN/settings.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "upstream",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-07-port",
-              "occurrences": 1
-            }
+            { "anchor": "upstream", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-07-port", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/settings.md",
           "occurrences": 2,
           "regions": [
-            {
-              "anchor": "upstream",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-07-port",
-              "occurrences": 1
-            }
+            { "anchor": "upstream", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-07-port", "occurrences": 1 }
           ]
         }
       ]
@@ -23671,36 +23207,18 @@
           "file": "guidebook/zh-CN/settings.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "upstream",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-10-capture",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-14-cancel-draft",
-              "occurrences": 1
-            }
+            { "anchor": "upstream", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-10-capture", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-14-cancel-draft", "occurrences": 1 }
           ]
         },
         {
           "file": "guidebook/en/settings.md",
           "occurrences": 3,
           "regions": [
-            {
-              "anchor": "upstream",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-10-capture",
-              "occurrences": 1
-            },
-            {
-              "anchor": "walkthrough-settings-upstream-14-cancel-draft",
-              "occurrences": 1
-            }
+            { "anchor": "upstream", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-10-capture", "occurrences": 1 },
+            { "anchor": "walkthrough-settings-upstream-14-cancel-draft", "occurrences": 1 }
           ]
         }
       ]
@@ -23714,22 +23232,12 @@
         {
           "file": "guidebook/zh-CN/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "waiting",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "waiting", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/troubleshooting.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "waiting",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "waiting", "occurrences": 1 }]
         }
       ]
     },
@@ -23742,22 +23250,12 @@
         {
           "file": "guidebook/zh-CN/workspace.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-workspace-close-02-url",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-workspace-close-02-url", "occurrences": 1 }]
         },
         {
           "file": "guidebook/en/workspace.md",
           "occurrences": 1,
-          "regions": [
-            {
-              "anchor": "walkthrough-workspace-close-02-url",
-              "occurrences": 1
-            }
-          ]
+          "regions": [{ "anchor": "walkthrough-workspace-close-02-url", "occurrences": 1 }]
         }
       ]
     }

@@ -199,7 +199,7 @@ Retain original files and use the [format guidance](transfer.md#config-files) fo
 <a id="agent"></a>
 ## Model, conversation or Tool fails
 
-1. Open Settings → Agent and edit the model you need to inspect. Check Base URL in box 1. The pictured `Keyed lab` uses a local service at `http://127.0.0.1:64325/keyed/v1`; the App does not create it. Use your own service URL and never send a real credential to the example address.
+1. Open Settings → Agent and edit the model you need to inspect. Check Base URL in box 1. The pictured `Keyed lab` uses a local service at `http://127.0.0.1:64170/keyed/v1`; the App does not create it. Use your own service URL and never send a real credential to the example address.
 
    ![Check the model Base URL](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 

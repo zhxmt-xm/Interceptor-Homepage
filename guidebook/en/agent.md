@@ -15,7 +15,7 @@ The internal Agent uses App-configured models; external MCP hosts use their own 
 <a id="walkthrough-agent-management"></a>
 Add a model service you are authorized to use in Settings → Agent. Connection tests and conversations may incur charges; enter credentials only in the configuration dialog.
 
-This example uses a local demonstration service at `http://127.0.0.1:64325/keyed/v1`, named `Keyed lab`. The App does not create it. Use your own service URL, Model ID and credentials rather than sending a real key to the example address.
+This example uses a local demonstration service at `http://127.0.0.1:64170/keyed/v1`, named `Keyed lab`. The App does not create it. Use your own service URL, Model ID and credentials rather than sending a real key to the example address.
 
 1. <a id="walkthrough"></a><a id="walkthrough-01-settings"></a><a id="walkthrough-02-agent-settings"></a><a id="walkthrough-agent-management-01-settings"></a>Open Settings from the sidebar and select Agent. Before adding a model, the page shows No models configured; ordinary capture remains available.
 
@@ -31,7 +31,7 @@ This example uses a local demonstration service at `http://127.0.0.1:64325/keyed
 
    ![Add and verify a model · 3](../media/v0.1.1-alpha.1/agent-models-english/step-004.annotated.png)
 
-4. <a id="walkthrough-06-endpoint"></a><a id="walkthrough-agent-management-guide-one-03-endpoint"></a>Enter the service’s Base URL in box 1, `http://127.0.0.1:64325/keyed/v1` in the image. Remote Custom services require HTTPS; HTTP is restricted to supported local loopback endpoints.
+4. <a id="walkthrough-06-endpoint"></a><a id="walkthrough-agent-management-guide-one-03-endpoint"></a>Enter the service’s Base URL in box 1, `http://127.0.0.1:64170/keyed/v1` in the image. Remote Custom services require HTTPS; HTTP is restricted to supported local loopback endpoints.
 
    ![Add and verify a model · 4](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 
@@ -71,7 +71,7 @@ This example uses a local demonstration service at `http://127.0.0.1:64325/keyed
 
     ![Add and verify a model · 12](../media/v0.1.1-alpha.1/agent-models-english/step-015.annotated.png)
 
-13. <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>Enter the local service URL in box 1, `http://127.0.0.1:64325/keyless/v1` here. This service permits unauthenticated access, so leave API key empty.
+13. <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>Enter the local service URL in box 1, `http://127.0.0.1:64170/keyless/v1` here. This service permits unauthenticated access, so leave API key empty.
 
     ![Add and verify a model · 13](../media/v0.1.1-alpha.1/agent-models-english/step-016.annotated.png)
 

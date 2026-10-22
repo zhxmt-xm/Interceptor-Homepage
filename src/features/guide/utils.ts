@@ -13,6 +13,13 @@ export function searchGuide(query: string, locale: Locale): GuideSearchResult[] 
   return searchGuideDocuments(locale === 'en' ? englishDocuments : chineseDocuments, query, locale);
 }
 
+export function findGuideFragmentElement(fragment: string): HTMLElement | null {
+  return (
+    document.getElementById(`guide-anchor-${fragment}`) ??
+    document.getElementById(`guide-heading-${fragment}`)
+  );
+}
+
 export function scrollToGuideFragment(): void {
   if (!window.location.hash) return;
   let fragment: string;
@@ -23,8 +30,6 @@ export function scrollToGuideFragment(): void {
     console.warn('Guidebook URL contains an invalid fragment.');
     return;
   }
-  const target =
-    document.getElementById(`guide-anchor-${fragment}`) ??
-    document.getElementById(`guide-heading-${fragment}`);
+  const target = findGuideFragmentElement(fragment);
   target?.scrollIntoView({ block: 'start', behavior: 'auto' });
 }

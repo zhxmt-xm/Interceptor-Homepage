@@ -17,6 +17,12 @@
   color: var(--text-2);
 }
 
+.outline a[aria-current="location"] {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 @media (max-width: 1000px) {
   .outline {
     display: none;

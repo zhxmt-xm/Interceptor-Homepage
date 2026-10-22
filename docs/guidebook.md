@@ -46,6 +46,23 @@
 
 本地证据保留[索引前置Red](../artifacts/item13-search/red-content.json)、[入口前置Red](../artifacts/item13-search/red-browser.json)、[整书及搜索Browser结果](../artifacts/item13-search/final-browser.json)和[最终搜索trace索引](../artifacts/item13-search/final-search-traces.json)。[独立元素报告](../../../.copilot/session-state/f3062413-6e95-4bf8-80bc-3616f6dfb970/files/item13-final-data-parity/report.md)只覆盖声明控件的数据，不代替Browser业务或性能；字体失败、元素缺失与不稳定不能算通过。以上均为本地网站验证，不代表Cloudflare线上访问或App iframe已交付。
 
+## 本章内容当前位置
+
+右侧目录根据实际正文阅读位置标记当前小节；不依赖最近点击的链接，也不改变教程搜索、正文或App入口范围。
+
+- 右侧“本章内容”仍只列当前章节的二级小节。宽度大于1000px时显示，较窄窗口沿用现有隐藏规则，不新增手机导航控件。
+- 当前小节使用12px、600字重和主题强调色，并在对应链接上标记`aria-current="location"`；其余项仍为11px。保留目录宽度、间距、换行、可见焦点和既有hover/focus行为，不改变正文或图片大小。
+- 以固定Header下的原生阅读位置判断当前小节；下一小节尚未到达阅读位置时保持上一项，页面起始选择首项，页面滚动到底时选择末项。点击目录、刷新深链、历史切换与搜索定位到步骤后，标记实际阅读位置所属的小节，而不是只读取URL中的hash。
+- 滚动只更新当前位置，不写URL或新增历史，也不把正文拉回标题。当前项超出目录视区时只滚动目录自身；窗口高度、宽度或语言改变后仍保持当前项可见。
+- 继续由`GuidePage`处理正常链接导航并遵循原生平滑滚动/减少动态效果；不使用会另行接管滚动与History的控件。正文定位与目录跟随共用同一锚点解析，不新增第二套正文ID。
+- 更换章节时取消旧观察与滚动监听；图片/字体布局和窗口尺寸变化后按实际位置更新。不因目录状态更新而重建正文或重新加载章节。
+
+`GuideOutline`以`requestAnimationFrame`合并滚动读取，观察正文和目录尺寸；`GuideLink`只新增`aria-current`透传，普通、外部和命名锚点行为不变。正文定位与目录共用`findGuideFragmentElement()`。原生锚点滚动可能留下小数CSS像素，当前项判断按CSS像素落点处理；元素对照仍比较未经舍入的原始几何。目录末项按浏览器原生滚动范围显示，不增加padding、行高或位移补偿整数`scrollHeight`与小数行框之间的差异。
+
+验收覆盖[共享链接语义](../tests/integration/guide-link.test.ts)、[真实Browser目录跟随](../tests/integration/guide-outline.test.ts)、搜索/深链/历史/语言、目录自身滚动与宽度切换，以及高分屏逐项点击；保留首次目录小于1000ms、长章导航与受测搜索完整绘制小于300ms的门槛。正式UI与已确认设计按独立元素数据严格对照，不用截图相似度替代，也不使用容差或位置补偿。
+
+本地证据保留[链接前置Red](../artifacts/item17-outline/red-link.json)、[目录前置Red](../artifacts/item17-outline/red-browser.json)、[专项Green与成功trace](../artifacts/item17-outline/outline-green.json)、[阅读/搜索/图片回归](../artifacts/item17-outline/reader-regression.json)及[目录严格元素报告](../../../.copilot/session-state/f3062413-6e95-4bf8-80bc-3616f6dfb970/files/item17-outline-parity-final/report.md)。[搜索元素回归](../../../.copilot/session-state/f3062413-6e95-4bf8-80bc-3616f6dfb970/files/item17-search-parity-verified/report.md)核对共享采集器调用方；设计SPA仍存在原fixture的DOM属性开发告警，不由本项修改或算作网站运行错误。验收滚轮按实际剩余距离发送，避免超大滚轮余量在后续导航期间继续滚动。
+
 ## 内容组织
 
 每个操作小节沿用快速上手的普通编号图文：先交代操作所需环境，再按顺序写清点击位置、输入值和操作后需要检查的状态，图片紧跟对应步骤。教程只使用用户可见的功能名称，不出现为了验收才需要的 fixture、automation ID、临时 profile 或测试输入生成步骤。

@@ -1,7 +1,13 @@
 import type { ComponentProps } from 'react';
 import styles from './GuideLink.module.css';
 
-export default function GuideLink({ href, id, title, children }: ComponentProps<'a'>) {
+export default function GuideLink({
+  href,
+  id,
+  title,
+  children,
+  'aria-current': ariaCurrent,
+}: ComponentProps<'a'>) {
   if (!href) return <span id={id} className={styles.anchor} />;
   const external = /^(?:https?:)?\/\//i.test(href);
   const openSeparately =
@@ -11,6 +17,7 @@ export default function GuideLink({ href, id, title, children }: ComponentProps<
       id={id}
       href={href}
       title={title}
+      aria-current={ariaCurrent}
       className={styles.link}
       target={openSeparately ? '_blank' : undefined}
       rel={openSeparately ? 'noopener noreferrer' : undefined}

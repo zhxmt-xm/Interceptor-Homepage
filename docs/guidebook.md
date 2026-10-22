@@ -193,7 +193,7 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 
 ### npm start整本截图发布
 
-新增入口为Interceptor的`npm start → Test → E2E → 全部教程截图并发布 Homepage`；当前实现与验收由Interceptor的Handover item 22跟踪，不将代码存在当作完整验收。
+入口为Interceptor的`npm start → Test → E2E → 全部教程截图并发布 Homepage`。发布工具已完成下述定向与代表性来源验收；这里的“60条”是56个原workflow文件中的60个测试场景，不是教程篇数或正文步骤数。
 
 1. 本地只准备Interceptor仓库，使用有本仓库写入权限的账号执行`gh auth login`。Start直接读取GitHub上的`main`及[发布清单](../guidebook/screenshot-publication.json)，不要求本地Homepage目录，不clone或创建分支。
 2. 选择与发布契约版本一致的签名App，默认重拍登记的全部原测试。清单中的60条测试对应72组现有媒体；正式PNG及原图保持既有目标路径，图文不依赖新运行的顺序文件名。选择不发布时只保存并校验本地截图，不上传、创建commit或更新远端。
@@ -210,7 +210,9 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 - `sources[].checkpoints`保存完整原测试的明确顺序契约，`workflowSha256`锁定该原文件；新增截图或流程变化必须更新对应检查点及摘要，既有key和目标路径保留。序列检查是拒绝错位的门禁，不是按新序号推断旧用途。
 - 红框或示例语义变化必须同步正文与绑定；新增图片先明确其章节用途和安全边界，再纳入清单，不自动把所有未采用候选图上传。
 - 当前清单为macOS x64、English App `0.1.1-alpha.1`；Windows原生窗口、不同App版本及item 16尚未取得的环境不能冒充现有契约。首次系统授权和外部凭据仍需正常处理。
-- 按用户本次“先提交、不要复杂验证”的要求，远端发布入口先完成最小语法/类型、映射、GitHub读写边界核对；尚未再执行完整60条截图并更新全部远端图片的端到端验收，不能把之前的独立来源Green写成这条新发布链路已全量通过。
+- 发布工具验收：真实Start菜单读取远端、取消、未登录拒绝、失败来源/部分恢复拒绝、无变化不建commit、过期基线拒绝均已检查。独立完整通过的Agent模型场景经同一生成及GitHub提交函数完成真实图片发布，见[代表性提交](https://github.com/zhxmt-xm/Interceptor-Homepage/commit/09c2ded2ecd588d013bf6a92c4f7bc086fce0c8b)与[远端核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/representative-publication/remote-verification.json)：只改变审核的58个文件，全部76个候选文件摘要一致，完整60条映射和其他图片组保留。双语动态值、重复生成一致性、生产构建/typecheck、lint和7项相关Browser通过。
+- 验收边界：本轮未完成单次60条截图全量回归；最后部分批次已中断，没有把中断场景或旧图作为完整批次发布。代表性验收直接使用同一发布函数，不给正式命令增加绕过完整清单的参数；日常全量命令仍要求其全部登记来源通过。
+- CI独立运行，不是发布完成条件。上述提交触发的[既有网站CI](https://github.com/zhxmt-xm/Interceptor-Homepage/actions/runs/39824792415)通过98项、失败3项：目录测试过早读取旧章节的链接，两个主题测试仍查找已改为预览按钮的图片链接；上传失败证据还遇到GitHub artifact存储额度限制。这些结果如实保留，本轮未修改相关测试或删除账户产物，不能把CI记为全绿，也不让该后台检查阻塞发布命令。
 
 ## 维护与验证
 

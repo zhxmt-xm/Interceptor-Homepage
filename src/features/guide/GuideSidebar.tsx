@@ -2,12 +2,22 @@ import { Link } from 'react-router-dom';
 import type { Locale } from '../../content';
 import { GUIDE_CHAPTERS, GUIDE_UI, type GuidePageId, guideHref } from '../../content/guidebook';
 import styles from './GuideSidebar.module.css';
+import GuideSearchTrigger from './search/GuideSearchTrigger';
 
-export default function GuideSidebar({ page, locale }: { page: GuidePageId; locale: Locale }) {
+export default function GuideSidebar({
+  page,
+  locale,
+  onSearch,
+}: {
+  page: GuidePageId;
+  locale: Locale;
+  onSearch: () => void;
+}) {
   const copy = GUIDE_UI[locale];
   return (
     <aside className={styles.sidebar}>
       <p className={styles.title}>{copy.title}</p>
+      <GuideSearchTrigger locale={locale} onClick={onSearch} />
       <nav aria-label={copy.directory} data-automation-id="guide.chapters">
         <Link
           className={styles.chapter}

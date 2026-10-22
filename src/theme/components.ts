@@ -36,3 +36,41 @@ export const HEADER_THEME: ThemeConfig = {
     },
   },
 };
+
+export const GUIDE_SEARCH_THEME: ThemeConfig = {
+  cssVar: { key: 'guide-search' },
+  token: {
+    fontFamily: 'var(--font-sans)',
+    fontSize: 14,
+    motion: false,
+    colorPrimary: 'var(--accent)',
+    colorText: 'var(--text)',
+    colorTextHeading: 'var(--text)',
+    colorTextSecondary: 'var(--text-2)',
+    colorTextTertiary: 'var(--text-3)',
+    colorTextQuaternary: 'var(--text-3)',
+    colorTextDisabled: 'var(--text-3)',
+    colorTextPlaceholder: 'var(--text-3)',
+    colorBgContainer: 'var(--panel)',
+    colorBgElevated: 'var(--panel)',
+    colorBorder: 'var(--border-2)',
+    colorFillSecondary: 'var(--hover)',
+    borderRadius: 8,
+  },
+  components: {
+    Input: {
+      activeBorderColor: 'var(--accent)',
+      hoverBorderColor: 'var(--accent)',
+      activeShadow: 'none',
+    },
+    Button: {
+      defaultHoverColor: 'var(--accent)',
+      defaultHoverBorderColor: 'var(--accent)',
+      defaultHoverBg: 'var(--hover)',
+    },
+    Modal: {
+      contentBg: 'var(--panel)',
+      headerBg: 'var(--panel)',
+    },
+  },
+};

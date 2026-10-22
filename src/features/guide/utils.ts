@@ -2,10 +2,15 @@ import englishDocuments from 'virtual:guidebook-content/en';
 import chineseDocuments from 'virtual:guidebook-content/zh';
 import type { Locale } from '../../content';
 import type { GuidePageId } from '../../content/guidebook';
-import type { GuideDocument } from './interfaces';
+import type { GuideDocument, GuideSearchResult } from './interfaces';
+import { searchGuideDocuments } from './search/utils';
 
 export function readGuideDocument(page: GuidePageId, locale: Locale): GuideDocument {
   return (locale === 'en' ? englishDocuments : chineseDocuments)[page];
+}
+
+export function searchGuide(query: string, locale: Locale): GuideSearchResult[] {
+  return searchGuideDocuments(locale === 'en' ? englishDocuments : chineseDocuments, query, locale);
 }
 
 export function scrollToGuideFragment(): void {

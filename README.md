@@ -82,6 +82,7 @@ docs/               # 结构约定与部署指南
 
 [教程目录](guidebook/README.md)包含对应中英初稿：入门、工作区、Capture、Composer、Rules、Breakpoints、文件交换、Settings、Diagnostics、Agent、MCP、权限、Tool 速查和排查。内容只在本仓库维护，按用户操作组织，不要求阅读 workflow。
 
+- 教程内点击“搜索教程 / Search guide”或按`Cmd/Ctrl+K`，可搜索当前语言的全部章节、正文和步骤；点击结果或按Enter直接定位，Escape关闭。搜索在本机完成，不上传关键词，也不识别截图中的文字。
 - [内容与阅读页面约定](docs/guidebook.md)：章节、素材、在线路由和先官网后 App 的边界。
 - [全量功能覆盖关系](docs/guidebook-coverage.md)：每组 workflow 对应正文及功能点锚点，不把规格覆盖当作教程已经实机验收。
 - [截图来源](docs/guidebook.md#从原workflow取得步骤图)：在Interceptor的`npm start → Test → E2E`选择逐步截图，结果留在独立测试目录；本仓库不再维护专用制作或导入工具，普通测试不会覆盖官网。

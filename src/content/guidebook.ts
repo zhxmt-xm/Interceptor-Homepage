@@ -181,6 +181,22 @@ export const GUIDE_UI = {
     loadError: '教程未能加载',
     loadErrorHint: '请检查网络后重试，也可以继续使用顶部导航。重试会重新加载当前页面。',
     retry: '重新加载',
+    search: {
+      trigger: '搜索教程',
+      title: '搜索使用指南',
+      placeholder: '搜索章节、操作步骤或关键词…',
+      scope: '全部章节 · 中文',
+      empty: '输入关键词，找到对应的操作。',
+      hint: '搜索章节标题、步骤和正文，不搜索图片中的文字。',
+      noResults: '没有找到相关内容',
+      retry: '试试更短的关键词，或检查拼写。',
+      results: '条结果',
+      navigate: '选择',
+      open: '打开',
+      close: '关闭',
+      step: '步骤',
+      examples: ['证书', '断点', 'HAR'],
+    },
   },
   en: {
     back: 'Back to website',
@@ -199,8 +215,24 @@ export const GUIDE_UI = {
     loadErrorHint:
       'Check your connection and retry, or use the site navigation. Retrying reloads this page.',
     retry: 'Reload this page',
+    search: {
+      trigger: 'Search guide',
+      title: 'Search the user guide',
+      placeholder: 'Search chapters, steps or keywords…',
+      scope: 'All chapters · English',
+      empty: 'Find the instructions you need.',
+      hint: 'Search chapter titles, steps and text, not text inside images.',
+      noResults: 'No matching content',
+      retry: 'Try a shorter keyword or check the spelling.',
+      results: 'results',
+      navigate: 'Select',
+      open: 'Open',
+      close: 'Close',
+      step: 'Step',
+      examples: ['certificate', 'breakpoint', 'HAR'],
+    },
   },
-} satisfies Record<Locale, Record<string, string>>;
+} satisfies Record<Locale, Record<string, string | Record<string, string | readonly string[]>>>;
 
 export function guideHref(page: GuidePageId, locale: Locale): string {
   return `/guide${page === 'overview' ? '' : `/${page}`}${locale === 'en' ? '?lang=en' : ''}`;

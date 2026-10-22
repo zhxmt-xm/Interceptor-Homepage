@@ -18,11 +18,12 @@ import imageDimensions from '../guidebook/media/image-dimensions.json' with { ty
 import {
   GUIDE_CHAPTERS,
   GUIDE_LANGUAGE,
+  GUIDE_UI,
   type GuidePageId,
   guideHref,
 } from '../src/content/guidebook.ts';
 import type { Locale } from '../src/content/types.ts';
-import type { GuideHeading } from '../src/features/guide/interfaces.ts';
+import type { GuideHeading, GuideSearchEntry } from '../src/features/guide/interfaces.ts';
 
 const dimensionsByFile: Record<string, number[]> = imageDimensions;
 
@@ -61,23 +62,103 @@ function explicitAnchor(node: Element): string | undefined {
   return undefined;
 }
 
+function readHeading(node: Element, previous: Element | undefined): GuideHeading {
+  const id =
+    previous && ['p', 'a', 'span'].includes(previous.tagName) && textContent(previous).trim() === ''
+      ? explicitAnchor(previous)
+      : undefined;
+  const generatedId = node.properties.id;
+  if (typeof generatedId !== 'string') throw new Error('Guidebook heading has no anchor.');
+  return {
+    id: id ?? generatedId.replace(/^guide-heading-/, ''),
+    title: textContent(node),
+  };
+}
+
 function outline(tree: Root): GuideHeading[] {
   const headings: GuideHeading[] = [];
   let previous: Element | undefined;
   for (const node of tree.children) {
     if (node.type !== 'element') continue;
     if (node.tagName === 'h2') {
-      const id = previous && explicitAnchor(previous);
-      const generatedId = node.properties.id;
-      if (typeof generatedId !== 'string') throw new Error('Guidebook heading has no anchor.');
-      headings.push({
-        id: id ?? generatedId.replace(/^guide-heading-/, ''),
-        title: textContent(node),
-      });
+      headings.push(readHeading(node, previous));
     }
     previous = node;
   }
   return headings;
+}
+
+function searchableText(node: Nodes): string {
+  if (node.type === 'text') return node.value;
+  if (!('children' in node)) return '';
+  if (node.type === 'element' && node.tagName === 'img') return '';
+  const text = node.children.map(searchableText).join('');
+  return node.type === 'element' &&
+    /^(?:p|li|ul|ol|pre|blockquote|table|tr|th|td|div|br|h[1-6])$/.test(node.tagName)
+    ? `${text} `
+    : text;
+}
+
+function searchEntries(
+  tree: Root,
+  title: string,
+  page: GuidePageId,
+  locale: Locale,
+): GuideSearchEntry[] {
+  const summary =
+    GUIDE_CHAPTERS.find((chapter) => chapter.slug === page)?.summary[locale] ??
+    GUIDE_UI[locale].overviewSummary;
+  let section: { kind: 'chapter' | 'section'; anchor: string; title: string; text: string } = {
+    kind: 'chapter',
+    anchor: '',
+    title,
+    text: summary,
+  };
+  const entries: GuideSearchEntry[] = [section];
+  const ids = new Set<string>();
+  visit(tree, 'element', (node) => {
+    if (typeof node.properties.id === 'string') ids.add(node.properties.id);
+  });
+  let previous: Element | undefined;
+  let listIndex = 0;
+  for (const node of tree.children) {
+    if (node.type !== 'element') continue;
+    if (/^h[2-6]$/.test(node.tagName)) {
+      const heading = readHeading(node, previous);
+      section = { kind: 'section', anchor: heading.id, title: heading.title, text: '' };
+      entries.push(section);
+    } else if (node.tagName === 'ol') {
+      listIndex += 1;
+      const start = typeof node.properties.start === 'number' ? node.properties.start : 1;
+      const steps = node.children.filter(
+        (child): child is Element => child.type === 'element' && child.tagName === 'li',
+      );
+      for (const [index, step] of steps.entries()) {
+        let anchor: string;
+        if (typeof step.properties.id === 'string') {
+          anchor = step.properties.id.replace(/^guide-anchor-/, '');
+        } else {
+          anchor = `search-step-${explicitAnchor(step) ?? `${listIndex}-${index + 1}`}`;
+          const id = `guide-anchor-${anchor}`;
+          if (ids.has(id))
+            throw new Error(`Duplicate guide search anchor: ${locale}/${page}#${anchor}`);
+          ids.add(id);
+          step.properties.id = id;
+        }
+        entries.push({
+          kind: 'step',
+          anchor,
+          title: section.title,
+          text: searchableText(step).replace(/\s+/gu, ' ').trim(),
+          step: start + index,
+        });
+      }
+    } else {
+      section.text = `${section.text} ${searchableText(node)}`.replace(/\s+/gu, ' ').trim();
+    }
+    previous = node;
+  }
+  return entries;
 }
 
 function compile(source: string, page: GuidePageId, locale: Locale) {
@@ -108,7 +189,9 @@ function compile(source: string, page: GuidePageId, locale: Locale) {
       );
     }
   });
-  return { title, tree, headings: outline(tree) };
+  const headings = outline(tree);
+  const search = searchEntries(tree, title, page, locale);
+  return { title, tree, headings, search };
 }
 
 async function readMediaFiles(root: string): Promise<string[]> {
@@ -341,7 +424,7 @@ export function guideContent(): Plugin {
           documentModulesByFile.set(normalizePath(file), id);
           if (!development) this.addWatchFile(file);
           const document = compile(await readFile(file, 'utf8'), page, locale);
-          return `${JSON.stringify(page)}:{title:${JSON.stringify(document.title)},headings:${JSON.stringify(document.headings)},${compileArticle(document.tree, page, locale, mediaFiles)}}`;
+          return `${JSON.stringify(page)}:{title:${JSON.stringify(document.title)},headings:${JSON.stringify(document.headings)},search:${JSON.stringify(document.search)},${compileArticle(document.tree, page, locale, mediaFiles)}}`;
         }),
       );
       return {

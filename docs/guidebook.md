@@ -2,7 +2,7 @@
 
 ## 当前交付
 
-- 唯一正文在 [guidebook/](../guidebook/README.md)，是普通 Markdown 目录，不分发 npm 包，不再维护 registry、PAT、草稿发布 tag 或跨仓库制品同步。
+- 唯一正文在 [guidebook/](../guidebook/README.md)，是普通 Markdown 目录，不分发 npm 包，不再维护 registry、PAT 或草稿发布 tag；截图跨仓更新使用下文的显式Start发布流程。
 - 中英初稿均覆盖入门、工作区、Capture、Composer、Rules、Breakpoints、导入导出、Settings、Diagnostics、Agent、MCP、权限、Tool速查和排查；正文、章节名称和简介按语言加载，操作值与共同锚点保持一致。
 - [功能覆盖关系](guidebook-coverage.md)逐组映射 workflow 到正文和锚点；这是内容覆盖，不是产品操作验收。
 - 写作目标为 `v0.1.1-alpha.1` / `e55f1ed1`。代码与契约不一致时以核对后的实际产品行为写作，差异在覆盖文档说明；不能直接把测试说明转成产品能力承诺。
@@ -183,13 +183,34 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 
 ## 从原workflow取得步骤图
 
-从Interceptor的`npm start → Test → E2E`选择“逐步截图”，再选择功能/workflow。结果自动保存在`apps/desktop/test-results/workflow-screenshots/<run>/<test>/step-screenshots/`，包含PNG和schema 1清单；没有独立Guidebook入口，不需要手写flag，也不会自动写入本仓库。
+从Interceptor的`npm start → Test → E2E`选择“逐步截图”，再选择功能/workflow。结果自动保存在`apps/desktop/test-results/workflow-screenshots/<run>/<test>/step-screenshots/`，包含PNG和schema 1清单，不需要手写flag。普通截图模式不写本仓库；整本更新使用下述显式发布操作。
 
 - 普通模式与截图模式使用同一批业务流程和断言；截图目录与普通测试输出隔离，不被下一次普通运行清空。
 - 使用图片前检查测试结果、宿主恢复、每代App正常退出及原图/步骤内容。工程验收注释、内部故障注入、个人流量或凭据不能直接变成用户教程。
-- 本仓库继续维护现有Markdown、原图和图片尺寸索引，保留已有图文；不维护专用制作/导入命令或跨仓复制脚本。素材来源、实际版本、平台和隐私要求仍然适用，local build不冒充已发布Release，Windows Renderer图不冒充原生面板。
+- 本仓库继续维护现有Markdown、原图和图片尺寸索引，保留已有图文；发布契约与内容放在一起，执行入口在Interceptor的`npm start`，不建立第二套教程workflow。素材来源、实际版本、平台和隐私要求仍然适用，local build不冒充已发布Release，Windows Renderer图不冒充原生面板。
 - 内容变更后运行已有build与受影响Browser检查。现有编译器统一处理图片尺寸、懒加载、原图入口和导航，不新增一套阅读数据。
 - 当前只保留原92个业务workflow；所有65个教程副本、独立教程配置及持续录屏器已从Interceptor移除，没有改名保留第二套。必要差集回到原Composer/Rules/Capture/Agent/MCP/Settings/Diagnostics流程，参见[当前规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)。下文旧录像命令只记录历史，不是当前可运行入口；旧图片来源和实际验收结果不改写。
+
+### npm start整本截图发布
+
+新增入口为Interceptor的`npm start → Test → E2E → 全部教程截图并发布 Homepage`；当前实现与验收由Interceptor的Handover item 22跟踪，不将代码存在当作完整验收。
+
+1. 本地只准备Interceptor仓库，使用有本仓库写入权限的账号执行`gh auth login`。Start直接读取GitHub上的`main`及[发布清单](../guidebook/screenshot-publication.json)，不要求本地Homepage目录，不clone或创建分支。
+2. 选择与发布契约版本一致的签名App，默认重拍登记的全部原测试。清单中的60条测试对应72组现有媒体；正式PNG及原图保持既有目标路径，图文不依赖新运行的顺序文件名。选择不发布时只保存并校验本地截图，不上传、创建commit或更新远端。
+3. 每条测试完整通过且所有App代际正常退出、宿主恢复后，逐检查点核对标题、实际语言、窗口、主题、自然尺寸和红框编号。先完成整组验证，不边拍边覆盖官网图片；任何失败、缺失或歧义停止发布。
+4. 按`source.key`及`checkpoint.key`更新目标图、原图、来源与尺寸；原Markdown图片路径保持。动态端口使用原fixture或workflow明确登记的`examples`，按清单中明确的正文锚点和出现次数更新中英文；不同步骤偶然使用相同端口时不互相替换。不存在、重复或冲突的绑定失败，不从图像或文字相似度猜值。
+5. 全部截图、各代退出恢复和固定映射通过后，GitHub Git Data API上传改变的blob；相同内容按Git对象摘要复用。只更新映射中登记的文件，不读取或提交操作者本机其他repo的未提交修改。
+6. 以启动时Homepage `main`为唯一父commit创建候选，然后用`force:false`更新`main`；远端已经推进则停止。完成后再次读取远端SHA确认成功，不强推、pull/rebase或操作App仓库的index。Homepage现有`Check website`在更新后运行，不新增或等待额外的Actions发布流程，也不进行本地网站构建或部署。
+
+发布目录和阶段写入Interceptor的`test-results/guidebook-publications/<run>/publication.json`，不进入网站源码。完整截图已通过但上传失败时，可从同一Start入口选择“继续发布已经完整通过的本地截图”，重新校验远端基线、App、workflow/fixture与所有证据，并复用已记录的上传对象。不使用部分或失败截图批次，不把旧本地仓库模式的报告冒充新远端流程；仅创建候选commit尚未推进`main`时不称为发布成功。GitHub权限、限流、网络或分支保护错误明确失败，不自动绕过。
+
+固定身份的维护：
+
+- `checkpoint.key`一经分配不因标题或文件序号变化而改名；`groups[].images`只保存固定key到既有图片路径的对应关系，一张图可被多章、中英文复用。
+- `sources[].checkpoints`保存完整原测试的明确顺序契约，`workflowSha256`锁定该原文件；新增截图或流程变化必须更新对应检查点及摘要，既有key和目标路径保留。序列检查是拒绝错位的门禁，不是按新序号推断旧用途。
+- 红框或示例语义变化必须同步正文与绑定；新增图片先明确其章节用途和安全边界，再纳入清单，不自动把所有未采用候选图上传。
+- 当前清单为macOS x64、English App `0.1.1-alpha.1`；Windows原生窗口、不同App版本及item 16尚未取得的环境不能冒充现有契约。首次系统授权和外部凭据仍需正常处理。
+- 按用户本次“先提交、不要复杂验证”的要求，远端发布入口先完成最小语法/类型、映射、GitHub读写边界核对；尚未再执行完整60条截图并更新全部远端图片的端到端验收，不能把之前的独立来源Green写成这条新发布链路已全量通过。
 
 ## 维护与验证
 

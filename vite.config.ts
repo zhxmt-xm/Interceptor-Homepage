@@ -32,20 +32,20 @@ function replaceMetadataAttribute(
   attribute: 'content' | 'href',
   value: string,
 ): string {
-  const pattern = new RegExp(
-    `(<[^>]+data-page-metadata="${marker}"[^>]+${attribute}=")[^"]*(")`,
-  );
+  const pattern = new RegExp(`(<[^>]+data-page-metadata="${marker}"[^>]+${attribute}=")[^"]*(")`);
   if (!pattern.test(html)) throw new Error(`Homepage metadata marker is missing: ${marker}`);
-  return html.replace(pattern, (_match: string, prefix: string, suffix: string) =>
-    `${prefix}${escapeHtml(value)}${suffix}`,
+  return html.replace(
+    pattern,
+    (_match: string, prefix: string, suffix: string) => `${prefix}${escapeHtml(value)}${suffix}`,
   );
 }
 
 function replaceMetadataTitle(html: string, title: string): string {
   const pattern = /(<title data-page-metadata="title">)[^<]*(<\/title>)/;
   if (!pattern.test(html)) throw new Error('Homepage title metadata marker is missing.');
-  return html.replace(pattern, (_match: string, prefix: string, suffix: string) =>
-    `${prefix}${escapeHtml(title)}${suffix}`,
+  return html.replace(
+    pattern,
+    (_match: string, prefix: string, suffix: string) => `${prefix}${escapeHtml(title)}${suffix}`,
   );
 }
 
@@ -57,12 +57,7 @@ function renderMetadata(html: string, metadata: StaticMetadata): string {
   result = replaceMetadataAttribute(result, 'og-description', 'content', metadata.description);
   result = replaceMetadataAttribute(result, 'og-url', 'content', metadata.url);
   result = replaceMetadataAttribute(result, 'twitter-title', 'content', metadata.title);
-  return replaceMetadataAttribute(
-    result,
-    'twitter-description',
-    'content',
-    metadata.description,
-  );
+  return replaceMetadataAttribute(result, 'twitter-description', 'content', metadata.description);
 }
 
 function guideMetadata(page: GuidePageId, path: string): StaticMetadata {

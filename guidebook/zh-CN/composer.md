@@ -702,6 +702,12 @@ Collection 文件保存请求和目录配置，不会把其中的请求发送到
 
    ![审批 Collection 文件导出与导入 · 4](../media/v0.1.1-alpha.1/composer-file-tools-english/step-027.png)
 
+   Windows 使用系统 Save/Open 面板。下面两张图保留真实文件名和操作按钮；导航侧栏与地址路径已做隐私遮盖。macOS 面板外观会有所不同。
+
+   ![Windows Collection Save 面板](../media/windows-local-20261023/native-file-dialog/save-collection.png)
+
+   ![Windows Collection Open 面板](../media/windows-local-20261023/native-file-dialog/open-collection.png)
+
 5. <a id="walkthrough-composer-file-tools-cancel-preview-ask"></a><a id="walkthrough-composer-file-tools-cancel-preview-open"></a><a id="walkthrough-composer-file-tools-cancel-preview-preview"></a><a id="walkthrough-composer-file-tools-cancel-preview-decision"></a>允许 Import 后，在 Open 中选择 `product-collection.json`。预览图的红框 1 是待导入内容，红框 2 是 Cancel；检查数量和内容后取消，集合保持不变。
 
    ![审批 Collection 文件导出与导入 · 5](../media/v0.1.1-alpha.1/composer-file-tools-english/step-032.annotated.png)

@@ -67,6 +67,7 @@ Capture 已有需要保留的记录。下面共有四条：两条 `/e2e/har-tool
 
 12. 需要重新查看时，按[导入步骤](#import)打开自己刚保存的文件。导入追加文件中的记录，不重发请求，也不会自动去重。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-022.png)
 - HAR 不能无损表达 HTTP/2 pseudo-header、trailers、WebSocket 消息、TLS 详情和完整规则历史。
 - 压缩响应可能按 HAR 要求保存解码内容，不能仅比较文件正文大小判断线上字节是否丢失。
 - 大正文会增加导出内存需求；没有固定文件大小限制不代表任意规模都低内存。
@@ -74,6 +75,7 @@ Capture 已有需要保留的记录。下面共有四条：两条 `/e2e/har-tool
 
 
 <a id="archive"></a>
+
 ## 保存 Native Archive
 
 Native Archive 保存当前 Capture 的完整快照，只能由 Interceptor 打开。下面的独立例子有八条记录，包含 `/e2e/archive-tools/http` 的 HTTP 请求和 `/e2e/archive-tools/websocket` 的消息连接；操作时核对自己的数据，不默认套用 HAR 遮罩。
@@ -137,7 +139,11 @@ Native Archive 保存当前 Capture 的完整快照，只能由 Interceptor 打�
 
 7. 阅读导入警告。文件中没有的协议细节或已经移除的正文不会凭空恢复；有失败或取消时，不把部分进度当作完整导入。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.png)
+
 8. <a id="walkthrough-14-clear"></a>导入不需要空列表。若想从空 Capture 打开归档，先保存仍需保留的记录，再通过 Capture Clear 清理，并等待清理完成。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.png)
 
 9. <a id="walkthrough-15-archive-import"></a>下面独立打开刚保存的 `ui.iarchive`。当前列表仍有八条原记录；从 Import 点击红框 1 的 Open Capture（`.iarchive`）。
 
@@ -169,7 +175,11 @@ Save body 保存已捕获的完整存储字节，不以屏幕上的只读预览�
 
 1. 在 Capture 选中自己的记录并打开 Request、Response 或对应消息正文。本例保存 Response，先确认不是在保存另一方向或另一条记录。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
+
 2. 存在 Original/Final 时，先选要保留的版本。本例没有双版本对照；规则改写后的独立保存步骤见[原始与最终正文](rules.md#effects)。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
 
 3. <a id="walkthrough-18-body-save-dialog"></a>点击正文工具栏的 Save，在系统窗口选择目录并保存为 `utf8-full-body.txt`。文件名和位置由你选择，不把 Copy 当作保存完整正文。
 
@@ -285,6 +295,12 @@ Rules UI 导出当前编辑树，Rules Tool 导出已保存配置；按需要先
 
 3. 另行检查 URL query、用户名、业务标识、自定义 Header、本地路径及文件内容。默认规则不能识别全部业务敏感字段。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)
+
 4. 检查将要发送的最终文件，而不只检查 App 的选项。原生归档及集合配置尤其应按敏感文件管理。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)
+
 5. 反馈中写清 App 版本、系统、协议、操作步骤和实际错误；不发送 CA 私钥、模型凭据或 Client 凭据。无法确认可公开时，重新产生无凭据的最小测试数据。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)

@@ -16,11 +16,19 @@
 
 1. 在 [GitHub Releases](https://github.com/zhxmt-xm/Interceptor/releases) 查看实际附件、版本说明及 Pre-release 标记，不把 `Source code` 当作安装包。
 
+   ![公开 Release 与实际附件](../media/public-release-20261024/github-release-assets.png)
+
 2. macOS 用户选择对应芯片架构的 DMG 或 ZIP，将 App 放到 Applications 后打开。
+
+   ![Release 中的 macOS 架构附件](../media/public-release-20261024/github-release-assets.png)
 
 3. Windows 用户选择 Release 实际提供的安装器或 ZIP；使用 ZIP 时完整解压，不单独取出其中的 EXE 运行。
 
+   ![Release 中的 Windows 安装器和 ZIP](../media/public-release-20261024/github-release-assets.png)
+
 4. 首次启动时阅读系统提示，只授权确认可信的 Interceptor 操作；等待启动准备结束再使用功能。
+
+   ![启动准备结束后的 Interceptor](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.png)
 
 - 当前源码仓库仍是私有仓库，下载需要有访问权限的 GitHub 账号；教程不会提供可绕过权限的下载地址。
 - macOS 包使用 ad-hoc 签名且未公证，Windows 安装器未签名。仅从可信发布入口下载安装。
@@ -37,6 +45,8 @@
    ![确认代理与录制就绪 · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.annotated.png)
 
 2. App 启动会尝试接管系统代理。出现就绪提示时，阅读缺失条件，再使用 Enable 或 Proxy settings 处理；需要系统授权时先完成授权。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.png)
 
 3. 确认红框 1 显示 Recording。若当前为 Paused，点击录制按钮并完成提示，再发送请求；取消就绪提示不等于录制已开启。
 
@@ -55,6 +65,8 @@
    ![发出第一条 HTTP 请求 · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.annotated.png)
 
 2. 从终端通过 `127.0.0.1:8888` 发送下面的 JSON。macOS 命令中的 `--noproxy ""` 仅对本次调用取消绕过，避免本机地址被 `NO_PROXY` 排除；Windows 使用 PowerShell 的显式 Proxy 参数。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.png)
    macOS:
 
    ```sh
@@ -73,6 +85,7 @@
      -ContentType "application/json" `
      -Body '{"ready":true}'
    ```
+
 
 3. 返回 Capture，等待红框 1 的 POST 进入列表。先确认记录出现，再选择它，不用模型或内部接口代替客户端发请求。
 
@@ -168,10 +181,12 @@
 
 5. 点击 App 窗口的正常关闭按钮，等待系统操作和代理恢复；若仍显示忙状态，先等当前操作完成，不强制结束进程。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.png)
 - Capture 是当前运行中的临时数据，Core 退出或重启会释放它，不应当作持久历史。
 - 正常关闭不会卸载共享 CA；停用解密、恢复代理和移除证书信任是不同操作。
 - 若其他软件在会话期间修改了系统代理，Interceptor 不应覆盖对方的新设置，按实际冲突状态处理。
 - 各种范围、格式和取消操作见[导入导出](transfer.md)；退出后仍有网络问题时按[恢复步骤](troubleshooting.md#proxy-recovery)排查。
+
 
 ## 没有看到请求时
 

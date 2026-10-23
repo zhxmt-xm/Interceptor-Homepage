@@ -65,10 +65,12 @@ A request breakpoint pauses before the request continues; a response breakpoint 
 
 14. Alternatively, use Breakpoint → This endpoint from a Capture row’s context menu. It enables and immediately saves both request and response phases, potentially pausing twice. See [shortcut breakpoints](#walkthrough-breakpoints-manager) for operation and Undo; this differs from a Request-only manual Rule.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-007.png)
 HTTP can pause at headers before the complete body arrives. An unavailable Original does not mean the message has no body. The current head is actionable; subsequent Queued entries are read-only.
 
 
 <a id="continue-drop"></a>
+
 ## Continue, edit or drop
 
 Check the phase, path and current wait before each action. This example uses the preceding section’s separate response Rule. The three decisions also apply to the corresponding request head; do not repeat an action on an already resolved target.
@@ -320,6 +322,7 @@ Use a test service you control that accepts POST and PUT. Replace the example ba
 
 9. <a id="walkthrough-breakpoints-queue-15-continue-rule"></a>All three requests are still waiting. Continue with [batch commands](#batch) to choose a Rule or queue scope; do not resend requests that are already paused.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-009.png)
 - Search and filters change visible rows, not hidden waits or queue order.
 - A timeout or client disconnect can remove a wait. Do not apply its stale draft to the next request.
 - A long queue does not automatically continue traffic and can exhaust client connections.
@@ -327,6 +330,7 @@ Use a test service you control that accepts POST and PUT. Replace the example ba
 
 
 <a id="batch"></a>
+
 ## Use batch commands and the manager
 
 Continue with the three waits from the preceding section. A batch command handles the selected scope at the time of the click, not every future request. Continuing unchanged does not submit the editor’s Text draft.
@@ -521,6 +525,8 @@ Connect an authorized WebSocket client through the proxy and enable Recording. T
 
 1. <a id="walkthrough-breakpoints-websocket"></a><a id="walkthrough-breakpoints-websocket-01-connect"></a><a id="walkthrough-breakpoints-websocket-02-select-connection"></a><a id="walkthrough-breakpoints-websocket-03-messages"></a>Select the connection in Capture and open Messages. Existing history can remain; you do not need to Clear it first.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-020.png)
+
 2. <a id="walkthrough-breakpoints-websocket-04-sent-setup"></a><a id="walkthrough-breakpoints-websocket-05-sent-direction"></a><a id="walkthrough-breakpoints-websocket-06-enable-sent"></a>Open the connection breakpoint settings at the top right of Messages. Select Sent in box 1, select only Messages and click Enable breakpoint in box 2. Sent intercepts only that direction.
 
    ![Pause and edit WebSocket frames · 2](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-020.annotated.png)
@@ -579,10 +585,12 @@ Connect an authorized WebSocket client through the proxy and enable Recording. T
 
 16. <a id="walkthrough-breakpoints-websocket-29-close-client"></a>Close the connection normally from the client when finished. For both directions, an empty replacement or control frames, continue with [empty messages, Ping/Pong and close codes](#walkthrough-breakpoints-websocket-controls).
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-033.png)
 Moving configuration to another connection does not resolve existing waits on the old one. Check each connection’s queue. Forward edited submits Text; Continue ignores unsubmitted drafts. Pausing Ping, Pong or Close can affect keepalive and shutdown.
 
 
 <a id="walkthrough-breakpoints-websocket-controls"></a>
+
 ## Edit empty WebSocket messages, Ping/Pong and close codes
 
 Use a WebSocket service you control, connect through the proxy and enable Capture Recording. First use `/e2e/websocket-close` for the close-code example, then another connection at `/e2e/websocket-controls` for empty messages and Ping/Pong. Resolve the old connection’s waits before moving the configuration.

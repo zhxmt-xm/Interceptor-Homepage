@@ -56,6 +56,8 @@ App 启动完成后，通过左侧导航进入需要的工具。Breakpoints 在 
 
 3. <a id="walkthrough-workspace-navigation-16-dismiss-theme"></a><a id="walkthrough-workspace-navigation-17-resize"></a><a id="walkthrough-workspace-navigation-18-restore-size"></a>需要任意尺寸时，拖动窗口边缘或角落调整大小；分栏随可用空间变化。使用顶栏的最大化、还原或最小化按钮时，继续按下一节的[窗口操作图文](#walkthrough-workspace-window-controls)执行；最小化不会停止代理。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-029.png)
+
 4. 使用滚轮、触控板或键盘阅读溢出内容。下图选择了 `/e2e/detail-body-fill` 的长 Request 正文；红框 1 是 Inspector 滚动区域，其中正文有自己的滚动条。先在正文内滚动，需要时拖动正文滚动条到下边界；到达 `entry-199` 后继续滚动，会滚动外层 Inspector，而不是困在内层。
 
    ![在 Request 正文内使用滚轮](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-003.annotated.png)
@@ -241,6 +243,8 @@ Agent 是可选的右侧面板。打开它不会自动发送当前请求，也�
    ![正常结束一次使用 · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
 
 3. 逐个完成或取消自己发起的系统授权和文件窗口。取消正在运行的任务后，等清理结束再 Clear 或退出。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
 
 4. 最后点击红框 1 的 Close。若当前系统操作仍在进行而拒绝退出，等待该操作结束再关闭，不反复点击或强杀。
 

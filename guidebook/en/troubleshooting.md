@@ -25,7 +25,11 @@ Follow the checks for your symptom. Use your own addresses, request names and po
 
 4. Confirm the client actually uses `127.0.0.1:8888`; not every client follows system proxy settings.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.png)
+
 5. On Windows, inspect [AppContainer access](settings.md#app-containers) where applicable. Other network stacks may bypass WinINet.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
 6. For a Composer request, inspect Composer’s own response pane. This is a separate GET to `http://127.0.0.1:58053/e2e/composer/response-section-collapse`, returning `200` with JSON containing `message: response-sections` and `items`. Composer connects directly and is not controlled by Recording, proxy Rules or Breakpoints. Absence from Capture is not a recording failure.
 
@@ -56,9 +60,11 @@ Distinguish a request not sent, traffic not routed through the proxy, recording 
 
 5. Distinguish client distrust of the Interceptor CA from the origin’s own certificate errors. Check client trust for the former and repair the origin certificate first for the latter. The owned `localhost` example above has a separate origin-certificate exception; it does not establish that other targets’ certificate problems are solved. Limit any needed exception to a specific host you control.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.png)
 Use [decryption](settings.md#https-decryption) or [passthrough](settings.md#tls-passthrough) as appropriate. Do not disable global certificate validation.
 
 <a id="rules"></a>
+
 ## A rule has no effect or too much scope
 
 1. Open Rules and check required fields, the enabled state and whether the bottom still says Unsaved changes. Box 1 is the enabled switch for `E2E action variants`; Enabled still requires saving before it affects subsequent requests. Complete missing fields through [rule validation](rules.md#walkthrough-rules-tree-10-invalid) instead of trying to enable an incomplete rule.
@@ -128,9 +134,11 @@ Check rule hit counts and actual Header or Body effects separately. For body rew
 
 7. After a client disconnects, inspect the queue again instead of repeatedly submitting old edits to an item that disappeared. If debugging must continue, have the client send another request and select that new wait. Do not apply the old draft to the next request.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-upstream-english/step-001.png)
 There is no fixed automatic continuation timeout. HTTP requests and responses share the HTTP queue; established WebSocket connections have their own message queues. Do not apply an HTTP batch scope to WebSocket. Disabling a rule does not resolve existing waits.
 
 <a id="body"></a>
+
 ## The body is incomplete or cannot be formatted
 
 1. Read the body notice first to distinguish a preview limit, receiving data, a network interruption and decoding failure. For the pictured GET `/e2e/rules/actions/header-only`, a rule only sets the response Header to `Content-Encoding: gzip`; the bytes remain uncompressed `{"message":"original-action-body"}`. The viewer reports `Failed to decode gzip body; showing raw bytes.` Copy in box 1 copies the currently displayed text but does not repair the encoding.
@@ -141,7 +149,9 @@ There is no fixed automatic continuation timeout. HTTP requests and responses sh
 
 2. Text preview is limited to `2 MiB`; seeing only that portion does not mean only those bytes were captured.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-172.png)
    For bodies larger than `2 MiB`, preview and Copy can be incomplete. Use Save body for the full captured content as described under [large bodies](capture.md#walkthrough-capture-body-limits).
+
 
 3. Use manual Format for a supported complete body above `1 MiB` but within the `2 MiB` preview limit. The JSON response for GET `/e2e/body-limits/manual` is about `1.25 MiB`. Click Format in box 1 to add display indentation and line breaks without resending the request or changing its captured response.
 
@@ -167,11 +177,13 @@ There is no fixed automatic continuation timeout. HTTP requests and responses sh
 
 6. For imported HAR, check whether bodies or protocol details were absent in the source.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-body-save-english/step-050.png)
    Inspect the export options and original file using [body removal during export](settings.md#walkthrough-settings-privacy-export-18-strip-bodies). Import does not restore removed bodies or protocol data that HAR did not retain.
 
 Captured bytes, previews and network completion differ: [body views](capture.md#选择正文查看方式).
 
 <a id="files"></a>
+
 ## Import, export or Clear fails
 
 1. Check the format and entry point first. In Capture’s Export menu, box 1 is Export HAR; use Export Archive for a native archive. Rules JSON belongs to the Rules toolbar, and Collection JSON belongs to Composer. Do not interchange their formats or entry points.
@@ -188,7 +200,11 @@ Captured bytes, previews and network completion differ: [body views](capture.md#
 
 4. Confirm the source exists and is readable, the destination is writable and sufficient disk space remains. Inspect Settings → Storage if needed. Do not free space by manually deleting directories the App is using.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.png)
+
 5. Wait for an active Capture file task or cancellation cleanup to finish before Clear. Follow [archive cancellation](transfer.md#walkthrough-transfer-cancel) to inspect the outcome. A requested cancellation is not completed cleanup, and a disabled Clear action must not be forced.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.png)
 
 6. Check each format’s append and identity behavior. Confirming `rules-roundtrip.json` appends new nodes at the root’s end instead of replacing same-named rules. The pictured tree grows from two rules, one folder and one enabled rule to four rules, two folders and two enabled rules. Importing again appends again; it neither updates existing nodes nor repairs a damaged original file.
 
@@ -239,9 +255,11 @@ Retain original files and use the [format guidance](transfer.md#config-files) fo
 
 9. If a request ID in history is no longer valid, query current Capture again and choose an existing request. Do not guess a new ID or repeatedly submit a stale target.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/agent-traffic-control-english/step-004.png)
 Signing in to GitHub in VS Code does not configure the internal model. Stop neither undoes completed operations nor substitutes for breakpoint Continue.
 
 <a id="mcp"></a>
+
 ## An external host cannot connect
 
 1. Open Settings → Agent and inspect MCP server. The switch in box 1 should be enabled with Running shown; box 2 is the current endpoint, `http://127.0.0.1:57871/mcp` here. Use the complete URL in your own App, not Capture’s `8888`.
@@ -251,6 +269,8 @@ Signing in to GitHub in VS Code does not configure the internal model. Stop neit
    For `EADDRINUSE` or Port unavailable, follow [MCP endpoint conflicts](mcp.md#endpoint). Identify the port’s owner first and do not stop unknown processes. A saved URL can remain visible without the Server listening.
 
 2. Confirm the Host connects from this computer to its local loopback. A cloud connector cannot reach your App through its own `127.0.0.1`; enabling MCP does not publish it on the LAN or Internet.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.png)
 
 3. Check that the Host uses its corresponding Client’s current configuration. After rotating the pictured `MCP workflow client`, use the copy button in box 1, update the Host and reconnect; the old credential stops working immediately. If the endpoint also changed, update its address without recreating the Client solely for that change.
 
@@ -291,20 +311,30 @@ Follow [MCP](mcp.md) through network, authentication, protocol, permission and b
 
 3. Check the network, release-source address and access conditions. The source needs a suitable anonymously accessible stable release and supported installer; a private repository, prerelease-only state or network restriction can prevent this. Resolve the cause before using Check now again.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
+
 4. Use trusted Release assets for the correct OS and architecture, not source archives. Only choose Download after the App shows an available update and you have read its notes, then wait for the download and integrity checks.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 
 5. If download or validation fails, do not run unfinished temporary files. Resolve the error and retry through the product. Choose Open installer only after download and validation finish, then complete the system installation.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 The App has no GitHub PAT update-login field.
 
 <a id="proxy-recovery"></a>
+
 ## Networking is wrong after quitting
 
 1. Confirm whether the App is minimized, still shutting down or actually stopped; do not start several instances.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-001.png)
    Minimizing the window or closing the Agent panel does not quit the App. Save needed data before normal Close, then wait for pending work and system-proxy restoration.
 
+
 2. After an abnormal exit, first ensure the old instance is gone, then start Interceptor normally and inspect recovery.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-001.png)
 
 3. Open Settings → Proxy & Listener. If System proxy still says Owned by Interceptor, click Restore in box 1. Complete any system authorization and wait for the result rather than repeatedly clicking or force-killing.
 
@@ -318,11 +348,17 @@ The App has no GitHub PAT update-login field.
 
 4. If another application changed proxies, inspect both configurations instead of overwriting newer settings.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
+
 5. Retain state/error, App version and OS information if recovery still fails. Have an authorized administrator restore known-good settings.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
 
 6. Do not blindly erase all proxies/journals, disable protections or repeatedly force-kill.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
 <a id="feedback"></a>
+
 ## Prepare a reproducible report
 
 - Include App version, OS, architecture and build source.

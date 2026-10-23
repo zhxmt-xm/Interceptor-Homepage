@@ -18,11 +18,19 @@ No model API key, Rules configuration or HTTPS decryption is needed. Proxy forwa
 
 1. Open [GitHub Releases](https://github.com/zhxmt-xm/Interceptor/releases). Read the attached assets, release notes and Pre-release label. `Source code` is not an installer.
 
+   ![Public release and actual assets](../media/public-release-20261024/github-release-assets.png)
+
 2. On macOS, select the DMG or ZIP for your CPU architecture, place the App in Applications and open it.
+
+   ![macOS architecture assets in the release](../media/public-release-20261024/github-release-assets.png)
 
 3. On Windows, select an installer or ZIP actually attached to the release. Extract a ZIP completely; do not run a lone EXE removed from its directory.
 
+   ![Windows installers and ZIP in the release](../media/public-release-20261024/github-release-assets.png)
+
 4. Read first-launch system prompts and authorize only the trusted Interceptor operation. Wait for startup preparation to finish.
+
+   ![Interceptor after startup preparation](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.png)
 
 - The product repository is currently private. Downloads require a GitHub account with repository access; this guide does not bypass it.
 - The macOS package is ad-hoc signed and not notarized; Windows installers are unsigned. Download only from a trusted release source.
@@ -40,6 +48,8 @@ First confirm the client can reach the proxy and Capture is recording. An open A
    ![Confirm proxy and recording readiness · 1](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.annotated.png)
 
 2. Startup attempts to take ownership of the system proxy. If a readiness prompt appears, read the missing condition and use Enable or Proxy settings. Complete any required system authorization first.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/workspace-navigation-english/step-013.png)
 
 3. Verify box 1 shows Recording. If it shows Paused, use the recording control and complete any prompt before sending traffic. Cancelling readiness does not start recording.
 
@@ -60,6 +70,8 @@ Enable Recording and prepare an authorized test endpoint that can safely accept 
    ![Send your first HTTP request · 1](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.annotated.png)
 
 2. Send the JSON through `127.0.0.1:8888` from a terminal. The macOS command uses `--noproxy ""` for this invocation so `NO_PROXY` does not bypass the local target; the Windows command sets PowerShell’s explicit Proxy parameter.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-json-example-english/step-001.png)
    macOS:
 
    ```sh
@@ -78,6 +90,7 @@ Enable Recording and prepare an authorized test endpoint that can safely accept 
      -ContentType "application/json" `
      -Body '{"ready":true}'
    ```
+
 
 3. Return to Capture and wait for the POST in box 1 to appear. Confirm the row exists before selecting it; the request comes from the client, not a model or an internal application call.
 
@@ -177,6 +190,7 @@ Decide which traffic to keep before exporting. This example uses four separate t
 
 5. Use the App window’s normal Close button and wait for system operations and proxy restoration. If it is busy, let the current operation finish rather than force-killing the process.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-015.png)
 - Capture is temporary data for the current Core process; quitting or restarting Core releases it.
 - Normal shutdown does not remove the shared CA. Disabling decryption, restoring the proxy and removing certificate trust are separate operations.
 - If another application changes the proxy during the session, Interceptor must not overwrite that change; handle the reported conflict.
@@ -184,6 +198,7 @@ Decide which traffic to keep before exporting. This example uses four separate t
 
 
 <a id="没有看到请求时"></a>
+
 ## If the request is missing
 
 - Check Recording and unresolved readiness prompts.

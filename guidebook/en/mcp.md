@@ -50,6 +50,8 @@ Create a separate Client for each actual Host. This example is named `MCP workfl
 
 4. Add an HTTP Server in your Host’s user-level MCP configuration using its required format, endpoint and authentication fields. Outer configuration formats vary, and a cloud connector without access to your machine cannot use its loopback URL.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-streamable-english/step-006.png)
+
 5. <a id="walkthrough-08-query"></a>Connect from the Host, refresh its Tool list and first call the read-only `capture_get_proxy_status`. Inspect the returned result in the Host. The App retains this Client configuration; a successful copy alone does not prove authentication or querying succeeded.
 
    ![Create one client per host · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-009.png)
@@ -130,6 +132,8 @@ An occupied port during manual enablement and a saved-port conflict after App re
    ![Resolve an endpoint conflict · 2](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.annotated.png)
 
 3. Identify the owner first and normally stop only a service you manage and no longer need. If ownership is unclear, leave it running and ask its user to resolve the conflict.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.png)
 
 4. <a id="walkthrough-19-release-port"></a>Enable MCP Server after the known owner releases the port and wait for Running. Box 1 still shows `http://127.0.0.1:57093/mcp`; changing the endpoint was not required.
 
@@ -212,17 +216,27 @@ Rotate or revoke immediately after credential exposure. Renaming a Host does not
 
 1. Confirm the browser-side client runs on your device rather than through a remote connector.
 
+   ![Create a local Browser MCP Client](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
 2. Use only a deliberately trusted page and provide only its authorized Client credentials.
 
+   ![Local Browser Client with independent Ask mode](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
 3. If discovery is empty, inspect Server, identity, protocol and MCP permissions.
+
+   ![Inspect Server, Client and MCP permissions](../media/windows-local-20261023/mcp-browser/client-setup.png)
 
    If discovery returns no Tools, check this Client’s Tool permissions, then reconnect and refresh the list. See [read-only permissions](tool-permissions.md#read-only).
 
 4. If queries work but changes wait, check App approval, native windows and business prerequisites.
 
+   ![Browser Client in Ask mode](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
    If a call keeps waiting, return to the App and check Tool approval, file selection and confirmation dialogs. Confirm or cancel them explicitly.
 
 5. After host upgrades, verify a real query/action rather than only seeing a registered server entry.
+
+   ![State after revoking the Client and disabling the Server](../media/windows-local-20261023/mcp-browser/client-cleanup.png)
 
 - Cross-Origin browser support is not anonymous access.
 - Do not give client credentials to arbitrary third-party webpages.

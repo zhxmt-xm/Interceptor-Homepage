@@ -6,12 +6,13 @@
 
 当前Inventory包含144条契约，下面逐项列入用户场景，并链接到[中文教程](../guidebook/README.md)的对应功能点；[英文教程](../guidebook/README.en.md)使用相同功能目录和演示值。正文使用[真实素材目录](../guidebook/media/v0.1.1-alpha.1/)中的步骤图及公开出处清单，不再分发教程视频或字幕。下面的映射只核对内容覆盖，不把某项`passed`自动转换为教程通过，也不把规格与Inventory的状态冲突改写为Green。未展示分支、平台专项和公开访问仍未完成。
 
-操作验收以步骤为单位：每个编号步骤须关联真实步骤图和稳定锚点，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一次实际操作中的界面一致；动态值单独说明。当前正文没有步骤图的部分仍为草稿，下面的workflow映射不代表已达到该要求。
+操作验收以步骤为单位：每个编号步骤须关联真实步骤图和稳定锚点，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一次实际操作中的界面一致；动态值单独说明。当前中英文各1082个编号步骤均有图片：独立操作保留自身实录，同一界面连续说明可明确复用最近的同流程原图；复用不改变workflow映射或把一张图冒充另一项独立验收。
 
 ## 来源与验收边界
 
 - 写作目标版本为 `v0.1.1-alpha.1` / `e55f1ed1`；[发行边界](../../Interceptor/architecture/platform/release.md#7-当前发行验证边界)仍保留下载产物实机安装、原生授权及退出恢复缺口。
 - [Windows 范围](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md#windows-复验)按实际场景区分；不能用 macOS、CI 或源码存在代替 Windows 实机结果。
+- Windows补充素材位于`guidebook/media/windows-local-20261023/`，明确标记本地开发App、`win32/x64`与`zh-CN`；AppContainer图片裁去应用身份/SID，原生Save/Open在写盘前遮盖导航侧栏和地址路径。它们不替换`v0.1.1-alpha.1`的macOS English素材。
 - 例如 Composer 编辑规格中的状态与 Inventory 不完全一致；本次不修改产品验收记录，正式成文验收时回到对应真实证据核对。
 - Rules 的功能契约列出 10 种 action type，而 Inventory 的概述写“11种action”。教程按实际类型和操作写，不照搬概述数字。
 - 已追踪 [HTTP 场景](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/http-scenarios.workflow.ts)、[录制边界](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/recording-pause-resume.workflow.ts)、[Collection 交互](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/collection-tree-interactions.workflow.ts)、[正文格式化](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/body-formatting.workflow.ts)、[Rules 目录与状态](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/rules/hierarchy-menus-status.workflow.ts)、[断点编辑](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/breakpoints/execute-edited.workflow.ts)、[Settings 导航](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/settings/navigation.workflow.ts)与 [Diagnostics 导出](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/diagnostics/tools-queries-export.workflow.ts)，以及各功能契约。它们提供写作依据，不代表本书已经按Release完整试读。

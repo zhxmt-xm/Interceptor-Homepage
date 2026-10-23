@@ -168,6 +168,8 @@ Inspect only authorized HTTPS traffic. Ordinary HTTPS decryption needs an availa
 
 2. If the CA is not ready, use the App’s generation and trust actions and complete system authorization. Do not overwrite certificate material yourself or confuse a system permission prompt with GitHub sign-in.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/tls-pattern-english/step-001.png)
+
 3. After confirming the required trust, enable Decrypt HTTPS (MITM) in box 1. The switch alone does not make every client accept the CA; certificate pinning and separate trust stores can still reject it.
 
    ![Prepare a CA and enable HTTPS decryption · 3](../media/v0.1.1-alpha.1/tls-pattern-english/step-002.annotated.png)
@@ -188,13 +190,23 @@ Existing connections do not change mode merely because a setting changes. Disabl
 
 1. Use View to inspect the public certificate and identity; Reveal locates its materials.
 
+   ![Inspect the current Certificates panel](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
+
 2. Use the product's system certificate-manager entry when needed, respecting platform permissions.
+
+   ![Certificates and the system trust entry](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
 
 3. Use Uninstall to remove trust.
 
+   ![Inspect HTTPS decryption and trust in Certificates](../media/v0.1.1-alpha.1/tls-cleanup-english/step-039.png)
+
 4. Use Delete only when the materials are no longer needed, following trust removal if required.
 
+   ![Disable HTTPS decryption before removing certificate materials](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.png)
+
 5. Before regenerating, inspect the current CA and clients relying on it, then follow the product prompt.
+
+   ![Certificates after cleanup](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.png)
 
 Uninstall retains CA material. A trusted CA cannot be overwritten by regeneration, and changing its identity invalidates existing client trust. Do not delete a daily-use CA or share its private key.
 
@@ -257,6 +269,8 @@ An origin exception affects validation of the target service’s certificate, no
 
 1. Check the service hostname, validity and managed trust chain to confirm the problem is its origin certificate.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.png)
+
 2. Enter `localhost` in Per-host overrides, box 1, and click Add host in box 2. This is an owned local origin, not a reason to add exceptions for arbitrary public addresses.
 
    ![Distinguish origin-certificate exceptions · 2](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
@@ -281,17 +295,29 @@ Windows, an application actually affected by AppContainer isolation, and permiss
 
 1. Open App containers and search for the target.
 
+   ![Windows AppContainer page controls](../media/windows-local-20261023/app-containers/overview-controls.png)
+
+   The image retains navigation, the risk notice, search and batch controls; application identities and SIDs are omitted for privacy.
+
 2. Inspect loopback access, adjust its individual switch and complete UAC as needed.
+
+   ![Related view from the same workflow](../media/windows-local-20261023/app-containers/overview-controls.png)
 
 3. Send a new request from that application and inspect Capture.
 
+   ![Related view from the same workflow](../media/windows-local-20261023/app-containers/overview-controls.png)
+
 4. If batch changes are justified, choose Enable all or Disable all, review count/scope/effects and confirm.
+
+   ![Related view from the same workflow](../media/windows-local-20261023/app-containers/overview-controls.png)
 
 5. Remove unnecessary exemptions after the exercise and verify actual system state.
 
+   ![Related view from the same workflow](../media/windows-local-20261023/app-containers/overview-controls.png)
 loopback access does not fix certificate pinning; passthrough does not let an isolated application reach the proxy. Batch scope is the current enumerated set, not arbitrary system isolation. This Windows capability is not available on macOS.
 
 <a id="appearance"></a>
+
 ## Language and theme
 
 Use Appearance or the sidebar controls to choose existing language/theme values and confirm persistence. App themes are `warm`, `light`, `ember`, `dark`; do not assume a System option.
@@ -456,6 +482,7 @@ Use an installed Windows or macOS App; source-development runs may not support u
 
 6. Only when an available release is shown should you read its notes and explicitly click Download. Wait for the download and integrity checks before choosing Open installer, then complete the system installation. Do not run unfinished temporary files.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-update-check-english/step-008.png)
 - Updates use anonymous GitHub requests. A private source, no suitable stable release or no supported installer can make the check unavailable.
 - A published Alpha or a macOS ZIP alone does not establish an available in-App update target.
 - Platform, architecture and installer format must match. Notification actions share the Settings state; Dismiss only hides the notice.

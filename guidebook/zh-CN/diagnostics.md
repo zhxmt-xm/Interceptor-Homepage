@@ -57,10 +57,12 @@
 
 4. <a id="walkthrough-diagnostics-lifecycle-13-level-warn"></a><a id="walkthrough-diagnostics-lifecycle-13-level-info"></a><a id="walkthrough-diagnostics-lifecycle-13-level-debug"></a><a id="walkthrough-diagnostics-lifecycle-13-level-all"></a><a id="walkthrough-diagnostics-lifecycle-14-outcome-cancelled"></a>区分 `success`、`failed`、`cancelled` 和 `timed_out`。筛选取消或超时时可以没有记录，不能把空列表当作发生过这些事件；文件操作还要检查实际文件和任务终态。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-048.png)
 提交意图成功不等于异步文件任务完成；某个步骤失败也不保证目标服务完全没有收到请求。
 
 
 <a id="export"></a>
+
 ## 导出诊断给维护者
 
 先复现自己有权执行的最小问题并记下时间。根据问题设置 Process、Level、Outcome；不要把所需错误过滤掉。此例已清除这些筛选，因此导出包含成功和失败记录。
@@ -79,10 +81,12 @@
 
 4. 分享前检查业务标识和其他可识别信息，附上复现步骤、时间、版本、系统和实际错误。不发送模型 Key、MCP 凭据、CA 私钥或个人流量；导出不会自动上传给任何人。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-047.png)
 记录与导出都会脱敏，但仍需检查实际文件。文件任务的取消和完成状态见[导入导出](transfer.md#jobs)。
 
 
 <a id="tools"></a>
+
 ## 通过 Agent 或 MCP 查询
 
 只开启需要的 Diagnostics 权限，并让模型限定来源、时间线索和操作。查询与导出不同：query 只读，`diagnostics_export` 是需要单独授权的 change。
@@ -96,6 +100,8 @@
    ![通过 Agent 或 MCP 查询 · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-005.png)
 
 3. 需要持久化历史和分页时改用 `diagnostics_query`，按实际 schema 提供条件。Recent/Trace 保持当前 Core 内存顺序，不能当作数据库的最新优先分页。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-005.png)
 
 4. 请求导出时检查 `diagnostics_export` 的参数，本例为 process `core`、level `info`、outcome `success`。红框 1 的 Deny Tool 拒绝操作；红框 2 的 Allow Tool 才继续。先选择 Deny，App 不打开 Save。
 

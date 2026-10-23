@@ -50,6 +50,8 @@ MCP Server 与 Capture 的代理监听器分开。首次开启选择空闲端口
 
 4. 在实际 Host 的用户级 MCP 配置中，按该 Host 的格式添加 HTTP Server，填写复制的 endpoint 和认证字段。外层配置格式并不通用，也不要把本机 loopback 地址交给无法访问本机的云端 connector。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-streamable-english/step-006.png)
+
 5. <a id="walkthrough-08-query"></a>让 Host 连接并刷新 Tool 列表，先调用只读的 `capture_get_proxy_status`，在 Host 中核对实际返回。App 保持这份 Client 配置；复制成功不等于认证和查询都成功。
 
    ![为一个 Host 创建独立客户端 · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-009.png)
@@ -130,6 +132,8 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
    ![endpoint 冲突或需要更换 · 2](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.annotated.png)
 
 3. 先确认占用程序的身份，只正常关闭自己管理且不再需要的服务。不能确认归属时不要终止它，先由该服务的使用者处理。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.png)
 
 4. <a id="walkthrough-19-release-port"></a>已知占用释放后重新开启 MCP Server，等待 Running。红框 1 仍是原地址 `http://127.0.0.1:57093/mcp`，不必先换 endpoint。
 
@@ -212,17 +216,27 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 
 1. 确认 Browser 中的客户端在你自己的设备上运行，而不是由远端服务器代理连接。
 
+   ![创建本机 Browser MCP Client](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
 2. 使用自己明确授权的页面，并按要求提供 Client 凭据。
 
+   ![本机 Browser Client 与独立 Ask 模式](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
 3. 如果工具列表为空，检查 Server、Client 身份、协议支持和 MCP 列权限。
+
+   ![检查 Server、Client 与 MCP 权限](../media/windows-local-20261023/mcp-browser/client-setup.png)
 
    如果发现列表为空，先检查该 Client 的 Tool 权限，再重新连接并刷新列表。配置方法见[只读权限](tool-permissions.md#read-only)。
 
 4. 查询成功但修改停住时，检查 App 审批、原生窗口和目标业务的前提。
 
+   ![Ask 模式下的 Browser Client](../media/windows-local-20261023/mcp-browser/client-setup.png)
+
    调用一直等待时，回到 App 检查 Tool 审批、文件选择和确认窗口；这些窗口需要实际确认或取消。
 
 5. 升级 Host 后重新核对连接和一项实际操作，不只看“Server 已登记”。
+
+   ![撤销 Client 并关闭 Server 后的状态](../media/windows-local-20261023/mcp-browser/client-cleanup.png)
 
 - 允许 Browser 跨 Origin 访问不意味着匿名调用，实际请求仍需有效认证。
 - Tool 查询结果可能包含调试数据，不要把 Client 凭据交给任意第三方网页。

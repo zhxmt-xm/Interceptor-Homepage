@@ -100,7 +100,6 @@ export default function App({
     document
       .querySelector('meta[property="og:locale"]')
       ?.setAttribute('content', locale === 'zh' ? 'zh_CN' : 'en_US');
-
   }, [locale, content, guidePage, home, location.pathname]);
 
   return (

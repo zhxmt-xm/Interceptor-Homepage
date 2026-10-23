@@ -719,6 +719,12 @@ Save your Collection before an authorized Agent or MCP invokes a file Tool. The 
 
    ![Approve Collection file exports and imports · 4](../media/v0.1.1-alpha.1/composer-file-tools-english/step-027.png)
 
+   Windows uses the system Save/Open dialogs. The two images below preserve the real file names and action buttons; the navigation pane and address path are privacy-redacted. The macOS dialogs look different.
+
+   ![Windows Collection Save dialog](../media/windows-local-20261023/native-file-dialog/save-collection.png)
+
+   ![Windows Collection Open dialog](../media/windows-local-20261023/native-file-dialog/open-collection.png)
+
 5. <a id="walkthrough-composer-file-tools-cancel-preview-ask"></a><a id="walkthrough-composer-file-tools-cancel-preview-open"></a><a id="walkthrough-composer-file-tools-cancel-preview-preview"></a><a id="walkthrough-composer-file-tools-cancel-preview-decision"></a>After allowing Import, choose `product-collection.json` in Open. In the preview, box 1 contains the incoming content and box 2 is Cancel. Review the counts and content, then cancel to retain the original Collection.
 
    ![Approve Collection file exports and imports · 5](../media/v0.1.1-alpha.1/composer-file-tools-english/step-032.annotated.png)

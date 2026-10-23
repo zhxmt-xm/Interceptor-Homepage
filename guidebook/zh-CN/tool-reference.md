@@ -129,11 +129,15 @@
 
 1. 按目标找到对应业务章节，理解操作后果。query 也可能读取敏感流量，只开启本次需要的能力。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
+
 2. 在 Settings → Agent 的 Tool capabilities 搜索 `capture_get_proxy_status`，确认 MCP 列已开启。Agent 列独立配置；搜索不会关闭看不见的行。
 
    ![使用这份速查表 · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
 3. 在 Host 刷新 Tool 列表，从当前 schema 读取准确参数，再调用 `capture_get_proxy_status` 并检查返回的 listener 与录制状态。不从名称猜字段，也不把复制连接配置当作查询成功。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
 4. 需要暂停录制时，先确认 MCP 列允许 `capture_stop_recording`，Client 保持 Ask，再从 Host 发起调用。核对 Client、Tool 和影响；红框 1 是 Deny Tool call，红框 2 是 Allow Tool call。本次先选择 Deny，录制不会暂停。
 

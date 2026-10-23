@@ -25,7 +25,11 @@
 
 4. 核对客户端是否真的经过 `127.0.0.1:8888`；不遵循系统代理的客户端需要单独配置。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.png)
+
 5. Windows AppContainer 应用检查 [loopback 访问](settings.md#app-containers)；其他网络栈不保证受 WinINet 控制。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
 6. 若请求由 Composer 发出，到 Composer 自身的响应区查看结果。图中是另一条 GET `http://127.0.0.1:58053/e2e/composer/response-section-collapse`，返回 `200`，JSON 包含 `message: response-sections` 和 `items`。Composer 直接连接目标，不受 Recording、代理 Rules 或 Breakpoints 控制；没有出现在 Capture 不等于录制故障。
 
@@ -56,9 +60,11 @@
 
 5. 区分客户端不信任 Interceptor CA 与源站自身的证书错误。前者需要检查客户端信任，后者应先修复源站证书。上面的自有 `localhost` 示例配置了单独的源站证书例外，不代表其他目标的证书问题也已解决；需要例外时只限定自己控制的具体主机。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.png)
 按 [HTTPS 解密](settings.md#https-decryption)或 [TLS passthrough](settings.md#tls-passthrough)选择适合目标的路径，不全局关闭证书校验。
 
 <a id="rules"></a>
+
 ## 规则不生效或影响范围过大
 
 1. 打开 Rules，检查字段是否完整、规则是否开启、底部是否仍显示 Unsaved changes。图中 `E2E action variants` 的红框 1 是启用开关；即使已显示 Enabled，也需要保存后才会影响后续请求。字段缺失时按[规则校验](rules.md#walkthrough-rules-tree-10-invalid)补齐，不能直接启用。
@@ -128,9 +134,11 @@
 
 7. 客户端已经断开时，重新查看队列，不向已消失的等待项反复提交旧编辑。需要继续调试时，让客户端重新发送请求，再选择新等待项；不要把旧草稿套到下一条请求上。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-upstream-english/step-001.png)
 人工断点没有固定超时自动继续。HTTP 请求和响应共用 HTTP 队列，已建立的 WebSocket 连接有各自的消息队列；不要把 HTTP 批量范围套到 WebSocket。停用规则不等于解决已有等待项。
 
 <a id="body"></a>
+
 ## 正文显示不全、不能格式化或无法预览
 
 1. 先读正文区域的提示，区分预览上限、仍在接收、网络中断和解码失败。图中 GET `/e2e/rules/actions/header-only` 的规则只把响应 Header 改为 `Content-Encoding: gzip`，正文仍是未压缩的 `{"message":"original-action-body"}`，因此显示 `Failed to decode gzip body; showing raw bytes.`。红框 1 的 Copy 可复制当前显示的文本，但不会修复编码。
@@ -141,7 +149,9 @@
 
 2. 文本预览最多显示 `2 MiB`；只看到这部分不表示捕获只保存了这些字节。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-172.png)
    正文超过 `2 MiB` 时，预览和 Copy 可能不完整。需要完整数据时，按[大正文保存](capture.md#walkthrough-capture-body-limits)使用 Save body。
+
 
 3. 可格式化的完整正文超过 `1 MiB`、但未超过 `2 MiB` 预览范围时，使用手动 Format。图中 GET `/e2e/body-limits/manual` 的 JSON 约 `1.25 MiB`；点击红框 1 的 Format 为显示内容添加缩进和换行，不重发请求，也不改写已捕获的响应。
 
@@ -167,11 +177,13 @@
 
 6. 若数据从 HAR 导入，检查是否本来就被移除了正文或无法表示相关协议内容。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-body-save-english/step-050.png)
    按[导出时移除正文](settings.md#walkthrough-settings-privacy-export-18-strip-bodies)检查导出选项与原文件。导入不会补回已移除的正文，也不能补回 HAR 没有保存的协议数据。
 
 保存已捕获的数据、读取预览和网络完整接收是不同状态，详见 [Capture](capture.md#选择正文查看方式)。
 
 <a id="files"></a>
+
 ## 文件导入、导出或 Clear 失败
 
 1. 先核对文件格式和入口。Capture 的 Export 菜单中，红框 1 为 Export HAR；原生归档使用 Export Archive。Rules JSON 到 Rules 工具栏操作，Collection JSON 到 Composer 操作，不互换格式或入口。
@@ -188,7 +200,11 @@
 
 4. 确认源文件存在且可读，目标位置可写，并有足够的磁盘空间；必要时到 Settings → Storage 检查用量。不要为腾出空间手动删除 App 正在使用的目录。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.png)
+
 5. Capture 文件任务或取消清理仍在进行时，等待它结束后再 Clear。按[取消归档任务](transfer.md#walkthrough-transfer-cancel)检查取消结果；取消请求已发出不等于清理完成，也不能强行操作仍禁用的 Clear。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-008.png)
 
 6. 按所属格式检查追加和身份变化。Rules 确认导入 `rules-roundtrip.json` 后，新节点追加到根级末尾，不替换同名规则；图中从两条规则、一个目录、一条启用，变为四条规则、两个目录、两条启用。再次导入会继续追加，不是覆盖更新，也不会修复损坏的原文件。
 
@@ -239,9 +255,11 @@
 
 9. 历史中的请求 ID 失效时，重新查询当前 Capture，再选择仍存在的请求，不猜新 ID，也不反复提交旧目标。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/agent-traffic-control-english/step-004.png)
 在 VS Code 登录 GitHub 不等于内置模型已配置。Stop 不撤销已完成的操作，也不能代替断点的 Continue。
 
 <a id="mcp"></a>
+
 ## 外部 Host 连不上 MCP
 
 1. 打开 Settings → Agent，检查 MCP server。红框 1 的开关应开启并显示 Running；红框 2 是当前 endpoint，图中为 `http://127.0.0.1:57871/mcp`。使用自己 App 显示的完整地址，不把 Capture 的 `8888` 当作 MCP 端口。
@@ -251,6 +269,8 @@
    遇到 `EADDRINUSE` 或 Port unavailable 时按 [MCP 端口冲突](mcp.md#endpoint)处理。先查明端口所属者，不停止未知进程；保存的地址仍显示在页面上，不代表 Server 正在监听。
 
 2. 核对 Host 是否从这台电脑连接本机 loopback。云端 connector 无法通过它自己的 `127.0.0.1` 访问你的 App；开启 MCP 不会把服务发布到局域网或公网。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.png)
 
 3. 核对 Host 使用的是对应 Client 的当前配置。图中的 `MCP workflow client` 轮换凭据后，点击红框 1 的复制按钮，更新 Host 配置并重连；旧凭据立即失效。若还更换了 endpoint，同时更新地址，不必仅因地址变化而重建 Client。
 
@@ -291,20 +311,30 @@
 
 3. 检查网络、更新源地址与访问条件。更新源需要匿名可读的合适稳定版本及受支持的安装包；私有仓库、仅有预发布或网络受限都可能影响结果。解决原因后，再通过 Check now 重试。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
+
 4. 从可信 Release 页获取适合系统与架构的附件，不把源码包当安装器。只有 App 显示可用更新时，才在阅读说明后选择 Download，再等待下载与完整性检查。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 
 5. 下载或校验失败时，不运行未完成的临时文件。解决错误后通过产品入口重试；下载和校验完成后才能选择 Open installer，再完成系统安装。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 不需要向 App 输入 GitHub PAT；App 没有这样的更新认证功能。
 
 <a id="proxy-recovery"></a>
+
 ## 退出后网络异常或系统代理尚未恢复
 
 1. 先确认 App 是最小化、仍在收尾，还是确实已退出；不要同时启动多个实例。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-001.png)
    最小化窗口或关闭 Agent 面板都不会退出 App。结束使用时保存需要的数据，再正常关闭 App，检查等待项和系统代理已恢复。
 
+
 2. 若上一个实例异常退出，确认它已经结束后再正常启动 Interceptor，读取正式恢复状态。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-001.png)
 
 3. 打开 Settings → Proxy & Listener。若 System proxy 仍显示 Owned by Interceptor，点击红框 1 的 Restore；若出现系统授权，完成授权并等待结果，不反复点击或强杀。
 
@@ -318,11 +348,17 @@
 
 4. 如果会话期间别的软件修改了代理，核对双方当前配置；不要要求 Interceptor 覆盖对方的新设置。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
+
 5. 仍不能恢复时，记录当前状态、操作错误、系统和 App 版本，交给有权限的人按事先记录的网络配置处理。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
 
 6. 不盲目清空所有代理、删除 journal、关闭防护或反复强杀；这些操作可能丢失恢复所需信息。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/system-proxy-ui-english/step-002.png)
 <a id="feedback"></a>
+
 ## 准备可复现的反馈
 
 - 记录 App 版本、操作系统、架构与运行来源。

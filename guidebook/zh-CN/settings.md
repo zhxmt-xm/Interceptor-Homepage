@@ -167,6 +167,8 @@
 
 2. 若 CA 尚未准备好，按 App 的生成与信任入口完成系统授权。不要自己覆盖证书材料，也不要把系统权限提示当作 GitHub 登录。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/tls-pattern-english/step-001.png)
+
 3. 确认所需信任后，开启红框 1 的 Decrypt HTTPS (MITM)。只有开关开启并不保证所有客户端都接受这个 CA；证书固定和独立信任库仍可能拒绝。
 
    ![准备 CA 并启用 HTTPS 解密 · 3](../media/v0.1.1-alpha.1/tls-pattern-english/step-002.annotated.png)
@@ -187,13 +189,23 @@
 
 1. 用 View 查看当前公开证书，按平台提供的方式核对身份；Reveal 用于定位相关材料。
 
+   ![查看当前 Certificates 面板](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
+
 2. 需要查看系统信任管理时，使用产品提供的系统证书管理入口，并遵守平台权限。
+
+   ![Certificates 与系统信任入口](../media/v0.1.1-alpha.1/settings/settings-02-certificates.png)
 
 3. 不再信任该 CA 时，用 Uninstall 撤销信任。
 
+   ![在 Certificates 检查 HTTPS 解密与信任状态](../media/v0.1.1-alpha.1/tls-cleanup-english/step-039.png)
+
 4. 确实不再需要材料时，再使用 Delete；若仍有信任，按产品流程先撤销。
 
+   ![停用 HTTPS 解密后再处理证书材料](../media/v0.1.1-alpha.1/tls-cleanup-english/step-040.png)
+
 5. 需要重新生成时，先核对当前 CA 与所有仍在使用它的测试客户端，再按产品提示处理。
+
+   ![清理完成后的 Certificates 状态](../media/v0.1.1-alpha.1/tls-cleanup-english/step-042.png)
 
 - Uninstall 保留 CA 材料，Delete 才删除；受信任时不能直接重新生成覆盖。
 - 重新生成会改变证书身份，独立客户端的旧信任可能失效。
@@ -259,6 +271,8 @@
 
 1. 先检查服务域名、有效期与管理的信任链，确认确实是源站证书问题。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.png)
+
 2. 在 Certificates → Per-host overrides 的红框 1 输入 `localhost`，点击红框 2 的 Add host。本例是自有本机源站，不代表应给任意公网地址添加例外。
 
    ![区分源站证书例外 · 2](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
@@ -283,17 +297,29 @@
 
 1. 打开 App containers，搜索目标应用。
 
+   ![Windows AppContainer 页面控制区](../media/windows-local-20261023/app-containers/overview-controls.png)
+
+   图片只保留导航、风险提示、搜索和批量操作区；应用身份与 SID 已因隐私省略。
+
 2. 检查其 loopback access 是否启用，按需要使用单项开关并完成 UAC。
+
+   ![同一流程相关界面](../media/windows-local-20261023/app-containers/overview-controls.png)
 
 3. 让该应用重新发起请求，检查是否到达本地代理。
 
+   ![同一流程相关界面](../media/windows-local-20261023/app-containers/overview-controls.png)
+
 4. 确实需要批量修改时使用 Enable all 或 Disable all，阅读目标数量、范围和后果后确认。
+
+   ![同一流程相关界面](../media/windows-local-20261023/app-containers/overview-controls.png)
 
 5. 结束后撤销不再需要的例外，并核对系统实际状态。
 
+   ![同一流程相关界面](../media/windows-local-20261023/app-containers/overview-controls.png)
 AppContainer 放行不能解决证书固定；TLS passthrough 也不能解决应用根本无法连接本地代理。批量操作只针对当前枚举目标，不等于任意修改所有系统网络隔离状态。macOS 不提供同一 Windows 功能。
 
 <a id="appearance"></a>
+
 ## 语言和主题
 
 通过 Appearance 或侧栏对应入口选择当前 App 提供的语言、主题，并核对保存状态。四个主题值为 `warm`、`light`、`ember`、`dark`；不添加不存在的 App System 主题。
@@ -458,6 +484,7 @@ Privacy 决定下一次新开 HAR 导出窗口的初始选项，不会追溯修�
 
 6. 只有页面发现可用版本时，才阅读版本说明并明确点击 Download。等待下载及完整性校验完成，再点击 Open installer；随后完成系统安装流程，不运行未完成的临时文件。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-update-check-english/step-008.png)
 - 更新使用匿名 GitHub 请求；私有发布源、没有合适稳定版本或缺少受支持安装包时，检查可能失败。
 - 已发布 Alpha 或只有 macOS ZIP，不等于内置更新已经有可用安装目标。
 - 平台、架构和安装格式必须匹配。通知中的 Download、Open installer 与 Settings 使用同一状态，Dismiss 只收起通知。

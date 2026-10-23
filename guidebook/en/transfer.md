@@ -67,6 +67,7 @@ Start with records you want to retain in Capture. This example has four: two `/e
 
 12. To reopen the data, follow [Import](#import) using a file you just saved. Import appends its records without sending requests or automatically deduplicating them.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-022.png)
 - HAR cannot losslessly represent HTTP/2 pseudo-headers, trailers, WebSocket messages, TLS detail or full Rule history.
 - Compressed responses may be stored as decoded content as required by HAR. File body size alone does not establish whether wire bytes were lost.
 - Large bodies increase export memory requirements; no fixed file-size limit does not imply low memory at every scale.
@@ -74,6 +75,7 @@ Start with records you want to retain in Capture. This example has four: two `/e
 
 
 <a id="archive"></a>
+
 ## Save a native archive
 
 Native Archive saves a complete Capture snapshot that Interceptor can reopen. This independent example contains eight records, including HTTP at `/e2e/archive-tools/http` and message connections at `/e2e/archive-tools/websocket`. Check your own data; HAR masks are not automatically applied.
@@ -137,7 +139,11 @@ Use a trusted file you have already saved through product Export. HAR and Archiv
 
 7. Read import warnings. Missing protocol detail or stripped bodies cannot be recreated. Failure or cancellation is not a complete import, even if partial progress was shown.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.png)
+
 8. <a id="walkthrough-14-clear"></a>Import does not require an empty list. To reopen an archive into empty Capture, save records you need first, use Capture Clear and wait for cleanup to finish.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-039.png)
 
 9. <a id="walkthrough-15-archive-import"></a>This separate example opens the saved `ui.iarchive` while eight original records remain. Choose Open Capture (`.iarchive`) in box 1 of Import.
 
@@ -169,7 +175,11 @@ Save body writes the complete captured storage bytes, not only the read-only pre
 
 1. Select your Capture record and open Request, Response or the relevant message body. This example saves Response; first confirm the direction and selected record.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
+
 2. Choose Original or Final first when both versions exist. This example has no dual-version comparison; see [original and final bodies](rules.md#effects) for saving rewritten traffic.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-body-save-english/step-049.png)
 
 3. <a id="walkthrough-18-body-save-dialog"></a>Click Save in the body toolbar, choose a destination in the system dialog and save `utf8-full-body.txt`. You choose the filename and location; Copy is not a substitute for saving the complete body.
 
@@ -285,6 +295,12 @@ Share only the data needed to reproduce the issue. A selected export format does
 
 3. Separately inspect URL queries, usernames, business identifiers, custom headers, local paths and file contents. Default rules cannot identify every sensitive business field.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)
+
 4. Inspect the final file you will send, not only the App options. In particular, treat native archives and Collection configuration as sensitive files.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)
+
 5. Describe the App version, system, protocol, steps and actual error in feedback. Do not send CA private keys, model credentials or Client credentials. When unsure, reproduce the issue with minimal credential-free test data.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-privacy-english/step-029.png)

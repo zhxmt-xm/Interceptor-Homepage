@@ -57,10 +57,12 @@ Check command completion, job completion and actual network results separately. 
 
 4. <a id="walkthrough-diagnostics-lifecycle-13-level-warn"></a><a id="walkthrough-diagnostics-lifecycle-13-level-info"></a><a id="walkthrough-diagnostics-lifecycle-13-level-debug"></a><a id="walkthrough-diagnostics-lifecycle-13-level-all"></a><a id="walkthrough-diagnostics-lifecycle-14-outcome-cancelled"></a>Distinguish `success`, `failed`, `cancelled` and `timed_out`. Cancellation or timeout filters can be empty; an empty list does not prove those events occurred. Also inspect the actual file and terminal job state for file operations.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-048.png)
 Successfully submitting an operation does not complete an asynchronous file job, and a failed step does not prove the destination received no request.
 
 
 <a id="export"></a>
+
 ## Export useful diagnostics
 
 Reproduce the smallest authorized case and note its time. Set Process, Level and Outcome for the issue without excluding its errors. This example clears those filters, so the export includes both successful and failed records.
@@ -79,10 +81,12 @@ Reproduce the smallest authorized case and note its time. Set Process, Level and
 
 4. Inspect business identifiers and other identifying data before sharing. Include reproduction steps, time, version, operating system and the actual error. Do not send model keys, MCP credentials, CA private keys or personal traffic; exporting does not upload anything automatically.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-047.png)
 Records are redacted during collection and export, but still inspect the actual file. See [file transfers](transfer.md#jobs) for cancellation and completion states.
 
 
 <a id="tools"></a>
+
 ## Query through Agent or MCP
 
 Enable only the Diagnostics permissions you need and scope the model’s request by source, time clues and operation. Queries are read-only; `diagnostics_export` is a separately authorized change.
@@ -96,6 +100,8 @@ Enable only the Diagnostics permissions you need and scope the model’s request
    ![Query through Agent or MCP · 2](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-005.png)
 
 3. Use `diagnostics_query` for persisted history and pagination with its actual schema. Recent/Trace retain the current Core memory order rather than providing newest-first database pagination.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-005.png)
 
 4. Review the `diagnostics_export` arguments: process `core`, level `info` and outcome `success` here. Deny Tool in box 1 refuses the operation; Allow Tool in box 2 continues. Choosing Deny does not open Save.
 

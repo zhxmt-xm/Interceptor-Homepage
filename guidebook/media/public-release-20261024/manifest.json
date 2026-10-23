@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "url": "https://github.com/zhxmt-xm/Interceptor/releases",
+    "capturedAt": "2026-10-24",
+    "browser": "Microsoft Edge",
+    "authentication": "anonymous"
+  },
+  "images": [
+    {
+      "file": "github-release-assets.png",
+      "width": 1440,
+      "height": 1576,
+      "bytes": 157210,
+      "sha256": "f2fc2004a55a94dd57f045f908ed8960c7e88e97d62706d2ed7e6dfd21376440",
+      "scope": "Public release description and expanded assets for v0.1.1-alpha.1."
+    }
+  ]
+}

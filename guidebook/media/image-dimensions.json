@@ -1,4 +1,10 @@
 {
+  "windows-local-20261023/app-containers/overview-controls.png": [2400, 430],
+  "windows-local-20261023/mcp-browser/client-cleanup.png": [2400, 1350],
+  "windows-local-20261023/mcp-browser/client-setup.png": [2400, 1350],
+  "windows-local-20261023/native-file-dialog/open-collection.png": [1800, 1080],
+  "windows-local-20261023/native-file-dialog/save-collection.png": [1800, 1080],
+  "public-release-20261024/github-release-assets.png": [1440, 1576],
   "v0.1.1-alpha.1/agent-chat-english/step-001.png": [3200, 1800],
   "v0.1.1-alpha.1/agent-chat-english/step-002.annotated.png": [3200, 1800],
   "v0.1.1-alpha.1/agent-chat-english/step-002.png": [3200, 1800],

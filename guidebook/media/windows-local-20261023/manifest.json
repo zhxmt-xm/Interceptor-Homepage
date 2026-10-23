@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "zhxmt-xm/Interceptor",
+    "commit": "bc47fafb762207907bbb410f2d14052de25b26e5",
+    "appVersion": "0.1.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "locale": "zh-CN",
+    "kind": "local-development-validation"
+  },
+  "images": [
+    {
+      "file": "app-containers/overview-controls.png",
+      "workflow": "settings/app-container-ordering.workflow.ts",
+      "sourceStep": "step-001",
+      "width": 2400,
+      "height": 430,
+      "bytes": 64747,
+      "sha256": "b1f9d07fa5ef448eb2b9b2bb666c9072dbbf8795aae1ad933ab72d2a305249a9",
+      "privacy": "Cropped before the first application row; no application identity or SID is published."
+    },
+    {
+      "file": "native-file-dialog/save-collection.png",
+      "workflow": "composer/collection-import.workflow.ts",
+      "sourceStep": "step-021",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 28372,
+      "sha256": "66fdd64d5a95f14f982290f41f0053921072236bd4027323dc8a469fbfc81fdf",
+      "privacy": "Navigation pane and address breadcrumb were redacted before the PNG was written."
+    },
+    {
+      "file": "native-file-dialog/open-collection.png",
+      "workflow": "composer/collection-import.workflow.ts",
+      "sourceStep": "step-024",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 29153,
+      "sha256": "88921150a2932e851da2f5f2c3fea87bc57f67d395c22a4d3633a2b3c0be8564",
+      "privacy": "Navigation pane and address breadcrumb were redacted before the PNG was written."
+    },
+    {
+      "file": "mcp-browser/client-setup.png",
+      "workflow": "mcp/browser-playground-cors.workflow.ts",
+      "sourceStep": "step-001",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 183449,
+      "sha256": "15170095e4fe325f5574e097d0ece14145c75c9c550852a8f563db70ac74d549",
+      "privacy": "Only Interceptor App UI and a test-owned loopback Client are visible."
+    },
+    {
+      "file": "mcp-browser/client-cleanup.png",
+      "workflow": "mcp/browser-playground-cors.workflow.ts",
+      "sourceStep": "step-003",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 180981,
+      "sha256": "cd19d39650102e94de937259fb158fcac97ddcb49483a166904089bd55dbedf9",
+      "privacy": "Only Interceptor App UI is visible; the Browser page and Client credential are not captured."
+    }
+  ],
+  "verification": {
+    "businessAssertionsPassed": true,
+    "gracefulDestroyVerified": true,
+    "hostRestored": true,
+    "releaseAsset": false
+  }
+}

@@ -130,11 +130,15 @@ This example queries proxy status over MCP and then pauses recording. First crea
 
 1. Find the owning chapter and understand the operation’s effects. Queries can also read sensitive traffic; enable only the capabilities needed.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
+
 2. Search `capture_get_proxy_status` under Settings → Agent → Tool capabilities and confirm MCP access is enabled. Configure Agent separately; searching does not disable hidden rows.
 
    ![Use this reference · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
 3. Refresh the Tool list in the Host, read exact arguments from the current schema, then call `capture_get_proxy_status` and inspect its listener and recording state. Do not guess fields from a name or equate copying configuration with a successful query.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-streamable-english/step-008.png)
 
 4. To pause recording, enable MCP access to `capture_stop_recording`, keep the Client in Ask and request it from the Host. Review the Client, Tool and effect. Box 1 is Deny Tool call; box 2 is Allow Tool call. Choose Deny first to leave Recording active.
 

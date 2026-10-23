@@ -65,6 +65,8 @@ Read-only configuration disables every unwanted change Tool, not just Clear. Que
 
 3. Continue through Capture, Rules, Composer, Breakpoints, Diagnostics and Settings. Disable both columns for each change entry and retain the required queries. Connect the model or Host after completing the restrictions; follow [MCP](mcp.md) for Client creation and connection.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/tool-permissions-english/step-015.png)
+
 4. Review each group after setup. Search `capture_` in box 1 and scroll through Start/Stop recording, Clear, transfers and transfer cancellation to confirm changes are disabled. Retain only needed status, record, body and message queries. The illustrated Client is `Read-only verification client`.
 
    ![Configure read-only access · 4](../media/v0.1.1-alpha.1/tool-permissions-english/step-016.annotated.png)
@@ -94,6 +96,8 @@ Read-only configuration disables every unwanted change Tool, not just Clear. Que
     ![Configure read-only access · 10](../media/v0.1.1-alpha.1/tool-permissions-english/step-022.annotated.png)
 
 11. Refresh the Host’s Tool list, confirm it contains only retained queries, then query proxy status and inspect the result. Disabled operations are unavailable. Refresh or reconnect a stale Host rather than enabling changes to silence errors.
+
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/tool-permissions-english/step-022.png)
 
 12. Check again after a normal restart. For `capture_clear`, Agent in box 1 and MCP in box 2 both remain disabled. Recheck the other groups and the Host’s current catalog; this row alone does not prove complete read-only access.
 
@@ -142,8 +146,10 @@ Keep Ask for first use or broad operations. Execution mode controls approval, no
 
 7. Choose Ask on the same Client row when automatic execution is no longer needed. Resolve existing approvals in their dialogs or cancel the relevant call in the Host. Check whether Recording, file jobs or breakpoints remain active.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-streamable-english/step-015.png)
 
 <a id="review"></a>
+
 ## Review an approval
 
 Configure a usable model and keep the current Chat in Ask. The following steps first deny and then allow `capture_stop_recording`: it pauses new recording without clearing Capture or restoring the system proxy.

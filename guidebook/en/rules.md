@@ -71,14 +71,18 @@ Have the proxy ready and enable Recording for inspection. Use an endpoint you ar
 
 13. <a id="walkthrough-13-nonmatching"></a>Request a path that does not contain `/e2e/rules/actions` and check that it does not receive the same Header change. Do not inspect an already-completed request to judge new settings.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.png)
+
 14. <a id="walkthrough-14-disable"></a>If you are not continuing with the action exercises below, disable `E2E action variants` and Save. Send another request and check that the original Header behavior returns.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.png)
 - Ordinary new rules and Capture rewrite drafts start disabled. The Capture Breakpoint shortcut is different: it creates, enables and applies immediately.
 - Incomplete rules cannot be enabled, and incomplete fields prevent Apply. An empty condition list does not mean “match everything.”
 - Editing, toggling and ordering a draft is not proof that Core has applied it.
 - Missing-field validation does not prove every regex, JSON body or local path works. Verify actual traffic.
 
 <a id="matchers"></a>
+
 ## Select matching conditions
 
 This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all must match. The example service uses port `53161`; replace the full-URL condition and the client's URL together when using your own endpoint. Send only your own loopback test traffic during this exercise.
@@ -126,6 +130,8 @@ This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all 
     ![Switching the effect Header to response phase](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-062.annotated.png)
 
 11. <a id="walkthrough-rules-matchers-19-effect-name"></a><a id="walkthrough-rules-matchers-20-effect-value"></a>Check that the action is still `Set x-rules-e2e: active`. Do not substitute the matching condition's `x-e2e-matcher: present`.
+
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-062.png)
 
 12. <a id="walkthrough-rules-matchers-21-enable"></a><a id="walkthrough-rules-matchers-22-apply"></a>Keep the rule enabled and click Save. Wait for Rule set applied in box 1; all eight conditions and the response action now apply together.
 
@@ -212,6 +218,8 @@ response status, headers and MIME cannot be known before the response. A regex t
 ## Modify Header and Query
 
 1. <a id="walkthrough-rules-operations"></a><a id="walkthrough-rules-operations-01-rules"></a><a id="walkthrough-rules-operations-02-new"></a><a id="walkthrough-rules-operations-03-scope"></a><a id="walkthrough-rules-operations-04-header-name"></a>Continue with the first section's `E2E action variants`: Host `127.0.0.1`, Path `/e2e/rules/actions`, request Header `x-e2e-action`, and value `from-rule`. Replace the current action for each exercise rather than adding unrelated actions.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-024.png)
 
 2. <a id="walkthrough-rules-operations-05-append"></a><a id="walkthrough-rules-operations-06-enable"></a><a id="walkthrough-rules-operations-07-apply"></a><a id="walkthrough-rules-operations-08-appended"></a>Select Append in the operation control in box 1, retain `from-rule`, keep the rule enabled, and Save. Send `/e2e/rules/actions/request-append` with `x-e2e-action: original`. The origin should receive both `original` and `from-rule`, not just a replacement value.
 
@@ -323,7 +331,9 @@ Disable the rule and Save when finished. The Body examples below use separate ru
 
 4. <a id="walkthrough-rules-response-controls-synthetic-edit-next"></a><a id="walkthrough-rules-response-controls-delay-remove"></a><a id="walkthrough-rules-response-controls-delay-add"></a><a id="walkthrough-rules-response-controls-delay-value"></a><a id="walkthrough-rules-response-controls-delay-enable"></a><a id="walkthrough-rules-response-controls-delay-apply"></a><a id="walkthrough-rules-response-controls-delay-result"></a><a id="walkthrough-rules-response-controls-delay-back"></a><a id="walkthrough-rules-response-controls-delay-disable"></a><a id="walkthrough-rules-response-controls-delay-apply-off"></a><a id="walkthrough-rules-response-controls-delay-restored"></a><a id="walkthrough-rules-response-controls-delay-edit-next"></a><a id="walkthrough-rules-response-controls-block-remove"></a><a id="walkthrough-rules-response-controls-block-add"></a><a id="walkthrough-rules-response-controls-block-reset"></a><a id="walkthrough-rules-response-controls-block-enable"></a><a id="walkthrough-rules-response-controls-block-apply"></a><a id="walkthrough-rules-response-controls-block-reset-result"></a><a id="walkthrough-rules-response-controls-block-edit-close"></a><a id="walkthrough-rules-response-controls-block-close"></a><a id="walkthrough-rules-response-controls-block-apply-close"></a><a id="walkthrough-rules-response-controls-block-close-result"></a><a id="walkthrough-rules-response-controls-block-back"></a><a id="walkthrough-rules-response-controls-block-disable"></a><a id="walkthrough-rules-response-controls-block-apply-off"></a><a id="walkthrough-rules-response-controls-block-restored"></a><a id="walkthrough-rules-response-controls-block-edit-next"></a><a id="walkthrough-rules-response-controls-encoding-remove"></a><a id="walkthrough-rules-response-controls-encoding-add"></a><a id="walkthrough-rules-response-controls-encoding-phase"></a><a id="walkthrough-rules-response-controls-encoding-name"></a><a id="walkthrough-rules-response-controls-encoding-value"></a><a id="walkthrough-rules-response-controls-encoding-enable"></a><a id="walkthrough-rules-response-controls-encoding-apply"></a><a id="walkthrough-rules-response-controls-encoding-header-only"></a><a id="walkthrough-rules-response-controls-encoding-edit-body"></a><a id="walkthrough-rules-response-controls-encoding-add-body"></a><a id="walkthrough-rules-response-controls-encoding-body-phase"></a><a id="walkthrough-rules-response-controls-encoding-body"></a><a id="walkthrough-rules-response-controls-encoding-apply-body"></a><a id="walkthrough-rules-response-controls-encoding-body-result"></a><a id="walkthrough-rules-response-controls-encoding-back"></a><a id="walkthrough-rules-response-controls-encoding-disable"></a><a id="walkthrough-rules-response-controls-encoding-apply-off"></a><a id="walkthrough-rules-response-controls-encoding-restored"></a><a id="walkthrough-rules-response-controls-encoding-edit-next"></a>Explicitly configure related headers when required; changing Content-Type alone does not convert bytes.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-057.png)
    Changing only `content-encoding` to `gzip` does not compress the original body and may cause a client decoding failure. To generate gzip content, follow the [combined Header and Body steps](#message-editing), explicitly replace the body, and check actual bytes and length.
+
 
 5. <a id="walkthrough-rules-actions-body-09-enable"></a><a id="walkthrough-rules-actions-body-10-apply"></a><a id="walkthrough-rules-response-evidence-46-apply-response"></a>Turn on the rule-row switch in box 1, then click Save at the upper right. The second image shows Rule set applied after saving.
 
@@ -379,7 +389,9 @@ Disable the rule and Save when finished. The Body examples below use separate ru
 
 11. Compare Original/Final where the product makes them available.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-084.png)
     Select the required version before using Raw, Copy, Fullscreen, or Save body; those operations use the currently selected body. The request example below has observable Original and Final versions. Do not treat an unavailable response Original as empty content.
+
 
 12. <a id="walkthrough-rules-operations-16-body-action"></a><a id="walkthrough-rules-response-evidence-24-edit-body"></a><a id="walkthrough-rules-response-evidence-25-remove-header"></a><a id="walkthrough-rules-response-evidence-26-add-body"></a>Disable the other test rules, then create `E2E regular request body`. Box 1 of the first image marks its name; enter Host `127.0.0.1` in box 1 of the second. Remove the default Header and select Rewrite body in box 1 of the third image from Add action. This example also has only a Host condition.
 
@@ -470,6 +482,8 @@ Test a fixed success, error or boundary response without changing the backend.
 
 1. <a id="walkthrough-rules-actions-synthetic-01-rules"></a><a id="walkthrough-rules-actions-synthetic-02-create"></a><a id="walkthrough-rules-actions-synthetic-03-name"></a><a id="walkthrough-rules-actions-synthetic-04-host"></a><a id="walkthrough-rules-actions-synthetic-05-path"></a>Open `E2E action variants`, retaining Host `127.0.0.1` and Path `/e2e/rules/actions`, not everyday traffic. Disable other test rules that could also match.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-088.png)
+
 2. <a id="walkthrough-rules-actions-synthetic-06-remove"></a><a id="walkthrough-rules-actions-synthetic-07-action"></a>Remove the current action, open Add action, and select Synthetic in box 1.
 
    ![Selecting Synthetic from the action menu](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-088.annotated.png)
@@ -502,11 +516,13 @@ Test a fixed success, error or boundary response without changing the backend.
 
 7. <a id="walkthrough-rules-response-controls"></a><a id="walkthrough-rules-response-controls-01-rules"></a><a id="walkthrough-rules-response-controls-02-create"></a><a id="walkthrough-rules-response-controls-03-host"></a><a id="walkthrough-rules-response-controls-04-path-condition"></a><a id="walkthrough-rules-response-controls-05-path"></a><a id="walkthrough-rules-response-controls-synthetic-remove"></a><a id="walkthrough-rules-response-controls-synthetic-add"></a><a id="walkthrough-rules-response-controls-synthetic-status"></a><a id="walkthrough-rules-response-controls-synthetic-add-type"></a><a id="walkthrough-rules-response-controls-synthetic-type-name"></a><a id="walkthrough-rules-response-controls-synthetic-type-value"></a><a id="walkthrough-rules-response-controls-synthetic-add-extra"></a><a id="walkthrough-rules-response-controls-synthetic-extra-name"></a><a id="walkthrough-rules-response-controls-synthetic-extra-value"></a><a id="walkthrough-rules-response-controls-synthetic-body"></a><a id="walkthrough-rules-response-controls-synthetic-enable"></a><a id="walkthrough-rules-response-controls-synthetic-apply"></a><a id="walkthrough-rules-response-controls-synthetic-result"></a><a id="walkthrough-rules-response-controls-synthetic-back"></a><a id="walkthrough-rules-response-controls-synthetic-disable"></a><a id="walkthrough-rules-response-controls-synthetic-apply-off"></a><a id="walkthrough-rules-response-controls-synthetic-restored"></a>Disable the rule and Apply when finished, then verify the normal route again.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-099.png)
    Turn off the switch, click Save, and send a new matching request. Check that the response comes from your own origin again rather than returning the fixed `503`. Do not reuse the already-completed synthetic response for this check.
 
 this short-circuits normal forwarding and subsequent applicable processing. Do not use the real origin response as proof of what a synthetic response should contain.
 
 <a id="mapping"></a>
+
 ## Map a local file or another destination
 
 **Map Local**
@@ -520,6 +536,8 @@ this short-circuits normal forwarding and subsequent applicable processing. Do n
    ![System Save body dialog saving rule-map-source.json](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-145.png)
 
 3. <a id="walkthrough-rules-actions-map-local-01-rules"></a><a id="walkthrough-rules-actions-map-local-02-create"></a><a id="walkthrough-rules-actions-map-local-03-name"></a><a id="walkthrough-rules-actions-map-local-04-host"></a><a id="walkthrough-rules-actions-map-local-05-path"></a>Return to `E2E action variants` and check Host `127.0.0.1` and Path `/e2e/rules/actions`, retaining this test scope.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-145.png)
 
 4. <a id="walkthrough-rules-actions-map-local-06-remove"></a><a id="walkthrough-rules-actions-map-local-07-action"></a>Remove the previous action and select Map Local in box 1 from Add action.
 
@@ -555,7 +573,9 @@ this short-circuits normal forwarding and subsequent applicable processing. Do n
 
 1. Prepare a destination service you are authorized to use.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-160.png)
    Prepare a reachable source entry and destination endpoint before configuring Map Remote. Both are on `http://127.0.0.1:62029` in this example; destination path `/e2e/rules/actions/remote-target` returns `mapped-target-body`. To change scheme, Host, and port together, follow the [cross-scheme mapping steps](#walkthrough-rules-routing).
+
 
 2. <a id="walkthrough-rules-actions-map-remote-01-rules"></a><a id="walkthrough-rules-actions-map-remote-02-create"></a><a id="walkthrough-rules-actions-map-remote-03-name"></a><a id="walkthrough-rules-actions-map-remote-04-host"></a><a id="walkthrough-rules-actions-map-remote-05-path"></a><a id="walkthrough-rules-actions-map-remote-06-remove"></a><a id="walkthrough-rules-actions-map-remote-07-action"></a>In `E2E action variants`, retain Host `127.0.0.1` and Path `/e2e/rules/actions`. Remove the current action, then choose Map Remote in box 1 from Add action.
 
@@ -737,6 +757,8 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
 
 1. <a id="walkthrough-rules-actions-delay-01-rules"></a><a id="walkthrough-rules-actions-delay-02-create"></a><a id="walkthrough-rules-actions-delay-03-name"></a><a id="walkthrough-rules-actions-delay-04-host"></a><a id="walkthrough-rules-actions-delay-05-path"></a>Continue using `E2E action variants` with Host `127.0.0.1` and Path `/e2e/rules/actions`. Disable other test rules and keep everyday traffic out of scope.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-103.png)
+
 2. <a id="walkthrough-rules-actions-delay-06-remove"></a><a id="walkthrough-rules-actions-delay-07-action"></a><a id="walkthrough-rules-actions-delay-08-value"></a>Remove the current action and choose Delay in box 1 of the first image. Select `response` phase and enter `500` in the Delay (ms) field in box 1 of the second.
 
    ![Selecting Delay in the menu](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-103.annotated.png)
@@ -752,6 +774,8 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
    ![Timing shows the delayed response's wait and total duration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-108.annotated.png)
 
 5. <a id="walkthrough-rules-actions-block-01-rules"></a><a id="walkthrough-rules-actions-block-02-create"></a><a id="walkthrough-rules-actions-block-03-name"></a><a id="walkthrough-rules-actions-block-04-host"></a><a id="walkthrough-rules-actions-block-05-path"></a>For blocking, retain this same rule's Host and Path rather than widening the matching scope.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-108.png)
 
 6. <a id="walkthrough-rules-actions-block-06-remove"></a><a id="walkthrough-rules-actions-block-07-action"></a>Remove Delay, add Block through Add action, and leave Mode on `reset`. Save and request `/e2e/rules/actions/block-reset`. The client connection should fail and the origin should not receive the request.
 
@@ -819,9 +843,11 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
 
 10. Disable the test rules and Save when finished, then send a fresh request to check recovery. When testing Delay alone, compare a new request's wait after disabling and saving. Turning off a rule does not resolve requests already paused at a Breakpoint; finish those queue items separately.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-095.png)
 Delay is not bandwidth throttling. Multiple delay actions follow the actual maximum-delay semantics rather than being blindly summed. Breakpoints do not have an automatic continuation timeout.
 
 <a id="order"></a>
+
 ## Organize, reorder, disable and delete rules
 
 This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` and `E2E hierarchy rule`. Visible rule order determines execution order; folders organize rules and are not matching groups.
@@ -936,6 +962,7 @@ This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` an
 
 18. <a id="walkthrough-rules-operations-22-disable"></a><a id="walkthrough-rules-operations-23-apply-disabled"></a><a id="walkthrough-rules-tree-50-disable"></a><a id="walkthrough-rules-tree-51-apply-disabled"></a>Finish by retaining the last rule, disabling it, and saving. Send another request and check that it no longer gains `x-rules-e2e`. Do not delete the final rule simply to stop its effect.
 
+    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-138.png)
 - Several rules can act on one request; the first match does not always stop evaluation.
 - Row action tags are only a summary. Hover the summary to inspect the complete ordered actions.
 - Later writes can replace earlier writes; synthetic responses and Block short-circuit.
@@ -943,6 +970,7 @@ This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` an
 - Disabling a rule and resolving already-waiting requests are separate decisions.
 
 <a id="effects"></a>
+
 ## Verify effects and handle conflicts
 
 1. Use the folder exercise's initial `E2E hierarchy rule` configuration: Host `127.0.0.1`, request Header Set `x-rules-e2e: active`, and no additional conditions yet. Save and request `/e2e/rules/hierarchy-status` through the proxy. The hit count in box 1 becomes `1`.
@@ -1030,7 +1058,11 @@ Rules still act while Recording is paused, but no new Capture evidence is create
 
 3. <a id="walkthrough-rules-organization-12-exported"></a>Confirm that the file was saved. Its top-level `nodes` array preserves the current editor tree's folders, order, and enabled state. Export does not apply rules or delete the original tree.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
+
 4. <a id="walkthrough-rules-organization-13-import-file"></a>Click Import rules, select the just-exported `rules-roundtrip.json` in the system Open dialog, and click Open to reach the preview.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
 
 5. <a id="walkthrough-rules-organization-14-preview"></a>Check the preview: Rules `2`, Folders `1`, Enabled `1`, Skipped `0`. Cancel in box 1 cancels this import. Import 2 rules in box 2 appends and saves both rules, with one beginning to match traffic immediately. Consider the effect of matching the same traffic twice before confirming.
 
@@ -1041,6 +1073,8 @@ Rules still act while Recording is paused, but no new Capture evidence is create
    ![The original tree is unchanged after cancelling import](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
 7. <a id="walkthrough-rules-organization-16-import-again"></a>Click Import rules again, select the same `rules-roundtrip.json`, and review the counts and enabled-rule warning once more.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
 8. <a id="walkthrough-rules-organization-17-confirm"></a>After accepting the effects, click Import 2 rules. New nodes append at the end of the root instead of replacing same-named items. There are now four rules, two folders, and two enabled rules. Confirmation saves the import immediately; another Save click is not required.
 

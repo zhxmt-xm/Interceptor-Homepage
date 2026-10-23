@@ -65,10 +65,12 @@
 
 14. 也可从 Capture 记录右键菜单的 Breakpoint → This endpoint 快捷创建；它会启用并立即保存请求和响应阶段，可能连续暂停两次。具体操作与撤销见[快捷断点](#walkthrough-breakpoints-manager)，不要与仅 Request 的手工规则混淆。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/breakpoints-response-visible-english/step-007.png)
 HTTP 头部阶段可以在完整正文到达之前暂停。Original 暂无正文不代表请求或响应本来没有正文；当前队首决定可操作对象，后面的 Queued 项只能查看。
 
 
 <a id="continue-drop"></a>
+
 ## 原样放行、修改后放行或丢弃
 
 每次先核对阶段、路径和当前等待项。下面使用上一节独立的响应规则；三类命令也适用于对应的请求队首，不对已处理的旧目标重复操作。
@@ -320,6 +322,7 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 
 9. <a id="walkthrough-breakpoints-queue-15-continue-rule"></a>此时三条请求都还在等待。接着按[批量处理](#batch)选择要放行的规则或队列，不重新发送已经挂起的请求。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-009.png)
 - 搜索和筛选只改变可见行，不移除隐藏的等待项，也不改变队列顺序。
 - 客户端超时或断开可能移除等待项；不要把已失效的草稿提交给下一条请求。
 - 没有队列太长就自动放行的机制，大量等待可能占满客户端连接。
@@ -327,6 +330,7 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 
 
 <a id="batch"></a>
+
 ## 批量处理和规则管理
 
 接着处理上一节的三条等待项。批量命令只处理点击时所选范围内的等待项，不会持续吸收后来的新请求；原样继续也不会提交编辑器中的 Text 草稿。
@@ -521,6 +525,8 @@ HTTP 请求与响应共用一个队列；每条已建立的 WebSocket 连接有�
 
 1. <a id="walkthrough-breakpoints-websocket"></a><a id="walkthrough-breakpoints-websocket-01-connect"></a><a id="walkthrough-breakpoints-websocket-02-select-connection"></a><a id="walkthrough-breakpoints-websocket-03-messages"></a>在 Capture 选中该连接并打开 Messages。保留已有历史即可，不必为了练习先 Clear。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-020.png)
+
 2. <a id="walkthrough-breakpoints-websocket-04-sent-setup"></a><a id="walkthrough-breakpoints-websocket-05-sent-direction"></a><a id="walkthrough-breakpoints-websocket-06-enable-sent"></a>打开 Messages 右上角的连接断点设置，红框 1 选择 Sent，只勾选 Messages，再点击红框 2 的 Enable breakpoint。Sent 只拦截这一个方向。
 
    ![暂停和编辑 WebSocket 帧 · 2](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-020.annotated.png)
@@ -579,10 +585,12 @@ HTTP 请求与响应共用一个队列；每条已建立的 WebSocket 连接有�
 
 16. <a id="walkthrough-breakpoints-websocket-29-close-client"></a>练习结束后在客户端正常关闭连接。若要同时拦截两个方向、替换为空消息或处理控制帧，继续按[空消息、Ping/Pong 和关闭码](#walkthrough-breakpoints-websocket-controls)操作。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/breakpoints-websocket-messages-english/step-033.png)
 切换到另一连接配置，不会自动处理旧连接已存在的等待项；先核对每条连接的队列。只有 Forward edited 提交 Text，Continue 忽略未提交草稿。暂停 Ping、Pong 或 Close 可能影响保活与连接关闭。
 
 
 <a id="walkthrough-breakpoints-websocket-controls"></a>
+
 ## 修改 WebSocket 空消息、Ping/Pong 和关闭码
 
 使用自己控制的 WebSocket 服务，客户端通过代理连接，并开启 Capture Recording。先用 `/e2e/websocket-close` 演示关闭码，再用另一条 `/e2e/websocket-controls` 连接演示空消息与 Ping/Pong；处理完旧连接的等待项再切换配置。

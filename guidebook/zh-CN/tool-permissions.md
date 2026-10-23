@@ -65,6 +65,8 @@ Tool capabilities 决定内置 Agent 和外部 MCP 分别可以使用哪些能�
 
 3. 继续检查 Capture、Rules、Composer、Breakpoints、Diagnostics、Settings。逐项关闭标为 change 的两列开关，保留需要的 query。配置完成后再连接要使用的模型或 Host；MCP Client 的创建与连接按 [MCP](mcp.md)操作。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/tool-permissions-english/step-015.png)
+
 4. 完成后逐组复查。在红框 1 搜索 `capture_`，滚动核对 Start/Stop recording、Clear、导入导出和取消文件任务等 change 均已关闭；只保留需要的状态、记录、正文和消息查询。图中 Client 为 `Read-only verification client`。
 
    ![配置“只能查看” · 4](../media/v0.1.1-alpha.1/tool-permissions-english/step-016.annotated.png)
@@ -94,6 +96,8 @@ Tool capabilities 决定内置 Agent 和外部 MCP 分别可以使用哪些能�
     ![配置“只能查看” · 10](../media/v0.1.1-alpha.1/tool-permissions-english/step-022.annotated.png)
 
 11. 在 Host 刷新 Tool 列表，确认只出现保留的 query，再查询代理状态并读取实际返回。被关闭的操作不可调用；若 Host 仍显示旧目录，先刷新或重新连接，不为消除错误重新开启 change。
+
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/tool-permissions-english/step-022.png)
 
 12. 正常重启后再次核对。图中 `capture_clear` 的红框 1 和红框 2 仍分别关闭 Agent、MCP；也要复查其他分组和 Host 当前目录，不能只凭这一行判断完整只读。
 
@@ -142,8 +146,10 @@ Tool capabilities 决定内置 Agent 和外部 MCP 分别可以使用哪些能�
 
 7. 不再需要自动执行时，在同一 Client 行选择 Ask。已有审批仍在原弹窗处理，或者由 Host 取消对应调用；检查 Recording、文件任务或断点是否还在运行。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-streamable-english/step-015.png)
 
 <a id="review"></a>
+
 ## 审批时检查什么
 
 先配置可用模型，并确认当前 Chat 为 Ask。下面先拒绝、再允许 `capture_stop_recording`：它只暂停新录制，不清空 Capture，也不恢复系统代理。

@@ -70,14 +70,18 @@
 
 13. <a id="walkthrough-13-nonmatching"></a>再请求不含 `/e2e/rules/actions` 的路径，确认没有同样的 Header 改写。不要用已完成的历史请求判断新配置。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.png)
+
 14. <a id="walkthrough-14-disable"></a>如果不继续下面的动作练习，关闭 `E2E action variants` 并 Save；再次请求，确认恢复原始 Header。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.png)
 - 普通新规则和从 Capture 创建的改写草稿默认未启用；Capture 的快捷 Breakpoint 是例外，会创建、启用并立即 Apply。
 - 字段未填写完整时不能启用，存在未填写项时不能 Apply。空条件集不是“匹配所有请求”。
 - 编辑草稿、开关和排序之后，要检查 Apply 状态，不把屏幕修改当作 Core 已经应用。
 - 未填写校验不等于所有正则、JSON 或本地文件一定可用；执行结果仍要用真实请求核对。
 
 <a id="matchers"></a>
+
 ## 选择匹配条件
 
 下面使用 `E2E hierarchy rule`。同一规则中的条件为 AND，必须全部满足才执行。示例服务端口为 `53161`；换成自己的接口时，同时修改 URL 条件和客户端请求地址。本例只向自己的本机测试服务发请求。
@@ -125,6 +129,8 @@
     ![将效果 Header 切换到响应阶段](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-062.annotated.png)
 
 11. <a id="walkthrough-rules-matchers-19-effect-name"></a><a id="walkthrough-rules-matchers-20-effect-value"></a>确认动作仍是 `Set x-rules-e2e: active`，不要误用匹配条件中的 `x-e2e-matcher: present`。
+
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-062.png)
 
 12. <a id="walkthrough-rules-matchers-21-enable"></a><a id="walkthrough-rules-matchers-22-apply"></a>保持规则启用并点击 Save，等红框 1 的状态变为 Rule set applied。此时八类条件和响应动作一起生效。
 
@@ -211,6 +217,8 @@
 ## 修改 Header 和 Query
 
 1. <a id="walkthrough-rules-operations"></a><a id="walkthrough-rules-operations-01-rules"></a><a id="walkthrough-rules-operations-02-new"></a><a id="walkthrough-rules-operations-03-scope"></a><a id="walkthrough-rules-operations-04-header-name"></a>继续编辑第一节的 `E2E action variants`：Host 为 `127.0.0.1`，Path 为 `/e2e/rules/actions`，请求 Header 为 `x-e2e-action`，值为 `from-rule`。下面每次替换当前动作，不叠加无关动作。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-024.png)
 
 2. <a id="walkthrough-rules-operations-05-append"></a><a id="walkthrough-rules-operations-06-enable"></a><a id="walkthrough-rules-operations-07-apply"></a><a id="walkthrough-rules-operations-08-appended"></a>在红框 1 的操作框选择 Append，保留 `from-rule`，保持规则启用并 Save。发送带 `x-e2e-action: original` 的 `/e2e/rules/actions/request-append`，源站应同时收到 `original` 和 `from-rule`，而不是只收到替换值。
 
@@ -322,7 +330,9 @@
 
 4. <a id="walkthrough-rules-response-controls-synthetic-edit-next"></a><a id="walkthrough-rules-response-controls-delay-remove"></a><a id="walkthrough-rules-response-controls-delay-add"></a><a id="walkthrough-rules-response-controls-delay-value"></a><a id="walkthrough-rules-response-controls-delay-enable"></a><a id="walkthrough-rules-response-controls-delay-apply"></a><a id="walkthrough-rules-response-controls-delay-result"></a><a id="walkthrough-rules-response-controls-delay-back"></a><a id="walkthrough-rules-response-controls-delay-disable"></a><a id="walkthrough-rules-response-controls-delay-apply-off"></a><a id="walkthrough-rules-response-controls-delay-restored"></a><a id="walkthrough-rules-response-controls-delay-edit-next"></a><a id="walkthrough-rules-response-controls-block-remove"></a><a id="walkthrough-rules-response-controls-block-add"></a><a id="walkthrough-rules-response-controls-block-reset"></a><a id="walkthrough-rules-response-controls-block-enable"></a><a id="walkthrough-rules-response-controls-block-apply"></a><a id="walkthrough-rules-response-controls-block-reset-result"></a><a id="walkthrough-rules-response-controls-block-edit-close"></a><a id="walkthrough-rules-response-controls-block-close"></a><a id="walkthrough-rules-response-controls-block-apply-close"></a><a id="walkthrough-rules-response-controls-block-close-result"></a><a id="walkthrough-rules-response-controls-block-back"></a><a id="walkthrough-rules-response-controls-block-disable"></a><a id="walkthrough-rules-response-controls-block-apply-off"></a><a id="walkthrough-rules-response-controls-block-restored"></a><a id="walkthrough-rules-response-controls-block-edit-next"></a><a id="walkthrough-rules-response-controls-encoding-remove"></a><a id="walkthrough-rules-response-controls-encoding-add"></a><a id="walkthrough-rules-response-controls-encoding-phase"></a><a id="walkthrough-rules-response-controls-encoding-name"></a><a id="walkthrough-rules-response-controls-encoding-value"></a><a id="walkthrough-rules-response-controls-encoding-enable"></a><a id="walkthrough-rules-response-controls-encoding-apply"></a><a id="walkthrough-rules-response-controls-encoding-header-only"></a><a id="walkthrough-rules-response-controls-encoding-edit-body"></a><a id="walkthrough-rules-response-controls-encoding-add-body"></a><a id="walkthrough-rules-response-controls-encoding-body-phase"></a><a id="walkthrough-rules-response-controls-encoding-body"></a><a id="walkthrough-rules-response-controls-encoding-apply-body"></a><a id="walkthrough-rules-response-controls-encoding-body-result"></a><a id="walkthrough-rules-response-controls-encoding-back"></a><a id="walkthrough-rules-response-controls-encoding-disable"></a><a id="walkthrough-rules-response-controls-encoding-apply-off"></a><a id="walkthrough-rules-response-controls-encoding-restored"></a><a id="walkthrough-rules-response-controls-encoding-edit-next"></a>根据接口需要明确配置相关 Header，不假设只改 `Content-Type` 就自动转换正文。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-057.png)
    只把 `content-encoding` 改为 `gzip` 不会自动压缩原正文，客户端可能解码失败。需要生成 gzip 内容时，按[Header 与 Body 配合步骤](#message-editing)明确替换正文，并检查实际字节和长度。
+
 
 5. <a id="walkthrough-rules-actions-body-09-enable"></a><a id="walkthrough-rules-actions-body-10-apply"></a><a id="walkthrough-rules-response-evidence-46-apply-response"></a>打开红框 1 的规则行开关，再点击编辑器右上角 Save。下方第二张图中状态已变为 Rule set applied。
 
@@ -378,7 +388,9 @@
 
 11. 若提供 Original/Final 选择，再切换比较可观察的原始内容与最终内容。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-084.png)
     先选所需版本，再使用 Raw、Copy、Fullscreen 或 Save body；这些操作针对当前选中的正文。下面的请求示例有可观察的 Original 和 Final，不把响应原文不可用的提示当作空内容。
+
 
 12. <a id="walkthrough-rules-operations-16-body-action"></a><a id="walkthrough-rules-response-evidence-24-edit-body"></a><a id="walkthrough-rules-response-evidence-25-remove-header"></a><a id="walkthrough-rules-response-evidence-26-add-body"></a>停用其他测试规则，再创建 `E2E regular request body`。第一张图红框 1 是名称，第二张图红框 1 的 Host 填 `127.0.0.1`。移除默认 Header，从 Add action 选择第三张图红框 1 的 Rewrite body；本例仍只有 Host 条件。
 
@@ -469,6 +481,8 @@
 
 1. <a id="walkthrough-rules-actions-synthetic-01-rules"></a><a id="walkthrough-rules-actions-synthetic-02-create"></a><a id="walkthrough-rules-actions-synthetic-03-name"></a><a id="walkthrough-rules-actions-synthetic-04-host"></a><a id="walkthrough-rules-actions-synthetic-05-path"></a>打开 `E2E action variants`，保留 Host `127.0.0.1` 和 Path `/e2e/rules/actions`，不扩大到日常流量。停用其他可能匹配的测试规则。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-088.png)
+
 2. <a id="walkthrough-rules-actions-synthetic-06-remove"></a><a id="walkthrough-rules-actions-synthetic-07-action"></a>移除当前动作，打开 Add action，选择红框 1 的 Synthetic。
 
    ![从动作菜单选择 Synthetic](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-088.annotated.png)
@@ -501,11 +515,13 @@
 
 7. <a id="walkthrough-rules-response-controls"></a><a id="walkthrough-rules-response-controls-01-rules"></a><a id="walkthrough-rules-response-controls-02-create"></a><a id="walkthrough-rules-response-controls-03-host"></a><a id="walkthrough-rules-response-controls-04-path-condition"></a><a id="walkthrough-rules-response-controls-05-path"></a><a id="walkthrough-rules-response-controls-synthetic-remove"></a><a id="walkthrough-rules-response-controls-synthetic-add"></a><a id="walkthrough-rules-response-controls-synthetic-status"></a><a id="walkthrough-rules-response-controls-synthetic-add-type"></a><a id="walkthrough-rules-response-controls-synthetic-type-name"></a><a id="walkthrough-rules-response-controls-synthetic-type-value"></a><a id="walkthrough-rules-response-controls-synthetic-add-extra"></a><a id="walkthrough-rules-response-controls-synthetic-extra-name"></a><a id="walkthrough-rules-response-controls-synthetic-extra-value"></a><a id="walkthrough-rules-response-controls-synthetic-body"></a><a id="walkthrough-rules-response-controls-synthetic-enable"></a><a id="walkthrough-rules-response-controls-synthetic-apply"></a><a id="walkthrough-rules-response-controls-synthetic-result"></a><a id="walkthrough-rules-response-controls-synthetic-back"></a><a id="walkthrough-rules-response-controls-synthetic-disable"></a><a id="walkthrough-rules-response-controls-synthetic-apply-off"></a><a id="walkthrough-rules-response-controls-synthetic-restored"></a>测试完停用该规则并 Apply，再发请求确认恢复正常路径。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-099.png)
    关闭开关后点击 Save，再发送一条新的匹配请求。检查响应重新来自自己的源站，而不是继续返回固定 `503`；不要重复查看先前已经完成的模拟响应。
 
 模拟响应会短路后续正常转发及相应后续规则。不要同时用真实服务器返回值来判断这条模拟是否成功。
 
 <a id="mapping"></a>
+
 ## 映射本地文件或另一个服务
 
 **Map Local**
@@ -519,6 +535,8 @@
    ![系统 Save body 窗口保存 rule-map-source.json](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-145.png)
 
 3. <a id="walkthrough-rules-actions-map-local-01-rules"></a><a id="walkthrough-rules-actions-map-local-02-create"></a><a id="walkthrough-rules-actions-map-local-03-name"></a><a id="walkthrough-rules-actions-map-local-04-host"></a><a id="walkthrough-rules-actions-map-local-05-path"></a>返回 `E2E action variants`，检查 Host `127.0.0.1` 和 Path `/e2e/rules/actions`，保持本次测试范围。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-145.png)
 
 4. <a id="walkthrough-rules-actions-map-local-06-remove"></a><a id="walkthrough-rules-actions-map-local-07-action"></a>移除旧动作，在 Add action 菜单选择红框 1 的 Map Local。
 
@@ -554,7 +572,9 @@
 
 1. 准备自己有权使用的目标测试服务。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-160.png)
    先准备可访问的源入口和目标接口，再填写 Map Remote。本例两者都在 `http://127.0.0.1:62029`，目标路径 `/e2e/rules/actions/remote-target` 返回 `mapped-target-body`。需要同时改变协议、Host 和端口时，按[跨协议映射](#walkthrough-rules-routing)分别配置。
+
 
 2. <a id="walkthrough-rules-actions-map-remote-01-rules"></a><a id="walkthrough-rules-actions-map-remote-02-create"></a><a id="walkthrough-rules-actions-map-remote-03-name"></a><a id="walkthrough-rules-actions-map-remote-04-host"></a><a id="walkthrough-rules-actions-map-remote-05-path"></a><a id="walkthrough-rules-actions-map-remote-06-remove"></a><a id="walkthrough-rules-actions-map-remote-07-action"></a>在 `E2E action variants` 中保留 Host `127.0.0.1` 和 Path `/e2e/rules/actions`。移除当前动作，再从 Add action 选择红框 1 的 Map Remote。
 
@@ -736,6 +756,8 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
 1. <a id="walkthrough-rules-actions-delay-01-rules"></a><a id="walkthrough-rules-actions-delay-02-create"></a><a id="walkthrough-rules-actions-delay-03-name"></a><a id="walkthrough-rules-actions-delay-04-host"></a><a id="walkthrough-rules-actions-delay-05-path"></a>继续使用 `E2E action variants`，Host 为 `127.0.0.1`、Path 为 `/e2e/rules/actions`。停用其他测试规则，不影响日常流量。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-103.png)
+
 2. <a id="walkthrough-rules-actions-delay-06-remove"></a><a id="walkthrough-rules-actions-delay-07-action"></a><a id="walkthrough-rules-actions-delay-08-value"></a>移除当前动作，在第一张图红框 1 选择 Delay。阶段选 `response`，第二张图红框 1 的 Delay (ms) 填 `500`。
 
    ![在菜单中选择 Delay](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-103.annotated.png)
@@ -751,6 +773,8 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
    ![Timing 显示响应延迟后的等待和总耗时](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-108.annotated.png)
 
 5. <a id="walkthrough-rules-actions-block-01-rules"></a><a id="walkthrough-rules-actions-block-02-create"></a><a id="walkthrough-rules-actions-block-03-name"></a><a id="walkthrough-rules-actions-block-04-host"></a><a id="walkthrough-rules-actions-block-05-path"></a>测试阻断时，仍保留同一条规则的 Host 和 Path，不另外扩大匹配范围。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-108.png)
 
 6. <a id="walkthrough-rules-actions-block-06-remove"></a><a id="walkthrough-rules-actions-block-07-action"></a>移除 Delay，从 Add action 添加 Block，Mode 保持 `reset`。Save 后请求 `/e2e/rules/actions/block-reset`，客户端连接应失败，源站不应收到请求。
 
@@ -818,9 +842,11 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
 10. 完成后停用测试规则并 Save，再发新请求确认恢复。若单独测试 Delay，也要在停用保存后比较新请求的等待时间；关闭规则不会自动处理已经挂起的断点请求，需先完成对应队列项。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-body-tools-workflow-en/step-095.png)
 Delay 不是带宽限速；多个延迟按实际规则语义取最大等待值，不机械相加。人工断点没有自动放行超时，详见 [Breakpoints](breakpoints.md)。
 
 <a id="order"></a>
+
 ## 组织目录、调整顺序、停用和删除
 
 本节使用 `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` 和 `E2E hierarchy rule`。可见树的规则顺序决定执行顺序；目录只负责组织，不是匹配组。
@@ -935,6 +961,7 @@ Delay 不是带宽限速；多个延迟按实际规则语义取最大等待值�
 
 18. <a id="walkthrough-rules-operations-22-disable"></a><a id="walkthrough-rules-operations-23-apply-disabled"></a><a id="walkthrough-rules-tree-50-disable"></a><a id="walkthrough-rules-tree-51-apply-disabled"></a>结束时保留最后一条规则，关闭它并 Save。重新发请求，确认不再写入 `x-rules-e2e`；不通过删除最后一条规则来停止效果。
 
+    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-138.png)
 - 多条规则可以顺序作用于同一请求，不是命中第一条就全部结束。
 - 规则行的动作标签只是摘要；将鼠标停在动作摘要上可以查看完整有序说明，不以行内标签数量判断实际动作数量。
 - 后写可能覆盖先写；模拟响应或 Block 会短路后续处理。
@@ -942,6 +969,7 @@ Delay 不是带宽限速；多个延迟按实际规则语义取最大等待值�
 - 修改顺序、停用规则与处理已经挂起的请求是不同操作，不把它们混为一谈。
 
 <a id="effects"></a>
+
 ## 验证命中、查看效果并处理保存冲突
 
 1. 以目录练习中 `E2E hierarchy rule` 的初始配置为例：Host 为 `127.0.0.1`，请求 Header Set `x-rules-e2e: active`，还未增加其他条件。Save 后通过代理请求 `/e2e/rules/hierarchy-status`，红框 1 的规则行命中数变为 `1`。
@@ -1029,7 +1057,11 @@ Recording 暂停时规则仍可能生效，但 Capture 不产生新的检查记�
 
 3. <a id="walkthrough-rules-organization-12-exported"></a>确认文件已保存。JSON 顶层的 `nodes` 数组保留当前编辑树的目录、顺序和启用状态；Export 本身不会应用规则，也不会删除原树。
 
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
+
 4. <a id="walkthrough-rules-organization-13-import-file"></a>点击 Import rules，在系统 Open 窗口选择刚导出的 `rules-roundtrip.json`，点击 Open 进入预览。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-005.png)
 
 5. <a id="walkthrough-rules-organization-14-preview"></a>核对预览：Rules `2`、Folders `1`、Enabled `1`、Skipped `0`。红框 1 的 Cancel 会取消这次导入；红框 2 的 Import 2 rules 会追加并保存两条规则，其中一条立即开始匹配流量。先确认是否接受重复命中的影响。
 
@@ -1040,6 +1072,8 @@ Recording 暂停时规则仍可能生效，但 Capture 不产生新的检查记�
    ![取消导入后原树不变](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
 7. <a id="walkthrough-rules-organization-16-import-again"></a>重新点击 Import rules，选择同一个 `rules-roundtrip.json`，再次检查预览中的数量与启用警告。
+
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-import-workflow-en/step-009.png)
 
 8. <a id="walkthrough-rules-organization-17-confirm"></a>确认可以接受影响后，点击 Import 2 rules。新节点追加到根级末尾，不覆盖同名原项；现在有四条规则、两个目录、两条启用规则。确认导入会立即保存，不需要再点一次 Save。
 

@@ -56,6 +56,8 @@ Navigation itself neither sends requests nor pauses Recording. Proxy, rule and r
 
 3. <a id="walkthrough-workspace-navigation-16-dismiss-theme"></a><a id="walkthrough-workspace-navigation-17-resize"></a><a id="walkthrough-workspace-navigation-18-restore-size"></a>Drag a window edge or corner for a custom size; panes respond to the available space. For the header’s maximize, restore and minimize controls, follow the next section’s [illustrated window operations](#walkthrough-workspace-window-controls). Minimizing does not stop the proxy.
 
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-029.png)
+
 4. Use the wheel, trackpad or keyboard to read overflow. These images select the long Request body for `/e2e/detail-body-fill`. Box 1 is the Inspector's scroll region, containing the body's own scrollbar. Scroll inside the body first, or drag its scrollbar to the lower boundary. After `entry-199`, further scrolling moves the outer Inspector instead of being trapped inside the body.
 
    ![Using the wheel inside the Request body](../media/v0.1.1-alpha.1/capture-body-scroll-english/step-003.annotated.png)
@@ -241,6 +243,8 @@ Handle data you need to retain and outstanding operations before quitting.
    ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
 
 3. Complete or cancel each system authorization and file dialog you opened. After cancelling a running task, wait for cleanup before Clear or exit.
+
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
 
 4. Finally click Close in box 1. If an active system operation prevents exit, let that operation finish before closing again rather than repeatedly clicking or force-killing.
 

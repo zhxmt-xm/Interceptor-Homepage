@@ -17,7 +17,17 @@ import GuideSearchDialog from './search/GuideSearchDialog';
 import GuideSearchTrigger from './search/GuideSearchTrigger';
 import { readGuideDocument, scrollToGuideFragment } from './utils';
 
-export default function GuidePage({ page, locale }: { page: GuidePageId; locale: Locale }) {
+export default function GuidePage({
+  page,
+  locale,
+  embedded = false,
+  searchRequest = 0,
+}: {
+  page: GuidePageId;
+  locale: Locale;
+  embedded?: boolean;
+  searchRequest?: number;
+}) {
   const navigate = useNavigate();
   const location = useLocation();
   const guideDocument = readGuideDocument(page, locale);
@@ -37,6 +47,15 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
     setSearchOpen(true);
   }, [searchOpen]);
 
+  const preserveEmbed = useCallback(
+    (href: string): string => {
+      const destination = new URL(href, window.location.href);
+      if (embedded) destination.searchParams.set('embed', 'desktop');
+      return `${destination.pathname}${destination.search}${destination.hash}`;
+    },
+    [embedded],
+  );
+
   useEffect(() => {
     const listener = (event: KeyboardEvent): void => {
       if (
@@ -52,6 +71,10 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
     window.addEventListener('keydown', listener);
     return () => window.removeEventListener('keydown', listener);
   }, [openSearch]);
+
+  useEffect(() => {
+    if (searchRequest > 0) openSearch();
+  }, [openSearch, searchRequest]);
 
   useEffect(() => {
     restoreSearchFocus.current = false;
@@ -97,7 +120,7 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
           (!href.startsWith('#') && !/^\/(?:en\/)?guide(?:\/|[?#]|$)/.test(href))
         )
           return;
-        const destination = new URL(href, window.location.href);
+        const destination = new URL(preserveEmbed(href), window.location.href);
         event.preventDefault();
         if (destination.href === window.location.href) {
           scrollToGuideFragment();
@@ -170,11 +193,12 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
         onSelect={(href) => {
           restoreSearchFocus.current = false;
           setSearchOpen(false);
-          if (new URL(href, window.location.href).href === window.location.href) {
+          const destination = preserveEmbed(href);
+          if (new URL(destination, window.location.href).href === window.location.href) {
             if (location.hash) scrollToGuideFragment();
             else window.scrollTo({ top: 0, behavior: 'auto' });
           } else {
-            navigate(href);
+            navigate(destination);
           }
         }}
       />

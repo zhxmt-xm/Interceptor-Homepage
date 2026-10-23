@@ -85,7 +85,7 @@
 - 截图高亮按用户示例使用红色边框与红底白字编号。原workflow显式指定控件或区域，读取真实位置并转换为图片坐标；原始PNG保留，另生成标注图和位置记录。不向App注入红框样式，不使用标注图代替原始验收证据。
 - 红框编号是当前图片内的定位号，不是文章步骤号。每个编号都在所属操作步骤中明确点名“红框1”或“box 1”并说明对象或动作，不让读者猜测对应关系；双语Browser检查逐一核对已发布图片的编号绑定。
 - 原页图片预览由共享`ImagePreview`负责，Markdown在构建时生成按钮，不为每张教程图挂载React预览组件。公共事件入口保留完整图片地址；错误显示明确提示，Escape、遮罩和关闭按钮均恢复阅读位置与焦点，浏览器历史切换时收起预览。
-- 最终按双语实际引用跨章去重为1136张英文图、0张旧图；不把未入书素材计入完成数。[完整图片核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/published-image-verification.json)验证2014个原图/标注资产、72份manifest的SHA-256、字节长度、PNG自然尺寸及尺寸登记，同时核对双语同图同序、全部原显式锚点保留。已有语言别名差异保持原样，不删除英文页为中文标题保留的跳转锚点。
+- 此前英文整书按双语实际引用跨章去重为1136张英文图、0张旧图；不把未入书素材计入完成数。[完整图片核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/published-image-verification.json)验证2014个原图/标注资产、72份manifest的SHA-256、字节长度、PNG自然尺寸及尺寸登记，同时核对双语同图同序、全部原显式锚点保留。已有语言别名差异保持原样，不删除英文页为中文标题保留的跳转锚点；新增真实Host图片另按下述独立来源登记，不改写这份历史快照。
   - [最终Browser结果](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/guidebook-final-browser.json)为34/34通过，无失败、跳过或flaky，覆盖生产构建/typecheck、完整Markdown/链接/末节/锚点、所有红框编号的同一步骤说明、双语与主题/窄屏、懒加载和导航性能，以及首页/教程图片的原页预览、缩放/拖动、关闭/焦点/阅读位置、历史和加载错误。
   - [运行稳定性](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/final-reader-stability.json)确认2115项输入在上述Browser运行前后摘要不变；[生产图片审计](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/published-image-build-audit.json)确认2014个已核对原图/标注资产的完整字节均存在于最终构建。23个相关Homepage代码文件通过[Biome](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/homepage-final-lint.log)，Desktop最终typecheck通过。构建仍有大于500 kB的chunk、插件耗时及已有代理环境提示，均未阻断构建，未将它们记为已优化。
   - [Capture最终采用核对](../../Interceptor/apps/desktop/test-results/capture-english-handoff/publication-final-capture.json)保留241张不同英文图、双语各254次引用、全部来源及操作边界。排查章节双语各51张英文图；Clear search清空搜索后仍保留Method/Status，显示4 of5，不混同Clear all filters或Capture Clear。原图中的未选中记录、未展开详情及操作前画面均按实际状态说明。
@@ -193,10 +193,10 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 
 ### npm start整本截图发布
 
-入口为Interceptor的`npm start → Test → E2E → 全部教程截图并发布 Homepage`。发布工具已完成下述定向与代表性来源验收；这里的“60条”是56个原workflow文件中的60个测试场景，不是教程篇数或正文步骤数。
+入口为Interceptor的`npm start → Test → E2E → 教程截图更新并发布 Homepage`。发布工具已完成下述定向与代表性来源验收；这里的“60条”是56个原workflow文件中的60个自动测试场景，不是教程篇数或正文步骤数。独立真实Host图片明确列为校验后保留，不计入自动重拍。
 
 1. 本地只准备Interceptor仓库，使用有本仓库写入权限的账号执行`gh auth login`。Start直接读取GitHub上的`main`及[发布清单](../guidebook/screenshot-publication.json)，不要求本地Homepage目录，不clone或创建分支。
-2. 选择与发布契约版本一致的签名App，默认重拍登记的全部原测试。清单中的60条测试对应72组现有媒体；正式PNG及原图保持既有目标路径，图文不依赖新运行的顺序文件名。选择不发布时只保存并校验本地截图，不上传、创建commit或更新远端。
+2. 选择与发布契约版本一致的签名App，默认重拍`sources`登记的全部原测试。清单中的60条测试对应72组自动媒体；独立真实Host组按审核摘要校验，不重新运行Host。正式PNG及原图保持既有目标路径，图文不依赖新运行的顺序文件名。选择不发布时只保存并校验本地截图，不上传、创建commit或更新远端。
 3. 每条测试完整通过且所有App代际正常退出、宿主恢复后，逐检查点核对标题、实际语言、窗口、主题、自然尺寸和红框编号。先完成整组验证，不边拍边覆盖官网图片；任何失败、缺失或歧义停止发布。
 4. 按`source.key`及`checkpoint.key`更新目标图、原图、来源与尺寸；原Markdown图片路径保持。动态端口使用原fixture或workflow明确登记的`examples`，按清单中明确的正文锚点和出现次数更新中英文；不同步骤偶然使用相同端口时不互相替换。不存在、重复或冲突的绑定失败，不从图像或文字相似度猜值。
 5. 全部截图、各代退出恢复和固定映射通过后，GitHub Git Data API上传改变的blob；相同内容按Git对象摘要复用。只更新映射中登记的文件，不读取或提交操作者本机其他repo的未提交修改。
@@ -208,11 +208,20 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 
 - `checkpoint.key`一经分配不因标题或文件序号变化而改名；`groups[].images`只保存固定key到既有图片路径的对应关系，一张图可被多章、中英文复用。
 - `sources[].checkpoints`保存完整原测试的明确顺序契约，`workflowSha256`锁定该原文件；新增截图或流程变化必须更新对应检查点及摘要，既有key和目标路径保留。序列检查是拒绝错位的门禁，不是按新序号推断旧用途。
+- `retainedHostGroups`登记独立真实Host媒体目录与审核后manifest的SHA-256，不是自动来源失败时的备用图。原图、标注、Host验收摘要、App版本/语言、PNG字节/尺寸和全局尺寸必须全部匹配；缺图、变更、与自动目标重叠或未登记正文图片均停止。报告保存`reexecuted: false`，批量生成不写这些媒体文件，也不修改其固定示例值。
 - 红框或示例语义变化必须同步正文与绑定；新增图片先明确其章节用途和安全边界，再纳入清单，不自动把所有未采用候选图上传。
 - 当前清单为macOS x64、English App `0.1.1-alpha.1`；Windows原生窗口、不同App版本及item 16尚未取得的环境不能冒充现有契约。首次系统授权和外部凭据仍需正常处理。
 - 发布工具验收：真实Start菜单读取远端、取消、未登录拒绝、失败来源/部分恢复拒绝、无变化不建commit、过期基线拒绝均已检查。独立完整通过的Agent模型场景经同一生成及GitHub提交函数完成真实图片发布，见[代表性提交](https://github.com/zhxmt-xm/Interceptor-Homepage/commit/09c2ded2ecd588d013bf6a92c4f7bc086fce0c8b)与[远端核对](../../../.copilot/session-state/1d972f24-fe28-435a-8aa3-c05fc62af77f/files/english-guidebook/representative-publication/remote-verification.json)：只改变审核的58个文件，全部76个候选文件摘要一致，完整60条映射和其他图片组保留。双语动态值、重复生成一致性、生产构建/typecheck、lint和7项相关Browser通过。
 - 验收边界：本轮未完成单次60条截图全量回归；最后部分批次已中断，没有把中断场景或旧图作为完整批次发布。代表性验收直接使用同一发布函数，不给正式命令增加绕过完整清单的参数；日常全量命令仍要求其全部登记来源通过。
 - CI独立运行，不是发布完成条件。上述提交触发的[既有网站CI](https://github.com/zhxmt-xm/Interceptor-Homepage/actions/runs/39824792415)通过98项、失败3项：目录测试过早读取旧章节的链接，两个主题测试仍查找已改为预览按钮的图片链接；上传失败证据还遇到GitHub artifact存储额度限制。这些结果如实保留，本轮未修改相关测试或删除账户产物，不能把CI记为全绿，也不让该后台检查阻塞发布命令。
+
+### 真实Host英文图片与保留边界
+
+- [同一English Client的实际调用与恢复](../../../.copilot/session-state/45191cff-dea3-4a02-97b4-515d33bd7ef1/files/item16/verified-current-host.json)来自当前VS Code Copilot SDK Host，不是另起SDK Client或替代Agent。查询、完整正文及脱敏、App Deny/Allow/Auto、Composer源站行为与真实Clear均有原生返回和原workflow断言；正常退出、系统恢复、端口释放以及Client/profile/Host配置清理已完成。
+- [媒体清单](../guidebook/media/v0.1.1-alpha.1/mcp-current-host-english/manifest.json)只采用最终verify的13张English App原图及13张标注，保留实际Host版本、来源manifest、原生调用与完整验收报告的摘要；原图、标注、Client名称、endpoint及对应状态已经审阅。原prepare与失败记录仍在私有来源中，不把准备成功或旧endpoint中断算作最终调用通过。
+- 中英MCP正文使用同图同序与同次示例，区分`Current copilot-cli`、通用`MCP workflow client`和文件Tool的`Diagnostics transfer MCP`，保留取消/轮换/文件选择等原有操作及锚点。App图不冒充Host配置页，列表图不冒充展开后的正文；Clear明确影响整个当前录制，而不只是筛选结果。
+- 自动入口不拥有开发Host会话，不能以SDK重新生成这组图。更新该组时重新执行真实Host流程、审核来源与正文，再更新独立manifest及发布契约摘要；批量入口只严格校验并保留，不静默沿用失败来源。此边界不表示其他Host、全部Tool、商业模型或App iframe已完成。
+- [本地阅读页核对](../../../.copilot/session-state/45191cff-dea3-4a02-97b4-515d33bd7ef1/files/item16/reader-verification.json)覆盖生产build/typecheck、已有双语正文/图片/编号/锚点Browser流程，以及新Host图片逐张解码、自然尺寸、原页预览、缩放和焦点/阅读位置恢复；[发布生成核对](../../../.copilot/session-state/45191cff-dea3-4a02-97b4-515d33bd7ef1/files/item16/publication-generator-verification.json)确认原自动清单与示例绑定保留，代表自动来源实际重跑后未写入独立Host组。当前为本地已验内容，未推送、部署或重跑整个自动批次。
 
 ## 维护与验证
 

@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "chapter": "mcp-current-host-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "macOS x64",
+  "source": {
+    "workflow": "mcp/current-host.workflow.ts",
+    "test": "mcp.current-host verify uses the current Host and a retained isolated profile",
+    "manifestSha256": "0a875d7e5419b296cd85de77f9458c03005dbbf10034d57e47e6507f367c17af",
+    "workflowSha256": "2bcf11df90eb432ca3535316e34222fcfb9406752b88d68040022f38cd48622b",
+    "capture": "native-window",
+    "target": "macos-signed-app",
+    "hostVerification": {
+      "hostKind": "copilot-cli",
+      "hostVersion": "VS Code 1.143.0 / AHP 1.1.0",
+      "nativeCallsSha256": "6a098e0ce910a2bb4ac1dadee71fec12c2a910625d245829e61c88e7e781bad3",
+      "verificationSha256": "d85b178b0030fd1f44f1916e3e88cd3a9050cbdd0069e68102924f6d1124f193",
+      "prepareManifestSha256": "bd7a285f1b10fff84869e35bc699243d97acc70bc6cddf038248b10698bfeda3",
+      "scope": "Representative real Host queries, body reads, Deny/Allow/Auto, Composer and Clear; not all Tools or other Hosts"
+    }
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "从Client行复制当前Host连接配置 / Copy the current Host connection configuration from its Client row",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-001.annotated.png",
+      "rawImage": "step-001.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2050,
+            "y": 928.109375,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "mcp.client.copy-configuration.eb4c37e2-e2b0-42b5-b0d5-0fdf419fecff"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-002",
+      "title": "恢复同一Client并保持Ask模式 / Resume the same Client in Ask mode",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-002.annotated.png",
+      "rawImage": "step-002.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1852.828125,
+            "y": 936.109375,
+            "width": 80.15625,
+            "height": 44
+          },
+          "automationId": "mcp.client.ask.eb4c37e2-e2b0-42b5-b0d5-0fdf419fecff"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-003",
+      "title": "按本次请求路径筛选后由真实Host查询 / Filter this request path before the real Host queries it",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-003.annotated.png",
+      "rawImage": "step-003.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 522,
+            "y": 248,
+            "width": 2678,
+            "height": 104
+          },
+          "automationId": "capture.request-row.ex-mvjwgk97-vn01c0ar"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "拒绝当前Host的暂停录制请求 / Deny the current Host request to stop recording",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1559.734375,
+            "y": 1047.625,
+            "width": 228.796875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.deny"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-005",
+      "title": "Deny后保持录制 / Recording stays enabled after Deny",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-005.annotated.png",
+      "rawImage": "step-005.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-006",
+      "title": "核对新请求后选择Allow / Review the new request and choose Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-006.annotated.png",
+      "rawImage": "step-006.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1802.53125,
+            "y": 1047.625,
+            "width": 233.46875,
+            "height": 68
+          },
+          "automationId": "mcp.approval.allow"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "Allow后核对录制已暂停 / Verify recording is paused after Allow",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "仅将当前Client切换为Auto / Switch only this Client to Auto",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-008.annotated.png",
+      "rawImage": "step-008.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1936.984375,
+            "y": 936.109375,
+            "width": 91.015625,
+            "height": 44
+          },
+          "automationId": "mcp.client.auto.eb4c37e2-e2b0-42b5-b0d5-0fdf419fecff"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-009",
+      "title": "Auto下暂停录制且不显示App审批 / Auto stops recording without an App approval dialog",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-009.annotated.png",
+      "rawImage": "step-009.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 166.125,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-010",
+      "title": "真实Host清空记录后仍保持筛选和录制 / Keep the filter and recording after the real Host clears Capture",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-010.annotated.png",
+      "rawImage": "step-010.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1533,
+            "y": 118.234375,
+            "width": 584,
+            "height": 33.515625
+          },
+          "automationId": "capture.filter.keyword"
+        },
+        {
+          "label": "2",
+          "bounds": {
+            "x": 610,
+            "y": 105,
+            "width": 198.109375,
+            "height": 60
+          },
+          "automationId": "capture.recording.toggle"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-011",
+      "title": "从Settings撤销本次Host的Client / Revoke this Host Client from Settings",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-011.annotated.png",
+      "rawImage": "step-011.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2178,
+            "y": 928.109375,
+            "width": 60,
+            "height": 60
+          },
+          "automationId": "mcp.client.revoke.eb4c37e2-e2b0-42b5-b0d5-0fdf419fecff"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-012",
+      "title": "核对撤销范围并确认 / Review the revocation scope and confirm",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-012.annotated.png",
+      "rawImage": "step-012.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1774.9375,
+            "y": 933.875,
+            "width": 221.0625,
+            "height": 68
+          },
+          "automationId": "mcp.client.revoke.confirm"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-013",
+      "title": "关闭MCP Server并确认Client已移除 / Disable MCP Server and verify the Client is removed",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "image": "step-013.annotated.png",
+      "rawImage": "step-013.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 2178,
+            "y": 562.109375,
+            "width": 60,
+            "height": 34
+          },
+          "automationId": "mcp.server.enable"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442845,
+      "sha256": "411af7a1547fc06c251799f3f2558100e3bec4d4548a500c2de280b9a7558923"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298726,
+      "sha256": "914d8a92c7edf388eef27179840560478bab58dda33143b671121128e608df46"
+    },
+    {
+      "file": "step-002.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442845,
+      "sha256": "411af7a1547fc06c251799f3f2558100e3bec4d4548a500c2de280b9a7558923"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298463,
+      "sha256": "307ba2fb930bed5302609bffd6c96a69a5a27e0f9583ce898a98c8dbd689c1d4"
+    },
+    {
+      "file": "step-003.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240767,
+      "sha256": "88d254d24fa1a44f268952b63e3a35dcd4f69a336faf0916f4f34f51106900be"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 157558,
+      "sha256": "a56c495f7670e6d2fe73db58e52aa096bf9d09f16d51dbbff34dc87b56ef560e"
+    },
+    {
+      "file": "step-004.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 285983,
+      "sha256": "ed69d01004c6430ca0fa723cc25c8bc7090c2160656b2fb2dd4ce0316d8a747d"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 229935,
+      "sha256": "2dc0b98924778e3c6adeaa1d5a43a8490e6a72de0f3427afa2b2516058f78231"
+    },
+    {
+      "file": "step-005.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 241119,
+      "sha256": "d112b6ff4991126257b087f46c71760de4c728e6fb23b0ff2df2ccecaa860b13"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 156126,
+      "sha256": "9e01219d70fd837b79364bbb4104ca0e73adcc65e40b7b4eb93f0ef3dcd14090"
+    },
+    {
+      "file": "step-006.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 286050,
+      "sha256": "47c03c6f93a9cde3264c4af617d76f2f3f32cd94ce4e4b8936d74098b7e01431"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 230363,
+      "sha256": "d9ec3d08bb5aa28e162763a96e61b0805c5c9317d2760dddb7441c0052c28f28"
+    },
+    {
+      "file": "step-007.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240322,
+      "sha256": "41c744d3b185b972d4a44d5e7109acdbd6f90c8a4145ce7c826b57e733147d9b"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 155398,
+      "sha256": "c1523c631fb99e82e1f6e7435b94268b14eb6bd87693e0d0c2da9ed703a4a351"
+    },
+    {
+      "file": "step-008.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442799,
+      "sha256": "a30a7647cf99d32452ab51a4f074c70675615f0f1a2881e699e4ab5ba015d8d1"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298439,
+      "sha256": "791f86994a83d0d8085c6c5c9f8f7f39bd8822782ddc3d1583494051dd09013a"
+    },
+    {
+      "file": "step-009.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 240415,
+      "sha256": "b4fb6a4fff143bcfbb96225c7064dbb5ad941794b8cf0a3f1b4a3ef7c17367a0"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 155613,
+      "sha256": "abdca4834727759b39bb1f90db32c2d3aa4d5f398131123bc0ff56046159b5c8"
+    },
+    {
+      "file": "step-010.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 244245,
+      "sha256": "1bb591b45b4ab9b9288ea3797714267b161382c7933c79778eafa7cc582f0a57"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 155639,
+      "sha256": "bd6997950b358ba45c427ce4b6fb5ecc9604ef019dea77837875d0c479096bb7"
+    },
+    {
+      "file": "step-011.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 442801,
+      "sha256": "512e0c0f2823af5ee84ed56f13db9c5eae24f10b1db8f4add6a25c0160566fd1"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 298655,
+      "sha256": "a31d1f4d08cb04730395e84a2f009ec43192327f59498ed52680832d2f56641f"
+    },
+    {
+      "file": "step-012.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 396521,
+      "sha256": "58fc0b0ab21ce5a433334fcd69cb251fca170541c0c6a8d96a543358663ff8c2"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 276852,
+      "sha256": "653c167c389e9fd2f939fcd53206783533a26146c3bd198981a6e6e8d1f84262"
+    },
+    {
+      "file": "step-013.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 441473,
+      "sha256": "0f78474ce852fd13d133dbd449c5bf470485029ce9298cb2452fe98a45b4b2fb"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 3200,
+      "height": 1800,
+      "bytes": 296819,
+      "sha256": "70e0532e4305b906e5d7970fabc00d4c81aa32503b59f1cd40fb17994a59e48d"
+    }
+  ]
+}

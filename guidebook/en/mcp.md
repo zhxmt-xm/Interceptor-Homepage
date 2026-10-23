@@ -69,41 +69,49 @@ Create a separate Client for each actual Host. This example is named `MCP workfl
 ## Request a change from the host
 
 <a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a><a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a><a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a><a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a><a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
-Enable the required Tool in the MCP column of Tool capabilities. This example uses `capture_stop_recording`, which pauses new recording without clearing Capture or restoring the system proxy.
+Enable the required Tool in the MCP column of Tool capabilities. The following example uses the Copilot SDK Host inside VS Code, with a Client named `Current copilot-cli`, independently of the earlier `MCP workflow client` example. An SDK session may use a different MCP configuration entry point from built-in VS Code Copilot Chat. Load the configuration through the current Host's official user-level entry point; do not paste credentials into chat.
 
-1. <a id="walkthrough-mcp-tool-lifecycle"></a><a id="walkthrough-mcp-tool-lifecycle-01-client"></a><a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a><a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>Keep the Client in Ask and request a pause from the Host. Review the Client name, Tool, arguments and effect in the App’s MCP approval dialog.
+1. <a id="current-host"></a><a id="walkthrough-mcp-tool-lifecycle"></a><a id="walkthrough-mcp-tool-lifecycle-01-client"></a><a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a><a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>Copy the configuration from `Current copilot-cli` using box 1 in the first image, and let the current SDK Host load this example's `http://127.0.0.1:51983/mcp`. Use your own App's actual address. Keep Ask selected in box 1 of the second image. A successful copy or a Running Server does not replace a real call in the next step.
 
-   ![Request a change from the host · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-010.png)
+   ![Request a change from the host · 1](../media/v0.1.1-alpha.1/mcp-current-host-english/step-001.annotated.png)
 
-2. <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>Cancelling that call in the Host dismisses its approval while retaining the previous Recording state. Cancelling one call is different from disconnecting the entire Host.
+   ![Request a change from the host · 1](../media/v0.1.1-alpha.1/mcp-current-host-english/step-002.annotated.png)
 
-   ![Request a change from the host · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-011.png)
+2. <a id="current-host-query"></a>Use only a disposable capture and send a request you control through the proxy. Box 1 filters this example's path, `/e2e/current-mcp-host/c8a505f8-a3b7-4197-841c-002a789ccc9d`; box 2 identifies its GET, `200` and `113 B`. In the current Host, call `capture_get_proxy_status`, then filter `capture_list_exchanges` by the same path and GET method. Use its returned ID for details and body reads, checking that request rather than unrelated personal traffic. The example path is dynamic; substitute your own.
 
-3. <a id="walkthrough-09-ask"></a><a id="walkthrough-10-deny"></a>Request it again and review the new approval. Deny Tool call in box 1 refuses execution; Allow Tool call in box 2 permits it. Choosing Deny first leaves Recording active.
+   ![Request a change from the host · 2](../media/v0.1.1-alpha.1/mcp-current-host-english/step-003.annotated.png)
 
-   ![Request a change from the host · 3](../media/v0.1.1-alpha.1/mcp-streamable-english/step-012.annotated.png)
+3. <a id="walkthrough-09-ask"></a><a id="walkthrough-10-deny"></a>Request `capture_stop_recording` from the current Host. In the App, inspect the Client, Tool, empty arguments and effect on new recording. First choose Deny Tool call in box 1 of the first image. The Host returns a rejection, while box 1 of the second image still shows Recording. Denying this call neither pauses recording nor restores the system proxy.
 
-4. <a id="walkthrough-11-ask-again"></a>For another call, review the request and choose Allow Tool call in box 1. The earlier denial does not decide this new request.
+   ![Request a change from the host · 3](../media/v0.1.1-alpha.1/mcp-current-host-english/step-004.annotated.png)
 
-   ![Request a change from the host · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-013.annotated.png)
+   ![Request a change from the host · 3](../media/v0.1.1-alpha.1/mcp-current-host-english/step-005.annotated.png)
 
-5. <a id="walkthrough-12-allow"></a>Return to Capture and verify Paused in box 1, then inspect the result in the Host. Do not infer state from a model saying “done”.
+4. <a id="walkthrough-11-ask-again"></a><a id="walkthrough-12-allow"></a>Request the same Tool again, review the new call and choose Allow Tool call in box 1 of the first image. Box 1 of the second image changes to Paused, and the Host returns `recording: false`. The earlier denial does not decide this call; do not infer state from a model saying “done”.
 
-   ![Request a change from the host · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-014.annotated.png)
+   ![Request a change from the host · 4](../media/v0.1.1-alpha.1/mcp-current-host-english/step-006.annotated.png)
 
-6. <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>Select Auto in box 1 for this Client only when automatic execution is intended. It skips per-call App approval for enabled change Tools, not Tool permissions, and does not change an internal Agent Chat’s mode.
+   ![Request a change from the host · 4](../media/v0.1.1-alpha.1/mcp-current-host-english/step-007.annotated.png)
 
-   ![Request a change from the host · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-015.annotated.png)
+5. <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>First resume Recording in Capture. If automatic execution is intended, open Settings and select Auto for this Client only, using box 1 in the first image. Request a pause from the Host again: box 1 in the second image shows Paused without another App approval dialog. Auto does not bypass Tool permissions, Host approval or system authorization, and does not change an internal Agent Chat's mode. Resume Recording afterward when needed.
 
-7. <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a><a id="walkthrough-mcp-tool-lifecycle-06-recent"></a><a id="walkthrough-mcp-tool-lifecycle-07-trace"></a><a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a><a id="walkthrough-mcp-tool-lifecycle-09-deny"></a><a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a><a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a><a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a><a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a><a id="walkthrough-mcp-tool-lifecycle-14-save"></a><a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a><a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>File Tools still require the system dialog. In this example, the separate `Diagnostics transfer MCP` Client requests `diagnostics_export`: choose Allow Tool call in box 1, then save `mcp.jsonl`. Cancel starts no export. Check the job and actual file afterward.
+   ![Request a change from the host · 5](../media/v0.1.1-alpha.1/mcp-current-host-english/step-008.annotated.png)
 
-   ![Request a change from the host · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+   ![Request a change from the host · 5](../media/v0.1.1-alpha.1/mcp-current-host-english/step-009.annotated.png)
 
-   ![Request a change from the host · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
+6. <a id="current-host-clear"></a>Call `capture_clear` only after confirming that the entire current capture may be deleted, not just its filtered results. Check zero exchange and body counts in the actual result. Box 1 retains the Keyword, box 2 still shows Recording, and the list is empty. The Stop recording text above the control is a pointer tooltip, not a paused state.
 
-8. After the pause example, resume Recording in Capture when needed. Check the MCP connection, Client mode and Recording independently.
+   ![Request a change from the host · 6](../media/v0.1.1-alpha.1/mcp-current-host-english/step-010.annotated.png)
 
-   ![Request a change from the host · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-016.png)
+7. <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>If the caller supports cancellation, cancel a single call that is still awaiting approval. Its dialog closes while Recording retains its previous state. The image below uses the separate `MCP workflow client` example. Cancelling one call differs from disconnecting the whole Host, and the available control depends on the Host.
+
+   ![Request a change from the host · 7](../media/v0.1.1-alpha.1/mcp-streamable-english/step-011.png)
+
+8. <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a><a id="walkthrough-mcp-tool-lifecycle-06-recent"></a><a id="walkthrough-mcp-tool-lifecycle-07-trace"></a><a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a><a id="walkthrough-mcp-tool-lifecycle-09-deny"></a><a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a><a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a><a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a><a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a><a id="walkthrough-mcp-tool-lifecycle-14-save"></a><a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a><a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>File Tools still require the system dialog. In this example, the separate `Diagnostics transfer MCP` Client requests `diagnostics_export`: choose Allow Tool call in box 1, then save `mcp.jsonl`. Cancel starts no export. Check the job and actual file afterward.
+
+   ![Request a change from the host · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+
+   ![Request a change from the host · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
 
 A Host may also require its own approval, separately from Interceptor. Auto does not choose files or bypass system authorization.
 
@@ -162,7 +170,7 @@ Normal enablement, disablement or restart does not require recreating Clients. A
 ## Rotate, revoke and disable
 
 <a id="walkthrough-13-auto"></a><a id="walkthrough-14-ask-mode"></a>
-Credential rotation, Client revocation and Server shutdown are distinct operations. Inspect ongoing calls and pending work before choosing one.
+Credential rotation, Client revocation and Server shutdown are distinct operations. Inspect ongoing calls and pending work before choosing one. The first five steps use `MCP workflow client` for rotation; the final three return to `Current copilot-cli` for revocation and shutdown.
 
 1. Normal App restart restores the saved endpoint and Client mode. The original Client in box 1 remains Auto; an ordinary restart does not rotate its credential.
 
@@ -184,17 +192,17 @@ Credential rotation, Client revocation and Server shutdown are distinct operatio
 
    ![Rotate, revoke and disable · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-032.png)
 
-6. <a id="walkthrough-15-revoke-dialog"></a>Revoke the Client when its Host is no longer trusted or needed. Cancel in box 1 retains its identity; Revoke client in box 2 removes access and cancels its active calls.
+6. <a id="walkthrough-15-revoke-dialog"></a>When the earlier SDK Host is no longer trusted or needed, find `Current copilot-cli` and use its revoke button in box 1. Check the Client name first so that another Host is not revoked.
 
-   ![Rotate, revoke and disable · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-033.annotated.png)
+   ![Rotate, revoke and disable · 6](../media/v0.1.1-alpha.1/mcp-current-host-english/step-011.annotated.png)
 
-7. <a id="walkthrough-16-revoke"></a>After revocation, the Client row disappears and its old configuration cannot call Tools. The Server still shows Running here; removing one Client does not shut down the whole service.
+7. <a id="walkthrough-16-revoke"></a>Check the name again in the confirmation, then choose Revoke client in box 1; Cancel abandons the operation. Revocation removes the row, invalidates its old configuration and cancels its active calls. Revoking one Client does not itself shut down the Server.
 
-   ![Rotate, revoke and disable · 7](../media/v0.1.1-alpha.1/mcp-streamable-english/step-034.png)
+   ![Rotate, revoke and disable · 7](../media/v0.1.1-alpha.1/mcp-current-host-english/step-012.annotated.png)
 
-8. <a id="walkthrough-17-disable"></a>Disable MCP Server with box 1 when external access is no longer needed and verify Off. Hosts can no longer connect to that listener until it is explicitly enabled again.
+8. <a id="walkthrough-17-disable"></a>After confirming that this Client is gone, disable MCP Server with box 1 only when external access is no longer needed, and verify Off. Stop and remove this entry through the corresponding Host's configuration without replacing other Servers. Hosts cannot connect to the closed listener until it is explicitly enabled again.
 
-   ![Rotate, revoke and disable · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-035.annotated.png)
+   ![Rotate, revoke and disable · 8](../media/v0.1.1-alpha.1/mcp-current-host-english/step-013.annotated.png)
 
 Rotate or revoke immediately after credential exposure. Renaming a Host does not invalidate its credential.
 

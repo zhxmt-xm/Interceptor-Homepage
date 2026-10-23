@@ -69,41 +69,49 @@ MCP Server 与 Capture 的代理监听器分开。首次开启选择空闲端口
 ## 从 Host 请求一个修改操作
 
 <a id="walkthrough-mcp-tool-lifecycle-18-long-request"></a><a id="walkthrough-mcp-tool-lifecycle-19-revoke-dialog"></a><a id="walkthrough-mcp-tool-lifecycle-20-revoke"></a><a id="walkthrough-mcp-tool-lifecycle-21-old-identity"></a><a id="walkthrough-mcp-tool-lifecycle-22-stop"></a>
-先在 Tool capabilities 的 MCP 列允许所需 Tool。本例使用 `capture_stop_recording`，只暂停新流量录制，不清空 Capture 或恢复系统代理。
+先在 Tool capabilities 的 MCP 列允许所需 Tool。以下使用 VS Code 内的 Copilot SDK Host，Client 名为 `Current copilot-cli`，与上一节的 `MCP workflow client` 是两个独立示例。SDK 会话和 VS Code 内置 Copilot Chat 的 MCP 配置入口不一定相同；让当前 Host 从它的正式用户级入口加载配置，不把凭据粘贴到聊天中。
 
-1. <a id="walkthrough-mcp-tool-lifecycle"></a><a id="walkthrough-mcp-tool-lifecycle-01-client"></a><a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a><a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>保持 Client 为 Ask，在 Host 请求暂停录制。App 弹出 MCP 审批，先核对 Client 名称、Tool、参数及影响。
+1. <a id="current-host"></a><a id="walkthrough-mcp-tool-lifecycle"></a><a id="walkthrough-mcp-tool-lifecycle-01-client"></a><a id="walkthrough-mcp-tool-lifecycle-02-pause-permission"></a><a id="walkthrough-mcp-tool-lifecycle-03-pending-ask"></a>在 `Current copilot-cli` 行用第一张图红框 1 复制配置，让当前 SDK Host 加载本例的 `http://127.0.0.1:51983/mcp`；自己操作时使用 App 显示的实际地址。第二张图红框 1 保持 Ask。复制成功、Server 显示 Running，都不能代替下一步实际调用。
 
-   ![从 Host 请求一个修改操作 · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-010.png)
+   ![从 Host 请求一个修改操作 · 1](../media/v0.1.1-alpha.1/mcp-current-host-english/step-001.annotated.png)
 
-2. <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>如果在 Host 取消这一次调用，审批收起，Recording 保持原状态。取消单次调用与断开整个 Host 连接是不同操作。
+   ![从 Host 请求一个修改操作 · 1](../media/v0.1.1-alpha.1/mcp-current-host-english/step-002.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-011.png)
+2. <a id="current-host-query"></a>只使用自己可清理的测试录制，经代理发送一个自己控制的请求。红框 1 按本例路径 `/e2e/current-mcp-host/c8a505f8-a3b7-4197-841c-002a789ccc9d` 筛选，红框 2 是对应的 GET、`200`、`113 B`。在当前 Host 调用 `capture_get_proxy_status`，再让 `capture_list_exchanges` 使用相同路径和 GET 筛选；从返回的 ID 读取详情与正文，核对同一请求，而不是查询其他个人流量。本例路径是动态示例，实际操作时换成自己的路径。
 
-3. <a id="walkthrough-09-ask"></a><a id="walkthrough-10-deny"></a>重新请求后，在 App 核对本次审批。红框 1 的 Deny Tool call 拒绝执行，红框 2 的 Allow Tool call 才允许；本次先选择 Deny，Recording 不会暂停。
+   ![从 Host 请求一个修改操作 · 2](../media/v0.1.1-alpha.1/mcp-current-host-english/step-003.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 3](../media/v0.1.1-alpha.1/mcp-streamable-english/step-012.annotated.png)
+3. <a id="walkthrough-09-ask"></a><a id="walkthrough-10-deny"></a>从当前 Host 请求 `capture_stop_recording`，回到 App 核对 Client、Tool、空参数和暂停新录制的影响。先点击第一张图红框 1 的 Deny Tool call；Host 返回拒绝，第二张图红框 1 仍是 Recording。拒绝这一次调用不会暂停录制或恢复系统代理。
 
-4. <a id="walkthrough-11-ask-again"></a>再次发起时重新核对，点击红框 1 的 Allow Tool call。前一次拒绝不是这一次调用的决定。
+   ![从 Host 请求一个修改操作 · 3](../media/v0.1.1-alpha.1/mcp-current-host-english/step-004.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 4](../media/v0.1.1-alpha.1/mcp-streamable-english/step-013.annotated.png)
+   ![从 Host 请求一个修改操作 · 3](../media/v0.1.1-alpha.1/mcp-current-host-english/step-005.annotated.png)
 
-5. <a id="walkthrough-12-allow"></a>回到 Capture，确认红框 1 已变为 Paused，并在 Host 检查返回结果。不要只凭模型说“已完成”判断状态。
+4. <a id="walkthrough-11-ask-again"></a><a id="walkthrough-12-allow"></a>让 Host 再次请求同一 Tool，重新核对后点击第一张图红框 1 的 Allow Tool call。第二张图红框 1 变为 Paused，Host 返回 `recording: false`。前一次拒绝不是这一次的决定，也不能只凭模型说“已完成”判断状态。
 
-   ![从 Host 请求一个修改操作 · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-014.annotated.png)
+   ![从 Host 请求一个修改操作 · 4](../media/v0.1.1-alpha.1/mcp-current-host-english/step-006.annotated.png)
 
-6. <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>确实接受自动执行时，点击当前 Client 的红框 1 切到 Auto。它只省略已启用 change Tool 的逐次 App 审批，不绕过 Tool 权限，也不改变内置 Agent 的 Chat 模式。
+   ![从 Host 请求一个修改操作 · 4](../media/v0.1.1-alpha.1/mcp-current-host-english/step-007.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-015.annotated.png)
+5. <a id="walkthrough-mcp-tool-lifecycle-17-auto"></a>先在 Capture 恢复 Recording。确实接受自动执行时，在 Settings 点击第一张图红框 1，仅把当前 Client 切到 Auto；再次从 Host 请求暂停，第二张图红框 1 显示 Paused，不再出现 App 审批。Auto 不绕过 Tool 权限、Host 自己的审批或系统授权，也不改变内置 Agent 的 Chat 模式。演示后按需要恢复 Recording。
 
-7. <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a><a id="walkthrough-mcp-tool-lifecycle-06-recent"></a><a id="walkthrough-mcp-tool-lifecycle-07-trace"></a><a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a><a id="walkthrough-mcp-tool-lifecycle-09-deny"></a><a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a><a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a><a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a><a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a><a id="walkthrough-mcp-tool-lifecycle-14-save"></a><a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a><a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>文件 Tool 仍需完成系统窗口。图中另一个 Client `Diagnostics transfer MCP` 请求 `diagnostics_export`，先点击红框 1 的 Allow Tool call，再在 Save 保存 `mcp.jsonl`；Cancel 不会开始导出。保存后继续核对任务与实际文件。
+   ![从 Host 请求一个修改操作 · 5](../media/v0.1.1-alpha.1/mcp-current-host-english/step-008.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+   ![从 Host 请求一个修改操作 · 5](../media/v0.1.1-alpha.1/mcp-current-host-english/step-009.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
+6. <a id="current-host-clear"></a>只有确认当前录制可全部清理后，才让 Host 调用 `capture_clear`。它清空当前录制，不只删除筛选结果。核对实际返回中的记录与正文计数为零；图中红框 1 保留 Keyword，红框 2 仍为 Recording，列表为空。图片上方的 Stop recording 是鼠标提示，不表示已经暂停。
 
-8. 完成暂停演示后，在 Capture 按需要恢复 Recording。MCP 连接、Client 模式和录制状态分别检查，不能互相代替。
+   ![从 Host 请求一个修改操作 · 6](../media/v0.1.1-alpha.1/mcp-current-host-english/step-010.annotated.png)
 
-   ![从 Host 请求一个修改操作 · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-016.png)
+7. <a id="walkthrough-mcp-tool-lifecycle-04-caller-abort"></a>调用方支持取消时，可以取消尚待裁决的单次调用；审批收起，Recording 保持原状态。下图改用独立的 `MCP workflow client` 示例。取消一次调用与断开整个 Host 不同，实际入口取决于 Host。
+
+   ![从 Host 请求一个修改操作 · 7](../media/v0.1.1-alpha.1/mcp-streamable-english/step-011.png)
+
+8. <a id="walkthrough-mcp-tool-lifecycle-05-diagnostics-permissions"></a><a id="walkthrough-mcp-tool-lifecycle-06-recent"></a><a id="walkthrough-mcp-tool-lifecycle-07-trace"></a><a id="walkthrough-mcp-tool-lifecycle-08-export-ask"></a><a id="walkthrough-mcp-tool-lifecycle-09-deny"></a><a id="walkthrough-mcp-tool-lifecycle-10-export-again"></a><a id="walkthrough-mcp-tool-lifecycle-11-native-panel"></a><a id="walkthrough-mcp-tool-lifecycle-12-native-cancel"></a><a id="walkthrough-mcp-tool-lifecycle-13-export-save"></a><a id="walkthrough-mcp-tool-lifecycle-14-save"></a><a id="walkthrough-mcp-tool-lifecycle-15-job-completed"></a><a id="walkthrough-mcp-tool-lifecycle-16-clear-search"></a>文件 Tool 仍需完成系统窗口。图中另一个 Client `Diagnostics transfer MCP` 请求 `diagnostics_export`，先点击红框 1 的 Allow Tool call，再在 Save 保存 `mcp.jsonl`；Cancel 不会开始导出。保存后继续核对任务与实际文件。
+
+   ![从 Host 请求一个修改操作 · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-030.annotated.png)
+
+   ![从 Host 请求一个修改操作 · 8](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-031.png)
 
 Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 不替你选择文件，也不会绕过系统授权。
 
@@ -162,7 +170,7 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 ## 轮换凭据、撤销客户端和关闭服务
 
 <a id="walkthrough-13-auto"></a><a id="walkthrough-14-ask-mode"></a>
-轮换凭据、撤销一个 Client、关闭 Server 是不同操作。先核对正在进行的调用和仍等待的业务，再选择对应操作。
+轮换凭据、撤销一个 Client、关闭 Server 是不同操作。先核对正在进行的调用和仍等待的业务，再选择对应操作。前五步使用 `MCP workflow client` 的轮换示例；最后三步接续前文 `Current copilot-cli` 的撤销与关闭。
 
 1. 正常关闭并重启 App 后，已保存的 endpoint 和 Client 模式会回载。红框 1 的原 Client 仍为 Auto；普通重启不会自动轮换凭据。
 
@@ -184,17 +192,17 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 
    ![轮换凭据、撤销客户端和关闭服务 · 5](../media/v0.1.1-alpha.1/mcp-streamable-english/step-032.png)
 
-6. <a id="walkthrough-15-revoke-dialog"></a>不再信任或使用该 Host 时，点击 Client 的撤销按钮。红框 1 的 Cancel 保留连接身份；红框 2 的 Revoke client 撤销接入，并取消它正在执行的调用。
+6. <a id="walkthrough-15-revoke-dialog"></a>不再信任或使用前文的 SDK Host 时，找到 `Current copilot-cli`，点击红框 1 的撤销按钮。先核对 Client 名称，不误撤销其他 Host。
 
-   ![轮换凭据、撤销客户端和关闭服务 · 6](../media/v0.1.1-alpha.1/mcp-streamable-english/step-033.annotated.png)
+   ![轮换凭据、撤销客户端和关闭服务 · 6](../media/v0.1.1-alpha.1/mcp-current-host-english/step-011.annotated.png)
 
-7. <a id="walkthrough-16-revoke"></a>撤销后该 Client 行消失，旧配置不能再调用 Tool。图中 Server 仍在 Running；撤销一个 Client 不等于关闭整个服务。
+7. <a id="walkthrough-16-revoke"></a>在确认窗口再次核对名称，再点击红框 1 的 Revoke client；Cancel 可放弃。撤销后该 Client 行消失、旧配置失效，它正在执行的调用也会取消。撤销一个 Client 本身不会关闭 Server。
 
-   ![轮换凭据、撤销客户端和关闭服务 · 7](../media/v0.1.1-alpha.1/mcp-streamable-english/step-034.png)
+   ![轮换凭据、撤销客户端和关闭服务 · 7](../media/v0.1.1-alpha.1/mcp-current-host-english/step-012.annotated.png)
 
-8. <a id="walkthrough-17-disable"></a>不再需要外部接入时，点击红框 1 关闭 MCP Server，确认 Off。所有 Host 都无法继续连接这个监听器；需要时再由用户明确开启。
+8. <a id="walkthrough-17-disable"></a>确认本例 Client 已移除后，不再需要外部接入时才点击红框 1 关闭 MCP Server，确认 Off。再从对应 Host 的配置入口停止并移除这一项，不覆盖其他 Server。所有 Host 都无法继续连接已关闭的监听器；需要时再由用户明确开启。
 
-   ![轮换凭据、撤销客户端和关闭服务 · 8](../media/v0.1.1-alpha.1/mcp-streamable-english/step-035.annotated.png)
+   ![轮换凭据、撤销客户端和关闭服务 · 8](../media/v0.1.1-alpha.1/mcp-current-host-english/step-013.annotated.png)
 
 凭据泄露时立即轮换或撤销。只修改 Host 的显示名称不会使旧凭据失效。
 

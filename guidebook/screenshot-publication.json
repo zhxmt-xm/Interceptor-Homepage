@@ -6,6 +6,12 @@
   "platform": "darwin",
   "architecture": "x64",
   "locale": "en-US",
+  "retainedHostGroups": [
+    {
+      "directory": "guidebook/media/v0.1.1-alpha.1/mcp-current-host-english",
+      "manifestSha256": "ef7508082f2b0a9d2ca5407eb146d0e2f20e31dba9586455f1b6df015ddb8ede"
+    }
+  ],
   "sources": [
     {
       "key": "agent.model-configuration.7c82c1b6",

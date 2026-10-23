@@ -55,9 +55,8 @@ function renderMetadata(html: string, metadata: StaticMetadata): string {
   result = replaceMetadataAttribute(result, 'canonical', 'href', metadata.url);
   result = replaceMetadataAttribute(result, 'og-title', 'content', metadata.title);
   result = replaceMetadataAttribute(result, 'og-description', 'content', metadata.description);
-  result = replaceMetadataAttribute(result, 'og-url', 'content', metadata.url);
-  result = replaceMetadataAttribute(result, 'twitter-title', 'content', metadata.title);
-  return replaceMetadataAttribute(result, 'twitter-description', 'content', metadata.description);
+  return replaceMetadataAttribute(result, 'og-url', 'content', metadata.url);
+
 }
 
 function guideMetadata(page: GuidePageId, path: string): StaticMetadata {

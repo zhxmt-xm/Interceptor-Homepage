@@ -75,10 +75,7 @@ test('static pages publish route metadata and discovery files', async ({ request
     expect(html).toContain(`data-page-metadata="description" content="${metadata.description}"`);
     expect(html).toContain(`data-page-metadata="canonical" href="${url}"`);
     expect(html).toContain(`data-page-metadata="og-url" content="${url}"`);
-    expect(html).toContain('<meta name="twitter:card" content="summary_large_image" />');
-    expect(html).toContain(
-      '<meta name="twitter:image" content="https://www.interceptor.cn/media/features/capture-light.png" />',
-    );
+
   }
 
   const sitemap = await request.get('/sitemap.xml');
@@ -93,7 +90,7 @@ test('static pages publish route metadata and discovery files', async ({ request
   expect(await robots.text()).toContain('Sitemap: https://www.interceptor.cn/sitemap.xml');
 });
 
-test('English guide navigation updates canonical and social metadata', async ({ page }) => {
+test('English guide navigation updates canonical and Open Graph metadata', async ({ page }) => {
   await page.goto('/guide/capture?lang=en');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
@@ -104,7 +101,7 @@ test('English guide navigation updates canonical and social metadata', async ({ 
     'content',
     'https://www.interceptor.cn/guide/capture?lang=en',
   );
-  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     'content',
     'Capture · User Guide — Interceptor',
   );

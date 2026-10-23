@@ -18,7 +18,7 @@ export const chinese: typeof english = {
   },
   nav: {
     label: '主导航',
-    features: '产品能力',
+    home: '首页',
     guide: '使用指南',
     download: '下载',
     language: {
@@ -41,8 +41,8 @@ export const chinese: typeof english = {
   },
   hero: {
     eyebrow: 'YOUR TRAFFIC. YOUR PERSPECTIVE.',
-    first: '看清每个请求。',
-    second: '掌控每次响应。',
+    first: '看清每个请求',
+    second: '掌控每次响应',
     body: '不再猜测应用与网络之间发生了什么。\n在一个专注的工作台里，捕获、理解并改写 HTTP(S) 流量。',
     primary: '探索工作台',
     platform: '面向 macOS 与 Windows',

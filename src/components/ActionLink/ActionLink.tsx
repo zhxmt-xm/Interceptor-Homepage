@@ -19,7 +19,7 @@ export default function ActionLink({
   automationId,
   onClick,
 }: Props) {
-  if (href.startsWith('#') || href === '/' || /^\/guide(?:\/|[?#]|$)/.test(href)) {
+  if (href.startsWith('#') || href === '/' || /^\/(?:en\/)?guide(?:\/|[?#]|$)/.test(href)) {
     return (
       <Link
         className={`${styles.link} ${styles[variant]}`}

@@ -23,7 +23,9 @@ test.beforeAll(async () => {
 
 test.afterAll(async () => {
   await server?.close();
-  if (cache) await rm(cache, { recursive: true, force: true });
+  if (cache) {
+    await rm(cache, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  }
 });
 
 test('current outline links expose location semantics without changing their fragment', () => {
@@ -43,7 +45,7 @@ test('current outline links expose location semantics without changing their fra
 });
 
 test('ordinary guide links retain their existing navigation behavior', () => {
-  for (const href of ['#navigation', '/guide/capture?lang=en#http2']) {
+  for (const href of ['#navigation', '/guide/capture#http2', '/en/guide/capture#http2']) {
     const html = renderToStaticMarkup(createElement(GuideLink, { href }, 'Section'));
     expect(html).toContain(`href="${href}"`);
     expect(html).not.toContain('aria-current=');

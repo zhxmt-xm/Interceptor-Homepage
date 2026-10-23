@@ -5,7 +5,7 @@ test('the outline identifies one current section with the approved emphasis', as
   for (const colorScheme of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme });
     for (const locale of ['zh', 'en']) {
-      await page.goto(`/guide/workspace${locale === 'en' ? '?lang=en' : ''}`);
+      await page.goto(locale === 'en' ? '/en/guide/workspace' : '/guide/workspace');
       await expect(page.getByTestId('guide.article')).toBeVisible();
       const outline = page.getByTestId('guide.outline');
       const current = outline.locator('[aria-current="location"]');
@@ -76,7 +76,7 @@ test('real wheel scrolling follows the section without rewriting history or repl
 test('outline clicks, repeated targets, history and language keep the current section in sync', async ({
   page,
 }) => {
-  await page.goto('/guide/workspace?lang=en');
+  await page.goto('/en/guide/workspace');
   await expect(page.getByTestId('guide.article')).toBeVisible();
   const origin = await page.evaluate(() => performance.timeOrigin);
   const outline = page.getByTestId('guide.outline');
@@ -214,7 +214,7 @@ test('chapter changes and leaving the reader do not retain stale section state',
   await expect(outline.locator('[aria-current="location"]')).toHaveAttribute('href', '#close');
   await page.getByTestId('guide.chapter.capture').click();
   await expectCurrentAtFirst();
-  await page.locator('header a[href="/#features"]').click();
+  await page.locator('header a[href="/"]').click();
   await expect(page.getByTestId('guide.root')).toHaveCount(0);
   await page.mouse.wheel(0, 300);
   await page.goBack();

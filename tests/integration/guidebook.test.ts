@@ -16,9 +16,9 @@ for (const locale of ['zh', 'en']) {
     page,
   }) => {
     test.setTimeout(120_000);
-    const query = locale === 'en' ? '?lang=en' : '';
+    const prefix = locale === 'en' ? '/en' : '';
     for (const slug of ['', ...chapters.map((chapter) => chapter.slug)]) {
-      await page.goto(`/guide${slug ? `/${slug}` : ''}${query}`);
+      await page.goto(`${prefix}/guide${slug ? `/${slug}` : ''}`);
       const root = page.getByTestId('guide.root');
       const article = page.getByTestId('guide.article');
       await expect(article).toBeVisible();
@@ -66,7 +66,7 @@ test('guide overview preserves reading space after removing maintenance notices'
   for (const width of [1600, 390]) {
     await page.setViewportSize({ width, height: 900 });
     for (const locale of ['zh', 'en']) {
-      await page.goto(`/guide${locale === 'en' ? '?lang=en' : ''}`);
+      await page.goto(locale === 'en' ? '/en/guide' : '/guide');
       const firstGroup = page.getByTestId('guide.root').locator('section').first();
       await expect(firstGroup).toBeVisible();
       const spacing = await firstGroup.evaluate((group) => {
@@ -88,7 +88,7 @@ test('walkthroughs use numbered instructions instead of screenshot-only headings
   page,
 }) => {
   for (const locale of ['zh', 'en']) {
-    await page.goto(`/guide/rules${locale === 'en' ? '?lang=en' : ''}`);
+    await page.goto(locale === 'en' ? '/en/guide/rules' : '/guide/rules');
     const article = page.getByTestId('guide.article');
     await expect(article).toBeVisible();
     await expect(article.locator('h3').filter({ hasText: /^\s*[A-Z]?\d+\s*·/ })).toHaveCount(0);
@@ -122,7 +122,7 @@ test('step images reserve their natural dimensions for stable article anchors', 
 test('English guide renders translated chapters and keeps the current section when switching language', async ({
   page,
 }) => {
-  await page.goto('/guide/capture?lang=en');
+  await page.goto('/en/guide/capture');
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
   await expect(page.locator('h1')).toHaveText('Capture: find and understand traffic');
   await expect(page.getByTestId('guide.chapter.getting-started')).toContainText('Getting started');
@@ -192,19 +192,19 @@ test('the homepage step entry reaches illustrated chapters without another docum
   page,
 }) => {
   for (const locale of ['zh', 'en']) {
-    const query = locale === 'en' ? '?lang=en' : '';
+    const guidePath = locale === 'en' ? '/en/guide' : '/guide';
     await page.goto('/');
     if (locale === 'en') await toggleHeaderLanguage(page);
     await page.keyboard.press('Escape');
     const origin = await page.evaluate(() => performance.timeOrigin);
     const entry = page.getByTestId('homepage.guideSteps');
-    await expect(entry).toHaveAttribute('href', `/guide${query}#walkthroughs`);
+    await expect(entry).toHaveAttribute('href', `${guidePath}#walkthroughs`);
     await entry.click();
-    await expect(page).toHaveURL(new RegExp(`/guide/?${query ? '\\?lang=en' : ''}#walkthroughs$`));
+    await expect(page).toHaveURL(new RegExp(`${guidePath}/?#walkthroughs$`));
     await expect(page.locator('#guide-anchor-walkthroughs')).toHaveCount(1);
     await page
       .getByTestId('guide.article')
-      .locator(`a[href="/guide/transfer${query}#walkthrough"]`)
+      .locator(`a[href="${locale === 'en' ? '/en' : ''}/guide/transfer#walkthrough"]`)
       .click();
     await expect(page.locator('#guide-anchor-walkthrough')).toHaveCount(1);
     const image = page.getByTestId('guide.article').locator('img').first();
@@ -227,7 +227,7 @@ test('all illustrated chapters expose PNG originals in both languages without vi
     for (const chapter of chapters) {
       const source = readFileSync(path.resolve(`guidebook/${language}/${chapter.slug}.md`), 'utf8');
       const expectedImages = [...source.matchAll(/!\[[^\]]+\]\(([^)]+)\)/g)].length;
-      await page.goto(`/guide/${chapter.slug}${language === 'en' ? '?lang=en' : ''}`);
+      await page.goto(`${language === 'en' ? '/en' : ''}/guide/${chapter.slug}`);
       const article = page.getByTestId('guide.article');
       await expect(article).toHaveAttribute('lang', language);
       await expect(article.locator('video, track, [data-guide-video]')).toHaveCount(0);
@@ -280,7 +280,7 @@ test('header opens Guidebook directly on desktop and mobile in either UI languag
       if (locale === 'en') await toggleHeaderLanguage(page);
       const guide = page.getByTestId('homepage.navigation.guide');
       await expect(guide).toBeVisible();
-      await expect(guide).toHaveAttribute('href', locale === 'en' ? '/guide?lang=en' : '/guide');
+      await expect(guide).toHaveAttribute('href', locale === 'en' ? '/en/guide' : '/guide');
       await expect(guide).toHaveText(locale === 'en' ? 'User Guide' : '使用指南');
       await guide.focus();
       await page.keyboard.press('Enter');
@@ -318,9 +318,9 @@ test('chapter and website navigation use one document and support browser histor
   await expect(page.locator('h1')).toContainText('Capture');
   await page.goForward();
   await expect(page.locator('h1')).toContainText('Composer');
-  await page.locator('#main-navigation a[href="/#features"]').click();
-  await expect(page).toHaveURL(/\/#features$/);
-  await expect(page.locator('#features')).toBeVisible();
+  await page.locator('#main-navigation a[href="/"]').click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('#hero-heading')).toBeVisible();
   await page.getByTestId('homepage.navigation.guide').click();
   await expect(page.getByTestId('guide.root')).toBeVisible();
   expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
@@ -353,9 +353,7 @@ test('every chapter renders its real Markdown, links, final section and unique a
   for (const language of ['zh-CN', 'en']) {
     for (const chapter of chapters) {
       const source = readFileSync(path.resolve(`guidebook/${language}/${chapter.slug}.md`), 'utf8');
-      const response = await page.goto(
-        `/guide/${chapter.slug}${language === 'en' ? '?lang=en' : ''}`,
-      );
+      const response = await page.goto(`${language === 'en' ? '/en' : ''}/guide/${chapter.slug}`);
       expect(response?.status()).toBe(200);
       const title = source.match(/^# (.+)$/m)?.[1];
       await expect(page.locator('h1')).toHaveText(title ?? '');
@@ -408,22 +406,22 @@ test('every chapter renders its real Markdown, links, final section and unique a
 test('section links preserve the selected language without reloading the document', async ({
   page,
 }) => {
-  await page.goto('/guide/capture?lang=en');
+  await page.goto('/en/guide/capture');
   await expect(page.getByTestId('guide.article')).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   const origin = await page.evaluate(() => performance.timeOrigin);
   const section = page.getByTestId('guide.outline').locator('a').nth(1);
   await section.click();
-  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en#.+$/);
+  await expect(page).toHaveURL(/\/en\/guide\/capture\/?#.+$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(100);
   expect(await page.evaluate(() => performance.timeOrigin)).toBe(origin);
   await page.goBack();
-  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en$/);
+  await expect(page).toHaveURL(/\/en\/guide\/capture\/?$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.goForward();
-  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en#.+$/);
+  await expect(page).toHaveURL(/\/en\/guide\/capture\/?#.+$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(100);
 });
@@ -491,7 +489,7 @@ test('guide language, themes, narrow tables and scrolling work through normal co
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
   await expect(page.locator('h1')).toHaveText('Tool reference');
   await page.getByTestId('guide.chapter.capture').click();
-  await expect(page).toHaveURL(/\/guide\/capture\/?\?lang=en$/);
+  await expect(page).toHaveURL(/\/en\/guide\/capture\/?$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await page.getByTestId('guide.root').focus();
   await page.mouse.move(1000, 650);

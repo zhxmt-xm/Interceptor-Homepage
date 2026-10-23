@@ -18,7 +18,7 @@ export const english = {
   },
   nav: {
     label: 'Main navigation',
-    features: 'Features',
+    home: 'Home',
     guide: 'User Guide',
     download: 'Download',
     language: {
@@ -41,8 +41,8 @@ export const english = {
   },
   hero: {
     eyebrow: 'YOUR TRAFFIC. YOUR PERSPECTIVE.',
-    first: 'See every request.',
-    second: 'Find your next insight.',
+    first: 'See every request',
+    second: 'Find your next insight',
     body: 'An HTTP(S) debugging proxy that brings the whole conversation into focus. Capture, understand, and reshape traffic — in one thoughtful workspace.',
     primary: 'Explore the workspace',
     platform: 'Built for macOS & Windows',

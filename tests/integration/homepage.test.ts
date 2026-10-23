@@ -22,6 +22,40 @@ test('production entry has no design control API or candidate metadata', async (
   );
 });
 
+test('hero lines center independently and home navigation uses the canonical root', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1600, height: 900 });
+  const home = page.locator('#main-navigation a').first();
+  await expect(home).toHaveText('首页');
+  await expect(home).toHaveAttribute('href', '/');
+
+  const heading = page.locator('#hero-heading');
+  const lines = heading.locator(':scope > span');
+  await expect(lines).toHaveCount(2);
+  await expect(lines.nth(0)).toHaveText('看清每个请求');
+  await expect(lines.nth(1)).toHaveText('掌控每次响应');
+  const centers = await heading.evaluate((element) => {
+    const headingBox = element.getBoundingClientRect();
+    return {
+      heading: headingBox.left + headingBox.width / 2,
+      lines: [...element.children].map((line) => {
+        const box = line.getBoundingClientRect();
+        return box.left + box.width / 2;
+      }),
+    };
+  });
+  expect(centers.lines).toHaveLength(2);
+  for (const center of centers.lines) {
+    expect(Math.abs(center - centers.heading)).toBeLessThanOrEqual(0.01);
+  }
+
+  await toggleHeaderLanguage(page);
+  await expect(home).toHaveText('Home');
+  await expect(lines.nth(0)).toHaveText('See every request');
+  await expect(lines.nth(1)).toHaveText('Find your next insight');
+});
+
 test('language and FAQ work through the actual UI', async ({ page }) => {
   await toggleHeaderLanguage(page);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -64,8 +98,7 @@ test('mobile right-side menu stays separate from the always-visible navigation',
   await expect(actionsMenu).toBeHidden();
   await expect(navigation).toBeVisible();
 
-  await navigation.locator('a[href="/#features"]').click();
-  await expect(page).toHaveURL(/#features$/);
+  await expect(navigation.locator('a').first()).toHaveAttribute('href', '/');
   await expect(navigation).toBeVisible();
 });
 

@@ -30,7 +30,7 @@
 - 在现有Vite Markdown编译中提取`search`条目，与正文一起发布。条目包含`kind: chapter | section | step`、`anchor`、`title`、`text`；步骤另含真实编号`step`。图片、媒体URL与HTML属性不进入检索文本。
 - 查询按空白分词、忽略英文大小写，所有关键词须在同一条目的章节、小节或正文中同时命中；标点按字面量处理，不支持正则、模糊或语义搜索。完整标题与标题命中优先，随后正文命中；同分时保留章节和正文顺序。不静默丢弃结果。
 - 结果返回当前语言的`href`、章节名、标题、命中附近的有限摘要与条目类型；摘要正文最多200个UTF-16代码单元，首尾省略号另计，检索范围不因此截断。摘要和标题只高亮实际匹配的文字，不插入查询HTML。显示真实结果数，结果列表保留鼠标、触控板与键盘滚动。
-- 章节/小节复用现有路由和锚点。步骤保留全部旧锚点，并按显式步骤标识或编号列表位置构造独立的`search-step-…`定位锚点，不依赖翻译后的标题；切换语言后仍定位同一步。点击或Enter导航到对应步骤，而非仅打开章节顶部。地址保留`lang=en`，支持刷新、前进后退与重复定位同一结果。
+- 章节/小节复用现有路由和锚点。步骤保留全部旧锚点，并按显式步骤标识或编号列表位置构造独立的`search-step-…`定位锚点，不依赖翻译后的标题；切换语言后仍定位同一步。点击或Enter导航到对应步骤，而非仅打开章节顶部。中文使用`/guide/…`，英文使用`/en/guide/…`；旧`?lang=en`入口由客户端replace到英文路径，支持刷新、前进后退与重复定位同一结果。
 - 只有标题前独立、无正文的锚点节点可以作为该标题的显式定位；上一条操作内部的锚点不用于后续小节，避免目录或搜索结果跳回先前步骤。原显式锚点均保留。
 - 空查询显示搜索提示和示例关键词；无结果显示明确提示。方向键选择、Enter打开、Escape和关闭按钮退出；取消恢复原焦点和阅读位置，选择结果后不把焦点拉回旧位置。IME组合输入的Enter不触发导航。
 - 搜索不重新下载所有章节或媒体，准备好的阅读器搜索不发起网络请求；编译失败沿用教程错误边界，不返回假空结果。保留目录首次进入小于1000ms、长章切换小于300ms的现有门槛；搜索输入到完整结果绘制同样要求小于300ms，不以首条结果出现或截断结果数替代完整绘制。
@@ -103,7 +103,7 @@
 
 ### 阅读流程契约
 
-Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引直接链接同章图文小节。正文不渲染播放器、字幕轨或时间跳转，不请求MP4/VTT；现有PNG字节、原图入口、步骤顺序和参考正文保持。原workflow截图只作为验证产物，采用为素材前独立审核，不自动写入官网。官网首页语言通过正式Header控件选择，不把仅用于教程路由的`lang`参数扩成首页新行为。
+Homepage资源区进入`/guide#walkthroughs`（英文为`/en/guide#walkthroughs`）；索引直接链接同章图文小节。正文不渲染播放器、字幕轨或时间跳转，不请求MP4/VTT；现有PNG字节、原图入口、步骤顺序和参考正文保持。原workflow截图只作为验证产物，采用为素材前独立审核，不自动写入官网。官网首页语言通过正式Header控件选择，独立英文路径只用于教程路由，不扩成首页新行为。
 
 1. 顶栏按当前语言显示“使用指南”或“User Guide”，直接进入`/guide`并保留站点UI语言，不再跳转资源区；具体窄屏布局跟随Header所属改动验收。首页学习资源中的教程卡片继续提供“阅读教程”入口。
 2. 目录按当前语言列出全部章节，每章进入`/guide/<chapter>`，显示对应中英Markdown正文而非复制的样章。
@@ -113,7 +113,7 @@ Homepage资源区进入`/guide#walkthroughs`（英文保留`lang=en`）；索引
 6. 未知章节、子路径及不存在的静态资源返回真正404；不把全部路径回退到首页200。
 7. 页面只呈现操作正文与必要导航，不展示初稿、素材或验收进度。不显示假图片、占位视频或App离线能力；实际未验证范围继续由维护文档和Handover保留。
 8. 站内入口、章节、文内链接和首页锚点通过客户端路由切换，不产生新的document请求；浏览器前进后退保持同一页面。只有首次访问、显式刷新或新标签页打开才请求对应HTML入口。
-9. 同章锚点保留当前路径和查询参数。英文阅读器点击本章目录、重复定位或前进后退时仍保持`lang=en`，不因只更新hash而重置UI语言；锚点核对读取React Router生成的真实href，不能只检查已不存在的`href="#..."`写法。
+9. 同章锚点保留当前路径。英文阅读器点击本章目录、重复定位或前进后退时仍保持`/en/guide/…`，不因只更新hash而重置UI语言；锚点核对读取React Router生成的真实href，不能只检查已不存在的`href="#..."`写法。
 
 - `/guide` 作为目录入口，`/guide/<chapter>` 对应章节，例如 `/guide/capture`；已有章节锚点对应具体功能点。
 - 正常官网访问使用官网导航；App 的嵌入模式只呈现教程阅读区，移除营销页头、页脚和重复外壳。
@@ -399,7 +399,7 @@ npm exec --workspace @interceptor/desktop playwright test -- \
   - 范围：以[功能设计](../../Interceptor/architecture/features)、[workflow 规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)和[workflow 源码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows)核对完整功能目录，逐 feature、逐功能点建立对应关系；相似测试归纳为用户场景，不照搬测试脚本、fixture 或验收日志。
   - 交付：每个功能点写清使用目的、适用平台与前提、简单直接的操作步骤、预期结果和关键说明；按用户补充要求，每个操作步骤都配对应真实步骤图，不能只截关键节点。变量名、规则/请求/文件名及输入值与实际操作和视频一致，动态端口/ID明确说明。每个feature提供对应视频，按步骤分章节或时间戳，与guidebook相互链接；缺图步骤不能算完成。
   - 当前：用户要求先写完整教程、先完成Homepage，再接入App；唯一[教程目录](../guidebook/README.md)已整理为普通Markdown目录，含快速上手、工作区、Capture、Composer、Rules、Breakpoints、导入导出、Settings、Diagnostics、Agent、MCP、权限、Tool速查与排查中文初稿。[覆盖关系](guidebook-coverage.md)逐组链接到正文及功能点锚点；已按源码区分Capture快捷断点立即Apply、普通规则草稿、Collection自动保存和Agent当前Chat模型等行为。
-  - 已核对范围：[内容检查](../artifacts/guidebook-content-20261014.json)覆盖正文映射与UTF-8；当前阅读器的lint/typecheck、静态构建及[整站Browser](../artifacts/guide-reader-20261014/site-green)通过，覆盖中英入口、真实正文、同一document切换、前进后退、刷新、手机/主题与404。已修复本章锚点删除`lang=en`导致UI回到中文的问题，[前置Red](../artifacts/guide-reader-20261014/anchor-red)与[教程Green](../artifacts/guide-reader-20261014/guide-green)保留；验证使用独立构建目录，避免并行重建`dist/`造成临时资源404。
+  - 已核对范围：[内容检查](../artifacts/guidebook-content-20261014.json)覆盖正文映射与UTF-8；当前阅读器的lint/typecheck、静态构建及[整站Browser](../artifacts/guide-reader-20261014/site-green)通过，覆盖中英入口、真实正文、同一document切换、前进后退、刷新、手机/主题与404。早期`lang=en`锚点修复的[前置Red](../artifacts/guide-reader-20261014/anchor-red)与[教程Green](../artifacts/guide-reader-20261014/guide-green)保留为历史证据；当前英文阅读器使用`/en/guide/…`静态路径。验证使用独立构建目录，避免并行重建`dist/`造成临时资源404。
   - 页面与托管核对：[浅深/手机阅读区对比](../artifacts/guide-reader-20261014/visual/comparison.json)的标题、简介、初稿提示与可见章节选中态几何、字体和像素一致；全文及独立维护的Header不伪装成缩略设计fixture。[Cloudflare本地Browser](../artifacts/guide-reader-20261014/cloudflare-green)与静态发布dry-run通过，该轮保留了当时的frame保护、无业务Worker/绑定。以上不证明当前响应头、公开地址、App接入、英文正文或真实产品媒体验收。
   - 页面实现：[官网阅读器](../src/features/guide)与中英Markdown已接入首页和Header，“使用指南 / User Guide”可进入真实章节；不再把旧的“准备中”卡片描述为当前实现。[早期候选源码](../../Interceptor/design-vite/src/features/HomepageGuidePreview)随本仓库保留，[目录效果](../../../.copilot/session-state/549e8dc8-bccd-40ee-9228-d5895e50551f/files/homepage-guide-proposal/light/homepage-guide/overview.png)与[交互核对](../../../.copilot/session-state/549e8dc8-bccd-40ee-9228-d5895e50551f/files/homepage-guide-interaction/result.json)只说明候选，不能替代官网或App验收。
   - 组织与构建：按用户明确要求保存两个仓库全部当前进度，Homepage首次快照包含共享入口、依赖与lockfile，避免提交无法构建的孤立教程目录；本仓库保存设计候选。仍不发布教程npm包、不向App同步目录或压缩包、不增加私有registry认证，未部署网站或接入App。

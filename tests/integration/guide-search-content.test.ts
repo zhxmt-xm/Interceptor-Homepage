@@ -113,7 +113,7 @@ test('both complete books have unique real search anchors without media or marku
 test('title ranking, stable order and case-insensitive multi-term matching use actual text', () => {
   expect(reader.searchGuide).toEqual(expect.any(Function));
   const exact = reader.searchGuide('capture', 'en');
-  expect(exact[0]).toMatchObject({ kind: 'chapter', href: '/guide/capture?lang=en' });
+  expect(exact[0]).toMatchObject({ kind: 'chapter', href: '/en/guide/capture' });
   expect(reader.searchGuide('CAPTURE', 'en')).toEqual(exact);
   const results = reader.searchGuide('  public   fingerprint  Trusted ', 'en');
   expect(results).toEqual(
@@ -121,7 +121,7 @@ test('title ranking, stable order and case-insensitive multi-term matching use a
       expect.objectContaining({
         kind: 'step',
         step: 1,
-        href: expect.stringMatching(/^\/guide\/settings\?lang=en#search-step-/),
+        href: expect.stringMatching(/^\/en\/guide\/settings#search-step-/),
       }),
     ]),
   );
@@ -165,7 +165,7 @@ test('code and literal punctuation are searchable without interpreting regular e
   expect(results).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
-        href: expect.stringMatching(/^\/guide\/settings\?lang=en#search-step-/),
+        href: expect.stringMatching(/^\/en\/guide\/settings#search-step-/),
         excerpt: expect.stringContaining('{"mode":"https-h1","secure":true}'),
       }),
     ]),
@@ -174,7 +174,7 @@ test('code and literal punctuation are searchable without interpreting regular e
     expect.arrayContaining([
       expect.objectContaining({
         step: 6,
-        href: expect.stringMatching(/^\/guide\/capture\?lang=en#search-step-/),
+        href: expect.stringMatching(/^\/en\/guide\/capture#search-step-/),
       }),
     ]),
   );
@@ -193,12 +193,10 @@ test('section prose, table values and result snippets retain the correct destina
     ]),
   );
   const results = reader.searchGuide('capture_get_exchange_body', 'en');
-  expect(results.some((result) => result.href.startsWith('/guide/tool-reference?lang=en#'))).toBe(
-    true,
-  );
+  expect(results.some((result) => result.href.startsWith('/en/guide/tool-reference#'))).toBe(true);
   for (const result of reader.searchGuide('HTTP', 'en')) {
     expect(result.excerpt.length).toBeLessThanOrEqual(202);
-    expect(result.href).toMatch(/^\/guide(?:\/[^?#]+)?\?lang=en(?:#.+)?$/);
+    expect(result.href).toMatch(/^\/en\/guide(?:\/[^?#]+)?(?:#.+)?$/);
   }
 });
 
@@ -213,7 +211,7 @@ test.describe('search rendering performance', () => {
       durationMs: number;
     }> = [];
     for (const locale of ['zh', 'en'] as const) {
-      await page.goto(`/guide${locale === 'en' ? '?lang=en' : ''}`);
+      await page.goto(locale === 'en' ? '/en/guide' : '/guide');
       await expect(page.getByTestId('guide.article')).toBeVisible();
       await page.keyboard.press('Control+k');
       const input = page.getByTestId('guide.search.input');

@@ -94,7 +94,7 @@ export default function GuidePage({ page, locale }: { page: GuidePageId; locale:
           anchor.hasAttribute('download') ||
           anchor.target ||
           !href ||
-          (!href.startsWith('#') && !/^\/guide(?:\/|[?#]|$)/.test(href))
+          (!href.startsWith('#') && !/^\/(?:en\/)?guide(?:\/|[?#]|$)/.test(href))
         )
           return;
         const destination = new URL(href, window.location.href);

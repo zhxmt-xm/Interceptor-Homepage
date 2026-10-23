@@ -7,7 +7,7 @@ for (const locale of ['zh', 'en']) {
     context,
   }) => {
     for (const route of ['/', '/guide/composer']) {
-      await page.goto(route + (locale === 'en' && route !== '/' ? '?lang=en' : ''));
+      await page.goto(locale === 'en' && route !== '/' ? `/en${route}` : route);
       if (locale === 'en' && route === '/') await toggleHeaderLanguage(page);
       for (const width of [1600, 390]) {
         await page.setViewportSize({ width, height: 900 });

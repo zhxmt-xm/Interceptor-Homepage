@@ -14,9 +14,10 @@ export default function Hero({ content }: { content: WebsiteCopy['hero'] }) {
         </span>
         <p className={styles.eyebrow}>{content.eyebrow}</p>
         <h1 className={styles.headline} id="hero-heading">
-          {content.first}
-          <br />
-          <span>{content.second}</span>
+          <span className={styles.headlineLine}>{content.first}</span>
+          <span className={`${styles.headlineLine} ${styles.headlineAccent}`}>
+            {content.second}
+          </span>
         </h1>
         <p className={styles.description}>{content.body}</p>
         <div className={styles.actions}>

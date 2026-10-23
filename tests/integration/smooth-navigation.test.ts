@@ -4,9 +4,9 @@ import { expect, type Locator, type Page, type TestInfo, test } from '@playwrigh
 async function loadNavigationFonts(page: Page) {
   await page.evaluate(async () => {
     for (const weight of [400, 450, 500, 600, 700]) {
-      const faces = await document.fonts.load(`${weight} 16px Inter`, 'Interceptor');
+      const faces = await document.fonts.load(`${weight} 16px "Inter Variable"`, 'Interceptor');
       if (!faces.length || faces.some((face) => face.status !== 'loaded')) {
-        throw new Error(`Navigation font is unavailable: Inter ${weight}`);
+        throw new Error(`Navigation font is unavailable: Inter Variable ${weight}`);
       }
     }
   });
@@ -66,15 +66,15 @@ for (const reducedMotion of [false, true]) {
     await page.emulateMedia({ reducedMotion: reducedMotion ? 'reduce' : 'no-preference' });
     await page.goto('/');
     await loadNavigationFonts(page);
-    const features = page.locator('#main-navigation a[href="/#features"]');
+    const workspace = page.locator('main a[href="/#workspace"]');
     for (const repeat of [false, true]) {
       await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
-      const positions = await clickAndSampleScroll(page, features);
+      const positions = await clickAndSampleScroll(page, workspace);
       await saveScrollEvidence(testInfo, `home-${repeat ? 'repeat' : 'first'}`, positions);
       expectScrollBehavior(positions, reducedMotion);
-      await expect(page).toHaveURL(/#features$/);
+      await expect(page).toHaveURL(/#workspace$/);
       const targetTop = await page
-        .locator('#features')
+        .locator('#workspace')
         .evaluate((element) => element.getBoundingClientRect().top);
       const headerBottom = await page
         .locator('header')
@@ -87,7 +87,7 @@ for (const reducedMotion of [false, true]) {
     page,
   }, testInfo) => {
     await page.emulateMedia({ reducedMotion: reducedMotion ? 'reduce' : 'no-preference' });
-    await page.goto('/guide/composer?lang=en');
+    await page.goto('/en/guide/composer');
     await expect(page.getByTestId('guide.article')).toBeVisible();
     await loadNavigationFonts(page);
     const anchor = page.getByTestId('guide.outline').getByRole('link').nth(1);
@@ -97,7 +97,7 @@ for (const reducedMotion of [false, true]) {
     await saveScrollEvidence(testInfo, 'guide-scroll', positions);
     expectScrollBehavior(positions, reducedMotion);
     await expect(page).toHaveURL(new URL(href, page.url()).href);
-    expect(new URL(page.url()).searchParams.get('lang')).toBe('en');
+    expect(new URL(page.url()).pathname).toBe('/en/guide/composer');
     await expect
       .poll(() =>
         page.evaluate(() => {

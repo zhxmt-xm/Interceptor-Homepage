@@ -6,7 +6,7 @@ test('every guide page has a responsive global search entry and explicit empty s
 }) => {
   for (const width of [1600, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['/guide', '/guide/capture?lang=en']) {
+    for (const route of ['/guide', '/en/guide/capture']) {
       await page.goto(route);
       await expect(page.getByTestId('guide.article')).toBeVisible();
       const trigger = page.getByTestId('guide.search.trigger').filter({ visible: true });
@@ -100,7 +100,7 @@ test('search crosses chapters, highlights actual matches and navigates to a conc
 test('keyboard selection, repeated destinations and history preserve English routes', async ({
   page,
 }) => {
-  await page.goto('/guide?lang=en');
+  await page.goto('/en/guide');
   await expect(page.getByTestId('guide.article')).toBeVisible();
   await page.keyboard.press('Control+k');
   const input = page.getByTestId('guide.search.input');
@@ -111,7 +111,7 @@ test('keyboard selection, repeated destinations and history preserve English rou
   await expect(selected).toHaveCount(1);
   const href = await selected.getAttribute('href');
   if (!href) throw new Error('Selected search result has no destination.');
-  expect(href).toContain('?lang=en');
+  expect(href).toMatch(/^\/en\/guide\//);
   await input.press('Enter');
   await expect(page).toHaveURL(new URL(href, page.url()).href);
   await expect(page.getByTestId('guide.article')).toHaveAttribute('lang', 'en');
@@ -121,7 +121,7 @@ test('keyboard selection, repeated destinations and history preserve English rou
   await same.click();
   await expect(page).toHaveURL(new URL(href, page.url()).href);
   await page.goBack();
-  await expect(page).toHaveURL(/\/guide\?lang=en$/);
+  await expect(page).toHaveURL(/\/en\/guide$/);
   await page.goForward();
   await expect(page).toHaveURL(new URL(href, page.url()).href);
   await toggleHeaderLanguage(page);
@@ -131,8 +131,8 @@ test('keyboard selection, repeated destinations and history preserve English rou
     'href',
     /^\/guide\/.+#.+$/,
   );
-  expect(await page.getByTestId('guide.search.result').first().getAttribute('href')).not.toContain(
-    'lang=en',
+  expect(await page.getByTestId('guide.search.result').first().getAttribute('href')).toMatch(
+    /^\/guide\//,
   );
 });
 
@@ -201,7 +201,7 @@ test('search stays within both themes and small viewports with a scrollable resu
     await page.setViewportSize({ width, height: width === 320 ? 480 : 900 });
     for (const colorScheme of ['light', 'dark'] as const) {
       await page.emulateMedia({ colorScheme });
-      await page.goto('/guide?lang=en');
+      await page.goto('/en/guide');
       await page.getByTestId('guide.search.trigger').filter({ visible: true }).click();
       const input = page.getByTestId('guide.search.input');
       await input.fill('HTTP');

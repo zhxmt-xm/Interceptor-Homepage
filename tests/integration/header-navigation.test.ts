@@ -20,9 +20,9 @@ test('header remains at the top while scrolling and keeps anchor targets visible
       await page.locator('html').evaluate((element) => getComputedStyle(element).backgroundColor),
     );
 
-    for (const id of ['features', 'resources']) {
-      if (id === 'features') {
-        await page.locator('#main-navigation a[href="/#features"]').click();
+    for (const id of ['workspace', 'resources']) {
+      if (id === 'workspace') {
+        await page.locator('main a[href="/#workspace"]').click();
       } else {
         await page.locator('footer a[href="/#resources"]').click();
       }
@@ -95,8 +95,8 @@ for (const width of [1600, 768, 641, 390]) {
     await page.goto('/');
     await page.evaluate(async () => {
       for (const [family, weights] of Object.entries({
-        Inter: ['400', '450', '500', '600', '700'],
-        'JetBrains Mono': ['400', '500'],
+        'Inter Variable': ['400', '450', '500', '600', '700'],
+        'JetBrains Mono Variable': ['400', '500'],
       })) {
         for (const weight of weights) {
           const faces = await document.fonts.load(`${weight} 16px "${family}"`, 'Interceptor');
@@ -107,7 +107,7 @@ for (const width of [1600, 768, 641, 390]) {
       }
       await document.fonts.ready;
     });
-    await page.locator('#main-navigation a[href="/#features"]').click();
+    await page.locator('main a[href="/#workspace"]').click();
     await showHeaderControls(page);
     const originalUrl = page.url();
     const originalScroll = await page.evaluate(() => scrollY);

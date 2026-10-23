@@ -139,8 +139,8 @@ export default function SiteHeader({
             </span>
           </Link>
           <nav id="main-navigation" className={styles.nav} aria-label={content.label}>
-            <Link to={`${homePrefix}#features`} onClick={closeMenu}>
-              {content.features}
+            <Link to="/" onClick={closeMenu} data-automation-id="homepage.navigation.home">
+              {content.home}
             </Link>
             <Link
               to={guideHref('overview', locale)}

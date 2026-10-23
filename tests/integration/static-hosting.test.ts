@@ -64,6 +64,12 @@ test('static pages publish route metadata and discovery files', async ({ request
       title: 'Capture · 使用指南 — Interceptor',
       description: '从找到一条请求，到理解它的正文、时序和协议。先看清发生了什么，再决定下一步。',
     },
+    {
+      path: '/en/guide/capture',
+      title: 'Capture · User Guide — Interceptor',
+      description:
+        'Find a request and understand its body, timing and protocol before deciding what to do next.',
+    },
   ];
 
   for (const metadata of pages) {
@@ -80,7 +86,15 @@ test('static pages publish route metadata and discovery files', async ({ request
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.status()).toBe(200);
   const sitemapXml = await sitemap.text();
-  for (const path of ['/', '/guide', '/guide/capture', '/guide/troubleshooting']) {
+  for (const path of [
+    '/',
+    '/guide',
+    '/guide/capture',
+    '/guide/troubleshooting',
+    '/en/guide',
+    '/en/guide/capture',
+    '/en/guide/troubleshooting',
+  ]) {
     expect(sitemapXml).toContain(`<loc>${new URL(path, 'https://www.interceptor.cn').href}</loc>`);
   }
 
@@ -89,19 +103,43 @@ test('static pages publish route metadata and discovery files', async ({ request
   expect(await robots.text()).toContain('Sitemap: https://www.interceptor.cn/sitemap.xml');
 });
 
-test('English guide navigation updates canonical and Open Graph metadata', async ({ page }) => {
+test('legacy English guide URLs use the static English route and metadata', async ({ page }) => {
   await page.goto('/guide/capture?lang=en');
+  await expect(page).toHaveURL('/en/guide/capture');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    'https://www.interceptor.cn/guide/capture?lang=en',
+    'https://www.interceptor.cn/en/guide/capture',
   );
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     'content',
-    'https://www.interceptor.cn/guide/capture?lang=en',
+    'https://www.interceptor.cn/en/guide/capture',
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     'content',
     'Capture · User Guide — Interceptor',
   );
+});
+
+test('website loads bundled fonts without requesting Google Fonts', async ({ page }) => {
+  const externalFontRequests: string[] = [];
+  page.on('request', (request) => {
+    if (/^https:\/\/fonts\.(?:googleapis|gstatic)\.com\//.test(request.url())) {
+      externalFontRequests.push(request.url());
+    }
+  });
+
+  await page.goto('/');
+  await page.evaluate(async () => {
+    await Promise.all([
+      document.fonts.load('400 16px "Inter Variable"'),
+      document.fonts.load('400 16px "JetBrains Mono Variable"'),
+    ]);
+  });
+
+  expect(await page.evaluate(() => document.fonts.check('400 16px "Inter Variable"'))).toBe(true);
+  expect(
+    await page.evaluate(() => document.fonts.check('400 16px "JetBrains Mono Variable"')),
+  ).toBe(true);
+  expect(externalFontRequests).toEqual([]);
 });

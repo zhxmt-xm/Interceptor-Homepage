@@ -41,7 +41,7 @@ for (const language of ['zh-CN', 'en']) {
       const source = readFileSync(path.join(directory, file), 'utf8');
       const images = [...source.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map((match) => match[1]);
       if (!images.some((image) => image.endsWith('.annotated.png'))) continue;
-      await page.goto(`/guide/${file.slice(0, -3)}${language === 'en' ? '?lang=en' : ''}`);
+      await page.goto(`${language === 'en' ? '/en' : ''}/guide/${file.slice(0, -3)}`);
       const article = page.getByTestId('guide.article');
       await expect(article).toBeVisible();
       const renderedImages = article.locator('img');

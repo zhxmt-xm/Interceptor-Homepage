@@ -14,7 +14,7 @@ import SiteFooter from '../components/SiteFooter/SiteFooter';
 import SiteHeader from '../components/SiteHeader/SiteHeader';
 import type { Locale } from '../content';
 import { COPY } from '../content';
-import { GUIDE_CHAPTERS, GUIDE_ROUTES, GUIDE_UI } from '../content/guidebook';
+import { GUIDE_CHAPTERS, GUIDE_ROUTES, GUIDE_UI, guideHref } from '../content/guidebook';
 import GuideErrorBoundary from '../features/guide/GuideErrorBoundary';
 import HomePage from '../features/home/HomePage';
 import { useTheme } from '../theme/useTheme';
@@ -31,10 +31,19 @@ export default function App({
 }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const guidePage = matchRoutes(GUIDE_ROUTES, location)?.[0]?.route.page ?? null;
+  const guideRoute = matchRoutes(GUIDE_ROUTES, location)?.[0]?.route ?? null;
+  const guidePage = guideRoute?.page ?? null;
+  const guideLocale = guideRoute?.locale ?? null;
+  const legacyEnglishGuide =
+    guidePage !== null &&
+    guideLocale === 'zh' &&
+    new URLSearchParams(location.search).get('lang') === 'en';
   const home = matchPath('/', location.pathname) !== null;
   const [locale, setLocale] = useState<Locale>(() =>
-    guidePage !== null && new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh',
+    guideLocale === 'en' ||
+    (guidePage !== null && new URLSearchParams(location.search).get('lang') === 'en')
+      ? 'en'
+      : 'zh',
   );
   const content = COPY[locale];
   const { preference, theme, chooseTheme } = useTheme(initialThemePreference);
@@ -53,10 +62,22 @@ export default function App({
   }, [imagePreview.open]);
 
   useLayoutEffect(() => {
-    if (guidePage !== null) {
-      setLocale(new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh');
+    if (guidePage === null || guideLocale === null) return;
+    if (legacyEnglishGuide) {
+      const search = new URLSearchParams(location.search);
+      search.delete('lang');
+      navigate(
+        {
+          pathname: guideHref(guidePage, 'en'),
+          search: search.toString(),
+          hash: location.hash,
+        },
+        { replace: true },
+      );
+      return;
     }
-  }, [guidePage, location.search]);
+    setLocale(guideLocale);
+  }, [guideLocale, guidePage, legacyEnglishGuide, location.hash, navigate]);
 
   useLayoutEffect(() => {
     if (!location.hash) {
@@ -88,8 +109,10 @@ export default function App({
         ? content.description
         : (GUIDE_CHAPTERS.find((chapter) => chapter.slug === guidePage)?.summary[locale] ??
           GUIDE_UI[locale].overviewSummary);
-    const canonicalUrl = new URL(location.pathname, siteOrigin);
-    if (guidePage !== null && locale === 'en') canonicalUrl.searchParams.set('lang', 'en');
+    const canonicalUrl = new URL(
+      legacyEnglishGuide && guidePage !== null ? guideHref(guidePage, 'en') : location.pathname,
+      siteOrigin,
+    );
     document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
     document.title = title;
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl.href);
@@ -100,7 +123,7 @@ export default function App({
     document
       .querySelector('meta[property="og:locale"]')
       ?.setAttribute('content', locale === 'zh' ? 'zh_CN' : 'en_US');
-  }, [locale, content, guidePage, home, location.pathname]);
+  }, [locale, content, guidePage, home, legacyEnglishGuide, location.pathname]);
 
   return (
     <div
@@ -139,10 +162,13 @@ export default function App({
           setLocale(next);
           if (guidePage !== null) {
             const search = new URLSearchParams(location.search);
-            if (next === 'en') search.set('lang', next);
-            else search.delete('lang');
+            search.delete('lang');
             navigate(
-              { pathname: location.pathname, search: search.toString(), hash: location.hash },
+              {
+                pathname: guideHref(guidePage, next),
+                search: search.toString(),
+                hash: location.hash,
+              },
               { replace: true },
             );
           }

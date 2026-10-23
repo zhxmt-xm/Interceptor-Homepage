@@ -85,7 +85,14 @@
   line-height: 1.22;
 }
 
-.headline > span {
+.headlineLine {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.headlineAccent {
   color: var(--accent);
   background: linear-gradient(
     110deg,

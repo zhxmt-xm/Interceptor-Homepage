@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { getPreferenceOptions, getPreferenceTrigger, showHeaderControls } from './header-controls';
 
 for (const width of [1600, 390]) {
-  for (const route of ['/', '/guide/composer?lang=en&source=header-check#top']) {
+  for (const route of ['/', '/en/guide/composer?source=header-check#top']) {
     test(`language changes only after an explicit choice at ${width}px on ${route}`, async ({
       page,
     }) => {

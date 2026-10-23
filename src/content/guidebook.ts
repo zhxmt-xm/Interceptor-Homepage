@@ -235,14 +235,26 @@ export const GUIDE_UI = {
 } satisfies Record<Locale, Record<string, string | Record<string, string | readonly string[]>>>;
 
 export function guideHref(page: GuidePageId, locale: Locale): string {
-  return `/guide${page === 'overview' ? '' : `/${page}`}${locale === 'en' ? '?lang=en' : ''}`;
+  const path = `/guide${page === 'overview' ? '' : `/${page}`}`;
+  return locale === 'en' ? `/en${path}` : path;
 }
 
-export const GUIDE_ROUTES: { path: string; page: GuidePageId; caseSensitive: boolean }[] = [
-  { path: '/guide', page: 'overview', caseSensitive: true },
+export const GUIDE_ROUTES: {
+  path: string;
+  page: GuidePageId;
+  locale: Locale;
+  caseSensitive: boolean;
+}[] = (['zh', 'en'] as const).flatMap((locale) => [
+  {
+    path: guideHref('overview', locale),
+    page: 'overview',
+    locale,
+    caseSensitive: true,
+  },
   ...GUIDE_CHAPTERS.map((chapter) => ({
-    path: `/guide/${chapter.slug}`,
+    path: guideHref(chapter.slug, locale),
     page: chapter.slug,
+    locale,
     caseSensitive: true,
   })),
-];
+]);

@@ -4,10 +4,12 @@ import { defineConfig, type Plugin } from 'vite';
 import { guideContent } from './scripts/guide-content.ts';
 import {
   GUIDE_CHAPTERS,
+  GUIDE_LANGUAGE,
   GUIDE_ROUTES,
   GUIDE_UI,
   type GuidePageId,
 } from './src/content/guidebook.ts';
+import type { Locale } from './src/content/types.ts';
 
 const siteOrigin = 'https://www.interceptor.cn';
 
@@ -15,6 +17,7 @@ type StaticMetadata = {
   title: string;
   description: string;
   url: string;
+  locale: Locale;
 };
 
 function escapeHtml(value: string): string {
@@ -50,24 +53,35 @@ function replaceMetadataTitle(html: string, title: string): string {
 }
 
 function renderMetadata(html: string, metadata: StaticMetadata): string {
-  let result = replaceMetadataTitle(html, metadata.title);
+  let result = html.replace(
+    /<html lang="[^"]+">/,
+    `<html lang="${GUIDE_LANGUAGE[metadata.locale]}">`,
+  );
+  result = replaceMetadataTitle(result, metadata.title);
   result = replaceMetadataAttribute(result, 'description', 'content', metadata.description);
   result = replaceMetadataAttribute(result, 'canonical', 'href', metadata.url);
   result = replaceMetadataAttribute(result, 'og-title', 'content', metadata.title);
   result = replaceMetadataAttribute(result, 'og-description', 'content', metadata.description);
-  return replaceMetadataAttribute(result, 'og-url', 'content', metadata.url);
+  result = replaceMetadataAttribute(result, 'og-url', 'content', metadata.url);
+  return replaceMetadataAttribute(
+    result,
+    'og-locale',
+    'content',
+    metadata.locale === 'zh' ? 'zh_CN' : 'en_US',
+  );
 }
 
-function guideMetadata(page: GuidePageId, path: string): StaticMetadata {
+function guideMetadata(page: GuidePageId, path: string, locale: Locale): StaticMetadata {
   const chapter = GUIDE_CHAPTERS.find((candidate) => candidate.slug === page);
   if (page !== 'overview' && !chapter) throw new Error(`Guide chapter is missing: ${page}`);
   return {
     title:
       page === 'overview'
-        ? `${GUIDE_UI.zh.title} — Interceptor`
-        : `${chapter?.label.zh} · ${GUIDE_UI.zh.title} — Interceptor`,
-    description: chapter?.summary.zh ?? GUIDE_UI.zh.overviewSummary,
+        ? `${GUIDE_UI[locale].title} — Interceptor`
+        : `${chapter?.label[locale]} · ${GUIDE_UI[locale].title} — Interceptor`,
+    description: chapter?.summary[locale] ?? GUIDE_UI[locale].overviewSummary,
     url: new URL(path, siteOrigin).href,
+    locale,
   };
 }
 
@@ -107,7 +121,7 @@ function guidePages(): Plugin {
         this.emitFile({
           type: 'asset',
           fileName: `${route.path.slice(1)}/index.html`,
-          source: renderMetadata(source, guideMetadata(route.page, route.path)),
+          source: renderMetadata(source, guideMetadata(route.page, route.path, route.locale)),
         });
       }
       this.emitFile({

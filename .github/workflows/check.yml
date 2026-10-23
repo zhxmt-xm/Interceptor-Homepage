@@ -4,7 +4,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - docs/**
+      - commit-changes/**
   pull_request:
+    paths-ignore:
+      - README.md
+      - docs/**
+      - commit-changes/**
 
 permissions:
   contents: read
@@ -39,7 +47,11 @@ jobs:
       - name: Install Playwright Chromium
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
-      - name: Run browser tests
+      - name: Run browser smoke tests
+        if: github.event_name == 'pull_request'
+        run: npm run test:smoke
+      - name: Run full browser tests
+        if: github.event_name == 'push'
         run: npm test
       - name: Deploy tested website
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

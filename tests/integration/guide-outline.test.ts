@@ -205,9 +205,7 @@ test('chapter changes and leaving the reader do not retain stale section state',
   const expectCurrentAtFirst = async () => {
     await expect
       .poll(async () => {
-        const currentHref = await outline
-          .locator('[aria-current="location"]')
-          .getAttribute('href');
+        const currentHref = await outline.locator('[aria-current="location"]').getAttribute('href');
         const firstHref = await outline.locator('a').first().getAttribute('href');
         return currentHref !== null && currentHref === firstHref;
       })

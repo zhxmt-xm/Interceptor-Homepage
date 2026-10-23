@@ -30,7 +30,8 @@ npm run lint                # Biome 检查 TypeScript、React、CSS 与格式
 npm run format              # 使用同一套规则整理源码
 npm run typecheck
 npm test                    # 构建后通过本地Cloudflare静态托管与真实浏览器检查页面
-npm run check               # lint + 构建与浏览器检查
+npm run check:quick         # lint + typecheck + 构建
+npm run check               # format + 快速检查 + 浏览器检查
 npm run build               # 生成 dist/
 npm run preview             # 本地查看 dist/
 npm run preview:cloudflare  # 用本地 Wrangler 核对静态资源和响应头
@@ -58,7 +59,17 @@ docs/               # 结构约定与部署指南
 
 ## 部署
 
-优先按 [Cloudflare 部署指南](docs/deployment.md)使用免费 Static Assets 托管。部署配置以 [wrangler.jsonc](wrangler.jsonc) 为准，CI 只检查、不自动上线。
+优先按 [Cloudflare 部署指南](docs/deployment.md)使用免费 Static Assets 托管。部署配置以 [wrangler.jsonc](wrangler.jsonc) 为准。GitHub CI 在临时 checkout 中先执行 formatter，再完成 lint、typecheck、构建与完整 Playwright；同一分支的新提交会取消旧检查。
+
+Pull Request会在没有部署凭据的环境中运行同一套检查；`main` push会重新执行完整检查，避免把PR检查后的并发变化直接发布。当前private仓库使用GitHub Free，平台不提供private branch ruleset，暂时只能由维护者遵守“检查通过后再合并”；升级GitHub Pro或将仓库公开后，应启用必须PR、required `check`、禁止force push与删除的ruleset。
+
+`main`检查全部通过后，CI上传本轮实际受测的`dist/`；deploy job通过`needs: check`下载同一份artifact并执行`wrangler deploy`，不重新build。启用前必须：
+
+- 关闭Cloudflare Workers Builds的Git push自动构建，避免它绕过GitHub检查并行启动。
+- 将最小权限token保存为GitHub Actions secret `CLOUDFLARE_API_TOKEN`。
+- 将Cloudflare账号ID保存为GitHub Actions variable `CLOUDFLARE_ACCOUNT_ID`。
+
+Pull Request只运行检查，不读取部署凭据。任何来源的`main` push都会先检查；任一步失败时deploy job不会启动。
 
 构建输出为 `dist/`，没有与 Cloudflare 绑定的 React 逻辑；也可交给其他静态托管服务。实际上线、账号授权、域名与任何付费操作需要单独确认。
 
@@ -71,10 +82,10 @@ docs/               # 结构约定与部署指南
 - Logo 来自桌面项目的 `apps/desktop/assets/interceptor-icon.png`。没有复制产品代码、凭据、真实流量或用户数据。
 - 官网不维护固定版本号或发布阶段。页头下载统一使用 [GitHub 最新发布入口](https://github.com/zhxmt-xm/Interceptor/releases/latest)，地址在 [links.ts](src/content/links.ts) 中维护；常规发版不需要再改官网或重新部署。
 - `/releases/latest` 是网页入口：有稳定版时跳到最新稳定版，尚无稳定版时跳到Releases列表，可以查看预发布。这与REST API在没有稳定版时返回404的行为不同；官网不依赖私有API或客户端凭据解析版本。
-- Interceptor 仍为私有仓库，下载、GitHub和反馈入口需要登录有仓库访问权限的账号；“已发布”不代表匿名可下载，也不代表稳定版或各平台实机验收已完成。
+- Interceptor 产品仓库、Release、下载和反馈入口均可匿名访问；独立 Homepage 源码仓库继续保持私有。“已发布”不代表稳定版或各平台实机验收已完成。
 - macOS 包使用 ad-hoc 签名且未公证，Windows 安装器未签名；EXE 内嵌同一 MSI，ZIP需完整解压。平台与格式以实际 Release 附件为准，`Source code`归档不是安装包。
 - 首页真实功能截图已接入；完整guidebook逐步骤图文和App内嵌的剩余范围由教程任务独立维护，不因首页图片完成而认定整本教程已验收。
-- 页面没有分析追踪、表单提交或后端；字体仍由 Google Fonts 提供。线上部署与访问权限另行验收，不把本地通过当作公开地址可用。
+- 页面没有分析追踪、表单提交或后端；字体仍由 Google Fonts 提供。正式网站为 <https://www.interceptor.cn/>，本地通过不替代线上深链、缓存和静态资源验收。
 
 产品源码：[zhxmt-xm/Interceptor](https://github.com/zhxmt-xm/Interceptor)。
 

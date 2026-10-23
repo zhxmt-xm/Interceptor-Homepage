@@ -171,7 +171,7 @@ test('a single header download links directly to the latest release at every vie
     await expect(faq.locator('..')).toContainText('MSI');
     await expect(faq.locator('..')).toContainText('GitHub Releases');
     await expect(faq.locator('..')).toContainText(
-      locale === 'zh-CN' ? '仓库访问权限' : 'repository access',
+      locale === 'zh-CN' ? '可匿名访问，无需登录' : 'available without signing in',
     );
     await expect(page.locator('body')).not.toContainText(/v\d+\.\d+\.\d+/);
     await faq.click();

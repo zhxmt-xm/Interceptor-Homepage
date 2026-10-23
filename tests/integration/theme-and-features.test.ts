@@ -28,10 +28,7 @@ for (const theme of ['light', 'dark'] as const) {
       const image = section.getByRole('img');
       await image.scrollIntoViewIfNeeded();
       await expect(image).toHaveAttribute('src', `/media/features/${feature}-${theme}.png`);
-      await expect(section.getByRole('link')).toHaveAttribute(
-        'href',
-        `/media/features/${feature}-${theme}.png`,
-      );
+      await expect(image.locator('..')).toHaveAttribute('aria-haspopup', 'dialog');
       await expect
         .poll(() =>
           image.evaluate(

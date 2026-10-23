@@ -202,20 +202,25 @@ test('chapter changes and leaving the reader do not retain stale section state',
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/guide/workspace#close');
   const outline = page.getByTestId('guide.outline');
+  const expectCurrentAtFirst = async () => {
+    await expect
+      .poll(async () => {
+        const currentHref = await outline
+          .locator('[aria-current="location"]')
+          .getAttribute('href');
+        const firstHref = await outline.locator('a').first().getAttribute('href');
+        return currentHref !== null && currentHref === firstHref;
+      })
+      .toBe(true);
+  };
   await expect(outline.locator('[aria-current="location"]')).toHaveAttribute('href', '#close');
   await page.getByTestId('guide.chapter.capture').click();
-  await expect(outline.locator('[aria-current="location"]')).toHaveAttribute(
-    'href',
-    (await outline.locator('a').first().getAttribute('href')) ?? '',
-  );
+  await expectCurrentAtFirst();
   await page.locator('header a[href="/#features"]').click();
   await expect(page.getByTestId('guide.root')).toHaveCount(0);
   await page.mouse.wheel(0, 300);
   await page.goBack();
-  await expect(outline.locator('[aria-current="location"]')).toHaveAttribute(
-    'href',
-    (await outline.locator('a').first().getAttribute('href')) ?? '',
-  );
+  await expectCurrentAtFirst();
   expect(errors).toEqual([]);
 });
 

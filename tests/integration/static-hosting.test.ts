@@ -75,7 +75,6 @@ test('static pages publish route metadata and discovery files', async ({ request
     expect(html).toContain(`data-page-metadata="description" content="${metadata.description}"`);
     expect(html).toContain(`data-page-metadata="canonical" href="${url}"`);
     expect(html).toContain(`data-page-metadata="og-url" content="${url}"`);
-
   }
 
   const sitemap = await request.get('/sitemap.xml');

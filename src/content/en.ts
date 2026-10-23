@@ -216,7 +216,7 @@ export const english = {
         id: 'downloads',
         question: 'Where can I find the latest downloads?',
         answer:
-          'Download in the header opens GitHub Releases in a new tab: the latest stable release when one exists, or the releases list otherwise. Choose DMG/ZIP for Intel x64 or Apple Silicon arm64, or EXE/MSI/ZIP for Windows x64. Source code archives are not installers. Downloads require a GitHub account with repository access; anonymous downloads are not available.',
+          'Download in the header opens GitHub Releases in a new tab: the latest stable release when one exists, or the releases list otherwise. Choose DMG/ZIP for Intel x64 or Apple Silicon arm64, or EXE/MSI/ZIP for Windows x64. Source code archives are not installers. Release pages and assets are available without signing in to GitHub.',
       },
       {
         id: 'installation',

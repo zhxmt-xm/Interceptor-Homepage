@@ -212,7 +212,7 @@ export const chinese: typeof english = {
         id: 'downloads',
         question: '在哪里获取最新安装包？',
         answer:
-          '点击顶部“下载”在新标签页打开 GitHub Releases：有稳定版时打开最新稳定版详情，尚无稳定版时显示发布列表，可查看预发布。按设备选择 Intel x64 或 Apple Silicon arm64 的 DMG/ZIP，或 Windows x64 的 EXE/MSI/ZIP。Source code 源码归档不是安装包。下载需登录有 GitHub 仓库访问权限的账号，暂未开放匿名下载。',
+          '点击顶部“下载”在新标签页打开 GitHub Releases：有稳定版时打开最新稳定版详情，尚无稳定版时显示发布列表，可查看预发布。按设备选择 Intel x64 或 Apple Silicon arm64 的 DMG/ZIP，或 Windows x64 的 EXE/MSI/ZIP。Source code 源码归档不是安装包。GitHub Release 页面与安装包可匿名访问，无需登录。',
       },
       {
         id: 'installation',

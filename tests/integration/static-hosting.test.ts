@@ -50,3 +50,62 @@ test('guide chapters can be read and navigated from a cross-origin iframe', asyn
   await expect.poll(() => article.evaluate(() => location.pathname)).toBe('/guide/capture');
   await expect(guide.locator('h1')).toBeVisible();
 });
+
+test('static pages publish route metadata and discovery files', async ({ request }) => {
+  const pages = [
+    {
+      path: '/',
+      title: 'Interceptor — 看清每个请求',
+      description:
+        'Interceptor 是面向 macOS 与 Windows 的 HTTP(S) 调试代理，集流量捕获、规则改写、断点、请求重放与可选 AI 调试于一个工作台。',
+    },
+    {
+      path: '/guide/capture',
+      title: 'Capture · 使用指南 — Interceptor',
+      description: '从找到一条请求，到理解它的正文、时序和协议。先看清发生了什么，再决定下一步。',
+    },
+  ];
+
+  for (const metadata of pages) {
+    const response = await request.get(metadata.path);
+    expect(response.status()).toBe(200);
+    const html = await response.text();
+    const url = new URL(metadata.path, 'https://www.interceptor.cn').href;
+    expect(html).toContain(`<title data-page-metadata="title">${metadata.title}</title>`);
+    expect(html).toContain(`data-page-metadata="description" content="${metadata.description}"`);
+    expect(html).toContain(`data-page-metadata="canonical" href="${url}"`);
+    expect(html).toContain(`data-page-metadata="og-url" content="${url}"`);
+    expect(html).toContain('<meta name="twitter:card" content="summary_large_image" />');
+    expect(html).toContain(
+      '<meta name="twitter:image" content="https://www.interceptor.cn/media/features/capture-light.png" />',
+    );
+  }
+
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.status()).toBe(200);
+  const sitemapXml = await sitemap.text();
+  for (const path of ['/', '/guide', '/guide/capture', '/guide/troubleshooting']) {
+    expect(sitemapXml).toContain(`<loc>${new URL(path, 'https://www.interceptor.cn').href}</loc>`);
+  }
+
+  const robots = await request.get('/robots.txt');
+  expect(robots.status()).toBe(200);
+  expect(await robots.text()).toContain('Sitemap: https://www.interceptor.cn/sitemap.xml');
+});
+
+test('English guide navigation updates canonical and social metadata', async ({ page }) => {
+  await page.goto('/guide/capture?lang=en');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://www.interceptor.cn/guide/capture?lang=en',
+  );
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+    'content',
+    'https://www.interceptor.cn/guide/capture?lang=en',
+  );
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+    'content',
+    'Capture · User Guide — Interceptor',
+  );
+});

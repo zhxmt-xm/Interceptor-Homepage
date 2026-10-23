@@ -22,6 +22,7 @@ import type { ThemePreference } from '../theme/utils';
 import styles from './App.module.css';
 
 const GuidePage = lazy(() => import('../features/guide/GuidePage'));
+const siteOrigin = 'https://www.interceptor.cn';
 
 export default function App({
   initialThemePreference,
@@ -87,15 +88,23 @@ export default function App({
         ? content.description
         : (GUIDE_CHAPTERS.find((chapter) => chapter.slug === guidePage)?.summary[locale] ??
           GUIDE_UI[locale].overviewSummary);
+    const canonicalUrl = new URL(location.pathname, siteOrigin);
+    if (guidePage !== null && locale === 'en') canonicalUrl.searchParams.set('lang', 'en');
     document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
     document.title = title;
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl.href);
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl.href);
     document
       .querySelector('meta[property="og:locale"]')
       ?.setAttribute('content', locale === 'zh' ? 'zh_CN' : 'en_US');
-  }, [locale, content, guidePage, home]);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute('content', description);
+  }, [locale, content, guidePage, home, location.pathname]);
 
   return (
     <div

@@ -227,7 +227,7 @@ export const chinese: typeof english = {
     github: 'GitHub',
     feedback: '问题反馈',
     guide: '学习资源',
-    access: 'GitHub 链接当前需要仓库访问权限。',
+    access: '源代码、Release 与问题反馈可在 GitHub 公开访问。',
     note: '为保持好奇心的开发者而造',
     legal: '只检查你有权访问的流量。',
   },

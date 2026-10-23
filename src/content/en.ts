@@ -231,7 +231,7 @@ export const english = {
     github: 'GitHub',
     feedback: 'Feedback',
     guide: 'Resources',
-    access: 'GitHub links currently require repository access.',
+    access: 'Source code, releases and feedback are publicly available on GitHub.',
     note: 'A workspace for curious developers',
     legal: 'Inspect only traffic you are authorized to access.',
   },

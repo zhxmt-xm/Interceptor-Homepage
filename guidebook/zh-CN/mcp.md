@@ -22,7 +22,7 @@ MCP Server 与 Capture 的代理监听器分开。首次开启选择空闲端口
 
    ![开启服务并取得 endpoint · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-001.png)
 
-2. <a id="walkthrough-03-enable"></a>点击红框 1 的开关，等待 Running。红框 2 显示本次实际 endpoint：`http://127.0.0.1:57871/mcp`。使用自己页面显示的地址，不把 Capture 的 `8888` 当作 MCP 端口。
+2. <a id="walkthrough-03-enable"></a>点击红框 1 的开关，等待 Running。红框 2 显示本次实际 endpoint：`http://127.0.0.1:55871/mcp`。使用自己页面显示的地址，不把 Capture 的 `8888` 当作 MCP 端口。
 
    ![开启服务并取得 endpoint · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.annotated.png)
 
@@ -127,7 +127,7 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 
    ![endpoint 冲突或需要更换 · 1](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-002.annotated.png)
 
-2. <a id="walkthrough-18-port-conflict"></a>手动开启失败时，红框 1 显示 `EADDRINUSE`，Server 保持 Off。本例被占用的是 `127.0.0.1:57093`，不是 Capture 的 `8888`。
+2. <a id="walkthrough-18-port-conflict"></a>手动开启失败时，红框 1 显示 `EADDRINUSE`，Server 保持 Off。本例被占用的是 `127.0.0.1:52142`，不是 Capture 的 `8888`。
 
    ![endpoint 冲突或需要更换 · 2](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.annotated.png)
 
@@ -135,7 +135,7 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 
    ![同一流程相关界面](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.png)
 
-4. <a id="walkthrough-19-release-port"></a>已知占用释放后重新开启 MCP Server，等待 Running。红框 1 仍是原地址 `http://127.0.0.1:57093/mcp`，不必先换 endpoint。
+4. <a id="walkthrough-19-release-port"></a>已知占用释放后重新开启 MCP Server，等待 Running。红框 1 仍是原地址 `http://127.0.0.1:52142/mcp`，不必先换 endpoint。
 
    ![endpoint 冲突或需要更换 · 4](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-006.annotated.png)
 
@@ -151,7 +151,7 @@ Host 可能还有自己的审批，与 Interceptor 审批是两层控制。Auto 
 
    ![endpoint 冲突或需要更换 · 7](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-011.annotated.png)
 
-8. <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>等待 Running，读取红框 1 的新地址。本例为 `http://127.0.0.1:57247/mcp`，旧的 `57093` 不再是这个 Server 的接入地址。
+8. <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>等待 Running，读取红框 1 的新地址。本例为 `http://127.0.0.1:52166/mcp`，旧的 `52142` 不再是这个 Server 的接入地址。
 
    ![endpoint 冲突或需要更换 · 8](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-012.annotated.png)
 

@@ -17,7 +17,7 @@
 
    继续取消 Status 的 `200`，再取消 Method 的 `POST` 和 `GET`，检查完整列表；不要把被筛选隐藏的请求当作没有捕获，也不要为显示它们而删除录制。
 
-3. 让客户端经代理发送一条容易识别的测试请求。图中的新请求是 POST `http://127.0.0.1:59696/playground/body/json`，使用 `Content-Type: application/json` 和正文 `{"ready":true}`；红框 1 为进入 Capture 的 `200` 记录行。把地址替换为自己的服务，不使用示例端口寻找不存在的服务。
+3. 让客户端经代理发送一条容易识别的测试请求。图中的新请求是 POST `http://127.0.0.1:55115/playground/body/json`，使用 `Content-Type: application/json` 和正文 `{"ready":true}`；红框 1 为进入 Capture 的 `200` 记录行。把地址替换为自己的服务，不使用示例端口寻找不存在的服务。
 
    ![检查新 POST 是否进入 Capture](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
@@ -31,7 +31,7 @@
 
    ![同一流程相关界面](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
-6. 若请求由 Composer 发出，到 Composer 自身的响应区查看结果。图中是另一条 GET `http://127.0.0.1:58053/e2e/composer/response-section-collapse`，返回 `200`，JSON 包含 `message: response-sections` 和 `items`。Composer 直接连接目标，不受 Recording、代理 Rules 或 Breakpoints 控制；没有出现在 Capture 不等于录制故障。
+6. 若请求由 Composer 发出，到 Composer 自身的响应区查看结果。图中是另一条 GET `http://127.0.0.1:61530/e2e/composer/response-section-collapse`，返回 `200`，JSON 包含 `message: response-sections` 和 `items`。Composer 直接连接目标，不受 Recording、代理 Rules 或 Breakpoints 控制；没有出现在 Capture 不等于录制故障。响应区显示错误时，按[发送失败后恢复](composer.md#send-failure)核对地址与目标服务，再重新发送。
 
    ![在 Composer 响应区检查直接发送的结果](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
@@ -40,7 +40,7 @@
 <a id="tls"></a>
 ## HTTPS 只显示 TLS tunnel 或客户端报证书错误
 
-1. 选中红框 1 的 CONNECT，图中目标为 `localhost:52139`。TLS tunnel 显示 HTTPS content is encrypted：连接经过代理，但路径、Header 和正文没有解密。即使显示 MITM active，命中透传名单的连接仍会透传。点击红框 2 的 View passthrough pattern 可定位对应配置，不能把 `0 B` 当作源站返回了空正文。
+1. 选中红框 1 的 CONNECT，图中目标为 `localhost:56104`。TLS tunnel 显示 HTTPS content is encrypted：连接经过代理，但路径、Header 和正文没有解密。即使显示 MITM active，命中透传名单的连接仍会透传。点击红框 2 的 View passthrough pattern 可定位对应配置，不能把 `0 B` 当作源站返回了空正文。
 
    ![从当前 CONNECT 检查 TLS tunnel 与透传配置](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
@@ -52,7 +52,7 @@
 
    ![核对 localhost 透传条目及其删除入口](../media/v0.1.1-alpha.1/tls-pattern-english/step-015.annotated.png)
 
-4. 调整配置后，让客户端新建连接，不用仍在复用的旧连接判断结果。此例移除 `localhost` 透传条目后，重新 GET `https://localhost:52139/e2e/passthrough/http`，再选择新记录，打开红框 1 的 Response。图中是 `200`、`42 B` 的 HTTP/1.1 响应，完整 JSON 的 `mode` 为 `https-h1`、`secure` 为 `true`，不是 HTTP/2。
+4. 调整配置后，让客户端新建连接，不用仍在复用的旧连接判断结果。此例移除 `localhost` 透传条目后，重新 GET `https://localhost:56104/e2e/passthrough/http`，再选择新记录，打开红框 1 的 Response。图中是 `200`、`42 B` 的 HTTP/1.1 响应，完整 JSON 的 `mode` 为 `https-h1`、`secure` 为 `true`，不是 HTTP/2。
 
    ![移除透传后检查新连接的 HTTPS HTTP/1.1 正文](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
@@ -75,11 +75,11 @@
 
    ![确认规则已经保存并应用](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-018.annotated.png)
 
-3. 核对全部匹配条件：一条规则内的条件是 AND。另一条 `E2E hierarchy rule` 要求 Method 为 `GET`；请求 `http://127.0.0.1:53161/e2e/rules/all-conditions?case=and` 时，改用 `POST` 就不满足条件。选择这条新 POST，检查红框 1 的 Response Headers：即使响应为 `200`，也没有规则的 `x-rules-e2e: active`。详见[匹配条件](rules.md#matchers)。
+3. 核对全部匹配条件：一条规则内的条件是 AND。另一条 `E2E hierarchy rule` 要求 Method 为 `GET`；请求 `http://127.0.0.1:50912/e2e/rules/all-conditions?case=and` 时，改用 `POST` 就不满足条件。选择这条新 POST，检查红框 1 的 Response Headers：即使响应为 `200`，也没有规则的 `x-rules-e2e: active`。详见[匹配条件](rules.md#matchers)。
 
    ![检查不满足 GET 条件的 POST 响应](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-068.annotated.png)
 
-4. 用外部客户端经代理发送一笔新请求，不使用已完成的历史记录或 Composer 请求。对前面的 `E2E action variants`，示例为 GET `http://127.0.0.1:62029/e2e/rules/actions/request-set`，原始 Header 是 `x-e2e-action: original`。选中新记录后检查红框 1 的 Request Headers：最终值应为 `from-rule`，原值 `original` 带删除线和 Rule replaced，不能只看命中计数。
+4. 用外部客户端经代理发送一笔新请求，不使用已完成的历史记录或 Composer 请求。对前面的 `E2E action variants`，示例为 GET `http://127.0.0.1:54965/e2e/rules/actions/request-set`，原始 Header 是 `x-e2e-action: original`。选中新记录后检查红框 1 的 Request Headers：最终值应为 `from-rule`，原值 `original` 带删除线和 Rule replaced，不能只看命中计数。
 
    ![在新代理请求中检查实际 Header 改写](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.annotated.png)
 
@@ -112,11 +112,11 @@
 
    ![检查 HTTP 队列中的 Head 与 Queued](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-005.annotated.png)
 
-2. 选择红框 1 的 POST `/e2e/queue-rule-post-b` 查看详情。Queued 是等待前面的请求处理，详情只读，不是普通网络加载动画，也不能在这里编辑另一个 Head。该队列示例服务为 `http://127.0.0.1:57756`，检查自己的客户端是否仍在等待。
+2. 选择红框 1 的 POST `/e2e/queue-rule-post-b` 查看详情。Queued 是等待前面的请求处理，详情只读，不是普通网络加载动画，也不能在这里编辑另一个 Head。该队列示例服务为 `http://127.0.0.1:61418`，检查自己的客户端是否仍在等待。
 
    ![检查排队请求的只读详情](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-007.annotated.png)
 
-3. 只处理一条时，先选中当前 Head 并确认请求与阶段。下面的单条示例为 POST `http://127.0.0.1:65282/e2e/queue-stepping-a`：点击红框 1 的 Continue 原样放行，不提交替换正文草稿；若不再需要这条请求，使用左下角 Drop 终止它，而不是期待成功响应。操作后重新查看当前等待项，不向已解决的目标再次提交。
+3. 只处理一条时，先选中当前 Head 并确认请求与阶段。下面的单条示例为 POST `http://127.0.0.1:55842/e2e/queue-stepping-a`：点击红框 1 的 Continue 原样放行，不提交替换正文草稿；若不再需要这条请求，使用左下角 Drop 终止它，而不是期待成功响应。操作后重新查看当前等待项，不向已解决的目标再次提交。
 
    ![对选中的 HTTP Head 选择原样 Continue 或 Drop](../media/v0.1.1-alpha.1/breakpoints-stepping-english/step-004.annotated.png)
 
@@ -188,11 +188,11 @@
 
 1. 先核对文件格式和入口。Capture 的 Export 菜单中，红框 1 为 Export HAR；原生归档使用 Export Archive。Rules JSON 到 Rules 工具栏操作，Collection JSON 到 Composer 操作，不互换格式或入口。
 
-   ![检查 Capture 的 HAR 导出入口](../media/v0.1.1-alpha.1/capture-har-all-english/step-012.annotated.png)
+   ![检查 Capture 的 HAR 导出入口](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
 2. 检查原生文件窗口是否还在等待，或者已经被取消。这里的 HAR 保存名为 `ui.har`；选择位置并点击 Save 才会开始保存，Cancel 不会生成文件。导入时也需在正确的 Open 窗口选择文件并确认，不能仅点击 Import 后就等待数据出现。
 
-   ![完成 ui.har 的保存位置选择](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![完成 ui.har 的保存位置选择](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 3. 查看错误、跳过项和任务终态，不把进度数字当作成功。Rules 的 `rules-roundtrip.json` 预览显示 Rules `2`、Folders `1`、Enabled `1`、Skipped `0`；红框 1 的 Cancel 放弃导入，红框 2 的 Import 2 rules 会追加并保存，其中一条立即启用。数量、跳过项或启用范围不符合预期时先取消，不盲目确认。
 
@@ -215,7 +215,7 @@
 <a id="agent"></a>
 ## 模型连接、对话或 Tool 失败
 
-1. 打开 Settings → Agent，编辑需要检查的模型。核对红框 1 的 Base URL；图中的 `Keyed lab` 使用本机服务 `http://127.0.0.1:64170/keyed/v1`，App 不会创建这个服务。使用自己的服务地址，不向示例地址发送真实凭据。
+1. 打开 Settings → Agent，编辑需要检查的模型。核对红框 1 的 Base URL；图中的 `Keyed lab` 使用本机服务 `http://127.0.0.1:51723/keyed/v1`，App 不会创建这个服务。使用自己的服务地址，不向示例地址发送真实凭据。
 
    ![检查模型的 Base URL](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 
@@ -262,7 +262,7 @@
 
 ## 外部 Host 连不上 MCP
 
-1. 打开 Settings → Agent，检查 MCP server。红框 1 的开关应开启并显示 Running；红框 2 是当前 endpoint，图中为 `http://127.0.0.1:57871/mcp`。使用自己 App 显示的完整地址，不把 Capture 的 `8888` 当作 MCP 端口。
+1. 打开 Settings → Agent，检查 MCP server。红框 1 的开关应开启并显示 Running；红框 2 是当前 endpoint，图中为 `http://127.0.0.1:55871/mcp`。使用自己 App 显示的完整地址，不把 Capture 的 `8888` 当作 MCP 端口。
 
    ![检查 MCP Server 与当前 endpoint](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.annotated.png)
 

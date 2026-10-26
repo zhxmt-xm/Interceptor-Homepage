@@ -67,7 +67,7 @@ The upstream route controls how Interceptor reaches a destination after receivin
 | PAC | PAC URL | Use an HTTP/HTTPS PAC to select a route for each request |
 | WPAD | Auto-discover (WPAD) | Discover a PAC on a network that actually supports discovery |
 
-Prepare your own reachable upstream or PAC. The example HTTP upstream is `127.0.0.1:64599` and its PAC is `http://127.0.0.1:64598/proxy.pac`; the App does not create these services. Without a corresponding service, practice editing and Discard rather than Apply.
+Prepare your own reachable upstream or PAC. The example HTTP upstream is `127.0.0.1:54669` and its PAC is `http://127.0.0.1:54668/proxy.pac`; the App does not create these services. Without a corresponding service, practice editing and Discard rather than Apply.
 
 1. <a id="walkthrough-03-proxy"></a><a id="walkthrough-04-upstream"></a><a id="walkthrough-settings-upstream"></a><a id="walkthrough-settings-upstream-01-settings"></a><a id="walkthrough-settings-upstream-02-upstream"></a>Open Settings → Upstream proxy and inspect Current route first. It shows the applied System route, not an uncommitted draft.
 
@@ -79,7 +79,7 @@ Prepare your own reachable upstream or PAC. The example HTTP upstream is `127.0.
 
    ![Choose an upstream proxy · 2](../media/v0.1.1-alpha.1/settings-upstream-english/step-003.png)
 
-3. <a id="walkthrough-05-manual-draft"></a><a id="walkthrough-settings-upstream-05-manual"></a><a id="walkthrough-settings-upstream-06-host"></a><a id="walkthrough-settings-upstream-07-port"></a>Choose Manual proxy and its supported Protocol, HTTP in this example. Enter `127.0.0.1` in Host, box 1, and `64599` in Port, box 2. Host excludes a scheme, path or credentials. Box 3 is Apply; use it only when the upstream is actually available.
+3. <a id="walkthrough-05-manual-draft"></a><a id="walkthrough-settings-upstream-05-manual"></a><a id="walkthrough-settings-upstream-06-host"></a><a id="walkthrough-settings-upstream-07-port"></a>Choose Manual proxy and its supported Protocol, HTTP in this example. Enter `127.0.0.1` in Host, box 1, and `54669` in Port, box 2. Host excludes a scheme, path or credentials. Box 3 is Apply; use it only when the upstream is actually available.
 
    ![Choose an upstream proxy · 3](../media/v0.1.1-alpha.1/settings-upstream-english/step-004.annotated.png)
 
@@ -91,7 +91,7 @@ Prepare your own reachable upstream or PAC. The example HTTP upstream is `127.0.
 
    ![Choose an upstream proxy · 5](../media/v0.1.1-alpha.1/settings-upstream-english/step-006.png)
 
-6. <a id="walkthrough-settings-upstream-09-manual-request"></a><a id="walkthrough-settings-upstream-10-capture"></a>Request your endpoint through `http://127.0.0.1:8888`, then select its Capture row in box 1. The example origin uses `127.0.0.1:64598` and a path starting with `/manual-`. Check the actual client and destination results, not only the settings fields.
+6. <a id="walkthrough-settings-upstream-09-manual-request"></a><a id="walkthrough-settings-upstream-10-capture"></a>Request your endpoint through `http://127.0.0.1:8888`, then select its Capture row in box 1. The example origin uses `127.0.0.1:54668` and a path starting with `/manual-`. Check the actual client and destination results, not only the settings fields.
 
    ![Choose an upstream proxy · 6](../media/v0.1.1-alpha.1/settings-upstream-english/step-007.annotated.png)
 
@@ -99,7 +99,7 @@ Prepare your own reachable upstream or PAC. The example HTTP upstream is `127.0.
 
    ![Choose an upstream proxy · 7](../media/v0.1.1-alpha.1/settings-upstream-english/step-008.png)
 
-8. <a id="walkthrough-07-pac"></a><a id="walkthrough-settings-upstream-12-pac-draft"></a><a id="walkthrough-settings-upstream-13-pac-url"></a><a id="walkthrough-settings-upstream-14-cancel-draft"></a>Choose PAC URL and enter `http://127.0.0.1:64598/proxy.pac` in box 1. Use your own reachable HTTP/HTTPS address. To discard the draft, click Cancel or the close button in box 2.
+8. <a id="walkthrough-07-pac"></a><a id="walkthrough-settings-upstream-12-pac-draft"></a><a id="walkthrough-settings-upstream-13-pac-url"></a><a id="walkthrough-settings-upstream-14-cancel-draft"></a>Choose PAC URL and enter `http://127.0.0.1:54668/proxy.pac` in box 1. Use your own reachable HTTP/HTTPS address. To discard the draft, click Cancel or the close button in box 2.
 
    ![Choose an upstream proxy · 8](../media/v0.1.1-alpha.1/settings-upstream-english/step-009.annotated.png)
 
@@ -213,7 +213,7 @@ Uninstall retains CA material. A trusted CA cannot be overwritten by regeneratio
 <a id="tls-passthrough"></a>
 ## Keep selected TLS hosts encrypted
 
-Passthrough keeps selected hosts end-to-end encrypted. This example reconnects to the same `https://localhost:52139/e2e/passthrough/http` to compare decryption, passthrough and restoration after removal. Use your own service.
+Passthrough keeps selected hosts end-to-end encrypted. This example reconnects to the same `https://localhost:56104/e2e/passthrough/http` to compare decryption, passthrough and restoration after removal. Use your own service.
 
 1. <a id="walkthrough-settings-tls-passthrough"></a><a id="walkthrough-settings-tls-passthrough-01-filter"></a><a id="walkthrough-settings-tls-passthrough-02-record"></a><a id="walkthrough-settings-tls-passthrough-03-opaque-request"></a><a id="walkthrough-settings-tls-passthrough-04-tunnel-select"></a><a id="walkthrough-settings-tls-passthrough-05-tunnel"></a><a id="walkthrough-settings-tls-passthrough-06-https-setup"></a><a id="walkthrough-settings-tls-passthrough-07-cancel-setup"></a><a id="walkthrough-settings-tls-passthrough-08-settings"></a><a id="walkthrough-settings-tls-passthrough-09-certificates"></a><a id="walkthrough-settings-tls-passthrough-10-origin-host"></a><a id="walkthrough-settings-tls-passthrough-11-origin-add"></a><a id="walkthrough-settings-tls-passthrough-12-mitm-on"></a><a id="walkthrough-settings-tls-passthrough-13-capture-decrypted"></a><a id="walkthrough-settings-tls-passthrough-14-decrypted-request"></a><a id="walkthrough-settings-tls-passthrough-15-decrypted-select"></a><a id="walkthrough-settings-tls-passthrough-16-decrypted-body"></a>Complete the CA, controlled-origin exception and MITM setup above. Send a new request and confirm Response in box 1 shows the `https-h1` and `secure: true` body.
 
@@ -407,7 +407,7 @@ Privacy supplies the initial options for a newly opened HAR export. It does not 
 
    ![Set privacy defaults for future exports · 6](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
 
-   ![Set privacy defaults for future exports · 6](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
+   ![Set privacy defaults for future exports · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
 7. <a id="walkthrough-settings-storage-privacy-07-one-export-override"></a><a id="walkthrough-settings-privacy-export-05-one-time-override"></a><a id="walkthrough-settings-privacy-export-06-save-override"></a><a id="walkthrough-settings-privacy-export-07-check-override"></a>For a one-time change, override masking in the current HAR dialog, click Export in box 1 and choose a destination. This example saves `ui-override.har`; the override does not write back to Privacy defaults.
 
@@ -464,17 +464,17 @@ Use an installed Windows or macOS App; source-development runs may not support u
 
    ![Check, download and open updates · 2](../media/v0.1.1-alpha.1/settings-update-check-english/step-002.annotated.png)
 
-3. <a id="walkthrough-settings-update-check-04-result"></a>This example shows Failed and `GitHub returned HTTP 404`. The release source is unavailable; this does not mean the App is up to date, and no update was downloaded or installed.
+3. <a id="walkthrough-settings-update-check-04-result"></a>Read the actual result and versions. Up to date means the highest published version is equal to or older than the installed version; an identical alpha version does not require an update. Available means a higher version has a supported installer. Failed means checking did not succeed; it does not mean the App is up to date. Checking alone does not download or install anything.
 
    ![Check, download and open updates · 3](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 
-4. After checking the network, release address and access conditions, use Check now in box 1 again. If the source still returns 404, the page continues to report failure rather than treating a retry as success.
+4. When the result is Up to date or Failed, Check now in box 1 remains available. For a failure, check the network and release-source access before retrying. Follow the new result; a retry alone does not prove success. When a newer version is Available, the action becomes Download update.
 
    ![Check, download and open updates · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-004.annotated.png)
 
    ![Check, download and open updates · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-005.png)
 
-5. After closing and reopening the App normally, Check now in box 1 remains available in Updates. Restarting does not change release-source permissions; follow the actual result.
+5. Close and reopen the App normally, then open Updates again. The App checks anonymously on launch and shows the action for the actual result: Check now, Download update or Open installer. Box 1 in the first image marks Check now.
 
    ![Check, download and open updates · 5](../media/v0.1.1-alpha.1/settings-update-check-english/step-007.annotated.png)
 
@@ -483,7 +483,8 @@ Use an installed Windows or macOS App; source-development runs may not support u
 6. Only when an available release is shown should you read its notes and explicitly click Download. Wait for the download and integrity checks before choosing Open installer, then complete the system installation. Do not run unfinished temporary files.
 
    ![Related view from the same workflow](../media/v0.1.1-alpha.1/settings-update-check-english/step-008.png)
-- Updates use anonymous GitHub requests. A private source, no suitable stable release or no supported installer can make the check unavailable.
-- A published Alpha or a macOS ZIP alone does not establish an available in-App update target.
+- Updates use anonymous GitHub requests and select the highest published SemVer across all release pages, including alpha. Drafts and invalid version tags do not participate; release dates and list order do not determine the result.
+- For example, `0.1.1-alpha.10` is newer than `0.1.1-alpha.2`; `0.1.1` is newer than `0.1.1-alpha.10`. An equal or older version does not trigger an update.
+- The highest version must contain a valid installer for the current platform and architecture: Windows MSI or macOS DMG. A ZIP alone is insufficient. An inaccessible source or an invalid installer causes Failed; the App does not silently fall back to an older release.
 - Platform, architecture and installer format must match. Notification actions share the Settings state; Dismiss only hides the notice.
 - Normal exit cleans up active checks or downloads. Do not bypass validation with an old temporary file.

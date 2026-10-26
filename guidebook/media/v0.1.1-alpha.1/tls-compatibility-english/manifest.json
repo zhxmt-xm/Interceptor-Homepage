@@ -3,39 +3,33 @@
   "chapter": "tls-compatibility-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "settings/tls-compatibility.workflow.ts",
-    "manifestSha256": "364223cfa96b7a107412ac1921916f43ffacb3c718c5aac608a76f45474ca867",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "settings.tls-compatibility selects patterns from real failed TLS handshakes",
+    "manifestSha256": "f0898608ec9f0d048221785f4b9b00ec2cd48e195cab278b91ab89cd4adb7432",
+    "workflowSha256": "42b3f65d52b9e7dd9703c0b0c200d0f96ac4f426e9420be9431fba1334ca6205",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
-    {
-      "id": "step-001",
-      "title": "用户流程：本地CONNECT承载测试SNI，真实证书拒绝经Core/Main事件打开兼容性弹窗。 / User flow: local CONNECT carries test-owned SNI; real certificate rejection opens the dialog through Core/Main events.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-001.png",
-      "rawImage": "step-001.png"
-    },
     {
       "id": "step-002",
       "title": "没有选择主机时不能保存透传配置 / Passthrough cannot be saved without selected hosts",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1786.453125,
-            "y": 1386.140625,
-            "width": 283.546875,
-            "height": 68
+            "x": 1341.3594360351562,
+            "y": 1039.0937805175781,
+            "width": 211.640625,
+            "height": 51
           },
           "automationId": "settings.tls-compatibility.add-selected"
         }
@@ -52,36 +46,37 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1132,
-            "y": 626.109375,
-            "width": 916,
-            "height": 252.796875
+            "x": 848.0000610351562,
+            "y": 469.0937805175781,
+            "width": 689.0000610351562,
+            "height": 189.59371948242188
           },
-          "automationId": "settings.tls-compatibility.host.api.group0.compatibility-e21032ad-939b-43d1-b7de-254bebf9c49a.test"
+          "automationId": "settings.tls-compatibility.host.api.group0.compatibility-913139eb-52a7-4ff0-8a13-bfbb989bcd38.test"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 1132,
-            "y": 878.90625,
-            "width": 916,
-            "height": 252.796875
+            "x": 848.0000610351562,
+            "y": 658.6875,
+            "width": 689.0000610351562,
+            "height": 189.59381103515625
           },
-          "automationId": "settings.tls-compatibility.host.api.group1.compatibility-e21032ad-939b-43d1-b7de-254bebf9c49a.test"
+          "automationId": "settings.tls-compatibility.host.api.group1.compatibility-913139eb-52a7-4ff0-8a13-bfbb989bcd38.test"
         },
         {
           "label": "3",
           "bounds": {
-            "x": 1787.359375,
-            "y": 1386.140625,
-            "width": 282.640625,
-            "height": 68
+            "x": 1342.0469055175781,
+            "y": 1039.0937805175781,
+            "width": 210.95315551757812,
+            "height": 51
           },
           "automationId": "settings.tls-compatibility.add-selected"
         }
@@ -93,30 +88,22 @@
       }
     },
     {
-      "id": "step-004",
-      "title": "业务断言：全部取消时不能保存，精确host与父域wildcard只按用户勾选持久化。 / Product assertions: no selection disables Save; persist only the exact host and parent wildcard chosen by the user.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-004.png",
-      "rawImage": "step-004.png"
-    },
-    {
       "id": "step-005",
       "title": "Not now只关闭提示，不添加透传主机 / Not now closes the prompt without adding passthrough hosts",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1611.90625,
-            "y": 1227.53125,
-            "width": 160.453125,
-            "height": 68
+            "x": 1211.4531555175781,
+            "y": 919.8906555175781,
+            "width": 119.34375,
+            "height": 51
           },
           "automationId": "settings.tls-compatibility.dismiss"
         }
@@ -126,176 +113,50 @@
         "width": 1600,
         "height": 900
       }
-    },
-    {
-      "id": "step-006",
-      "title": "再次真实提示：Not now不增加pattern，已保存选择在页面重开后保持。 / A second real prompt: Not now adds no pattern, and saved choices survive reopening Settings.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-006.png",
-      "rawImage": "step-006.png"
-    },
-    {
-      "id": "step-007",
-      "title": "移除本次添加的透传范围 / Remove the passthrough scope added for this operation",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-007.annotated.png",
-      "rawImage": "step-007.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 3054,
-            "y": 497.078125,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "settings.tls-passthrough.remove-host.api.group0.compatibility-e21032ad-939b-43d1-b7de-254bebf9c49a.test"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-008",
-      "title": "移除本次添加的透传范围 / Remove the passthrough scope added for this operation",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-008.annotated.png",
-      "rawImage": "step-008.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 3054,
-            "y": 497.078125,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "settings.tls-passthrough.remove-host.*.group1.compatibility-e21032ad-939b-43d1-b7de-254bebf9c49a.test"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-009",
-      "title": "清理：正式UI删除本轮pattern、卸载CA和关闭MITM；fixture核验进程、8888与完整宿主恢复。 / Cleanup: remove this run's patterns and CA and stop MITM through UI; fixtures verify processes, 8888 and host restoration.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-009.png",
-      "rawImage": "step-009.png"
     }
   ],
   "assets": [
     {
-      "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 407286,
-      "sha256": "b55033a7b240936e2555dc9bb945dbaf6357fb1e042850d533e4db6d8ac256cb"
-    },
-    {
       "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 401043,
-      "sha256": "a06eb12fbdddf6b1a34c7524eb30e8b5723222f5925f8615f666e52cb0897e0d"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 205112,
+      "sha256": "26f0c1b7ff6562e8c37ce67497af0b19092485cf379a089d65854accc4666a8c"
     },
     {
       "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 331790,
-      "sha256": "05eab84e60dd503a6807899b99953ebb491ad3e29a848d3653da24787486823e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 221149,
+      "sha256": "d44bba77e0ef83a4b7a42187bad63b458cdf3a3bef3bc34397b5c23a07f358bb"
     },
     {
       "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 408048,
-      "sha256": "a2fbf1c29cd9ac600e8461fcb8248fa27a7dfb5e78229b137b51447520c0054c"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 205765,
+      "sha256": "dd8bc4c7b9cf294269c40d3573750d5728d508fa6baab5cd51c5ccc1030ccb69"
     },
     {
       "file": "step-003.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 341437,
-      "sha256": "30285e3f294eff785184dc238208be3bc9fb71ced87670a524a3b10235f1c4ad"
-    },
-    {
-      "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 336808,
-      "sha256": "6ecc9640f685a9810326353774ead4d24c86457a0de6698c48ef0e9943363fdb"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 223526,
+      "sha256": "535ee7f57a6304b391ec9263737b44c9789d16c01708b5f50317bb6795be5798"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 382945,
-      "sha256": "2fc62c30c3c37c0f4cbc93720c8ecfa431fae7f536029210f5a4b7a994689dab"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 177570,
+      "sha256": "7e42e01e10a32061b2556b703db9c172c4062b58a575e1cacc5b90201e04c87a"
     },
     {
       "file": "step-005.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 316438,
-      "sha256": "dc9ea73dfee68ef642f3c6e37bdcdfac5a1f998e4aa9da5a642ec63e02694bb2"
-    },
-    {
-      "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 336808,
-      "sha256": "6ecc9640f685a9810326353774ead4d24c86457a0de6698c48ef0e9943363fdb"
-    },
-    {
-      "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 336808,
-      "sha256": "6ecc9640f685a9810326353774ead4d24c86457a0de6698c48ef0e9943363fdb"
-    },
-    {
-      "file": "step-007.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 213453,
-      "sha256": "b2a95968333dfb2031e920b95406425d3f6f2d7ffbe212700f7f08f1220fbc17"
-    },
-    {
-      "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 308507,
-      "sha256": "580cbb2fdbe84e50b0c774695faaef72bb99557abcc4e00a6482d3553b63e454"
-    },
-    {
-      "file": "step-008.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 192949,
-      "sha256": "c3356c1546536195a412567c0ce3761178f55496e569a5a63e764c53d5ad0da7"
-    },
-    {
-      "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 261603,
-      "sha256": "a4b50889206285b404317c9164d00917be2454026e7d500bace1f853172f870f"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 201175,
+      "sha256": "c2d06cc456b02298edb0bd0cb8b898f9313c5fa91507d4555c0b46fd6221e072"
     }
   ]
 }

@@ -2,71 +2,26 @@
   "schemaVersion": 1,
   "chapter": "capture-clear-state-english",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/clear-facets.workflow.ts",
     "test": "capture.clear-facets clears rows, selection and facets in one visible transition",
-    "run": "2026-10-21T20-08-04-942Z-jn72KP",
-    "testDirectory": "capture-clear-facets.workf-b6ee5-s-in-one-visible-transition-macos",
-    "manifestSha256": "20b36e57b725ee1e9a73b5a1287f09dab592958dfbeebbfd7ba9e963a0c3b275",
-    "metadataSha256": "98af90e1c4b6c48931269dfa74837af182c880ce75b1daf797eb5f3131f7a7b3",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "facts": {
-    "url": "http://127.0.0.1:64755/e2e/capture/clear-facets",
-    "method": "GET",
-    "status": 200,
-    "responseBytes": 99,
-    "clearFiltersPreservesRecordAndInspector": true,
-    "clearRemovesRecordAndInspector": true,
-    "recordingControl": "Paused; do not describe this as a true Pause/Resume sequence"
-  },
-  "review": {
-    "eachFrameVisuallyReviewed": true,
-    "rawAndAnnotatedShaBytesDimensionsVerified": true,
-    "sourceImagesUnchanged": true,
-    "unrelatedModalFramesExcluded": true
+    "manifestSha256": "3a8c4cf30b6645c8c31b01d47e8bf651ab84dddae1e3475b91cad8a62bac8306",
+    "workflowSha256": "6b1f9d8b10385bc1aacc0e507e913c96ecea5076980ed864406b2db3c45b16a0",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
-    {
-      "id": "step-001",
-      "title": "通过真实Recording与显式代理请求建立一条刚进入facet快照的Capture记录。 / Build one freshly snapshotted Capture record through real Recording and an explicit proxy request.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-001.png",
-      "image": "step-001.png",
-      "rawImage": "step-001.png",
-      "bytes": 235240,
-      "sha256": "69da716506b565127b61d4d98afc8dd88d26cffd9f3435bb73cd706fe6c87928",
-      "rawBytes": 235240,
-      "rawSha256": "69da716506b565127b61d4d98afc8dd88d26cffd9f3435bb73cd706fe6c87928",
-      "highlights": []
-    },
     {
       "id": "step-002",
       "title": "保持系统路由已恢复，选中自产记录准备Clear / Keep system routing restored and select the owned record before Clear",
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "capture": "renderer",
       "image": "step-002.png",
-      "rawImage": "step-002.png",
-      "bytes": 369024,
-      "sha256": "38ad254bd75f9cc6a7c78d64bc01879a68c5b56dca31d2cface11732208e7272",
-      "rawBytes": 369024,
-      "rawSha256": "38ad254bd75f9cc6a7c78d64bc01879a68c5b56dca31d2cface11732208e7272",
-      "highlights": []
+      "rawImage": "step-002.png"
     },
     {
       "id": "step-003",
@@ -74,23 +29,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "bytes": 255515,
-      "sha256": "ebe7b1d216d1577a346c73557eefed3d5c4b1c0350657474dff3aa97ae676c41",
-      "rawBytes": 369433,
-      "rawSha256": "f92e3281e6f81aa47818f5195a1106708d26b8d0eb316bd135a338d76f2320b1",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2195,
-            "y": 105,
-            "width": 60,
-            "height": 60
+            "x": 1646.25,
+            "y": 79.00000190734863,
+            "width": 45,
+            "height": 45.0000057220459
           },
           "automationId": "capture.filter.clear"
         }
@@ -107,23 +56,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-004.png",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
-      "bytes": 264962,
-      "sha256": "e1c3f961110b20256407dc07b2e03d8811c5ee7f45cac7dc52dddfb9fa787e9b",
-      "rawBytes": 384756,
-      "rawSha256": "b89def2bac2fe4ee580ab4610dce4e9301813a264de01b9ac199e1149b745c71",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2195,
-            "y": 105,
-            "width": 60,
-            "height": 60
+            "x": 1646.25,
+            "y": 79.00000190734863,
+            "width": 45,
+            "height": 45.0000057220459
           },
           "automationId": "capture.filter.clear"
         }
@@ -140,23 +83,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-005.png",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
-      "bytes": 151617,
-      "sha256": "fadc64e4d766a6134946df00e65ce99026ecff2ad43dd5ddc3a4f345df772b41",
-      "rawBytes": 235829,
-      "rawSha256": "1bb9162af8759ff52cd7dc0d150377f8d46bde352e98f8d2fa723964831b8f89",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 860.125,
-            "y": 105,
-            "width": 60,
-            "height": 60
+            "x": 645.0781402587891,
+            "y": 79.00000190734863,
+            "width": 45,
+            "height": 45.0000057220459
           },
           "automationId": "capture.clear"
         }
@@ -166,6 +103,57 @@
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164073,
+      "sha256": "ad5db48d60634af123b324cd45c90797832f7ca43c2fee192b65d842f5e1a758"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164209,
+      "sha256": "198dc92bad92da18ffbdaea91fde8c21528666fdeb1b363aa93d0983c6ba6663"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 159489,
+      "sha256": "b68eeeb501f9eb33c1732815dc690123fbc4699196504b4c268cd261f32bea74"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164048,
+      "sha256": "eb0237b2f7cfe1c67a99860fc9f3e82b3e89cd248edfdd5fe2c6f2b18bba8a47"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 159475,
+      "sha256": "fd315df8711c8b7185891041703c58ab1e3dab7aa2f1e434c8ed725980cd4fb7"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 81623,
+      "sha256": "3a3de90ec09f479e67c2aae1645ea0d718fd3dfb2934cadf87c3786727e6be88"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 88644,
+      "sha256": "442e6a62ead1ee1fdb99af986b4bf731b973043df033d7594eed171326e73e7e"
     }
   ]
 }

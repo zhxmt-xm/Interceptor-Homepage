@@ -3,12 +3,14 @@
   "chapter": "agent-context-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "agent/streaming-context.workflow.ts",
-    "manifestSha256": "41df6cb99ae30db111194fcc58da393c720093aa03b277ae59c511c135d74bd2",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "agent.chat.streaming-context persists ordered Streaming, Usage, Stop and Retry",
+    "manifestSha256": "d5dabd19ff2df241b039f6837bdb06da7bbc65491c7d9dbaf2ca67deb3219f30",
+    "workflowSha256": "ae7cc7bbd90674f9717d0735caccb7d23e72b5f60612050bd76d65bf94d424a3",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -17,60 +19,9 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-001.png",
       "rawImage": "step-001.png"
-    },
-    {
-      "id": "step-002",
-      "title": "发送一条消息以读取流式回复与用量 / Send a message to inspect streaming output and usage",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-002.annotated.png",
-      "rawImage": "step-002.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 3102,
-            "y": 1628,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "agent.message.send"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-003",
-      "title": "回复完成后查看Context入口 / Locate Context after the response completes",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-003.annotated.png",
-      "rawImage": "step-003.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2950.359375,
-            "y": 1527.515625,
-            "width": 229.640625,
-            "height": 48.96875
-          },
-          "automationId": "agent.context"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
     },
     {
       "id": "step-004",
@@ -78,16 +29,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2740,
-            "y": 1280.6875,
-            "width": 440,
-            "height": 237.796875
+            "x": 2055,
+            "y": 961.8906555175781,
+            "width": 330,
+            "height": 176.84371948242188
           },
           "automationId": "agent.usage.panel"
         }
@@ -104,16 +56,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2740,
-            "y": 1280.6875,
-            "width": 440,
-            "height": 237.796875
+            "x": 2055,
+            "y": 961.8906555175781,
+            "width": 330,
+            "height": 176.84371948242188
           },
           "automationId": "agent.usage.panel"
         }
@@ -123,15 +76,6 @@
         "width": 1600,
         "height": 900
       }
-    },
-    {
-      "id": "step-006",
-      "title": "用户操作：第一轮必须逐chunk原位增长，并在终态显示精确Context与Usage。 / User actions: the first turn must grow in place by chunk and expose exact terminal Context and Usage.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-006.png",
-      "rawImage": "step-006.png"
     },
     {
       "id": "step-007",
@@ -139,16 +83,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2740,
-            "y": 1280.6875,
-            "width": 440,
-            "height": 237.796875
+            "x": 2055,
+            "y": 961.8906555175781,
+            "width": 330,
+            "height": 176.84371948242188
           },
           "automationId": "agent.usage.panel"
         }
@@ -160,30 +105,22 @@
       }
     },
     {
-      "id": "step-008",
-      "title": "用户操作：第二轮发送完整历史；Reasoning保持独立，Session Usage按Token加权聚合。 / User actions: the second turn sends complete history; Reasoning stays separate and Session Usage is token-weighted.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-008.png",
-      "rawImage": "step-008.png"
-    },
-    {
       "id": "step-009",
       "title": "回复仍在生成时找到Stop / Locate Stop while the response is still generating",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3102,
-            "y": 1628,
-            "width": 60,
-            "height": 60
+            "x": 2327.0000610351562,
+            "y": 1221,
+            "width": 45,
+            "height": 45
           },
           "automationId": "agent.turn.stop"
         }
@@ -200,16 +137,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-010.annotated.png",
       "rawImage": "step-010.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2953.984375,
-            "y": 948.203125,
-            "width": 200.015625,
-            "height": 47.359375
+            "x": 2216.9844360351562,
+            "y": 708.140625,
+            "width": 149.015625,
+            "height": 34.515655517578125
           },
           "automationId": "agent.turn.retry"
         }
@@ -226,6 +164,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-011.png",
       "rawImage": "step-011.png"
     },
@@ -235,16 +174,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-012.annotated.png",
       "rawImage": "step-012.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2740,
-            "y": 1280.6875,
-            "width": 440,
-            "height": 237.796875
+            "x": 2055,
+            "y": 961.8906555175781,
+            "width": 330,
+            "height": 176.84371948242188
           },
           "automationId": "agent.usage.panel"
         }
@@ -254,180 +194,106 @@
         "width": 1600,
         "height": 900
       }
-    },
-    {
-      "id": "step-013",
-      "title": "用户操作：可见delta后Stop必须abort真实HTTP；Retry复用原user item且不伪造取消调用Usage。 / User actions: Stop after a visible delta must abort real HTTP; Retry reuses the user item without fake cancelled-call Usage.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-013.png",
-      "rawImage": "step-013.png"
-    },
-    {
-      "id": "step-014",
-      "title": "Evidence/teardown：关闭Panel后恢复trace，确保任何Prompt/Reasoning都不进入保存的快照。 / Evidence/teardown: close the Panel before resuming trace so no Prompt/Reasoning enters retained snapshots.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-014.png",
-      "rawImage": "step-014.png"
     }
   ],
   "assets": [
     {
       "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 482887,
-      "sha256": "da36d5a5618d5471b796b90eeb75da73b4e2e8fe7dc0bfb0b815e14f5dfc7797"
-    },
-    {
-      "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 484025,
-      "sha256": "17a559de77ab172c5dc8360a563f879bad4f1a8f146e8b80ffe6c592ef7523ad"
-    },
-    {
-      "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 337149,
-      "sha256": "aec50f8687d6021b1e0a67ce060791cf41284f7b7397c815b06c9021f2aa6e1f"
-    },
-    {
-      "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 495405,
-      "sha256": "5521e4dc4dc4592f0520ad40db1d611391c1d825f7aaf6ac364184bc05147af4"
-    },
-    {
-      "file": "step-003.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 345688,
-      "sha256": "8ac1807889e0c008551815079bdcfe261aa8c850edc69a2fdea2052c52004590"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 226924,
+      "sha256": "671396fcea79114ce52479502dddf72fc492b4afdc116a4b0798a33bb7804de9"
     },
     {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 516823,
-      "sha256": "f20ad9a641b9377a94ebb5be942ba3f6275f0750d3a3ef386c5027ca0366b319"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 252695,
+      "sha256": "d7cc1e89ba9f25d35606a39bcdf75f9516338c1cd1055146a60c7ea585e39520"
     },
     {
       "file": "step-004.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 363231,
-      "sha256": "79b5fad1110212bf055f1c5b35adffe33134bc74284a4c9af7e4bb297ec5e4b9"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 231936,
+      "sha256": "669b9c9a682825ff886109b4a030e24bc3a2f77f64d188e47c6656d67a0886cd"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 517439,
-      "sha256": "294e6635f13bc2af284f03143338681ce64591f84d8b498b82048556c7a94e3b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 252837,
+      "sha256": "07f445886d28fabe9008f60f95285cd287c188747fb8df7cee0c07cb10f804b8"
     },
     {
       "file": "step-005.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 364065,
-      "sha256": "f0cbbff5640e8d82457963b052bd18e5feeb2a9b19bfbb5b31f1090525802080"
-    },
-    {
-      "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 490086,
-      "sha256": "0dcb4f68bb311f67bc7e6f0e3826db9006d2e945a5e4bf19eafbedd28710cbc9"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 232492,
+      "sha256": "dbdd01451b8d3e2bfef9c2ddef21e5f95f9a1bd987f92623cc80abaaeb727552"
     },
     {
       "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 536437,
-      "sha256": "3b8a3f278f21c0a288f5511f9c4be26cce78c06444fd26b94afebb565d8f57ee"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 265149,
+      "sha256": "93531f49b1cfbdb076c3572de5238a865dbe9f573ac1bdd88ed78e2cfa57dac5"
     },
     {
       "file": "step-007.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 376656,
-      "sha256": "dbce3dbd5087a13c6be266042f21297554ff9e2378ce07dae06f27ba15d02841"
-    },
-    {
-      "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 536437,
-      "sha256": "3b8a3f278f21c0a288f5511f9c4be26cce78c06444fd26b94afebb565d8f57ee"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 241425,
+      "sha256": "17031e5e227d8e4934e57475f182eb0872a5668a41cf3974f4a1c9bfb5115173"
     },
     {
       "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 531770,
-      "sha256": "3949a0c518775a244a8b6ad86433627d2349dc6df0c90bbd5c9b135f8e9318f1"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 258945,
+      "sha256": "a13ffb7e8a05aeb944320bfd9ee8309ca382bce2086d7be493f97b11ca79dc7d"
     },
     {
       "file": "step-009.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 371293,
-      "sha256": "55e27ffcc7072497a77690953d6c3b1bac74642b88e1d984b7d5eb8bd9d629f5"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 232187,
+      "sha256": "25b8c773dbaed4dd1b3bd86527f57cebb88e56402474372528f8ae910eeef7aa"
     },
     {
       "file": "step-010.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 542308,
-      "sha256": "ca5e322c93893effe3326d5c2d7dc042165da924530f779233d76ad9949e5730"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 270684,
+      "sha256": "2bee8aa413eb8892a01fb4d39f1be985ac4afc6267b7fd952e8c2307547689ab"
     },
     {
       "file": "step-010.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 380217,
-      "sha256": "0e83eab4d69556f16bb2936ba37f28726c239ee5ebd3009f3fdd0896f89be9bc"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 244459,
+      "sha256": "9e1cdb013dc6e78bbef7c59e51bb212d005306c525a81f3652aa6c040161ebad"
     },
     {
       "file": "step-011.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 538416,
-      "sha256": "ee9d505317aec67163219ed78a425521b18be0728555c44c028c880dc404e4fe"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 268174,
+      "sha256": "df1c3c6295fd69a17e208022a619150efc98dd3dcc0b7fa06e7077ba79849755"
     },
     {
       "file": "step-012.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 571399,
-      "sha256": "5735547855100bad070c13258f1a9c793355db2d3441f085adf80ca52700149d"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 285252,
+      "sha256": "ed2fef45caf13a7aa6d02c37c3db3ed8e6a470524c947fb445bbda7b9441c62a"
     },
     {
       "file": "step-012.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 403103,
-      "sha256": "fd2c4d224ea3504aefffdb4b047cd23de2cdbe14c4dfd4860caf7fad804d7a05"
-    },
-    {
-      "file": "step-013.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 571399,
-      "sha256": "5735547855100bad070c13258f1a9c793355db2d3441f085adf80ca52700149d"
-    },
-    {
-      "file": "step-014.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 441980,
-      "sha256": "51c733992cc141e5ae878cf0efb0664dc26ae71c046e6730004e0ecb8a1caf96"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 258910,
+      "sha256": "138caba29174cc3b1b3a1dae775cd32e29680890938a8d6c5363725c7f3de8de"
     }
   ]
 }

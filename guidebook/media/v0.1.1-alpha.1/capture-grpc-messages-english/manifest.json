@@ -2,43 +2,15 @@
   "schemaVersion": 1,
   "chapter": "capture-grpc-messages-english",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/compact-message-layout.workflow.ts",
     "test": "capture.messages.compact-layout grpc keeps long messages bounded and resizable",
-    "run": "2026-10-21T19-09-11-384Z-9vboiX",
-    "testDirectory": "capture-compact-message-la-221a4-sages-bounded-and-resizable-macos",
-    "manifestSha256": "6e4101b745d72b0deeea47c771f01cf685d21e09b2db79c190762545c7a56256",
-    "metadataSha256": "399b62eabdbdb33c14a32e6490664296ba1de7a037230d769d40468f7254c352",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "facts": {
-    "path": "/e2e/grpc/compact-message-layout",
-    "direction": "Response",
-    "shortBytes": 70,
-    "longBytes": 2538,
-    "longMessage": 2,
-    "longBodyCopy": "UTF-8 JSON",
-    "longMessageCopy": "UTF-8 JSON",
-    "descriptor": "No descriptor loaded",
-    "paginationPath": "/e2e/grpc/compact-message-layout/pagination",
-    "paginationDirectionCount": 205,
-    "lastIndex": 204,
-    "lastMessage": 205,
-    "lastBodyMode": "Raw",
-    "lastBody": "{\"index\":204,\"state\":\"complete\"}"
-  },
-  "review": {
-    "eachFrameVisuallyReviewed": true,
-    "rawAndAnnotatedShaBytesDimensionsVerified": true,
-    "sourceImagesUnchanged": true,
-    "unrelatedModalFramesExcluded": true
+    "manifestSha256": "f8b97ac9f068788cf9a5ee107a3d82087a8c3c90093c33ea2c0f3cb7714801e7",
+    "workflowSha256": "eafa82ae3ee6a8033465cb68df00c7481b226ab805e92ea16dca835d803393ec",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -47,23 +19,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "bytes": 289042,
-      "sha256": "e1c7e876897656d229f86a8abdb05f6799775ec1803923dff8db76510b1bd1e6",
-      "rawBytes": 392130,
-      "rawSha256": "b199b21361e1ee97d71304807c2c0baff9c4ecec4350e6dae060d971d112480d",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2568,
-            "y": 696.75,
-            "width": 85.46875,
-            "height": 44
+            "x": 1925.4688110351562,
+            "y": 521.5625152587891,
+            "width": 64.10943603515625,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
@@ -80,23 +46,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "bytes": 306141,
-      "sha256": "c57d068d7d0c7124484ff8429efb56157659290b55cfa18891ec0d8db2035a3a",
-      "rawBytes": 421306,
-      "rawSha256": "d7670b3790a03ac74aee3893d20b6750aef498a2123e38ac0390b4935575dcf7",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3012,
-            "y": 688.75,
-            "width": 60,
-            "height": 60
+            "x": 2259.5000610351562,
+            "y": 515.5625152587891,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
@@ -113,25 +73,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-004.png",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
-      "bytes": 260130,
-      "sha256": "022c01637d7ef9191d2639d4c741224b3bb0e2a6a88f958696e0ac0777d3dcc8",
-      "rawBytes": 369223,
-      "rawSha256": "99a78270644229b7a4177b7765023ee1e4591cce6d21e24afbdf5bc7bca96726",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2342,
-            "y": 500.75,
-            "width": 820,
-            "height": 76
+            "x": 1756.0001220703125,
+            "y": 375.06250762939453,
+            "width": 615.9999389648438,
+            "height": 57.000022888183594
           },
-          "automationId": "capture.grpc.message.ex-mvihkix2-91khur6d.response.0"
+          "automationId": "capture.grpc.message.ex-mvpm42i4-8x5mkphc.response.0"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -146,23 +100,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-005.png",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
-      "bytes": 290032,
-      "sha256": "08b4b227f0fad1aff1967e21023257147b334c07d1ce13bc59a0e6f068738c88",
-      "rawBytes": 383926,
-      "rawSha256": "265061cf9f4ce4ff65f4884dfdb938d6f002557ecd1a8aedd9faf21ee7014898",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2568,
-            "y": 774.75,
-            "width": 85.46875,
-            "height": 44
+            "x": 1925.4688110351562,
+            "y": 580.0625152587891,
+            "width": 64.10943603515625,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
@@ -179,23 +127,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-006.png",
+      "capture": "renderer",
       "image": "step-006.annotated.png",
       "rawImage": "step-006.png",
-      "bytes": 290601,
-      "sha256": "3ecb85720e36aa78b9ef4b30d7c239199743e8ae964763c7f1deefdd7772419d",
-      "rawBytes": 384282,
-      "rawSha256": "80825fad2bdc541ed86c128e13f4c1e7c9e9c8f1c639c3b6e1529d8b85b55edf",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 856.75,
-            "width": 752,
-            "height": 764
+            "x": 1774.0001220703125,
+            "y": 641.5625152587891,
+            "width": 564.9999389648438,
+            "height": 483.0000457763672
           },
           "automationId": "capture.inspector.body-pane"
         }
@@ -212,23 +154,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-007.png",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
-      "bytes": 289975,
-      "sha256": "65ee1bd9e621930a8eddf0dad044bea62287adf6bd69d61a665302f11a454635",
-      "rawBytes": 385197,
-      "rawSha256": "30af937c37e04f2db10eef57d196d5bac3895e4988432346270a23cbbf12ecfd",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 856.75,
-            "width": 752,
-            "height": 764
+            "x": 1774.0001220703125,
+            "y": 641.5625152587891,
+            "width": 564.9999389648438,
+            "height": 483.0000457763672
           },
           "automationId": "capture.inspector.body-pane"
         }
@@ -245,23 +181,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-008.png",
+      "capture": "renderer",
       "image": "step-008.annotated.png",
       "rawImage": "step-008.png",
-      "bytes": 288550,
-      "sha256": "17b7c1fcc9ee3a123ef09c279df976ebf986a13cec725276ce94e8885e8481c2",
-      "rawBytes": 383624,
-      "rawSha256": "ba2d66e08a56f17ed57f2ce143edbf56174159b5f0902dcc7db5173618d6e7b4",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 856.75,
-            "width": 752,
-            "height": 764
+            "x": 1774.0001220703125,
+            "y": 641.5625152587891,
+            "width": 564.9999389648438,
+            "height": 483.0000457763672
           },
           "automationId": "capture.inspector.body-pane"
         }
@@ -278,23 +208,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
-      "bytes": 291421,
-      "sha256": "6699bba0d6b5838ad894f7852ef562a32f24b0d99b1854c2306679bff1ddbc13",
-      "rawBytes": 387927,
-      "rawSha256": "3cfc00005810b73c001de5ae366bbfe484fb4e2b8dd52328ef27fb4e8bc3b287",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2304,
-            "y": 374.75,
-            "width": 896,
-            "height": 1365.25
+            "x": 1728,
+            "y": 281.0625,
+            "width": 672,
+            "height": 1023.9375
           },
           "automationId": "capture.inspector.scroll"
         }
@@ -311,23 +235,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-010.png",
+      "capture": "renderer",
       "image": "step-010.annotated.png",
       "rawImage": "step-010.png",
-      "bytes": 310306,
-      "sha256": "6f7b0013a535f55fbf4beb2a782e68fc4ceec8dbb00298af6e51f297932cc4ce",
-      "rawBytes": 416697,
-      "rawSha256": "707cceb07567d61871b111c78d5d8d5ef383375b108ffe926cd58050e9bfe3fc",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2992,
-            "y": 386.75,
-            "width": 60,
-            "height": 60
+            "x": 2244.5000610351562,
+            "y": 383.0625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
@@ -344,25 +262,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-011.png",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
-      "bytes": 313716,
-      "sha256": "b34dd81a949980d017c5106308f797b2e5b9086273bb0fc8dda894284f2d69b4",
-      "rawBytes": 415832,
-      "rawSha256": "9f00f92aa6a1c461efa8b2633172ff3562c7dda75253b77a8cfbba68ad1029ed",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3058,
-            "y": 678.75,
-            "width": 60,
-            "height": 60
+            "x": 2294.0000610351562,
+            "y": 497.0625,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.grpc.copy.ex-mvihkix2-91khur6d.response.1"
+          "automationId": "capture.grpc.copy.ex-mvpm42i4-8x5mkphc.response.1"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -377,23 +289,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-013.png",
+      "capture": "renderer",
       "image": "step-013.annotated.png",
       "rawImage": "step-013.png",
-      "bytes": 278715,
-      "sha256": "fb09c8efacaa403a8c40d07a2c3fefa0e24b5df87a99cd4d95a9c538f5634a52",
-      "rawBytes": 384454,
-      "rawSha256": "121cc08a69e137c97f0c079078dc5bf97918a6f9003ff7e1186ed652c9bb9782",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2657.46875,
-            "y": 774.75,
-            "width": 81.25,
-            "height": 44
+            "x": 1992.5782470703125,
+            "y": 580.0625152587891,
+            "width": 60.9375,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.hex"
         }
@@ -410,23 +316,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-014.png",
+      "capture": "renderer",
       "image": "step-014.annotated.png",
       "rawImage": "step-014.png",
-      "bytes": 303970,
-      "sha256": "244a9584b34556e812f4ab262de416fc62cf5fc7e5c36cbfb38613488b040cbf",
-      "rawBytes": 346781,
-      "rawSha256": "7c85b986cf5202150a99cf78a857db3b216b0e6fbc9140702e52052da4dd2bf2",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 542,
-            "y": 242,
-            "width": 2116,
-            "height": 118
+            "x": 406.0000305175781,
+            "y": 181.00000762939453,
+            "width": 1588.0000305175781,
+            "height": 88.00000762939453
           },
           "automationId": null
         }
@@ -443,23 +343,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-015.png",
+      "capture": "renderer",
       "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
-      "bytes": 301256,
-      "sha256": "fb148ad8006e4864baeccd0d3eefed68c6ae104b7def7330719f543740d5d7e9",
-      "rawBytes": 398234,
-      "rawSha256": "cc2086ac6a2dda23aa9671c88420e6026b66301293c0d6e8c92c2383416f08ce",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2568,
-            "y": 774.75,
-            "width": 85.46875,
-            "height": 44
+            "x": 1925.4688110351562,
+            "y": 580.0625152587891,
+            "width": 64.10943603515625,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
@@ -476,23 +370,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-016.png",
+      "capture": "renderer",
       "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
-      "bytes": 344320,
-      "sha256": "5ddd5e2463a9af4c8d40a58b84a5bbd20b50d0ffb25384bbdb306711c2d98b59",
-      "rawBytes": 476261,
-      "rawSha256": "a803514da5a2c74660da1ed505127c8625568e34ae629a9b21cc36500679d92e",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2304,
-            "y": 374.75,
-            "width": 896,
-            "height": 1365.25
+            "x": 1728,
+            "y": 281.0625,
+            "width": 672,
+            "height": 1023.9375
           },
           "automationId": "capture.inspector.scroll"
         }
@@ -509,25 +397,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-017.png",
+      "capture": "renderer",
       "image": "step-017.annotated.png",
       "rawImage": "step-017.png",
-      "bytes": 347307,
-      "sha256": "b3f3d4ac5cec3d776ab8ab15aae48de3b827b859ba95385af28396dfe6fe116a",
-      "rawBytes": 475608,
-      "rawSha256": "62e8f84dfc17af4e0aadfdc4cfd66802c0641dfc52971bd2cf91f415303c068e",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2342,
-            "y": 1508.75,
-            "width": 800,
-            "height": 76
+            "x": 1756.0001220703125,
+            "y": 1133.0625,
+            "width": 600.9999389648438,
+            "height": 57
           },
-          "automationId": "capture.grpc.message.ex-mvihl4bx-4lg2z844.response.204"
+          "automationId": "capture.grpc.message.ex-mvpm48b5-3hdez2gz.response.204"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -542,23 +424,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-018.png",
+      "capture": "renderer",
       "image": "step-018.annotated.png",
       "rawImage": "step-018.png",
-      "bytes": 335962,
-      "sha256": "372dc59e56743732d29514fb2dbb947814d778f26b12ed9d338a73dda0f414d3",
-      "rawBytes": 457998,
-      "rawSha256": "b2a2476dd8deabfb4efdbf05269abb9e7c9dcb22544cd40ed57d95da3015b830",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 1456.75,
-            "width": 752,
-            "height": 96
+            "x": 1774.0001220703125,
+            "y": 1095.0625305175781,
+            "width": 564.9999389648438,
+            "height": 70.99996948242188
           },
           "automationId": "capture.inspector.body-pane"
         }
@@ -575,25 +451,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-019.png",
+      "capture": "renderer",
       "image": "step-019.annotated.png",
       "rawImage": "step-019.png",
-      "bytes": 346997,
-      "sha256": "9a03bbff66fddd37a70cc2aff7e115850d12766362cadd34020efbeec1d4b1b3",
-      "rawBytes": 474822,
-      "rawSha256": "a85cb0804f9ee6ec713126a6fb37fc44199c600667a7336f40635a276b93d5bc",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3058,
-            "y": 1278.75,
-            "width": 60,
-            "height": 60
+            "x": 2294.0000610351562,
+            "y": 961.5625305175781,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.grpc.copy.ex-mvihl4bx-4lg2z844.response.204"
+          "automationId": "capture.grpc.copy.ex-mvpm48b5-3hdez2gz.response.204"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -601,6 +471,246 @@
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 181617,
+      "sha256": "f754d87b78189f00f3bcf4ff56c927d2ef5c9b99e2dbd575f071bffc9a4a9ab3"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 181778,
+      "sha256": "48e18da8cdfe2aec100f5c0bcfc2a23eaa04c7c091960503934b77626362f2a9"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 185660,
+      "sha256": "7ab0fa2e4ffa998d7796849f252a59b40f98c4480d1b065a81231578aebf8f34"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 184723,
+      "sha256": "72c9cbeabdd7d5fe1822072cb74544ac629e43b2f87acbfeacb24fd71f665d79"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 166674,
+      "sha256": "2cb46ad340f8f60698449f5694d2bc3cccc09500db7a39bac7b65e64c6ef52f6"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 166627,
+      "sha256": "beb7d991f0b815a6d135f5c0850b1c7699fef44b2da19b1c4b1140edeab6ab01"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 183668,
+      "sha256": "5739d60965088699b5e835a8552085e6f966878b2f22ab443598163ddf3b58d9"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190853,
+      "sha256": "2dc80722bd94392ea58f0950b2526a413cac0baa7f0a30aca902cafeab7e80ef"
+    },
+    {
+      "file": "step-006.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 192343,
+      "sha256": "92cd92e97a7c3ce94437e425a3d9784dcd75a97b4a13e790ffa3d5ea00028d15"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 196183,
+      "sha256": "0d4745336e69e29b79ef47544fa3b1318f392834eac21986012e0ee745eeb5aa"
+    },
+    {
+      "file": "step-007.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 193821,
+      "sha256": "44c71ba26730db88fca2c723f693ab464eae9eea815b25c01ba1c92e2a8b55e4"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 197383,
+      "sha256": "02faf05104540d4438e0cbd926e40b00fc23f084743b388b8d3b969d3b0ed7e5"
+    },
+    {
+      "file": "step-008.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 191740,
+      "sha256": "85ab7e5bed722816bf46d26d58604265d9edc7522046fa09f0ec34f2917259a2"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 196148,
+      "sha256": "1762c5a6ad2791c53c1dd15a12d2c4d7a9a0a6f09b59021604994a10354c2dad"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 187398,
+      "sha256": "6f26b78f588278f0d8eb4804ae9ab024955ca6a04aefa3b45dd37735f1264553"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 192405,
+      "sha256": "ff720e02c2274b9f205426c02e643921d84ef914cef9dcea3c4568b189103e84"
+    },
+    {
+      "file": "step-010.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190712,
+      "sha256": "6c5be597e9a0aad9d687109bece082540729d3854f9ebb2c0d4c042b41552f4e"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 195647,
+      "sha256": "d70ed23f5c819a6c8b5f85e5d15f9ee8408bd08222f7c18617c94a41ecc8ffd2"
+    },
+    {
+      "file": "step-011.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 196946,
+      "sha256": "62bc206d4b4a35f72367e746f25f2c7ba7da549215686119e4a23c1c189d2452"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 201662,
+      "sha256": "05f3ea35cfd4ba85707ef82596cc5ed2905b5fe43b235d190bcb02ca1cb0357b"
+    },
+    {
+      "file": "step-013.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 188022,
+      "sha256": "7e485138b7688753de269fbbe7a8851eb6ef9f57ac45a24823cadb391274fa11"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 185684,
+      "sha256": "25d3f5c3bf23e51cb175d4e52d226d179cc686b5cbb5f4644b46e3ae7962ef0d"
+    },
+    {
+      "file": "step-014.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148993,
+      "sha256": "f0c71788b3b41017b1aff6832a9d475ef2d2324e879ae7457b718922697f4e2a"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190733,
+      "sha256": "660f2b1156f4b5b3c4d3b6e53a131c37351f859c6206f157ec38edcf60fd2a20"
+    },
+    {
+      "file": "step-015.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 177529,
+      "sha256": "4e896072d31de8c5f86e4cec0906949c832c251761955daca6f0e819d8c8630c"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 185010,
+      "sha256": "f597f05618122b500c3e2a8ee3ca7ace3314e40b8409d644d98102f5e07c507f"
+    },
+    {
+      "file": "step-016.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 242455,
+      "sha256": "ceebac172c4bd4d969a470185a3b839fa7656113557ba6457d786f1de798b4af"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 227625,
+      "sha256": "c28720bc6562a457bd680914d54ba1ea73fc33695f483195c37c56f866f2fa38"
+    },
+    {
+      "file": "step-017.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 242033,
+      "sha256": "bb5c2bef9ef08a12597e2351448297ee48e46d9eb370d1e1e2592e49f880c2b9"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 227000,
+      "sha256": "aba0a0d9f9734b541abd477a8a23e9c3582afc57378f865751ac6aa4d435cf2a"
+    },
+    {
+      "file": "step-018.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 229964,
+      "sha256": "9ecaccb254b7447c71b697446e50cffa9e4e8eba294db4f1ef1f88dfbe0ff6fa"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 217782,
+      "sha256": "56060dadbf4e2a19276a74c6799ed66f9f934ddc296fa272d081898c374210cb"
+    },
+    {
+      "file": "step-019.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 230331,
+      "sha256": "401637283c3f0902b7f0c70519d4ee03343efc737e11f932d8e2efa6341d37ce"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 218055,
+      "sha256": "c5e2fe3922b52db8396f4e9fa21629bc52a9daa8a17793b66471185592b060e6"
     }
   ]
 }

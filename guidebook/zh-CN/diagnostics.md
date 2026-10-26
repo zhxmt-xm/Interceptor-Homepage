@@ -31,7 +31,7 @@
 
    ![选择记录并阅读详情 · 6](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-043.png)
 
-7. <a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>向列表底部滚动并点击 Load earlier records，等待更早的记录加入列表。本例从一页加载到更多记录；它不是刷新最新记录，也不是一次性读出整个数据库。
+7. <a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>向列表底部滚动并点击 Load earlier records。按钮位于列表底部，但加载出的更早记录插入列表顶部；已加载记录保留。没有更早记录后，按钮消失。本例从一页加载到更多记录；它不是刷新最新记录，也不是一次性读出整个数据库。
 
    ![选择记录并阅读详情 · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-044.png)
 

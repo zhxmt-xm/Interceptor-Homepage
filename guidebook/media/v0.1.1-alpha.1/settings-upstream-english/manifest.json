@@ -3,12 +3,14 @@
   "chapter": "settings-upstream-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "settings/upstream-settings.workflow.ts",
-    "manifestSha256": "4c5c9e84efbfe7ba9fc40069c229e92950de63f283d004ea43e4be7d4bc3ec6c",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "settings.upstream applies shared Manual PAC and Direct routes and reloads the saved mode",
+    "manifestSha256": "79e17483aaad00f861fc21852884f9ff91b94203be2a4d8636309da53004dba0",
+    "workflowSha256": "36d7740f204a31cd786df449d501b3c2c9265c2e83c0cccc028b789cfa67760f",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -17,6 +19,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-001.png",
       "rawImage": "step-001.png"
     },
@@ -26,16 +29,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2405.453125,
-            "y": 1208.578125,
-            "width": 218.171875,
-            "height": 60
+            "x": 1806.609375,
+            "y": 899.3750610351562,
+            "width": 162.6251220703125,
+            "height": 45
           },
           "automationId": "upstream.discard"
         }
@@ -52,6 +56,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-003.png",
       "rawImage": "step-003.png"
     },
@@ -61,36 +66,37 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1728,
-            "y": 694.3125,
-            "width": 814,
-            "height": 63.140625
+            "x": 1296,
+            "y": 518.2187805175781,
+            "width": 611.0000610351562,
+            "height": 46.359375
           },
           "automationId": "upstream.host"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 2566,
-            "y": 694.3125,
-            "width": 176,
-            "height": 63.140625
+            "x": 1925.0000610351562,
+            "y": 518.2187805175781,
+            "width": 132,
+            "height": 46.359375
           },
           "automationId": "upstream.port"
         },
         {
           "label": "3",
           "bounds": {
-            "x": 2639.625,
-            "y": 1208.578125,
-            "width": 102.375,
-            "height": 60
+            "x": 1981.2344970703125,
+            "y": 899.3750610351562,
+            "width": 75.76556396484375,
+            "height": 45
           },
           "automationId": "upstream.apply"
         }
@@ -107,6 +113,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.png",
       "rawImage": "step-005.png"
     },
@@ -116,6 +123,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-006.png",
       "rawImage": "step-006.png"
     },
@@ -125,18 +133,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 248,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 186,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvhz27o9-krpu9hvr"
+          "automationId": "capture.request-row.ex-mvpmycot-310b9r9y"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -151,6 +160,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-008.png",
       "rawImage": "step-008.png"
     },
@@ -160,26 +170,27 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2350,
-            "y": 1346.078125,
-            "width": 784,
-            "height": 63.140625
+            "x": 1763.5001220703125,
+            "y": 1012.0625610351562,
+            "width": 588,
+            "height": 46.359375
           },
           "automationId": "upstream.pac-url"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 3074,
-            "y": 600.40625,
-            "width": 60,
-            "height": 60
+            "x": 2306.5001220703125,
+            "y": 458.8125,
+            "width": 45,
+            "height": 45
           },
           "automationId": "upstream.close"
         }
@@ -196,6 +207,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-010.png",
       "rawImage": "step-010.png"
     },
@@ -205,26 +217,27 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2350,
-            "y": 1346.078125,
-            "width": 784,
-            "height": 63.140625
+            "x": 1763.5001220703125,
+            "y": 1012.0625610351562,
+            "width": 588,
+            "height": 46.359375
           },
           "automationId": "upstream.pac-url"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 2318,
-            "y": 1664,
-            "width": 848,
-            "height": 74
+            "x": 1739.5001220703125,
+            "y": 1249.0000305175781,
+            "width": 636,
+            "height": 55.000030517578125
           },
           "automationId": "upstream.open-settings"
         }
@@ -241,26 +254,27 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-012.annotated.png",
       "rawImage": "step-012.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1728,
-            "y": 556.03125,
-            "width": 1014,
-            "height": 63.140625
+            "x": 1296,
+            "y": 415.5156555175781,
+            "width": 761.0000610351562,
+            "height": 46.359375
           },
           "automationId": "upstream.pac-url"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 2639.625,
-            "y": 1208.578125,
-            "width": 102.375,
-            "height": 60
+            "x": 1981.2344970703125,
+            "y": 899.3750610351562,
+            "width": 75.76556396484375,
+            "height": 45
           },
           "automationId": "upstream.apply"
         }
@@ -277,6 +291,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-013.png",
       "rawImage": "step-013.png"
     },
@@ -286,6 +301,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-014.png",
       "rawImage": "step-014.png"
     },
@@ -295,18 +311,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 352,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 264,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvhz2fd6-wv2eljih"
+          "automationId": "capture.request-row.ex-mvpmyezy-95sva1d0"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -321,18 +338,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 456,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 342,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvhz2gea-12h8a43q"
+          "automationId": "capture.request-row.ex-mvpmyfal-xj019t3b"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -347,16 +365,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-017.annotated.png",
       "rawImage": "step-017.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2639.625,
-            "y": 1208.578125,
-            "width": 102.375,
-            "height": 60
+            "x": 1981.2344970703125,
+            "y": 899.3750610351562,
+            "width": 75.76556396484375,
+            "height": 45
           },
           "automationId": "upstream.apply"
         }
@@ -373,6 +392,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-018.png",
       "rawImage": "step-018.png"
     },
@@ -382,16 +402,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-019.annotated.png",
       "rawImage": "step-019.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3124,
-            "y": 15,
-            "width": 60,
-            "height": 60
+            "x": 2343,
+            "y": 11.500000476837158,
+            "width": 45,
+            "height": 45.000001430511475
           },
           "automationId": "shell.window.close"
         }
@@ -408,6 +429,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-020.png",
       "rawImage": "step-020.png"
     },
@@ -417,16 +439,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-021.annotated.png",
       "rawImage": "step-021.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2639.625,
-            "y": 1208.578125,
-            "width": 102.375,
-            "height": 60
+            "x": 1981.2344970703125,
+            "y": 899.3750610351562,
+            "width": 75.76556396484375,
+            "height": 45
           },
           "automationId": "upstream.apply"
         }
@@ -443,6 +466,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-022.png",
       "rawImage": "step-022.png"
     }
@@ -450,234 +474,234 @@
   "assets": [
     {
       "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 376647,
-      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 166732,
+      "sha256": "665b2343692ca1a2608ab88baddad8550243110e619176c053266fffdad55535"
     },
     {
       "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 372572,
-      "sha256": "ced41d19e7297674ea59725b3143a8dd333d0da6dcfc37a272f9982bb19cd6b6"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164915,
+      "sha256": "7caf833c3a24bdf3ec156563a94791bd76075ac2f08b122bfce9beabf1109d35"
     },
     {
       "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 240805,
-      "sha256": "f2bfa62a98598d49ded635c162519496afa0ae706d2b03c00a0c507674fd90ba"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150731,
+      "sha256": "c9d471dc3e8c541b5163508b0c926afb5315ae8f584c4647bd592b13ebd976d8"
     },
     {
       "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 376647,
-      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 167705,
+      "sha256": "84648ff855b2275d612800c1d7743f4860933d657297365c30d0d7a34120d289"
     },
     {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 377758,
-      "sha256": "d25750d96a6c124ae644c533eaacf0603fcb0e458ce02d379945371f4c06c392"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 166943,
+      "sha256": "ada31dbe94e16a81f321929371c271c3af830c8401544089c8cfe77bda485798"
     },
     {
       "file": "step-004.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 247437,
-      "sha256": "f855517e57bbee12c062654b5321da08370cd930ea53173d429745a6d41a0d9e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 154474,
+      "sha256": "bf1533732a3244a7fee44600e0599ea9359aaf6ae40c2bc94364060042999df7"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 376647,
-      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 167767,
+      "sha256": "71b0db98bbf0b3884df878911383f81b997492d2d7e7b6cf67de95ac9a08d0f6"
     },
     {
       "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 371901,
-      "sha256": "ecb04ba213b712b8e828406f0621c1a08de146245cfce7abec05642037f5935c"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164453,
+      "sha256": "7918c7746e21bf00c5b9d056f43de7c242a1e4f6f778d92f1ea01d35b849a275"
     },
     {
       "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 349034,
-      "sha256": "cd0f77becce03fd12b09eb32e861ba52ae4a379d80d0ec8dc5089e2b47e5aa6c"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 158072,
+      "sha256": "59136278b77165abd21a7196318a8d210b034f1fff169743bdf1baa7094033f9"
     },
     {
       "file": "step-007.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 241861,
-      "sha256": "d56b886c8d147a66e4f0b96e2d54bb60fc6e9f4671ddf8412c8f56555ca74ae4"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152189,
+      "sha256": "0bff1b184562691e36d649ae5b8a3af61c87bb76b0d1d24e695a14d53b76afdd"
     },
     {
       "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 395106,
-      "sha256": "a20499cdbdc01a91d9731ef08317b628e36c2e5581f5902c30be8ed3f451915a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 242267,
+      "sha256": "758fa1bc72df2070d6d17c1e124edc6fdea7c4b5c0453e9f903d9b32e4141d33"
     },
     {
       "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 414914,
-      "sha256": "590ac453a0d70d4c4fedeb099e4f81bff3da69930018805894d96cc47f9aa703"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 198193,
+      "sha256": "86356c094fe5bde0e79ee619954662bcd627d895f5b9616ecc08ab98f6dec024"
     },
     {
       "file": "step-009.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 305665,
-      "sha256": "87cb1a4bb8974cf5fcec75d2168dd39e3d677113f8be0a8c17303d319e79633e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 198260,
+      "sha256": "4253ee6444e60885ae52aeb58a655d135684f059432990b501290344d0418846"
     },
     {
       "file": "step-010.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 395106,
-      "sha256": "a20499cdbdc01a91d9731ef08317b628e36c2e5581f5902c30be8ed3f451915a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 243359,
+      "sha256": "cb2641e8c1ab3faf5fdf7411e738b213d813b8a527261f3df865b32793319225"
     },
     {
       "file": "step-011.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 414914,
-      "sha256": "590ac453a0d70d4c4fedeb099e4f81bff3da69930018805894d96cc47f9aa703"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 198199,
+      "sha256": "7dcc2b5744d94b7b77008416fb12872cc70c513ec3ace39e75c53f0d289808cd"
     },
     {
       "file": "step-011.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 304162,
-      "sha256": "68ec758c4533ca42b81cb30804aba45dd191531770006d51f80cf317ccbb876e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 197822,
+      "sha256": "860a92c00d5ee436d999d31c5ac59f1bd5df86b3960f9eebf030cc1399ebc5ef"
     },
     {
       "file": "step-012.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 374882,
-      "sha256": "b67d1ab719c33029b0b86e6f66e6a9d56ba81485a7df97cff32a970b5bb14dc3"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 165992,
+      "sha256": "ee2ccea94d2dab8f4a714fdd4227f2a9b341a977add9bac145b128a0a329ba5e"
     },
     {
       "file": "step-012.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 244572,
-      "sha256": "b1f2950a4bea428e1c8a61ee668d99b5f2a9e4dbd91b236c518f545f93398da4"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152930,
+      "sha256": "252ffc8aad68eacd350982a9af5bf498ce79ee8d52865c90d756501552eed010"
     },
     {
       "file": "step-013.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 371901,
-      "sha256": "ecb04ba213b712b8e828406f0621c1a08de146245cfce7abec05642037f5935c"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164774,
+      "sha256": "156f03296ba906b95d7ac2bfd0b3e9c78515edbd1ad5283ac54565d99e2b9adb"
     },
     {
       "file": "step-014.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 371008,
-      "sha256": "0cb14bd850f37b65c6849748264d648e2411abf4b7809bcecf2e09a3b14cd286"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164971,
+      "sha256": "e8bceca7a1996c6a008c38d8f39a3ad3f56df2fb6c9a93be63a6b02579c17335"
     },
     {
       "file": "step-015.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 367671,
-      "sha256": "fa562c4c61153d7ce1a8300a70703dc6b19db87a3746cc1a8a80e55dcde199fa"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 160047,
+      "sha256": "6664e6ec8d59490a14c4e59c6db8e8c64dc0b17d74f3d2f5e133adc6e0e87272"
     },
     {
       "file": "step-015.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 255626,
-      "sha256": "a20df72b28a3fd9600b7a893a1eb282f184a508b1d19404c0ad22897a25cff9d"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 153523,
+      "sha256": "3019efcaeaa739613c63a17450f022ded63d80b79a1d248e4ce1d0d33d74c7d4"
     },
     {
       "file": "step-016.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 388644,
-      "sha256": "d1fcb9ec46c8de6d20604f481fbf2bdb3d3fc61a9a7f7ffc1c6b24d0441220cf"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 173939,
+      "sha256": "3cf2bc04ae38d0db665ca5b4fefae8c00b434feb6cda639c61b0dec08358551e"
     },
     {
       "file": "step-016.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 268759,
-      "sha256": "0f824f7a9b9caf65c09667f1344b461a8a77fffcded4776c0723bd430932bc7b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164284,
+      "sha256": "605eb65a636337d40599ac8f8b7052099038e6cdaed5b37d19dbe429c33ec0f5"
     },
     {
       "file": "step-017.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 372132,
-      "sha256": "26f071c3c8a837fc033ecf529732bfb41406a19cf32be738f1f10f80fdbb41f8"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164836,
+      "sha256": "7c5dd319c48d86c05df4d92ef171f997492fca9b2c05af57714a9d29e8bf6310"
     },
     {
       "file": "step-017.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 240162,
-      "sha256": "c5ad19082625aabcdefc3fbb8c10867f6abadd8da95108037d539795763ed019"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150563,
+      "sha256": "2ad314c9688f683d7997733ca17ffda5df18067551d3272899a60b58ca823088"
     },
     {
       "file": "step-018.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 366464,
-      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 162749,
+      "sha256": "dc0a97690c6af5509994a886b4459eb4c669d05c426338aa1593eb4edbd5c5f8"
     },
     {
       "file": "step-019.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 366464,
-      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 161807,
+      "sha256": "2fd85297de4af07d28d378e29987683acee851613ba8968c85edba2140897043"
     },
     {
       "file": "step-019.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 237161,
-      "sha256": "7559b4e2188909d68df0695741ddd4ec7604a7393aac6eb06504d6c0327daca0"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148555,
+      "sha256": "cda060bef1b111c4256039d89effbdf3a13086b9067be1c24e3c62096c50c9c7"
     },
     {
       "file": "step-020.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 366464,
-      "sha256": "3a21ae52d964d9e98a3b60043d3caea9314f5251dbbfaa52faacb47aff311ba6"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 161807,
+      "sha256": "2fd85297de4af07d28d378e29987683acee851613ba8968c85edba2140897043"
     },
     {
       "file": "step-021.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 379361,
-      "sha256": "24b0e3d8f1c0c1503e1b15dca43897f19b8cbf2128f4bc35eb0a57f2efb9e5bb"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 168596,
+      "sha256": "b7360781b6be4965040fce89dca60fec93199decf525f60b87bf7198696397c3"
     },
     {
       "file": "step-021.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 245966,
-      "sha256": "e5ecb853f8996c3627ec9efc68ffa688720db9292a5d324672271c80446a1a95"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 153511,
+      "sha256": "7b8900e058693f2423987abe8829272eee952a028a0387df5e0e1d189fab3ac5"
     },
     {
       "file": "step-022.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 376647,
-      "sha256": "c2e604cd226a7f18cd15bd7062b5b90e8429b150a85d6ba3b1771b4d4b467d31"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 167822,
+      "sha256": "5f5add3becfc4a298c2bffad974a34971552f9416152721d13d29992479878fc"
     }
   ]
 }

@@ -17,7 +17,7 @@ There is currently no delivered one-click “copy from Capture to Composer” in
 <a id="发送第一个请求"></a>
 ## Send your first request
 
-Prepare an HTTP or HTTPS endpoint you are authorized to access. The example is `http://127.0.0.1:58053/e2e/composer/response-section-collapse`. The App does not start this service; use your own complete address.
+Prepare an HTTP or HTTPS endpoint you are authorized to access. The example is `http://127.0.0.1:61530/e2e/composer/response-section-collapse`. The App does not start this service; use your own complete address.
 
 1. <a id="walkthrough"></a>Open Composer and click the plus button at the top of Collection in box 1 to create a request.
 
@@ -27,7 +27,7 @@ Prepare an HTTP or HTTPS endpoint you are authorized to access. The example is `
 
    ![Send your first request · 2](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-002.annotated.png)
 
-3. Enter the test URL in box 1, keep Auto selected and click Send in box 2. If `http://` is already displayed separately on the left, edit only the host, port and path rather than duplicating the scheme.
+3. Enter the test URL in box 1, keep Auto selected and click Send in box 2. The URL row displays `http://` or `https://` separately. You can paste a complete URL to replace the existing address and scheme, or edit only the host, port and path.
 
    ![Send your first request · 3](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-003.annotated.png)
 
@@ -41,12 +41,30 @@ Prepare an HTTP or HTTPS endpoint you are authorized to access. The example is `
 
 `4xx` and `5xx` are HTTP responses from the server, not evidence that nothing was sent. Investigate DNS, connection or TLS errors from their actual messages instead of toggling Recording.
 
+<a id="send-failure"></a>
+## Recover from a failed send
+
+1. Read the error in Composer's response pane. An invalid address or a failed connection shows an error without creating a successful response body or response tabs. Send becomes available again when the failed attempt ends.
+
+   ![Invalid address and connection errors](../media/v0.1.1-alpha.1/composer-send-failure-english/step-002.png)
+
+   ![Invalid address and connection errors](../media/v0.1.1-alpha.1/composer-send-failure-english/step-003.png)
+
+2. Check the complete URL and whether the destination service is reachable. Correct the address or restore the service, then click Send again. A successful response replaces the previous error and makes Body, Headers, Cookies and Timing available.
+
+   ![Successful response after correcting the address](../media/v0.1.1-alpha.1/composer-send-failure-english/step-004.png)
+
+3. Open Recent sends to distinguish the attempts. Failed sends remain in History with `status=0`; a later successful send does not remove them. A server's `4xx` or `5xx` is an HTTP response, so inspect its status and contents rather than treating it as a connection failure.
+
+   ![Failed and successful attempts in History](../media/v0.1.1-alpha.1/composer-send-failure-english/step-005.png)
+
+
 
 <a id="编辑-query-与-headers"></a>
 ## Edit Query and Headers
 
 <a id="walkthrough-composer-fields"></a><a id="walkthrough-composer-replay"></a>
-Open the test request you want to edit. The example uses `http://127.0.0.1:56993/e2e/composer/fields/json?entry=url`; substitute your endpoint. Query table rows append to existing URL parameters without deduplicating names. Click Send after each change to use it.
+Open the test request you want to edit. The example uses `http://127.0.0.1:51862/e2e/composer/fields/json?entry=url`; substitute your endpoint. Query table rows append to existing URL parameters without deduplicating names. Click Send after each change to use it.
 
 1. <a id="walkthrough-composer-fields-01-new"></a><a id="walkthrough-composer-fields-02-header"></a><a id="walkthrough-composer-replay-01-open"></a><a id="walkthrough-composer-replay-02-new"></a><a id="walkthrough-composer-replay-04-post"></a>Choose POST in the method control in box 1. Open Headers, enter `x-e2e-current` and `enabled` in the name and value fields marked box 1, then confirm the row. Box 1 in the last image marks the enabled Header.
 
@@ -119,7 +137,7 @@ Open the test request you want to edit. The example uses `http://127.0.0.1:56993
 ## Select a request body
 
 <a id="walkthrough-composer-editing"></a>
-First add the Headers and two Query rows described above, using POST. The following examples send JSON, Text and Form through the service on port `56993`. Changing body type does not automatically change Content-Type or Send.
+First add the Headers and two Query rows described above, using POST. The following examples send JSON, Text and Form through the service on port `51862`. Changing body type does not automatically change Content-Type or Send.
 
 1. <a id="walkthrough-composer-editing-01-open"></a><a id="walkthrough-composer-editing-02-new"></a><a id="walkthrough-composer-editing-03-url"></a><a id="walkthrough-composer-editing-04-method"></a><a id="walkthrough-composer-editing-05-json-header"></a><a id="walkthrough-composer-editing-06-body"></a><a id="walkthrough-composer-editing-07-json"></a>Set the URL in box 1 to `/e2e/composer/fields/json?entry=url` and the Content-Type row in box 1 to `application/json`. Open Body and choose JSON in the type control in box 1.
 
@@ -184,7 +202,7 @@ After selecting JSON, Text or Form, check the endpoint requirements, Headers and
 ## Configure authentication
 
 <a id="walkthrough-composer-editing-18-auth"></a><a id="walkthrough-composer-editing-19-bearer"></a><a id="walkthrough-composer-editing-20-basic"></a><a id="walkthrough-composer-auth"></a><a id="walkthrough-composer-editing-21-none"></a>
-Use an authorized endpoint that requires authentication. The example `http://127.0.0.1:57177/e2e/composer/auth` accepts only the local demonstration values `workflow-user`, `public-loopback-password` and `public-loopback-token`. Never send real credentials to this example address.
+Use an authorized endpoint that requires authentication. The example `http://127.0.0.1:61864/e2e/composer/auth` accepts only the local demonstration values `workflow-user`, `public-loopback-password` and `public-loopback-token`. Never send real credentials to this example address.
 
 1. <a id="walkthrough-composer-auth-05-auth-tab"></a><a id="walkthrough-composer-auth-07-username"></a><a id="walkthrough-composer-auth-01-composer"></a><a id="walkthrough-composer-auth-02-new"></a><a id="walkthrough-composer-auth-03-url"></a><a id="walkthrough-composer-auth-04-none"></a><a id="walkthrough-composer-auth-16-explicit-name"></a><a id="walkthrough-composer-auth-23-clear-username"></a>Enter the authentication URL in box 1 and send with Auth None first. A `401` response means this endpoint requires authentication; configure it before sending again.
 
@@ -403,7 +421,7 @@ Collection automatically saves requests and folders; there is no separate Save b
 
    ![Manage a Collection · 3](../media/v0.1.1-alpha.1/composer-tree-workflow-en/step-009.annotated.png)
 
-4. <a id="walkthrough-composer-collection-06-rename-folder"></a>Enter `http://127.0.0.1:56993/e2e/collection/first` in box 1, replacing it with your own address. Edit only; do not click Send yet.
+4. <a id="walkthrough-composer-collection-06-rename-folder"></a>Enter `http://127.0.0.1:51862/e2e/collection/first` in box 1, replacing it with your own address. Edit only; do not click Send yet.
 
    ![Manage a Collection · 4](../media/v0.1.1-alpha.1/composer-tree-workflow-en/step-010.annotated.png)
 
@@ -455,7 +473,7 @@ Collection automatically saves requests and folders; there is no separate Save b
 
 Collection saves each request’s fields automatically. The following Query, Header and Auth values belong only to the local example, not real accounts. The request starts as `Untitled`; the later Tool operations rename it to `Collection MCP`.
 
-1. <a id="walkthrough-composer-persistence-save-01-new-request"></a><a id="walkthrough-composer-persistence-save-02-name"></a><a id="walkthrough-composer-persistence-save-03-url"></a><a id="walkthrough-composer-persistence-save-04-method"></a><a id="walkthrough-composer-persistence-save-05-protocol"></a>Create a request and enter your test URL in box 1. The example is `http://127.0.0.1:60293/e2e/collection/no-send?token=collection-query-private-value`. Select POST and HTTP/1.1 in the respective box 1 controls without sending yet.
+1. <a id="walkthrough-composer-persistence-save-01-new-request"></a><a id="walkthrough-composer-persistence-save-02-name"></a><a id="walkthrough-composer-persistence-save-03-url"></a><a id="walkthrough-composer-persistence-save-04-method"></a><a id="walkthrough-composer-persistence-save-05-protocol"></a>Create a request and enter your test URL in box 1. The example is `http://127.0.0.1:49510/e2e/collection/no-send?token=collection-query-private-value`. Select POST and HTTP/1.1 in the respective box 1 controls without sending yet.
 
    ![Save a request with all its fields · 1](../media/v0.1.1-alpha.1/composer-saved-request-english/step-001.annotated.png)
 

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "chapter": "composer-send-failure-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "Windows x64",
+  "source": {
+    "workflow": "composer/send-failure.workflow.ts",
+    "test": "composer.send-failure reports invalid URL and network errors without a fake response",
+    "manifestSha256": "13bdd9de43ec34538f67e16e844fb77b7d9a4ca247c8c5563867e0d845525ca5",
+    "workflowSha256": "7992ef2daac19ed3b5bece3fc4a995a832d5e03aefb8c8d7254752666c98fed0",
+    "capture": "renderer",
+    "target": "packaged-app"
+  },
+  "steps": [
+    {
+      "id": "step-002",
+      "title": "非法URL显示错误态且Send恢复可用 / An invalid URL shows the error state and Send is usable again",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "未监听端口同样进入错误态 / An unused port enters the same error state",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "改成有效URL后得到真实200响应 / A valid URL yields a real 200 response",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "History保留三次发送的成功与失败终态 / History retains the terminal state of all three sends",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 70283,
+      "sha256": "662874c24803cb38e8037ef221721b77e31889a7ce256a4258a0882843e8a67f"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 76211,
+      "sha256": "235650aca420b9a3d5e434b6a2b10df749ed7a9005ab3a2a5c1a11f9c139c6be"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 92463,
+      "sha256": "18ae167c695df59eb263e3ff314b7e8aff5ccc068d520d259b3979af07effbc8"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 122148,
+      "sha256": "a2f4d92dca55b98d762ea0f51f5901aafbdb255ad434e39b0b8982158adad544"
+    }
+  ]
+}

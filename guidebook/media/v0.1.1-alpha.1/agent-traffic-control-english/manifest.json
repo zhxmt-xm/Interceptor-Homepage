@@ -3,75 +3,43 @@
   "chapter": "agent-traffic-control-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "agent/traffic-control.workflow.ts",
-    "manifestSha256": "a0bd34de57c8cdc24c3abc153b8e03092822e1c446dbacba3c01d6417f74aae1",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "agent.tools.traffic-control synchronizes Recording and Capture cleanup",
+    "manifestSha256": "14d950e1c615ad40e5818e4a2405c15aff8aeb50a7a84a5e611a17b86e403d61",
+    "workflowSha256": "9f924ded95f5f4285f904a69d4f6861b9b34e28a837a2cae40c03d14add971b8",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
-    {
-      "id": "step-001",
-      "title": "用户操作：capture_start_recording在Ask下分别Deny/Allow，再在Auto下无问询执行，Capture toggle始终同步。 / User actions: capture_start_recording is denied and allowed in Ask, then runs without a prompt in Auto while the toggle stays synchronized.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-001.png",
-      "rawImage": "step-001.png"
-    },
-    {
-      "id": "step-002",
-      "title": "允许暂停后再继续模型解释 / Approve the pause before continuing the model explanation",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-002.annotated.png",
-      "rawImage": "step-002.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2997.046875,
-            "y": 1381.75,
-            "width": 134.953125,
-            "height": 52
-          },
-          "automationId": "agent.tools.allow.stop-after-tool"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
     {
       "id": "step-003",
       "title": "暂停已经完成，Stop只取消仍在生成的解释 / The pause is complete and Stop only cancels the ongoing explanation",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 166.125,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 124.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 3102,
-            "y": 1628,
-            "width": 60,
-            "height": 60
+            "x": 2327.0000610351562,
+            "y": 1221,
+            "width": 45,
+            "height": 45
           },
           "automationId": "agent.turn.stop"
         }
@@ -88,6 +56,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.png",
       "rawImage": "step-004.png"
     },
@@ -97,91 +66,39 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.png",
       "rawImage": "step-005.png"
-    },
-    {
-      "id": "step-006",
-      "title": "用户操作与业务断言：Allow和Auto都经同一reset清空所有镜像，且清空后Recording继续接收新流量。 / User actions and assertions: Allow and Auto share one reset for every mirror, and Recording accepts new traffic after each clear.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-006.png",
-      "rawImage": "step-006.png"
-    },
-    {
-      "id": "step-007",
-      "title": "用户操作：关闭两项后schema和执行均拒绝；保留的row与暂停态证明没有触达业务命令。 / User actions: disabling both removes their schemas and rejects execution; the retained row and paused state prove no business command ran.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-007.png",
-      "rawImage": "step-007.png"
     }
   ],
   "assets": [
     {
-      "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 373182,
-      "sha256": "438881f2ad6f2f67828f81234694b7eedec4e0f9212538f47eee62d03ed4fc06"
-    },
-    {
-      "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 400186,
-      "sha256": "918038c6580c44a1be3b6dcb0ff77a8e59e3582953c31b9d5b2550625f5ca0f0"
-    },
-    {
-      "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 284208,
-      "sha256": "a9f9c15fb0043e3d151ac74bc0b55243604986d05e265a440cbcdb7a93870241"
-    },
-    {
       "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 390881,
-      "sha256": "700efdb3f7616e29702938a41b70b8f9ff9f9efe276017af92848c94b2226542"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 182517,
+      "sha256": "b8a5c609215862dcda3deb099a9983349f12f602044a3d72d3781a0609808e1d"
     },
     {
       "file": "step-003.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 277240,
-      "sha256": "4ccfb3f74c22f5fb94090acc9a29840dd4500099b5cf3d42c895c687d8fa82ea"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 178829,
+      "sha256": "414eb6811f26d789dc4e351fb78893ccbc327c82014d4adea2f9cc3b43596fb1"
     },
     {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 400763,
-      "sha256": "35291e8a919d11afba0f56d83fec0750cad159985bfdbc388519122ba57a677b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 183148,
+      "sha256": "bd930ac3a96e371756d43acfed20c3eddfb7d5031f1b8f9ac449aa124ca7b20e"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 390556,
-      "sha256": "53526b05b4b5b9c08fe1a588b236106eec1d52bef1708c3c766a29e07c236f99"
-    },
-    {
-      "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 397533,
-      "sha256": "1ba0d7d129ed03ce425dbc1112ff36ed9c8a1e7d41f510012469c1c90ed98659"
-    },
-    {
-      "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 535621,
-      "sha256": "bd36b370dd40058b4812fcf5c38a3506e16749f3dfaf6e90b3d10acd0189adf4"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 184767,
+      "sha256": "a8707c6d8932de8f5a95a6517f992a239d9c95e24ceb8c275cb4948048fec8f9"
     }
   ]
 }

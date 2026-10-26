@@ -3,12 +3,14 @@
   "chapter": "settings-update-check-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "settings/updates-check.workflow.ts",
-    "manifestSha256": "1e5f1c60d2c07189f117bc60bfb01f29d22cbcd8ef1ef243c4ff1ef3cadbb1d4",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "settings.updates.check compares published versions and checks without signing in",
+    "manifestSha256": "2178b4f5d655581fb5a11a40c14d310c632de7e51f55646258fb88666b6ca68c",
+    "workflowSha256": "0e1a390c0050a26056c94fa9eda7774712f5a04673534959704ea1ea8b05ed07",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -17,6 +19,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-001.png",
       "rawImage": "step-001.png"
     },
@@ -26,16 +29,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2875.265625,
-            "y": 1154.6875,
-            "width": 238.734375,
-            "height": 68
+            "x": 2157.9375,
+            "y": 774.4844055175781,
+            "width": 178.06256103515625,
+            "height": 51
           },
           "automationId": "settings.updates.check"
         }
@@ -48,10 +52,11 @@
     },
     {
       "id": "step-003",
-      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (initial, 1)",
+      "title": "核对实际版本与检查结果 / Verify versions and the update check result (initial, 1)",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-003.png",
       "rawImage": "step-003.png"
     },
@@ -61,16 +66,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2875.265625,
-            "y": 1154.6875,
-            "width": 238.734375,
-            "height": 68
+            "x": 2157.9375,
+            "y": 774.4844055175781,
+            "width": 178.06256103515625,
+            "height": 51
           },
           "automationId": "settings.updates.check"
         }
@@ -83,21 +89,13 @@
     },
     {
       "id": "step-005",
-      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (initial, 2)",
+      "title": "核对实际版本与检查结果 / Verify versions and the update check result (initial, 2)",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.png",
       "rawImage": "step-005.png"
-    },
-    {
-      "id": "step-006",
-      "title": "打开更新设置 / Open update settings (restarted)",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-006.png",
-      "rawImage": "step-006.png"
     },
     {
       "id": "step-007",
@@ -105,16 +103,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2875.265625,
-            "y": 1154.6875,
-            "width": 238.734375,
-            "height": 68
+            "x": 2157.9375,
+            "y": 774.4844055175781,
+            "width": 178.06256103515625,
+            "height": 51
           },
           "automationId": "settings.updates.check"
         }
@@ -127,147 +126,85 @@
     },
     {
       "id": "step-008",
-      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (restarted, 1)",
+      "title": "核对实际版本与检查结果 / Verify versions and the update check result (restarted, 1)",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-008.png",
       "rawImage": "step-008.png"
-    },
-    {
-      "id": "step-009",
-      "title": "检查当前版本并手动Check now / Inspect the current version before Check now (restarted, 2)",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-009.annotated.png",
-      "rawImage": "step-009.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2875.265625,
-            "y": 1154.6875,
-            "width": 238.734375,
-            "height": 68
-          },
-          "automationId": "settings.updates.check"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-010",
-      "title": "检查更新失败后仍可重试 / Retry after an unavailable update check (restarted, 2)",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-010.png",
-      "rawImage": "step-010.png"
     }
   ],
   "assets": [
     {
       "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150714,
+      "sha256": "2eff46e854c002ebfac66c186207ee90b8fbe6c23b0f6248ba3de3286748f622"
     },
     {
       "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150714,
+      "sha256": "2eff46e854c002ebfac66c186207ee90b8fbe6c23b0f6248ba3de3286748f622"
     },
     {
       "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 237066,
-      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 140537,
+      "sha256": "31a773c87b22e37889263e78605cf4ae85b15b0195d9be8131ce8650522b1cb4"
     },
     {
       "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354329,
-      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150898,
+      "sha256": "377315900158c32cac0c24fc842a2043359dec0d9cd722bcf420e5402f35d984"
     },
     {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354329,
-      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150845,
+      "sha256": "b08f05fff1c200328292ebf12753ed0336a04190724d761bd7813356bcfeccff"
     },
     {
       "file": "step-004.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 237544,
-      "sha256": "fa222a379f7d65cafaf69541164922386149eeed2cf7898d4fd44acd0729f545"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 140843,
+      "sha256": "bb74455f4eea129ce569bd6f559e45542a8bc3a5679ddc1185fcc11d73181097"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354329,
-      "sha256": "d3699860c81cc561066ca6f0976adc912a6c09d6d3825f2eb66a319f0a85d939"
-    },
-    {
-      "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150844,
+      "sha256": "b9eaf23c3874fc8b6e9044acaab2ed580efb64ce3b63f6d70f67fd721073164f"
     },
     {
       "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150714,
+      "sha256": "2eff46e854c002ebfac66c186207ee90b8fbe6c23b0f6248ba3de3286748f622"
     },
     {
       "file": "step-007.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 237066,
-      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 140537,
+      "sha256": "31a773c87b22e37889263e78605cf4ae85b15b0195d9be8131ce8650522b1cb4"
     },
     {
       "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
-    },
-    {
-      "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
-    },
-    {
-      "file": "step-009.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 237066,
-      "sha256": "8d8b30a5e30904297d3b7a7b179f7f4ea9506ccc213d327fee79bfa66e571946"
-    },
-    {
-      "file": "step-010.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 354271,
-      "sha256": "fbe3c6c7f190a52f304dc401691c1a6726157f4b59571d3ed0e131272318f72a"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150854,
+      "sha256": "5c1e29df87ef846a14b5778bc841bc44fb39fb6f1ffff25c5757e310b8b1576a"
     }
   ]
 }

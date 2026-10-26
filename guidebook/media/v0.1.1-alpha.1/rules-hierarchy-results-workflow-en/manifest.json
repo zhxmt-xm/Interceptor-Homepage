@@ -2,2001 +2,2470 @@
   "schemaVersion": 1,
   "chapter": "rules-hierarchy-results-workflow-en",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "published-reader-validation-pending",
+  "platform": "Windows x64",
   "source": {
     "workflow": "rules/hierarchy-menus-status.workflow.ts",
     "test": "rules.hierarchy-menus-status keeps hierarchy, validation and effects coherent",
-    "run": "2026-10-21T11-05-20-545Z-PWrqzA",
-    "testDirectory": "rules-hierarchy-menus-stat-444ea-dation-and-effects-coherent-macos",
-    "manifestSha256": "cf5e3ee259fcf2bbed1e4dd08180d5e33a363b8260c609f1fa1a9349421e2d63",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "review": {
-    "actualRendererLanguage": "en",
-    "captureRows": "Only workflow-owned loopback requests are visible.",
-    "failedRootNotAdopted": true,
-    "originPort": 53161,
-    "invalidRegexRawImage": "step-089.png preserves the visible [ without a number badge covering it.",
-    "sameRunConfigurationAndResults": true
+    "manifestSha256": "f4d7009853a4b5b957458175cbdda7760986ad6bc58681d349927c9f5f3826b3",
+    "workflowSha256": "6e2c77e1e810ea07dd1cea5b4f75ac1cf6cc6b1bf51fe7665c13030a823a2b16",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-002",
       "title": "打开根目录菜单 / Open the root menu",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 566,
-            "y": 1110,
-            "width": 352,
-            "height": 60
+            "x": 424.0000305175781,
+            "y": 832.0000305175781,
+            "width": 264.99998474121094,
+            "height": 45
           },
           "automationId": "rules.create-folder"
         }
       ],
-      "rawImage": "step-002.png",
-      "bytes": 128837,
-      "sha256": "00738be962479be6e7543c816077ac1e388fa0efdbfaebb3c42af527c14aed35",
-      "rawBytes": 234261,
-      "rawSha256": "bf3ee15046897dc6c9ddea9eb6f1b238c3b2fc6339f21a1663c83ac96350b5cf"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-003",
       "title": "填写一级目录名称 / Enter the first-level folder name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-003.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 236,
-            "y": 208.625,
-            "width": 724,
-            "height": 34.75
+            "x": 177,
+            "y": 156.46875,
+            "width": 543,
+            "height": 26.0625
           },
-          "automationId": "rules.folder-rename.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+          "automationId": "rules.folder-rename.dir-7e7a2be8-1c04-449f-a64d-9fd75d3d57c0"
         }
       ],
-      "rawImage": "step-003.png",
-      "bytes": 89985,
-      "sha256": "3641f3436fc939c502bbec583f00ecc0f201ca7fbaa198d165aab05cb3b7b8b9",
-      "rawBytes": 165762,
-      "rawSha256": "e507637528c3e17f1951b3f074af0589eabe78e166899c69a90b5562e0eaef22"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-006",
       "title": "填写二级目录名称 / Enter the second-level folder name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-006.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-006.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-006.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 288,
-            "y": 272.625,
-            "width": 672,
-            "height": 34.75
+            "x": 216,
+            "y": 204.46875,
+            "width": 504,
+            "height": 26.0625
           },
-          "automationId": "rules.folder-rename.dir-671297ab-4ad6-4c78-bfd4-1041f1954035"
+          "automationId": "rules.folder-rename.dir-ec86d053-fc10-45ff-b8f7-cc3a8f5c20f7"
         }
       ],
-      "rawImage": "step-006.png",
-      "bytes": 92983,
-      "sha256": "aec5570d2a2e40d5089d604231291cb716fa4b70bbdb27fffaf93ddac5d420f3",
-      "rawBytes": 170609,
-      "rawSha256": "4111b408973108a1348929560025b4c777d89da3d1f55f829e1d90f723e42334"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-009",
       "title": "填写三级目录名称 / Enter the third-level folder name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-009.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 340,
-            "y": 336.625,
-            "width": 620,
-            "height": 34.75
+            "x": 255,
+            "y": 252.46875,
+            "width": 465,
+            "height": 26.0625
           },
-          "automationId": "rules.folder-rename.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791"
+          "automationId": "rules.folder-rename.dir-6c8e2659-a389-4854-a795-9883e4deeabf"
         }
       ],
-      "rawImage": "step-009.png",
-      "bytes": 96004,
-      "sha256": "645edd15975e2056e7bc27183cae47487b6dffeaa366d5dc27fb125d23c4e47b",
-      "rawBytes": 175474,
-      "rawSha256": "01981a2f08b967c3fe3b16a18889a33c5fb7de05ce5c66993aba67a576cf7fcc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-011",
       "title": "三级目录不能继续新建子目录 / A third-level folder cannot add a subfolder",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-011.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-011.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 150,
-            "y": 466,
-            "width": 352,
-            "height": 60
+            "x": 112.00000762939453,
+            "y": 349.00000762939453,
+            "width": 265.00000762939453,
+            "height": 45.000022888183594
           },
-          "automationId": "rules.node-action.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791.new-folder"
+          "automationId": "rules.node-action.dir-6c8e2659-a389-4854-a795-9883e4deeabf.new-folder"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 150,
-            "y": 526,
-            "width": 352,
-            "height": 60
+            "x": 112.00000762939453,
+            "y": 394.0000305175781,
+            "width": 265.00000762939453,
+            "height": 45
           },
-          "automationId": "rules.node-action.dir-2ac7f400-2c05-415c-bc02-8a72f8e9f791.new-rule"
+          "automationId": "rules.node-action.dir-6c8e2659-a389-4854-a795-9883e4deeabf.new-rule"
         }
       ],
-      "rawImage": "step-011.png",
-      "bytes": 135556,
-      "sha256": "09c25d54f6dd80b2ca008b4717b0381fca78c9842086fd3f7f30b3422422a90f",
-      "rawBytes": 241592,
-      "rawSha256": "15d1616e325563d38cfcadcf933ec69785b317d1b6b8ed4e0da1a37849e315c4"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-013",
       "title": "无命中时打开规则菜单 / Open the Rule menu before any hits",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-013.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-013.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-013.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 566,
-            "y": 452,
-            "width": 352,
-            "height": 60
+            "x": 424.0000305175781,
+            "y": 338.50000762939453,
+            "width": 264.99998474121094,
+            "height": 45
           },
-          "automationId": "rules.node-action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.rename"
+          "automationId": "rules.node-action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.rename"
         }
       ],
-      "rawImage": "step-013.png",
-      "bytes": 192267,
-      "sha256": "d3a5a33411118c6f465120b76efda8d8cf0fb8fa452c4dfc2e3b33f4ce00d7ac",
-      "rawBytes": 310407,
-      "rawSha256": "ecdfc0b2b346de93aebe86798e3b536416246d9528cfbfbc931fcfa1d7a27f60"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-014",
       "title": "在列表中填写规则名称 / Enter the Rule name inline",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-014.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-014.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-014.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 392,
-            "y": 400.625,
-            "width": 568,
-            "height": 34.75
+            "x": 294,
+            "y": 300.46875,
+            "width": 426,
+            "height": 26.0625
           },
-          "automationId": "rules.rename.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+          "automationId": "rules.rename.rule-ef7fcb56-7148-4308-868a-28381043aa6f"
         }
       ],
-      "rawImage": "step-014.png",
-      "bytes": 154809,
-      "sha256": "720806ab644f4c61feca14ca04ff1e4992bc3bc01a88517cd92d34367aa7271c",
-      "rawBytes": 242506,
-      "rawSha256": "679f3aca123808acc6a1cb252988aec7bbc4adbd5b53c8f28f5d8b50f104bc57"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-016",
       "title": "invalid状态必须在Statusbar和Apply边界一致，不能把未填写字段写入Core。 / Invalid state must agree across Statusbar and Apply, never writing missing fields to Core.",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-016.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-016.png",
-      "bytes": 249674,
-      "sha256": "2857e6f2ffcb6883474d4b8c57503335a1e8885d8cbd16ecccd12a8fbd1b9313"
+      "rawImage": "step-016.png"
     },
     {
       "id": "step-017",
       "title": "补齐Host条件 / Complete the Host condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-017.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-017.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-017.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 357.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 267.43750762939453,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.0.value"
         }
       ],
-      "rawImage": "step-017.png",
-      "bytes": 156698,
-      "sha256": "d1339b96859241bf708b47553acdf5a64fb5ce8ba73d43c1910b623614fbaa90",
-      "rawBytes": 242818,
-      "rawSha256": "d18df6b8d512af24306c457764a50e41b5edb8bb2bff64da9a377285c8e307c2"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-018",
       "title": "补齐Header名称 / Complete the Header name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-018.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-018.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-018.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1538,
-            "y": 791.234375,
-            "width": 755,
-            "height": 29.515625
+            "x": 1152.5000610351562,
+            "y": 591.9375,
+            "width": 567.75,
+            "height": 22.125
           },
-          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.name"
+          "automationId": "rules.action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.0.name"
         }
       ],
-      "rawImage": "step-018.png",
-      "bytes": 159622,
-      "sha256": "1455a1d55bbea5e490587c34c0848195e024733c92fc4d4a1d9426d724bfea65",
-      "rawBytes": 248041,
-      "rawSha256": "4c20452ffed536df8cdd37a2442ef9f4921409b7d12c4d820289a5e7924a81ff"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-019",
       "title": "补齐Header值 / Complete the Header value",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-019.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-019.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-019.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2357,
-            "y": 791.234375,
-            "width": 755,
-            "height": 29.515625
+            "x": 1767.2501220703125,
+            "y": 591.9375,
+            "width": 567.75,
+            "height": 22.125
           },
-          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+          "automationId": "rules.action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.0.value"
         }
       ],
-      "rawImage": "step-019.png",
-      "bytes": 159296,
-      "sha256": "e22317cbe0fe61886dff592d826df6bfb86910a32b52747368d229540b99bb44",
-      "rawBytes": 248135,
-      "rawSha256": "b8794a4abae8451c95b568d91fec1b7a33038bd386ef926db36d147177244d31"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-020",
       "title": "填完默认host/header字段并启用rule，Statusbar转dirty且Apply恢复。 / Complete the default host/header fields and enable the Rule; Statusbar becomes dirty and Apply recovers.",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-020.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-020.png",
-      "bytes": 249001,
-      "sha256": "ef0a0cebb631ffe6c518f6ad3d49e4cadd74f66deffca32a5fc71b42a854f966"
+      "rawImage": "step-020.png"
     },
     {
       "id": "step-021",
       "title": "选中目录时保留正在编辑的规则 / Keep the open Rule editor when selecting a folder",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-021.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-021.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-021.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 196,
-            "y": 196,
-            "width": 704,
-            "height": 60
+            "x": 147,
+            "y": 147,
+            "width": 528,
+            "height": 45
           },
-          "automationId": "rules.folder-target.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+          "automationId": "rules.folder-target.dir-7e7a2be8-1c04-449f-a64d-9fd75d3d57c0"
         }
       ],
-      "rawImage": "step-021.png",
-      "bytes": 164560,
-      "sha256": "1ca0dbeb23f674196db44d80ae9e74516dc60c4aa6de2f7273b3c9978c40608f",
-      "rawBytes": 254267,
-      "rawSha256": "2adb274751f58997d805a8188208e0d38bbb9dd5d26cb650406d5f89cd859e03"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-022",
       "title": "选择目录只改树落点，右侧仍打开同一rule；随后Apply并验证revision。 / Folder selection changes only the tree target; the same Rule stays open before Apply and revision verification.",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-022.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-022.png",
-      "bytes": 245074,
-      "sha256": "26d6e1651c287e47c4da40e4e7de8ec7d9cebbe0e473e0a943622a45d9cb6678"
+      "rawImage": "step-022.png"
     },
     {
       "id": "step-024",
       "title": "匹配请求使规则命中数变为1 / A matching request raises the Rule hit count to 1",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-024.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-024.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-024.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 908,
-            "y": 416.46875,
-            "width": 52,
-            "height": 27.046875
+            "x": 681,
+            "y": 312.35939025878906,
+            "width": 39,
+            "height": 20.28124237060547
           },
-          "automationId": "rules.hit-count.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+          "automationId": "rules.hit-count.rule-ef7fcb56-7148-4308-868a-28381043aa6f"
         }
       ],
-      "rawImage": "step-024.png",
-      "bytes": 159585,
-      "sha256": "3625f326e1a995d4ad88c87674a927f2a2c2fba06aec91c6f0217996493b26b9",
-      "rawBytes": 245836,
-      "rawSha256": "96b1d4b289922f47cd6b33570faef9b155158a8801697cfdd30d4c6f2885e406"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-025",
       "title": "命中后打开Show matching requests / Open Show matching requests after a hit",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-025.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-025.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-025.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 566,
-            "y": 512,
-            "width": 352,
-            "height": 60
+            "x": 424.0000305175781,
+            "y": 383.50000762939453,
+            "width": 264.99998474121094,
+            "height": 45.000022888183594
           },
-          "automationId": "rules.node-action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.show-requests"
+          "automationId": "rules.node-action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.show-requests"
         }
       ],
-      "rawImage": "step-025.png",
-      "bytes": 193414,
-      "sha256": "cea7730180e69cbfa805512c15c21aa4908580d7cf3abc81e792496f82d70b0d",
-      "rawBytes": 310285,
-      "rawSha256": "8f1c2bbc96f9d77f96dd1e77d7d0abb9b8480a1474e523cbac5f61693e2fbd55"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-027",
       "title": "在Capture选择本次GET /e2e/rules/hierarchy-status / Select this GET /e2e/rules/hierarchy-status request in Capture",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-027.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-027.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-027.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1533,
-            "y": 118.234375,
-            "width": 584,
-            "height": 33.515625
+            "x": 1149.2500305175781,
+            "y": 88.93750190734863,
+            "width": 439.0000305175781,
+            "height": 25.1250057220459
           },
           "automationId": "capture.filter.keyword"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 522,
-            "y": 248,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 186,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvi0c893-kqw2saj9"
+          "automationId": "capture.request-row.ex-mvpmmeqf-bb858k2c"
         }
       ],
-      "rawImage": "step-027.png",
-      "bytes": 268085,
-      "sha256": "2859274cb617b54eae9c5ba340ef6b93350071adcc634b4cd627de935dfe4b3b",
-      "rawBytes": 387475,
-      "rawSha256": "6b709fc9580cf6a14e6fc5daa26e03f9ead886995dd810714b3a1cb4f2c27fbc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-028",
       "title": "Capture中查看初始规则写入的Header和来源 / Inspect the initial Rule Header and its source in Capture",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-028.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-028.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-028.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2798.8125,
-            "y": 1532.75,
-            "width": 101.40625,
-            "height": 36
+            "x": 2099.109375,
+            "y": 1149.5625,
+            "width": 75.0626220703125,
+            "height": 27
           },
-          "automationId": "capture.rule-effect.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.set.x-rules-e2e"
+          "automationId": "capture.rule-effect.rule-ef7fcb56-7148-4308-868a-28381043aa6f.set.x-rules-e2e"
         }
       ],
-      "rawImage": "step-028.png",
-      "bytes": 267502,
-      "sha256": "756dcfc6483e8b53430c289ea1f3d346bc98eb0e732410278c3ec82066319597",
-      "rawBytes": 387475,
-      "rawSha256": "6b709fc9580cf6a14e6fc5daa26e03f9ead886995dd810714b3a1cb4f2c27fbc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-030",
       "title": "点击Header来源标记返回同一规则 / Follow the Header source marker back to the same Rule",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-030.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-030.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-030.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 380,
-            "y": 388,
-            "width": 406.890625,
-            "height": 84
+            "x": 285,
+            "y": 291,
+            "width": 305.1719055175781,
+            "height": 63
           },
-          "automationId": "rules.target.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+          "automationId": "rules.target.rule-ef7fcb56-7148-4308-868a-28381043aa6f"
         }
       ],
-      "rawImage": "step-030.png",
-      "bytes": 158217,
-      "sha256": "cae0e5ba20a33960e7b2b9e662be6e2587667d6d3eaf1d7c4b7f0b1956badfea",
-      "rawBytes": 244851,
-      "rawSha256": "11118b0f72066438c2315d45373730bcc48c7528b7622f05a6774d2dd6c1733a"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-033",
       "title": "填写method条件的第1个值 / Enter value 1 for the method condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-033.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-033.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-033.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 441.234375,
-            "width": 1662,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 330.43750762939453,
+            "width": 1247.5000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.1.value"
         }
       ],
-      "rawImage": "step-033.png",
-      "bytes": 167691,
-      "sha256": "afad6caa8bdd6dcc1bd9d26ca2c08eb74cfe73bf119eef235ad8f2a04663b267",
-      "rawBytes": 257367,
-      "rawSha256": "e45d5f720bf7cabb2636c957079e83003bda0dad734b66ee1a51531397ca7e80"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-037",
       "title": "填写path条件的第1个值 / Enter value 1 for the path condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-037.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-037.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-037.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 525.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 393.4375305175781,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.2.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.2.value"
         }
       ],
-      "rawImage": "step-037.png",
-      "bytes": 183681,
-      "sha256": "50e6a95e1f19d1bfee554162dd4a18896928e72e31c3ebe4960412839dd4d9d2",
-      "rawBytes": 275163,
-      "rawSha256": "96c8878b1887e7f3848fc6d42324464fef6ed933de3bc7574d548ded5803f23f"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-041",
       "title": "填写url条件的第1个值 / Enter value 1 for the url condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-041.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-041.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-041.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 609.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 456.4375305175781,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.3.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.3.value"
         }
       ],
-      "rawImage": "step-041.png",
-      "bytes": 200452,
-      "sha256": "65a9d81cc94d8cab8939642fab246d2df3a35d7c0bdb90499ef6df07fb55d336",
-      "rawBytes": 295169,
-      "rawSha256": "70179ce024d0afa99508c8a23f4880ad0f361035c5d26c794f7835ef7b40937d"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-046",
       "title": "填写query条件的第2个值 / Enter value 2 for the query condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-046.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-046.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-046.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2190,
-            "y": 693.234375,
-            "width": 724,
-            "height": 29.515625
+            "x": 1642.0001220703125,
+            "y": 519.4375305175781,
+            "width": 543.9999389648438,
+            "height": 22.125
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-046.png",
-      "bytes": 210571,
-      "sha256": "13da28e180ab604410babd573222a3999b273b3db71b2bc3b675a6f8f60c638c",
-      "rawBytes": 308453,
-      "rawSha256": "5e3b201dc5aaf718e8e4a99c81d1ca610d9cac4a4fc02acf41ab9dfe071ec8c7"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-051",
       "title": "填写header条件的第2个值 / Enter value 2 for the header condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-051.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-051.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-051.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2302,
-            "y": 777.234375,
-            "width": 612,
-            "height": 29.515625
+            "x": 1726.0001220703125,
+            "y": 582.4375305175781,
+            "width": 459.99993896484375,
+            "height": 22.125
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-051.png",
-      "bytes": 225584,
-      "sha256": "b464613c14588e347cef828681baa01632d00e5460091fbdf5ee40ed20496d91",
-      "rawBytes": 324320,
-      "rawSha256": "09e15b9776158a2d418a843e925e8d796cb29a4984e2241da4c4dcb64243c23d"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-056",
       "title": "填写status条件的第2个值 / Enter value 2 for the status condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-056.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-056.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-056.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1622.1875,
-            "y": 861.234375,
-            "width": 120,
-            "height": 29.515625
+            "x": 1216.1406555175781,
+            "y": 645.4375305175781,
+            "width": 91.00003051757812,
+            "height": 22.125
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-056.png",
-      "bytes": 233218,
-      "sha256": "258b23fe13f18d529b4917f33ad4a33cb11db5d06781f39288392d509024f944",
-      "rawBytes": 334671,
-      "rawSha256": "43347bdf7d97cf088b725eb9ff0e1bcf21b162c79f57541d8ec9c3ef0b397b35"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-060",
       "title": "填写mime条件的第1个值 / Enter value 1 for the mime condition",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-060.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-060.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-060.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1626,
-            "y": 945.234375,
-            "width": 1438,
-            "height": 29.515625
+            "x": 1219.0000305175781,
+            "y": 708.4375305175781,
+            "width": 1079.5000305175781,
+            "height": 22.125
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-060.png",
-      "bytes": 245096,
-      "sha256": "db634b899fb7da4f375ef24b36659dbfb3ebc468e8bfcc84c5d9555f28a17570",
-      "rawBytes": 347601,
-      "rawSha256": "8a9175948ac2b2de4180bb2999069c12fcc6ae2d7fea5308bc64394a2c9553d1"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-062",
       "title": "响应条件使用响应阶段Header动作 / Use a response-phase Header action with response conditions",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-062.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-062.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-062.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1050,
-            "y": 1360,
-            "width": 208,
-            "height": 68
+            "x": 787.0000305175781,
+            "y": 1018.5,
+            "width": 156,
+            "height": 51
           },
-          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.phase"
+          "automationId": "rules.action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.0.phase"
         }
       ],
-      "rawImage": "step-062.png",
-      "bytes": 245985,
-      "sha256": "c77aeb3e2ca456e6361b8c1e6aa3e4e5380869a3ce43386c751fbd8537e4aad6",
-      "rawBytes": 348198,
-      "rawSha256": "1c460413b06604052402f5390327dfce16fabe59da593421e953deafd32dbcf8"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-063",
       "title": "保存八类AND条件 / Save all eight AND conditions",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-063.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-063.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-063.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 178,
-            "y": 1756.859375,
-            "width": 173.109375,
-            "height": 28.28125
+            "x": 133.5,
+            "y": 1317.3906555175781,
+            "width": 129.84375,
+            "height": 21.203155517578125
           },
           "automationId": "rules.status.state"
         }
       ],
-      "rawImage": "step-063.png",
-      "bytes": 243288,
-      "sha256": "35efeff7750b8afa4b26aef788c65adfa47edacbcb3b3d779adee258b09604af",
-      "rawBytes": 344284,
-      "rawSha256": "2ff259236d211eecb09c03c26bc89a89382c9a318a5b382ad1e477cc52e24935"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-065",
       "title": "查看GET /e2e/rules/all-conditions?case=and的response Header结果 / Inspect response Header results for GET /e2e/rules/all-conditions?case=and",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-065.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-065.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-065.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 804,
-            "height": 438
+            "x": 1755,
+            "y": 675.5625,
+            "width": 603,
+            "height": 328.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-065.png",
-      "bytes": 282954,
-      "sha256": "5fbf37399246ffbfbb64f85899d6a63811ce2af72fc22e39a30a7ab4eeb307d0",
-      "rawBytes": 405310,
-      "rawSha256": "e19cd355298c077fc2b536b447abdd572bdba9a538e64c5158a57b5ddee54b36"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-068",
       "title": "查看POST /e2e/rules/all-conditions?case=and的response Header结果 / Inspect response Header results for POST /e2e/rules/all-conditions?case=and",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-068.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-068.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-068.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 804,
-            "height": 384
+            "x": 1755,
+            "y": 675.5625,
+            "width": 603,
+            "height": 288
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-068.png",
-      "bytes": 296178,
-      "sha256": "1fb29f2b07246bd026d77bf4a688aed36550c74bc5710838e82a119e1927aa48",
-      "rawBytes": 423918,
-      "rawSha256": "4553067f06e0158a51ef5eb7738aee3972c06ff82bf5474291625fa36d537dcc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-071",
       "title": "填写用于比较匹配模式的Path / Enter the Path for comparing matching modes",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-071.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-071.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-071.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 441.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 330.43750762939453,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.1.value"
         }
       ],
-      "rawImage": "step-071.png",
-      "bytes": 184470,
-      "sha256": "e15a72aaef3c93c7837bfcdc7d052ab5c318332046ff7dea3350c5097d4c81c5",
-      "rawBytes": 282043,
-      "rawSha256": "f6e7101acee15d800cd5446ced85803cb8c9536169441b699a9fef9019e271e5"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-073",
       "title": "查看GET /e2e/rules/modes/case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/case/extra",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-073.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-073.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-073.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-073.png",
-      "bytes": 276870,
-      "sha256": "4549f909236316822616618ae6093d83167066b1584eb848184ccc666dac600b",
-      "rawBytes": 397705,
-      "rawSha256": "f4aaefd1965bc91230d37ce93ab163caba01f44ef0b0a2bb2f53f8db692bfed2"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-076",
       "title": "开启Aa大小写敏感 / Enable Aa case sensitivity",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-076.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-076.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-076.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2930,
-            "y": 435,
-            "width": 42,
-            "height": 42
+            "x": 2198.0000610351562,
+            "y": 325.75000762939453,
+            "width": 31.5,
+            "height": 31.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-076.png",
-      "bytes": 173721,
-      "sha256": "c2e9e0f1dfe7ee4a0c69754359045f1bbb1f79b7570b24b4c524df77c15c532a",
-      "rawBytes": 267597,
-      "rawSha256": "fb2f2d470318837476fd0b75e9863b9944d0956a939f7868979d4d67c2f31074"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-078",
       "title": "查看GET /e2e/rules/modes/case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/case/extra",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-078.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-078.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-078.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 294
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 220.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-078.png",
-      "bytes": 281493,
-      "sha256": "8e20b52bb387b42b6d18665357a4bbd554cd940dfef9b2359215c022798b377e",
-      "rawBytes": 404809,
-      "rawSha256": "ddbed6998f0a8f247f46fbf90ebd8495815cae0aa64fdd556d563c5d97fa40a9"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-081",
       "title": "选择精确匹配 / Select exact matching",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-081.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-081.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-081.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2976,
-            "y": 435,
-            "width": 42,
-            "height": 42
+            "x": 2232.5000610351562,
+            "y": 325.75000762939453,
+            "width": 31.5,
+            "height": 31.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-081.png",
-      "bytes": 173862,
-      "sha256": "41fedce0698cd18422d9e0d443eb348b521b73dfe3ed423a7b2fe64b7ecff532",
-      "rawBytes": 267838,
-      "rawSha256": "9b7f17d62b90cfc533703be36dc316ac88438e417c281e28b0dfe343022f5cf6"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-083",
       "title": "查看GET /e2e/rules/modes/Case/extra的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/extra",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-083.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-083.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-083.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 294
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 220.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-083.png",
-      "bytes": 292394,
-      "sha256": "e380f7989e61ce7e4b01fde5c94b11b78c05c46912b0d4ac15f13f6a1d4fa0c1",
-      "rawBytes": 420441,
-      "rawSha256": "46be7d1d338c83a47f8ef8540f005ecd718c84b4badb34bdcb77b4097a33514d"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-086",
       "title": "查看GET /e2e/rules/modes/Case的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-086.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-086.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-086.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-086.png",
-      "bytes": 308201,
-      "sha256": "49ec476f1c88e307aca3af3be3bdd7c8ce8faa56ddb68e4384427af759b46c12",
-      "rawBytes": 443685,
-      "rawSha256": "b4bd6210b9ec5bebd7228c308fab0b7b61d8ebd69d7cc2494be61c08ce4777fa"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-089",
       "title": "填写无效正则示例 / Enter the invalid regex example",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-089.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-089.png",
-      "bytes": 258509,
-      "sha256": "170fe549f68b8545e9298c8f0da8f5bc8eda506d90e2e40ab93d11b4f6701f8b"
+      "rawImage": "step-089.png"
     },
     {
       "id": "step-091",
       "title": "查看GET /e2e/rules/modes/Case的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-091.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-091.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-091.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 294
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 220.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-091.png",
-      "bytes": 311129,
-      "sha256": "80f8f6808c06cca3e1c79fa12cb63d7a55271814ae3993a97195eb6aa1a89b32",
-      "rawBytes": 445795,
-      "rawSha256": "8555f967cfacec089385a6cd8dc1742df5fffad706f0a38c79ee35fa3d944d4e"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-094",
       "title": "填写数字路径正则 / Enter the numeric-path regex",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-094.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-094.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-094.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 441.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 330.43750762939453,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.1.value"
+          "automationId": "rules.matcher.rule-ef7fcb56-7148-4308-868a-28381043aa6f.1.value"
         }
       ],
-      "rawImage": "step-094.png",
-      "bytes": 176043,
-      "sha256": "f21565241f3fc145c6f9011f918ab9f2d7eb6a38351b559767fefe19bcbbd9eb",
-      "rawBytes": 271350,
-      "rawSha256": "b762cb0800e822b1318e90f8827bbba6235edbff599c606c964f75e48dfb6841"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-096",
       "title": "查看GET /e2e/rules/modes/Case/123的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/123",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-096.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-096.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-096.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-096.png",
-      "bytes": 276896,
-      "sha256": "7a53bdce44fe7083d0e2d5caa51b770cc08465a3ed8d23043e92bde7c9aaa32c",
-      "rawBytes": 398046,
-      "rawSha256": "b95ca0b091a8f912782c2ddaa7c4330195bf89dec428bb7b55ec645624d86636"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-099",
       "title": "查看GET /e2e/rules/modes/Case/letters的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/letters",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-099.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-099.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-099.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 294
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 220.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-099.png",
-      "bytes": 270490,
-      "sha256": "de1eebd52777db8729568f8cb73028b134ae807c2227289043396b0f990a7a5e",
-      "rawBytes": 390423,
-      "rawSha256": "53ab99a336bf51ad0ee061ce0afb2d7b6b67922eefa7212d0095937a157f01e1"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-102",
       "title": "填写响应MIME通配符 / Enter the response MIME wildcard",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-102.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-102.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-102.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1626,
-            "y": 525.234375,
-            "width": 1438,
-            "height": 29.515625
+            "x": 1219.0000305175781,
+            "y": 393.4375305175781,
+            "width": 1079.5000305175781,
+            "height": 22.125
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-102.png",
-      "bytes": 189941,
-      "sha256": "bef4cdb86be602a768e6476fa3e348b7e66a0319047b0b6dae3fd3fd9ba03a5d",
-      "rawBytes": 285780,
-      "rawSha256": "c140650764dd0b60ef93f36abce2a186fdb2ab269e42b777ecaee36a40509332"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-104",
       "title": "查看GET /e2e/rules/modes/Case/124的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/124",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-104.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-104.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-104.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 402
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 301.5
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-104.png",
-      "bytes": 283844,
-      "sha256": "8fc85dd71cb7df3c365e4f18c77b0b1b8258cd893d02c427f98d15ce7d775e2f",
-      "rawBytes": 408497,
-      "rawSha256": "8eb18efb5f567de1e71cf41e8aff24865d8f1c0803dc9a61b155a3c846d9f46c"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-107",
       "title": "查看GET /e2e/rules/modes/Case/125的response Header结果 / Inspect response Header results for GET /e2e/rules/modes/Case/125",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-107.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-107.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-107.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 900.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 675.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-107.png",
-      "bytes": 279174,
-      "sha256": "9db1b99b6b12426feaad4f89c733feb4a3a48257f3b06815dcf97413dc0cc2c2",
-      "rawBytes": 400413,
-      "rawSha256": "92b10e515ba6d803c6a40bdf419132c159b3715bdfb8f3d8bffdadac67b41825"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-110",
       "title": "配置嵌套规则的优先级示例 / Configure the nested Rule for the priority example",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-110.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-110.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-110.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2357,
-            "y": 875.234375,
-            "width": 755,
-            "height": 29.515625
+            "x": 1767.2501220703125,
+            "y": 654.9375,
+            "width": 567.75,
+            "height": 22.125
           },
-          "automationId": "rules.action.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc.0.value"
+          "automationId": "rules.action.rule-ef7fcb56-7148-4308-868a-28381043aa6f.0.value"
         }
       ],
-      "rawImage": "step-110.png",
-      "bytes": 173222,
-      "sha256": "0d6ba1bbcc9b65938b0a0b5604cf037d4c7673628a972cf3e3cf628c3c148def",
-      "rawBytes": 265874,
-      "rawSha256": "5204a27535c728f039cffca43b454943da9cdabe82facf7a9be958b57015eaf5"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-112",
       "title": "填写根规则名称 / Enter the root Rule name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-112.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-112.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-112.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1022,
-            "y": 128.78125,
-            "width": 1490.703125,
-            "height": 38.4375
+            "x": 766.5,
+            "y": 90,
+            "width": 1119.0313110351562,
+            "height": 42
           },
           "automationId": "rules.editor.name"
         }
       ],
-      "rawImage": "step-112.png",
-      "bytes": 171980,
-      "sha256": "bded6a0145b22f54074e747c1fd346caea5a62a65ec43c99309486ab52704d68",
-      "rawBytes": 264496,
-      "rawSha256": "31df47fc07648803bca3063ea5d4cd4d1f44315534f9172e83bde2f42b8cecc5"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-114",
       "title": "填写根规则Path / Enter the root Rule Path",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-114.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-114.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-114.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1402,
-            "y": 441.234375,
-            "width": 1512,
-            "height": 29.515625
+            "x": 1051.0000305175781,
+            "y": 330.43750762939453,
+            "width": 1135.0000305175781,
+            "height": 22.125
           },
-          "automationId": "rules.matcher.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.1.value"
+          "automationId": "rules.matcher.rule-c1714e85-f593-4c48-951a-22fdfaf8bd6a.1.value"
         }
       ],
-      "rawImage": "step-114.png",
-      "bytes": 179929,
-      "sha256": "7c9f60196ee4030c3c815b450a2c63805d7c21d81d042737d7be630849830928",
-      "rawBytes": 273253,
-      "rawSha256": "c12222276e18ab39ef544698dc7c9f421daee6dc86a9a9732d295e7541a49f11"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-116",
       "title": "填写根规则Header值 / Enter the root Rule Header value",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-116.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-116.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-116.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2357,
-            "y": 875.234375,
-            "width": 755,
-            "height": 29.515625
+            "x": 1767.2501220703125,
+            "y": 654.9375,
+            "width": 567.75,
+            "height": 22.125
           },
-          "automationId": "rules.action.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.0.value"
+          "automationId": "rules.action.rule-c1714e85-f593-4c48-951a-22fdfaf8bd6a.0.value"
         }
       ],
-      "rawImage": "step-116.png",
-      "bytes": 183151,
-      "sha256": "fe79637971b35e46768769b98f63170cfa56fa34782d486ffdeb06b9a0ff06b8",
-      "rawBytes": 279099,
-      "rawSha256": "ad637278048ed2382c797e153267fbe825f743438180a0912854e9b55d98fafd"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-117",
       "title": "启用根规则，准备保存顺序 / Enable the root Rule before saving the order",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-117.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-117.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-117.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2721.515625,
-            "y": 128,
-            "width": 68,
-            "height": 40
+            "x": 2042.1406860351562,
+            "y": 96,
+            "width": 51,
+            "height": 30
           },
           "automationId": "rules.editor.enabled"
         }
       ],
-      "rawImage": "step-117.png",
-      "bytes": 184567,
-      "sha256": "1415cd66602262125ec63d7e19bbf99fd9952f04ce1808d29d9ebb9ce3d305b7",
-      "rawBytes": 280726,
-      "rawSha256": "1672339500d15eb2d2a41e8b90f1dcd917dc062647953c934349b4c8d3807fef"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-119",
       "title": "查看GET /e2e/rules/priority/before-drag的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/before-drag",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-119.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-119.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-119.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 1328.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 996.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-119.png",
-      "bytes": 287087,
-      "sha256": "da678639d0539bd6494b7a89561725001d410b1f2ca34a0aac6dfe99d483a541",
-      "rawBytes": 413302,
-      "rawSha256": "5d451939bd203be153ae68c691cba462d911b6364cfa65d7ad45e6a0c44856c4"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-121",
       "title": "拖拽前的已保存规则顺序 / The saved Rule order before dragging",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-121.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-121.png",
-      "bytes": 277620,
-      "sha256": "04aa5c8d54171a12a6a69a6325d19b683cd62230c960954639eae23a7973413b"
+      "rawImage": "step-121.png"
     },
     {
       "id": "step-122",
       "title": "将根规则拖到嵌套规则之前 / Drag the root Rule before the nested Rule",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-122.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-122.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-122.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 388,
-            "width": 832,
-            "height": 84
+            "x": 102,
+            "y": 291,
+            "width": 624,
+            "height": 63
           },
-          "automationId": "rules.row.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077"
+          "automationId": "rules.row.rule-c1714e85-f593-4c48-951a-22fdfaf8bd6a"
         }
       ],
-      "rawImage": "step-122.png",
-      "bytes": 183906,
-      "sha256": "42eda8078b4a2db42e1f5603feb0622eae7b807d6696a6fdaee26c95366c73e0",
-      "rawBytes": 280000,
-      "rawSha256": "bc60358c5ad184fd8cd1b73ab3677721f3c44ede7a3c67f8fe0e7c1d74651f7a"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-124",
       "title": "查看GET /e2e/rules/priority/after-drag的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/after-drag",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-124.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-124.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-124.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 1328.75,
-            "width": 824,
-            "height": 348
+            "x": 1755,
+            "y": 996.5625,
+            "width": 618,
+            "height": 261
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-124.png",
-      "bytes": 284974,
-      "sha256": "7a291fa1d0768a40bbc048314d433ea3fef644f665e79afae849763cadd8bd0d",
-      "rawBytes": 409860,
-      "rawSha256": "e77aa8a4b82b950ca50443b8fdfa44b09ec601f8906dd355be8867c39fe4a08c"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-126",
       "title": "调整规则顺序后核对真实Header覆盖 / Verify actual Header precedence after reordering Rules",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-126.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-126.png",
-      "bytes": 278340,
-      "sha256": "250a41d5547ebe737970f104b90981249eabb4e0dc5aa0fc7904957ffb29df4c"
+      "rawImage": "step-126.png"
     },
     {
       "id": "step-127",
       "title": "按名称搜索根规则 / Search for the root Rule by name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-127.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-127.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-127.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 214,
-            "y": 118.5,
-            "width": 436,
-            "height": 33
+            "x": 160.00000762939453,
+            "y": 89.50000190734863,
+            "width": 328.00000762939453,
+            "height": 24.0000057220459
           },
           "automationId": "rules.search"
         }
       ],
-      "rawImage": "step-127.png",
-      "bytes": 171757,
-      "sha256": "bc988a040418f79b20fec536e53620bf5c2ef44aeaeb712de709c83f56f8ecb7",
-      "rawBytes": 262971,
-      "rawSha256": "60d2d4acbefb1b40462fc544cfe025b9e5621f6fd958e921d6eb57710d4b2adc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-129",
       "title": "填写目录的新名称 / Enter the new folder name",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-129.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-129.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-129.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 236,
-            "y": 208.625,
-            "width": 724,
-            "height": 34.75
+            "x": 177,
+            "y": 156.46875,
+            "width": 543,
+            "height": 26.0625
           },
-          "automationId": "rules.folder-rename.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+          "automationId": "rules.folder-rename.dir-7e7a2be8-1c04-449f-a64d-9fd75d3d57c0"
         }
       ],
-      "rawImage": "step-129.png",
-      "bytes": 156256,
-      "sha256": "03aeedf7475acea9b135935bb620f46cfc0cc7898671fa52109c23a9db48ff31",
-      "rawBytes": 240578,
-      "rawSha256": "d2a6d68efaf1f4e5386b900198ed81fe24a6232c517a34fe0ee62db949a5024f"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-131",
       "title": "折叠目录隐藏子规则 / Collapse the folder to hide its child Rules",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-131.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-131.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-131.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 144,
-            "y": 196,
-            "width": 40,
-            "height": 60
+            "x": 108,
+            "y": 147,
+            "width": 30,
+            "height": 45
           },
-          "automationId": "rules.folder-toggle.dir-31a6b3c4-75df-4bae-b928-260aec058fc1"
+          "automationId": "rules.folder-toggle.dir-7e7a2be8-1c04-449f-a64d-9fd75d3d57c0"
         }
       ],
-      "rawImage": "step-131.png",
-      "bytes": 158799,
-      "sha256": "c75a09033e33c953f75a03bb40f09e007d18057af58f15681a97b3a8a45ce7d6",
-      "rawBytes": 242800,
-      "rawSha256": "e5e58032bb8a62a69197f0c8b9e6e59f6e3ad813495d66f3bcac31a6acddc062"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-133",
       "title": "打开非最后一条规则的删除菜单 / Open Delete for a Rule that is not the last one",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-133.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-133.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-133.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 566,
-            "y": 594,
-            "width": 352,
-            "height": 60
+            "x": 424.0000305175781,
+            "y": 445.0000305175781,
+            "width": 264.99998474121094,
+            "height": 45
           },
-          "automationId": "rules.node-action.rule-fbff9609-0a1f-4e2a-8fef-ce642aee3077.delete"
+          "automationId": "rules.node-action.rule-c1714e85-f593-4c48-951a-22fdfaf8bd6a.delete"
         }
       ],
-      "rawImage": "step-133.png",
-      "bytes": 216895,
-      "sha256": "ace81fa24525ab433907a2e9246a99f92fdbc3ae8eb410c05c454d91d9df4702",
-      "rawBytes": 340396,
-      "rawSha256": "aff3f8d9d17ffe8d7bee734e2a6b714ea66a94a94186bd35b059b92416b670db"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-134",
       "title": "删除竞争规则后仍保留嵌套规则 / Keep the nested Rule after deleting the competing Rule",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-134.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-134.png",
-      "bytes": 267999,
-      "sha256": "df2ce5ebdeb71cc93d7036df6c2772c94fe0943c7ce67df353844bc856696d6c"
+      "rawImage": "step-134.png"
     },
     {
       "id": "step-135",
       "title": "将保留规则移回根目录 / Move the retained Rule back to the root",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-135.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-135.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-135.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 400,
-            "width": 832,
-            "height": 84
+            "x": 102,
+            "y": 300,
+            "width": 624,
+            "height": 63
           },
-          "automationId": "rules.row.rule-01a3cd0d-61cf-4a64-9be8-33b9657398bc"
+          "automationId": "rules.row.rule-ef7fcb56-7148-4308-868a-28381043aa6f"
         }
       ],
-      "rawImage": "step-135.png",
-      "bytes": 174565,
-      "sha256": "5f06ab024c1f90eecc29296f01361844291593fce4dde22496edf21a752ad714",
-      "rawBytes": 268083,
-      "rawSha256": "789ae756b56998e6da204221594858e0da53b1071ed1c503527a43412c33edf3"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-136",
       "title": "打开空目录的删除菜单 / Open Delete for the empty folder",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-136.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-136.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-136.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 150,
-            "y": 480,
-            "width": 352,
-            "height": 60
+            "x": 112.00000762939453,
+            "y": 359.50000762939453,
+            "width": 265.00000762939453,
+            "height": 45.000022888183594
           },
-          "automationId": "rules.node-action.dir-31a6b3c4-75df-4bae-b928-260aec058fc1.delete"
+          "automationId": "rules.node-action.dir-7e7a2be8-1c04-449f-a64d-9fd75d3d57c0.delete"
         }
       ],
-      "rawImage": "step-136.png",
-      "bytes": 201067,
-      "sha256": "93c6c17866eab187ccb56de8dd6d008ab0cebef948dbf52e2fe5fa9d991a9ab1",
-      "rawBytes": 316567,
-      "rawSha256": "033ae29275d64aabe7bc9e18116b349a1ceaaa057f608ecd5a27cd534804a4ea"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-138",
       "title": "查看GET /e2e/rules/priority/after-deletion的request Header结果 / Inspect request Header results for GET /e2e/rules/priority/after-deletion",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-138.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-138.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-138.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 1328.75,
-            "width": 824,
-            "height": 240
+            "x": 1755,
+            "y": 996.5625,
+            "width": 618,
+            "height": 180
           },
           "automationId": null
         }
       ],
-      "rawImage": "step-138.png",
-      "bytes": 276704,
-      "sha256": "71a74a4a0583186ac6691d6f6978552ae2235fbaceab61406fcf4fbe72b425bb",
-      "rawBytes": 398214,
-      "rawSha256": "519067c2a92bf42bef9b377414268623e06400418d6d2c76d6c74b9d94bfaf62"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-140",
       "title": "删除非最后规则和空目录后保留有效规则 / Keep the valid Rule after deleting a non-last Rule and empty folders",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-140.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-140.png",
-      "bytes": 251743,
-      "sha256": "27a4c42165902cf86b83b0a94af5159eb460a374eda6567adc5f5c57eb1673a4"
+      "rawImage": "step-140.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 71939,
+      "sha256": "c18a3001e6cbad66c94261302ed975c5360032fd02383858989c212920d58ddc"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 77267,
+      "sha256": "0c8d2ef2d6da726c90451702ca302182e58717b5705541a168603dfd166e7cc3"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 72768,
+      "sha256": "2baf22cb77d6f0556eb3905c56faf0867934be8d64cc3630215aafcd99acf518"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 79185,
+      "sha256": "fea98e6fad881bba0d8265b7e294bf0d0c8dfc56f5857ba1de3f09e5f920fbbf"
+    },
+    {
+      "file": "step-006.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 76680,
+      "sha256": "130d089a92175ffa11b83d283d4daddeab1af6334fcf0b864fb3466e7bad8d0b"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 83589,
+      "sha256": "b5ba4337c4b383aaade65f2c8216907315af4c0b2925747919ab9d8d6b2e1965"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 79989,
+      "sha256": "b956b8078308f69bee6cd4df39d8c5fe154ffa957ae70490162c787f40e93469"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 86090,
+      "sha256": "8d087ea5656bb706accbe96def0965a830f2fa6a9a645480eef81b637c89e0af"
+    },
+    {
+      "file": "step-011.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 78248,
+      "sha256": "bcae75c34b625b1825df8840f06a35170a29e69632b11097f38202c13f340a0d"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 84254,
+      "sha256": "c8fd088223eae5934d3bf77d3b3362a911f045cc857db2d262751fb8c38a1335"
+    },
+    {
+      "file": "step-013.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 117913,
+      "sha256": "3280e188483ba19912720bbc748c929c863276cf83ed6816870e17b40ada4642"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119497,
+      "sha256": "b8043a503ac9859e11e54137822906e7561609246d3c202554ce189613c1ffed"
+    },
+    {
+      "file": "step-014.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 91399,
+      "sha256": "03296d02bf9c4b999af52f23234b4dd250820c20b16e0ea0c1de6857ccc79710"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 94992,
+      "sha256": "8f872c915cf51214b8518f966e2f397a2e2b921f1ee4e567147e4464b991aee2"
+    },
+    {
+      "file": "step-016.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 95159,
+      "sha256": "4d40f9ce776d8f68ff63e60261074e678d5f3509382331d95227730f7eed8239"
+    },
+    {
+      "file": "step-017.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 91681,
+      "sha256": "d314b067826dfad53c0c4473cd2bdad3c443b03d841bd8133212c49440225573"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 97269,
+      "sha256": "b20f15a788bafe925180bac5b8aa70166b6fc74cf062901d3abb05822b1cb172"
+    },
+    {
+      "file": "step-018.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 94981,
+      "sha256": "0a60eb5a7e8c5908837fa3ce24fd9f500993fe54f4d47ee4be86d2f8370cd66c"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99575,
+      "sha256": "43b055ff4e3e551aa81159c750132bed69ef9d2ccd94955290f5ba4ae8b18e5c"
+    },
+    {
+      "file": "step-019.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 95123,
+      "sha256": "c3e782332a8dc6884d1db9e1115df5aebb1054a43652ee475f5759aff533f25a"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99264,
+      "sha256": "37bfe34c64bd55ff9699d5170c990f7ab78dedb9ad540c9a0f6c983f08db04f2"
+    },
+    {
+      "file": "step-020.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 94838,
+      "sha256": "8d839169da3d5986354c5fadfc6326589041498245b350c3d390bf5b391326a1"
+    },
+    {
+      "file": "step-021.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 95983,
+      "sha256": "6eec2b35987ab454a367e99cdb49038d0bc9a8661a6f9eda50d3ee1977bab6fb"
+    },
+    {
+      "file": "step-021.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 100855,
+      "sha256": "0788c1a682d369deba752133384332b39bbdb07b7b3ee3079d12688c2f0a53ab"
+    },
+    {
+      "file": "step-022.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93531,
+      "sha256": "6cb119ab6d1c7865dc34ee3d5c4fdf58537f1adf526826f067cf2d016fdd6c60"
+    },
+    {
+      "file": "step-024.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93998,
+      "sha256": "6a50f9029c216087553abcdb6fe90b04647b7388cf42e37712366d9f3242a3f2"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99476,
+      "sha256": "edf4ecdb255f37ffb2bac6142198b5a8e49fdb6fea5d70d25dc03767f2d40811"
+    },
+    {
+      "file": "step-025.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 118567,
+      "sha256": "7fccbc5a5482a32cdde517bf457696650f08db58b838958e16a84c4588663f57"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119880,
+      "sha256": "6f870adb9ebe23dfeb73ed6f573bcf3b113f6107d85b73eab4d25b0d73dd14d8"
+    },
+    {
+      "file": "step-027.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 173742,
+      "sha256": "68b1036d182122dcccc78c6d763f0b0d9b2b650143e094e5e5f80593547dbe0b"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 168024,
+      "sha256": "55d21e657ce8f76f48ad2a76065e34a0c87856393a365c6bb551eeefd0490a4d"
+    },
+    {
+      "file": "step-028.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 173742,
+      "sha256": "68b1036d182122dcccc78c6d763f0b0d9b2b650143e094e5e5f80593547dbe0b"
+    },
+    {
+      "file": "step-028.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 167202,
+      "sha256": "b3b4b6484e85913b9655c6032eb589fa2f63b1634936768d34bc11a81d8eb2bc"
+    },
+    {
+      "file": "step-030.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93437,
+      "sha256": "a747e61301cc12a7893879ecc2de5e0359ba2db5a5c37f575d4d1600d7073f3b"
+    },
+    {
+      "file": "step-030.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 98584,
+      "sha256": "6635b17284b2d569a18891313eb9687942b5404a8c29aa65eb279b06d25fc41c"
+    },
+    {
+      "file": "step-033.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 98731,
+      "sha256": "4eb284c31f40746b1ad89677f50617fa4f543c7f3a482a8a870d4fc9b97dc174"
+    },
+    {
+      "file": "step-033.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103954,
+      "sha256": "e037d096a9a586db14dd5ab1ed744e251a66804f358cedbfc9f8add4dda10661"
+    },
+    {
+      "file": "step-037.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 110254,
+      "sha256": "57b853ec267c8520767ce9f4441fba2e7a2895ee77893a2d8247a687fe60672e"
+    },
+    {
+      "file": "step-037.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113934,
+      "sha256": "ecd3f521e3d2620e892808c2c90b7c3031d607cf3602e298c5f13436a691c412"
+    },
+    {
+      "file": "step-041.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121900,
+      "sha256": "93f97d54b42c179d2f93623e5e030a3a6c2634feb4d346a236e86191b23cde44"
+    },
+    {
+      "file": "step-041.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 123529,
+      "sha256": "3938ff6eaf946d9a9e94aef4f779722e74d297870bb4f9969925d701cb31d12c"
+    },
+    {
+      "file": "step-046.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 128307,
+      "sha256": "7c7979897cbcc66b88cea522b137a964cdc929ef3ff3124bfe358237c3106594"
+    },
+    {
+      "file": "step-046.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 129941,
+      "sha256": "06f006a3475b618e31c6fa722be5f4df60c354752f8945bc6cc453471c35e91e"
+    },
+    {
+      "file": "step-051.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137603,
+      "sha256": "d5aac8a04f00456adb24b4014e711e3726305f9eb8dfefbe34c47439859c4635"
+    },
+    {
+      "file": "step-051.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 138912,
+      "sha256": "674596c77d8d9bdb361080a722a1208c9535594582cf64f7c47c8dcca36e6ea4"
+    },
+    {
+      "file": "step-056.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 143558,
+      "sha256": "316b9a2922ce1bca05a17a9e5c3f024a7ebb9bdd1a94c89f14c72e7a835b465c"
+    },
+    {
+      "file": "step-056.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 143678,
+      "sha256": "34af214a010beea9ef218f576eba70e5b53e0c273421dc14a43737919e1621a8"
+    },
+    {
+      "file": "step-060.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 162075,
+      "sha256": "0330afef1ff684dd30a90113d994aa3f4adcdb9a0bcfad4bf9eb26541dfebe65"
+    },
+    {
+      "file": "step-060.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 163244,
+      "sha256": "653468cda0076ebb9ab9129d24ee341135dce901f27e58eb94fb05ccbbfd6ce9"
+    },
+    {
+      "file": "step-062.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 161727,
+      "sha256": "4f40f026654c4f0d027cf05f5a2ecc8880b7c0f3d82dfac1ce13def227344ba9"
+    },
+    {
+      "file": "step-062.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 162785,
+      "sha256": "ec65f54bf82bb280ade43fb2b4356086f5ff4f3a08a7266a6472d724923da113"
+    },
+    {
+      "file": "step-063.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 149303,
+      "sha256": "f99696e8a2a3846d7acd5ad98df1fbcfb6f23f232abedd00fc0734e85920dd40"
+    },
+    {
+      "file": "step-063.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150226,
+      "sha256": "8260484d0c966d981cbc7757824db23e25695df6c87e462cc2cc6aa4fddcb5d4"
+    },
+    {
+      "file": "step-065.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 192013,
+      "sha256": "911c32b680927e0c5eb8c05e64febc30e2b8a2e3da61be2e5622bf67ea51f8ab"
+    },
+    {
+      "file": "step-065.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 182551,
+      "sha256": "6dc44f5d6c56407cdc911eec01b7602e74dd13f7a39eeb91678cad774c82189f"
+    },
+    {
+      "file": "step-068.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 203882,
+      "sha256": "eb3e5e92614342f707b48743e8425539bbc2c3ce897b228ac271adc0e5e30b5e"
+    },
+    {
+      "file": "step-068.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 191490,
+      "sha256": "e9d39260ce264a86f4a6c60ecb288030ed912bee124a21cf8cc6c3114831707a"
+    },
+    {
+      "file": "step-071.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 106245,
+      "sha256": "d6c0f7bd767b96f7e6d760057943c1fbb0aaa3347208470cf7f5cbe0489b13e5"
+    },
+    {
+      "file": "step-071.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 109533,
+      "sha256": "7e8bc9b672368c2ef8cd8d841590315e5452089a3adfbb131183ea289cade4f2"
+    },
+    {
+      "file": "step-073.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 180437,
+      "sha256": "ce643ee80cea7c14c0c216cf2366bfbbb3488f2dd9afd47ee5f6179f1bac2862"
+    },
+    {
+      "file": "step-073.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 173380,
+      "sha256": "ce76727110cd8c388498ea9254ffbd14034b10e4e16db7d40833747bba5ab458"
+    },
+    {
+      "file": "step-076.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 106262,
+      "sha256": "f113d787e56cbb3325da0d222517083a6e81cebb345b1bdf07a35eda4e434dbb"
+    },
+    {
+      "file": "step-076.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 109142,
+      "sha256": "12b564eb9d8abd3bd094767c1f504514643afa48d789583b08abb76e5ed5f9e3"
+    },
+    {
+      "file": "step-078.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 184998,
+      "sha256": "fd49e8e7d556fc9049d3160532bfc5c8778cbb370f90b43e4ec12bca6884ea81"
+    },
+    {
+      "file": "step-078.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 175769,
+      "sha256": "e7817a70b35e056d95b8e95a8df54349b6a80459dca81dd5613337c0a840bc7f"
+    },
+    {
+      "file": "step-081.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 106337,
+      "sha256": "f69a1625e4d17e5209027c9db10ba9e5bc9d6f8e93959e09339c603837575345"
+    },
+    {
+      "file": "step-081.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 109348,
+      "sha256": "5453794ad9d39094abb739cb52bda73c5e2af34350393c3d501af77dbad8e66b"
+    },
+    {
+      "file": "step-083.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 196216,
+      "sha256": "9e58bd6aa54c0104492b118c6b633a277a16e3ddecd57bc635a4cc6096e10189"
+    },
+    {
+      "file": "step-083.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 184573,
+      "sha256": "a715b3e7fec329bdb85250917988256c9dd58fc52269efa918e2fe5c9654baad"
+    },
+    {
+      "file": "step-086.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 207985,
+      "sha256": "58d536791b96b933b3c34d09b107b1739866d702dc9d5c4e0ad11d87a0aa80aa"
+    },
+    {
+      "file": "step-086.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 194502,
+      "sha256": "cd546e9c778c0ce5e7a2e2aee1fd0e6ec8b148e22ad0f752990d078e566f56e5"
+    },
+    {
+      "file": "step-089.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99291,
+      "sha256": "55bdfbadb0cc7c93499d434f7cf7c19cc0856ee19fefa6145879d617db333172"
+    },
+    {
+      "file": "step-091.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 212869,
+      "sha256": "7252dfecdcab22810932ccaa746a13d24fc78492dc7d42c8e9b9a811e94fdd33"
+    },
+    {
+      "file": "step-091.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 197575,
+      "sha256": "bb5f38f0f957c3b11e766bced81af61fafa09e59ab8484c8008cc76dfb582f1f"
+    },
+    {
+      "file": "step-094.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 108002,
+      "sha256": "443059b9b54d24c75bd274c18ff67bfe53cfec61986e571330cb2b0b3d61ab9f"
+    },
+    {
+      "file": "step-094.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 110358,
+      "sha256": "b0f2c4ff75791df34f24f3ba0e49792d3c798a78fc4a444df5388cbf3ade52e2"
+    },
+    {
+      "file": "step-096.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 178864,
+      "sha256": "e303976f4e7812bee9bbc1b99e6a579669a4e4e87ae310c886ebe1077a14d949"
+    },
+    {
+      "file": "step-096.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 171909,
+      "sha256": "cdbc0c159cab9aecff9ed61be0c01b082683005f3b810b01b325347ceea5aae4"
+    },
+    {
+      "file": "step-099.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 177975,
+      "sha256": "15d8fcec9a01f80e014e6ef70de996b21d2f8674ef3070aca8fe4c6d9f823b46"
+    },
+    {
+      "file": "step-099.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 170523,
+      "sha256": "b6f4bf7b0137196348f557a46174a2b15ed23a5584e5069741073e4a36481e13"
+    },
+    {
+      "file": "step-102.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136077,
+      "sha256": "2bc690b0734c862ee7b80753b2fb5cc5f2e29b51e904ed62b2489b5bdf6510a5"
+    },
+    {
+      "file": "step-102.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 139497,
+      "sha256": "26ae1b75891d85b2defde1537082fb39232878058594fd3ff7a565d188fa3740"
+    },
+    {
+      "file": "step-104.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 186758,
+      "sha256": "473e2188acbec47ac89b8bd6057c02365e4ae74a20af0db147d7e95862c36d78"
+    },
+    {
+      "file": "step-104.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 177663,
+      "sha256": "c2f5a1c16bbfc111018ea90e6db96f0525653875f2349dba5677dd29cf9c5e4c"
+    },
+    {
+      "file": "step-107.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 181375,
+      "sha256": "d23ebe88dcfc6177fd9a436278f94c8b0587ba840b3d9309cf56ba6a6ab6e7d6"
+    },
+    {
+      "file": "step-107.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 173436,
+      "sha256": "edb2c4c0a5d654cd433ada77f5a7694c72ec23ac12a64caf361c6ec417279a7f"
+    },
+    {
+      "file": "step-110.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 116851,
+      "sha256": "0b9c4797e1eb78f4ca9bfd4bd2ea697b7dc268b9caaac6f494e9db3daecef412"
+    },
+    {
+      "file": "step-110.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121172,
+      "sha256": "26768b1fef1c3edd84a59f14f9c7fc376653dc8f967edb9d71aa34619419ebfc"
+    },
+    {
+      "file": "step-112.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 133001,
+      "sha256": "ca45047b871c712090b2f252715e4c9beed1743dfed7b3aeb000d69365544502"
+    },
+    {
+      "file": "step-112.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132649,
+      "sha256": "f0a95937e4f1b9d00a144dfd4ff0c07580bf03a7f8e157adc06f0cb17094b155"
+    },
+    {
+      "file": "step-114.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132582,
+      "sha256": "6a8720d05d85a1d547fcf5b42859451a2bc4fdd0a48d8945dc1b5c50111de360"
+    },
+    {
+      "file": "step-114.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 134397,
+      "sha256": "11aef6d127542ac863958c810fa1d15c16d4ecaac31c8be4a28fbb05aa86bd25"
+    },
+    {
+      "file": "step-116.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113524,
+      "sha256": "337d052a6b1b00d63e674eda1c6d6769be114809726dc84f9c73b24a71450367"
+    },
+    {
+      "file": "step-116.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 114469,
+      "sha256": "9f47519cc42f9f48017ca2757a448a1a0eccb82b7050201fb08a0dde7f741040"
+    },
+    {
+      "file": "step-117.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113504,
+      "sha256": "bb7b39019a9c988cbc3981e18a5cab2f09f0ac63e03ac95e1a0784e4df382826"
+    },
+    {
+      "file": "step-117.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 114664,
+      "sha256": "e9047143e422641920c13b01248a7e7908645499e4e79c23b683effb0f743010"
+    },
+    {
+      "file": "step-119.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 187281,
+      "sha256": "4bd06630035aa38bdd1aa4a29dadf8883e591d2514caea9fcae681bae5f8c67a"
+    },
+    {
+      "file": "step-119.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 177781,
+      "sha256": "986770d42288711b5a047eb609a88a9a0afaa41140c0b72a606f12cbde791c16"
+    },
+    {
+      "file": "step-121.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 112221,
+      "sha256": "7975e01ecffa2873b87f472f9cf49a7ec6ac5471fede14565a17592ea8c354bc"
+    },
+    {
+      "file": "step-122.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113205,
+      "sha256": "ca628adadb188cc015e175daf4c434bad41b549c9182f1230b9249501041b2dd"
+    },
+    {
+      "file": "step-122.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 114742,
+      "sha256": "6ffe138f36b5b54ed465b58d5383acd40e5425ab684c0069f774131ee0f304b6"
+    },
+    {
+      "file": "step-124.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 188015,
+      "sha256": "b3ab5191bee6126104a819b2dc990f0416cc1e51d470edb594a9fd55b82c4e26"
+    },
+    {
+      "file": "step-124.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 178246,
+      "sha256": "63495f5e738f386df2b8f7ffb007b4b72fbfae8644aaec6612c8d3908797f620"
+    },
+    {
+      "file": "step-126.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 112215,
+      "sha256": "1746232b003a64af21ad142969de53ec8ca0a04237fedd0fac0a8659c3fabb9e"
+    },
+    {
+      "file": "step-127.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103278,
+      "sha256": "1400b5ec0373fe28d1be854f6da6f32317c7e61992a83848cabd5495a0094d3b"
+    },
+    {
+      "file": "step-127.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 107513,
+      "sha256": "51d44c2aeaeedcea273700257cf3a3e2c152867d72e4d45428606d9cfac5c23d"
+    },
+    {
+      "file": "step-129.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 90181,
+      "sha256": "05fcf22ad822bfa25072becbcecaaf6894cec78872a7e78b4db8d23c4261b45e"
+    },
+    {
+      "file": "step-129.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 95505,
+      "sha256": "408fbd05d6642c0eaf5c121b2b9fa4bbd37cab834549905678908582449f9737"
+    },
+    {
+      "file": "step-131.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 91215,
+      "sha256": "1cd17aeff0ef83047e089968fae399b7f0eb3268fe9d17885cb27ee880a46084"
+    },
+    {
+      "file": "step-131.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 96619,
+      "sha256": "010adb15c70879feb3b519f16c36c71afd016fd774b2653155cb1aef72f74aea"
+    },
+    {
+      "file": "step-133.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 135733,
+      "sha256": "2d56bde93c1f429d45b63b64158949bf62d952604ae9e4ae7878e086303e2f94"
+    },
+    {
+      "file": "step-133.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 135617,
+      "sha256": "1a52e60361a50b435955493c49014c46d6aff178d69da76c489012f4b3852da6"
+    },
+    {
+      "file": "step-134.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 105836,
+      "sha256": "2a1dbd0188691162a834dd2bc07d64b1364fe08b754e7dfc0816e391190db344"
+    },
+    {
+      "file": "step-135.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 105763,
+      "sha256": "4c16e490eaf4ddcd8d4eb64d70e75f007d6d9da4e07ff02b75a7891b9dd0d952"
+    },
+    {
+      "file": "step-135.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 109421,
+      "sha256": "d5617bc1cddf71208d2ca896d05fd9c7ae72d892267034ae1c3d68f593009582"
+    },
+    {
+      "file": "step-136.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121072,
+      "sha256": "c83ef7f0683c6a652b71fa3f1f65cb7c1fd2de2eeb2774ab1f9c08294513b9d4"
+    },
+    {
+      "file": "step-136.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 124019,
+      "sha256": "f747aaf212a232977b1ce73b58904220fb63fe76941200dfe4d9780e0030cb29"
+    },
+    {
+      "file": "step-138.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 181226,
+      "sha256": "e67eb46a5175d69e06ce605b2da4ad93e9b5bd3350489d0a46654419b07f10f2"
+    },
+    {
+      "file": "step-138.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 172929,
+      "sha256": "7a843981331a33d568e3237f525f9159974d90cba2a1984f5ac63c5b5f58070d"
+    },
+    {
+      "file": "step-140.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 95062,
+      "sha256": "4684ad15d0ff214a2ceb1c87fc5d6c275a4bc7e6aac670f9668a7cc6d9006553"
     }
   ]
 }

@@ -6,49 +6,39 @@
     "en": "gRPC JSON request and response messages"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/grpc-scenarios.workflow.ts",
     "test": "capture.scenarios.grpc preserves envelope payloads compression and error trailers",
-    "run": "2026-10-21T10-07-07-318Z-9Zv3yz",
-    "testDirectory": "capture-grpc-scenarios.wor-8400e-pression-and-error-trailers-macos",
-    "manifestSha256": "851e44a6e56e2e29aefa27020757055979f8a9a57eb1f88a684e0a46141bed0a",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "d5c2dfce2235779330fb9aa38fc5c62e29d934536b479bb479d2f51f56c5c71a",
+    "workflowSha256": "d415449bad8df418a4d236604afef4e90e20dcd016527677368baa448e7ea397",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-022",
       "title": "grpc-unary-json打开gRPC页并核对状态 / Open gRPC and inspect the status for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-022.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-022.annotated.png",
       "rawImage": "step-022.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2485.015625,
-            "y": 292,
-            "width": 171.84375,
-            "height": 82.75
+            "x": 1863.7657470703125,
+            "y": 219,
+            "width": 128.87493896484375,
+            "height": 62.0625
           },
           "automationId": "capture.inspector.tab.grpc"
         }
       ],
-      "bytes": 208775,
-      "sha256": "dd42c3c7ba9fa037c144b6d643666ee18ca1002429fa43b73297069104d90a50",
-      "rawBytes": 298982,
-      "rawSha256": "509daae4aa7b3c34a2ba8c984b2738e3d201322ea966ffc14b4cb98ddc354f31",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -57,31 +47,25 @@
     {
       "id": "step-023",
       "title": "grpc-unary-json选择request消息 / Select request messages for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-023.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-023.annotated.png",
       "rawImage": "step-023.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 424.75,
-            "width": 131.078125,
-            "height": 44
+            "x": 1755,
+            "y": 318.5625,
+            "width": 98.296875,
+            "height": 33
           },
           "automationId": "capture.grpc.side.request"
         }
       ],
-      "bytes": 208076,
-      "sha256": "046b26eff0fdb2f2e256133bb962f38c252cb9878c57ca8f332908b6e46f75a7",
-      "rawBytes": 298836,
-      "rawSha256": "4c5b6524d7adf569ff8b052b0c2b96df1306c784d08c776447b14e1222c00f06",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -90,31 +74,25 @@
     {
       "id": "step-024",
       "title": "grpc-unary-json展开request消息 / Expand the request message for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-024.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-024.annotated.png",
       "rawImage": "step-024.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2342,
-            "y": 500.75,
-            "width": 820,
-            "height": 76
+            "x": 1756.0001220703125,
+            "y": 375.06250762939453,
+            "width": 615.9999389648438,
+            "height": 57.000022888183594
           },
-          "automationId": "capture.grpc.message.ex-mvhya18t-xu4n11nu.request.0"
+          "automationId": "capture.grpc.message.ex-mvpm64ow-9wrfi78o.request.0"
         }
       ],
-      "bytes": 237399,
-      "sha256": "51633a0094ba3496ae0212ef61ddd6bdf69ce859d0b30957cc388fb2bf902b01",
-      "rawBytes": 326590,
-      "rawSha256": "067cb76e24aa919cc617fa9b3dc9379a88d6e7a6dd42960d46757cd9b43cc9e0",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -123,31 +101,25 @@
     {
       "id": "step-025",
       "title": "grpc-unary-json复制request实际载荷 / Copy the actual request payload for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-025.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-025.annotated.png",
       "rawImage": "step-025.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3078,
-            "y": 600.75,
-            "width": 60,
-            "height": 60
+            "x": 2309.0000610351562,
+            "y": 449.56251525878906,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.grpc.copy.ex-mvhya18t-xu4n11nu.request.0"
+          "automationId": "capture.grpc.copy.ex-mvpm64ow-9wrfi78o.request.0"
         }
       ],
-      "bytes": 245945,
-      "sha256": "762f85ce72138fb701b8801d209a90e4b90996c2379f4a92a1ac90cd1dc2d808",
-      "rawBytes": 342775,
-      "rawSha256": "f150fd870689f16c4ad6e887616921b603cccfa1bbaa4a0011b97a5b63739da4",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -156,31 +128,25 @@
     {
       "id": "step-026",
       "title": "grpc-unary-json选择response消息 / Select response messages for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-026.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-026.annotated.png",
       "rawImage": "step-026.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2475.078125,
-            "y": 424.75,
-            "width": 150.390625,
-            "height": 44
+            "x": 1856.296875,
+            "y": 318.5625,
+            "width": 112.78125,
+            "height": 33
           },
           "automationId": "capture.grpc.side.response"
         }
       ],
-      "bytes": 208381,
-      "sha256": "9bf299d62421c2e92d825175698d0d95c8c0e953b372b0f03a43163043839189",
-      "rawBytes": 299012,
-      "rawSha256": "8ca3407bf2c55ec0ba4601499a71987763144d2f45cf2f0c89e32e13877fcd2a",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -189,31 +155,25 @@
     {
       "id": "step-027",
       "title": "grpc-unary-json展开response消息 / Expand the response message for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-027.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-027.annotated.png",
       "rawImage": "step-027.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2342,
-            "y": 500.75,
-            "width": 820,
-            "height": 76
+            "x": 1756.0001220703125,
+            "y": 375.06250762939453,
+            "width": 615.9999389648438,
+            "height": 57.000022888183594
           },
-          "automationId": "capture.grpc.message.ex-mvhya18t-xu4n11nu.response.0"
+          "automationId": "capture.grpc.message.ex-mvpm64ow-9wrfi78o.response.0"
         }
       ],
-      "bytes": 238199,
-      "sha256": "0b2fcc3ae03cb21a8a92659b5dc03bc2a40d4e1844b8f83b8b70bb22712d8bcc",
-      "rawBytes": 327605,
-      "rawSha256": "aba3fc4deb350d0cc3a8feccb1222626f64c9ce2b55fb1c0967d10b657c3c0fa",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -222,35 +182,129 @@
     {
       "id": "step-028",
       "title": "grpc-unary-json复制response实际载荷 / Copy the actual response payload for grpc-unary-json",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-028.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-028.annotated.png",
       "rawImage": "step-028.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3078,
-            "y": 600.75,
-            "width": 60,
-            "height": 60
+            "x": 2309.0000610351562,
+            "y": 449.56251525878906,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.grpc.copy.ex-mvhya18t-xu4n11nu.response.0"
+          "automationId": "capture.grpc.copy.ex-mvpm64ow-9wrfi78o.response.0"
         }
       ],
-      "bytes": 246764,
-      "sha256": "6ca98c3fbccab0b0ad132c3f6e72cf76000d77f2b57e3e855d4171a09c6bad14",
-      "rawBytes": 343787,
-      "rawSha256": "2bbc4d297b583ed358bfb9dc22dc4fad3e4ce621f1a3885cceb85f37e8be4cc1",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-022.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 125868,
+      "sha256": "2554058f89c883d37fc3d9a2a1759ec25c9c491b3481df5f2fb7ebef7858a636"
+    },
+    {
+      "file": "step-022.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 128207,
+      "sha256": "3e3ceab1dcef15cb5d219c9ff450e3cdbbe5c6b9ba670c164199bda8e922c8a0"
+    },
+    {
+      "file": "step-023.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 125871,
+      "sha256": "995896b4225fe15e8d12dab47a59fc2b9d4cf471511864364fc8796cf9a269bd"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127592,
+      "sha256": "3e45db6fe9225254c348b2db530ea93fb0b1369a1815ddb24d9206ec45405b13"
+    },
+    {
+      "file": "step-024.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 141937,
+      "sha256": "df3986caa928006c7210d15ad47eee141502f5d304a243032e8fff019fce7efc"
+    },
+    {
+      "file": "step-024.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 147905,
+      "sha256": "55adb2498c866732d3c77642d945b717f177148174857cfeebf5a6cbfda767d3"
+    },
+    {
+      "file": "step-025.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142266,
+      "sha256": "7ec763c5959d4313e04e64971c90b9ec69a0b1b6f4464a778186e9e666b7d35a"
+    },
+    {
+      "file": "step-025.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148348,
+      "sha256": "f744ab313078e9e9a26dedb4e686ebdd89b93f08b7660f940b4bd2893e1054c6"
+    },
+    {
+      "file": "step-026.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 125868,
+      "sha256": "2554058f89c883d37fc3d9a2a1759ec25c9c491b3481df5f2fb7ebef7858a636"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127906,
+      "sha256": "68722f6a4ec76d8aa102f89642662337f4900f5d3d7884ef3a4a5f364f954b48"
+    },
+    {
+      "file": "step-027.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142049,
+      "sha256": "bdd19d43403ea7fd7705a16b79c65f7bd0d81497c15aebae42162c13822b7a64"
+    },
+    {
+      "file": "step-027.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148223,
+      "sha256": "66a4d9ef11c7efa1688a62998b54659100693628cfcd99f1c6a5da52529940be"
+    },
+    {
+      "file": "step-028.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142374,
+      "sha256": "ff2374312b4083127bb6091acca272e44e5573140ab2a0ce8f2ae2ba934d77d3"
+    },
+    {
+      "file": "step-028.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148681,
+      "sha256": "f6ae3a0a4d94ea767e890a045174076d7707ee941c91bc5a9f9ac11691bc6f6e"
     }
   ]
 }

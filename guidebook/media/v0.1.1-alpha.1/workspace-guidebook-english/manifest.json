@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "chapter": "workspace-guidebook-english",
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "Windows x64",
+  "source": {
+    "workflow": "application/guidebook-online.workflow.ts",
+    "test": "shell.guidebook.online keeps remote reading inside the secure App shell",
+    "manifestSha256": "b16d16410517893b152576195dd42778d130b80678397c593bdb84b1607cfa0f",
+    "workflowSha256": "42a276645a0348c1a5e8855807ad240a03220a01f4e758285627ed97e714c429",
+    "capture": "renderer",
+    "target": "packaged-app"
+  },
+  "steps": [
+    {
+      "id": "step-001",
+      "title": "进入在线Guidebook并核对安全frame与App外壳 / Open the online Guidebook and verify the secure frame and App shell.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-001.png",
+      "rawImage": "step-001.png"
+    },
+    {
+      "id": "step-002",
+      "title": "使用App工具栏搜索并打开真实教程结果 / Search from the App toolbar and open a real Guidebook result.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-002.png",
+      "rawImage": "step-002.png"
+    },
+    {
+      "id": "step-003",
+      "title": "打开真实教程步骤图的放大预览 / Open the larger preview of a real Guidebook step image.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-003.png",
+      "rawImage": "step-003.png"
+    },
+    {
+      "id": "step-004",
+      "title": "保持App语言并核对远程Guidebook主题同步 / Keep the App language and verify remote Guidebook theme synchronization.",
+      "language": "en",
+      "theme": "dark",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
+    },
+    {
+      "id": "step-005",
+      "title": "刷新当前Guidebook章节并等待新frame恢复Ready / Refresh the current Guidebook chapter and wait for the new frame to return to Ready.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
+    },
+    {
+      "id": "step-006",
+      "title": "点击浏览器入口后Guidebook外壳保持正常 / Keep the Guidebook shell ready after opening the browser entry.",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-006.png",
+      "rawImage": "step-006.png"
+    },
+    {
+      "id": "step-007",
+      "title": "断网后显示Error与Retry入口 / Show Error and the Retry action while offline",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
+      "highlights": [
+        {
+          "label": "1",
+          "bounds": {
+            "x": 1100.578125,
+            "y": 773.390625,
+            "width": 86.625,
+            "height": 45
+          },
+          "automationId": "guidebook.retry"
+        }
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "id": "step-008",
+      "title": "恢复网络并Retry后当前章节重新就绪 / Restore connectivity and retry the current chapter successfully",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-008.png",
+      "rawImage": "step-008.png"
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 200150,
+      "sha256": "b1d6a33729228fcaf0f029444dbe483760a4c840b748175838984fa9fd4a39a3"
+    },
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 302733,
+      "sha256": "0b16a935ae0d18800612a6d21d7854ad82a111e34b30a3d46bd04eb7c8f02ef5"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 179801,
+      "sha256": "2ae453bf4a2897a4a63d2fb1a02be6cd5b4c0f565edc2c57acfd6163bbc432db"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 270855,
+      "sha256": "67213d5290d7be6e1d957eb5a86656700b9c6445a360dd55666edf57820c529e"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 53207,
+      "sha256": "c78c1ef965a983eb252c7d26d22573fc4ee12ab129662f1b1a150f7202d338a9"
+    },
+    {
+      "file": "step-006.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 249349,
+      "sha256": "d67228fe67db73d2172d73ea5af1695ad4d23b96dec021cadc5ac810a89b3249"
+    },
+    {
+      "file": "step-007.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 68340,
+      "sha256": "51c467d95c0e5faa7620b26524a807d6ddd55f9801c585a6158905e71eaf991c"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 68581,
+      "sha256": "1a817a21bd4b13e471fb1ee12469e187235565b54ca101d0fb25556b97aa466c"
+    },
+    {
+      "file": "step-008.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 248409,
+      "sha256": "b62503cb29f066b84bfd68f2059ddcacdfed7208fef1a8250df092bbd72cb8c6"
+    }
+  ]
+}

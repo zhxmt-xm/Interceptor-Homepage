@@ -6,151 +6,182 @@
     "en": "Inner and outer body scrolling"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/detail-body-fill.workflow.ts",
     "test": "capture.detail-body-fill uses the available Inspector height end to end",
-    "run": "2026-10-21T10-01-02-443Z-34fQvO",
-    "testDirectory": "capture-detail-body-fill.w-1caf6-Inspector-height-end-to-end-macos-scroll-boundary",
-    "manifestSha256": "50716a5bca0c8a0f2b1c300e96291313e572b85679af369752c02c7346c3c0ac",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "9845613572ce71bd905594be4e362727631ad71fd1b68d903b5e959d45cc5bf6",
+    "workflowSha256": "9ca84c16a994feb64183c109b44469a0c915106b2e07dc2c073315803be92d7f",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-002",
       "title": "打开含200条entries的Request正文 / Open the Request body with 200 entries",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1600,
-      "sourceImage": "step-002.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 800
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2485.015625,
-            "y": 292,
-            "width": 147.046875,
-            "height": 82.75
+            "x": 1863.7657470703125,
+            "y": 219,
+            "width": 110.26556396484375,
+            "height": 62.0625
           },
           "automationId": "capture.inspector.tab.request"
         }
       ],
-      "bytes": 230416,
-      "sha256": "d7c86860650ad40f45417f29cfc939a1c7b9725702b6f6c8cdaaa2f5530be553",
-      "rawBytes": 320739,
-      "rawSha256": "5c5e7ab59f590ac87fef6c1a352f3767a27fbd3796a4ee5b3ee8070417584171"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 800
+      }
     },
     {
       "id": "step-003",
       "title": "在请求正文内使用滚轮 / Use the wheel inside the request body",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1600,
-      "sourceImage": "step-003.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 800
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2304,
-            "y": 374.75,
-            "width": 896,
-            "height": 1165.25
+            "x": 1728,
+            "y": 281.0625,
+            "width": 672,
+            "height": 873.9375
           },
           "automationId": "capture.inspector.scroll"
         }
       ],
-      "bytes": 235791,
-      "sha256": "8cf2115238bd13d3bf896f0f414b223699fecd918c1cc94008e4abbd13bd0075",
-      "rawBytes": 326400,
-      "rawSha256": "8be86750d9e7fb1033818d7dca15061cb1734d07ca93af9f0c5ed7e0eaf591d6"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 800
+      }
     },
     {
       "id": "step-004",
       "title": "拖动正文滚动条到下边界 / Drag the body scrollbar to its lower boundary",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1600,
-      "sourceImage": "step-004.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 800
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2304,
-            "y": 374.75,
-            "width": 896,
-            "height": 1165.25
+            "x": 1728,
+            "y": 281.0625,
+            "width": 672,
+            "height": 873.9375
           },
           "automationId": "capture.inspector.scroll"
         }
       ],
-      "bytes": 234969,
-      "sha256": "241bd860c686e33f1d69d5993a868cabf1928ef68384dfddfc1b5879d1d152b4",
-      "rawBytes": 325828,
-      "rawSha256": "a9bfbe86946516716a5d60a77c157adb2f6b28480723c6d12aa3928018c9127b"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 800
+      }
     },
     {
       "id": "step-005",
       "title": "正文到底后继续滚动Inspector / Continue scrolling the Inspector after the body reaches its end",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1600,
-      "sourceImage": "step-005.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 800
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2304,
-            "y": 374.75,
-            "width": 896,
-            "height": 1165.25
+            "x": 1728,
+            "y": 281.0625,
+            "width": 672,
+            "height": 873.9375
           },
           "automationId": "capture.inspector.scroll"
         }
       ],
-      "bytes": 232933,
-      "sha256": "666bea04941b65fdd18380eac9bbea38320c8f98b10294b7e5760c9b73a7825b",
-      "rawBytes": 322925,
-      "rawSha256": "187f3da7fc0f391b4b8e1ba4813498e53664fc139769337993836acc5cc75337"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 800
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 145038,
+      "sha256": "c987a2d988c436d56c44b7c4cab25f6cc208741427e8de996f033590ae43a8dc"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 146823,
+      "sha256": "7f13e79db0c14a661be230925ba1145aaaa495d8e909644dd25c1f6eec925844"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 148552,
+      "sha256": "ec1a53f55d9edcde4d5b4f41b730547d1224c88dfb476d9b9bdd5b357247afd9"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 150407,
+      "sha256": "a66a5a784a63a366b794e1b2a88fcdb9b0874096afcbbe725d2e11a40bf67c22"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 147844,
+      "sha256": "85ee5e8cd3eeccfe3c2c17ba71a5ca920c44a4a81883e3e1eca0f2043c73411e"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 150097,
+      "sha256": "8cd1da7715dc2bc7c0eca13a2c468c7f5a194b334a2dea09f308833bcad388ff"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 145935,
+      "sha256": "19c1606be586017c82247d4dd88254c7b70f6c1c83d4d387cfa15e728baedf2e"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 148846,
+      "sha256": "8b63a250720332387d4fb71e6ef39d94038b905de45a2deb755bd07edc52b455"
     }
   ]
 }

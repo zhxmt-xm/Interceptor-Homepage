@@ -3,39 +3,33 @@
   "chapter": "mcp-endpoint-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "mcp/protocol-support.workflow.ts",
-    "manifestSha256": "a062e45ebc008177abf69087e37373516e3cd2bf0c65582d6301f69129bb627a",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "mcp.settings.protocol-support remains visible when the server is off or running",
+    "manifestSha256": "e11ae6751be463fac3a9408830190c4e920e737f14410fa42284ffccc37a7a27",
+    "workflowSha256": "fe623c13f3127d27771a3992b49d2d11afa4955da3616c3f7d8622acc99b78e3",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
-    {
-      "id": "step-001",
-      "title": "准备：保持应用语言，通过真实导航进入MCP设置。 / Arrange: retain the application language and navigate to MCP settings through the real UI.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-001.png",
-      "rawImage": "step-001.png"
-    },
     {
       "id": "step-002",
       "title": "Server关闭时也可以查看支持的协议 / Inspect supported protocols while the Server is disabled",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 626,
-            "y": 638.109375,
-            "width": 1636,
-            "height": 66
+            "x": 469.0000305175781,
+            "y": 478.078125,
+            "width": 1228.0000305175781,
+            "height": 49.000030517578125
           },
           "automationId": "mcp.server.protocol-support"
         }
@@ -47,39 +41,22 @@
       }
     },
     {
-      "id": "step-003",
-      "title": "Server开启后保留相同协议说明 / Retain the same protocol information after enabling the Server",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-003.png",
-      "rawImage": "step-003.png"
-    },
-    {
-      "id": "step-004",
-      "title": "用户操作：启用和停用Server，版本说明保持不变。 / User actions: enable and disable the server while retaining the same protocol notice.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-004.png",
-      "rawImage": "step-004.png"
-    },
-    {
       "id": "step-005",
       "title": "运行期Enable遇到已占用端口 / Enable reports an occupied port at runtime",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 626,
-            "y": 1008.109375,
-            "width": 1636,
-            "height": 59.828125
+            "x": 469.0000305175781,
+            "y": 755.0781555175781,
+            "width": 1228.0000305175781,
+            "height": 44.359405517578125
           },
           "automationId": null
         }
@@ -96,16 +73,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-006.annotated.png",
       "rawImage": "step-006.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 654,
-            "y": 725.421875,
-            "width": 1504,
-            "height": 55.359375
+            "x": 490.0000305175781,
+            "y": 543.3125152587891,
+            "width": 1129.0000305175781,
+            "height": 41.51564025878906
           },
           "automationId": "mcp.server.endpoint"
         }
@@ -122,53 +100,9 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-007.png",
       "rawImage": "step-007.png"
-    },
-    {
-      "id": "step-008",
-      "title": "创建用于保留接入身份的Client / Create a Client whose identity will be retained",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-008.annotated.png",
-      "rawImage": "step-008.png",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 1194,
-            "y": 893.4375,
-            "width": 812,
-            "height": 51.1875
-          },
-          "automationId": "mcp.client.label"
-        },
-        {
-          "label": "2",
-          "bounds": {
-            "x": 1792.59375,
-            "y": 976.625,
-            "width": 213.40625,
-            "height": 68
-          },
-          "automationId": "mcp.client.create"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-009",
-      "title": "保存原endpoint和Client后正常关闭 / Close normally after saving the original endpoint and Client",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-009.png",
-      "rawImage": "step-009.png"
     },
     {
       "id": "step-010",
@@ -176,6 +110,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-010.png",
       "rawImage": "step-010.png"
     },
@@ -185,16 +120,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1959.296875,
-            "y": 725.109375,
-            "width": 278.703125,
-            "height": 56
+            "x": 1470.984375,
+            "y": 543.0781402587891,
+            "width": 208.01568603515625,
+            "height": 42
           },
           "automationId": "mcp.server.change-endpoint"
         }
@@ -211,16 +147,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-012.annotated.png",
       "rawImage": "step-012.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 654,
-            "y": 725.421875,
-            "width": 1504,
-            "height": 55.359375
+            "x": 490.0000305175781,
+            "y": 543.3125152587891,
+            "width": 1129.0000305175781,
+            "height": 41.51564025878906
           },
           "automationId": "mcp.server.endpoint"
         }
@@ -237,18 +174,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-013.annotated.png",
       "rawImage": "step-013.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2050,
-            "y": 928.109375,
-            "width": 60,
-            "height": 60
+            "x": 1538.0000610351562,
+            "y": 695.0781555175781,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "mcp.client.copy-configuration.87291929-5abf-44bc-a585-ee515c8afae6"
+          "automationId": "mcp.client.copy-configuration.69f8a2f8-fdd8-4d21-b37d-8c9a6f8e0633"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -263,6 +201,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-014.png",
       "rawImage": "step-014.png"
     },
@@ -272,16 +211,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2178,
-            "y": 562.109375,
-            "width": 60,
-            "height": 34
+            "x": 1634.0000610351562,
+            "y": 421.3281555175781,
+            "width": 45,
+            "height": 25.5
           },
           "automationId": "mcp.server.enable"
         }
@@ -295,165 +235,123 @@
   ],
   "assets": [
     {
-      "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 432045,
-      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
-    },
-    {
       "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 432045,
-      "sha256": "1beb8085277c7328c55cabca101af83159b66375a2666bf5485f735a6894fff0"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 205164,
+      "sha256": "85f2da021f67fb15a3aa86c2f5d49a77f7d445000e71637016592f0715e81910"
     },
     {
       "file": "step-002.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 292660,
-      "sha256": "b815f765310ffb830545be1484cc8f87f9d0eaa2c5bc99fc17fa02bafbde711e"
-    },
-    {
-      "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 437537,
-      "sha256": "5d4e288552eacf12dbc36ee4114c1621720808e4d8538a012321b33b5ce58e73"
-    },
-    {
-      "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 441516,
-      "sha256": "aac955bf3a999da4ecc7e8afbe0af5f366dfed87221c085d8854c3b89575da08"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 186671,
+      "sha256": "7b6e177186f5294a817503cf6352b7887682144d733d774420aaf6a46d07fdd1"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 446781,
-      "sha256": "2df066771b5bfc7c413d507cbe903041af42a55b987381509a7a5921fdf82240"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 212121,
+      "sha256": "a355f4b2f78a160e6959fa2f981e45b5aa7c198aaf7778a3ee21ef3f4b07730e"
     },
     {
       "file": "step-005.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 301223,
-      "sha256": "343281564393af6a64999b3b35dfda545bbde00ec2483a0bbf69ecb36b231563"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 191303,
+      "sha256": "dfdb901fdba6a696fa0850c980b64e1fbbc98af782a5881a1b77297e8c4d146b"
     },
     {
       "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 437569,
-      "sha256": "8648d783442ede6e9f9aaffa70b2fa453164573b41bc4ab9edfa9b11f5baeb23"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 209057,
+      "sha256": "3c07ac1a030c994435ed6e78ebcfb488b5fdf022f710692fb49fe16bd709fe67"
     },
     {
       "file": "step-006.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 296060,
-      "sha256": "3c635243a35399d1ef99c3d0af6fb2e150bae32fde4f5f3a8f3f757ad2db2a8b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 189518,
+      "sha256": "345864327d798104a1c1cafa57a6940199e00ef0dfd66d80ce44cfdf7ad9f20e"
     },
     {
       "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 441520,
-      "sha256": "5c1d0aabdacfd0b4720ef6d27d30cade17e2568bb59d33946de487c595019fad"
-    },
-    {
-      "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 399083,
-      "sha256": "88a29ba4a24cd7e9a306800945c54bc9b6e05f6defc4c162031da0657842a124"
-    },
-    {
-      "file": "step-008.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 279323,
-      "sha256": "ebe7556dc0394a1776964d09c0fdade8764a8190c44374dd3826e636b620e43c"
-    },
-    {
-      "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 483092,
-      "sha256": "8d4c3c4538cd48dc4ab593c8f54bfc9e3e7b0b53e7e082006c78e7092b3a388e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 208929,
+      "sha256": "7dcca84ed24489f3c35402c0bb38e91116e3d645db07f470d2f7317683686b98"
     },
     {
       "file": "step-010.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 454202,
-      "sha256": "c43a40acc5fa7cd30f90fa56bcbd04314145bd8e27a5bacea63de470b1dda89e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 216669,
+      "sha256": "e4919de5cc6d612b6362c93bf2e5fc40d142b622afb752ec32bfc227d4a064bd"
     },
     {
       "file": "step-011.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 454202,
-      "sha256": "c43a40acc5fa7cd30f90fa56bcbd04314145bd8e27a5bacea63de470b1dda89e"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 216672,
+      "sha256": "fb6f5da604a5fdcf2ff1d323280607f53220d15211b0359eb97f9cec92b177bc"
     },
     {
       "file": "step-011.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 308096,
-      "sha256": "af4a20048ea22a6d56c311a32c475ef7b8d7d8657527324b42340fe032d04b25"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 195374,
+      "sha256": "3a7f35d2dfba0a4cfe1b20ff96a6ca32ec0c4e4cb77e00ba4c481d3dda8406c0"
     },
     {
       "file": "step-012.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 443835,
-      "sha256": "1a6337486614929ac3da381c5227e089c90ae4546e43d22e546293d2b4dea32b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 210700,
+      "sha256": "8ca76e5de910ba0b3fccc9a6b1b2829e3d5efb20408017e584b1af3461c75249"
     },
     {
       "file": "step-012.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 299582,
-      "sha256": "f623763ec8ffe17466b79d836ebe84c52fc01e8d025899273c550ca51bc844fe"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190318,
+      "sha256": "3cd63a59fe86cc2ad12fd567fdeec3400ee653bd83494fc2130bb59ca1142bca"
     },
     {
       "file": "step-013.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 443835,
-      "sha256": "1a6337486614929ac3da381c5227e089c90ae4546e43d22e546293d2b4dea32b"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 210700,
+      "sha256": "8ca76e5de910ba0b3fccc9a6b1b2829e3d5efb20408017e584b1af3461c75249"
     },
     {
       "file": "step-013.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 299496,
-      "sha256": "562f82829d5613e906c03d4f0134f1c2af855ad9bf5c20f66d0f73196238d2e0"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190254,
+      "sha256": "3e0d28ea19ed1dd251581d2acce9170da4b904f1f346c4ffb2bb10bbc991d65f"
     },
     {
       "file": "step-014.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 482920,
-      "sha256": "6c561dce4695c999caea0dc69497f21a7d46c0cd9570d798df0a5e8614c216fb"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 220668,
+      "sha256": "0c6a17b6f32fa9566a755bba1002d2f5644df46548305124218af11704469036"
     },
     {
       "file": "step-015.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 442570,
-      "sha256": "d24b7368a94715a02b52f1b3144cf38445fb937febad35a416113e2b4c20879f"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 221435,
+      "sha256": "5a19eadd616c48749e288dde1dea65bc4fed76d216cdbe8c6e55f1b95c676d7c"
     },
     {
       "file": "step-015.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 297966,
-      "sha256": "e08d6b22c3ec872908829e7425a9bc735c3c4e91055b10d18d9f2533a1c2fae6"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 197982,
+      "sha256": "f8b69143a73d8ebe80eb5f715ba45e24005e091d75ab2b57f3688e02ad7e521c"
     }
   ]
 }

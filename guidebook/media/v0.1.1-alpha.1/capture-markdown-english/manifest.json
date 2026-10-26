@@ -1,255 +1,310 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
-  "appLanguage": "en",
-  "source": {
-    "workflow": "capture/body-scenarios.workflow.ts",
-    "test": "capture.scenarios.bodies displays the captured text document and form bodies",
-    "run": "2026-10-21T11-41-43-389Z-EK2OdV",
-    "testDirectory": "capture-body-scenarios.wor-fa26a-xt-document-and-form-bodies-macos",
-    "manifestSha256": "06e46d7690efc0979c6ac7d6b4aeb3d2c425d2bd0ea2b461fea158691a4b6511",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
-  },
   "chapter": "capture-markdown-english",
   "title": {
     "zh-CN": "Markdown预览、源码与全屏",
     "en": "Markdown preview, source and fullscreen"
   },
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "Windows x64",
+  "source": {
+    "workflow": "capture/body-scenarios.workflow.ts",
+    "test": "capture.scenarios.bodies displays the captured text document and form bodies",
+    "manifestSha256": "d2c415609263158d9a95607521612454071eaa6655ba57907ac7c933658e00f6",
+    "workflowSha256": "ed8bbf991fa02e2512d10e751dea340c28c6cdde5dd28fe97b0c2a495a55c081",
+    "capture": "renderer",
+    "target": "packaged-app"
+  },
   "steps": [
     {
       "id": "step-033",
       "title": "Markdown Preview显示Capture Lab及列表 / Markdown Preview shows Capture Lab and its list",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-033.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-033.annotated.png",
       "rawImage": "step-033.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 532.75,
-            "width": 128.59375,
-            "height": 44
+            "x": 1755,
+            "y": 399.5625,
+            "width": 96.4376220703125,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.default"
         }
       ],
-      "bytes": 220408,
-      "sha256": "c6c8a5fbacbe055eb7823e58ad3484661678a72cc9f9abe831fb1848215ca279",
-      "rawBytes": 292490,
-      "rawSha256": "ab1f37be6ec9a9131a9343cd860859a5e896bee07525c29171329125f3725746"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-034",
       "title": "Markdown选择Split，同时查看预览与源码 / Select Markdown Split to inspect preview and source together",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-034.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-034.annotated.png",
       "rawImage": "step-034.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2472.59375,
-            "y": 532.75,
-            "width": 87.625,
-            "height": 44
+            "x": 1854.4376220703125,
+            "y": 399.5625,
+            "width": 65.71875,
+            "height": 33
           },
           "automationId": null
         }
       ],
-      "bytes": 230237,
-      "sha256": "5f6384b362b905825bc58c88623963a4ecfd42651759578c5a4a4dd13cb6bf1e",
-      "rawBytes": 303311,
-      "rawSha256": "f5fc132f12f16476dbde3371b0cdfb24dcc51b15f758257fcfd74002b3f8afa7"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-035",
       "title": "Markdown选择Source查看原文 / Select Markdown Source to inspect the original text",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-035.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-035.annotated.png",
       "rawImage": "step-035.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2564.21875,
-            "y": 532.75,
-            "width": 118.109375,
-            "height": 44
+            "x": 1923.1563720703125,
+            "y": 399.5625,
+            "width": 88.5780029296875,
+            "height": 33
           },
           "automationId": null
         }
       ],
-      "bytes": 219894,
-      "sha256": "fe505bbc7612ead43575c56d132f20596b985b9e242815481a69b409a90c183b",
-      "rawBytes": 290620,
-      "rawSha256": "cfa6299956bc9f3033655f96465b17d2b6cd1b9b7d0eae8c07deb78d7bf31eb2"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-036",
       "title": "在Markdown Source中复制原文 / Copy the original Markdown from Source",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-036.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-036.annotated.png",
       "rawImage": "step-036.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3038,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2278.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
       ],
-      "bytes": 240286,
-      "sha256": "3c0af791ee4fabcb8c5f961a479929b4026a0dd3d5b17e7688e9800e1b4e4fb5",
-      "rawBytes": 321093,
-      "rawSha256": "f7581414087b5a6390041383b12566f84ab32490b8064854b3c81bcb67fe13b7"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-037",
       "title": "Markdown Source打开全屏 / Open Markdown Source fullscreen",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-037.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-037.annotated.png",
       "rawImage": "step-037.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 802.21875,
-            "y": 406,
-            "width": 118.109375,
-            "height": 44
+            "x": 601.1562652587891,
+            "y": 303.50001525878906,
+            "width": 88.57814025878906,
+            "height": 33
           },
           "automationId": null
         }
       ],
-      "bytes": 230047,
-      "sha256": "61e5e10e5723f757001f498f1b74e4125a398bdc2845b4c26ef856a31ba6ae60",
-      "rawBytes": 251350,
-      "rawSha256": "1ed30a157cbbce41acbf75087f58eba77a4d0dc0d792aa225caa90238595cbbf"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-038",
       "title": "Escape返回后仍保留Markdown Source / Retain Markdown Source after pressing Escape",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-038.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-038.annotated.png",
       "rawImage": "step-038.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2564.21875,
-            "y": 532.75,
-            "width": 118.109375,
-            "height": 44
+            "x": 1923.1563720703125,
+            "y": 399.5625,
+            "width": 88.5780029296875,
+            "height": 33
           },
           "automationId": null
         }
       ],
-      "bytes": 229245,
-      "sha256": "2b76be3ce64db7145ac3dedd23776b97dbad513515a6fcd8d65b692aa6d4bd8b",
-      "rawBytes": 303989,
-      "rawSha256": "7655645d8c3b8472899269c8a63a69d67376316a431fd3165174c5b74c7fc959"
-    },
-    {
-      "id": "step-039",
-      "title": "Markdown返回Preview / Return Markdown to Preview",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-039.png",
-      "image": "step-039.annotated.png",
-      "rawImage": "step-039.png",
       "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
-      },
+      }
+    },
+    {
+      "id": "step-039",
+      "title": "Markdown返回Preview / Return Markdown to Preview",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-039.annotated.png",
+      "rawImage": "step-039.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 532.75,
-            "width": 128.59375,
-            "height": 44
+            "x": 1755,
+            "y": 399.5625,
+            "width": 96.4376220703125,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.default"
         }
       ],
-      "bytes": 221034,
-      "sha256": "a23967b19572fe99f6ecf0873241c789c785f5bf6b679a81f1fd26da49848f09",
-      "rawBytes": 293240,
-      "rawSha256": "6c391556df1cfd2c69ef28345c37bb4aad4859faceaad20c091efec15ef4a889"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-033.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 120434,
+      "sha256": "92d15ed1aa85457c37887fc751926465d4a5ce6c77d868c2e1c843b69bee516a"
+    },
+    {
+      "file": "step-033.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137572,
+      "sha256": "9921bb1e2a905f0d24b09fd7c8a59f6299f8e38cded79b99ab989b5c827b2a4a"
+    },
+    {
+      "file": "step-034.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 126744,
+      "sha256": "707cb61349e63e9efec010e3a268ca4abb1685899d9599f55e096cedda82163d"
+    },
+    {
+      "file": "step-034.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142099,
+      "sha256": "88dd8bf4b58da19f7e825def301a5b016f73c2cd3707246eb139cb44844611f3"
+    },
+    {
+      "file": "step-035.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119901,
+      "sha256": "26a5c35b84cffa9705c7341643d1b4443c55fc5941169c1354c0e750f0db64a1"
+    },
+    {
+      "file": "step-035.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137477,
+      "sha256": "b066c1b6f73f4e47b41e1c345fd7fcf99fc0556bb4bfaed30f1ac73350b6e913"
+    },
+    {
+      "file": "step-036.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 120989,
+      "sha256": "0aa1298e13115e7b692131f1ea5db6d793b3ed8da92bb222f75004923e3b5d42"
+    },
+    {
+      "file": "step-036.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 138958,
+      "sha256": "f628fc21de508556072020562de4ecd9d3514a507dd76be7385a8c117aa567bf"
+    },
+    {
+      "file": "step-037.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93421,
+      "sha256": "91752af30c489f0f3b0fe4eb2d046d337d89c1f4b224f5b11a690fc75f26ce92"
+    },
+    {
+      "file": "step-037.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148544,
+      "sha256": "1ac0e2181f4c2a129688ba9b2a9aa36aeb7e793180d5aba0da575605fc9b097c"
+    },
+    {
+      "file": "step-038.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 126862,
+      "sha256": "2ea9ab40d8f6d8665eb5b9cd9590d6cf344587da63181ede40977ab55eb77e81"
+    },
+    {
+      "file": "step-038.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 144839,
+      "sha256": "e586ac67cb6f5101505a8778216ebcc8092b3db230ab30d6152f1e13da24627e"
+    },
+    {
+      "file": "step-039.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 128079,
+      "sha256": "51bc6d02e603e50e08d40de8b961d157cf52f8073d193558c08b37c471fe9e72"
+    },
+    {
+      "file": "step-039.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 145472,
+      "sha256": "90baa781a2f5bc6463889784e76a01f39c3d2887aab21ab65e0eb5cca91edc74"
     }
   ]
 }

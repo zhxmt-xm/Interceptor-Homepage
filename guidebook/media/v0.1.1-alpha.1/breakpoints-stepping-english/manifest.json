@@ -3,57 +3,33 @@
   "chapter": "breakpoints-stepping-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "breakpoints/queue-stepping.workflow.ts",
-    "manifestSha256": "c0b1834bc7929fc69b2b80b57882980df4e112e3f92a4442acee11071e4c908a",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "breakpoints.queue-stepping advances from the latest HTTP snapshot without stealing focus",
+    "manifestSha256": "41b49c7a769047d5d206f782f30e0d5688aa9a9c9c8fdf918a26bf86949e8578",
+    "workflowSha256": "1677845d2c748a722e3d1c9c38fc435b0d3877f533cc57e1027fe1e88e6230ea",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
-    {
-      "id": "step-001",
-      "title": "构造并断言：依次挂起十一条真实请求，证明超过旧上限后的每次命中仍保持等待。 / Arrange and assert: enqueue eleven real requests, proving every hit beyond the former limit remains pending.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-001.png",
-      "rawImage": "step-001.png"
-    },
-    {
-      "id": "step-002",
-      "title": "清理：由真实客户端断开释放十一条等待项，再开始后续逐项推进场景。 / Cleanup: real client disconnects release all eleven items before the stepping scenario starts.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-002.png",
-      "rawImage": "step-002.png"
-    },
-    {
-      "id": "step-003",
-      "title": "构造：按确定顺序挂起A、B、C，并验证公开的队列位置。 / Arrange: enqueue A, B, C in a deterministic order and prove their public queue positions.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-003.png",
-      "rawImage": "step-003.png"
-    },
     {
       "id": "step-004",
       "title": "原样放行当前HTTP队首 / Continue the current HTTP head without edits",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2781.546875,
-            "y": 1653,
-            "width": 136.53125,
-            "height": 60
+            "x": 2088.1563720703125,
+            "y": 1239.5000610351562,
+            "width": 101.40618896484375,
+            "height": 45
           },
           "automationId": "breakpoints.continue-unmodified"
         }
@@ -63,91 +39,22 @@
         "width": 1600,
         "height": 900
       }
-    },
-    {
-      "id": "step-005",
-      "title": "操作：中止中间客户端，再继续A；选择必须根据最新快照推进到C。 / Act: abort the middle client, then continue A and require selection to advance to C from the latest snapshot.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-005.png",
-      "rawImage": "step-005.png"
-    },
-    {
-      "id": "step-006",
-      "title": "操作：加入D并查看普通流量，再中止C；D成为队首但不得夺取Capture焦点。 / Act: queue D, view ordinary traffic, then abort C; D becomes head without taking Capture focus.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-006.png",
-      "rawImage": "step-006.png"
-    },
-    {
-      "id": "step-007",
-      "title": "断言与清理：显式选择D后才出现编辑器；已中止请求绝不抵达origin。 / Assert and cleanup: D only becomes editable after explicit selection; aborted requests never reach origin.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-007.png",
-      "rawImage": "step-007.png"
     }
   ],
   "assets": [
     {
-      "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 379456,
-      "sha256": "07f0aa498e5bc2ca4285d5ddf910832d9463c3c90ba1ba79100d166dcd37c868"
-    },
-    {
-      "file": "step-002.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 395502,
-      "sha256": "f05fc22a25edb461f548c1cc497d15c807102af4c17f0da1c24c61a4377db6a0"
-    },
-    {
-      "file": "step-003.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 407043,
-      "sha256": "68aec7cf6011bf948faad76b3ac66ddd7fa60ab5ebd1121e10b4bf810c909ba1"
-    },
-    {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 523108,
-      "sha256": "80bc8c3e6667c0906504616c72a557ca114b744de763650cbce79926005e6b62"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 288242,
+      "sha256": "724919b77373480d93dbc4f568390034d8651eeac5c1278092fe50c7bda90688"
     },
     {
       "file": "step-004.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 374419,
-      "sha256": "fe1af33d69987cd0fee90ca3b0d68d9344c6d13b32d0039d5fa38c9d5b623b3d"
-    },
-    {
-      "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 525846,
-      "sha256": "4061cbb705dac45e42a5e34cfa8b828ab3f20127bcc9a6a055b45ee4ac7d5757"
-    },
-    {
-      "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 546202,
-      "sha256": "d114a61b19d69d4fb26ad5da4f6410d74d9dd02a95d4cee5357e7e04316d5afd"
-    },
-    {
-      "file": "step-007.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 564825,
-      "sha256": "48d5825968368999057dce8cb5504f04d33467b39819c7c0199a493bbe2ac869"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 265296,
+      "sha256": "40ad6ebe05ddf481800cc39cc95a031d80182e104ea21796ea3e1b986495092d"
     }
   ]
 }

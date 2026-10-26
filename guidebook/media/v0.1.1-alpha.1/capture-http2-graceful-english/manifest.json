@@ -2,38 +2,15 @@
   "schemaVersion": 1,
   "chapter": "capture-http2-graceful-english",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/http2-origin-goaway.workflow.ts",
     "test": "capture.http2-origin-goaway drains a paused response before retiring its upstream session",
-    "run": "2026-10-21T19-20-21-252Z-OBUvxl",
-    "testDirectory": "capture-http2-origin-goawa-b9549-tiring-its-upstream-session-macos",
-    "manifestSha256": "5e358758d3e3b659aefe374cb335d1d9e68da4c1f26c5546b3716aea22f42fec",
-    "metadataSha256": "8c1fe203f04395bbcaaa97686aa40f97d385ac237119d9b29ed458b63914a305",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "facts": {
-    "origin": "https://localhost:56511",
-    "method": "POST",
-    "pausedPath": "/e2e/h2/origin-goaway/paused",
-    "completedResponseBytes": 4194304,
-    "trailer": "x-goaway-complete",
-    "nextPath": "/e2e/h2/origin-goaway/next",
-    "nextMethod": "POST",
-    "nextResponseBytes": 62,
-    "note": "step-002 is after the real Continue; do not present it as a paused editor"
-  },
-  "review": {
-    "eachFrameVisuallyReviewed": true,
-    "rawAndAnnotatedShaBytesDimensionsVerified": true,
-    "sourceImagesUnchanged": true,
-    "unrelatedModalFramesExcluded": true
+    "manifestSha256": "112a96ffb9e363d6c71db0c21aada63ae6873dd2bce34fd0a7bd5a596786dfa8",
+    "workflowSha256": "fbc2a896f3167465390ff18e9e520a236f75d1d32cab0def401fa392b82cb97d",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -42,23 +19,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "bytes": 275975,
-      "sha256": "e449efcc3a1c734b60e7c45e249aeedb33b481c96266889b67868cff8fef099f",
-      "rawBytes": 399218,
-      "rawSha256": "acedfb0323b9ab2122a816d199fc691b475b8401bc1c6199964b6cd3bcbd1587",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 1499.75,
-            "width": 804,
-            "height": 72
+            "x": 1755,
+            "y": 1125.0625305175781,
+            "width": 603,
+            "height": 54
           },
           "automationId": "capture.inspector.section.response-trailers"
         }
@@ -75,23 +46,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "bytes": 232051,
-      "sha256": "fb046584c88ee52df503ee72360985811c959c2afc537147f93a86a5fd59265f",
-      "rawBytes": 310481,
-      "rawSha256": "4a5fb5759852ae379cacdd3f431d332d551d93376a1ced634f707d51fe91c7ef",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2542,
-            "y": 532.75,
-            "width": 85.46875,
-            "height": 44
+            "x": 1906.4688720703125,
+            "y": 399.5625,
+            "width": 64.1092529296875,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
@@ -101,6 +66,36 @@
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 193390,
+      "sha256": "12dea6344f29d02d263d58e3caa70c9d3510f9d7d55d31b9bb2febd3030dd191"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 182524,
+      "sha256": "f97578f28e6c91a8bd9f789f72bd4eae384ccb2075603c1c46e923e4df83fc68"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 135120,
+      "sha256": "813510276079e29b30a97af5154a3ba548418a7d77952c8319c8430f53d59379"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148625,
+      "sha256": "8ae8f3c19276e110662e9270fb1de58e63f68fa87baa2210db6443c333335e1c"
     }
   ]
 }

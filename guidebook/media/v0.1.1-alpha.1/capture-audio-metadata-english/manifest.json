@@ -2,40 +2,15 @@
   "schemaVersion": 1,
   "chapter": "capture-audio-metadata-english",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/body-media-scenarios.workflow.ts",
     "test": "capture.scenarios.body-media previews images and hex and saves media without loading players",
-    "run": "2026-10-21T19-01-48-619Z-tbNOPz",
-    "testDirectory": "capture-body-media-scenari-1bc03-dia-without-loading-players-macos",
-    "manifestSha256": "b114bc241693cbe613e3f84edc5df83e079371a5388d89839ba2f22164724901",
-    "metadataSha256": "f296cec70744f835a24d626f1431a79446965a7ced18c8734bd107c6867af728",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "facts": {
-    "method": "GET",
-    "path": "/playground/body/audio",
-    "mime": "audio/wav",
-    "bytes": 48,
-    "file": "body-audio.wav"
-  },
-  "notes": [
-    "All three images show the same audio example, not a gRPC or HTTP JSON body.",
-    "MIME and 48 B are visible above box 1. No player is loaded; no duration or codec-decoding claim is made.",
-    "The native Save dialog is English and unnumbered."
-  ],
-  "review": {
-    "eachFrameVisuallyReviewed": true,
-    "rawAndAnnotatedShaBytesDimensionsVerified": true,
-    "nativeSavesEnglish": true,
-    "sourceImagesUnchanged": true,
-    "runnerRequiresFullScrollAncestorIntersection": 1
+    "manifestSha256": "13140b7f18401f6c10b9ea74da935a4af85a42c42ef87b2ed1832d0451740b65",
+    "workflowSha256": "0d9a1440de109714c94fa1d4f11f0ad4ab769fb69dd5865abcd4357b5284d2dc",
+    "capture": "renderer+native-window",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -44,23 +19,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-007.png",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
-      "bytes": 227202,
-      "sha256": "42a578a86373a0f72fb32cb218c3cc952cc51bc5cd2b7f9f1b45c6e5135fe1ba",
-      "rawBytes": 293857,
-      "rawSha256": "30ba2d6f12d77dd17aedf8a9fb012b1071c0684f6a7c4871769ab0e7c8f544f5",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2649.640625,
-            "y": 1232.828125,
-            "width": 204.71875,
-            "height": 56
+            "x": 1987.734375,
+            "y": 924.5000610351562,
+            "width": 152.53125,
+            "height": 42
           },
           "automationId": null
         }
@@ -77,16 +46,9 @@
       "language": "en",
       "theme": "light",
       "window": "native-dialog",
-      "width": 860,
-      "height": 390,
-      "sourceImage": "step-008.png",
+      "capture": "native-window",
       "image": "step-008.png",
-      "rawImage": "step-008.png",
-      "bytes": 53963,
-      "sha256": "eebae35921b7e38f2e356106c0c998b2fdf8c1ef30d87f8219272b6ba8c66aca",
-      "rawBytes": 53963,
-      "rawSha256": "eebae35921b7e38f2e356106c0c998b2fdf8c1ef30d87f8219272b6ba8c66aca",
-      "highlights": []
+      "rawImage": "step-008.png"
     },
     {
       "id": "step-009",
@@ -94,23 +56,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
-      "bytes": 226791,
-      "sha256": "43a11f28f08b91e82961b0cd661ae6013a3149e2493da13248401ae46bf89732",
-      "rawBytes": 293121,
-      "rawSha256": "9a2388917a3f3f42e74b81f3fe226f62bec947765a11d2eb1c492d2000195916",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2649.640625,
-            "y": 1232.828125,
-            "width": 204.71875,
-            "height": 56
+            "x": 1987.734375,
+            "y": 924.5000610351562,
+            "width": 152.53125,
+            "height": 42
           },
           "automationId": null
         }
@@ -120,6 +76,43 @@
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-007.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 123940,
+      "sha256": "4d7f3162f0e6b5859325f4046961a74123ca9ed9aa8d3a3ff27b1d2a87cf5a86"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 140526,
+      "sha256": "a07b1be533df4dc448bc639a7bf43583fabf55a497c6e962e95fbacf38f2fdfd"
+    },
+    {
+      "file": "step-008.png",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 32438,
+      "sha256": "e8d32decd4e07f3ca1e0397df2141610b9e8a4c8f10cd1a1b67c5ed365e9530f"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 123699,
+      "sha256": "30555cbad1f161cc0bdc989bf461b55e6e8176a34ac683a0167c812abf580f4e"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 140206,
+      "sha256": "0f574df35316b9dcc5795535d08054da9d55568896bb83fda59302f6be7a37ec"
     }
   ]
 }

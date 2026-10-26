@@ -31,7 +31,7 @@ When a send, proxy or file operation fails, note its time and the action you per
 
    ![Select a record and inspect details · 6](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-043.png)
 
-7. <a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>Scroll to the bottom of the list and use Load earlier records. Wait for older records to be added; this is different from refreshing the latest records or loading the entire database at once.
+7. <a id="walkthrough-diagnostics-lifecycle-17-earlier"></a>Scroll to the bottom of the list and click Load earlier records. The button is at the bottom, but the older records it loads appear at the top. Previously loaded records remain. The button disappears when no earlier records are available; this is different from refreshing the latest records or loading the entire database at once.
 
    ![Select a record and inspect details · 7](../media/v0.1.1-alpha.1/diagnostics-workflow-english/step-044.png)
 

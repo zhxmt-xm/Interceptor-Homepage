@@ -1,55 +1,44 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
-  "appLanguage": "en",
-  "source": {
-    "workflow": "capture/tools-har-transfer.workflow.ts",
-    "test": "capture.tools.har-transfer exports and imports real HAR files through Agent and MCP",
-    "run": "2026-10-21T14-22-36-893Z-Oo9Ie8",
-    "testDirectory": "capture-tools-har-transfer-49de8-files-through-Agent-and-MCP-macos",
-    "manifestSha256": "ebec34dbbe59db9ecaef54745be03c149a73574b651867c6b2c76da92ef945d6",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "relaunchGracefulDestroyVerified": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
-  },
   "chapter": "capture-har-privacy-english",
   "title": {
     "zh-CN": "HAR隐私与正文导出选项",
     "en": "HAR privacy and body export options"
   },
+  "appVersion": "0.1.1-alpha.1",
+  "appLanguage": "en",
+  "platform": "Windows x64",
+  "source": {
+    "workflow": "capture/tools-har-transfer.workflow.ts",
+    "test": "capture.tools.har-transfer exports and imports real HAR files through Agent and MCP",
+    "manifestSha256": "14a57a3dd3b62f80aacc27003ac1af1cbb3256d0238d09a51d32168055065c2a",
+    "workflowSha256": "d5cecf5147e26bcef70a1ac854b267275cc789d885bd9d1f480bc759621722bb",
+    "capture": "renderer+native-window",
+    "target": "packaged-app"
+  },
   "steps": [
     {
       "id": "step-023",
       "title": "确认override的HAR隐私与正文选项后Export / Confirm override HAR privacy and body options, then Export",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-023.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-023.annotated.png",
       "rawImage": "step-023.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1771.015625,
-            "y": 1308.5625,
-            "width": 298.984375,
-            "height": 68
+            "x": 1329.7656555175781,
+            "y": 979.40625,
+            "width": 223.23440551757812,
+            "height": 51
           },
           "automationId": "capture.transfer.start"
         }
       ],
-      "bytes": 296099,
-      "sha256": "a7fc76c166c47673c441bf35256507e288e6a30ecabd87d519f8f5a13955d7ca",
-      "rawBytes": 331788,
-      "rawSha256": "765d6a6371544be603234628e3216cdec3983173d077d12e2eca653e188e3b85",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -58,82 +47,35 @@
     {
       "id": "step-024",
       "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
       "window": "native-dialog",
-      "language": "en",
-      "theme": "light",
-      "width": 860,
-      "height": 390,
-      "sourceImage": "step-024.png",
+      "capture": "native-window",
       "image": "step-024.png",
-      "rawImage": "step-024.png",
-      "coordinateSpace": "image-pixels",
-      "highlights": [],
-      "bytes": 50174,
-      "sha256": "6ba00ff97f7a2323972918dacd33ce8b88822e66bfc6155e635480ca1d8383e1",
-      "rawBytes": 50174,
-      "rawSha256": "6ba00ff97f7a2323972918dacd33ce8b88822e66bfc6155e635480ca1d8383e1"
-    },
-    {
-      "id": "step-025",
-      "title": "override的实际隐私结果验证后返回Capture / Return to Capture after verifying the override export privacy result",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-025.png",
-      "image": "step-025.annotated.png",
-      "rawImage": "step-025.png",
-      "coordinateSpace": "image-pixels",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 3124,
-            "y": 105,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "capture.export-menu"
-        }
-      ],
-      "bytes": 216261,
-      "sha256": "d743558949f9f80b9c0c78906353a649e09b367daa6a0fb859ab3273831a05d0",
-      "rawBytes": 288922,
-      "rawSha256": "e860e0d3633d3c56134b62df2e0fd062ff68a83f03997dfdde68baaec1c710e2",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
+      "rawImage": "step-024.png"
     },
     {
       "id": "step-026",
       "title": "确认plain的HAR隐私与正文选项后Export / Confirm plain HAR privacy and body options, then Export",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-026.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-026.annotated.png",
       "rawImage": "step-026.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1771.015625,
-            "y": 1308.5625,
-            "width": 298.984375,
-            "height": 68
+            "x": 1329.7656555175781,
+            "y": 979.40625,
+            "width": 223.23440551757812,
+            "height": 51
           },
           "automationId": "capture.transfer.start"
         }
       ],
-      "bytes": 295956,
-      "sha256": "b30065e970ca84ee864d5175bc651f3e5458e05e22f1a06283d378e3cda555c7",
-      "rawBytes": 331815,
-      "rawSha256": "96147be759f2d6ecad53b1b5dccb3d01d14253baddd3875000673fd22dc6b52a",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -142,82 +84,35 @@
     {
       "id": "step-027",
       "title": "选择本次文件位置 / Choose this operation’s file location",
+      "language": "en",
+      "theme": "light",
       "window": "native-dialog",
-      "language": "en",
-      "theme": "light",
-      "width": 860,
-      "height": 390,
-      "sourceImage": "step-027.png",
+      "capture": "native-window",
       "image": "step-027.png",
-      "rawImage": "step-027.png",
-      "coordinateSpace": "image-pixels",
-      "highlights": [],
-      "bytes": 49175,
-      "sha256": "05efd20f45676d67c507a3c7edd951543cf4135db6c7008cf17ffd05c662304e",
-      "rawBytes": 49175,
-      "rawSha256": "05efd20f45676d67c507a3c7edd951543cf4135db6c7008cf17ffd05c662304e"
-    },
-    {
-      "id": "step-028",
-      "title": "plain的实际隐私结果验证后返回Capture / Return to Capture after verifying the plain export privacy result",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-028.png",
-      "image": "step-028.annotated.png",
-      "rawImage": "step-028.png",
-      "coordinateSpace": "image-pixels",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 3124,
-            "y": 105,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "capture.export-menu"
-        }
-      ],
-      "bytes": 216261,
-      "sha256": "d743558949f9f80b9c0c78906353a649e09b367daa6a0fb859ab3273831a05d0",
-      "rawBytes": 288922,
-      "rawSha256": "e860e0d3633d3c56134b62df2e0fd062ff68a83f03997dfdde68baaec1c710e2",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
+      "rawImage": "step-027.png"
     },
     {
       "id": "step-029",
       "title": "确认stripped的HAR隐私与正文选项后Export / Confirm stripped HAR privacy and body options, then Export",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-029.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-029.annotated.png",
       "rawImage": "step-029.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1771.015625,
-            "y": 1308.5625,
-            "width": 298.984375,
-            "height": 68
+            "x": 1329.7656555175781,
+            "y": 979.40625,
+            "width": 223.23440551757812,
+            "height": 51
           },
           "automationId": "capture.transfer.start"
         }
       ],
-      "bytes": 296249,
-      "sha256": "2c75f2ebeced278552634dd34949d6019c5ce680270a21e8e3742aba8b4f65b5",
-      "rawBytes": 332118,
-      "rawSha256": "5017d68852c456aab4faa2a1cd8ff7c42e5dc2f63b82067dbac6b68a8ca98143",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
@@ -226,53 +121,118 @@
     {
       "id": "step-030",
       "title": "选择本次文件位置 / Choose this operation’s file location",
-      "window": "native-dialog",
       "language": "en",
       "theme": "light",
-      "width": 860,
-      "height": 390,
-      "sourceImage": "step-030.png",
+      "window": "native-dialog",
+      "capture": "native-window",
       "image": "step-030.png",
-      "rawImage": "step-030.png",
-      "coordinateSpace": "image-pixels",
-      "highlights": [],
-      "bytes": 50590,
-      "sha256": "63a342c7c67a055a3762585ae2feaec2876082c589c92f04e71197d559c59921",
-      "rawBytes": 50590,
-      "rawSha256": "63a342c7c67a055a3762585ae2feaec2876082c589c92f04e71197d559c59921"
+      "rawImage": "step-030.png"
     },
     {
       "id": "step-031",
       "title": "stripped的实际隐私结果验证后返回Capture / Return to Capture after verifying the stripped export privacy result",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-031.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-031.annotated.png",
       "rawImage": "step-031.png",
-      "coordinateSpace": "image-pixels",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3124,
-            "y": 105,
-            "width": 60,
-            "height": 60
+            "x": 2213.5001220703125,
+            "y": 79.00000190734863,
+            "width": 45,
+            "height": 45.0000057220459
           },
           "automationId": "capture.export-menu"
         }
       ],
-      "bytes": 216261,
-      "sha256": "d743558949f9f80b9c0c78906353a649e09b367daa6a0fb859ab3273831a05d0",
-      "rawBytes": 288922,
-      "rawSha256": "e860e0d3633d3c56134b62df2e0fd062ff68a83f03997dfdde68baaec1c710e2",
+      "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-023.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 147081,
+      "sha256": "a88e394c8ffb0dd2015a3779736e8cb224a29bbacbc78428baeea3e66c01b848"
+    },
+    {
+      "file": "step-023.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 185763,
+      "sha256": "8fc06f52aa408e37df239897214a995823637079978057624697e51a29802ebe"
+    },
+    {
+      "file": "step-024.png",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 39165,
+      "sha256": "e8ca4907350ac46c54edf62a216653b1953972dd5f444a69dcf224dd1ef701f3"
+    },
+    {
+      "file": "step-026.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 143727,
+      "sha256": "029e638b042c9b6c99b03cb77443ad557a234d5c32b51295d130ce1d302fb8d2"
+    },
+    {
+      "file": "step-026.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 180793,
+      "sha256": "64802deb9243a382c9e72584d16923efcade0559a06fc064fea1a07845119ff2"
+    },
+    {
+      "file": "step-027.png",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 41046,
+      "sha256": "93ec2b80c4dec616f332049438220f63000f030afeef447f9c592932f9d3872e"
+    },
+    {
+      "file": "step-029.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 143973,
+      "sha256": "30fe8f444ff264d00a662fde5163727db3d0937c55f6a0e7a5d86252a8ad1586"
+    },
+    {
+      "file": "step-029.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 181049,
+      "sha256": "e1f0ec25e27fd1ee2d9efdaf136246145d2ba2125a1e6dd84529335244023473"
+    },
+    {
+      "file": "step-030.png",
+      "width": 1800,
+      "height": 1080,
+      "bytes": 43112,
+      "sha256": "589f97d5d0835fa447a4b538392d9cfa3682f119c8629e3ea8f53e54647753fb"
+    },
+    {
+      "file": "step-031.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 102845,
+      "sha256": "284b0a64927ab88fa5f97f918f6d9e3d6fa8d7158eec8f093582ed1680bbf713"
+    },
+    {
+      "file": "step-031.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150859,
+      "sha256": "169211f65d905b85afbcf89912d407595733573a388cb727c320883358437581"
     }
   ]
 }

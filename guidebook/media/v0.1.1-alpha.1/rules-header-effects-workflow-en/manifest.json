@@ -2,162 +2,182 @@
   "schemaVersion": 1,
   "chapter": "rules-header-effects-workflow-en",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "published-reader-validation-pending",
+  "platform": "Windows x64",
   "source": {
     "workflow": "rules/body-effect-evidence.workflow.ts",
     "test": "rules.body-effect-evidence keeps breakpoint header effects aligned",
-    "run": "2026-10-21T11-05-20-545Z-PWrqzA",
-    "testDirectory": "rules-body-effect-evidence-7cdc3-oint-header-effects-aligned-macos",
-    "manifestSha256": "db4cbf616bbf850a3b8d3ba69ef34bb585a4f8044af755466a6d6b2d3e1f09e2",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "review": {
-    "actualRendererLanguage": "en",
-    "captureRows": "Only workflow-owned loopback requests are visible.",
-    "failedRootNotAdopted": true,
-    "originPort": 52974,
-    "requestRule": "E2E request header layout",
-    "responseRule": "E2E response header layout",
-    "scope": "Header source markers after Continue unmodified; both rules contain same-phase Header and Breakpoint actions. Do not label them as E2E action variants."
+    "manifestSha256": "223cd08d0fb7a399a4b38f7279a564e3bdcf4606a2e44ab81751bb894166d9fb",
+    "workflowSha256": "2812be889b555f9fd48651ca5f48e0583baafb44515e3c8f46f702aeb7812fa7",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-002",
       "title": "Capture中查看request Header来源 / Inspect the request Header source in Capture",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-002.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2840.203125,
-            "y": 1703.75,
-            "width": 101.40625,
-            "height": 36
+            "x": 2130.1563720703125,
+            "y": 1251.0625305175781,
+            "width": 75.06243896484375,
+            "height": 27
           },
-          "automationId": "capture.rule-effect.rule-e39eea1e-4ed4-47ba-aac8-d7afc3a672ea.set.x-effect-layout"
+          "automationId": "capture.rule-effect.rule-e1834fe4-9ff6-4986-b60c-886e0d82adbd.set.x-effect-layout"
         }
       ],
-      "rawImage": "step-002.png",
-      "bytes": 291021,
-      "sha256": "cb3a287f5ccc51523eb9cd25a1a6d8eb67dd28815f40ba3414fd7556170192da",
-      "rawBytes": 419195,
-      "rawSha256": "14089a64e4c5dd071e1cf809145ec87cdc02ce97a033f9396bdbd21af3ca3cc2"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-003",
       "title": "从request Header标记返回原Rule / Return to the original Rule from the request Header marker",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-003.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 224,
-            "y": 196,
-            "width": 424.109375,
-            "height": 84
+            "x": 168,
+            "y": 147,
+            "width": 318.09375,
+            "height": 63
           },
-          "automationId": "rules.target.rule-e39eea1e-4ed4-47ba-aac8-d7afc3a672ea"
+          "automationId": "rules.target.rule-e1834fe4-9ff6-4986-b60c-886e0d82adbd"
         }
       ],
-      "rawImage": "step-003.png",
-      "bytes": 172286,
-      "sha256": "848ddcffa9411b1b9e9c6a8aae79ac1e77c05bb96ed743a8646b52e0daf4598d",
-      "rawBytes": 256859,
-      "rawSha256": "66964d2c854452ceecb4947c3bc94733929ad09957c329ccdd4c639b45bb775f"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-008",
       "title": "Capture中查看response Header来源 / Inspect the response Header source in Capture",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-008.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-008.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-008.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2840.203125,
-            "y": 1410.75,
-            "width": 165.484375,
-            "height": 36
+            "x": 2130.1563720703125,
+            "y": 1098.5625,
+            "width": 123.09375,
+            "height": 27
           },
-          "automationId": "capture.rule-effect.rule-383b7870-bc94-42de-a7a7-f1adf5a44f24.append.x-effect-layout"
+          "automationId": "capture.rule-effect.rule-c63f5aa6-447b-4b67-8ab4-0d6b0cd6aec7.append.x-effect-layout"
         }
       ],
-      "rawImage": "step-008.png",
-      "bytes": 281195,
-      "sha256": "308442754af3aa38a8331497a72fb3ee9a9402ae23a34f56cecfaa97ebcca727",
-      "rawBytes": 403056,
-      "rawSha256": "ce390ad575ac66d12a267472427b451d6d3e96545437b966f0b88d1dbbc65653"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-009",
       "title": "从response Header标记返回原Rule / Return to the original Rule from the response Header marker",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
+      "rawImage": "step-009.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 224,
-            "y": 292,
-            "width": 424.109375,
-            "height": 84
+            "x": 168,
+            "y": 219,
+            "width": 318.09375,
+            "height": 63
           },
-          "automationId": "rules.target.rule-383b7870-bc94-42de-a7a7-f1adf5a44f24"
+          "automationId": "rules.target.rule-c63f5aa6-447b-4b67-8ab4-0d6b0cd6aec7"
         }
       ],
-      "rawImage": "step-009.png",
-      "bytes": 187097,
-      "sha256": "6f0c4f2012f1cd7f62b8398964b8ac953fcbdf594bbab643bc372a1a00b430d2",
-      "rawBytes": 278148,
-      "rawSha256": "2cdcefb3407c24b5c93c66f128bef40d07cf1a9b28b7f442930b5e1925bbe1a7"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 202219,
+      "sha256": "4b2b81e2e914240f3bec238d239442137a8a681bdd44adce385ccb24be56964c"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 190297,
+      "sha256": "f6f713c106c645d518cc47363554f5fcd84c19dac78cc206fddb06505bdab589"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99327,
+      "sha256": "44fcf198bbfccadf0371e71dabaab2b37df884ec3f425e38f7f69541302c8387"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 107395,
+      "sha256": "bc96d23858e4435caa602b2ed8a5eacfed68edd9357cead63e7697f4fc75a35b"
+    },
+    {
+      "file": "step-008.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 197893,
+      "sha256": "fa35a12e2029890560e0da14ca238408b9afef002fd899e5e033c180afae3c56"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 187183,
+      "sha256": "4fb45c364d76ba7cb637c477db60f1bd5b43683f4c23ba0512ba6ec09b03b41a"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 111710,
+      "sha256": "47fbef2e99803510a89e80dccbb30ca24f8f008bca63655777df0ba5971f1e69"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 116378,
+      "sha256": "034ae811a0c3d8fa21c707c2ceb9af4cb9e1a57b68a3d8106ec4f1d9656bf9d1"
     }
   ]
 }

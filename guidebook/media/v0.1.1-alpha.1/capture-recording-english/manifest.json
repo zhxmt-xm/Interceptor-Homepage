@@ -6,250 +6,305 @@
     "en": "Capture recording, pause and resume"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/recording-pause-resume.workflow.ts",
     "test": "capture.recording.pause-resume fixes recording at request and WebSocket upgrade start",
-    "run": "2026-10-21T09-22-01-498Z-8pTCmx",
-    "testDirectory": "capture-recording-pause-re-7ed23-and-WebSocket-upgrade-start-macos",
-    "manifestSha256": "0c5a8c9f672dcb11196592632ee8e9e9b99d52c41ee30f4a7ac6be3ba5356cb2",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "d2558025eb838dadf03b961c3c5b3c3ccddd1212da13b2cfee45c2dd4cd4a5fb",
+    "workflowSha256": "e65e91c3a2928d3e9a86bcff96773598e2fabb54892fe2927858325c7ccca55d",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-001",
       "title": "搜索本轮录制路径 / Search for this recording path",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-001.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-001.annotated.png",
       "rawImage": "step-001.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1533,
-            "y": 118.234375,
-            "width": 584,
-            "height": 33.515625
+            "x": 1149.2500305175781,
+            "y": 88.93750190734863,
+            "width": 439.0000305175781,
+            "height": 25.1250057220459
           },
           "automationId": "capture.filter.keyword"
         }
       ],
-      "bytes": 142440,
-      "sha256": "25d5c5ec2b12a1bc5983e8049495b4a2b5d4d174c09134b22628992f3c1bc0c4",
-      "rawBytes": 219568,
-      "rawSha256": "d8e1b8dd7bf6d2edb6ccaf9bce260c4372712ee2982d480853cabe213f483409"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-002",
       "title": "确认Recording已开启 / Confirm Recording is enabled",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 198.109375,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 148.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         }
       ],
-      "bytes": 142593,
-      "sha256": "f34088a67d78fafe90525318ec1a9eb624b23eb54b713691f7047f234c38d813",
-      "rawBytes": 219568,
-      "rawSha256": "d8e1b8dd7bf6d2edb6ccaf9bce260c4372712ee2982d480853cabe213f483409"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-003",
       "title": "选择已录制连接并打开Messages / Select the recorded connection and open Messages",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2485.015625,
-            "y": 292,
-            "width": 171.84375,
-            "height": 82.75
+            "x": 1863.7657470703125,
+            "y": 219,
+            "width": 128.87493896484375,
+            "height": 62.0625
           },
           "automationId": "capture.inspector.tab.messages"
         }
       ],
-      "bytes": 217896,
-      "sha256": "d77c4e40341a8d4afce8a2e98214309c74124ed916cb63f5dd6a02b4b81f9df1",
-      "rawBytes": 306486,
-      "rawSha256": "102b7420a10738a224286b5cf57ef3e4e2d7bb26ad4a1817e27a76d370a775a0"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-004",
       "title": "点击Recording暂停新请求录制 / Pause recording new requests",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-004.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 166.125,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 124.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         }
       ],
-      "bytes": 227651,
-      "sha256": "fc40676f4e4b73bc0b6fef80555c88ba1126ef32bfc8303305787c88f93b93c2",
-      "rawBytes": 323762,
-      "rawSha256": "299782bf5a472809abe72efc8a5262e735516a54dc981fafdbb915b781d0430a"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-005",
       "title": "暂停期间旧连接继续记录消息，新请求不新增记录 / The recorded connection keeps its messages while new requests remain uncaptured",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-005.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 166.125,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 124.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         }
       ],
-      "bytes": 242180,
-      "sha256": "505e2eb43006ea872c219c561bd6ec1b100fd86b23656cfc9a2e28ef412f92f3",
-      "rawBytes": 343543,
-      "rawSha256": "5f5a97e9024a0b0b1b9ec721f1ec6967f7e707d40451e742a19271b2abb85dd0"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-006",
       "title": "恢复Recording / Resume Recording",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-006.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-006.annotated.png",
       "rawImage": "step-006.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 198.109375,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 148.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         }
       ],
-      "bytes": 242514,
-      "sha256": "d2b3943cd13d4199e23e7143910fbf1ac7480d5334deb880f3a046d593734a92",
-      "rawBytes": 344310,
-      "rawSha256": "5056859d3f7910cfdb77809cb8fe31cd45d44d551f7f607d604e217a92c4cdb6"
-    },
-    {
-      "id": "step-007",
-      "title": "恢复后查看新连接，暂停期间流量不补录 / Inspect a new connection after resuming without backfilling paused traffic",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-007.png",
-      "image": "step-007.annotated.png",
-      "rawImage": "step-007.png",
       "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
-      },
+      }
+    },
+    {
+      "id": "step-007",
+      "title": "恢复后查看新连接，暂停期间流量不补录 / Inspect a new connection after resuming without backfilling paused traffic",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-007.annotated.png",
+      "rawImage": "step-007.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 560,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 420,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvhwn5v8-dsfld6bx"
+          "automationId": "capture.request-row.ex-mvpm84lq-9b8kmgeq"
         }
       ],
-      "bytes": 240391,
-      "sha256": "64cc3090506b6277df359bd3be87e00e27b97febff8586d9be039b8703425625",
-      "rawBytes": 339139,
-      "rawSha256": "da8dd1eccc2227a0729805f09e97c5db849f23c284f646f7126a72b0c994d590"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 79149,
+      "sha256": "095cb50805e04b748db89e7954dc57125bc2034c543eff34ee162bfba8b7c3de"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 86713,
+      "sha256": "47eae46bbe4bb7b192421348b3dff9935aa35b57fd799a1971b4aec99fcf03e4"
+    },
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 79747,
+      "sha256": "b2c96be6f383bb21fef92fd55eadc442df78acd48f9d079122f40a5d7eadbcbd"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 87149,
+      "sha256": "d6c010d05bff5066df701acf9312926e42127edf27100924af50f7af1a94bb9f"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132289,
+      "sha256": "11ffcbce574fb9f405fbf417b7d3a7a6062883df2ac880d845da154cb4e2b701"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136206,
+      "sha256": "63860fabad1103c189e1aa326248fd8b625e34726f42852afb9b7d53998bcace"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132339,
+      "sha256": "86132e3350a6c1ca0f15223657a8387128a4655ff0154a458a8a32b4d2274d37"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 135770,
+      "sha256": "3fdcbe93fd5dd713a779ecc45620f07f10f2aeb2f9a5f218ebfe000b3d741409"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152085,
+      "sha256": "59c922a89ee649cd66ef8c37bb2db091b1ee2dabc4a498f42718255c3324e620"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152031,
+      "sha256": "948dc57dec99ba8af445d40ca819f594159db15beae32c2635492bb3120c1ca5"
+    },
+    {
+      "file": "step-006.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152403,
+      "sha256": "aabf0db219e7e441187765b9b4a9e82567b419cb12a347ae727e8c9df423ec30"
+    },
+    {
+      "file": "step-006.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152058,
+      "sha256": "0c5801e8f7df71786d8e7f2cd3ecf06b7af6aa98a8b8ba4deb9127a848cebaf4"
+    },
+    {
+      "file": "step-007.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 155268,
+      "sha256": "0cd3d545596b12cce9b8556d4b621b0de435dfd873c9e9fb73f9fadf4eb0e535"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 153071,
+      "sha256": "42ac8998ca929920dcc391270a96b312c58755e99f820bcb06fc91b72c898bc1"
     }
   ]
 }

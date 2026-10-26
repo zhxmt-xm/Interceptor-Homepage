@@ -192,13 +192,15 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 
 以下是独立的请求与响应例子。每次先确认规则阶段和 Path，只启用当前需要的规则，再发送新的请求；已经处理的等待项不能重复提交。JSON 文件示例使用 `/e2e/body-file/`，其余请求变体使用 `E2E request breakpoint` 的 `/e2e/` 范围。
 
-1. <a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>发送 POST `/e2e/header-only`，请求正文为 `{"stage":"header-only"}`、Header `x-edit-stage: original`。选中红框 1 的新请求等待项。
+1. <a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>发送 POST `/e2e/header-only`，请求正文为 `{"stage":"header-only"}`，Headers 为 `x-edit-stage: original` 和 `x-e2e-remove: doomed`。选中红框 1 的新请求等待项。
 
-   ![只改请求 Header、使用文件正文或修改响应状态 · 1](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-014.annotated.png)
+   ![只改请求 Header、使用文件正文或修改响应状态 · 1](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-011.annotated.png)
 
-2. <a id="walkthrough-breakpoints-request-variants-header-02-off"></a><a id="walkthrough-breakpoints-request-variants-header-03-add"></a><a id="walkthrough-breakpoints-request-variants-header-04-name"></a><a id="walkthrough-breakpoints-request-variants-header-05-value"></a><a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>保持 Body Off。把红框 1 的 Content-Type 改为 `application/x-header-only`，红框 2 的 `x-edit-stage` 改为 `edited`，再点击红框 3 的 Forward edited。源站仍收到原来的 JSON 字节，改 Header 不会自动转换正文。
+2. <a id="walkthrough-breakpoints-request-variants-header-02-off"></a><a id="walkthrough-breakpoints-request-variants-header-03-add"></a><a id="walkthrough-breakpoints-request-variants-header-04-name"></a><a id="walkthrough-breakpoints-request-variants-header-05-value"></a><a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>保持 Body Off。把红框 1 的 Content-Type 改为 `application/x-header-only`，红框 2 的 `x-edit-stage` 改为 `edited`。删除 `x-e2e-remove`，新增 `x-e2e-added: added-value`，再点击红框 3 的 Forward edited。源站仍收到原来的 JSON 字节，改 Header 不会自动转换正文。
 
    ![只改请求 Header、使用文件正文或修改响应状态 · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-015.annotated.png)
+
+   在 Capture 打开已完成请求的 Headers。改过的 Header 显示旧值的 replace 和新值的 set；删除的 Header 显示 remove，新增的 Header 显示 set。未编辑的 `content-length` 不带 Breakpoint Header 效果；其他 Rule set 产生的效果仍归属于各自来源。
 
    ![只改请求 Header、使用文件正文或修改响应状态 · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-016.png)
 
@@ -206,7 +208,7 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 
    ![只改请求 Header、使用文件正文或修改响应状态 · 3](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-019.annotated.png)
 
-4. 在 Request 核对红框 1 的 Text 来源标记，在其下方选择 Final，再用 Raw 查看 `{"stage":"body-edited"}`；同时核对源站实际收到的完整内容。
+4. 在 Request 核对红框 1 的 Text 来源标记，在其下方选择 Final，再用 Raw 查看 `{"stage":"body-edited"}`；同时核对源站实际收到的完整内容。打开 Headers，确认这次仅改正文没有产生任何 Breakpoint Header 效果。
 
    ![只改请求 Header、使用文件正文或修改响应状态 · 4](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-021.annotated.png)
 
@@ -286,7 +288,7 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 <a id="queues"></a>
 ## 处理多个等待项
 
-使用自己可控制、允许 POST 和 PUT 的测试服务。示例地址为 `http://127.0.0.1:57756`，操作时换成自己的地址。下面两条规则都限定 Host `127.0.0.1`、Path `/e2e/queue-` 和 Request 阶段；不同 Method 的 HTTP 等待项仍进入同一个队列。
+使用自己可控制、允许 POST 和 PUT 的测试服务。示例地址为 `http://127.0.0.1:61418`，操作时换成自己的地址。下面两条规则都限定 Host `127.0.0.1`、Path `/e2e/queue-` 和 Request 阶段；不同 Method 的 HTTP 等待项仍进入同一个队列。
 
 1. <a id="walkthrough-breakpoints-queue"></a><a id="walkthrough-breakpoints-queue-01-rules"></a><a id="walkthrough-breakpoints-queue-02-post-rule"></a>在 Rules 新建请求断点。红框 1 的名称填 `E2E POST queue commands`，红框 2 的 Method 选 POST；补齐上述 Host、Path 和 Breakpoint 动作，启用后点击 Save。
 
@@ -381,7 +383,7 @@ Continue 忽略本地未提交草稿；Forward edited 才提交编辑；Drop 终
 <a id="walkthrough-breakpoints-manager"></a>
 ## 撤销快捷断点，或临时停用匹配
 
-先在 Capture 找到自己有权调试的历史请求。本节使用 GET `http://127.0.0.1:60784/e2e/capture/breakpoint-submenu-lifecycle`；实际操作换成自己的服务地址。所有新请求都发往同一个接口，旧历史记录不会因为创建规则而重新发送。
+先在 Capture 找到自己有权调试的历史请求。本节使用 GET `http://127.0.0.1:54170/e2e/capture/breakpoint-submenu-lifecycle`；实际操作换成自己的服务地址。所有新请求都发往同一个接口，旧历史记录不会因为创建规则而重新发送。
 
 1. <a id="walkthrough-breakpoints-manager-01-source"></a><a id="walkthrough-breakpoints-manager-02-menu"></a>右键该请求，移入 Breakpoint 子菜单，选择红框 1 的 This endpoint。This path prefix 和 This host 的范围更大，不要在只需一个接口时误选。
 
@@ -615,9 +617,7 @@ HTTP 请求与响应共用一个队列；每条已建立的 WebSocket 连接有�
 
    ![修改 WebSocket 空消息、Ping/Pong 和关闭码 · 5](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-008.annotated.png)
 
-6. Both 还会暂停返回的 Close。确认当前为 Received close，再点击红框 1 的 Continue 原样放行这个方向。等待该连接显示 closed、暂停编辑区消失；发出方向的修改不代表返回方向已经处理。
-
-   ![修改 WebSocket 空消息、Ping/Pong 和关闭码 · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-010.annotated.png)
+6. 确认服务端收到关闭码 `1001`，该连接已没有等待项。客户端此前已用 `1000` 完成自身关闭握手；修改转发给服务端的关闭码，不会改写这次确认。Both 不保证关闭握手的返回 Close 再独立暂停。
 
    ![修改 WebSocket 空消息、Ping/Pong 和关闭码 · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-011.png)
 

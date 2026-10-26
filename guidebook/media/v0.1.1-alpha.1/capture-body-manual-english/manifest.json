@@ -6,151 +6,182 @@
     "en": "Format a large body manually"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/body-preview-limits.workflow.ts",
     "test": "capture.body-preview-limits manual uses the approved read and format budget",
-    "run": "2026-10-21T10-01-02-443Z-34fQvO",
-    "testDirectory": "capture-body-preview-limit-6d906-oved-read-and-format-budget-macos",
-    "manifestSha256": "c64f16a09ab4ab00880e814fe14d860fe2b82e2126852d6f1317818ddc6cfeb9",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "d33f1e5febf401443748cce5aa4e7895318c82f6ae24b2be38ceb7add7037ac7",
+    "workflowSha256": "6a666afd9afd2a64c79f30bd6954712ceab63c41e9ca2ffb4e75cb832720c79d",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-001",
       "title": "打开manual响应并查看Format入口 / Open the manual response and inspect the Format control",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-001.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-001.annotated.png",
       "rawImage": "step-001.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2906,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2179.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.format"
         }
       ],
-      "bytes": 255954,
-      "sha256": "ff4f97971e5242715a956e4954cbf1ffac2e471b451cd15257cfcc4b00ce9d1b",
-      "rawBytes": 348943,
-      "rawSha256": "2c1551f7353c179f9aef1d9d704e2ae0a46789d048ece2fc8e019186b8294cc8"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-002",
       "title": "复制manual当前预览并核对长度 / Copy the manual preview and verify its length",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-002.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3038,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2278.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
       ],
-      "bytes": 275474,
-      "sha256": "35bf9c438ea2f52f69cad1b8f1af3c57872b61a92fefad2bcd96f96977815701",
-      "rawBytes": 377748,
-      "rawSha256": "c2281ea12539783d6b2fcf3a6e57f8ab8a5ffdffd3af9fd48fab85eb3277552d"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-003",
       "title": "手动点击Format / Click Format manually",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2906,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2179.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.format"
         }
       ],
-      "bytes": 273673,
-      "sha256": "1d7d6484490e19dd01ffc9f38bfdb6bc5bbb23d80b7c87237d6dbb70f22b8954",
-      "rawBytes": 372639,
-      "rawSha256": "34581a97c5cbcf761d0285b8465717906d5323935ca0f229d2e9453af611e62a"
-    },
-    {
-      "id": "step-004",
-      "title": "Copy核对格式化后的显示文本 / Copy and verify the formatted display text",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-004.png",
-      "image": "step-004.annotated.png",
-      "rawImage": "step-004.png",
       "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
-      },
+      }
+    },
+    {
+      "id": "step-004",
+      "title": "Copy核对格式化后的显示文本 / Copy and verify the formatted display text",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-004.annotated.png",
+      "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3038,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2278.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
       ],
-      "bytes": 273442,
-      "sha256": "da80bffa14f470cf9b5ac63a2b52795837f50f7309a6c4b0ee65352a28d8c7d5",
-      "rawBytes": 371930,
-      "rawSha256": "50bdeb3e34c2f4afdb39439bbab7c9567a071ee2a32f7cfb54bfbdb095580671"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 145147,
+      "sha256": "a3b0370955c97825eac5819f462f10218d41cf4396e08c68921c04000ab38d47"
+    },
+    {
+      "file": "step-001.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152996,
+      "sha256": "3336668b02867730dda396415d2e9ff6462b7c75ea28bb2b957ff54fc8b339f8"
+    },
+    {
+      "file": "step-002.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 152362,
+      "sha256": "b03f323f32e459f3d82c3abb91d30193d4cbf4d26cdb629982127701ad245e99"
+    },
+    {
+      "file": "step-002.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 160586,
+      "sha256": "496fb1e329d23092124643db6f5f55c723bfff90e6c33beba56c290cf3dd57d5"
+    },
+    {
+      "file": "step-003.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150422,
+      "sha256": "5ba8ef47771718e278feaa10fa49c9c940ac04ec9da4ec60b480251dfba2ed8c"
+    },
+    {
+      "file": "step-003.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 160581,
+      "sha256": "3834517a5e139d052244d209e5b00e5816e90e2fea3c910485d1360d94c861e9"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 155508,
+      "sha256": "745c8f7a4ec868e150020e7372b3bf3002982bc3db91ac96cbd42a3e41cfcdad"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 164952,
+      "sha256": "14d11b39310bc23304f9d0b927c52513a975330f188c6d9f50c0e2687b46b7f7"
     }
   ]
 }

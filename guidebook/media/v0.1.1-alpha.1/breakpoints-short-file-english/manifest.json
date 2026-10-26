@@ -3,12 +3,14 @@
   "chapter": "breakpoints-short-file-english",
   "appVersion": "0.1.1-alpha.1",
   "appLanguage": "en",
-  "platform": "macOS x64",
+  "platform": "Windows x64",
   "source": {
     "workflow": "breakpoints/body-file-preview.workflow.ts",
-    "manifestSha256": "cba63b95800bebea82d963d922a1999f65cdb4bc2854a7ffabbbe6e099d34d58",
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "test": "breakpoints.body-preview short previews a product-saved file but forwards its complete bytes",
+    "manifestSha256": "f82e85c5b237799b617256eb3c542d4319efb8b3e0660c99a4b7cc1d6bca03d4",
+    "workflowSha256": "0b38252eecb0fc9029d16604c0dec9efa54bbaffc584e1c597c76f72c1f32466",
+    "capture": "renderer+native-window",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -17,16 +19,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-001.annotated.png",
       "rawImage": "step-001.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2972,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2229,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.save"
         }
@@ -43,6 +46,7 @@
       "language": "en",
       "theme": "light",
       "window": "native-dialog",
+      "capture": "native-window",
       "image": "step-002.png",
       "rawImage": "step-002.png"
     },
@@ -52,18 +56,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 352,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 264,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvi91ou3-4yu31wo4"
+          "automationId": "capture.request-row.ex-mvpl782r-rrc7byzp"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -78,6 +83,7 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-005.png",
       "rawImage": "step-005.png"
     },
@@ -87,16 +93,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-006.annotated.png",
       "rawImage": "step-006.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2634.125,
-            "y": 1136,
-            "width": 235.75,
-            "height": 64
+            "x": 1976.0782470703125,
+            "y": 852,
+            "width": 175.828125,
+            "height": 48
           },
           "automationId": "breakpoints.file.choose"
         }
@@ -113,26 +120,9 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-008.png",
       "rawImage": "step-008.png"
-    },
-    {
-      "id": "step-009",
-      "title": "布局联动：展开前面的Original后，File必须立即按新剩余空间重算。 / Layout dependency: expanding the preceding Original must immediately update the File height.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-009.png",
-      "rawImage": "step-009.png"
-    },
-    {
-      "id": "step-010",
-      "title": "拖动File预览高度但不修改文件内容 / Resize the File preview without changing its contents",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-010.png",
-      "rawImage": "step-010.png"
     },
     {
       "id": "step-011",
@@ -140,16 +130,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2932.078125,
-            "y": 1653,
-            "width": 243.921875,
-            "height": 60
+            "x": 2200.0625610351562,
+            "y": 1239.5000610351562,
+            "width": 181.93743896484375,
+            "height": 45
           },
           "automationId": "breakpoints.execute-edited"
         }
@@ -166,140 +157,95 @@
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
       "image": "step-012.png",
       "rawImage": "step-012.png"
-    },
-    {
-      "id": "step-013",
-      "title": "完整编辑：Text输入不受只读预览上限影响，末尾追加仍完整到达origin。 / Complete editing: Text input is not capped by readonly preview limits and its appended suffix reaches the origin.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-013.png",
-      "rawImage": "step-013.png"
-    },
-    {
-      "id": "step-014",
-      "title": "清理：失败时经Continue结束请求，fixture验证正常退出和完整宿主恢复。 / Cleanup: settle failures through Continue; the fixture verifies normal exit and complete host restoration.",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "image": "step-014.png",
-      "rawImage": "step-014.png"
     }
   ],
   "assets": [
     {
       "file": "step-001.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 294006,
-      "sha256": "7cb27756bba4fa095dfdc35cee4c1537a7af7129b9e92f1ebdb8b3267abaa120"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121538,
+      "sha256": "ea83cd148daec76b03de06ce41efc5894dd05592b18b026c2e5b39c0d934909d"
     },
     {
       "file": "step-001.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 222611,
-      "sha256": "2fdb84b35e3989a81dfb103dc8291906b9c25f7568fd886fb5599623ccd5055c"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137310,
+      "sha256": "337778db9cd8d1d9574fbbeaa3730b065f402e8efa04aeaa0db7e79823d62286"
     },
     {
       "file": "step-002.png",
-      "width": 860,
-      "height": 390,
-      "bytes": 55371,
-      "sha256": "5e8c90fa4a99041d59da62d6a242e56e6f7f211056c084b536346a62112d2a0c"
+      "width": 1800,
+      "height": 1080,
+      "bytes": 32525,
+      "sha256": "4dd7e9b7dcb7c18205b517a069a99fa46e9ca61cc9aaa72c79d6baa58f649941"
     },
     {
       "file": "step-004.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 356179,
-      "sha256": "a6cf9daf6660f7ce0beae9da88c1a353d1d2913f250da548d673790e57a27df9"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 151619,
+      "sha256": "a4be3b17c11897e5efd0e95ade856025e174b09a75108d223fb12fc463fadb2a"
     },
     {
       "file": "step-004.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 263761,
-      "sha256": "e82e0a3a45f29a6abbe419be34bc1abe6fc9836468c6ea6368597a88ce3925b9"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 155931,
+      "sha256": "1f4e65122a0d27021ce829cff9fd09700b126cc5445bbc25d74b0f21ffae7c4a"
     },
     {
       "file": "step-005.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 334625,
-      "sha256": "302459f314e7409d713458907634224876e1a0357c67fe6c1672396c56837636"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 146339,
+      "sha256": "6c7a147f5a3e2009ddca99b029c7dc92e8296fb146719e3faf90e1fa1c60f321"
     },
     {
       "file": "step-006.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 333315,
-      "sha256": "e334e2e0f2bdd2b4741f43ba1ac0993b9780261e119ee83e13f1ba301e95faaf"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 144730,
+      "sha256": "e163e7786e4b750fd70e526b33a6b7a2e5b8a3531eed6f797f4c11f7ac09005d"
     },
     {
       "file": "step-006.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 240065,
-      "sha256": "71b979dbfbbb8496e0757027cb02c08d42691957b8da45c7a355a1a979b879db"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150422,
+      "sha256": "a76c2d15315af0d18a729d86bff2100e9da12fd2ba994eab0de78839c06ccd1c"
     },
     {
       "file": "step-008.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 372628,
-      "sha256": "fe1f8bf51fec561f7f6395375fbb5efc20de3dc265060fafd879a4a8df67634f"
-    },
-    {
-      "file": "step-009.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 356196,
-      "sha256": "b55eab69632f15aa88ddeaa857e6620714e98bd706f2e7242dc9296e0813ff65"
-    },
-    {
-      "file": "step-010.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 365668,
-      "sha256": "c570aca9da0a732cda65d0d51e8b991267560881582c91590422dd3b2e632a27"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 166002,
+      "sha256": "0cec4f125ce1b9ae3cf7b234d8b8c35f4d411de6cdcb3e45791a5634edfee64b"
     },
     {
       "file": "step-011.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 366434,
-      "sha256": "5c3f91580e1416196a206d3f0b1a7b25e09d8e24e6a142de9d8835ec4967aaa1"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 163473,
+      "sha256": "238e5b7fdeb6714179c0117910103f8a9a78eacda28b8f5b940a544aa85b1d4c"
     },
     {
       "file": "step-011.annotated.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 265725,
-      "sha256": "be27c06b56b19df7f43addc25bea79652b97b6e92073f6d8605627b01f20b3b8"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 165937,
+      "sha256": "79482513e7abaedc7e0dfb9c647b4f092639acd25e2456cff9cf75907b762301"
     },
     {
       "file": "step-012.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 342420,
-      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
-    },
-    {
-      "file": "step-013.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 342420,
-      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
-    },
-    {
-      "file": "step-014.png",
-      "width": 3200,
-      "height": 1800,
-      "bytes": 342420,
-      "sha256": "8c900069bf03d77e9b350ff087e1c8f61b24c6830a351d42ca02d63c2d7e1f43"
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113850,
+      "sha256": "d2b88165705f46934b1866428aa193787bbfdd969e97d32e68f23901d978cf15"
     }
   ]
 }

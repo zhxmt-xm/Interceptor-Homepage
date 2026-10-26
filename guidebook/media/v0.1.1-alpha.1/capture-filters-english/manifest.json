@@ -2,52 +2,15 @@
   "schemaVersion": 1,
   "chapter": "capture-filters-english",
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
-  "publicationStatus": "media-ready-awaiting-parent-dimensions-and-publication-approval",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/facets-clear-menu.workflow.ts",
     "test": "capture facets, Clear and breakpoint menu stay stable end to end",
-    "run": "2026-10-21T20-08-04-942Z-jn72KP",
-    "testDirectory": "capture-facets-clear-menu.-8fa41-menu-stay-stable-end-to-end-macos",
-    "manifestSha256": "44a1cb003ac418d0c6e62e0d031b4d170ece505ed258d5e3775ae90366ff65f3",
-    "metadataSha256": "c0d565b82c16d18a15b54e7d5dc87b05a947a71c6a9ced8275f3a7f1eba3c4d5",
-    "status": "passed",
-    "hostRestored": true,
-    "gracefulDestroyVerified": true,
-    "target": "macos-signed-app",
-    "capture": "native-window"
-  },
-  "facts": {
-    "paths": [
-      "/e2e/facets/get-first",
-      "/e2e/facets/post-first",
-      "/e2e/facets/post-second",
-      "/e2e/facets/pending",
-      "/e2e/facets/get-error"
-    ],
-    "total": 5,
-    "methods": {
-      "GET": 3,
-      "POST": 2
-    },
-    "statuses": {
-      "200": 4,
-      "503": 1
-    },
-    "contentTypes": {
-      "json": 5
-    },
-    "search": "/e2e/facets/post",
-    "clearSearchVisible": 4,
-    "clearSearchTotal": 5,
-    "recordingControl": "Paused after restoring system proxy; explicit proxy input still reaches Core"
-  },
-  "review": {
-    "eachFrameVisuallyReviewed": true,
-    "rawAndAnnotatedShaBytesDimensionsVerified": true,
-    "sourceImagesUnchanged": true,
-    "unrelatedModalFramesExcluded": true
+    "manifestSha256": "d487ca5e62615ab4ce6fba4b72c2cb7c24ccd50e36ae862aa6752fdd632e3f09",
+    "workflowSha256": "8ebd85cf44784bacdfb64836c3d8fe5300b25a44ceae2b72b24baab4a80ed40a",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
@@ -56,58 +19,19 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-001.png",
+      "capture": "renderer",
       "image": "step-001.annotated.png",
       "rawImage": "step-001.png",
-      "bytes": 150078,
-      "sha256": "194348c5e09d9373f39be2edb6473d917199a6c83069ce2e8d83355b09b5d355",
-      "rawBytes": 232637,
-      "rawSha256": "3e8011b4d02b4e4e3e6fa3bac41e3781e7d640bcdbfda28a39c4c378396179c9",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 810,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 607.5,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.type.%00pending"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
-    },
-    {
-      "id": "step-003",
-      "title": "展开Method并查看已有方法 / Expand Method and inspect captured methods",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-003.png",
-      "image": "step-003.annotated.png",
-      "rawImage": "step-003.png",
-      "bytes": 175672,
-      "sha256": "a81ab78b605f3d5469a2772578cf3c41816d805dee1847d1bb88c35b3869ff73",
-      "rawBytes": 267646,
-      "rawSha256": "49bff9d3f777d54d5dcdbf8861b28321fc862ae1ca089f1e81be84b2e1149f46",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 152,
-            "y": 362,
-            "width": 308,
-            "height": 56
-          },
-          "automationId": "capture.filter.toggle.method"
         }
       ],
       "coordinateSpace": "image-pixels",
@@ -122,23 +46,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-004.png",
+      "capture": "renderer",
       "image": "step-004.annotated.png",
       "rawImage": "step-004.png",
-      "bytes": 159967,
-      "sha256": "15ba555e74844a85ef4d8e765cd5d4e3e8616ad7311d6bed5cb7a53b8f1840ee",
-      "rawBytes": 244707,
-      "rawSha256": "076b871efd6129d88e78b74480a9959206c9a9c21818371b0faeb760392a1eac",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 284,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 213,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.application.%00pending"
         }
@@ -155,23 +73,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-005.png",
+      "capture": "renderer",
       "image": "step-005.annotated.png",
       "rawImage": "step-005.png",
-      "bytes": 175557,
-      "sha256": "6c121d190ffc74d4f95f592f777cda618548f50f009476802317cd27030bbd01",
-      "rawBytes": 267581,
-      "rawSha256": "3fe263b586bbaee5aafade29fd250b726aa47a4622419276fcf7c7e347d52e7b",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 284,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 213,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.application.%00pending"
         }
@@ -188,23 +100,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-007.png",
+      "capture": "renderer",
       "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
-      "bytes": 162675,
-      "sha256": "9809205d02ecdd309c0ea58df71c58e94c0cf0be0a6f65d5ad2acbf9b7528141",
-      "rawBytes": 247800,
-      "rawSha256": "6f1ee71abcc9eaaeadb7dc5b76d0b87b5ce50124d4dc3ba6a670019f2dd2e225",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 856,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 685.5,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.status.%00pending"
         }
@@ -221,23 +127,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-008.png",
+      "capture": "renderer",
       "image": "step-008.annotated.png",
       "rawImage": "step-008.png",
-      "bytes": 162759,
-      "sha256": "a37cb3983ca8c461dfc8331740a1172dfe006453df91a4c2f38bc119052860e1",
-      "rawBytes": 247828,
-      "rawSha256": "6f78e042b4becbcd2bdf7c4e8dd00bd2ad49efcaba39d46336ed5f9278fb2726",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 1174,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 924,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.type.%00pending"
         }
@@ -254,23 +154,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
-      "bytes": 198427,
-      "sha256": "3997082f4ebfb13723eb242ca619878ece20e03be13486aca6eede1e7433c638",
-      "rawBytes": 299040,
-      "rawSha256": "45c4965b014de2c49945cc9ca4d3c4613cde37047e1d685c6fb5067fcdd9a7d0",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 1174,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 924,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.type.%00pending"
         }
@@ -287,23 +181,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-010.png",
+      "capture": "renderer",
       "image": "step-010.annotated.png",
       "rawImage": "step-010.png",
-      "bytes": 212136,
-      "sha256": "e0562cdfe68d597edaa3b340cb1d469b086bbc5419defb6ccaabba636a24b5d5",
-      "rawBytes": 317363,
-      "rawSha256": "c3ac9920f729d79402a98e89d7dd824df04d2b85e7705f80aff59699e1b3eb1e",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 610,
-            "y": 105,
-            "width": 166.125,
-            "height": 60
+            "x": 457.5,
+            "y": 79.00000190734863,
+            "width": 124.57814025878906,
+            "height": 45.0000057220459
           },
           "automationId": "capture.recording.toggle"
         }
@@ -320,23 +208,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-011.png",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
-      "bytes": 189611,
-      "sha256": "441476c218458330b375dd7b6c390753da032c8222148759e25c869337dcdc7b",
-      "rawBytes": 286185,
-      "rawSha256": "1b44c894d1b90dca7320f8122a4db1af43b53c5ba57422d8f99148770bc544b3",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 480,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 403.5,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.method.GET"
         }
@@ -353,23 +235,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-012.png",
+      "capture": "renderer",
       "image": "step-012.annotated.png",
       "rawImage": "step-012.png",
-      "bytes": 212028,
-      "sha256": "2f34b31d6de41f2b18d56aa8dd9fd64b9b1e81982faf0761fe76bb7b6caea3a6",
-      "rawBytes": 318014,
-      "rawSha256": "5b5833103ea77062d4c258e506e4aa25294d73f9afe002e471c153d5f6bae650",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 538,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 447,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.method.POST"
         }
@@ -386,23 +262,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-013.png",
+      "capture": "renderer",
       "image": "step-013.annotated.png",
       "rawImage": "step-013.png",
-      "bytes": 201102,
-      "sha256": "907de18dc162b01b333b075b87d248644ab2ec00250a9d656a1c3f2b12573ab4",
-      "rawBytes": 304477,
-      "rawSha256": "6ef1192fb3717bf6f68aee19c8afd1fedb227d5dc2f73503252b2f810c37d852",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 798,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 642,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.status.200"
         }
@@ -419,23 +289,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-014.png",
+      "capture": "renderer",
       "image": "step-014.annotated.png",
       "rawImage": "step-014.png",
-      "bytes": 181328,
-      "sha256": "a3c2897490f16804cd22220e89313f24a96dfe8e7d2f886f73ea1ab2597e784f",
-      "rawBytes": 274718,
-      "rawSha256": "d629261346589f3af6deff735e53354cc4184036327806833be9897cacb249f5",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1533,
-            "y": 118.234375,
-            "width": 584,
-            "height": 33.515625
+            "x": 1149.2500305175781,
+            "y": 88.93750190734863,
+            "width": 439.0000305175781,
+            "height": 25.1250057220459
           },
           "automationId": "capture.filter.keyword"
         }
@@ -452,23 +316,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-015.png",
+      "capture": "renderer",
       "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
-      "bytes": 200748,
-      "sha256": "ebd25852b9533c11e1df5af2ce045288dfd1daac9fcd895f483dd640f890291e",
-      "rawBytes": 304294,
-      "rawSha256": "ef8015c4960f91e4ae18d7aa250293c0f863c04b2e579433a368a54dcf711cf9",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1533,
-            "y": 118.234375,
-            "width": 644,
-            "height": 33.515625
+            "x": 1149.2500305175781,
+            "y": 88.93750190734863,
+            "width": 484.0000305175781,
+            "height": 25.1250057220459
           },
           "automationId": "capture.filter.keyword"
         }
@@ -485,23 +343,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-016.png",
+      "capture": "renderer",
       "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
-      "bytes": 212573,
-      "sha256": "466fb1423abfc27527f74979f45b6e9a6ffef36ab5c7ba9ef49cfe9a7a18150a",
-      "rawBytes": 318564,
-      "rawSha256": "f005102d1b1e3efa1199d25b1d4aeb49c6adf3c8e649f774915a5eb4d6b07d68",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 798,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 642,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.status.200"
         }
@@ -518,23 +370,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-017.png",
+      "capture": "renderer",
       "image": "step-017.annotated.png",
       "rawImage": "step-017.png",
-      "bytes": 189832,
-      "sha256": "92b88fa19e88f471e56f05410cbe5a65fe98d3549916324e2c6d980fdf1a1e24",
-      "rawBytes": 286662,
-      "rawSha256": "6b03771dc40835348a6b35835c719d36477835c168fd4f59ea7607f261aa217f",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 538,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 447,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.method.POST"
         }
@@ -551,23 +397,17 @@
       "language": "en",
       "theme": "light",
       "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-018.png",
+      "capture": "renderer",
       "image": "step-018.annotated.png",
       "rawImage": "step-018.png",
-      "bytes": 211716,
-      "sha256": "49c16a41c81c5b847470d04121a32e33a5a7290755cb6f5f835cf3d034973691",
-      "rawBytes": 317418,
-      "rawSha256": "9ccc6ca10bbcac3cea8aeab3f3b543494a3c09b74e52b30db36a74b1b6a002fc",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 136,
-            "y": 480,
-            "width": 368,
-            "height": 52
+            "x": 102,
+            "y": 403.5,
+            "width": 276,
+            "height": 39
           },
           "automationId": "capture.filter.option.method.GET"
         }
@@ -577,39 +417,218 @@
         "width": 1600,
         "height": 900
       }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-001.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 85809,
+      "sha256": "9483033af2113e9c125f54242bb1bbb6fb3e50b61d5228e071957860266f08bd"
     },
     {
-      "id": "step-019",
-      "title": "Clear同步清空Capture与筛选计数 / Clear Capture and facet counts together",
-      "language": "en",
-      "theme": "light",
-      "window": "app",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-019.png",
-      "image": "step-019.annotated.png",
-      "rawImage": "step-019.png",
-      "bytes": 159122,
-      "sha256": "41be77079d5e65849e76ce48b04c5335b86e92b08fece0b773e5e56c3b5c1a84",
-      "rawBytes": 245564,
-      "rawSha256": "d6a8c6935e5bedbca38b7aecf2c6a8860e259d3a5f6ad27ad29027c2b8dfad72",
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 860.125,
-            "y": 105,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": "capture.clear"
-        }
-      ],
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      }
+      "file": "step-001.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 92297,
+      "sha256": "9eccd125bfa1293962245d295fee4da4f4a9ae17de509416e5ef0fd911a5f3e0"
+    },
+    {
+      "file": "step-004.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 92753,
+      "sha256": "2facd9f6d9017f9ae47c733488385006303f2eb15218a7b48edf0ec8db5ba625"
+    },
+    {
+      "file": "step-004.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 97158,
+      "sha256": "11cf74275ae6c5a80af2190dc02b89a4b4f5cb9f7cefabd5e8e39f7dd97a0e78"
+    },
+    {
+      "file": "step-005.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 107228,
+      "sha256": "8ccd5f181ef759c1368680e4472633848a1ae3bc080a16a64839aee58fc01c82"
+    },
+    {
+      "file": "step-005.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 109976,
+      "sha256": "760b40522ca206c59e476559531cf1f05e87a7bb37a516dad824e457ae93df80"
+    },
+    {
+      "file": "step-007.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 98198,
+      "sha256": "33a4e5dc726725c1f28ae17913b89458b11c2e6b76c7c475566feeffbe893e89"
+    },
+    {
+      "file": "step-007.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103598,
+      "sha256": "4cf4a472d3bd195f89fc3f9d7eb5d8656315b20a67b455725d9a9c87f8c053a7"
+    },
+    {
+      "file": "step-008.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 98173,
+      "sha256": "0a554aa2425f4dfeeecd566ac0b7fa8e05dffb7513451f82a94036758e324c6c"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103530,
+      "sha256": "bfdfbc2638d3c0f8fb451dab08c9c0bc1b641532ee9a1f5ec9461b983da2dead"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 130702,
+      "sha256": "26e07b3a241893cfc492167913c90214eec9f2dc57f913fdc1f17497a79eb1a0"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 128359,
+      "sha256": "7f8b17b8bee618390e0b5c81a35382e4a5cf14180cef368d86ec26c8fd1661dd"
+    },
+    {
+      "file": "step-010.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142151,
+      "sha256": "4d68a22fe00d064eca17d49fbec83d3eafaa7234c4eaf31f871297de977e701b"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136847,
+      "sha256": "e5f27fb08fb7c0ef932ff57fe002c8f72837b8f8b2ecdd77aad4ac11a97a1605"
+    },
+    {
+      "file": "step-011.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121577,
+      "sha256": "daad7c7fa96aa7d6e2d3f982294dcb911afd58ce5c39812edec28e32b69d7373"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 120363,
+      "sha256": "4c2518bce0ce05094ad530c34aaa1206723f71c8afda08833b80d54267a6ad95"
+    },
+    {
+      "file": "step-012.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142289,
+      "sha256": "a703841923397b722957b966212318a24c3b691d36c5ef8051f146fde1bf788b"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136804,
+      "sha256": "d1e963e834072c4ecb4aae5a76573c05009ac241142cece8d7d9cdcd4ad68f7d"
+    },
+    {
+      "file": "step-013.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132506,
+      "sha256": "71825a78596632b70d117b3b81b20f665c2ba5c6bb573ab335c190ab60a3dfc8"
+    },
+    {
+      "file": "step-013.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 130019,
+      "sha256": "1939b045eb3dfd99e4a482afe0c7cd29102b3e0b5537f433c506136d7be17de9"
+    },
+    {
+      "file": "step-014.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 114216,
+      "sha256": "2bad74a8170c5e37c970335595b479f02fdb407379c0cc0647a0547aacb9f506"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 115266,
+      "sha256": "a709668769b74ce9392046aa3aad02b64c0f7cbd74a49f5b588ae61036fba36e"
+    },
+    {
+      "file": "step-015.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 132506,
+      "sha256": "2fadda4b8305b207b941278936ded621a7fac6da017dfc8ff95758af8fa2f98c"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 129817,
+      "sha256": "7f8baec63855d7faf44fd16a1ad90ad15e9c1fe2c77eb1c8b688dd72be352d85"
+    },
+    {
+      "file": "step-016.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142623,
+      "sha256": "f2d11edb13231b4237adf9786ba7c917442b3a5337602918657e2471589de3da"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137118,
+      "sha256": "441eccee19f44b68cc43de1dd36d3e14ee766f0d73ca6ded1407842ce3896526"
+    },
+    {
+      "file": "step-017.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 121912,
+      "sha256": "d680eb934b7b7e47b61a3a8877ac87ca9ad4953f2aedee8994f65d40fb5c0d1e"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 120602,
+      "sha256": "48d8d80050f29541590202b5957e1d73e2fc3a9b47a7dd6390b48a468d1fd704"
+    },
+    {
+      "file": "step-018.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 142100,
+      "sha256": "a94e5f9be3dc2f63e284d91f767a182a7b506ca29d4598c0276b91641e2d479f"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136565,
+      "sha256": "f430a5bcb274362a7968c886e8ae002f75d694b940155fff7b71a701cf35db47"
     }
   ]
 }

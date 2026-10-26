@@ -22,7 +22,7 @@ MCP Server is separate from the Capture proxy listener. Initial enablement selec
 
    ![Enable the server · 1](../media/v0.1.1-alpha.1/mcp-streamable-english/step-001.png)
 
-2. <a id="walkthrough-03-enable"></a>Enable the switch in box 1 and wait for Running. Box 2 shows this instance’s endpoint, `http://127.0.0.1:57871/mcp`. Use the URL shown in your App rather than treating Capture’s `8888` as an MCP port.
+2. <a id="walkthrough-03-enable"></a>Enable the switch in box 1 and wait for Running. Box 2 shows this instance’s endpoint, `http://127.0.0.1:55871/mcp`. Use the URL shown in your App rather than treating Capture’s `8888` as an MCP port.
 
    ![Enable the server · 2](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.annotated.png)
 
@@ -127,7 +127,7 @@ An occupied port during manual enablement and a saved-port conflict after App re
 
    ![Resolve an endpoint conflict · 1](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-002.annotated.png)
 
-2. <a id="walkthrough-18-port-conflict"></a>After manual enablement fails, box 1 shows `EADDRINUSE` and the Server stays Off. The occupied endpoint here is `127.0.0.1:57093`, not Capture’s `8888`.
+2. <a id="walkthrough-18-port-conflict"></a>After manual enablement fails, box 1 shows `EADDRINUSE` and the Server stays Off. The occupied endpoint here is `127.0.0.1:52142`, not Capture’s `8888`.
 
    ![Resolve an endpoint conflict · 2](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.annotated.png)
 
@@ -135,7 +135,7 @@ An occupied port during manual enablement and a saved-port conflict after App re
 
    ![Related view from the same workflow](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-005.png)
 
-4. <a id="walkthrough-19-release-port"></a>Enable MCP Server after the known owner releases the port and wait for Running. Box 1 still shows `http://127.0.0.1:57093/mcp`; changing the endpoint was not required.
+4. <a id="walkthrough-19-release-port"></a>Enable MCP Server after the known owner releases the port and wait for Running. Box 1 still shows `http://127.0.0.1:52142/mcp`; changing the endpoint was not required.
 
    ![Resolve an endpoint conflict · 4](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-006.annotated.png)
 
@@ -151,7 +151,7 @@ An occupied port during manual enablement and a saved-port conflict after App re
 
    ![Resolve an endpoint conflict · 7](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-011.annotated.png)
 
-8. <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>Wait for Running and read the new URL in box 1. Here it is `http://127.0.0.1:57247/mcp`; the previous `57093` is no longer this Server’s address.
+8. <a id="walkthrough-mcp-endpoint-04-note-new-address"></a>Wait for Running and read the new URL in box 1. Here it is `http://127.0.0.1:52166/mcp`; the previous `52142` is no longer this Server’s address.
 
    ![Resolve an endpoint conflict · 8](../media/v0.1.1-alpha.1/mcp-endpoint-english/step-012.annotated.png)
 

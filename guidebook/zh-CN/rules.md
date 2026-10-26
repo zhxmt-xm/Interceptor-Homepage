@@ -14,7 +14,7 @@
 
 只给一组测试请求添加一个不含敏感信息的 Header。
 
-代理就绪；为了观察结果，开启 Recording。使用自己有权访问的测试地址。图示服务为 `http://127.0.0.1:62029`；下面 `E2E action variants` 的路径都基于该服务，实际操作时换成自己服务的地址和端口。
+代理就绪；为了观察结果，开启 Recording。使用自己有权访问的测试地址。图示服务为 `http://127.0.0.1:54965`；下面 `E2E action variants` 的路径都基于该服务，实际操作时换成自己服务的地址和端口。
 
 1. <a id="walkthrough"></a><a id="walkthrough-01-open"></a>打开 Rules。
 
@@ -64,7 +64,7 @@
 
     ![按路径定位并选中第一条匹配请求](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-019.annotated.png)
 
-    打开 Headers，在下图红框 1 的 Request Headers 中核对 `x-e2e-action: from-rule` 旁的 Rule set。原值 `original` 带划线和 Rule replaced，表示已被覆盖，不是仍向源站发送两个值。可点击的行内来源标记用于返回规则，不是独立的展开面板。
+    打开 Headers，在 Request Headers 中核对 `x-e2e-action: from-rule` 旁、下图红框 1 内的 Rule set 标记。原值 `original` 带划线和 Rule replaced，表示已被覆盖，不是仍向源站发送两个值。可点击的行内来源标记用于返回规则，不是独立的展开面板。
 
     ![请求 Header 显示原值被覆盖和最终 Set 值](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.annotated.png)
 
@@ -84,7 +84,7 @@
 
 ## 选择匹配条件
 
-下面使用 `E2E hierarchy rule`。同一规则中的条件为 AND，必须全部满足才执行。示例服务端口为 `53161`；换成自己的接口时，同时修改 URL 条件和客户端请求地址。本例只向自己的本机测试服务发请求。
+下面使用 `E2E hierarchy rule`。同一规则中的条件为 AND，必须全部满足才执行。示例服务端口为 `50912`；换成自己的接口时，同时修改 URL 条件和客户端请求地址。本例只向自己的本机测试服务发请求。
 
 1. <a id="walkthrough-rules-matchers"></a><a id="walkthrough-rules-matchers-01-rules"></a><a id="walkthrough-rules-matchers-02-create"></a>按[目录操作](#order)在三级目录中创建规则，使用节点菜单的 Rename，在红框 1 输入 `E2E hierarchy rule`，按 Enter 确认。
 
@@ -104,7 +104,7 @@
 
    ![限定 all-conditions 路径](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-037.annotated.png)
 
-5. <a id="walkthrough-rules-matchers-08-url-add"></a><a id="walkthrough-rules-matchers-09-url"></a>添加 URL，在红框 1 填 `http://127.0.0.1:53161/e2e/rules/all-conditions?case=and`。
+5. <a id="walkthrough-rules-matchers-08-url-add"></a><a id="walkthrough-rules-matchers-09-url"></a>添加 URL，在红框 1 填 `http://127.0.0.1:50912/e2e/rules/all-conditions?case=and`。
 
    ![填写完整 URL 条件](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-041.annotated.png)
 
@@ -224,7 +224,7 @@
 
    ![请求 Header 选择 Append](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-024.annotated.png)
 
-   回到 Capture，用 Keyword 定位并选中新请求。在下图红框 1 的 Request Headers 中，`original` 没有被划掉，新增的 `from-rule` 带 Rule appended 标记。
+   回到 Capture，用 Keyword 定位并选中新请求。在 Request Headers 中，`original` 没有被划掉，新增的 `from-rule` 带下图红框 1 的 Rule appended 标记。
 
    ![请求 Header 同时保留原值和追加值](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-027.annotated.png)
 
@@ -232,7 +232,7 @@
 
    ![请求 Header 选择 Remove](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-031.annotated.png)
 
-   在 Capture 选择新请求，检查下图红框 1 的 Request Headers。`x-e2e-action` 的原值带划线和 Rule removed；这条历史说明不代表 Header 仍被转发。
+   在 Capture 选择新请求，检查 Request Headers。`x-e2e-action` 的原值带划线和下图红框 1 的 Rule removed 标记；这条历史说明不代表 Header 仍被转发。
 
    ![请求 Header 的原值显示 Rule removed](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-034.annotated.png)
 
@@ -287,7 +287,7 @@
 
    ![响应 Header 的 Set 配置](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-040.annotated.png)
 
-   在 Capture 用 Keyword 定位这条新请求，打开 Headers。下图红框 1 的 Response Headers 中，`original` 带 Rule replaced，`from-rule` 带 Rule set；最终响应采用后者。
+   在 Capture 用 Keyword 定位这条新请求，打开 Headers。Response Headers 中，`original` 带 Rule replaced，`from-rule` 带下图红框 1 的 Rule set 标记；最终响应采用后者。
 
    ![响应 Header 的 Set 覆盖原值](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-043.annotated.png)
 
@@ -295,7 +295,7 @@
 
    ![响应 Header 的 Append 配置](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-047.annotated.png)
 
-   下图红框 1 的 Response Headers 同时显示未划掉的 `original` 和带 Rule appended 的 `from-rule`，与 Set 的覆盖效果不同。
+   Response Headers 同时显示未划掉的 `original` 和带下图红框 1 的 Rule appended 标记的 `from-rule`，与 Set 的覆盖效果不同。
 
    ![响应 Header 保留原值并追加 from-rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-050.annotated.png)
 
@@ -303,7 +303,7 @@
 
    ![响应 Header 的 Remove 配置](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-054.annotated.png)
 
-   下图红框 1 的 Response Headers 中，`x-e2e-action: original` 被划掉并标为 Rule removed；客户端收到的响应不再包含该字段。
+   Response Headers 中，`x-e2e-action: original` 被划掉并带下图红框 1 的 Rule removed 标记；客户端收到的响应不再包含该字段。
 
    ![响应 Header 显示删除来源标记](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-057.annotated.png)
 
@@ -573,7 +573,7 @@
 1. 准备自己有权使用的目标测试服务。
 
    ![同一流程相关界面](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-160.png)
-   先准备可访问的源入口和目标接口，再填写 Map Remote。本例两者都在 `http://127.0.0.1:62029`，目标路径 `/e2e/rules/actions/remote-target` 返回 `mapped-target-body`。需要同时改变协议、Host 和端口时，按[跨协议映射](#walkthrough-rules-routing)分别配置。
+   先准备可访问的源入口和目标接口，再填写 Map Remote。本例两者都在 `http://127.0.0.1:54965`，目标路径 `/e2e/rules/actions/remote-target` 返回 `mapped-target-body`。需要同时改变协议、Host 和端口时，按[跨协议映射](#walkthrough-rules-routing)分别配置。
 
 
 2. <a id="walkthrough-rules-actions-map-remote-01-rules"></a><a id="walkthrough-rules-actions-map-remote-02-create"></a><a id="walkthrough-rules-actions-map-remote-03-name"></a><a id="walkthrough-rules-actions-map-remote-04-host"></a><a id="walkthrough-rules-actions-map-remote-05-path"></a><a id="walkthrough-rules-actions-map-remote-06-remove"></a><a id="walkthrough-rules-actions-map-remote-07-action"></a>在 `E2E action variants` 中保留 Host `127.0.0.1` 和 Path `/e2e/rules/actions`。移除当前动作，再从 Add action 选择红框 1 的 Map Remote。
@@ -607,7 +607,7 @@
 
 ### Map Remote：从 HTTPS 到 HTTP
 
-先完成自己测试服务的 [HTTPS 解密与信任配置](settings.md#https-decryption)，并准备可访问的 HTTP 目标。本例原服务为 `https://localhost:56535`，目标为 `http://127.0.0.1:56533/e2e/rules/mapped-http`；地址和端口要一起换成自己的服务，不形成代理循环。
+先完成自己测试服务的 [HTTPS 解密与信任配置](settings.md#https-decryption)，并准备可访问的 HTTP 目标。本例原服务为 `https://localhost:56814`，目标为 `http://127.0.0.1:56810/e2e/rules/mapped-http`；地址和端口要一起换成自己的服务，不形成代理循环。
 
 1. <a id="walkthrough-rules-routing-01-rules"></a><a id="walkthrough-rules-routing-02-create"></a>在 Rules 新建规则，在红框 1 的名称框填 `E2E HTTPS to HTTP mapping`。
 
@@ -633,7 +633,7 @@
 
    ![填写 HTTP 目标 Host](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-015.annotated.png)
 
-7. <a id="walkthrough-rules-routing-10-target-port"></a>在红框 1 的 Port 框填目标服务端口 `56533`。它与原 HTTPS 服务的 `56535` 不是同一个端口。
+7. <a id="walkthrough-rules-routing-10-target-port"></a>在红框 1 的 Port 框填目标服务端口 `56810`。它与原 HTTPS 服务的 `56814` 不是同一个端口。
 
    ![填写目标 HTTP 服务端口](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-016.annotated.png)
 
@@ -649,7 +649,7 @@
 
     ![跨协议映射保存并生效](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-019.annotated.png)
 
-11. <a id="walkthrough-rules-routing-14-remote-result"></a>通过代理 GET `https://localhost:56535/e2e/rules/tls-mapping/enabled`。在 Capture 选择该请求并打开红框 1 的 Response，核对 `200` 和目标服务返回的 `owned-http-mapping-result`；客户端仍访问原 HTTPS 地址，正文来自 HTTP 目标。
+11. <a id="walkthrough-rules-routing-14-remote-result"></a>通过代理 GET `https://localhost:56814/e2e/rules/tls-mapping/enabled`。在 Capture 选择该请求并打开红框 1 的 Response，核对 `200` 和目标服务返回的 `owned-http-mapping-result`；客户端仍访问原 HTTPS 地址，正文来自 HTTP 目标。
 
     ![原 HTTPS 请求收到 HTTP 目标的响应](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-020.annotated.png)
 
@@ -661,7 +661,7 @@
 
     ![保存映射停用状态](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
 
-14. <a id="walkthrough-rules-routing-18-original-result"></a>请求同一原 HTTPS 服务的另一条地址 `https://localhost:56535/e2e/rules/tls-mapping/disabled`。红框 1 的新请求返回原服务的 `404`，不再收到 HTTP 目标正文；Headers 中仍可核对原 HTTPS URL。这里比较的是同一服务下的 `/enabled` 和 `/disabled`，不是重复查看同一条请求。
+14. <a id="walkthrough-rules-routing-18-original-result"></a>请求同一原 HTTPS 服务的另一条地址 `https://localhost:56814/e2e/rules/tls-mapping/disabled`。红框 1 的新请求返回原服务的 `404`，不再收到 HTTP 目标正文；Headers 中仍可核对原 HTTPS URL。这里比较的是同一服务下的 `/enabled` 和 `/disabled`，不是重复查看同一条请求。
 
     ![停用后新请求回到原 HTTPS 服务](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
 
@@ -669,11 +669,11 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
 ### Map Local：保存文件并修正路径
 
-下面是独立的 Local 示例：HTTPS 服务为 `https://localhost:63644`，准备文件时使用的 HTTP 目标为 `http://127.0.0.1:63638/e2e/rules/mapped-http`，不要与上一例的端口混用。先按上面的 Map Remote 步骤配置这组地址并 Save，使 `/e2e/rules/tls-mapping/enabled` 返回公开正文 `owned-http-mapping-result`。换成自己的服务时，一起修改请求地址和映射目标。
+下面是独立的 Local 示例：HTTPS 服务为 `https://localhost:56814`，准备文件时使用的 HTTP 目标为 `http://127.0.0.1:56810/e2e/rules/mapped-http`，不要与上一例的端口混用。先按上面的 Map Remote 步骤配置这组地址并 Save，使 `/e2e/rules/tls-mapping/enabled` 返回公开正文 `owned-http-mapping-result`。换成自己的服务时，一起修改请求地址和映射目标。
 
 1. <a id="walkthrough-rules-routing-19-file-source"></a><a id="walkthrough-rules-routing-20-save-file"></a><a id="walkthrough-rules-routing-21-check-file"></a><a id="walkthrough-rules-routing-22-edit-local"></a><a id="walkthrough-rules-routing-23-local-host"></a><a id="walkthrough-rules-routing-24-remove-remote"></a><a id="walkthrough-rules-routing-25-local"></a>先通过产品保存正文，再把映射动作改为读取该文件。
 
-   1. 通过代理请求 `https://localhost:63644/e2e/rules/tls-mapping/enabled`，在 Capture 选中它并打开 Response。点击正文工具栏的 Save body，在系统窗口中保存为 `https-map-local-response.txt`，记下自己选择的绝对路径，再点击 Save。
+   1. 通过代理请求 `https://localhost:56814/e2e/rules/tls-mapping/enabled`，在 Capture 选中它并打开 Response。点击正文工具栏的 Save body，在系统窗口中保存为 `https-map-local-response.txt`，记下自己选择的绝对路径，再点击 Save。
 
       ![在系统窗口保存 HTTPS 响应正文](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-021.png)
 
@@ -703,7 +703,7 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
       ![缺失文件路径的规则已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
 
-   4. 请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing`，在 Capture 用 Keyword 定位并选中新请求，再打开红框 1 的 Response。应看到 `404` 和 `27 B` 的 `Map Local target not found.`；先检查文件路径，不要反复切换 Recording。
+   4. 请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-missing`，在 Capture 用 Keyword 定位并选中新请求，再打开红框 1 的 Response。应看到 `404` 和 `27 B` 的 `Map Local target not found.`；先检查文件路径，不要反复切换 Recording。
 
       ![缺失文件的 HTTPS 请求返回明确错误正文](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
 
@@ -717,7 +717,7 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
       ![保存修正后的 Map Local 路径](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
 
-   3. 请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`，在 Capture 选中这条新请求并打开红框 1 的 Response。状态应为 `200`，正文是文件中的 `owned-http-mapping-result`，大小为 `25 B`；客户端仍访问 HTTPS，但正文来自本地文件。
+   3. 请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-enabled`，在 Capture 选中这条新请求并打开红框 1 的 Response。状态应为 `200`，正文是文件中的 `owned-http-mapping-result`，大小为 `25 B`；客户端仍访问 HTTPS，但正文来自本地文件。
 
       ![HTTPS Map Local 返回保存文件中的正文](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
 
@@ -731,7 +731,7 @@ HTTPS 调试结束后，按本节末尾的[清理说明](#walkthrough-rules-rout
 
       ![Map Local 停用状态已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
 
-   3. 请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`。Capture 中红框 1 的新记录返回源端点的 `404`，正文为 `0 B`，不同于缺失文件时的 `27 B` 错误。规则停用后 HTTPS 解密仍可保持开启，两者不是同一个开关。
+   3. 请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-disabled`。Capture 中红框 1 的新记录返回源端点的 `404`，正文为 `0 B`，不同于缺失文件时的 `27 B` 错误。规则停用后 HTTPS 解密仍可保持开启，两者不是同一个开关。
 
       ![停用 Map Local 后新 HTTPS 请求恢复源端点响应](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
 
@@ -1012,9 +1012,9 @@ Delay 不是带宽限速；多个延迟按实际规则语义取最大等待值�
 
       ![修改本地名称和值但不保存](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-018.annotated.png)
 
-   3. 让已授权的 MCP Client 基于已保存版本再次保存规则树，仍使用 `MCP updated header` 和 `updated`。Rules 不会静默覆盖本地输入：红框 1 的名称仍是 `MCP local draft`，Header 值仍为 `unapplied-local-value`，底部显示 Changed elsewhere · draft kept。编辑器保留草稿不代表 Core 在使用这个未保存的值。
+   3. 在 Settings → MCP 创建第二个 Client `MCP second writer`，授权规则工具后返回 Rules，保留本地草稿。让第二个 Client 基于 `rev 2` 保存规则树，仍使用 `MCP updated header` 和 `updated`，得到 `rev 3`。再点击本地旧草稿的 Save，Core 会拒绝旧版本：红框 1 仍显示 Changed elsewhere · draft kept，红框 2 仍显示编辑器的 `rev 2`，名称和 Header 值仍为 `MCP local draft`、`unapplied-local-value`。通过代理发送新请求，实际 Header 仍为第二个 Client 保存的 `x-mcp-rules: updated`。
 
-      ![另一写入者保存后仍保留本地草稿](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-019.annotated.png)
+      ![Core 拒绝旧版本保存，保留草稿与旧 revision](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-019.annotated.png)
 
    4. 先记下自己需要保留的改动，再点击编辑器右上方红框 1 的 Reload。这个操作会放弃当前本地草稿并读取最新规则，不是再次提交旧版本。
 
@@ -1034,7 +1034,7 @@ Delay 不是带宽限速；多个延迟按实际规则语义取最大等待值�
 
       ![手动合并后的规则已保存为 rev 4](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-024.png)
 
-   3. 让外部客户端通过代理 GET `http://127.0.0.1:54222/e2e/mcp/rules/merged`；实际操作时换成自己的测试服务端口。在 Capture 的 Keyword 填 `/e2e/mcp/`，选中红框 2 的新请求行。打开 Headers，向下查看 Request Headers，红框 1 的 Header 行应显示 `x-mcp-rules: merged` 和 Rule set；不要用之前的 `/updated` 请求判断这次保存。
+   3. 让外部客户端通过代理 GET `http://127.0.0.1:55869/e2e/mcp/rules/merged`；实际操作时换成自己的测试服务端口。在 Capture 的 Keyword 填 `/e2e/mcp/`，选中红框 2 的新请求行。打开 Headers，向下查看 Request Headers，红框 1 的 Header 行应显示 `x-mcp-rules: merged` 和 Rule set；不要用之前的 `/updated` 请求判断这次保存。
 
       ![新请求的 Header 使用手动合并后的 merged 值](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-025.annotated.png)
 

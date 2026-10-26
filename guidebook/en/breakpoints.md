@@ -192,13 +192,15 @@ Use the separate `E2E response edits` response Rule with Path `/e2e/response-edi
 
 These are separate request and response examples. Check the Rule phase and Path, enable only the needed Rule and send a new request for each case. Resolved waits cannot be submitted again. The JSON File example uses `/e2e/body-file/`; other request variants use the `/e2e/` scope of `E2E request breakpoint`.
 
-1. <a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>Send POST `/e2e/header-only` with body `{"stage":"header-only"}` and Header `x-edit-stage: original`. Select its new wait in box 1.
+1. <a id="walkthrough-breakpoints-request-variants-header-01-pending"></a>Send POST `/e2e/header-only` with body `{"stage":"header-only"}` and Headers `x-edit-stage: original` and `x-e2e-remove: doomed`. Select its new wait in box 1.
 
-   ![Change only request headers, use a body file or edit response status · 1](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-014.annotated.png)
+   ![Change only request headers, use a body file or edit response status · 1](../media/v0.1.1-alpha.1/breakpoints-request-edits-english/step-011.annotated.png)
 
-2. <a id="walkthrough-breakpoints-request-variants-header-02-off"></a><a id="walkthrough-breakpoints-request-variants-header-03-add"></a><a id="walkthrough-breakpoints-request-variants-header-04-name"></a><a id="walkthrough-breakpoints-request-variants-header-05-value"></a><a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>Leave Body Off. Set Content-Type in box 1 to `application/x-header-only`, change `x-edit-stage` in box 2 to `edited` and use Forward edited in box 3. The origin still receives the original JSON bytes; a Header change does not automatically convert the body.
+2. <a id="walkthrough-breakpoints-request-variants-header-02-off"></a><a id="walkthrough-breakpoints-request-variants-header-03-add"></a><a id="walkthrough-breakpoints-request-variants-header-04-name"></a><a id="walkthrough-breakpoints-request-variants-header-05-value"></a><a id="walkthrough-breakpoints-request-variants-header-06-forward"></a>Leave Body Off. Set Content-Type in box 1 to `application/x-header-only` and change `x-edit-stage` in box 2 to `edited`. Remove `x-e2e-remove`, add `x-e2e-added: added-value`, then use Forward edited in box 3. The origin still receives the original JSON bytes; a Header change does not automatically convert the body.
 
    ![Change only request headers, use a body file or edit response status · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-015.annotated.png)
+
+   In Capture, open Headers for the completed request. Each changed Header shows replace for its old value and set for its new value; the removed Header shows remove and the added Header shows set. The unchanged `content-length` has no Breakpoint Header effect. Effects from a separate Rule set keep their own source.
 
    ![Change only request headers, use a body file or edit response status · 2](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-016.png)
 
@@ -206,7 +208,7 @@ These are separate request and response examples. Check the Rule phase and Path,
 
    ![Change only request headers, use a body file or edit response status · 3](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-019.annotated.png)
 
-4. In Request, check the Text source badge in box 1, choose Final below it and inspect `{"stage":"body-edited"}` in Raw. Also check the complete content actually received by the origin.
+4. In Request, check the Text source badge in box 1, choose Final below it and inspect `{"stage":"body-edited"}` in Raw. Also check the complete content actually received by the origin. Open Headers to confirm that this body-only edit creates no Breakpoint Header effects.
 
    ![Change only request headers, use a body file or edit response status · 4](../media/v0.1.1-alpha.1/breakpoints-request-variants-english/step-021.annotated.png)
 
@@ -286,7 +288,7 @@ These are separate request and response examples. Check the Rule phase and Path,
 <a id="queues"></a>
 ## Handle multiple waiting items
 
-Use a test service you control that accepts POST and PUT. Replace the example base URL `http://127.0.0.1:57756` with your service. Both Rules below use Host `127.0.0.1`, Path `/e2e/queue-` and the Request phase. HTTP waits with different methods still enter the same queue.
+Use a test service you control that accepts POST and PUT. Replace the example base URL `http://127.0.0.1:61418` with your service. Both Rules below use Host `127.0.0.1`, Path `/e2e/queue-` and the Request phase. HTTP waits with different methods still enter the same queue.
 
 1. <a id="walkthrough-breakpoints-queue"></a><a id="walkthrough-breakpoints-queue-01-rules"></a><a id="walkthrough-breakpoints-queue-02-post-rule"></a>Create a request breakpoint in Rules. Enter `E2E POST queue commands` in the name field, box 1, and select POST in Method, box 2. Set the Host, Path and Breakpoint action described above, enable the Rule and click Save.
 
@@ -381,7 +383,7 @@ A switch or Undo in the breakpoint manager applies immediately; ordinary Rules e
 <a id="walkthrough-breakpoints-manager"></a>
 ## Undo a shortcut breakpoint or temporarily disable matching
 
-Find a historical Capture request you are authorized to debug. This section uses GET `http://127.0.0.1:60784/e2e/capture/breakpoint-submenu-lifecycle`; replace it with your service. Send each new request to that same endpoint. Creating a Rule does not resend the historical record.
+Find a historical Capture request you are authorized to debug. This section uses GET `http://127.0.0.1:54170/e2e/capture/breakpoint-submenu-lifecycle`; replace it with your service. Send each new request to that same endpoint. Creating a Rule does not resend the historical record.
 
 1. <a id="walkthrough-breakpoints-manager-01-source"></a><a id="walkthrough-breakpoints-manager-02-menu"></a>Right-click the request, open the Breakpoint submenu and choose This endpoint in box 1. This path prefix and This host cover broader scopes; do not choose them when only one endpoint is intended.
 
@@ -615,9 +617,7 @@ Use a WebSocket service you control, connect through the proxy and enable Captur
 
    ![Edit empty WebSocket messages, Ping/Pong and close codes · 5](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-008.annotated.png)
 
-6. Both also pauses the returning Close. Confirm the current frame is Received close and click Continue in box 1 to forward that direction unchanged. Wait for the connection to show closed and the paused editor to disappear. Editing the sent direction does not resolve the return direction.
-
-   ![Edit empty WebSocket messages, Ping/Pong and close codes · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-010.annotated.png)
+6. Confirm the service received close code `1001` and the connection has no remaining wait. The client has already completed its own closing handshake with `1000`; editing the code forwarded to the service does not change that confirmation. Both does not guarantee a separate pause for the returning Close.
 
    ![Edit empty WebSocket messages, Ping/Pong and close codes · 6](../media/v0.1.1-alpha.1/breakpoints-websocket-complete-english/step-011.png)
 

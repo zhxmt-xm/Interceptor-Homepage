@@ -1,40 +1,20 @@
-# Guidebook 功能与 workflow 覆盖关系
+# Guidebook功能与workflow覆盖关系
 
-这是教程选题与来源索引，不是测试结果或完成状态表。相似测试归纳成一个用户场景，不能把记录布局、fixture 生命周期或失败注入直接变成用户操作要求。
+这是教程选题与来源索引，不是测试结果或完成状态表。相似测试归纳成一个用户场景，fixture生命周期或故障注入不转写为用户操作要求。
 
-基线为 App 的 [功能设计索引](../../Interceptor/architecture/README.md)、[workflow 规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)、[Inventory](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md)与 [workflow 源码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/)。
+基线为App的[功能设计索引](../../Interceptor/architecture/README.md)、[workflow规格索引](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/docs/README.md)、[Inventory](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md)与[workflow源码](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/)。下表逐项链接到[中文教程](../guidebook/README.md)；[英文教程](../guidebook/README.en.md)使用相同功能目录、步骤顺序和演示值。
 
-当前Inventory包含144条契约，下面逐项列入用户场景，并链接到[中文教程](../guidebook/README.md)的对应功能点；[英文教程](../guidebook/README.en.md)使用相同功能目录和演示值。正文使用[真实素材目录](../guidebook/media/v0.1.1-alpha.1/)中的步骤图及公开出处清单，不再分发教程视频或字幕。下面的映射只核对内容覆盖，不把某项`passed`自动转换为教程通过，也不把规格与Inventory的状态冲突改写为Green。未展示分支、平台专项和公开访问仍未完成。
-
-操作验收以步骤为单位：每个编号步骤须关联真实步骤图和稳定锚点，不能只按整章标“有截图”。变量名、输入值、规则/请求/文件名称必须与同一次实际操作中的界面一致；动态值单独说明。当前中英文各1082个编号步骤均有图片：独立操作保留自身实录，同一界面连续说明可明确复用最近的同流程原图；复用不改变workflow映射或把一张图冒充另一项独立验收。
+每个编号步骤须有真实步骤图和稳定锚点。变量、输入、规则、请求和文件名称与同一次界面一致；动态值说明实际运行差异。连续说明可以复用同一张原图，不能把复用图当成另一项独立操作的证据。
 
 ## 来源与验收边界
 
-- 写作目标版本为 `v0.1.1-alpha.1` / `e55f1ed1`；[发行边界](../../Interceptor/architecture/platform/release.md#7-当前发行验证边界)仍保留下载产物实机安装、原生授权及退出恢复缺口。
-- [Windows 范围](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/README.md#windows-复验)按实际场景区分；不能用 macOS、CI 或源码存在代替 Windows 实机结果。
-- Windows补充素材位于`guidebook/media/windows-local-20261023/`，明确标记本地开发App、`win32/x64`与`zh-CN`；AppContainer图片裁去应用身份/SID，原生Save/Open在写盘前遮盖导航侧栏和地址路径。它们不替换`v0.1.1-alpha.1`的macOS English素材。
-- 例如 Composer 编辑规格中的状态与 Inventory 不完全一致；本次不修改产品验收记录，正式成文验收时回到对应真实证据核对。
-- Rules 的功能契约列出 10 种 action type，而 Inventory 的概述写“11种action”。教程按实际类型和操作写，不照搬概述数字。
-- 已追踪 [HTTP 场景](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/http-scenarios.workflow.ts)、[录制边界](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/capture/recording-pause-resume.workflow.ts)、[Collection 交互](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/collection-tree-interactions.workflow.ts)、[正文格式化](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/composer/body-formatting.workflow.ts)、[Rules 目录与状态](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/rules/hierarchy-menus-status.workflow.ts)、[断点编辑](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/breakpoints/execute-edited.workflow.ts)、[Settings 导航](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/settings/navigation.workflow.ts)与 [Diagnostics 导出](../../Interceptor/apps/desktop/tests/e2e-workflow-tests/workflows/diagnostics/tools-queries-export.workflow.ts)，以及各功能契约。它们提供写作依据，不代表本书已经按Release完整试读。
-- 额外核对 [Capture快捷规则创建](../../Interceptor/apps/desktop/src/renderer/features/rules/data/useRulesData.ts)：快捷Breakpoint创建、启用并立即Apply，不是普通未启用草稿；[Agent模型选择](../../Interceptor/apps/desktop/src/renderer/features/agent/AgentModelMenu/AgentModelMenu.tsx)只改变当前Chat，不改变全局默认；[正式对话响应](../../Interceptor/apps/desktop/src/renderer/features/agent/AgentPanelTranscript/AgentTurnResponse.tsx)提供Stop后的Retry，不按架构候选推断通用Continue按钮。
-- 带 `tools` 的契约同时映射所属 feature 的操作说明和 Agent/MCP 的权限章节，不另写一套互相矛盾的业务步骤。
-- [Collection目录实录](../guidebook/zh-CN/composer.md#walkthrough-composer-collection)已在对应发布App核对三级目录、目录内请求切换、排序、原生文件预览取消及删除，见[真实流程与退出恢复](../../Interceptor/apps/desktop/test-results/guidebook-media-20261015/collection-resumed/)。不重录这一组；[公开Basic/Bearer认证](../guidebook/zh-CN/composer.md#walkthrough-composer-auth)、[完整代表字段保存](../guidebook/zh-CN/composer.md#walkthrough-composer-persistence-save)/[重启](../guidebook/zh-CN/composer.md#walkthrough-composer-persistence-restart)与[Collection文件Tool往返](../guidebook/zh-CN/composer.md#walkthrough-composer-file-tools)均有独立有效实录，不宣称穷举所有Body/Auth组合。
-- [阅读页媒体核对](../artifacts/item9-20261015/collection-and-captions-green/)同时确认正文、原图尺寸、SPA导航，以及每个已发布视频在中英文页面中的字幕轨与实际cue加载。构建时正确分隔显式锚点与video HTML块，不把播放器外的track节点或存在的VTT文件当作字幕可用。
-- [响应Header与正文证据](../guidebook/zh-CN/rules.md#walkthrough-rules-response-evidence)补充空白区域新建、响应append/remove、请求Original/Final、两版本Copy、Original全屏、Final原生保存、效果跳转、响应Original不可用，以及停用Apply后的真实恢复请求。[原生实录与退出恢复](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/verified/rules-guidebook-response-e-af18e-nd-observable-body-versions-macos-guidebook/)不涵盖最后规则删除或其他未录matcher/action组合。
-- [TLS透传往返](../guidebook/zh-CN/settings.md#walkthrough-settings-tls-passthrough)补充未解密Tunnel、已有CA下解密、精确localhost条目添加、命中、定位、删除、新连接恢复和本轮设置清理。[原生实录与退出恢复](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/tls-verified/)不涵盖wildcard、首次CA或Windows。Capture、Settings与Transfer按同一素材互相引用，不混淆动态端口、Original/Final或两个示例的文件名。
-- [Capture清空搜索](../guidebook/zh-CN/capture.md#walkthrough-capture-filters-13-clear-search)已补真实操作：录制前暂停并确认只有本轮四条自产记录，取消Method/Status后再清空搜索，仍保留四条记录及暂停状态。[实际录制与退出恢复](../../Interceptor/apps/desktop/test-results/guidebook-media-20261016/codec-and-search-resumed-1421/)同时覆盖共用编码器的真实静止末帧；不把这一组扩展为其他分组或Windows应用归属的验收。
-- Capture的[其他分组](../guidebook/zh-CN/capture.md#walkthrough-capture-facets)、[Request/Markdown Source与滚动](../guidebook/zh-CN/capture.md#walkthrough-capture-inspection)、[大正文预览与完整保存](../guidebook/zh-CN/capture.md#walkthrough-capture-body-limits)已有独立实录，分别使用自身输入与步骤图片，不挪用其他例子的字段值；未知Application归属仍不扩成Windows进程识别。
-- [HTTP/2过程](../guidebook/zh-CN/capture.md#walkthrough-capture-http2)区分接收中字节进度、结束后正文可读、错误GOAWAY的部分正文与独立恢复GET；[WebSocket](../guidebook/zh-CN/capture.md#walkthrough-capture-websocket-messages)和[gRPC消息](../guidebook/zh-CN/capture.md#walkthrough-capture-grpc-messages)分别录制长正文、Copy、全屏及205条分页，gRPC末条正文必须完整出现在视区内。
-- [导出范围](../guidebook/zh-CN/transfer.md#walkthrough-transfer-scopes)用同组三条输入核对3/2/1个HAR条目和同文件Import；[运行中取消](../guidebook/zh-CN/transfer.md#walkthrough-transfer-cancel)记录实际归档工作及取消后清理，不把原生面板取消或关闭前截图当作任务取消/退出等待。
-- Rules的[目录/校验/命中导航](../guidebook/zh-CN/rules.md#walkthrough-rules-tree)、[匹配模式](../guidebook/zh-CN/rules.md#walkthrough-rules-matching-modes)、[响应控制与编码](../guidebook/zh-CN/rules.md#walkthrough-rules-response-controls)、[第二写入者冲突](../guidebook/zh-CN/rules.md#walkthrough-rules-conflict)、[跨协议改道与缺失文件恢复](../guidebook/zh-CN/rules.md#walkthrough-rules-routing)已逐步接入。不把Release允许保存无效regex却恒不匹配的行为伪造成语法报错，也不绕过最后一条规则删除后的Apply限制。
-- Breakpoints的[管理器](../guidebook/zh-CN/breakpoints.md#walkthrough-breakpoints-manager)、[请求变体](../guidebook/zh-CN/breakpoints.md#walkthrough-breakpoints-request-variants)和[Both/控制帧](../guidebook/zh-CN/breakpoints.md#walkthrough-breakpoints-websocket-controls)分别使用真实发布App。HTTP头阶段的空Text保持正文，已知WebSocket payload的空Text转发零字节；关闭码分别核对客户端与源站，不混淆两段连接。
-- [工作区导航](../guidebook/zh-CN/workspace.md#walkthrough-workspace-navigation)包含Settings保留、Agent空态深链、开着面板切工作区、两个关闭入口、Theme菜单和连续窗口缩放。[窗口控件](../guidebook/zh-CN/workspace.md#walkthrough-workspace-window-controls)另行实录真实最大化/还原与最小化，测试侧恢复不冒充Dock操作；[混合队列退出](../guidebook/zh-CN/breakpoints.md#walkthrough-breakpoints-mixed-queues)分别核对等待内容取消与正常退出，不制造Core故障作为教程步骤。
-- Settings的[真实上游](../guidebook/zh-CN/settings.md#walkthrough-settings-upstream)、[隐私与实际HAR](../guidebook/zh-CN/settings.md#walkthrough-settings-privacy-export)、[真实更新检查](../guidebook/zh-CN/settings.md#walkthrough-settings-update-check)已接入；Check实际为`failed`/HTTP404，没有下载、校验或安装。WPAD、Windows和隔离首次CA仍缺前提。
-- [Diagnostics生命周期](../guidebook/zh-CN/diagnostics.md#walkthrough-diagnostics-lifecycle)用真实UI生成历史、实际PAC失败、过滤、自动时间线、分栏、历史加载与JSONL。`composer.send`命令的success不等于HTTP成功；不为没有的时间线展开按钮编造步骤。
-- Agent的[会话操作](../guidebook/zh-CN/agent.md#walkthrough-agent-session-lifecycle)和[Tool生命周期](../guidebook/zh-CN/agent.md#walkthrough-agent-tool-lifecycle)，MCP的[实际审批/导出/撤销](../guidebook/zh-CN/mcp.md#walkthrough-mcp-tool-lifecycle)与[新endpoint查询](../guidebook/zh-CN/mcp.md#walkthrough-mcp-endpoint-reconnect)，以及[完整只读配置](../guidebook/zh-CN/tool-permissions.md#walkthrough-tool-permissions-readonly)/[重启](../guidebook/zh-CN/tool-permissions.md#walkthrough-tool-permissions-restart)均已接入。模型/SDK仍明确是本地演示，不代替商业服务或真实外部Host。
-- Agent的旧重启片前段因背景Capture流量不公开；[新的完整重启](../guidebook/zh-CN/agent.md#walkthrough-agent-session-restart)从Settings取景，前后两代统一使用同一轮成功来源。旧片安全删除尾段另有明确标注的[连续节选](../guidebook/zh-CN/agent.md#walkthrough-agent-model-removal)，不混用时间戳或冒充新录制。早期锁屏拒绝保留为环境证据。
-- 旧交付包含70段影片和1736张步骤图，其媒体与字幕验收事实仍保留在各自历史记录。当前源码已移除影片/字幕，原PNG全部保留，并通过正式截图导入增加7张原业务workflow截图；当前图文索引直接定位步骤小节，详见[纯图文验收](guidebook.md#原workflow截图与纯图文验收)。跨平台/隔离场景、外部服务与App入口继续由Handover item 16跟踪，不以图片数量推算完成百分比。
-- 当前VS Code Copilot SDK Host与签名`0.1.1-alpha.1`的[English原生Tool验收](../../../.copilot/session-state/45191cff-dea3-4a02-97b4-515d33bd7ef1/files/item16/verified-current-host.json)覆盖查询/完整正文、Deny/Allow/Auto、唯一Composer POST、真实Clear和退出恢复；保留Client最终已撤销，profile与唯一Host配置已清理。[当前Host操作](../guidebook/zh-CN/mcp.md#current-host)与[对应English章节](../guidebook/en/mcp.md#current-host)使用同次English App图片及示例，不采用此前旧endpoint中断图片。新组按[独立Host来源](guidebook.md#真实host英文图片与保留边界)校验保留，不映射到SDK流程冒充重拍；其他Host、未调用Tool、商业模型服务及App嵌入不随此代表主线通过。
+- 实际版本、平台、语言、workflow和图片来源以媒体manifest为准，发布范围由[截图发布清单](../guidebook/screenshot-publication.json)登记。
+- 普通Renderer workflow由当前平台driver执行；AppContainer、Keychain和系统代理等原生API专项只在所属平台执行，不能拿其他平台或CI结果替代。
+- 真实App验收须包含trace、所有App代际正常退出、8888释放和宿主恢复；网站Browser、编译和图片审计不能替代产品操作。
+- 截图只使用获准公开的自产数据与本轮App窗口。原生面板遮盖个人路径，AppContainer不公开应用身份/SID；公开manifest不包含私有日志、profile或凭据。
+- Agent本地模型服务与SDK Client分别说明其来源，不能据此推断商业模型或其他MCP Host已验证。
+- 独立真实Host、原生面板和Release实录按审核摘要校验后保留，不映射到其他workflow冒充重拍。方法见[真实Host图片与保留边界](guidebook.md#真实host英文图片与保留边界)及[原workflow截图与纯图文验收](guidebook.md#原workflow截图与纯图文验收)。
+- 未完成验证、平台或权限阻塞只在Interceptor的[Handover](../../Interceptor/architecture/HANDOVER.md)维护，不给本表增加进度列。
 
 ## 完整功能目录的补充来源
 
@@ -64,6 +44,8 @@
 | 工作区切换与侧栏 | `shell.navigation.workspaces`、`shell.sidebar.collapse` | [导航](../guidebook/zh-CN/workspace.md#navigation) |
 | 主题与语言 | `shell.appearance.theme`、`shell.appearance.language` | [主题与语言](../guidebook/zh-CN/workspace.md#appearance) |
 | 窗口操作 | `shell.window.controls` | [窗口与分栏](../guidebook/zh-CN/workspace.md#layout) |
+| App 内教程阅读、搜索、图片、刷新与浏览器入口 | `shell.guidebook.online` | [App 内 Guidebook](../guidebook/zh-CN/workspace.md#guidebook) |
+| 教程语言同步 | `shell.guidebook.i18n` | [Guidebook 主题与语言](../guidebook/zh-CN/workspace.md#guidebook) |
 
 ## Capture
 
@@ -106,7 +88,8 @@
 | 用户功能点 | Workflow 契约 | 教程归属 |
 | --- | --- | --- |
 | 编辑方法、URL、参数、正文和认证 | `composer.request-edit` | [Composer](../guidebook/zh-CN/composer.md#编辑-query-与-headers) |
-| 发送成功与错误 | `composer.send-success`、`composer.send-failure` | [发送](../guidebook/zh-CN/composer.md#发送第一个请求) |
+| 发送成功 | `composer.send-success` | [发送](../guidebook/zh-CN/composer.md#发送第一个请求) |
+| 发送失败与恢复 | `composer.send-failure` | [错误与重发](../guidebook/zh-CN/composer.md#send-failure) |
 | 响应分组与正文格式化 | `composer.response.section-collapse`、`composer.response.body-formatting` | [响应](../guidebook/zh-CN/composer.md#查看响应) |
 | 目录、请求与自动保存 | `composer.collection.tree-interactions` | [Collection](../guidebook/zh-CN/composer.md#管理-collection) |
 | Recent sends 与新建 | `composer.history-new` | [Recent sends](../guidebook/zh-CN/composer.md#使用-recent-sends) |
@@ -132,7 +115,8 @@
 | 用户功能点 | Workflow 契约 | 教程归属 |
 | --- | --- | --- |
 | 记录、详情和操作链 | `diagnostics.list-detail` | [详情](../guidebook/zh-CN/diagnostics.md#records) |
-| 筛选与更多记录 | `diagnostics.filters`、`diagnostics.pagination` | [筛选与加载](../guidebook/zh-CN/diagnostics.md#filters) |
+| 筛选 | `diagnostics.filters` | [筛选](../guidebook/zh-CN/diagnostics.md#filters) |
+| 加载更早记录 | `diagnostics.pagination` | [Load earlier records](../guidebook/zh-CN/diagnostics.md#walkthrough-diagnostics-lifecycle-17-earlier) |
 | 分栏 | `diagnostics.resize` | [阅读详情](../guidebook/zh-CN/diagnostics.md#filters) |
 | 脱敏 JSONL 导出与 Tool 查询 | `diagnostics.export`、`diagnostics.tools.queries-export` | [导出](../guidebook/zh-CN/diagnostics.md#export)、[Tool](../guidebook/zh-CN/diagnostics.md#tools) |
 

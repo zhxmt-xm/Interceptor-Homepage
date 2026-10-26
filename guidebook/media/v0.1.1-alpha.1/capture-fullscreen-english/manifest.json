@@ -6,283 +6,223 @@
     "en": "Capture response fullscreen and view modes"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/body-fullscreen.workflow.ts",
     "test": "capture.body.fullscreen keeps captured content and mode through open copy and close",
-    "run": "2026-10-21T09-22-01-498Z-8pTCmx",
-    "testDirectory": "capture-body-fullscreen.wo-a8c60-through-open-copy-and-close-macos",
-    "manifestSha256": "926804ba06f7de9e8727f5c545b79e1f57dbad5cd1817b50b987aeb605fedf50",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "9ad4f5624c6062555c813b451c2f47af834ba6603bc81fa901e466972f224844",
+    "workflowSha256": "012e531255127d1e984f3e52bb270b9174602f10a8330c2e657f0d08500e07ff",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
-      "id": "step-012",
-      "title": "打开response正文 / Open the response body",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-012.png",
-      "image": "step-012.annotated.png",
-      "rawImage": "step-012.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2634.703125,
-            "y": 292,
-            "width": 167.15625,
-            "height": 82.75
-          },
-          "automationId": "capture.inspector.tab.response"
-        }
-      ],
-      "bytes": 228585,
-      "sha256": "e4dbbb863645043aa5d814c04e9705e3c850dc93715439dd83b8eb73d0ca4239",
-      "rawBytes": 302695,
-      "rawSha256": "ada55f600ae432c3bd1cfc0dfb49132052788ab8cc111de68b56dbde47ee2754"
-    },
-    {
-      "id": "step-013",
-      "title": "选择response Raw正文 / Select Raw for the response body",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-013.png",
-      "image": "step-013.annotated.png",
-      "rawImage": "step-013.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2542,
-            "y": 532.75,
-            "width": 85.46875,
-            "height": 44
-          },
-          "automationId": "capture.inspector.body-mode.raw"
-        }
-      ],
-      "bytes": 216888,
-      "sha256": "988d77c8efeaa907b1b4a7f5c54b3a4ef58939c5ea358effccc53ef17b4148fc",
-      "rawBytes": 286798,
-      "rawSha256": "3ff09f64b74c9646baffe644e34c04d5f35869e87ff332eeca9040d597d740fd"
-    },
-    {
       "id": "step-014",
       "title": "打开response正文全屏 / Open the response body fullscreen",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-014.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-014.annotated.png",
       "rawImage": "step-014.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 780,
-            "y": 406,
-            "width": 85.46875,
-            "height": 44
+            "x": 584.4687652587891,
+            "y": 303.50001525878906,
+            "width": 64.10939025878906,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
       ],
-      "bytes": 217581,
-      "sha256": "cdff34d063a7a487370f907085dd9da6362fb1e105120a74486da25a068a1317",
-      "rawBytes": 234652,
-      "rawSha256": "c3e49f614dddbf4ac0dbfc7ed1a513d033f7580d5191db4e2137630d8cf7164a"
-    },
-    {
-      "id": "step-015",
-      "title": "在全屏复制response原文 / Copy the original response body from fullscreen",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-015.png",
-      "image": "step-015.annotated.png",
-      "rawImage": "step-015.png",
       "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
-      },
-      "highlights": [
-        {
-          "label": "1",
-          "bounds": {
-            "x": 2482,
-            "y": 270,
-            "width": 60,
-            "height": 60
-          },
-          "automationId": null
-        }
-      ],
-      "bytes": 235730,
-      "sha256": "599f572f304e85c880464240f3a70787e5e25766b6f567270017f17adbea78e5",
-      "rawBytes": 260740,
-      "rawSha256": "719fb89b8011336fff30261261698b759dd74b51ffac4a7d20357b2991478ec4"
+      }
     },
     {
       "id": "step-016",
       "title": "Close返回response详情并保留Raw / Close fullscreen and retain Raw in response details",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-016.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2542,
-            "y": 532.75,
-            "width": 85.46875,
-            "height": 44
+            "x": 1906.4688720703125,
+            "y": 399.5625,
+            "width": 64.1092529296875,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.raw"
         }
       ],
-      "bytes": 226146,
-      "sha256": "d62a3b5dceb64b3de6bca942e28fa798bc52feddc33ffcac491e0c2783063ded",
-      "rawBytes": 301150,
-      "rawSha256": "c137e085ee98c86d9322fc58bdbdb93bbb704fd9318014e27a39ae0aad8fa4fc"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-017",
       "title": "全屏切换response Hex / Select Hex for the fullscreen response body",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-017.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-017.annotated.png",
       "rawImage": "step-017.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 869.46875,
-            "y": 406,
-            "width": 81.25,
-            "height": 44
+            "x": 651.5781555175781,
+            "y": 303.50001525878906,
+            "width": 60.9375,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.hex"
         }
       ],
-      "bytes": 230992,
-      "sha256": "de11f15d11b43e1a4e1fbc752b8c0858098a5282282b6323f15456836edd8b6c",
-      "rawBytes": 257070,
-      "rawSha256": "4c910b43fb3e63f989849919ba96179256597dedb49efb5d4ce3fa7dbfd87d03"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-018",
       "title": "Escape返回后保留response Hex / Press Escape and retain Hex for the response body",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-018.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-018.annotated.png",
       "rawImage": "step-018.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2631.46875,
-            "y": 532.75,
-            "width": 81.25,
-            "height": 44
+            "x": 1973.578125,
+            "y": 399.5625,
+            "width": 60.9375,
+            "height": 33
           },
           "automationId": "capture.inspector.body-mode.hex"
         }
       ],
-      "bytes": 243027,
-      "sha256": "bc6900007ec999e87379aa4eb2ef938f5aea17cdf2e09971fd866fe8ce8b2b30",
-      "rawBytes": 326948,
-      "rawSha256": "f9e43a248ec17726bdf5c4ec75d67483b30a0ac593e84bf6108385fa9054cc19"
-    },
-    {
-      "id": "step-019",
-      "title": "返回Raw并复制同一份response正文 / Return to Raw and copy the same response body",
-      "window": "app",
-      "language": "en",
-      "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-019.png",
-      "image": "step-019.annotated.png",
-      "rawImage": "step-019.png",
       "coordinateSpace": "image-pixels",
       "sourceViewport": {
         "width": 1600,
         "height": 900
-      },
+      }
+    },
+    {
+      "id": "step-019",
+      "title": "返回Raw并复制同一份response正文 / Return to Raw and copy the same response body",
+      "language": "en",
+      "theme": "light",
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-019.annotated.png",
+      "rawImage": "step-019.png",
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3038,
-            "y": 524.75,
-            "width": 60,
-            "height": 60
+            "x": 2278.5,
+            "y": 393.5625,
+            "width": 45,
+            "height": 45
           },
           "automationId": "capture.inspector.body-action.copy"
         }
       ],
-      "bytes": 236479,
-      "sha256": "de0b092ff2361b42a121f585e4141624df03af9c15a8505470673ba3185d1f0e",
-      "rawBytes": 315594,
-      "rawSha256": "1c4409e7411055dd61ba7c660168e5c3ba492824466a00bf9e715d99655a9c06"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-014.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93428,
+      "sha256": "f224e713281f9b3d351f9b1c87569aa73ee9db3eedfe2427a235be79d4f158f6"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148691,
+      "sha256": "69cde901200bf5bf8bd486b1f2bd8277bc9a1a4eae0e76c7be8c962a9e53e6e3"
+    },
+    {
+      "file": "step-016.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 130018,
+      "sha256": "1597b9f4adab616203a294c8a5c38b7f8c288f48ebbd322c645c4bf1f5f4af2b"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148513,
+      "sha256": "234bc7b0f55e829e51d48e3a373cacd7a16f2925725094a556be02f26d75576e"
+    },
+    {
+      "file": "step-017.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 101851,
+      "sha256": "81edf3afe496104c2f4093ff588fcb428270f0e114fbb5021f1a040d9fb631fc"
+    },
+    {
+      "file": "step-017.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 155242,
+      "sha256": "7e75eb75df2445563981cb61c3f56b8b710aaed61f2e30534f85411e655df029"
+    },
+    {
+      "file": "step-018.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 150589,
+      "sha256": "7966949341dae334eddfef5d208803d4b8d7e73f21c1709f6c41b7c4fb540229"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 162181,
+      "sha256": "fe70e07425dedef198e42f240e511280b563263c7bfd10a52089e09d844710c7"
+    },
+    {
+      "file": "step-019.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 126664,
+      "sha256": "eedc8b89bf57a1c539cc8f078191e640d96f9cdd43b36656bc4c458eacf0e033"
+    },
+    {
+      "file": "step-019.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 144913,
+      "sha256": "ed56fdf8262507f5c9f17e3db3991ed2c28aa7a85dd46d84c545657c05828a7d"
     }
   ]
 }

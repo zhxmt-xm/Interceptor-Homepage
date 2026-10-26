@@ -66,7 +66,7 @@
 | PAC | PAC URL | 通过 HTTP/HTTPS PAC 为各个请求选择路线 |
 | WPAD | Auto-discover (WPAD) | 从实际支持自动发现的网络取得 PAC |
 
-先准备自己的可用上游或 PAC。下面的 HTTP 上游为 `127.0.0.1:64599`，PAC 为 `http://127.0.0.1:64598/proxy.pac`；App 不会自动创建这些服务。没有对应服务时只练习填写和 Discard，不要 Apply。
+先准备自己的可用上游或 PAC。下面的 HTTP 上游为 `127.0.0.1:54669`，PAC 为 `http://127.0.0.1:54668/proxy.pac`；App 不会自动创建这些服务。没有对应服务时只练习填写和 Discard，不要 Apply。
 
 1. <a id="walkthrough-03-proxy"></a><a id="walkthrough-04-upstream"></a><a id="walkthrough-settings-upstream"></a><a id="walkthrough-settings-upstream-01-settings"></a><a id="walkthrough-settings-upstream-02-upstream"></a>进入 Settings → Upstream proxy，先查看 Current route。这里显示的是当前已生效的 System，而不是正在编辑的草稿。
 
@@ -78,7 +78,7 @@
 
    ![选择上游代理 · 2](../media/v0.1.1-alpha.1/settings-upstream-english/step-003.png)
 
-3. <a id="walkthrough-05-manual-draft"></a><a id="walkthrough-settings-upstream-05-manual"></a><a id="walkthrough-settings-upstream-06-host"></a><a id="walkthrough-settings-upstream-07-port"></a>选择 Manual proxy。Protocol 使用上游支持的协议，本例为 HTTP；红框 1 的 Host 填 `127.0.0.1`，红框 2 的 Port 填 `64599`。Host 不包含协议、路径或凭据。红框 3 是 Apply，只有上游确实可用时才点击。
+3. <a id="walkthrough-05-manual-draft"></a><a id="walkthrough-settings-upstream-05-manual"></a><a id="walkthrough-settings-upstream-06-host"></a><a id="walkthrough-settings-upstream-07-port"></a>选择 Manual proxy。Protocol 使用上游支持的协议，本例为 HTTP；红框 1 的 Host 填 `127.0.0.1`，红框 2 的 Port 填 `54669`。Host 不包含协议、路径或凭据。红框 3 是 Apply，只有上游确实可用时才点击。
 
    ![选择上游代理 · 3](../media/v0.1.1-alpha.1/settings-upstream-english/step-004.annotated.png)
 
@@ -90,7 +90,7 @@
 
    ![选择上游代理 · 5](../media/v0.1.1-alpha.1/settings-upstream-english/step-006.png)
 
-6. <a id="walkthrough-settings-upstream-09-manual-request"></a><a id="walkthrough-settings-upstream-10-capture"></a>让客户端通过 `http://127.0.0.1:8888` 请求自己的接口，再到 Capture 选择红框 1 的请求。图中源站使用 `127.0.0.1:64598`，请求路径以 `/manual-` 开头；检查实际客户端结果及目标服务，不只看设置输入框。
+6. <a id="walkthrough-settings-upstream-09-manual-request"></a><a id="walkthrough-settings-upstream-10-capture"></a>让客户端通过 `http://127.0.0.1:8888` 请求自己的接口，再到 Capture 选择红框 1 的请求。图中源站使用 `127.0.0.1:54668`，请求路径以 `/manual-` 开头；检查实际客户端结果及目标服务，不只看设置输入框。
 
    ![选择上游代理 · 6](../media/v0.1.1-alpha.1/settings-upstream-english/step-007.annotated.png)
 
@@ -98,7 +98,7 @@
 
    ![选择上游代理 · 7](../media/v0.1.1-alpha.1/settings-upstream-english/step-008.png)
 
-8. <a id="walkthrough-07-pac"></a><a id="walkthrough-settings-upstream-12-pac-draft"></a><a id="walkthrough-settings-upstream-13-pac-url"></a><a id="walkthrough-settings-upstream-14-cancel-draft"></a>选择 PAC URL，在红框 1 输入 `http://127.0.0.1:64598/proxy.pac`。它必须是自己可访问的 HTTP/HTTPS 地址。不想应用时点击 Cancel，或点击红框 2 的关闭按钮，放弃这次草稿。
+8. <a id="walkthrough-07-pac"></a><a id="walkthrough-settings-upstream-12-pac-draft"></a><a id="walkthrough-settings-upstream-13-pac-url"></a><a id="walkthrough-settings-upstream-14-cancel-draft"></a>选择 PAC URL，在红框 1 输入 `http://127.0.0.1:54668/proxy.pac`。它必须是自己可访问的 HTTP/HTTPS 地址。不想应用时点击 Cancel，或点击红框 2 的关闭按钮，放弃这次草稿。
 
    ![选择上游代理 · 8](../media/v0.1.1-alpha.1/settings-upstream-english/step-009.annotated.png)
 
@@ -215,7 +215,7 @@
 <a id="tls-passthrough"></a>
 ## 对特定主机保持 TLS 透传
 
-透传名单让选定主机保持端到端加密。下面使用同一个 `https://localhost:52139/e2e/passthrough/http`，每次重新连接，依次比较解密、透传和移除后的恢复；实际操作使用自己的服务。
+透传名单让选定主机保持端到端加密。下面使用同一个 `https://localhost:56104/e2e/passthrough/http`，每次重新连接，依次比较解密、透传和移除后的恢复；实际操作使用自己的服务。
 
 1. <a id="walkthrough-settings-tls-passthrough"></a><a id="walkthrough-settings-tls-passthrough-01-filter"></a><a id="walkthrough-settings-tls-passthrough-02-record"></a><a id="walkthrough-settings-tls-passthrough-03-opaque-request"></a><a id="walkthrough-settings-tls-passthrough-04-tunnel-select"></a><a id="walkthrough-settings-tls-passthrough-05-tunnel"></a><a id="walkthrough-settings-tls-passthrough-06-https-setup"></a><a id="walkthrough-settings-tls-passthrough-07-cancel-setup"></a><a id="walkthrough-settings-tls-passthrough-08-settings"></a><a id="walkthrough-settings-tls-passthrough-09-certificates"></a><a id="walkthrough-settings-tls-passthrough-10-origin-host"></a><a id="walkthrough-settings-tls-passthrough-11-origin-add"></a><a id="walkthrough-settings-tls-passthrough-12-mitm-on"></a><a id="walkthrough-settings-tls-passthrough-13-capture-decrypted"></a><a id="walkthrough-settings-tls-passthrough-14-decrypted-request"></a><a id="walkthrough-settings-tls-passthrough-15-decrypted-select"></a><a id="walkthrough-settings-tls-passthrough-16-decrypted-body"></a>先完成上节 CA、受控源站例外和 MITM 设置。发送新请求，在红框 1 的 Response 确认能看到 `https-h1` 与 `secure: true` 正文。
 
@@ -409,7 +409,7 @@ Privacy 决定下一次新开 HAR 导出窗口的初始选项，不会追溯修�
 
    ![设置后续导出的隐私默认值 · 6](../media/v0.1.1-alpha.1/capture-har-scopes-english/step-017.annotated.png)
 
-   ![设置后续导出的隐私默认值 · 6](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
+   ![设置后续导出的隐私默认值 · 6](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
 7. <a id="walkthrough-settings-storage-privacy-07-one-export-override"></a><a id="walkthrough-settings-privacy-export-05-one-time-override"></a><a id="walkthrough-settings-privacy-export-06-save-override"></a><a id="walkthrough-settings-privacy-export-07-check-override"></a>只想改变一次导出时，在当前 HAR 窗口覆盖遮罩选项，再点击红框 1 的 Export 并选择保存位置。本例保存 `ui-override.har`；这种覆盖不会回写 Privacy 默认值。
 
@@ -466,17 +466,17 @@ Privacy 决定下一次新开 HAR 导出窗口的初始选项，不会追溯修�
 
    ![检查、下载并打开更新 · 2](../media/v0.1.1-alpha.1/settings-update-check-english/step-002.annotated.png)
 
-3. <a id="walkthrough-settings-update-check-04-result"></a>本例显示 Failed 和 `GitHub returned HTTP 404`，表示发布源不可用，不是已经处于最新版，也没有下载或安装更新。
+3. <a id="walkthrough-settings-update-check-04-result"></a>核对实际结果和版本。Up to date 表示最高已发布版本与当前版本相同或更旧，相同 alpha 版本不需要更新；Available 表示发现更高版本且有受支持安装包。Failed 表示检查失败，不表示已经处于最新版；仅检查不会下载或安装更新。
 
    ![检查、下载并打开更新 · 3](../media/v0.1.1-alpha.1/settings-update-check-english/step-003.png)
 
-4. 检查网络、发布地址和访问条件后，可再次点击红框 1 的 Check now。若发布源仍返回 404，页面仍显示失败，不会把重试变成成功。
+4. 结果为 Up to date 或 Failed 时，红框 1 的 Check now 仍可使用。检查失败时先核对网络和发布源访问条件，再重试并查看新结果；重试本身不代表成功。发现 Available 时，操作按钮变为 Download update。
 
    ![检查、下载并打开更新 · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-004.annotated.png)
 
    ![检查、下载并打开更新 · 4](../media/v0.1.1-alpha.1/settings-update-check-english/step-005.png)
 
-5. 正常关闭并重开 App 后，仍可在 Updates 点击红框 1 的 Check now。重启不会改变发布源的权限；继续按返回的实际状态处理。
+5. 正常关闭并重开 App，再打开 Updates。App 会在启动时匿名检查，按实际结果显示 Check now、Download update 或 Open installer。第一张图的红框 1 标出 Check now。
 
    ![检查、下载并打开更新 · 5](../media/v0.1.1-alpha.1/settings-update-check-english/step-007.annotated.png)
 
@@ -485,7 +485,8 @@ Privacy 决定下一次新开 HAR 导出窗口的初始选项，不会追溯修�
 6. 只有页面发现可用版本时，才阅读版本说明并明确点击 Download。等待下载及完整性校验完成，再点击 Open installer；随后完成系统安装流程，不运行未完成的临时文件。
 
    ![同一流程相关界面](../media/v0.1.1-alpha.1/settings-update-check-english/step-008.png)
-- 更新使用匿名 GitHub 请求；私有发布源、没有合适稳定版本或缺少受支持安装包时，检查可能失败。
-- 已发布 Alpha 或只有 macOS ZIP，不等于内置更新已经有可用安装目标。
+- 更新使用匿名 GitHub 请求，从全部发布分页中按 SemVer 选择最高已发布版本，包括 alpha；draft 和非法版本标签不参与，发布日期和列表顺序不决定结果。
+- 例如 `0.1.1-alpha.10` 比 `0.1.1-alpha.2` 新，`0.1.1` 比 `0.1.1-alpha.10` 新；相同或更旧版本不会触发升级。
+- 最高版本必须有适合当前平台和架构的有效安装包：Windows MSI 或 macOS DMG；只有 ZIP 不够。发布源不可访问或安装包不符合要求时显示 Failed，不会自动退回旧版本。
 - 平台、架构和安装格式必须匹配。通知中的 Download、Open installer 与 Settings 使用同一状态，Dismiss 只收起通知。
 - 正常退出会收尾正在进行的检查或下载，不用旧临时文件绕过校验。

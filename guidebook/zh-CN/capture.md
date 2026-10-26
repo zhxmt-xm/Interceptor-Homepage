@@ -118,7 +118,7 @@
 
     ![Application展开后可选择Unknown](../media/v0.1.1-alpha.1/capture-filters-english/step-010.png)
 
-21. <a id="walkthrough-capture-facets-03-host-group"></a><a id="walkthrough-capture-facets-04-host-select"></a>按主机缩小范围时，展开Host并选择目标。这个独立GET示例的主机为 `127.0.0.1`；图中是展开Host前的核对状态，Headers显示完整URL `http://127.0.0.1:64755/e2e/capture/clear-facets`，端口在详情中确认。
+21. <a id="walkthrough-capture-facets-03-host-group"></a><a id="walkthrough-capture-facets-04-host-select"></a>按主机缩小范围时，展开Host并选择目标。这个独立GET示例的主机为 `127.0.0.1`；图中是展开Host前的核对状态，Headers显示完整URL `http://127.0.0.1:53548/e2e/capture/clear-facets`，端口在详情中确认。
 
     ![在Headers核对主机后选择Host分组](../media/v0.1.1-alpha.1/capture-clear-state-english/step-002.png)
 
@@ -152,7 +152,7 @@
 
     ![Capture Clear清空记录而不是只清筛选](../media/v0.1.1-alpha.1/capture-clear-state-english/step-005.annotated.png)
 
-搜索匹配Host与Path，不包含端口。本章TLS示例可输入 `localhost`，再在详情核对端口；`localhost:52139` 不是同等搜索。上面的分组示例在系统代理Restore后显示Paused；Restore恢复的是系统代理，不能仅凭这个标签判断显式代理客户端是否还在产生新记录。
+搜索匹配Host与Path，不包含端口。本章TLS示例可输入 `localhost`，再在详情核对端口；`localhost:56104` 不是同等搜索。上面的分组示例在系统代理Restore后显示Paused；Restore恢复的是系统代理，不能仅凭这个标签判断显式代理客户端是否还在产生新记录。
 
 - 搜索匹配 Host 和 Path，不是全文检索正文或请求头。
 - 分组计数来自当前录制的完整记录，不应直接当成当前筛选结果的行数。
@@ -163,7 +163,7 @@
 
 ## 检查请求详情
 
-1. <a id="walkthrough-04-select"></a>本段用 `POST http://127.0.0.1:59696/playground/body/json` 举例，请替换成自己的服务地址。让外部客户端经代理发送 `Content-Type: application/json`、正文 `{"ready":true}`。第一张图红框 1 是进入列表的 `200` 记录；点击它后，第二张图红框 1 显示选中状态，右侧出现 URL、方法、协议和状态概要。
+1. <a id="walkthrough-04-select"></a>本段用 `POST http://127.0.0.1:55115/playground/body/json` 举例，请替换成自己的服务地址。让外部客户端经代理发送 `Content-Type: application/json`、正文 `{"ready":true}`。第一张图红框 1 是进入列表的 `200` 记录；点击它后，第二张图红框 1 显示选中状态，右侧出现 URL、方法、协议和状态概要。
 
    ![同一POST进入Capture列表](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
@@ -177,7 +177,7 @@
 
    ![同一POST的JSON响应](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-4. <a id="walkthrough-capture-inspection-06-headers"></a>需要比较详情分组时，另选 `GET http://127.0.0.1:59682/e2e/capture/section-collapse` 并打开 Headers；端口请替换成自己的服务端口。红框 1 的 General 已展开，下面的 Response Headers 也展开。这条记录为 `H1`、`200`，不是前面的 JSON POST。
+4. <a id="walkthrough-capture-inspection-06-headers"></a>需要比较详情分组时，另选 `GET http://127.0.0.1:56349/e2e/capture/section-collapse` 并打开 Headers；端口请替换成自己的服务端口。红框 1 的 General 已展开，下面的 Response Headers 也展开。这条记录为 `H1`、`200`，不是前面的 JSON POST。
 
    ![独立 GET 的 General 与 Response Headers 同时展开](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-001.annotated.png)
 
@@ -508,7 +508,7 @@
 
    ![只为自有localhost添加源站证书例外](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
 
-4. 在 Capture 搜索 `/e2e/passthrough/http`，检查客户端对 `https://localhost:52139/e2e/passthrough/http` 建立的新连接。选中 GET，打开红框 1 的 Response：本例是 H1、200、42 B JSON，包含 `mode: https-h1` 和 `secure: true`。
+4. 在 Capture 搜索 `/e2e/passthrough/http`，检查客户端对 `https://localhost:56104/e2e/passthrough/http` 建立的新连接。选中 GET，打开红框 1 的 Response：本例是 H1、200、42 B JSON，包含 `mode: https-h1` 和 `secure: true`。
 
    ![添加透传前新HTTPS连接可以查看HTTP正文](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
@@ -516,7 +516,7 @@
 
    ![添加精确的localhost透传项](../media/v0.1.1-alpha.1/tls-pattern-english/step-013.annotated.png)
 
-6. 让客户端重新连接同一 HTTPS 地址，在 Capture 搜索 `localhost`，选择红框 1 的新 CONNECT。右侧 TLS tunnel 显示主机、端口 `52139` 和加密转发状态，不提供 HTTP 路径、Headers 或 Body。红框 2 的 View passthrough pattern 可定位匹配项；即使显示 MITM active，此连接仍按透传处理。
+6. 让客户端重新连接同一 HTTPS 地址，在 Capture 搜索 `localhost`，选择红框 1 的新 CONNECT。右侧 TLS tunnel 显示主机、端口 `56104` 和加密转发状态，不提供 HTTP 路径、Headers 或 Body。红框 2 的 View passthrough pattern 可定位匹配项；即使显示 MITM active，此连接仍按透传处理。
 
    ![新CONNECT的Tunnel详情与透传定位入口](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
@@ -528,7 +528,7 @@
 
    ![移除透传后新HTTPS连接恢复正文](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
-9. <a id="walkthrough-22-http2"></a>检查支持 HTTP/2 的另一请求时，搜索 `/playground/h2-json` 并选择红框 1 的记录。此例使用 `https://localhost:56588`，协议是 H2，不是前面 H1 连接的继续。
+9. <a id="walkthrough-22-http2"></a>检查支持 HTTP/2 的另一请求时，搜索 `/playground/h2-json` 并选择红框 1 的记录。此例使用 `https://localhost:54766`，协议是 H2，不是前面 H1 连接的继续。
 
    ![选择独立的已解密HTTP2请求](../media/v0.1.1-alpha.1/capture-http2-english/step-001.annotated.png)
 
@@ -551,7 +551,7 @@
 
 ### 核对 HTTPS 到 HTTP 的映射结果
 
-先按 [Rules 跨协议映射](rules.md#walkthrough-rules-routing)配置自己的源服务和目标服务，并满足本章的 HTTPS 解密前提。下面使用规则 `E2E HTTPS to HTTP mapping`，把 `https://localhost:56535/e2e/rules/tls-mapping/enabled` 转到 `http://127.0.0.1:56533/e2e/rules/mapped-http`；端口是示例服务端口。
+先按 [Rules 跨协议映射](rules.md#walkthrough-rules-routing)配置自己的源服务和目标服务，并满足本章的 HTTPS 解密前提。下面使用规则 `E2E HTTPS to HTTP mapping`，把 `https://localhost:56814/e2e/rules/tls-mapping/enabled` 转到 `http://127.0.0.1:56810/e2e/rules/mapped-http`；端口是示例服务端口。
 
 1. <a id="walkthrough-capture-mapping-response"></a>规则保存生效后，通过代理请求原 HTTPS 地址。在 Capture 搜索 `/e2e/rules/`，选择 `/enabled` 记录并打开红框 1 的 Response。实际返回 `owned-http-mapping-result`，而不是只有 Tunnel 元信息。
 
@@ -561,13 +561,13 @@
 
    ![映射停用状态已保存](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
 
-3. <a id="walkthrough-capture-mapping-restored"></a>新发起 `GET https://localhost:56535/e2e/rules/tls-mapping/disabled`。红框 1 是这个新请求的 `404` 记录：它回到了没有该路径的原 HTTPS 服务。`/disabled` 与上面的 `/enabled` 是不同的完整 URL，不是对旧记录改名。
+3. <a id="walkthrough-capture-mapping-restored"></a>新发起 `GET https://localhost:56814/e2e/rules/tls-mapping/disabled`。红框 1 是这个新请求的 `404` 记录：它回到了没有该路径的原 HTTPS 服务。`/disabled` 与上面的 `/enabled` 是不同的完整 URL，不是对旧记录改名。
 
    ![停用后新请求回到原HTTPS服务](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
 
 ### 用 HTTPS 请求读取本地文件
 
-这是独立的本地文件示例，使用 HTTPS 服务 `localhost:63644` 和提供原始响应的 HTTP 服务 `127.0.0.1:63638`，不要沿用上一例的端口。下面的文件先由 Capture 保存，再供 Map Local 使用；请替换成自己的服务地址和保存路径。
+这是独立的本地文件示例，使用 HTTPS 服务 `localhost:56814` 和提供原始响应的 HTTP 服务 `127.0.0.1:56810`，不要沿用上一例的端口。下面的文件先由 Capture 保存，再供 Map Local 使用；请替换成自己的服务地址和保存路径。
 
 1. <a id="walkthrough-capture-local-save-dialog"></a>在本例 `/e2e/rules/tls-mapping/enabled` 的 Response 工具栏点击 Save。在系统 Save body 对话框选择自己的目录，以 `https-map-local-response.txt` 保存。
 
@@ -597,7 +597,7 @@
 
    ![缺失文件路径的规则已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
 
-8. <a id="walkthrough-capture-local-missing-result"></a>通过代理请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing`，在 Capture 搜索该路径并打开红框 1 的 Response。实际结果是 `404`，正文为 `Map Local target not found.`。
+8. <a id="walkthrough-capture-local-missing-result"></a>通过代理请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-missing`，在 Capture 搜索该路径并打开红框 1 的 Response。实际结果是 `404`，正文为 `Map Local target not found.`。
 
    ![HTTPS请求返回缺失文件提示](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
 
@@ -609,7 +609,7 @@
 
     ![修正后的文件路径已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
 
-11. <a id="walkthrough-capture-local-file-result"></a>新请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`。在 Capture 打开红框 1 的 Response，确认 `200` 和本地文件的 `owned-http-mapping-result`。
+11. <a id="walkthrough-capture-local-file-result"></a>新请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-enabled`。在 Capture 打开红框 1 的 Response，确认 `200` 和本地文件的 `owned-http-mapping-result`。
 
     ![HTTPS响应实际来自本地文件](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
 
@@ -621,14 +621,14 @@
 
     ![Map Local停用状态已保存](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
 
-14. <a id="walkthrough-capture-local-origin-restored"></a>再请求 `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`。红框 1 的新记录回到原 HTTPS 服务的 `404`，正文为 `0 B`，不再是缺失文件提示或保存的文本。这三个后缀对应不同的新请求。
+14. <a id="walkthrough-capture-local-origin-restored"></a>再请求 `https://localhost:56814/e2e/rules/tls-mapping/map-local-disabled`。红框 1 的新记录回到原 HTTPS 服务的 `404`，正文为 `0 B`，不再是缺失文件提示或保存的文本。这三个后缀对应不同的新请求。
 
     ![停用后新请求恢复原HTTPS结果](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
 
 <a id="http2"></a>
 ## 检查 HTTP/2 与连接结束
 
-客户端和源站必须实际使用 HTTP/2；HTTPS 还需要前述解密条件。下面先检查 `https://localhost:56588` 的已捕获请求。
+客户端和源站必须实际使用 HTTP/2；HTTPS 还需要前述解密条件。下面先检查 `https://localhost:54766` 的已捕获请求。
 
 1. <a id="walkthrough-21-protocol-scope"></a>搜索 `/playground/h2-json`，选择红框 1 的 GET。在 Headers → General 核对 H2、200 与实际 URL，不从路径名称猜测协议。
 
@@ -674,7 +674,7 @@
 
     ![完整响应的长度与结束trailer](../media/v0.1.1-alpha.1/capture-http2-english/step-013.annotated.png)
 
-12. 正常 GOAWAY 的另一例使用 `https://localhost:56511/e2e/h2/origin-goaway/paused`。若停在响应断点，点击 Continue 原样放行；完成后打开该 POST 的 Headers。下图是放行后的结果：响应完整4 MiB，红框 1 的 Response Trailers 中有 `x-goaway-complete`。
+12. 正常 GOAWAY 的另一例使用 `https://localhost:60170/e2e/h2/origin-goaway/paused`。若停在响应断点，点击 Continue 原样放行；完成后打开该 POST 的 Headers。下图是放行后的结果：响应完整4 MiB，红框 1 的 Response Trailers 中有 `x-goaway-complete`。
 
     ![正常GOAWAY后原POST完整结束并保留trailer](../media/v0.1.1-alpha.1/capture-http2-graceful-english/step-002.annotated.png)
 
@@ -1107,7 +1107,7 @@
 
 ## 从流量进入阻断与断点
 
-本例使用 `http://127.0.0.1:59192/e2e/capture/breakpoint-menu-hierarchy`。`59192` 是示例服务端口，不是 App 固定端口。Block 先生成草稿；This endpoint 则直接创建并启用断点规则。
+本例使用 `http://127.0.0.1:49157/e2e/capture/breakpoint-menu-hierarchy`。`49157` 是示例服务端口，不是 App 固定端口。Block 先生成草稿；This endpoint 则直接创建并启用断点规则。
 
 1. <a id="walkthrough-capture-shortcuts"></a><a id="walkthrough-capture-shortcuts-01-source"></a>按路径搜索，选中红框 1 的历史 GET。选择记录只打开详情，不会重新发送请求。
 

@@ -38,6 +38,42 @@ After the App is ready, use the left navigation to open the tool you need. Break
 
 Navigation itself neither sends requests nor pauses Recording. Proxy, rule and recording states remain independent.
 
+<a id="guidebook"></a>
+## Read Guidebook inside the App
+
+1. Click Guidebook in the sidebar above Settings. Wait for the online tutorial to finish loading, then choose a chapter from its directory. An internet connection is required.
+
+   ![Guidebook inside the App](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-001.png)
+
+2. Click Search in the App's Guidebook toolbar, enter a term and select a result. The matching chapter and section open inside the App.
+
+   ![Search results inside the App](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-002.png)
+
+3. Click a step image to open a larger preview. Press Escape to close it and continue reading.
+
+   ![Larger preview of a step image](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-003.png)
+
+4. Change the App theme using the window header; the tutorial follows it. The App's Chinese language shows the Chinese tutorial; all other App languages show the English tutorial. Switching language reloads the corresponding tutorial entry.
+
+   ![Guidebook follows the App theme](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-004.png)
+
+5. Click Refresh in the Guidebook toolbar to reload the current chapter.
+
+   ![Guidebook reloaded and ready](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-005.png)
+
+6. Use the toolbar's browser button to open the official tutorial in your system browser.
+
+   ![Official tutorial browser button](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-006.png)
+
+7. When the connection is lost, the App shows Error and disables Search. Restore your connection, then click Retry in box 1. Restoring the connection alone does not reload the chapter.
+
+   ![Retry after restoring the connection](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-007.annotated.png)
+
+8. Wait for Ready before continuing. Retry reloads the same chapter and keeps the App's language and theme.
+
+   ![The current chapter is ready after Retry](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-008.png)
+
+
 
 <a id="layout"></a>
 ## Resize panes, windows and scrollable content
@@ -188,7 +224,7 @@ Compare Collection, Privacy and temporary Capture before and after the same norm
 
    ![Know what is retained · 1](../media/v0.1.1-alpha.1/privacy-workspace-english/step-011.annotated.png)
 
-2. <a id="walkthrough-workspace-close-02-url"></a>Enter your URL in box 1. This example uses `http://127.0.0.1:56881/e2e/preferences/retained-request` and saves the definition without clicking Send. Use your own address.
+2. <a id="walkthrough-workspace-close-02-url"></a>Enter your URL in box 1. This example uses `http://127.0.0.1:52971/e2e/preferences/retained-request` and saves the definition without clicking Send. Use your own address.
 
    ![Know what is retained · 2](../media/v0.1.1-alpha.1/privacy-workspace-english/step-012.annotated.png)
 
@@ -238,13 +274,13 @@ Handle data you need to retain and outstanding operations before quitting.
 
 2. Export important traffic and wait for completion. All traffic in box 1 contains four records, and Export 4 requests in box 2 opens Save. Confirm the file was saved rather than treating a selected destination as completion. Use [Native Archive](transfer.md#archive) when additional protocol information is needed.
 
-   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
+   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![Finish a session · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 3. Complete or cancel each system authorization and file dialog you opened. After cancelling a running task, wait for cleanup before Clear or exit.
 
-   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![Related view from the same workflow](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 4. Finally click Close in box 1. If an active system operation prevents exit, let that operation finish before closing again rather than repeatedly clicking or force-killing.
 

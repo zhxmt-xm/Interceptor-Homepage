@@ -14,7 +14,7 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 <a id="walkthrough-agent-management"></a>
 在 Settings → Agent 添加你有权使用的模型服务。Test connection 和对话可能产生费用，只在正式配置窗口输入凭据。
 
-下例使用本机演示服务 `http://127.0.0.1:64170/keyed/v1`，配置名为 `Keyed lab`。这个服务不会由 App 自动创建；实际使用时换成自己的服务地址、Model ID 和凭据，不向示例地址提交真实 Key。
+下例使用本机演示服务 `http://127.0.0.1:51723/keyed/v1`，配置名为 `Keyed lab`。这个服务不会由 App 自动创建；实际使用时换成自己的服务地址、Model ID 和凭据，不向示例地址提交真实 Key。
 
 1. <a id="walkthrough"></a><a id="walkthrough-01-settings"></a><a id="walkthrough-02-agent-settings"></a><a id="walkthrough-agent-management-01-settings"></a>从侧栏进入 Settings，选择 Agent。尚未添加模型时，页面显示 No models configured；这不影响普通抓包。
 
@@ -30,7 +30,7 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
    ![添加并验证模型 · 3](../media/v0.1.1-alpha.1/agent-models-english/step-004.annotated.png)
 
-4. <a id="walkthrough-06-endpoint"></a><a id="walkthrough-agent-management-guide-one-03-endpoint"></a>在红框 1 的 Base URL 填写服务商提供的地址。图中为 `http://127.0.0.1:64170/keyed/v1`；远端 Custom 服务使用 HTTPS，HTTP 仅用于允许的本机 loopback。
+4. <a id="walkthrough-06-endpoint"></a><a id="walkthrough-agent-management-guide-one-03-endpoint"></a>在红框 1 的 Base URL 填写服务商提供的地址。图中为 `http://127.0.0.1:51723/keyed/v1`；远端 Custom 服务使用 HTTPS，HTTP 仅用于允许的本机 loopback。
 
    ![添加并验证模型 · 4](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 
@@ -70,7 +70,7 @@ Agent 是可选的右侧对话面板，不是抓包前提。只查看流量、�
 
     ![添加并验证模型 · 12](../media/v0.1.1-alpha.1/agent-models-english/step-015.annotated.png)
 
-13. <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>红框 1 的 Base URL 填本机服务地址，本例为 `http://127.0.0.1:64170/keyless/v1`；这个服务允许无认证，API key 保持为空。
+13. <a id="walkthrough-agent-management-guide-two-03-endpoint"></a>红框 1 的 Base URL 填本机服务地址，本例为 `http://127.0.0.1:51723/keyless/v1`；这个服务允许无认证，API key 保持为空。
 
     ![添加并验证模型 · 13](../media/v0.1.1-alpha.1/agent-models-english/step-016.annotated.png)
 

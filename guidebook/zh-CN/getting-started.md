@@ -58,7 +58,7 @@
 
 ## 发出第一条 HTTP 请求
 
-先开启 Recording，并准备自己有权使用、可以安全接收 POST 的测试接口。下面使用 `http://127.0.0.1:59696/playground/body/json`，请求正文为 `{"ready":true}`；该服务不会由 App 自动创建，操作时将地址换成自己的接口，不向生产接口随意发送写入请求。
+先开启 Recording，并准备自己有权使用、可以安全接收 POST 的测试接口。下面使用 `http://127.0.0.1:55115/playground/body/json`，请求正文为 `{"ready":true}`；该服务不会由 App 自动创建，操作时将地址换成自己的接口，不向生产接口随意发送写入请求。
 
 1. 在红框 1 的 Capture 搜索框输入 `/playground/body/json`。使用自己的地址时，改为相应的 Host 或 Path 搜索词。
 
@@ -73,7 +73,7 @@
    curl --proxy http://127.0.0.1:8888 --noproxy "" --max-time 20 \
      --header "Content-Type: application/json" \
      --data-raw '{"ready":true}' \
-     "http://127.0.0.1:59696/playground/body/json"
+     "http://127.0.0.1:55115/playground/body/json"
    ```
 
    Windows PowerShell:
@@ -81,7 +81,7 @@
    ```powershell
    Invoke-WebRequest -UseBasicParsing -Method Post `
      -Proxy "http://127.0.0.1:8888" `
-     -Uri "http://127.0.0.1:59696/playground/body/json" `
+     -Uri "http://127.0.0.1:55115/playground/body/json" `
      -ContentType "application/json" `
      -Body '{"ready":true}'
    ```

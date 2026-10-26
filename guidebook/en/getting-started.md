@@ -63,7 +63,7 @@ First confirm the client can reach the proxy and Capture is recording. An open A
 <a id="发出第一条-http-请求"></a>
 ## Send your first HTTP request
 
-Enable Recording and prepare an authorized test endpoint that can safely accept POST. The example uses `http://127.0.0.1:59696/playground/body/json` with body `{"ready":true}`. The App does not create this service; replace the URL with your endpoint rather than sending arbitrary writes to production.
+Enable Recording and prepare an authorized test endpoint that can safely accept POST. The example uses `http://127.0.0.1:55115/playground/body/json` with body `{"ready":true}`. The App does not create this service; replace the URL with your endpoint rather than sending arbitrary writes to production.
 
 1. Enter `/playground/body/json` in the Capture search field, box 1. Use the corresponding Host or Path for your own endpoint.
 
@@ -78,7 +78,7 @@ Enable Recording and prepare an authorized test endpoint that can safely accept 
    curl --proxy http://127.0.0.1:8888 --noproxy "" --max-time 20 \
      --header "Content-Type: application/json" \
      --data-raw '{"ready":true}' \
-     "http://127.0.0.1:59696/playground/body/json"
+     "http://127.0.0.1:55115/playground/body/json"
    ```
 
    Windows PowerShell:
@@ -86,7 +86,7 @@ Enable Recording and prepare an authorized test endpoint that can safely accept 
    ```powershell
    Invoke-WebRequest -UseBasicParsing -Method Post `
      -Proxy "http://127.0.0.1:8888" `
-     -Uri "http://127.0.0.1:59696/playground/body/json" `
+     -Uri "http://127.0.0.1:55115/playground/body/json" `
      -ContentType "application/json" `
      -Body '{"ready":true}'
    ```

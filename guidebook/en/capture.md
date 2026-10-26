@@ -120,7 +120,7 @@ Locate relevant requests without deleting source records.
 
     ![Expand Application to choose Unknown](../media/v0.1.1-alpha.1/capture-filters-english/step-010.png)
 
-21. <a id="walkthrough-capture-facets-03-host-group"></a><a id="walkthrough-capture-facets-04-host-select"></a>To narrow by host, expand Host and choose the destination. This separate GET example uses host `127.0.0.1`. The image shows the check before expanding Host: Headers exposes `http://127.0.0.1:64755/e2e/capture/clear-facets`, including the port to verify in details.
+21. <a id="walkthrough-capture-facets-03-host-group"></a><a id="walkthrough-capture-facets-04-host-select"></a>To narrow by host, expand Host and choose the destination. This separate GET example uses host `127.0.0.1`. The image shows the check before expanding Host: Headers exposes `http://127.0.0.1:53548/e2e/capture/clear-facets`, including the port to verify in details.
 
     ![Verify the host in Headers before choosing its Host filter](../media/v0.1.1-alpha.1/capture-clear-state-english/step-002.png)
 
@@ -154,7 +154,7 @@ Locate relevant requests without deleting source records.
 
     ![Capture Clear removes records rather than only filters](../media/v0.1.1-alpha.1/capture-clear-state-english/step-005.annotated.png)
 
-Search matches Host and Path, not the port. For this chapter's TLS example, search `localhost` and verify the port in details; `localhost:52139` is not equivalent. The facet examples show Paused after system-proxy Restore. Restore changes the system proxy; that label alone does not establish whether an explicit proxy client is still producing new records.
+Search matches Host and Path, not the port. For this chapter's TLS example, search `localhost` and verify the port in details; `localhost:56104` is not equivalent. The facet examples show Paused after system-proxy Restore. Restore changes the system proxy; that label alone does not establish whether an explicit proxy client is still producing new records.
 
 - Search is not a full-text query over arbitrary headers or body text.
 - Group counts refer to the complete current recording, not necessarily the currently visible filtered rows.
@@ -166,7 +166,7 @@ Search matches Host and Path, not the port. For this chapter's TLS example, sear
 <a id="检查请求详情"></a>
 ## Inspect a request
 
-1. <a id="walkthrough-04-select"></a>This example uses `POST http://127.0.0.1:59696/playground/body/json`; replace it with your own service address. Send `Content-Type: application/json` and body `{"ready":true}` through the proxy with an external client. Box 1 in the first image marks the captured `200` row. Click it: box 1 in the second image shows the selected row, with URL, method, protocol and status in the Inspector.
+1. <a id="walkthrough-04-select"></a>This example uses `POST http://127.0.0.1:55115/playground/body/json`; replace it with your own service address. Send `Content-Type: application/json` and body `{"ready":true}` through the proxy with an external client. Box 1 in the first image marks the captured `200` row. Click it: box 1 in the second image shows the selected row, with URL, method, protocol and status in the Inspector.
 
    ![The POST appears in Capture](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
@@ -180,7 +180,7 @@ Search matches Host and Path, not the port. For this chapter's TLS example, sear
 
    ![JSON response for the same POST](../media/v0.1.1-alpha.1/capture-json-example-english/step-006.annotated.png)
 
-4. <a id="walkthrough-capture-inspection-06-headers"></a>To compare detail sections, select a separate `GET http://127.0.0.1:59682/e2e/capture/section-collapse` and open Headers; replace the port with your own service's port. General in box 1 and Response Headers below are both expanded. This record is `H1`, `200`, not the earlier JSON POST.
+4. <a id="walkthrough-capture-inspection-06-headers"></a>To compare detail sections, select a separate `GET http://127.0.0.1:56349/e2e/capture/section-collapse` and open Headers; replace the port with your own service's port. General in box 1 and Response Headers below are both expanded. This record is `H1`, `200`, not the earlier JSON POST.
 
    ![General and Response Headers expanded for a separate GET](../media/v0.1.1-alpha.1/capture-headers-timing-english/step-001.annotated.png)
 
@@ -512,7 +512,7 @@ Inspect only authorized HTTPS traffic, with the required CA trust and decryption
 
    ![Add an origin-certificate exception only for owned localhost](../media/v0.1.1-alpha.1/tls-pattern-english/step-011.annotated.png)
 
-4. Search `/e2e/passthrough/http` in Capture and inspect the client's new connection to `https://localhost:52139/e2e/passthrough/http`. Select its GET and open Response in box 1. This example shows H1, 200 and 42 B of JSON containing `mode: https-h1` and `secure: true`.
+4. Search `/e2e/passthrough/http` in Capture and inspect the client's new connection to `https://localhost:56104/e2e/passthrough/http`. Select its GET and open Response in box 1. This example shows H1, 200 and 42 B of JSON containing `mode: https-h1` and `secure: true`.
 
    ![The new HTTPS connection exposes HTTP content before passthrough](../media/v0.1.1-alpha.1/tls-pattern-english/step-012.annotated.png)
 
@@ -520,7 +520,7 @@ Inspect only authorized HTTPS traffic, with the required CA trust and decryption
 
    ![Add an exact localhost passthrough entry](../media/v0.1.1-alpha.1/tls-pattern-english/step-013.annotated.png)
 
-6. Reconnect the client to the same HTTPS address, search `localhost` in Capture and select the new CONNECT in box 1. TLS tunnel shows the host, port `52139` and encrypted-forwarding state, without HTTP paths, Headers or Body. View passthrough pattern in box 2 locates the matching entry. MITM active does not override that entry.
+6. Reconnect the client to the same HTTPS address, search `localhost` in Capture and select the new CONNECT in box 1. TLS tunnel shows the host, port `56104` and encrypted-forwarding state, without HTTP paths, Headers or Body. View passthrough pattern in box 2 locates the matching entry. MITM active does not override that entry.
 
    ![Inspect the new CONNECT tunnel and passthrough navigation](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
@@ -532,7 +532,7 @@ Inspect only authorized HTTPS traffic, with the required CA trust and decryption
 
    ![A new HTTPS connection exposes its body after passthrough removal](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
-9. <a id="walkthrough-22-http2"></a>For a separate HTTP/2 request, search `/playground/h2-json` and select the record in box 1. This example uses `https://localhost:56588` and H2; it is not a continuation of the preceding H1 connection.
+9. <a id="walkthrough-22-http2"></a>For a separate HTTP/2 request, search `/playground/h2-json` and select the record in box 1. This example uses `https://localhost:54766` and H2; it is not a continuation of the preceding H1 connection.
 
    ![Select a separate decrypted HTTP2 request](../media/v0.1.1-alpha.1/capture-http2-english/step-001.annotated.png)
 
@@ -555,7 +555,7 @@ Inspect only authorized HTTPS traffic, with the required CA trust and decryption
 
 ### Inspect HTTPS-to-HTTP mapping results
 
-Configure your source and destination services through [cross-scheme Rules mapping](rules.md#walkthrough-rules-routing), with the HTTPS decryption prerequisites described above. This example uses `E2E HTTPS to HTTP mapping` to route `https://localhost:56535/e2e/rules/tls-mapping/enabled` to `http://127.0.0.1:56533/e2e/rules/mapped-http`; the ports belong to the example services.
+Configure your source and destination services through [cross-scheme Rules mapping](rules.md#walkthrough-rules-routing), with the HTTPS decryption prerequisites described above. This example uses `E2E HTTPS to HTTP mapping` to route `https://localhost:56814/e2e/rules/tls-mapping/enabled` to `http://127.0.0.1:56810/e2e/rules/mapped-http`; the ports belong to the example services.
 
 1. <a id="walkthrough-capture-mapping-response"></a>After saving the enabled Rule, request the original HTTPS address through the proxy. Search `/e2e/rules/` in Capture, select `/enabled` and open Response in box 1. Its actual text is `owned-http-mapping-result`, not merely Tunnel metadata.
 
@@ -565,13 +565,13 @@ Configure your source and destination services through [cross-scheme Rules mappi
 
    ![The disabled mapping state is saved](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
 
-3. <a id="walkthrough-capture-mapping-restored"></a>Send a new `GET https://localhost:56535/e2e/rules/tls-mapping/disabled`. Box 1 marks this new `404` record: it reached the original HTTPS service, where that path is not defined. `/disabled` and `/enabled` are different complete URLs, not renamed versions of one record.
+3. <a id="walkthrough-capture-mapping-restored"></a>Send a new `GET https://localhost:56814/e2e/rules/tls-mapping/disabled`. Box 1 marks this new `404` record: it reached the original HTTPS service, where that path is not defined. `/disabled` and `/enabled` are different complete URLs, not renamed versions of one record.
 
    ![A new request reaches the original HTTPS service after disabling](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
 
 ### Read a local file through an HTTPS request
 
-This independent local-file example uses HTTPS service `localhost:63644` and HTTP service `127.0.0.1:63638` for the original response, not the previous example's ports. Capture saves the file before Map Local uses it. Substitute your own service addresses and save location.
+This independent local-file example uses HTTPS service `localhost:56814` and HTTP service `127.0.0.1:56810` for the original response, not the previous example's ports. Capture saves the file before Map Local uses it. Substitute your own service addresses and save location.
 
 1. <a id="walkthrough-capture-local-save-dialog"></a>Click Save on the Response toolbar for this example's `/e2e/rules/tls-mapping/enabled` request. In the native Save body dialog, choose your directory and save `https-map-local-response.txt`.
 
@@ -601,7 +601,7 @@ This independent local-file example uses HTTPS service `localhost:63644` and HTT
 
    ![The missing-path Rule is saved](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
 
-8. <a id="walkthrough-capture-local-missing-result"></a>Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing` through the proxy. Search that path in Capture and open Response in box 1. The actual result is `404` with body `Map Local target not found.`.
+8. <a id="walkthrough-capture-local-missing-result"></a>Request `https://localhost:56814/e2e/rules/tls-mapping/map-local-missing` through the proxy. Search that path in Capture and open Response in box 1. The actual result is `404` with body `Map Local target not found.`.
 
    ![The HTTPS request returns the missing-file message](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
 
@@ -613,7 +613,7 @@ This independent local-file example uses HTTPS service `localhost:63644` and HTT
 
     ![The corrected file path is saved](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
 
-11. <a id="walkthrough-capture-local-file-result"></a>Send a new request to `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`. Open Response in box 1 in Capture and confirm `200` with the local file's `owned-http-mapping-result`.
+11. <a id="walkthrough-capture-local-file-result"></a>Send a new request to `https://localhost:56814/e2e/rules/tls-mapping/map-local-enabled`. Open Response in box 1 in Capture and confirm `200` with the local file's `owned-http-mapping-result`.
 
     ![The HTTPS response comes from the local file](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
 
@@ -625,14 +625,14 @@ This independent local-file example uses HTTPS service `localhost:63644` and HTT
 
     ![The disabled Map Local state is saved](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
 
-14. <a id="walkthrough-capture-local-origin-restored"></a>Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`. The new row in box 1 returns the original HTTPS service's `404` with a `0 B` body, not the missing-file message or saved text. The three suffixes represent different new requests.
+14. <a id="walkthrough-capture-local-origin-restored"></a>Request `https://localhost:56814/e2e/rules/tls-mapping/map-local-disabled`. The new row in box 1 returns the original HTTPS service's `404` with a `0 B` body, not the missing-file message or saved text. The three suffixes represent different new requests.
 
     ![A new request restores the original HTTPS result after disabling](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
 
 <a id="http2"></a>
 ## Inspect HTTP/2 and connection endings
 
-The client and origin must actually use HTTP/2. HTTPS also needs the decryption conditions above. Start with captured requests to `https://localhost:56588`.
+The client and origin must actually use HTTP/2. HTTPS also needs the decryption conditions above. Start with captured requests to `https://localhost:54766`.
 
 1. <a id="walkthrough-21-protocol-scope"></a>Search `/playground/h2-json` and select the GET in box 1. Check H2, 200 and the actual URL in Headers → General rather than inferring the protocol from a path.
 
@@ -678,7 +678,7 @@ The client and origin must actually use HTTP/2. HTTPS also needs the decryption 
 
     ![Inspect the completed response length and end trailer](../media/v0.1.1-alpha.1/capture-http2-english/step-013.annotated.png)
 
-12. A separate normal-GOAWAY example uses `https://localhost:56511/e2e/h2/origin-goaway/paused`. If it is waiting at a response breakpoint, click Continue unchanged, then open that POST's Headers after completion. This image shows the result after Continue: a complete 4 MiB response and `x-goaway-complete` in Response Trailers in box 1.
+12. A separate normal-GOAWAY example uses `https://localhost:60170/e2e/h2/origin-goaway/paused`. If it is waiting at a response breakpoint, click Continue unchanged, then open that POST's Headers after completion. This image shows the result after Continue: a complete 4 MiB response and `x-goaway-complete` in Response Trailers in box 1.
 
     ![The original POST finishes completely after normal GOAWAY](../media/v0.1.1-alpha.1/capture-http2-graceful-english/step-002.annotated.png)
 
@@ -1115,7 +1115,7 @@ Return to the same example as [Export all records](#capture-har-all) and choose 
 <a id="从流量进入阻断与断点"></a>
 ## Create controls from captured traffic
 
-This example uses `http://127.0.0.1:59192/e2e/capture/breakpoint-menu-hierarchy`. `59192` is the example service port, not an App constant. Block first creates a draft; This endpoint creates and enables a breakpoint rule immediately.
+This example uses `http://127.0.0.1:49157/e2e/capture/breakpoint-menu-hierarchy`. `49157` is the example service port, not an App constant. Block first creates a draft; This endpoint creates and enables a breakpoint rule immediately.
 
 1. <a id="walkthrough-capture-shortcuts"></a><a id="walkthrough-capture-shortcuts-01-source"></a>Search by path and select the historical GET in box 1. Selection opens details without resending the request.
 

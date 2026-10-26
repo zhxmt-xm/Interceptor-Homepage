@@ -17,7 +17,7 @@ Follow the checks for your symptom. Use your own addresses, request names and po
 
    Next deselect Status `200`, then Method `POST` and `GET`, and inspect the complete list. A filtered-out request is not an uncaptured request, and displaying it does not require deleting the recording.
 
-3. Send one identifiable request through the proxy from your client. The pictured new request is POST `http://127.0.0.1:59696/playground/body/json` with `Content-Type: application/json` and body `{"ready":true}`. Box 1 marks its `200` row in Capture. Substitute your own service instead of looking for a service on the example port.
+3. Send one identifiable request through the proxy from your client. The pictured new request is POST `http://127.0.0.1:55115/playground/body/json` with `Content-Type: application/json` and body `{"ready":true}`. Box 1 marks its `200` row in Capture. Substitute your own service instead of looking for a service on the example port.
 
    ![Check whether the new POST reaches Capture](../media/v0.1.1-alpha.1/capture-json-example-english/step-002.annotated.png)
 
@@ -31,7 +31,7 @@ Follow the checks for your symptom. Use your own addresses, request names and po
 
    ![Related view from the same workflow](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
-6. For a Composer request, inspect Composer’s own response pane. This is a separate GET to `http://127.0.0.1:58053/e2e/composer/response-section-collapse`, returning `200` with JSON containing `message: response-sections` and `items`. Composer connects directly and is not controlled by Recording, proxy Rules or Breakpoints. Absence from Capture is not a recording failure.
+6. For a Composer request, inspect Composer’s own response pane. This is a separate GET to `http://127.0.0.1:61530/e2e/composer/response-section-collapse`, returning `200` with JSON containing `message: response-sections` and `items`. Composer connects directly and is not controlled by Recording, proxy Rules or Breakpoints. Absence from Capture is not a recording failure. If the response pane shows an error, follow [failed-send recovery](composer.md#send-failure) to check the address and destination, then send again.
 
    ![Inspect the direct-send result in Composer’s response pane](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-004.png)
 
@@ -40,7 +40,7 @@ Distinguish a request not sent, traffic not routed through the proxy, recording 
 <a id="tls"></a>
 ## HTTPS is only a tunnel or has a certificate error
 
-1. Select the CONNECT in box 1, targeting `localhost:52139` here. TLS tunnel says HTTPS content is encrypted: the connection crosses the proxy without decrypting its path, headers or body. A connection matching passthrough still tunnels even when MITM active is shown. Use View passthrough pattern in box 2 to locate its configuration; `0 B` does not mean the origin returned an empty body.
+1. Select the CONNECT in box 1, targeting `localhost:56104` here. TLS tunnel says HTTPS content is encrypted: the connection crosses the proxy without decrypting its path, headers or body. A connection matching passthrough still tunnels even when MITM active is shown. Use View passthrough pattern in box 2 to locate its configuration; `0 B` does not mean the origin returned an empty body.
 
    ![Inspect the current CONNECT’s TLS tunnel and passthrough configuration](../media/v0.1.1-alpha.1/tls-pattern-english/step-014.annotated.png)
 
@@ -52,7 +52,7 @@ Distinguish a request not sent, traffic not routed through the proxy, recording 
 
    ![Inspect the localhost passthrough entry and its delete control](../media/v0.1.1-alpha.1/tls-pattern-english/step-015.annotated.png)
 
-4. Establish a new client connection after changing configuration rather than testing an old pooled connection. After removing the `localhost` passthrough entry, this example sends a new GET to `https://localhost:52139/e2e/passthrough/http`. Select its new record and open Response in box 1. This is a `200`, `42 B` HTTP/1.1 response whose complete JSON has `mode: https-h1` and `secure: true`, not HTTP/2.
+4. Establish a new client connection after changing configuration rather than testing an old pooled connection. After removing the `localhost` passthrough entry, this example sends a new GET to `https://localhost:56104/e2e/passthrough/http`. Select its new record and open Response in box 1. This is a `200`, `42 B` HTTP/1.1 response whose complete JSON has `mode: https-h1` and `secure: true`, not HTTP/2.
 
    ![Inspect the new connection’s HTTPS HTTP/1.1 body after removing passthrough](../media/v0.1.1-alpha.1/tls-pattern-english/step-016.annotated.png)
 
@@ -75,11 +75,11 @@ Use [decryption](settings.md#https-decryption) or [passthrough](settings.md#tls-
 
    ![Confirm the rule has been saved and applied](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-018.annotated.png)
 
-3. Inspect every matching condition: a rule combines them with AND. The separate `E2E hierarchy rule` requires Method `GET`; using `POST` for `http://127.0.0.1:53161/e2e/rules/all-conditions?case=and` fails that condition. Select this new POST and inspect Response Headers in box 1: even with response status `200`, it has no rule-added `x-rules-e2e: active`. See [matching conditions](rules.md#matchers).
+3. Inspect every matching condition: a rule combines them with AND. The separate `E2E hierarchy rule` requires Method `GET`; using `POST` for `http://127.0.0.1:50912/e2e/rules/all-conditions?case=and` fails that condition. Select this new POST and inspect Response Headers in box 1: even with response status `200`, it has no rule-added `x-rules-e2e: active`. See [matching conditions](rules.md#matchers).
 
    ![Inspect the POST response that fails the GET condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-068.annotated.png)
 
-4. Send a new request through the proxy from an external client, not a completed historical record or Composer. For the earlier `E2E action variants`, the example is GET `http://127.0.0.1:62029/e2e/rules/actions/request-set` with original Header `x-e2e-action: original`. Select its new record and inspect Request Headers in box 1: the final value is `from-rule`, while `original` is struck through with Rule replaced. Do not rely solely on hit counts.
+4. Send a new request through the proxy from an external client, not a completed historical record or Composer. For the earlier `E2E action variants`, the example is GET `http://127.0.0.1:54965/e2e/rules/actions/request-set` with original Header `x-e2e-action: original`. Select its new record and inspect Request Headers in box 1: the final value is `from-rule`, while `original` is struck through with Rule replaced. Do not rely solely on hit counts.
 
    ![Inspect the actual Header rewrite in a new proxied request](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.annotated.png)
 
@@ -112,11 +112,11 @@ Check rule hit counts and actual Header or Body effects separately. For body rew
 
    ![Inspect Head and Queued in the HTTP queue](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-005.annotated.png)
 
-2. Select POST `/e2e/queue-rule-post-b` in box 1 to inspect its details. Queued means it is waiting for earlier work; the details are read-only, not a normal network-loading animation or an editor for another Head. This queue example uses `http://127.0.0.1:57756`; check whether your own client is still waiting.
+2. Select POST `/e2e/queue-rule-post-b` in box 1 to inspect its details. Queued means it is waiting for earlier work; the details are read-only, not a normal network-loading animation or an editor for another Head. This queue example uses `http://127.0.0.1:61418`; check whether your own client is still waiting.
 
    ![Inspect a queued request’s read-only details](../media/v0.1.1-alpha.1/breakpoints-queue-english/step-007.annotated.png)
 
-3. To handle one item, select the current Head and confirm its request and phase first. This separate single-item example selects POST `http://127.0.0.1:65282/e2e/queue-stepping-a`. Continue in box 1 forwards it unchanged without submitting a replacement-body draft. If it is no longer needed, Drop at the lower left terminates it rather than producing a successful response. Inspect the current waits after the action instead of submitting again to the resolved target.
+3. To handle one item, select the current Head and confirm its request and phase first. This separate single-item example selects POST `http://127.0.0.1:55842/e2e/queue-stepping-a`. Continue in box 1 forwards it unchanged without submitting a replacement-body draft. If it is no longer needed, Drop at the lower left terminates it rather than producing a successful response. Inspect the current waits after the action instead of submitting again to the resolved target.
 
    ![Choose unchanged Continue or Drop for the selected HTTP Head](../media/v0.1.1-alpha.1/breakpoints-stepping-english/step-004.annotated.png)
 
@@ -188,11 +188,11 @@ Captured bytes, previews and network completion differ: [body views](capture.md#
 
 1. Check the format and entry point first. In Capture’s Export menu, box 1 is Export HAR; use Export Archive for a native archive. Rules JSON belongs to the Rules toolbar, and Collection JSON belongs to Composer. Do not interchange their formats or entry points.
 
-   ![Check Capture’s HAR export entry](../media/v0.1.1-alpha.1/capture-har-all-english/step-012.annotated.png)
+   ![Check Capture’s HAR export entry](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-012.annotated.png)
 
 2. Check whether the native file dialog is still waiting or was cancelled. The HAR filename here is `ui.har`; choose a location and click Save to start saving. Cancel creates no file. For import, select and confirm the file in the correct Open dialog rather than expecting data immediately after clicking Import.
 
-   ![Complete destination selection for ui.har](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![Complete destination selection for ui.har](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 3. Inspect errors, skipped items and terminal state, not just progress. The Rules preview for `rules-roundtrip.json` shows Rules `2`, Folders `1`, Enabled `1`, Skipped `0`. Cancel in box 1 abandons import; Import 2 rules in box 2 appends and saves them, enabling one immediately. Cancel if counts, skipped items or enabled scope are unexpected rather than confirming blindly.
 
@@ -215,7 +215,7 @@ Retain original files and use the [format guidance](transfer.md#config-files) fo
 <a id="agent"></a>
 ## Model, conversation or Tool fails
 
-1. Open Settings → Agent and edit the model you need to inspect. Check Base URL in box 1. The pictured `Keyed lab` uses a local service at `http://127.0.0.1:64170/keyed/v1`; the App does not create it. Use your own service URL and never send a real credential to the example address.
+1. Open Settings → Agent and edit the model you need to inspect. Check Base URL in box 1. The pictured `Keyed lab` uses a local service at `http://127.0.0.1:51723/keyed/v1`; the App does not create it. Use your own service URL and never send a real credential to the example address.
 
    ![Check the model Base URL](../media/v0.1.1-alpha.1/agent-models-english/step-005.annotated.png)
 
@@ -262,7 +262,7 @@ Signing in to GitHub in VS Code does not configure the internal model. Stop neit
 
 ## An external host cannot connect
 
-1. Open Settings → Agent and inspect MCP server. The switch in box 1 should be enabled with Running shown; box 2 is the current endpoint, `http://127.0.0.1:57871/mcp` here. Use the complete URL in your own App, not Capture’s `8888`.
+1. Open Settings → Agent and inspect MCP server. The switch in box 1 should be enabled with Running shown; box 2 is the current endpoint, `http://127.0.0.1:55871/mcp` here. Use the complete URL in your own App, not Capture’s `8888`.
 
    ![Check MCP Server and its current endpoint](../media/v0.1.1-alpha.1/mcp-streamable-english/step-002.annotated.png)
 

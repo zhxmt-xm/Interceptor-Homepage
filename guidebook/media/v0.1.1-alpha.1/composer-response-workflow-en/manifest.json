@@ -6,1004 +6,1040 @@
     "en": "Inspect Composer responses"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "composer/response-section-collapse.workflow.ts",
-    "run": "2026-10-21T07-24-20-317Z-YsWpO1",
-    "manifestSha256": "49820b1e09bbcaa85a44a0e6a170164d4514117d80382746c3aa4eaebab271be",
-    "target": "macos-signed-app",
-    "capture": "native-window",
-    "status": "passed",
-    "hostRestored": true
+    "test": "composer.response.section-collapse keeps sections independent and accessible",
+    "manifestSha256": "e2d8eebd152a12fd1283e3b72fb1eb5a9df1b479bebbece78f01f7ad8e0f1380",
+    "workflowSha256": "a4f1beefb44bba2bcb978e54433c35cb6c78090dd13f4ea18924815e13378924",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-001",
       "title": "打开Composer，准备新建请求 / Open Composer before creating a request",
-      "image": "step-001.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-001.annotated.png",
       "rawImage": "step-001.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 482,
-            "y": 105,
-            "width": 60,
-            "height": 60
+            "x": 361.5,
+            "y": 79.00000190734863,
+            "width": 45,
+            "height": 45.0000057220459
           },
           "automationId": "composer.collection.new-request"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-002",
       "title": "新建请求，尚未填写地址 / Create a request before entering its URL",
-      "image": "step-002.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-002.annotated.png",
       "rawImage": "step-002.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1060,
-            "y": 212.234375,
-            "width": 1820,
-            "height": 29.515625
+            "x": 794.5000305175781,
+            "y": 159.43750762939453,
+            "width": 1366.0000305175781,
+            "height": 22.125
           },
           "automationId": "composer.url"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-003",
       "title": "填写GET请求地址，保留Auto协议 / Enter the GET request URL with Auto selected",
-      "image": "step-003.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-003.annotated.png",
       "rawImage": "step-003.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 1176.8125,
-            "y": 212.234375,
-            "width": 1703.1875,
-            "height": 29.515625
+            "x": 882.1094055175781,
+            "y": 159.43750762939453,
+            "width": 1278.3906555175781,
+            "height": 22.125
           },
           "automationId": "composer.url"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 2922,
-            "y": 193,
-            "width": 184,
-            "height": 68
+            "x": 2191.5,
+            "y": 145.00000762939453,
+            "width": 138,
+            "height": 51
           },
           "automationId": "composer.send"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-004",
       "title": "发送GET后查看响应正文 / Inspect the response body after sending GET",
-      "image": "step-004.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-004.png",
+      "rawImage": "step-004.png"
     },
     {
       "id": "step-005",
       "title": "通过真实Composer UI新建并发送loopback请求，建立响应Headers数据。 / Create and send a loopback request through the real Composer UI to arrange response Headers data.",
-      "image": "step-005.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-005.png",
+      "rawImage": "step-005.png"
     },
     {
       "id": "step-007",
       "title": "折叠Response Headers，保留Request Headers展开 / Collapse Response Headers while leaving Request Headers expanded",
-      "image": "step-007.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-007.annotated.png",
       "rawImage": "step-007.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.response-headers"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1232,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 924,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.request-headers"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-008",
       "title": "分别折叠两个Headers分组 / Collapse both Headers sections independently",
-      "image": "step-008.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-008.annotated.png",
       "rawImage": "step-008.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.response-headers"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1232,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 924,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.request-headers"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-009",
       "title": "重新展开Response Headers，Request Headers仍折叠 / Reopen Response Headers while Request Headers remains collapsed",
-      "image": "step-009.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.response-headers"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1616,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 1212,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.request-headers"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-010",
       "title": "查看响应的两条Cookie / Inspect both response cookies",
-      "image": "step-010.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-010.annotated.png",
       "rawImage": "step-010.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.response-cookies"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-011",
       "title": "折叠Cookies分组 / Collapse the Cookies section",
-      "image": "step-011.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.response-cookies"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-012",
       "title": "查看并折叠展开响应Cookies / Inspect and toggle response Cookies",
-      "image": "step-012.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-012.png",
+      "rawImage": "step-012.png"
     },
     {
       "id": "step-013",
       "title": "查看Timing与Connection / Inspect Timing and Connection",
-      "image": "step-013.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-013.annotated.png",
       "rawImage": "step-013.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.timing"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1485.6875,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 1114.21875,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.connection"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-014",
       "title": "折叠Timing，保留Connection展开 / Collapse Timing while leaving Connection expanded",
-      "image": "step-014.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-014.annotated.png",
       "rawImage": "step-014.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.timing"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1232,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 924,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.connection"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-015",
       "title": "折叠Timing与Connection / Collapse Timing and Connection",
-      "image": "step-015.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.timing"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1232,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 924,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.connection"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-016",
       "title": "展开Timing，保留Connection折叠 / Expand Timing while leaving Connection collapsed",
-      "image": "step-016.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 798,
-            "y": 1116,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 837,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.timing"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 798,
-            "y": 1485.6875,
-            "width": 2366,
-            "height": 72
+            "x": 598.5,
+            "y": 1114.21875,
+            "width": 1774.5,
+            "height": 54
           },
           "automationId": "composer.response-section.connection"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-017",
       "title": "独立折叠展开Timing与Connection / Toggle Timing and Connection independently",
-      "image": "step-017.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-017.png",
+      "rawImage": "step-017.png"
     },
     {
       "id": "step-018",
       "title": "返回同一次响应的Pretty正文 / Return to Pretty for the same response",
-      "image": "step-018.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-018.annotated.png",
       "rawImage": "step-018.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-019",
       "title": "切换JSON Tree视图 / Switch to the JSON Tree view",
-      "image": "step-019.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-019.annotated.png",
       "rawImage": "step-019.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-020",
       "title": "展开JSON内容并查看items / Expand the JSON contents and inspect items",
-      "image": "step-020.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-020.annotated.png",
       "rawImage": "step-020.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-021",
       "title": "折叠JSON根节点 / Collapse the JSON root",
-      "image": "step-021.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-021.annotated.png",
       "rawImage": "step-021.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 812,
-            "y": 1209,
-            "width": 30,
-            "height": 30
+            "x": 608.5000305175781,
+            "y": 906.2500305175781,
+            "width": 22.5,
+            "height": 22.5
           },
           "automationId": null
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-022",
       "title": "使用Tree展开与折叠真实JSON / Expand and collapse the actual JSON tree",
-      "image": "step-022.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-022.png",
+      "rawImage": "step-022.png"
     },
     {
       "id": "step-023",
       "title": "切换Raw查看原始响应文本 / Switch to Raw to inspect the original response text",
-      "image": "step-023.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-023.annotated.png",
       "rawImage": "step-023.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         },
         {
           "label": "2",
           "bounds": {
-            "x": 3046,
-            "y": 1094,
-            "width": 60,
-            "height": 60
+            "x": 2284.5,
+            "y": 820.5,
+            "width": 45,
+            "height": 45
           },
           "automationId": "composer.response-body.copy"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-024",
       "title": "复制Raw并核对完整原文 / Copy Raw and verify the complete original text",
-      "image": "step-024.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-024.png",
+      "rawImage": "step-024.png"
     },
     {
       "id": "step-025",
       "title": "切换Hex查看响应字节 / Switch to Hex to inspect the response bytes",
-      "image": "step-025.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-025.annotated.png",
       "rawImage": "step-025.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-026",
       "title": "复制Hex并核对实际字节 / Copy Hex and verify the actual bytes",
-      "image": "step-026.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-026.png",
+      "rawImage": "step-026.png"
     },
     {
       "id": "step-027",
       "title": "在全屏中保持Hex视图 / Retain the Hex view in fullscreen",
-      "image": "step-027.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-027.png",
+      "rawImage": "step-027.png"
     },
     {
       "id": "step-028",
       "title": "退出全屏，保留原Hex视图 / Exit fullscreen while retaining the Hex view",
-      "image": "step-028.annotated.png",
       "language": "en",
       "theme": "light",
       "window": "app",
+      "capture": "renderer",
+      "image": "step-028.annotated.png",
       "rawImage": "step-028.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 790,
-            "y": 1084,
-            "width": 2382,
-            "height": 628
+            "x": 592.5,
+            "y": 813,
+            "width": 1786.5,
+            "height": 471
           },
           "automationId": "composer.response-body"
         }
-      ]
+      ],
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-029",
       "title": "调整响应区高度并保留当前视图 / Resize the response pane while preserving its current view",
-      "image": "step-029.png",
       "language": "en",
       "theme": "light",
-      "window": "app"
+      "window": "app",
+      "capture": "renderer",
+      "image": "step-029.png",
+      "rawImage": "step-029.png"
     }
   ],
   "assets": [
     {
       "file": "step-001.png",
-      "bytes": 171894,
-      "sha256": "11397047ad7201e4d6f87ea2349cb6dd2614a23134a4579ba8ff01ce62dcc046",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 49503,
+      "sha256": "b1d5657b59fec2efeda9b0220f2eef9afe31cf447352f52e79329cd272a76144"
     },
     {
       "file": "step-001.annotated.png",
-      "bytes": 117457,
-      "sha256": "157e83bf007e8e45adb71701aa938ea85582c831c53c145cd392ba6997181f77",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 70171,
+      "sha256": "0074c1b83f0bbee1017339e916239b26e52009a59fd5586281e5519bd8fc8b2e"
     },
     {
       "file": "step-002.png",
-      "bytes": 234878,
-      "sha256": "79e038627975a70904987022367df14326f1cb27a00436cb523a33237b7c33a9",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 76898,
+      "sha256": "a50c2c4f59aebb06437eaf1c975f6ff98c1a70a779f63c2fafd96a2502b0fb6e"
     },
     {
       "file": "step-002.annotated.png",
-      "bytes": 161359,
-      "sha256": "cdb295aded67f850f8f6f2db1b3f67356a25b8608008ee6193a1fdca49b615f5",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 93181,
+      "sha256": "5cb723ee23bba183b52809885bf38e6cfd9342af4195e668752f275682cee485"
     },
     {
       "file": "step-003.png",
-      "bytes": 246905,
-      "sha256": "9fcfb19ac11a1adab2d0d55a79decee183959188cb51aa34de3beb4e7b8d5720",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 91649,
+      "sha256": "0b1aeecb5ad8dd241cc45401cc85a6d17598df058251fc2d7e5db66989dff608"
     },
     {
       "file": "step-003.annotated.png",
-      "bytes": 170588,
-      "sha256": "3a2e86dd6a833bf09441c9b85828366fbead4e3b5cde1d9d49468edeff1afe83",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 105625,
+      "sha256": "def00da7db93b56882892be267337f46d4f2d829be9f9040b793b5e0f3f8f442"
     },
     {
       "file": "step-004.png",
-      "bytes": 257064,
-      "sha256": "f69ffbeabfabc91d0aa8faa78c9040a5f6175b91ac282d855efbe79999273425",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103113,
+      "sha256": "8672a990f528ef2cf41cc433dd5147f5c0c1ee2abcd64180c6b4c6e7d9cf6b64"
     },
     {
       "file": "step-005.png",
-      "bytes": 296950,
-      "sha256": "19facbe2d8cd049ade13b5f7489166b06db5f1b8c0b29d749ce1ce9281ce0cf3",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 123349,
+      "sha256": "69c75c64ff15d989540bcbee6b20f8a796ccc6df99ec53b562144e30e8ab3f3f"
     },
     {
       "file": "step-007.png",
-      "bytes": 238809,
-      "sha256": "0e609efd68de451ae3b8c5ec35da9b09c026520b4e8be6b0d6a8a4de8a74a411",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 88080,
+      "sha256": "bcf9db273d1cb6058b3f2468db7106b19f5a321f026a8ab6f0328ed546c01d44"
     },
     {
       "file": "step-007.annotated.png",
-      "bytes": 167812,
-      "sha256": "276256596d628fc19597005d848f2e71b319f845f881c32d09ca22e4a6151a12",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 102710,
+      "sha256": "f44995af453a88cc16292c201473506ea55203b924d1ba3f73a502895fb16d4c"
     },
     {
       "file": "step-008.png",
-      "bytes": 238863,
-      "sha256": "3f79f60dee8337ab82b9b07d42415b04d03925b0ddd4caf7dcc230c3f858af79",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 88093,
+      "sha256": "dce43af91bf6236e60c6a00ba723412b1e8fd253d52ef494ecc5c6340bd59d0f"
     },
     {
       "file": "step-008.annotated.png",
-      "bytes": 167992,
-      "sha256": "7fd9d6a7c82d60d21fb1df036df4afb46b23f4f59090a131c622d34b5ce31b95",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 102675,
+      "sha256": "f37f37d65b990bdb70b050fc730eef952fcaab617358c2a22d46e970ef3a7c97"
     },
     {
       "file": "step-009.png",
-      "bytes": 297401,
-      "sha256": "aa10288951711c5cdbaf583bb02cf6fda07483c036d8015ff456f56b3aac098d",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 118924,
+      "sha256": "2e67af5402485d56e7388009f5acb348979259a11202bcdb7d7e24ef1e488bf4"
     },
     {
       "file": "step-009.annotated.png",
-      "bytes": 209142,
-      "sha256": "725f790a122a91d3b38e5e9ca719dbd8481ac74c23fa23a99bf2dfdfbc73cae1",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127094,
+      "sha256": "51ab3550794e661f8cf5bed1c41073752b0453adbf0b4511499076c42ff0f724"
     },
     {
       "file": "step-010.png",
-      "bytes": 243727,
-      "sha256": "0e7082863d2c5c99e7be290a2b29aaeee5784c1656a5995102b03047775a84d9",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 89910,
+      "sha256": "9397a11eea8cd6f8b13d1545a9f381e4d1f403fcf2ebec9dcbccd0ddc8a8ff5a"
     },
     {
       "file": "step-010.annotated.png",
-      "bytes": 169242,
-      "sha256": "54b5a9dccc9199d9525ff5a33716fca98aa02714c8b5e13211f830ca285d6019",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103207,
+      "sha256": "ff9414546b5cc716a3d45489442fa1d7b719b97ac11f40eda54f54f65062dbc8"
     },
     {
       "file": "step-011.png",
-      "bytes": 231821,
-      "sha256": "38839e41735b3fe9d7a4da04f03581ad51b524e38457c36f52e7158d2ad84b5b",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 84291,
+      "sha256": "961545f474328402f335ea8dbaa14f2c95eec74da21afa2a6e7b64d0bac0ad93"
     },
     {
       "file": "step-011.annotated.png",
-      "bytes": 162299,
-      "sha256": "09039372b94a396ee2784013758f9ff2303b2d38756befdca3808a9d649fa702",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 98521,
+      "sha256": "1d1185118850ab90b9c0d1c753de092765483da7a3638e900f4c6f6cc4d91c0d"
     },
     {
       "file": "step-012.png",
-      "bytes": 243795,
-      "sha256": "be61cbf757731294211c9a3317958019106d5295322f9813cf64d14a2121cd9b",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 90070,
+      "sha256": "eff17063d67082e6e515dc05a0dd02bf0d7bd92bfa793de24ba5cf236965ee00"
     },
     {
       "file": "step-013.png",
-      "bytes": 260844,
-      "sha256": "fe0994b2fffe84171d83347488b21aebf38cb11df1aaffa071238a3cf7a58b44",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 100657,
+      "sha256": "795649c6ffe305e6ea8edc081e2435e650686ec62eb02a879ec9cb0480db3f73"
     },
     {
       "file": "step-013.annotated.png",
-      "bytes": 186950,
-      "sha256": "3b252b6403cb7571124e3f6d50ba3ccae7d01b3cc9ce13c358d3ee347b041ebd",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 115869,
+      "sha256": "98fb270ceb11798f85b30ae94c56c6951422b8d5597014978677d7533b04a0c3"
     },
     {
       "file": "step-014.png",
-      "bytes": 239600,
-      "sha256": "2130ecbdfe7de428c0b979d9adafd9db7de76d477b6f884f17a00a70f680a2c8",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 88621,
+      "sha256": "d1411b3eefdb7e8b0ffe6b3b22ba0c587bc8760bf7c62a7b12f070f12cfdb94b"
     },
     {
       "file": "step-014.annotated.png",
-      "bytes": 169289,
-      "sha256": "ed3a82d433413aef070b586b34e68aedbfe11d9e2bd49ee07c76f8e8e1c50966",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 103570,
+      "sha256": "c8e12fe252c09f3902558dfe83d412333aec122109d7f0a5e3e8d3d21f02591f"
     },
     {
       "file": "step-015.png",
-      "bytes": 233727,
-      "sha256": "b4adec7f0496026749bfd9e8984c65ae0c00b63c2937c6425b5a01260dc2676d",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 84822,
+      "sha256": "e7756fa267cab3b95a8a92352a9c84c665dd9208ae4a9042baf0f1a216e0e172"
     },
     {
       "file": "step-015.annotated.png",
-      "bytes": 164599,
-      "sha256": "567ac2fdd1cbb44b216946eb13eb8c88c7f4777f41dce6b74a557309cc984e0d",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 100277,
+      "sha256": "6a91fd5be9d705a7409979c684c3c5e39a12353ca9bb23db7f018da3fcac9f81"
     },
     {
       "file": "step-016.png",
-      "bytes": 254971,
-      "sha256": "331928e2c678c75f8989f63437a7b5c6e08dded7f1426dfea83d5347ec492d95",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 97213,
+      "sha256": "16d18310d009fa727c89739ed3d64255b9f832e78b86a4a400d88665f4a5316b"
     },
     {
       "file": "step-016.annotated.png",
-      "bytes": 182990,
-      "sha256": "76a4261f5f9d3521f771373fedd9823f4fbf06c6bd97b5c165bdeff722b81e53",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 113199,
+      "sha256": "e906e4add9fc2d9af2cdc5552ab888a4ae709d0cb82889dddb7d8f0aa892b709"
     },
     {
       "file": "step-017.png",
-      "bytes": 260864,
-      "sha256": "5a53b3af565305f733075b50f0e6da11eefd3f98486b352853616fb0df9266e2",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 100822,
+      "sha256": "f1605650855cc0b988fb5e6a6a60e0f5d93e8a00cdbb4300cb5e561af61d5840"
     },
     {
       "file": "step-018.png",
-      "bytes": 256991,
-      "sha256": "16ec74921cb5daf86a05a5ee956dffd70b77d0b76f1a174821db9359390df137",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99058,
+      "sha256": "325118f3732e848c226a4c55c11a8ed591e2ed09e9d3ae09659a3163dd4b082c"
     },
     {
       "file": "step-018.annotated.png",
-      "bytes": 200401,
-      "sha256": "46c6a878ea551fdce1561fcc9664837542b3bc6325414c7743bcfd19651f7636",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 122798,
+      "sha256": "880d087f6afbcb658b7e8ccbce8a7f118c95a14bba4f51d2b06484b412f19c0a"
     },
     {
       "file": "step-019.png",
-      "bytes": 255912,
-      "sha256": "a4aee9538af77e388cbce0add8bbaca939cd5033c79eec2cbc70640f4274e116",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 99071,
+      "sha256": "ee00f533205321e3fa2de23884c750fbdd2a7268dc236528c0d281a853ef7b33"
     },
     {
       "file": "step-019.annotated.png",
-      "bytes": 199089,
-      "sha256": "a60a7f2fc846380c84c0f42184b631c3f1bd80bc98547328a21c8f50d7e29396",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 122592,
+      "sha256": "6d138aacebfe51d65bf332228331bf002c8deed4853b644c2cff78ced9bd32b1"
     },
     {
       "file": "step-020.png",
-      "bytes": 261944,
-      "sha256": "7447b4681091d6abb5deaba3dbfd61e3dc8e854618cdc7ea1c0306370df8425c",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 102523,
+      "sha256": "e4fb55ac11c28b48707b064333e4bd52d3b6229342bc1ae4f1db8d7d3ba23b1d"
     },
     {
       "file": "step-020.annotated.png",
-      "bytes": 204092,
-      "sha256": "6f6be6e9d42357cc446c7e9e3857fa7fd8e4db86e96de18d5ed6dded2faf25f2",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 125314,
+      "sha256": "69aabe57644c14fdf18dec867617f6dd283931fe589f50fcd64d263962a75830"
     },
     {
       "file": "step-021.png",
-      "bytes": 240493,
-      "sha256": "841a14ed366d82e9f796aee05ae2c55053cb2b57e816b5faf585feeeb96c01d1",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 90615,
+      "sha256": "b0307aefecdf0342b68f31bb0c2733ec7769487986d079b88afa315ca38d041c"
     },
     {
       "file": "step-021.annotated.png",
-      "bytes": 187228,
-      "sha256": "eba2a0cdde104968931cf6406376f1f24017aae786478987927b55d5a3205a31",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 114147,
+      "sha256": "b62555735feb3da89b06d0514c6440ce9a9c837291d826d011a3068b76fbbd6f"
     },
     {
       "file": "step-022.png",
-      "bytes": 261866,
-      "sha256": "da746fba7f2f7e9c9310cc18b4eb80688bf4df62604c8af904b41f549240ab87",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 102529,
+      "sha256": "f6f8a911b375385edaba5b9f7cd86800eb9d62034a2650a64a331d2fa6ffd531"
     },
     {
       "file": "step-023.png",
-      "bytes": 252260,
-      "sha256": "4f164e86f0aa08a7feec60690c62540e87f9cad728f4b16fa20b7eb56a2f742b",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 96934,
+      "sha256": "c9fa0e1e71bb1fcde8c74059f86e66a2f41df66af2a4fe12b41f6c96a100e753"
     },
     {
       "file": "step-023.annotated.png",
-      "bytes": 196648,
-      "sha256": "1074ebbe40246d43d8c11d049518bf0dd6867bdd32c8c4bcb59b125c9bf5cdf6",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 120920,
+      "sha256": "0347778c1313a6a79c0cf5d9fd97aeff654f4c1acf10df7950fcc41e19809754"
     },
     {
       "file": "step-024.png",
-      "bytes": 280028,
-      "sha256": "ba9fce8bbcdb765969dcf0aa6a0c907421da2eb2fad7c94de0f68475be25366b",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 97378,
+      "sha256": "9c04c2b1be5403ec1da16b1d70f26239eaf8da7935b5f94bc6b00b6c004b2a95"
     },
     {
       "file": "step-025.png",
-      "bytes": 292886,
-      "sha256": "18840847beee8ccb3c2aa348ce8f94d0ea3636490309ce39afcd3cc8279aead3",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119722,
+      "sha256": "6d786bfa51ad5b62a4e5ef3b72c987e9874d9fe4492baacef5e69876d2fb6b22"
     },
     {
       "file": "step-025.annotated.png",
-      "bytes": 220915,
-      "sha256": "ff1ba49c5a48a1f7658c4335b4c61028c7ea809358efa045c6369bf188edd205",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137603,
+      "sha256": "91e9d0e5d3ae9ee83e78fcf87dd261bf609ef0b6d3641d223b7007680ea30ea3"
     },
     {
       "file": "step-026.png",
-      "bytes": 305362,
-      "sha256": "a1255d9ffb5eb9e3fa825f6c8d7b7b9c79059287702c0b26ccefc6b9ece85592",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119815,
+      "sha256": "53d294b41a9985c1a935e6fb72a84cf9305136b792696494faa3be34a46f47dc"
     },
     {
       "file": "step-027.png",
-      "bytes": 262993,
-      "sha256": "f1fbe6e6bd7c508ee94cd0232da6622f95c4b43b9b3397ae2ec17d57939a03e4",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 139649,
+      "sha256": "5aab68fe8817cbe34219dcde48dc822e63b019721d34b9a1b2b074070f05c384"
     },
     {
       "file": "step-028.png",
-      "bytes": 278318,
-      "sha256": "85939eb0155f60459dd5a1481a7ca5fb75b8b88eff50bb673cc958266d945fc1",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 126975,
+      "sha256": "17194569319dec3f2f2ead28f5a3c2dbd0ae40dda0ebd7cf0369ce9969016b19"
     },
     {
       "file": "step-028.annotated.png",
-      "bytes": 211998,
-      "sha256": "8de82368d7c9a0adda8a139718d1c74f2e8ff0a1fea8c675298ce777d730db74",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 146452,
+      "sha256": "c8e96e2f91b57694fbec40b5d9b5321648efccc83bf41750d2516aa4e095f986"
     },
     {
       "file": "step-029.png",
-      "bytes": 277341,
-      "sha256": "ee8185da54b2cce7a823ae467e24c83cbec3b409f573b1a7bb1294c1620b060e",
-      "width": 3200,
-      "height": 1800
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127714,
+      "sha256": "75eb0f14e7ba54102387a2aaceadccfe6525604e612d9bf26c16105afbe57d92"
     }
   ]
 }

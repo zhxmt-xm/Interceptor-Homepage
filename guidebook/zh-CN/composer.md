@@ -15,7 +15,7 @@ Composer 用来主动构造请求并查看响应。它直接连接目标服务�
 
 ## 发送第一个请求
 
-准备自己有权访问的 HTTP 或 HTTPS 接口。下面使用 `http://127.0.0.1:58053/e2e/composer/response-section-collapse`；这是示例服务，不会随 App 启动，操作时换成自己的完整地址。
+准备自己有权访问的 HTTP 或 HTTPS 接口。下面使用 `http://127.0.0.1:61530/e2e/composer/response-section-collapse`；这是示例服务，不会随 App 启动，操作时换成自己的完整地址。
 
 1. <a id="walkthrough"></a>打开 Composer，点击红框 1 中 Collection 顶部的加号，新建请求。
 
@@ -25,7 +25,7 @@ Composer 用来主动构造请求并查看响应。它直接连接目标服务�
 
    ![发送第一个请求 · 2](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-002.annotated.png)
 
-3. 在红框 1 填入测试 URL，协议保持 Auto，再点击红框 2 的 Send。如果左侧已单独显示 `http://`，编辑框只填写后面的主机、端口和路径，不要重复粘贴协议。
+3. 在红框 1 填入测试 URL，协议保持 Auto，再点击红框 2 的 Send。URL 行左侧会单独显示 `http://` 或 `https://`。你可以粘贴完整 URL，App 会整体替换现有地址和协议；也可以只编辑后面的主机、端口和路径。
 
    ![发送第一个请求 · 3](../media/v0.1.1-alpha.1/composer-response-workflow-en/step-003.annotated.png)
 
@@ -39,10 +39,28 @@ Composer 用来主动构造请求并查看响应。它直接连接目标服务�
 
 `4xx`、`5xx` 也是服务器返回的 HTTP 响应，不等于没有发送。出现 DNS、连接或 TLS 错误时按实际提示排查，不用反复切换 Recording。
 
+<a id="send-failure"></a>
+## 发送失败后恢复
+
+1. 阅读 Composer 响应区的实际错误。地址无效或连接失败时，响应区显示错误，不生成成功响应正文或响应 tabs；本次发送结束后，Send 恢复可用。
+
+   ![地址无效与连接失败的错误](../media/v0.1.1-alpha.1/composer-send-failure-english/step-002.png)
+
+   ![地址无效与连接失败的错误](../media/v0.1.1-alpha.1/composer-send-failure-english/step-003.png)
+
+2. 核对完整 URL 和目标服务是否可达。修正地址或恢复服务后，再点击 Send。成功响应会替换旧错误，Body、Headers、Cookies 和 Timing 恢复可用。
+
+   ![修正地址后的成功响应](../media/v0.1.1-alpha.1/composer-send-failure-english/step-004.png)
+
+3. 打开 Recent sends 区分各次发送。失败发送仍保留在 History 中，`status=0`；后续成功不会删除它们。服务器返回的 `4xx`、`5xx` 是 HTTP 响应，应检查状态与内容，不当作连接失败。
+
+   ![History 中的失败与成功发送](../media/v0.1.1-alpha.1/composer-send-failure-english/step-005.png)
+
+
 ## 编辑 Query 与 Headers
 
 <a id="walkthrough-composer-fields"></a><a id="walkthrough-composer-replay"></a>
-打开要编辑的测试请求。下面使用 `http://127.0.0.1:56993/e2e/composer/fields/json?entry=url`，实际操作换成自己的接口。Query 表格会追加到 URL 已有参数之后，同名值不会自动去重；每次修改后都需要 Send 才会生效。
+打开要编辑的测试请求。下面使用 `http://127.0.0.1:51862/e2e/composer/fields/json?entry=url`，实际操作换成自己的接口。Query 表格会追加到 URL 已有参数之后，同名值不会自动去重；每次修改后都需要 Send 才会生效。
 
 1. <a id="walkthrough-composer-fields-01-new"></a><a id="walkthrough-composer-fields-02-header"></a><a id="walkthrough-composer-replay-01-open"></a><a id="walkthrough-composer-replay-02-new"></a><a id="walkthrough-composer-replay-04-post"></a>在方法控件的红框 1 选择 POST。打开 Headers，依次在红框 1 的名称和值输入框填写 `x-e2e-current`、`enabled`，点击行末确认；最后一张图红框 1 标出已启用的 Header 行。
 
@@ -113,7 +131,7 @@ Composer 用来主动构造请求并查看响应。它直接连接目标服务�
 ## 选择请求正文
 
 <a id="walkthrough-composer-editing"></a>
-先按前一节添加 Header 和两条 Query，方法使用 POST。下面分别发送 JSON、Text 和 Form，示例服务端口为 `56993`。切换正文类型不会自动修改 Content-Type，也不会自动 Send。
+先按前一节添加 Header 和两条 Query，方法使用 POST。下面分别发送 JSON、Text 和 Form，示例服务端口为 `51862`。切换正文类型不会自动修改 Content-Type，也不会自动 Send。
 
 1. <a id="walkthrough-composer-editing-01-open"></a><a id="walkthrough-composer-editing-02-new"></a><a id="walkthrough-composer-editing-03-url"></a><a id="walkthrough-composer-editing-04-method"></a><a id="walkthrough-composer-editing-05-json-header"></a><a id="walkthrough-composer-editing-06-body"></a><a id="walkthrough-composer-editing-07-json"></a>在 URL 的红框 1 填 `/e2e/composer/fields/json?entry=url`，把 Header 行的红框 1 设置为 `application/json`。打开 Body，在类型控件的红框 1 选择 JSON。
 
@@ -176,7 +194,7 @@ Composer 用来主动构造请求并查看响应。它直接连接目标服务�
 ## 使用认证
 
 <a id="walkthrough-composer-editing-18-auth"></a><a id="walkthrough-composer-editing-19-bearer"></a><a id="walkthrough-composer-editing-20-basic"></a><a id="walkthrough-composer-auth"></a><a id="walkthrough-composer-editing-21-none"></a>
-使用自己有权访问且要求认证的接口。示例地址为 `http://127.0.0.1:57177/e2e/composer/auth`，只接受本地演示值 `workflow-user`、`public-loopback-password` 和 `public-loopback-token`。不要向这个示例地址发送自己的真实凭据。
+使用自己有权访问且要求认证的接口。示例地址为 `http://127.0.0.1:61864/e2e/composer/auth`，只接受本地演示值 `workflow-user`、`public-loopback-password` 和 `public-loopback-token`。不要向这个示例地址发送自己的真实凭据。
 
 1. <a id="walkthrough-composer-auth-05-auth-tab"></a><a id="walkthrough-composer-auth-07-username"></a><a id="walkthrough-composer-auth-01-composer"></a><a id="walkthrough-composer-auth-02-new"></a><a id="walkthrough-composer-auth-03-url"></a><a id="walkthrough-composer-auth-04-none"></a><a id="walkthrough-composer-auth-16-explicit-name"></a><a id="walkthrough-composer-auth-23-clear-username"></a>在红框 1 填入认证接口地址，先用 Auth None 发送。服务返回 `401`，表示接口要求认证；接着再配置认证重发。
 
@@ -392,7 +410,7 @@ Collection 自动保存请求和目录编辑，不另设 Save 按钮。下面用
 
    ![管理 Collection · 3](../media/v0.1.1-alpha.1/composer-tree-workflow-en/step-009.annotated.png)
 
-4. <a id="walkthrough-composer-collection-06-rename-folder"></a>在红框 1 输入 `http://127.0.0.1:56993/e2e/collection/first`，替换成自己的地址。此处只编辑，不点击 Send。
+4. <a id="walkthrough-composer-collection-06-rename-folder"></a>在红框 1 输入 `http://127.0.0.1:51862/e2e/collection/first`，替换成自己的地址。此处只编辑，不点击 Send。
 
    ![管理 Collection · 4](../media/v0.1.1-alpha.1/composer-tree-workflow-en/step-010.annotated.png)
 
@@ -444,7 +462,7 @@ Collection 自动保存请求和目录编辑，不另设 Save 按钮。下面用
 
 Collection 自动保存每条请求的字段。下面使用只属于本地示例的 Query、Header 和 Auth 值检查保存；这些演示值不能用于真实账号。请求最初名为 `Untitled`，后面的 Tool 操作将它改名为 `Collection MCP`。
 
-1. <a id="walkthrough-composer-persistence-save-01-new-request"></a><a id="walkthrough-composer-persistence-save-02-name"></a><a id="walkthrough-composer-persistence-save-03-url"></a><a id="walkthrough-composer-persistence-save-04-method"></a><a id="walkthrough-composer-persistence-save-05-protocol"></a>新建请求，在 URL 的红框 1 填入自己的测试地址。示例为 `http://127.0.0.1:60293/e2e/collection/no-send?token=collection-query-private-value`。分别在红框 1 选择 POST 和 HTTP/1.1，先不 Send。
+1. <a id="walkthrough-composer-persistence-save-01-new-request"></a><a id="walkthrough-composer-persistence-save-02-name"></a><a id="walkthrough-composer-persistence-save-03-url"></a><a id="walkthrough-composer-persistence-save-04-method"></a><a id="walkthrough-composer-persistence-save-05-protocol"></a>新建请求，在 URL 的红框 1 填入自己的测试地址。示例为 `http://127.0.0.1:49510/e2e/collection/no-send?token=collection-query-private-value`。分别在红框 1 选择 POST 和 HTTP/1.1，先不 Send。
 
    ![保存包含完整字段的请求 · 1](../media/v0.1.1-alpha.1/composer-saved-request-english/step-001.annotated.png)
 

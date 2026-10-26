@@ -6,316 +6,387 @@
     "en": "WebSocket text messages and directions"
   },
   "appVersion": "0.1.1-alpha.1",
-  "platform": "darwin",
   "appLanguage": "en",
+  "platform": "Windows x64",
   "source": {
     "workflow": "capture/websocket-scenarios.workflow.ts",
     "test": "capture.scenarios.websocket captures directional text binary and controlled connections",
-    "run": "2026-10-21T10-07-07-318Z-9Zv3yz",
-    "testDirectory": "capture-websocket-scenario-a5a4a--and-controlled-connections-macos",
-    "manifestSha256": "891a99ab61755e50fc762a4888b6eb22f0c44cbf5f01834414c591c8527750ae",
-    "status": "passed",
-    "hostRestored": true,
-    "capture": "native-window",
-    "target": "macos-signed-app"
+    "manifestSha256": "6226fe79479a8a48743d37d0d3ad2b65d812e55ae6c65bf1f72d06cd09374f9b",
+    "workflowSha256": "b671f12de23e889394cdabafed3cdc112d062b78949ce03afca81dce544b86cc",
+    "capture": "renderer",
+    "target": "packaged-app"
   },
   "steps": [
     {
       "id": "step-008",
       "title": "ws-text选择WebSocket连接 / Select the ws-text WebSocket connection",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-008.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-008.annotated.png",
       "rawImage": "step-008.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 522,
-            "y": 248,
-            "width": 1780,
-            "height": 104
+            "x": 391.5,
+            "y": 186,
+            "width": 1335,
+            "height": 78
           },
-          "automationId": "capture.request-row.ex-mvhyc7d7-33nn13vn"
+          "automationId": "capture.request-row.ex-mvpmanyu-tiignp28"
         }
       ],
-      "bytes": 203634,
-      "sha256": "1677bf5c9b9d99c02867f7654fd07a895e45d1cfffe8331a88fddcd497b62096",
-      "rawBytes": 286564,
-      "rawSha256": "e9a515f4000a21df934caaad3ae5dc0382ca29ecbf01f62b13dd077097d2a663"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-009",
       "title": "ws-text打开Messages / Open Messages for ws-text",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-009.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-009.annotated.png",
       "rawImage": "step-009.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2485.015625,
-            "y": 292,
-            "width": 171.84375,
-            "height": 82.75
+            "x": 1863.7657470703125,
+            "y": 219,
+            "width": 128.87493896484375,
+            "height": 62.0625
           },
           "automationId": "capture.inspector.tab.messages"
         }
       ],
-      "bytes": 203940,
-      "sha256": "99053a40747b03c68fe4410b9956691b5da18111b9de7d54168f0ddbbc2adcb7",
-      "rawBytes": 286780,
-      "rawSha256": "d87d0df1518ec3c3b50006ad61f764ad7e5cf3cb9894b562ab7a56ace4cfa896"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-010",
       "title": "ws-text选择Sent方向 / Select the Sent direction for ws-text",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-010.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-010.annotated.png",
       "rawImage": "step-010.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2410.03125,
-            "y": 426.75,
-            "width": 88.96875,
-            "height": 44
+            "x": 1807.5313110351562,
+            "y": 320.0625,
+            "width": 66.71868896484375,
+            "height": 33
           },
           "automationId": "capture.websocket.direction.sent"
         }
       ],
-      "bytes": 197932,
-      "sha256": "204eed270c7e6400805e9abd02700950f3f5a5822b3e719d65b908820601aa6f",
-      "rawBytes": 279472,
-      "rawSha256": "e471c7f5ee0ec4aae342ae1636f248b109d25093f9744d1470860bf5e4f5f57c"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-011",
       "title": "ws-text展开当前方向的消息 / Expand a message in the selected ws-text direction",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-011.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-011.annotated.png",
       "rawImage": "step-011.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 619.21875,
-            "width": 94.859375,
-            "height": 27.046875
+            "x": 1774.0001220703125,
+            "y": 463.921875,
+            "width": 71.15625,
+            "height": 20.281265258789062
           },
           "automationId": null
         }
       ],
-      "bytes": 219958,
-      "sha256": "d69c9120d27575c692298bdc50d9230f64b8e017f7dc69900dbc5a68ea729367",
-      "rawBytes": 301727,
-      "rawSha256": "6fc1bbf72846452710e8adbf71a03168f4e49b048a444bcc248da9aec302c22e"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-012",
       "title": "ws-text复制选中消息 / Copy the selected ws-text message",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-012.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-012.annotated.png",
       "rawImage": "step-012.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3078,
-            "y": 602.75,
-            "width": 60,
-            "height": 60
+            "x": 2309.0000610351562,
+            "y": 451.5625305175781,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.websocket.copy.ex-mvhyc7d7-33nn13vn.1"
+          "automationId": "capture.websocket.copy.ex-mvpmanyu-tiignp28.1"
         }
       ],
-      "bytes": 230474,
-      "sha256": "96692286ca61b2fa8ba9ef4d204e0b9b7b3361a4177d2e2b6f58c6314d1c64c6",
-      "rawBytes": 318359,
-      "rawSha256": "78ebb082ca8d34ddfa73f1597d12745473ed5f3b23af3aab8c022e80c8e1c81c"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-014",
       "title": "ws-text选择Received方向 / Select the Received direction for ws-text",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-014.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-014.annotated.png",
       "rawImage": "step-014.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2503,
-            "y": 426.75,
-            "width": 142.828125,
-            "height": 44
+            "x": 1877.25,
+            "y": 320.0625,
+            "width": 107.109375,
+            "height": 33
           },
           "automationId": "capture.websocket.direction.received"
         }
       ],
-      "bytes": 198168,
-      "sha256": "e0e9c63d48b71d4ac6a7d067d6d4403862405c2a252f4e42a1ba1efb94fd82c0",
-      "rawBytes": 279409,
-      "rawSha256": "ebd4731f690709fd1bb03485ab939d076acc43a21e053c3781716eac030fce8b"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-015",
       "title": "ws-text展开当前方向的消息 / Expand a message in the selected ws-text direction",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-015.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-015.annotated.png",
       "rawImage": "step-015.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2366,
-            "y": 619.21875,
-            "width": 144.21875,
-            "height": 27.046875
+            "x": 1774.0001220703125,
+            "y": 463.921875,
+            "width": 108.1717529296875,
+            "height": 20.281265258789062
           },
           "automationId": null
         }
       ],
-      "bytes": 220963,
-      "sha256": "99a046428a9e50d9cc96cff74fe887cf0490d15d4ba3ad25f30a430982d6e53d",
-      "rawBytes": 302596,
-      "rawSha256": "5858797c3401d7419e0564e4697b9564208f0edacc090b973e597d85c4252e08"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-016",
       "title": "ws-text复制选中消息 / Copy the selected ws-text message",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-016.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-016.annotated.png",
       "rawImage": "step-016.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 3078,
-            "y": 602.75,
-            "width": 60,
-            "height": 60
+            "x": 2309.0000610351562,
+            "y": 451.5625305175781,
+            "width": 45,
+            "height": 45
           },
-          "automationId": "capture.websocket.copy.ex-mvhyc7d7-33nn13vn.2"
+          "automationId": "capture.websocket.copy.ex-mvpmanyu-tiignp28.2"
         }
       ],
-      "bytes": 231240,
-      "sha256": "38ddbaa466769b5782609793a3da45e59fdaf4807f3ef4e692ca9a15daf1064f",
-      "rawBytes": 319402,
-      "rawSha256": "2dbf810fd35e0d172824a9f05872b6d1448d1596a978d2ce78004e7108a51cfe"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "id": "step-018",
       "title": "ws-text选择All查看消息结果 / Select All to inspect the ws-text message results",
-      "window": "app",
       "language": "en",
       "theme": "light",
-      "width": 3200,
-      "height": 1800,
-      "sourceImage": "step-018.png",
+      "window": "app",
+      "capture": "renderer",
       "image": "step-018.annotated.png",
       "rawImage": "step-018.png",
-      "coordinateSpace": "image-pixels",
-      "sourceViewport": {
-        "width": 1600,
-        "height": 900
-      },
       "highlights": [
         {
           "label": "1",
           "bounds": {
-            "x": 2340,
-            "y": 426.75,
-            "width": 66.03125,
-            "height": 44
+            "x": 1755,
+            "y": 320.0625,
+            "width": 49.53131103515625,
+            "height": 33
           },
           "automationId": "capture.websocket.direction.all"
         }
       ],
-      "bytes": 203208,
-      "sha256": "646f6ae40a9e8a150b4924796e711d44079414ce685f7cddf631c535b72153be",
-      "rawBytes": 286707,
-      "rawSha256": "0f2cd296a95fd0e57db9840aef17083e28c87017c827bdab165b102cab34e0d6"
+      "coordinateSpace": "image-pixels",
+      "sourceViewport": {
+        "width": 1600,
+        "height": 900
+      }
+    }
+  ],
+  "assets": [
+    {
+      "file": "step-008.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 129452,
+      "sha256": "65308d1530d4c977dbc390a3ea9deb583816fbb885c56932bcc4d541180a498d"
+    },
+    {
+      "file": "step-008.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137148,
+      "sha256": "b511131de295e27e7e22d5623e97f1239b79cf2cc4372962b10dfb956584c385"
+    },
+    {
+      "file": "step-009.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 129428,
+      "sha256": "688ae197d89d03dd080703c93e85717f7f84ecec38a331308ed4f960cb4609dc"
+    },
+    {
+      "file": "step-009.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 137355,
+      "sha256": "ac608b5c51b3d177a741ed5208a15234151a428540559713b55d2dddee093cbf"
+    },
+    {
+      "file": "step-010.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 124748,
+      "sha256": "ebedb7ec314d885adb1705761f1cbed405b47d950b8b74341134c5b73183b602"
+    },
+    {
+      "file": "step-010.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 133339,
+      "sha256": "f0ca46b493526c5f406cef33ddd4e4c7bdb0dea9ac6ab03d47e89874c3867a89"
+    },
+    {
+      "file": "step-011.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 138394,
+      "sha256": "d21a96b9f8c25099aae79118f1504a558832a731915f52fca9f6b5555f61bffb"
+    },
+    {
+      "file": "step-011.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 147541,
+      "sha256": "bba9a2383185aea5342177fee29945e970d98091954f9a973f64c9b3c2529e1a"
+    },
+    {
+      "file": "step-012.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 138774,
+      "sha256": "dac0e120b67a98a2ce9eeba22f088c89814998a409afb746ddd4862a3e8c89b5"
+    },
+    {
+      "file": "step-012.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 148358,
+      "sha256": "0630e72f810f2f0f55bc35e4e39854924d2d368644462209f710d9a68df61bbd"
+    },
+    {
+      "file": "step-014.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 119524,
+      "sha256": "76234d00e02cecd8abfdb989dad882221aa6a5327da787fae645cd7f748f5f30"
+    },
+    {
+      "file": "step-014.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 128144,
+      "sha256": "ad034b85e67522e52961c3f1511f5722cb62fbd372acbf5cd33f2d964f94fe78"
+    },
+    {
+      "file": "step-015.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127131,
+      "sha256": "2c822e832953ad3c26f274f3ff0f96916e2831f4a75fdf59d288fe0ebf8aed7e"
+    },
+    {
+      "file": "step-015.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 135564,
+      "sha256": "e36e970558c9ebfc9d15f0d34dc1593496a012e0e9e2669fc238a6befb5adbf9"
+    },
+    {
+      "file": "step-016.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 127480,
+      "sha256": "945b43fd9da8bb2137ff64920ab3635a4bd9070da2094203679bc6f929e6320a"
+    },
+    {
+      "file": "step-016.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 136287,
+      "sha256": "7e677923c1deb20ebf4a354a032aee4b075f323dad18571bcd10c2493142118d"
+    },
+    {
+      "file": "step-018.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 117227,
+      "sha256": "f71e0ae8b4cd8a5c098c4b300ed9e7493b8dbe8a06b1dea8d14132a432b74fe9"
+    },
+    {
+      "file": "step-018.annotated.png",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 124938,
+      "sha256": "c033db0f43a8a39ae1e370975bd402c3b8102869b640f7e73ded67cd84d56923"
     }
   ]
 }

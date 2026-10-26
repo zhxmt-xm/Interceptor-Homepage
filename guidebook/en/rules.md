@@ -15,7 +15,7 @@
 
 Add a harmless test header to a narrow set of requests.
 
-Have the proxy ready and enable Recording for inspection. Use an endpoint you are authorized to test. The pictured service is `http://127.0.0.1:62029`; the `E2E action variants` paths below are relative to this service. Replace its address and port with your own service's values.
+Have the proxy ready and enable Recording for inspection. Use an endpoint you are authorized to test. The pictured service is `http://127.0.0.1:54965`; the `E2E action variants` paths below are relative to this service. Replace its address and port with your own service's values.
 
 1. <a id="walkthrough"></a><a id="walkthrough-01-open"></a>Open Rules.
 
@@ -65,7 +65,7 @@ Have the proxy ready and enable Recording for inspection. Use an endpoint you ar
 
     ![Finding and selecting the first matching request by its path](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-019.annotated.png)
 
-    Open Headers. In Request Headers in box 1 below, check for `x-e2e-action: from-rule` with Rule set. The original value `original` is struck through and marked Rule replaced: it was overwritten, not forwarded as a second value. Clickable inline source markers return to the rule; they are not a separate expandable panel.
+    Open Headers. In Request Headers, check for `x-e2e-action: from-rule` with the Rule set marker in box 1 below. The original value `original` is struck through and marked Rule replaced: it was overwritten, not forwarded as a second value. Clickable inline source markers return to the rule; they are not a separate expandable panel.
 
     ![Request Headers show the replaced original and final Set value](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-020.annotated.png)
 
@@ -85,7 +85,7 @@ Have the proxy ready and enable Recording for inspection. Use an endpoint you ar
 
 ## Select matching conditions
 
-This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all must match. The example service uses port `53161`; replace the full-URL condition and the client's URL together when using your own endpoint. Send only your own loopback test traffic during this exercise.
+This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all must match. The example service uses port `50912`; replace the full-URL condition and the client's URL together when using your own endpoint. Send only your own loopback test traffic during this exercise.
 
 1. <a id="walkthrough-rules-matchers"></a><a id="walkthrough-rules-matchers-01-rules"></a><a id="walkthrough-rules-matchers-02-create"></a>Follow the [folder steps](#order) to create a rule in a third-level folder. Choose Rename in its node menu, enter `E2E hierarchy rule` in box 1, and press Enter.
 
@@ -105,7 +105,7 @@ This example uses `E2E hierarchy rule`. Conditions within a rule are ANDed: all 
 
    ![Restricting the all-conditions path](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-037.annotated.png)
 
-5. <a id="walkthrough-rules-matchers-08-url-add"></a><a id="walkthrough-rules-matchers-09-url"></a>Add URL and enter `http://127.0.0.1:53161/e2e/rules/all-conditions?case=and` in box 1.
+5. <a id="walkthrough-rules-matchers-08-url-add"></a><a id="walkthrough-rules-matchers-09-url"></a>Add URL and enter `http://127.0.0.1:50912/e2e/rules/all-conditions?case=and` in box 1.
 
    ![Entering the complete URL condition](../media/v0.1.1-alpha.1/rules-hierarchy-results-workflow-en/step-041.annotated.png)
 
@@ -225,7 +225,7 @@ response status, headers and MIME cannot be known before the response. A regex t
 
    ![Selecting Append for the request Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-024.annotated.png)
 
-   Return to Capture and use Keyword to find and select the new request. In Request Headers in box 1 below, `original` remains without a strike-through and the added `from-rule` carries Rule appended.
+   Return to Capture and use Keyword to find and select the new request. In Request Headers, `original` remains without a strike-through and the added `from-rule` carries the Rule appended marker in box 1 below.
 
    ![Request Headers retain the original and appended values](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-027.annotated.png)
 
@@ -233,7 +233,7 @@ response status, headers and MIME cannot be known before the response. A regex t
 
    ![Selecting Remove for the request Header](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-031.annotated.png)
 
-   Select the new request in Capture and inspect Request Headers in box 1 below. The original `x-e2e-action` value is struck through and marked Rule removed. This history row does not mean the Header was still forwarded.
+   Select the new request in Capture and inspect Request Headers. The original `x-e2e-action` value is struck through and has the Rule removed marker in box 1 below. This history row does not mean the Header was still forwarded.
 
    ![The original request Header value is marked Rule removed](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-034.annotated.png)
 
@@ -288,7 +288,7 @@ Keep using `E2E action variants` and the `/e2e/rules/actions` scope. The test se
 
    ![Response Header Set configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-040.annotated.png)
 
-   Use Keyword in Capture to find the new request and open Headers. Response Headers in box 1 below shows `original` with Rule replaced and `from-rule` with Rule set; the latter is the final response value.
+   Use Keyword in Capture to find the new request and open Headers. Response Headers shows `original` with Rule replaced and `from-rule` with the Rule set marker in box 1 below; the latter is the final response value.
 
    ![Response Header Set replaces the original value](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-043.annotated.png)
 
@@ -296,7 +296,7 @@ Keep using `E2E action variants` and the `/e2e/rules/actions` scope. The test se
 
    ![Response Header Append configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-047.annotated.png)
 
-   Response Headers in box 1 below shows both the unstruck `original` and `from-rule` with Rule appended, unlike Set's replacement.
+   Response Headers shows both the unstruck `original` and `from-rule` with the Rule appended marker in box 1 below, unlike Set's replacement.
 
    ![Response Headers retain the original and append from-rule](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-050.annotated.png)
 
@@ -304,7 +304,7 @@ Keep using `E2E action variants` and the `/e2e/rules/actions` scope. The test se
 
    ![Response Header Remove configuration](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-054.annotated.png)
 
-   In Response Headers in box 1 below, `x-e2e-action: original` is struck through and marked Rule removed. The response received by the client no longer includes this field.
+   In Response Headers, `x-e2e-action: original` is struck through and has the Rule removed marker in box 1 below. The response received by the client no longer includes this field.
 
    ![Response Headers show the removal source marker](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-057.annotated.png)
 
@@ -574,7 +574,7 @@ this short-circuits normal forwarding and subsequent applicable processing. Do n
 1. Prepare a destination service you are authorized to use.
 
    ![Related view from the same workflow](../media/v0.1.1-alpha.1/rules-root-results-workflow-en/step-160.png)
-   Prepare a reachable source entry and destination endpoint before configuring Map Remote. Both are on `http://127.0.0.1:62029` in this example; destination path `/e2e/rules/actions/remote-target` returns `mapped-target-body`. To change scheme, Host, and port together, follow the [cross-scheme mapping steps](#walkthrough-rules-routing).
+   Prepare a reachable source entry and destination endpoint before configuring Map Remote. Both are on `http://127.0.0.1:54965` in this example; destination path `/e2e/rules/actions/remote-target` returns `mapped-target-body`. To change scheme, Host, and port together, follow the [cross-scheme mapping steps](#walkthrough-rules-routing).
 
 
 2. <a id="walkthrough-rules-actions-map-remote-01-rules"></a><a id="walkthrough-rules-actions-map-remote-02-create"></a><a id="walkthrough-rules-actions-map-remote-03-name"></a><a id="walkthrough-rules-actions-map-remote-04-host"></a><a id="walkthrough-rules-actions-map-remote-05-path"></a><a id="walkthrough-rules-actions-map-remote-06-remove"></a><a id="walkthrough-rules-actions-map-remote-07-action"></a>In `E2E action variants`, retain Host `127.0.0.1` and Path `/e2e/rules/actions`. Remove the current action, then choose Map Remote in box 1 from Add action.
@@ -608,7 +608,7 @@ rules do not create files or services. A local path may not exist on another mac
 
 ### Map Remote: HTTPS to HTTP
 
-First complete [HTTPS decryption and trust](settings.md#https-decryption) for your own test service and prepare a reachable HTTP destination. This example's source service is `https://localhost:56535`; its destination is `http://127.0.0.1:56533/e2e/rules/mapped-http`. Replace the addresses and ports together with your own services, without creating a proxy loop.
+First complete [HTTPS decryption and trust](settings.md#https-decryption) for your own test service and prepare a reachable HTTP destination. This example's source service is `https://localhost:56814`; its destination is `http://127.0.0.1:56810/e2e/rules/mapped-http`. Replace the addresses and ports together with your own services, without creating a proxy loop.
 
 1. <a id="walkthrough-rules-routing-01-rules"></a><a id="walkthrough-rules-routing-02-create"></a>Create a rule in Rules and enter `E2E HTTPS to HTTP mapping` in the name field in box 1.
 
@@ -634,7 +634,7 @@ First complete [HTTPS decryption and trust](settings.md#https-decryption) for yo
 
    ![Entering the HTTP destination Host](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-015.annotated.png)
 
-7. <a id="walkthrough-rules-routing-10-target-port"></a>Enter destination port `56533` in box 1. It differs from the original HTTPS service's port `56535`.
+7. <a id="walkthrough-rules-routing-10-target-port"></a>Enter destination port `56810` in box 1. It differs from the original HTTPS service's port `56814`.
 
    ![Entering the destination HTTP service port](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-016.annotated.png)
 
@@ -650,7 +650,7 @@ First complete [HTTPS decryption and trust](settings.md#https-decryption) for yo
 
     ![Saving and applying the cross-scheme mapping](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-019.annotated.png)
 
-11. <a id="walkthrough-rules-routing-14-remote-result"></a>Through the proxy, GET `https://localhost:56535/e2e/rules/tls-mapping/enabled`. Select the request in Capture and open Response in box 1. Check `200` and the target service's `owned-http-mapping-result`: the client still addresses HTTPS, while the body comes from the HTTP destination.
+11. <a id="walkthrough-rules-routing-14-remote-result"></a>Through the proxy, GET `https://localhost:56814/e2e/rules/tls-mapping/enabled`. Select the request in Capture and open Response in box 1. Check `200` and the target service's `owned-http-mapping-result`: the client still addresses HTTPS, while the body comes from the HTTP destination.
 
     ![The original HTTPS request receives the HTTP destination response](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-020.annotated.png)
 
@@ -662,7 +662,7 @@ First complete [HTTPS decryption and trust](settings.md#https-decryption) for yo
 
     ![Saving the disabled mapping state](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-022.annotated.png)
 
-14. <a id="walkthrough-rules-routing-18-original-result"></a>Request another address on the same original HTTPS service: `https://localhost:56535/e2e/rules/tls-mapping/disabled`. The new row in box 1 receives the source service's `404`, not the HTTP destination body. Headers still shows the original HTTPS URL. This compares `/enabled` and `/disabled` on one service; it does not reuse a completed request.
+14. <a id="walkthrough-rules-routing-18-original-result"></a>Request another address on the same original HTTPS service: `https://localhost:56814/e2e/rules/tls-mapping/disabled`. The new row in box 1 receives the source service's `404`, not the HTTP destination body. Headers still shows the original HTTPS URL. This compares `/enabled` and `/disabled` on one service; it does not reuse a completed request.
 
     ![A new request returns to the original HTTPS service after disabling](../media/v0.1.1-alpha.1/capture-https-http-mapping-english/step-023.annotated.png)
 
@@ -670,11 +670,11 @@ After HTTPS debugging, use the [cleanup instructions](#walkthrough-rules-routing
 
 ### Map Local: save a file and correct its path
 
-This is a separate Local example. Its HTTPS service is `https://localhost:63644`, and the HTTP destination used to prepare the file is `http://127.0.0.1:63638/e2e/rules/mapped-http`; do not mix these ports with the previous example. First configure these addresses using the Map Remote steps above and Save, so `/e2e/rules/tls-mapping/enabled` returns the public body `owned-http-mapping-result`. Replace the request address and mapping destination together when using your own services.
+This is a separate Local example. Its HTTPS service is `https://localhost:56814`, and the HTTP destination used to prepare the file is `http://127.0.0.1:56810/e2e/rules/mapped-http`; do not mix these ports with the previous example. First configure these addresses using the Map Remote steps above and Save, so `/e2e/rules/tls-mapping/enabled` returns the public body `owned-http-mapping-result`. Replace the request address and mapping destination together when using your own services.
 
 1. <a id="walkthrough-rules-routing-19-file-source"></a><a id="walkthrough-rules-routing-20-save-file"></a><a id="walkthrough-rules-routing-21-check-file"></a><a id="walkthrough-rules-routing-22-edit-local"></a><a id="walkthrough-rules-routing-23-local-host"></a><a id="walkthrough-rules-routing-24-remove-remote"></a><a id="walkthrough-rules-routing-25-local"></a>Save the body through the product, then change the mapping action to read that file.
 
-   1. Request `https://localhost:63644/e2e/rules/tls-mapping/enabled` through the proxy, select it in Capture, and open Response. Click Save body in the body toolbar. In the system dialog, save `https-map-local-response.txt`, note the absolute path you chose, and click Save.
+   1. Request `https://localhost:56814/e2e/rules/tls-mapping/enabled` through the proxy, select it in Capture, and open Response. Click Save body in the body toolbar. In the system dialog, save `https-map-local-response.txt`, note the absolute path you chose, and click Save.
 
       ![Saving the HTTPS response body in the system dialog](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-021.png)
 
@@ -704,7 +704,7 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
 
       ![Saving the rule with the missing-file path](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-030.annotated.png)
 
-   4. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-missing`. Use Keyword in Capture to find and select the new request, then open Response in box 1. Expect `404` and the `27 B` body `Map Local target not found.`. Check the file path instead of repeatedly toggling Recording.
+   4. Request `https://localhost:56814/e2e/rules/tls-mapping/map-local-missing`. Use Keyword in Capture to find and select the new request, then open Response in box 1. Expect `404` and the `27 B` body `Map Local target not found.`. Check the file path instead of repeatedly toggling Recording.
 
       ![The missing-file HTTPS request returns a specific error body](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-031.annotated.png)
 
@@ -718,7 +718,7 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
 
       ![Saving the corrected Map Local path](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-033.annotated.png)
 
-   3. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-enabled`, select that new request in Capture, and open Response in box 1. Expect `200` with the file's `owned-http-mapping-result` body and size `25 B`. The client still addresses HTTPS, but the body comes from the local file.
+   3. Request `https://localhost:56814/e2e/rules/tls-mapping/map-local-enabled`, select that new request in Capture, and open Response in box 1. Expect `200` with the file's `owned-http-mapping-result` body and size `25 B`. The client still addresses HTTPS, but the body comes from the local file.
 
       ![HTTPS Map Local returns the product-saved file body](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-034.annotated.png)
 
@@ -732,7 +732,7 @@ This is a separate Local example. Its HTTPS service is `https://localhost:63644`
 
       ![The disabled Map Local state is saved](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-036.annotated.png)
 
-   3. Request `https://localhost:63644/e2e/rules/tls-mapping/map-local-disabled`. The new Capture row in box 1 returns the source endpoint's `404` with `0 B`, unlike the missing file's `27 B` error. HTTPS decryption can remain enabled after the rule is disabled; these are separate switches.
+   3. Request `https://localhost:56814/e2e/rules/tls-mapping/map-local-disabled`. The new Capture row in box 1 returns the source endpoint's `404` with `0 B`, unlike the missing file's `27 B` error. HTTPS decryption can remain enabled after the rule is disabled; these are separate switches.
 
       ![A new HTTPS request returns to the source endpoint after Map Local is disabled](../media/v0.1.1-alpha.1/capture-https-local-mapping-english/step-037.annotated.png)
 
@@ -1013,9 +1013,9 @@ This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` an
 
       ![Editing the local name and value without saving](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-018.annotated.png)
 
-   3. Have the authorized MCP Client save the tree again using the saved revision, still with `MCP updated header` and `updated`. Rules does not silently overwrite your input: the name in box 1 remains `MCP local draft`, the Header value remains `unapplied-local-value`, and the bottom says Changed elsewhere · draft kept. Retaining the editor draft does not mean Core is using its unsaved value.
+   3. In Settings → MCP, create and authorize a second Client, `MCP second writer`, with Rules-tool access. Return to Rules with your draft intact. Have this second Client save the tree using `rev 2`, still with `MCP updated header` and `updated`, producing `rev 3`. Click Save on the stale local draft: Core rejects its old revision. Box 1 still shows Changed elsewhere · draft kept and box 2 still shows the editor's `rev 2`; the name and Header value remain `MCP local draft` and `unapplied-local-value`. A new request through the proxy still uses the second Client's saved `x-mcp-rules: updated`.
 
-      ![The local draft is retained after another writer saves](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-019.annotated.png)
+      ![Core rejects a stale save while retaining the draft and its old revision](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-019.annotated.png)
 
    4. Note the edits you want to keep, then click Reload in box 1 at the upper right of the editor. This discards the current local draft and reads the latest rules; it does not resubmit the old revision.
 
@@ -1035,7 +1035,7 @@ This example uses `E2E rules level 1 > E2E rules level 2 > E2E rules level 3` an
 
       ![The manually merged rule is saved as rev 4](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-024.png)
 
-   3. Use an external client to GET `http://127.0.0.1:54222/e2e/mcp/rules/merged` through the proxy, replacing the port with your own test service's port. Enter `/e2e/mcp/` in Capture's Keyword and select the new request row in box 2. Open Headers and scroll to Request Headers: the Header row in box 1 should show `x-mcp-rules: merged` with Rule set. Do not use the earlier `/updated` request to judge this save.
+   3. Use an external client to GET `http://127.0.0.1:55869/e2e/mcp/rules/merged` through the proxy, replacing the port with your own test service's port. Enter `/e2e/mcp/` in Capture's Keyword and select the new request row in box 2. Open Headers and scroll to Request Headers: the Header row in box 1 should show `x-mcp-rules: merged` with Rule set. Do not use the earlier `/updated` request to judge this save.
 
       ![The new request Header uses the manually merged value](../media/v0.1.1-alpha.1/mcp-rules-merge-english/step-025.annotated.png)
 

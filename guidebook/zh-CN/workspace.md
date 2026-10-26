@@ -38,6 +38,42 @@ App 启动完成后，通过左侧导航进入需要的工具。Breakpoints 在 
 
 导航本身不会发送请求，也不会自动暂停 Recording。后台转发取决于代理、规则和录制的各自状态。
 
+<a id="guidebook"></a>
+## 在 App 内阅读 Guidebook
+
+1. 点击侧栏中 Settings 上方的 Guidebook，等待在线教程加载完成，再从目录选择章节。教程需要联网。
+
+   ![App 内的 Guidebook](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-001.png)
+
+2. 点击 App 的 Guidebook 工具栏中的 Search，输入关键词并选择结果。对应章节与小节在 App 内打开。
+
+   ![App 内的教程搜索结果](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-002.png)
+
+3. 点击步骤图查看大图，按 Escape 关闭预览并继续阅读。
+
+   ![步骤图的大图预览](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-003.png)
+
+4. 在窗口标题栏切换 App 主题，教程会同步。App 使用简体中文时显示中文教程，其他 App 语言统一显示英文教程；切换语言会重新加载对应的教程入口。
+
+   ![教程同步 App 主题](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-004.png)
+
+5. 点击 Guidebook 工具栏中的 Refresh，重新加载当前章节。
+
+   ![刷新后教程重新就绪](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-005.png)
+
+6. 点击工具栏中的浏览器按钮，在系统浏览器打开官网教程。
+
+   ![官网教程的浏览器按钮](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-006.png)
+
+7. 断网后 App 显示 Error，Search 暂时不可用。恢复网络后，点击红框 1 的 Retry；仅恢复网络不会重新加载章节。
+
+   ![恢复网络后点击 Retry](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-007.annotated.png)
+
+8. 等待 Ready 再继续阅读。Retry 重新加载同一章节，并保留 App 的语言与主题。
+
+   ![Retry 后当前章节重新就绪](../media/v0.1.1-alpha.1/workspace-guidebook-english/step-008.png)
+
+
 
 <a id="layout"></a>
 ## 调整分栏、窗口和滚动
@@ -188,7 +224,7 @@ Agent 是可选的右侧面板。打开它不会自动发送当前请求，也�
 
    ![哪些内容会保存 · 1](../media/v0.1.1-alpha.1/privacy-workspace-english/step-011.annotated.png)
 
-2. <a id="walkthrough-workspace-close-02-url"></a>在红框 1 填自己的 URL。本例为 `http://127.0.0.1:56881/e2e/preferences/retained-request`，只保存定义，不点击 Send；实际使用时换成自己的地址。
+2. <a id="walkthrough-workspace-close-02-url"></a>在红框 1 填自己的 URL。本例为 `http://127.0.0.1:52971/e2e/preferences/retained-request`，只保存定义，不点击 Send；实际使用时换成自己的地址。
 
    ![哪些内容会保存 · 2](../media/v0.1.1-alpha.1/privacy-workspace-english/step-012.annotated.png)
 
@@ -238,13 +274,13 @@ Agent 是可选的右侧面板。打开它不会自动发送当前请求，也�
 
 2. 导出需要保留的流量并等待完成。图中红框 1 的 All traffic 包含四条记录，红框 2 的 Export 4 requests 打开保存窗口；确认文件已保存，不把选择了位置当作任务已完成。需要更多协议信息时使用[Native Archive](transfer.md#archive)。
 
-   ![正常结束一次使用 · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-013.annotated.png)
+   ![正常结束一次使用 · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-013.annotated.png)
 
-   ![正常结束一次使用 · 2](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![正常结束一次使用 · 2](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 3. 逐个完成或取消自己发起的系统授权和文件窗口。取消正在运行的任务后，等清理结束再 Clear 或退出。
 
-   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-all-english/step-014.png)
+   ![同一流程相关界面](../media/v0.1.1-alpha.1/capture-har-gui-roundtrip-english/step-014.png)
 
 4. 最后点击红框 1 的 Close。若当前系统操作仍在进行而拒绝退出，等待该操作结束再关闭，不反复点击或强杀。
 
